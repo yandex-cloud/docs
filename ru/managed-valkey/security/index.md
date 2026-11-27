@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ mrd-full-name }}
 description: Управление доступом в сервисе по созданию и управлению базами данных {{ VLK }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
+alternate:
+  - href: ru/managed-valkey/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ mrd-name }}

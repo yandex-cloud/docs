@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/resource-manager/operations/folder/update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating a folder
 
 To update a [folder](../../concepts/resources-hierarchy.md#folder) name or description, use the management console, CLI, API, or {{ TF }}.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/invalid-person-type.md
+    type: text/markdown
+    title: Markdown version
+---
 # Fixing the `INVALID_PERSON_TYPE` error when registering a billing account
 
 

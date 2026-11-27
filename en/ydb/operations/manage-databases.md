@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/ydb/operations/manage-databases.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing {{ ydb-short-name }} databases
 
 In {{ ydb-name }}, you can create a database in two modes: [serverless](../concepts/serverless-and-dedicated.md#serverless) and [dedicated](../concepts/serverless-and-dedicated.md#dedicated), i.e., with dedicated servers.

@@ -71,6 +71,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/cloud-registry/api-ref/LifecyclePolicy/listDryRunArtifacts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, REST: LifecyclePolicy.ListDryRunArtifacts

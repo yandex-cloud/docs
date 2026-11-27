@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/data/models.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с моделями
 
 [Модели](../../concepts/models/index.md) позволяют хранить и выгружать результаты вычислений в проектах {{ ml-platform-name }}.

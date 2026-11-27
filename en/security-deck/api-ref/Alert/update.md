@@ -100,6 +100,10 @@ apiPlayground:
         - updateMask
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/security-deck/api-ref/Alert/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck Alerts API, REST: Alert.Update

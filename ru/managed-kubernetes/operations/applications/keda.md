@@ -1,6 +1,10 @@
 ---
 title: Установка KEDA для работы с {{ metrics-name }}
 description: Следуя данной инструкции, вы сможете установить KEDA для работы с {{ metrics-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/keda.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка KEDA для работы с {{ metrics-name }}

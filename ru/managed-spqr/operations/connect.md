@@ -5,6 +5,10 @@ keywords:
   - keyword: подключиться к кластеру {{ SPQR }}
   - keyword: кластер {{ SPQR }}
   - keyword: '{{ SPQR }}'
+alternate:
+  - href: ru/managed-spqr/operations/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ SPQR }}

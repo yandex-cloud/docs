@@ -23,6 +23,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/baremetal/api-ref/PrivateCloudConnection/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PrivateCloudConnection.Create

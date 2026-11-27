@@ -5,6 +5,10 @@ keywords:
   - создание кластера OpenSearch
   - кластер OpenSearch
   - OpenSearch
+alternate:
+  - href: ru/managed-opensearch/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление кластера {{ OS }}

@@ -1,6 +1,10 @@
 ---
 title: URL shortener
 description: In this tutorial, you will deploy a URL shortening service using {{ api-gw-full-name }} and {{ sf-full-name }} with the help of {{ TF }}.
+alternate:
+  - href: en/tutorials/serverless/serverless-url-shortener/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a URL shortener with {{ TF }}

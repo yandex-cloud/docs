@@ -1,6 +1,10 @@
 ---
 title: Ссылки в {{ monium-full-name }}
 description: Чем отличаются быстрые и контекстные ссылки, ссылки дашборда и виджета в {{ monium-name }}. Как настроить переходы к связанным дашбордам и внешним ресурсам.
+alternate:
+  - href: ru/monium/concepts/visualization/context-links.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ссылки

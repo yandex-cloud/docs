@@ -1,6 +1,10 @@
 ---
 title: Как предоставить партнеру доступ к партнерскому аккаунту
 description: В этой инструкции вы научитесь предоставлять доступ к партнерскому аккаунту
+alternate:
+  - href: ru/partner/operations/access/partners-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Предоставить доступ к партнерскому аккаунту

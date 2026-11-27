@@ -1,6 +1,10 @@
 ---
 title: Possible errors when using {{ td-full-name }} ({{ td-name }}) in {{ sd-full-name }}
 description: In this tutorial, you will learn about possible errors related to {{ td-full-name }} ({{ td-name }}).
+alternate:
+  - href: en/security-deck/diagnostics/td-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting {{ td-full-name }} ({{ td-name }})

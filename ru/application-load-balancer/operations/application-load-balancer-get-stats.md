@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/application-load-balancer/operations/application-load-balancer-get-stats.md
+    type: text/markdown
+    title: Markdown version
+---
 # Посмотреть статистику L7-балансировщика
 
 {{ alb-name }} автоматически отправляет метрики работы балансировщика в [{{ metrics-name }}](../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с балансировщиком.

@@ -4,6 +4,10 @@ description: Из статьи вы узнаете, как работать с {
 keywords:
   - keyword: работа с кластером {{ SPQR }}
   - keyword: '{{ SPQR }}'
+alternate:
+  - href: ru/managed-spqr/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ mspqr-name }}

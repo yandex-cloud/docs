@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iam/awscompatibility/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access Key, gRPC: OperationService.Cancel

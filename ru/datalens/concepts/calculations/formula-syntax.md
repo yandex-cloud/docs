@@ -1,6 +1,10 @@
 ---
 title: Синтаксис формул в {{ datalens-full-name }}
 description: В данной статье описан синтаксис формул для вычисляемых выражений в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/concepts/calculations/formula-syntax.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Синтаксис формул в {{ datalens-full-name }}

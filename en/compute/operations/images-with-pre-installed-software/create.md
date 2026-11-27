@@ -1,6 +1,10 @@
 ---
 title: How to create a VM from a public image in {{ compute-full-name }}
 description: Follow this guide to create a VM from a public image.
+alternate:
+  - href: en/compute/operations/images-with-pre-installed-software/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM from a public image

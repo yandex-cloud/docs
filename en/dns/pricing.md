@@ -2,6 +2,10 @@
 title: '{{ dns-full-name }} pricing policy'
 description: This article covers the {{ dns-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/dns/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ dns-name }} pricing policy

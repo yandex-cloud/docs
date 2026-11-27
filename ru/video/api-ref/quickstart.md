@@ -1,6 +1,10 @@
 ---
 title: Начало работы с API {{ video-full-name }}
 description: 'В данном разделе вы научитесь работать с API {{ video-name }}: создавать канал, загружать видео и получать ссылку на видеоплеер.'
+alternate:
+  - href: ru/video/api-ref/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с API {{ video-full-name }}

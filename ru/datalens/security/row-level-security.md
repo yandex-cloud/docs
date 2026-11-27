@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/security/row-level-security.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление доступом на уровне строк данных (RLS)
 
 RLS (_Row-level security_ — безопасность на уровне строк) позволяет ограничить доступ к данным для пользователей или [группы пользователей]({{ link-docs }}/organization/concepts/groups) в рамках одного датасета. Например, вы можете разграничить доступ разным клиентам.

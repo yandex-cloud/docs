@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/metadata-hub/security/metastore-roles.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сервисные роли для работы с метаданными в кластере {{ metastore-full-name }}
 
 С помощью сервисных ролей {{ metastore-name }} вы можете просматривать информацию о кластерах {{ metastore-name }} и управлять ими.

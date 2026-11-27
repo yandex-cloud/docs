@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/container-registry/api-ref/ScanPolicy/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: ScanPolicy.Get

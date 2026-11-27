@@ -1,6 +1,10 @@
 ---
 title: Managing custom object metadata in {{ objstorage-full-name }}
 description: Follow this guide to manage custom object metadata in an {{ objstorage-name }} bucket.
+alternate:
+  - href: en/storage/operations/objects/object-meta.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing custom object metadata

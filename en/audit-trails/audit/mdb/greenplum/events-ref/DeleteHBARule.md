@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/mdb/greenplum/events-ref/DeleteHBARule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® Audit Trails Events: DeleteHBARule

@@ -1,6 +1,10 @@
 ---
 title: Working with hybrid storage
 description: Follow this guide to enable hybrid storage for a {{ mch-name }} cluster, as well as to set the hybrid storage settings and data storage policies.
+alternate:
+  - href: en/managed-clickhouse/operations/hybrid-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with hybrid storage

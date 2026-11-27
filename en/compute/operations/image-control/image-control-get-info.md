@@ -1,5 +1,9 @@
 ---
 title: How to get information about a disk image in {{ compute-full-name }}
+alternate:
+  - href: en/compute/operations/image-control/image-control-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a disk image

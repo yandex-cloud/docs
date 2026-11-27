@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/routing-instance/create/
+alternate:
+  - href: en/cli/cli-ref/cloudrouter/cli-ref/routing-instance/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloudrouter routing-instance create

@@ -1,6 +1,10 @@
 ---
 title: How to delete an HTTP router
 description: In this tutorial, you will learn how to delete an HTTP router.
+alternate:
+  - href: en/application-load-balancer/operations/http-router-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an HTTP router

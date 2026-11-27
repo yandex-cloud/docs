@@ -1,6 +1,10 @@
 ---
 title: Своя конфигурация сервера {{ baremetal-full-name }}
 description: Выберите аппаратные характеристики сервера {{ baremetal-name }} и узнайте, как проходит его сборка и подготовка к работе.
+alternate:
+  - href: ru/baremetal/concepts/server-custom-configurations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Своя конфигурация сервера {{ baremetal-name }} {#custom}

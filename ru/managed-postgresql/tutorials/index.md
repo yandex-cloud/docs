@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ mpg-full-name }}
 description: Различные сценарии использования {{ mpg-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-postgresql/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ mpg-name }}

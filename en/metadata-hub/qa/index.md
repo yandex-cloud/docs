@@ -1,6 +1,10 @@
 ---
 title: '{{ metadata-hub-full-name }}. Troubleshooting'
 description: This section describes issues you may encounter in {{ metadata-hub-name }} and how to troubleshoot them.
+alternate:
+  - href: en/metadata-hub/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting in {{ metadata-hub-name }}

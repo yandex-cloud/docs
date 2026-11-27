@@ -1,6 +1,10 @@
 ---
 title: Шлюзы в {{ vpc-full-name }}
 description: Из статьи вы узнаете, какие шлюзы используются в сервисе {{ vpc-full-name }}.
+alternate:
+  - href: ru/vpc/concepts/gateways.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Шлюзы

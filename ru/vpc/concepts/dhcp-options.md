@@ -4,6 +4,10 @@ description: Настройки DHCP позволяют назначить ис�
 keywords:
   - dhcp
   - настройка dhcp
+alternate:
+  - href: ru/vpc/concepts/dhcp-options.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройки DHCP

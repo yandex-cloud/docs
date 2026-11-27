@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/load-balancer/add-stream-sni/
+alternate:
+  - href: ru/application-load-balancer/cli-ref/load-balancer/add-stream-sni.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc application-load-balancer load-balancer add-stream-sni

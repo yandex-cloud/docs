@@ -48,6 +48,10 @@ apiPlayground:
           format: date-time
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/managed-greenplum/api-ref/Maintenance/reschedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: Maintenance.Reschedule

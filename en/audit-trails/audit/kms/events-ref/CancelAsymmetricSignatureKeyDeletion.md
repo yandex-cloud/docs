@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/kms/events-ref/CancelAsymmetricSignatureKeyDeletion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service Audit Trails Events: CancelAsymmetricSignatureKeyDeletion

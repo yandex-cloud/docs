@@ -1,6 +1,10 @@
 ---
 title: Managing {{ PG }} cluster users in {{ mpg-full-name }}
 description: In this tutorial, you will learn how to add and remove users and how to manage individual user settings in the {{ PG }} database management service.
+alternate:
+  - href: en/managed-postgresql/operations/cluster-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # User management {{ PG }}

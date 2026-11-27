@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/operations/function/tag-add.md
+    type: text/markdown
+    title: Markdown version
+---
 # Добавить тег версии функции
 
 При создании новой версии ей присваивается [тег](../../concepts/function.md#) по умолчанию — `$latest`.

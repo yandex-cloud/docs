@@ -1,6 +1,10 @@
 ---
 title: Connecting to a {{ SD }} cluster in {{ mmg-full-name }}
 description: In this tutorial, you will learn how to connect to a database in a {{ SD }} cluster via command line tools, graphical IDEs, or Docker container.
+alternate:
+  - href: en/storedoc/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ SD }} cluster from applications

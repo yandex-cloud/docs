@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/securitydeck/cspm/events-ref/DeleteScopeFilter.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck CSPM Audit Trails Events: DeleteScopeFilter

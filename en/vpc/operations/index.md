@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ vpc-full-name }}
 description: This page features step-by-step guides for {{ vpc-name }}.
+alternate:
+  - href: en/vpc/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ vpc-name }}

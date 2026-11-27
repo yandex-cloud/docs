@@ -73,6 +73,10 @@ apiPlayground:
         required:
           - action
           - ipPermission
+alternate:
+  - href: en/cloud-registry/api-ref/Registry/updateIpPermissions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, REST: Registry.UpdateIpPermissions

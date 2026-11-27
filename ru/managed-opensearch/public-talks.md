@@ -1,6 +1,10 @@
 ---
 title: Публичные материалы о {{ mos-full-name }}
 description: Видеозаписи конференций и вебинаров, посвященных {{ mos-full-name }}.
+alternate:
+  - href: ru/managed-opensearch/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные материалы о {{ mos-full-name }}

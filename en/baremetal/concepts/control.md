@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/baremetal/concepts/control.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing {{ baremetal-name }} servers
 
 To order servers and manage your server rent periods, use the [management console](./console.md): from there, you can select a stock configuration or build a custom one from available parts.

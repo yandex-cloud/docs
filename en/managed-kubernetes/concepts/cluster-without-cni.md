@@ -1,6 +1,10 @@
 ---
 title: Clusters without a preinstalled CNI
 description: 'Clusters without a preinstalled CNI in {{ managed-k8s-name }}: independent network plugin management, use cases, and the shared responsibility model.'
+alternate:
+  - href: en/managed-kubernetes/concepts/cluster-without-cni.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Clusters without a preinstalled CNI

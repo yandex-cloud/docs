@@ -1,6 +1,10 @@
 ---
 title: Получить информацию о контейнере
 description: Следуя данной инструкции, вы сможете получить информацию о контейнере.
+alternate:
+  - href: ru/serverless-containers/operations/container-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о контейнере

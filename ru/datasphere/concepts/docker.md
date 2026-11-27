@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/docker.md
+    type: text/markdown
+    title: Markdown version
+---
 # Docker-образы
 
 Вы можете самостоятельно настроить окружение проекта {{ ml-platform-name }} с помощью [_Docker-образа_](https://docs.docker.com/engine/reference/commandline/image/), собрав в него произвольный набор ПО, библиотек, переменных окружения и конфигурационных файлов. Docker-образ, примененный для проекта, будет использоваться при запуске кода во всех его ноутбуках.

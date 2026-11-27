@@ -1,6 +1,10 @@
 ---
 title: Как удалить алиас в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете удалить алиас в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/edit-alias.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление алиаса в {{ datalens-full-name }}

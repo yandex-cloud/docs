@@ -38,6 +38,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/managed-spqr/api-ref/Database/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR API, REST: Database.List

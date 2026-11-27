@@ -1,6 +1,10 @@
 ---
 title: Configuring a TLS profile for a CDN resource
 description: Follow this guide to configure a TLS profile for a CDN resource.
+alternate:
+  - href: en/cdn/operations/resources/configure-tls-profile.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring a TLS profile for a CDN resource

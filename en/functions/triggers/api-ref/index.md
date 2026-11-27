@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/functions/triggers/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Triggers Service: REST reference

@@ -1,6 +1,10 @@
 ---
 title: Удаление каталога {{ TR }}
 description: Следуя этой инструкции, вы удалите каталог из кластера {{ mtr-name }}.
+alternate:
+  - href: ru/managed-trino/operations/catalog-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление каталога {{ TR }}

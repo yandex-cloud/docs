@@ -43,6 +43,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/compute/api-ref/Image/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Image.ListAccessBindings

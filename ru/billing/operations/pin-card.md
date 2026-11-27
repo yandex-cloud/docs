@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/operations/pin-card.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить или привязать другую карту к платежному аккаунту
 
 Владелец платежного аккаунта с типом **{{ ui-key.yacloud_billing.billing.account.create-new.account-type_label_individual }}** или **{{ ui-key.yacloud_billing.billing.account.create-new.account-type_label_company }}** может привязывать к нему различные банковские карты.

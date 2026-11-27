@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ yandex-siem-full-name }} в {{ at-full-name }}
 description: События {{ yandex-siem-full-name }}, отслеживаемые в {{ at-name }}.
+alternate:
+  - href: ru/siem/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ yandex-siem-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for a {{ compute-name }} image
 description: Follow this guide to configure image access permissions.
+alternate:
+  - href: en/compute/operations/image-control/access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring image access permissions

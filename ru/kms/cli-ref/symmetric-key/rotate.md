@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/symmetric-key/rotate/
+alternate:
+  - href: ru/kms/cli-ref/symmetric-key/rotate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc kms symmetric-key rotate

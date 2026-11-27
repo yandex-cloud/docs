@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ data-transfer-full-name }}
 description: На этой странице приведен справочник ресурсов провайдера Terraform, которые поддерживаются для сервиса {{ data-transfer-name }}.
+alternate:
+  - href: ru/data-transfer/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ data-transfer-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Концепции {{ quota-manager-name }}
 description: В этой статье вы узнаете о концепциях {{ quota-manager-name }}.
+alternate:
+  - href: ru/quota-manager/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Концепции {{ quota-manager-name }}

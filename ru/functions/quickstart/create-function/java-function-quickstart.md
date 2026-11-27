@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/quickstart/create-function/java-function-quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание функции на Java
 
 Создайте и выполните [функцию](../../concepts/function.md) на Java, которая приветствует пользователя.

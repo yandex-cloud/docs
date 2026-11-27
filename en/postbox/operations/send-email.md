@@ -1,6 +1,10 @@
 ---
 title: Sending an email in {{ postbox-full-name }}
 description: Follow this guide to send an email in {{ postbox-name }}.
+alternate:
+  - href: en/postbox/operations/send-email.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sending an email

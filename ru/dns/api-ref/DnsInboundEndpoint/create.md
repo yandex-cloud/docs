@@ -66,6 +66,10 @@ apiPlayground:
         - addressId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/dns/api-ref/DnsInboundEndpoint/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, REST: DnsInboundEndpoint.Create

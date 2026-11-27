@@ -1,6 +1,10 @@
 ---
 title: Configuring logging in {{ sws-full-name }} via {{ alb-name }}
 description: Follow this guide to configure logging in {{ sws-full-name }} via {{ alb-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/configure-logging-alb.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring logging via {{ alb-name }}

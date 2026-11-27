@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/ydb/operations/manage-databases.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление базами данных {{ ydb-short-name }}
 
 В сервисе {{ ydb-name }} вы можете создавать базы данных в двух режимах: [бессерверном](../concepts/serverless-and-dedicated.md#serverless) (Serverless) и с [выделенными серверами](../concepts/serverless-and-dedicated.md#dedicated) (Dedicated).

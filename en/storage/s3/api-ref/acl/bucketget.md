@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/acl/bucketget.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: GetBucketAcl
 
 Returns an access control list for a bucket.

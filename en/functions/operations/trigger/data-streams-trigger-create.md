@@ -1,6 +1,10 @@
 ---
 title: Creating a trigger for {{ yds-full-name }} that invokes a function from {{ sf-full-name }}
 description: Follow this guide to create a trigger for {{ yds-name }} that invokes {{ sf-name }}.
+alternate:
+  - href: en/functions/operations/trigger/data-streams-trigger-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a trigger for {{ yds-name }} that invokes {{ sf-name }}

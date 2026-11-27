@@ -56,6 +56,10 @@ apiPlayground:
           type: boolean
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/managed-greenplum/api-ref/Cluster/expand.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.Expand

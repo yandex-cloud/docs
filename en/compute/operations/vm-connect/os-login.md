@@ -1,6 +1,10 @@
 ---
 title: How to connect to a VM via {{ oslogin }}
 description: Follow this guide to connect to a VM via {{ oslogin }}.
+alternate:
+  - href: en/compute/operations/vm-connect/os-login.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a VM via {{ oslogin }}

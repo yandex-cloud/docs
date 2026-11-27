@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/cluster/get-resource-groups/
+alternate:
+  - href: en/managed-trino/cli-ref/cluster/get-resource-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-trino cluster get-resource-groups

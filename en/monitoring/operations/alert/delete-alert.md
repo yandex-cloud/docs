@@ -1,6 +1,10 @@
 ---
 title: How to delete an alert in {{ monitoring-full-name }}
 description: Follow this guide to delete an alert.
+alternate:
+  - href: en/monitoring/operations/alert/delete-alert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an alert

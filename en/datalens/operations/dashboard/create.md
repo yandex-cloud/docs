@@ -1,6 +1,10 @@
 ---
 title: Creating a dashboard in {{ datalens-full-name }}
 description: To create a dashboard in {{ datalens-full-name }}, open the service home page and click **Create dashboard**. In the window that opens, enter a name for the dashboard. The dashboard will appear in the list on the navigation page.
+alternate:
+  - href: en/datalens/operations/dashboard/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a dashboard in {{ datalens-full-name }}

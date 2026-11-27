@@ -1,6 +1,10 @@
 ---
 title: Остановить и запустить API-шлюз
 description: Следуя данной инструкции, вы сможете остановить или запустить API-шлюз.
+alternate:
+  - href: ru/api-gateway/operations/api-gw-stop-resume.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Остановить и запустить API-шлюз

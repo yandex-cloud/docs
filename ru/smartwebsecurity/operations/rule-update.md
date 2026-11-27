@@ -1,6 +1,10 @@
 ---
 title: Как изменить правило в профиле безопасности {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете изменить правило в профиле безопасности {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/rule-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить правило в профиле безопасности

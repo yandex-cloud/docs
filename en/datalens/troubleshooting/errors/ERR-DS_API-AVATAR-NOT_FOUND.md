@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.AVATAR.NOT_FOUND'
 description: This page describes the Source avatar not found {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-AVATAR-NOT_FOUND.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Source avatar not found

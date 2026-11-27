@@ -1,6 +1,10 @@
 ---
 title: Discontinuation of {{ monitoring-full-name }}
 description: Effective December 1, 2026, {{ monitoring-name }} is discontinued. Learn how to continue working with metrics in {{ monium-name }} and use the features of a unified observability platform.
+alternate:
+  - href: en/monitoring/sunset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Discontinuation of {{ monitoring-full-name }}

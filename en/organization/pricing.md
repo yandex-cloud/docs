@@ -1,6 +1,10 @@
 ---
 title: '{{ org-full-name }} pricing policy'
 description: This article covers the {{ org-full-name }} pricing policy.
+alternate:
+  - href: en/organization/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ org-full-name }} pricing policy

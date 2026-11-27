@@ -1,6 +1,10 @@
 ---
 title: How to create a data ingestion in {{ data-catalog-full-name }}
 description: Follow this guide to create a data upload in {{ data-catalog-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/create-ingestion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a data ingestion

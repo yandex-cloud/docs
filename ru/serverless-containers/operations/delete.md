@@ -1,6 +1,10 @@
 ---
 title: Удалить контейнер
 description: Следуя данной инструкции, вы сможете удалить контейнер.
+alternate:
+  - href: ru/serverless-containers/operations/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить контейнер

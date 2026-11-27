@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for a symmetric encryption key
 description: Follow this guide to assign roles for a symmetric encryption key.
+alternate:
+  - href: en/kms/operations/key-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring access permissions for a symmetric encryption key

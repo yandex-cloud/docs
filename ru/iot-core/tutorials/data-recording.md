@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/iot/data-recording'
+alternate:
+  - href: ru/iot-core/tutorials/data-recording.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запись данных с устройства в базу данных

@@ -1,6 +1,10 @@
 ---
 title: How to create an OIDC application in {{ org-full-name }}
 description: Follow this guide to create an OIDC application in {{ org-full-name }} to authenticate your organization’s users in external apps using OpenID Connect SSO.
+alternate:
+  - href: en/organization/operations/applications/oidc-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an OIDC application in {{ org-full-name }}

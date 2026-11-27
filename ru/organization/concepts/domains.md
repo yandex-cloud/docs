@@ -1,6 +1,10 @@
 ---
 title: Домены в {{ org-full-name }}
 description: В {{ org-full-name }} вы можете привязывать свои домены к пулам пользователей и федерациям. Домены позволяют аутентифицировать пользователей как локальных.
+alternate:
+  - href: ru/organization/concepts/domains.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Домены

@@ -1,6 +1,10 @@
 ---
 title: Как подключить виртуальную машину {{ compute-full-name }} на Windows Server к {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете подключить виртуальную машину {{ compute-full-name }} на Windows Server к {{ backup-name }}.
+alternate:
+  - href: ru/backup/operations/connect-vm-windows.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключить существующую виртуальную машину на Windows Server к {{ backup-name }}

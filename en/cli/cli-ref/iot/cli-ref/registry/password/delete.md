@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/registry/password/delete/
+alternate:
+  - href: en/cli/cli-ref/iot/cli-ref/registry/password/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot registry password delete

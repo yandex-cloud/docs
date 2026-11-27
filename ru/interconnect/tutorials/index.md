@@ -1,6 +1,10 @@
 ---
 title: Руководства по применению {{ interconnect-full-name }}
 description: Различные сценарии использования {{ interconnect-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/interconnect/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Руководства по применению {{ interconnect-name }}

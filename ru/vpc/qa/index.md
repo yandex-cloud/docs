@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ vpc-full-name }}
 description: На странице представлены вопросы и ответы про {{ vpc-name }}.
+alternate:
+  - href: ru/vpc/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ vpc-name }}

@@ -1,6 +1,10 @@
 ---
 title: Добавление рассылки для отчета в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить рассылку для отчета в {{ datalens-name }}.
+alternate:
+  - href: ru/datalens/reports/add-report-maillists.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Рассылки для отчета

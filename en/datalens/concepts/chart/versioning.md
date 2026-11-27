@@ -1,6 +1,10 @@
 ---
 title: Chart versioning in {{ datalens-full-name }}
 description: '{{ datalens-full-name }} chart versioning allows you to store the chart configuration revision history as versions. A list of versions is available to users with the lowest level of {{ permission-write }} access to the chart.'
+alternate:
+  - href: en/datalens/concepts/chart/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Versioning in {{ datalens-full-name }}

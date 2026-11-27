@@ -29,6 +29,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/iot-core/api-ref/Registry/addPassword.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Registry.AddPassword

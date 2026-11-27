@@ -1,6 +1,10 @@
 ---
 title: Getting bucket information and statistics in {{ objstorage-full-name }}
 description: Follow this guide to get bucket information and statistics in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/buckets/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting bucket information and statistics

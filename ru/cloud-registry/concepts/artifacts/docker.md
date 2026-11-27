@@ -1,6 +1,10 @@
 ---
 title: Docker-образ в {{ cloud-registry-full-name }}
 description: 'Docker-образ — шаблон для создания Docker-контейнеров. Представляет собой исполняемый пакет, содержащий все необходимое для запуска приложения: код, среду выполнения, библиотеки, переменные окружения и файлы конфигурации.'
+alternate:
+  - href: ru/cloud-registry/concepts/artifacts/docker.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Docker-образ

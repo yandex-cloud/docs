@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/logging/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Access management in {{ cloud-logging-name }}
 
 {{ cloud-logging-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.

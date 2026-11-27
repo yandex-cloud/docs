@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monitoring/concepts/visualization/query-string.md
+    type: text/markdown
+    title: Markdown version
+---
 # Строка запроса
 
 Строка запроса находится в разделах **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**, **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}** и **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** и позволяет указать параметры для построения графиков.

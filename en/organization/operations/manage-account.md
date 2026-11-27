@@ -1,6 +1,10 @@
 ---
 title: How to manage an account on the My account portal
 description: Follow this guide to manage a user account on the {{ org-full-name }} My account portal.
+alternate:
+  - href: en/organization/operations/manage-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing an account on the My account portal

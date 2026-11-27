@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-ytsaurus/api-ref/grpc/Cluster/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ytsaurus API, gRPC: ClusterService.Get

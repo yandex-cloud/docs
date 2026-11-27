@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/container-registry/concepts/registry.md
+    type: text/markdown
+    title: Markdown version
+---
 # Registry in {{ container-registry-name }}
 
 A _registry_ is a storage for Docker images.

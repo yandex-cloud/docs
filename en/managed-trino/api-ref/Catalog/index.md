@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-trino/api-ref/Catalog/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Trino API, REST: Catalog

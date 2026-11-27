@@ -83,6 +83,10 @@ apiPlayground:
           maxProperties: 64
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/baremetal/api-ref/PublicSubnet/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PublicSubnet.Update

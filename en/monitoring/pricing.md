@@ -2,6 +2,10 @@
 title: '{{ monitoring-full-name }} pricing policy'
 description: This article covers the {{ monitoring-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/monitoring/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} pricing policy

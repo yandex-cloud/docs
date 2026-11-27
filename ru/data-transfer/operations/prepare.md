@@ -1,6 +1,10 @@
 ---
 title: Как подготовиться к трансферу
 description: Из статьи вы узнаете, как подготовиться к трансферу.
+alternate:
+  - href: ru/data-transfer/operations/prepare.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подготовка к трансферу

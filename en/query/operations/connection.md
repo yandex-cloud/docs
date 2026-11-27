@@ -1,6 +1,10 @@
 ---
 title: Managing {{ yq-full-name }} data source and sink connections
 description: '{{ yq-name }} connections are necessary to access data sources and sinks.'
+alternate:
+  - href: en/query/operations/connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing connections

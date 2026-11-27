@@ -72,6 +72,10 @@ apiPlayground:
       SharedEgressGatewaySpec:
         type: object
         properties: {}
+alternate:
+  - href: ru/vpc/api-ref/Gateway/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: Gateway.Update

@@ -1,6 +1,10 @@
 ---
 title: How to create a Telegram bot using Serverless
 description: In this tutorial, you will learn to use serverless technology to create a Telegram bot that will respond to chat messages.
+alternate:
+  - href: en/tutorials/serverless/telegram-bot-serverless/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [telegram-bot-serverless](../../../_tutorials/serverless/telegram-bot-serverless.md) %}

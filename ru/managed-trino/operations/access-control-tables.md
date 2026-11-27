@@ -1,6 +1,10 @@
 ---
 title: Назначение правил доступа к таблицам в {{ mtr-full-name }}
 description: Правила определяют, какие действия пользователи могут совершать над таблицами и представлениями в {{ mtr-name }}.
+alternate:
+  - href: ru/managed-trino/operations/access-control-tables.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначение правил доступа к таблицам в {{ mtr-name }}

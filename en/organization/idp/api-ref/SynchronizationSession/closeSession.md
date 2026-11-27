@@ -32,6 +32,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/organization/idp/api-ref/SynchronizationSession/closeSession.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: SynchronizationSession.CloseSession

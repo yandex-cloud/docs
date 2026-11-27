@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/user-account/
+alternate:
+  - href: en/iam/cli-ref/user-account/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam user-account

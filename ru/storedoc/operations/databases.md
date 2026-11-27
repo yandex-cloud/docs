@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storedoc/operations/databases.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление базами данных в {{ mmg-name }}
 
 Вы можете добавлять и удалять базы данных, а также просматривать информацию о них.

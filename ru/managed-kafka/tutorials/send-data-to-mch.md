@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/fetch-data-from-mkf'
+alternate:
+  - href: ru/managed-kafka/tutorials/send-data-to-mch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поставка данных в {{ mch-name }}

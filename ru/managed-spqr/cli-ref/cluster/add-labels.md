@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/cluster/add-labels/
+alternate:
+  - href: ru/managed-spqr/cli-ref/cluster/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-sharded-postgresql cluster add-labels

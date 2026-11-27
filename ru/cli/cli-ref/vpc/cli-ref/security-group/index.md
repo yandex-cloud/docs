@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/security-group/
+alternate:
+  - href: ru/cli/cli-ref/vpc/cli-ref/security-group/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc security-group

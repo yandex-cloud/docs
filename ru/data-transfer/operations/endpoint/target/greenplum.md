@@ -1,6 +1,10 @@
 ---
 title: Инструкция по настройке эндпоинта-приемника {{ GP }}/{{ CB }} в {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ GP }}/{{ CB }} в {{ data-transfer-full-name }}.
+alternate:
+  - href: ru/data-transfer/operations/endpoint/target/greenplum.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Передача данных в эндпоинт-приемник {{ GP }}/{{ CB }}
 

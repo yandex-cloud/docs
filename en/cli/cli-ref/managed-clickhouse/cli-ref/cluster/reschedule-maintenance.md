@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/cluster/reschedule-maintenance/
+alternate:
+  - href: en/cli/cli-ref/managed-clickhouse/cli-ref/cluster/reschedule-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse cluster reschedule-maintenance

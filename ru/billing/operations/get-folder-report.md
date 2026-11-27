@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/operations/get-folder-report.md
+    type: text/markdown
+    title: Markdown version
+---
 # Экспортировать расширенную детализацию
 
 Вы можете получать файл с общей или поресурсной детализацией расходов. Файл можно [скачать](#single-time-download) разово в формате CSV, XLSX или PDF или [настроить](#regular-download) регулярный экспорт в формате CSV.

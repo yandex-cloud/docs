@@ -3,6 +3,10 @@ title: Руководство по автоматическому распозн
 description: Следуя данному руководству, вы сможете настроить автоматическое распознавание аудиофайлов, регулярно загружаемых в бакет {{ objstorage-name }}.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/ml-ai/batch-recognition-stt'
+alternate:
+  - href: ru/tutorials/serverless/batch-recognition-stt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Регулярное распознавание аудиофайлов из {{ objstorage-full-name }}

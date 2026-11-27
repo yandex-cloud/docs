@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/network-load-balancer/operations/load-balancer-start-and-stop.md
+    type: text/markdown
+    title: Markdown version
+---
 # Остановить и запустить сетевой балансировщик
 
 При необходимости вы можете остановить сетевой балансировщик и запустить его заново.

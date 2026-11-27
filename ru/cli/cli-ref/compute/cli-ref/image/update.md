@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/image/update/
+alternate:
+  - href: ru/cli/cli-ref/compute/cli-ref/image/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute image update

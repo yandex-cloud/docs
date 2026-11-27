@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
+---
 # Диагностика и устранение неполадок
 
 В состав {{ stackland-name }} входит специализированный инструмент для сбора диагностической информации о состоянии кластера. `sladm diag` — утилита командной строки для Ubuntu 22.04 или аналогичного дистрибутива Linux. Как правило, `sladm diag` запускается с того же хоста, с которого выполнялось развертывание кластера {{ stackland-name }}.
@@ -194,7 +200,7 @@ sladm install \
   --installation-timeout 3h
 ```
 
-Дождитесь, пока `sladm` завершится успешно. После этого повторите проверки из раздела [Проверьте установку](../quickstart.md#verification).
+Дождитесь, пока `sladm` завершится успешно. После этого повторите проверки из раздела [Проверьте установку](#verification).
 
 ### Истек таймаут установки {#installation-timeout}
 

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/marketplace/concepts/product.md
+    type: text/markdown
+    title: Markdown version
+---
 # Продукт
 
 Продукт {{ marketplace-short-name }} — это форма, которая отражает тип программного продукта и содержит его [версии](version.md).

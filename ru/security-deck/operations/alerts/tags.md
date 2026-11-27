@@ -1,6 +1,10 @@
 ---
 title: Управление тегами алертов в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в {{ sd-full-name }} можно добавить или удалить теги алертов.
+alternate:
+  - href: ru/security-deck/operations/alerts/tags.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять тегами алертов

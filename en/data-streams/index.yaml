@@ -23,6 +23,10 @@ meta:
     - keyword: data streams
     - keyword: data transfer streams
     - keyword: managing data streams in {{ yandex-cloud }}
+  alternate:
+    - href: en/data-streams/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create a data stream and configure its delivery and storage settings

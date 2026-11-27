@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/microsoft/byol.md
+    type: text/markdown
+    title: Markdown version
+---
 # Использование своей лицензии для продуктов Microsoft
 
 В {{ yandex-cloud }} можно использовать ваши личные лицензионные продукты Microsoft на [выделенных хостах](../compute/concepts/dedicated-host.md). При этом лицензионные отношения действуют только между вами как клиентом и Microsoft как вендором лицензии. Вы несете полную ответственность за соблюдение [условий лицензирования Microsoft](https://www.microsoft.com/ru-ru/useterms). 

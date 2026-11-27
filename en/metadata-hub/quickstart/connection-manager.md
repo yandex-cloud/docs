@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ connection-manager-name }}
 description: Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ KF }}, {{ SD }}, and {{ TR }} data sources using {{ connection-manager-full-name }}.
+alternate:
+  - href: en/metadata-hub/quickstart/connection-manager.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ connection-manager-name }}

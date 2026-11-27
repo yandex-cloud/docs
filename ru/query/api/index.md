@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/api/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обзор работы с {{ yq-full-name }} HTTP API
 
 {% include [sunset](../../_includes/query/sunset.md) %}

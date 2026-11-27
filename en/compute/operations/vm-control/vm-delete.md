@@ -1,6 +1,10 @@
 ---
 title: How to delete a VM
 description: Follow this guide to delete a VM.
+alternate:
+  - href: en/compute/operations/vm-control/vm-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a VM

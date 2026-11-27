@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/overview/concepts/zone-migration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Миграция ресурсов в другую зону
 
 Ряду ресурсов {{ compute-name }} и {{ vpc-name }} в CLI добавлена команда `relocate`, которая позволяет переместить ресурс в другую зону. В случае переноса групп ВМ, ресурсов сервисов {{ network-load-balancer-name }} и {{ alb-name }}, управляемых сервисов баз данных, инстансов {{ mgl-name }}, кластеров {{ managed-k8s-name }} и сервисов Serverless воспользуйтесь существующими инструментами.

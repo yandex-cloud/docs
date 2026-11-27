@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/private-subnet/list/
+alternate:
+  - href: en/baremetal/cli-ref/private-subnet/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal private-subnet list

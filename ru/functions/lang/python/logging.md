@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/python/logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Журналирование выполнения функции на Python
 
 Сервис {{ sf-name }} автоматически захватывает потоки стандартного вывода приложения на Python и отправляет их в централизованную [систему журналирования](../../operations/function/function-logs.md), доступную в {{ yandex-cloud }}. Помимо журналов выполнения приложения записываются системные записи о событиях выполнения запроса.

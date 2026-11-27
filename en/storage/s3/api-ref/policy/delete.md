@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/policy/delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: DeleteBucketPolicy
 
 Removes the access policy from the specified bucket.

@@ -1,6 +1,10 @@
 ---
 title: Security groups in {{ vpc-full-name }}
 description: With security groups, you can manage networking between cloud resources.
+alternate:
+  - href: en/vpc/concepts/security-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security groups

@@ -1,6 +1,10 @@
 ---
 title: Getting a list of data storages in {{ data-catalog-name }}
 description: How to get a list of data storages in {{ data-catalog-full-name }}
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/list-data-store.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of data storages

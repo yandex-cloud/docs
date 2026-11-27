@@ -1,6 +1,10 @@
 ---
 title: Методы установки виджета {{ captcha-full-name }}
 description: Вы можете подключить виджет {{ captcha-name }} автоматическим или расширенным методом. В зависимости от метода подключения отличается способ передачи параметров для виджета.
+alternate:
+  - href: ru/smartcaptcha/concepts/widget-methods.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Методы установки виджета {{ captcha-full-name }}

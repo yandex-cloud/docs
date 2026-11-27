@@ -1,6 +1,10 @@
 ---
 title: Изменить триггер в {{ api-gw-full-name }}
 description: Следуя инструкции вы сможете изменить все параметры триггера в {{ api-gw-full-name }}, кроме типа триггера и запускаемого ресурса.
+alternate:
+  - href: ru/api-gateway/operations/trigger/trigger-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить триггер в {{ api-gw-full-name }}

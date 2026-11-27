@@ -1,6 +1,10 @@
 ---
 title: How to edit a video in {{ video-full-name }}
 description: Follow this guide to edit a video in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/video/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a video

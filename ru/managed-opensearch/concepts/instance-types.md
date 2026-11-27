@@ -1,6 +1,10 @@
 ---
 title: Классы хостов {{ OS }}
 description: Из статьи вы узнаете про классы хостов {{ OS }}.
+alternate:
+  - href: ru/managed-opensearch/concepts/instance-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Классы хостов {{ OS }}

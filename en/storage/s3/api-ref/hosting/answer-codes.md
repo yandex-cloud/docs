@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/hosting/answer-codes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Static website response codes
 
 If a bucket is configured to host static websites, the user trying to access it may get any of the response codes described in the table below.

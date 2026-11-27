@@ -1,6 +1,10 @@
 ---
 title: Настройка единого входа в приложения (SSO)
 description: Настройка интеграции {{ org-full-name }} с внешними приложениями по стандартам SAML и OIDC.
+alternate:
+  - href: ru/organization/tutorials/single-sign-on/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 #  Настройка единого входа в приложения (SSO)

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/audit-trails/concepts/diagnostics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Лог диагностики
 
 Лог диагностики содержит записи об изменениях состояния [трейла](./trail.md).

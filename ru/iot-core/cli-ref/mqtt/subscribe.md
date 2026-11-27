@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/mqtt/subscribe/
+alternate:
+  - href: ru/iot-core/cli-ref/mqtt/subscribe.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot mqtt subscribe

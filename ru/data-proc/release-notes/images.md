@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/release-notes/images.md
+    type: text/markdown
+    title: Markdown version
+---
 # История изменений образов {{ dataproc-full-name }}
 Полный состав актуальных и устаревших образов {{ dataproc-name }} в разделе [{#T}](../concepts/environment.md).
 

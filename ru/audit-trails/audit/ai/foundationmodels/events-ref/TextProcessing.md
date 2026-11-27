@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ai/foundationmodels/events-ref/TextProcessing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio Audit Trails Events: TextProcessing

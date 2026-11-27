@@ -1,6 +1,10 @@
 ---
 title: Deleting a target group from an application load balancer
 description: To delete a target group, select its folder in the management console. Navigate to {{ alb-full-name }}. In the left-hand menu, select **Target groups**. Select your target group and click the `select` icon. In the menu that opens, select **Delete**. To delete multiple target groups at once, select them in the list and click **Delete** at the bottom of the screen.
+alternate:
+  - href: en/application-load-balancer/operations/target-group-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an {{ alb-name }} target group

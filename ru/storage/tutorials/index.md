@@ -1,6 +1,10 @@
 ---
 title: Практические руководства {{ objstorage-full-name }}
 description: На странице представлен список практических руководств {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ objstorage-name }}

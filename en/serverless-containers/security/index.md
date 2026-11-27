@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Access management in {{ serverless-containers-name }}
 
 {{ serverless-containers-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.

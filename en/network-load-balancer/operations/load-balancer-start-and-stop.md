@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/network-load-balancer/operations/load-balancer-start-and-stop.md
+    type: text/markdown
+    title: Markdown version
+---
 # Stopping and starting a load balancer
 
 You can stop and restart a network load balancer as needed.

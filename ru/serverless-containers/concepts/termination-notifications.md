@@ -1,6 +1,10 @@
 ---
 title: Уведомления об остановке экземпляра контейнера
 description: На данной странице описаны особенности уведомлений о предстоящей принудительной остановке экземпляров контейнеров, как обрабатывающих вызовы, так и неактивных.
+alternate:
+  - href: ru/serverless-containers/concepts/termination-notifications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Уведомления о завершении выполнения контейнера

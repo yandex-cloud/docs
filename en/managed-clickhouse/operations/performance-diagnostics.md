@@ -1,6 +1,10 @@
 ---
 title: Performance diagnostics in {{ mch-name }}
 description: You can get performance metrics for queries and query groups in {{ mch-full-name }}.
+alternate:
+  - href: en/managed-clickhouse/operations/performance-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Performance diagnostics in {{ mch-name }}

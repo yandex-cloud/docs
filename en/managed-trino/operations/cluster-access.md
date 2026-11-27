@@ -1,6 +1,10 @@
 ---
 title: Managing access to a {{ mtr-full-name }} cluster
 description: Follow this guide to configure {{ mtr-name }} cluster access permissions.
+alternate:
+  - href: en/managed-trino/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to a {{ mtr-name }} cluster

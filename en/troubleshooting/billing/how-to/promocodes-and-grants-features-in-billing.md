@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/promocodes-and-grants-features-in-billing.md
+    type: text/markdown
+    title: Markdown version
+---
 # How grants and promo codes work in {{ billing-name }}
 
 

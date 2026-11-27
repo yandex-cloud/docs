@@ -1,6 +1,10 @@
 ---
 title: Activating and deactivating an MFA policy in {{ org-full-name }}
 description: Follow this guide to activate or deactivate an MFA policy in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/mfa/deactivate-reactivate-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Activating or deactivating an MFA policy

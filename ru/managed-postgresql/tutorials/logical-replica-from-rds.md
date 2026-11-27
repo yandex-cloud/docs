@@ -1,6 +1,10 @@
 ---
 title: Создание логической реплики Amazon RDS для {{ PG }} в {{ mpg-full-name }}
 description: Следуя данной инструкции, вы сможете создать логическую реплику Amazon RDS для {{ PG }} в {{ mpg-name }}.
+alternate:
+  - href: ru/managed-postgresql/tutorials/logical-replica-from-rds.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание логической реплики Amazon RDS для {{ PG }} в {{ mpg-name }}

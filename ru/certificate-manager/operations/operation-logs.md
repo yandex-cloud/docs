@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть операции с сертификатом {{ certificate-manager-full-name }}
 description: Следуя этой инструкции, вы сможете получить список операций с сертификатом и подробную информацию о каждой из них.
+alternate:
+  - href: ru/certificate-manager/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть операции с сертификатом

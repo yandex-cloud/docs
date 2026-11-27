@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/create-platform-endpoint.md
+    type: text/markdown
+    title: Markdown version
+---
 # CreatePlatformEndpoint
 
 Creates an [endpoint for push notifications](../concepts/push.md#mobile-endpoints) (subscribes the user to push notifications).

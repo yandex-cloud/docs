@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-valkey/api-ref/grpc/ChangeFreeze/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, gRPC: ChangeFreezeService.Get

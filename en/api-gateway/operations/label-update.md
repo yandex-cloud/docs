@@ -1,6 +1,10 @@
 ---
 title: Updating an API gateway label
 description: Follow this guide to update an API gateway label.
+alternate:
+  - href: en/api-gateway/operations/label-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating an API gateway label

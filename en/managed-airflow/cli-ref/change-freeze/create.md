@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-airflow/cli-ref/change-freeze/create/
+alternate:
+  - href: en/managed-airflow/cli-ref/change-freeze/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-airflow change-freeze create

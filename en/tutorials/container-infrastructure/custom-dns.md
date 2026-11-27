@@ -1,6 +1,10 @@
 ---
 title: Integrating a {{ managed-k8s-full-name }} cluster with a corporate DNS zone
 description: In this article, you will learn how to integrate a {{ managed-k8s-name }} cluster with a private corporate DNS zone.
+alternate:
+  - href: en/tutorials/container-infrastructure/custom-dns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Integrating {{ managed-k8s-full-name }} with a corporate DNS zone

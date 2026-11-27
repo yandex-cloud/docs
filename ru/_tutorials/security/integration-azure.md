@@ -86,13 +86,13 @@
 
       1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
 
-      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** вставьте ссылку, которая указана в поле **Идентификатор {{ microsoft-idp.entra-full }}** на странице **Вход на основе SAML** в {{ microsoft-idp.entra-id-short }}. Формат ссылки:
+      1. Скопируйте значение поля **Идентификатор {{ microsoft-idp.entra-full }}** на странице **Вход на основе SAML** в {{ microsoft-idp.entra-id-short }} и вставьте его в поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}**. Формат значения:
 
           ```text
           https://sts.windows.net/<идентификатор_SAML-приложения>/
           ```
 
-      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** вставьте ссылку, которая указана в поле **URL-адрес входа** на странице **Вход на основе SAML** в {{ microsoft-idp.entra-id-short }}. Формат ссылки:
+      1. Скопируйте значение поля **URL-адрес входа** на странице **Вход на основе SAML** в {{ microsoft-idp.entra-id-short }} и вставьте его в поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}**. Формат значения:
 
           ```text
           https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2
@@ -103,6 +103,10 @@
       1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы пользователь после аутентификации автоматически добавлялся в организацию. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../organization/operations/add-account.md#add-user-sso).
 
           {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
+
+      1. {% include [encrypted-assertions-console](../../_includes/organization/encrypted-assertions-console.md) %}
+
+          {% include [setup-cert-for-idp](../../_includes/organization/setup-cert-for-idp.md) %}
 
       1. {% include [forceauthn-option-enable](../../_includes/organization/forceauthn-option-enable.md) %}
 
@@ -130,6 +134,7 @@
           --issuer "https://sts.windows.net/<идентификатор_SAML-приложения>/" \
           --sso-url "https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2" \
           --sso-binding POST \
+          --encrypted-assertions \
           --force-authn
         ```
 
@@ -165,6 +170,10 @@
 
         * `--sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
+        * {% include [encrypted-assertions-cli](../../_includes/organization/encrypted-assertions-cli.md) %}
+
+            {% include [setup-cert-for-idp](../../_includes/organization/setup-cert-for-idp.md) %}
+
         * {% include [forceauthn-cli-enable](../../_includes/organization/forceauth-cli-enable.md) %}
 
 - {{ TF }} {#tf}
@@ -193,9 +202,7 @@
       Где:
 
       * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-      * `description` — описание федерации.
       * `organization_id` — [идентификатор](../../organization/operations/organization-get-id.md) организации.
-      * `labels` — набор пар меток ключ/значение, которые присвоены федерации. Необязательный параметр.
       * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
 
           Используйте ссылку, которая указана в поле **Идентификатор {{ microsoft-idp.entra-full }}** на странице **Вход на основе SAML** в {{ microsoft-idp.entra-id-short }}. Формат ссылки:
@@ -227,6 +234,8 @@
       * `security_settings` — настройки безопасности федерации: 
 
           * {% include [encrypted-assertions-tf](../../_includes/organization/encrypted-assertions-tf.md) %}
+
+              {% include [setup-cert-for-idp](../../_includes/organization/setup-cert-for-idp.md) %}
 
           * {% include [force-authn-tf](../../_includes/organization/force-authn-tf.md) %}
 
@@ -269,6 +278,7 @@
           "ssoUrl": "https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2",
           "ssoBinding": "POST",
           "securitySettings": {
+            "encryptedAssertions": true,
             "forceAuthn": true
           }
         }
@@ -307,6 +317,10 @@
 
         * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
+        * {% include [encrypted-assertions-api](../../_includes/organization/encrypted-assertions-api.md) %}
+
+          {% include [setup-cert-for-idp](../../_includes/organization/setup-cert-for-idp.md) %}
+
         * {% include [forceauthn-api-enable](../../_includes/organization/forceauth-api-enable.md) %}
 
     1. {% include [include](../../_includes/iam/create-federation-curl.md) %}
@@ -339,7 +353,7 @@
 
       ```bash
       yc organization-manager federation saml certificate create \
-        --federation-id <ID_федерации> \
+        --federation-id <идентификатор_федерации> \
         --name "my-certificate" \
         --certificate-file certificate.cer
       ```
@@ -352,7 +366,7 @@
 
       ```json
       {
-        "federationId": "<ID_федерации>",
+        "federationId": "<идентификатор_федерации>",
         "name": "my-certificate",
         "data": "-----BEGIN CERTIFICATE..."
       }
@@ -459,7 +473,7 @@
   1. Добавьте пользователей, перечислив их Name ID через запятую:
 
       ```bash
-      yc organization-manager federation saml add-user-accounts --id <ID_федерации> \
+      yc organization-manager federation saml add-user-accounts --id <идентификатор_федерации> \
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
@@ -492,7 +506,7 @@
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer <IAM-токен>" \
         --data '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID_федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<идентификатор_федерации>:addUserAccounts
       ```
 
 {% endlist %}
@@ -506,7 +520,7 @@
 1. Перейдите по URL для входа в консоль:
 
    ```text
-   {{ link-console-main }}/federations/<ID_федерации>
+   {{ link-console-main }}/federations/<идентификатор_федерации>
    ```
 
    {% cut "Как получить ID федерации" %}

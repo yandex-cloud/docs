@@ -1,6 +1,10 @@
 ---
 title: Подключение к базе данных {{ maf-full-name }}
 description: Вы можете программно подключиться к базе данных {{ maf-name }} и обновить данные подключений с помощью направленного ациклического графа (DAG).
+alternate:
+  - href: ru/managed-airflow/operations/update-connections.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к базе данных {{ maf-full-name }}

@@ -119,6 +119,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/managed-mysql/api-ref/Cluster/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, REST: Cluster.UpdateAccessBindings

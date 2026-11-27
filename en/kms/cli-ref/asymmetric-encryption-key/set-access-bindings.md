@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/asymmetric-encryption-key/set-access-bindings/
+alternate:
+  - href: en/kms/cli-ref/asymmetric-encryption-key/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc kms asymmetric-encryption-key set-access-bindings

@@ -1,6 +1,10 @@
 ---
 title: Maintenance in {{ mpg-full-name }}
 description: In {{ mpg-name }}, maintenance means automatic installation of database updates and patches for hosts (including for stopped clusters), host class and storage size modifications, and other maintenance operations.
+alternate:
+  - href: en/managed-postgresql/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Maintenance in {{ mpg-name }}

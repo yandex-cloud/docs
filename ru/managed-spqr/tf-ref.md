@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ mspqr-full-name }}
 description: На этой странице приведен справочник ресурсов провайдера {{ TF }}, которые поддерживаются для сервиса {{ mspqr-name }}.
+alternate:
+  - href: ru/managed-spqr/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ mspqr-full-name }}

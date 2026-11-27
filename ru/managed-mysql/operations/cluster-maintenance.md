@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание кластера {{ mmy-name }}
 description: Как просмотреть информацию о техническом обслуживании кластера, а также настроить время его проведения в {{ mmy-full-name }}.
+alternate:
+  - href: ru/managed-mysql/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

@@ -65,6 +65,10 @@ apiPlayground:
           maxProperties: 64
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/functions/functions/api-ref/Function/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, REST: Function.Update

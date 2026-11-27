@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ datalens-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ datalens-name }}.
 editable: false
+alternate:
+  - href: ru/datalens/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ datalens-full-name }}

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/organization/idp/api-ref/grpc/Synchronization/resetReplicationToken.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, gRPC: SynchronizationService.ResetReplicationToken

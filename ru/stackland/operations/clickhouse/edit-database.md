@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/clickhouse/edit-database.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить базу данных
 
 После создания [база данных](create-database.md) [{{ CH }}](../../concepts/components/clickhouse.md) **изменить нельзя** ни одно поле `spec`.

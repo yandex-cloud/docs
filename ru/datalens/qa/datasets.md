@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про датасеты
 description: На странице представлены вопросы и ответы про датасеты.
+alternate:
+  - href: ru/datalens/qa/datasets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Датасеты

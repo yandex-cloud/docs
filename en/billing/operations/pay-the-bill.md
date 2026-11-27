@@ -1,6 +1,10 @@
 ---
 title: How to top up your personal account
 description: Follow this guide to top up your personal account.
+alternate:
+  - href: en/billing/operations/pay-the-bill.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Top up your personal account

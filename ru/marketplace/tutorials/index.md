@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования продуктов {{ marketplace-full-name }}
 description: Различные сценарии использования продуктов {{ marketplace-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/marketplace/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ marketplace-name }}

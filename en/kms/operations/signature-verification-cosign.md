@@ -1,6 +1,10 @@
 ---
 title: How to sign a file or artifact using Cosign
 description: Follow this guide to sign a file or artifact, or verify an electronic signature using Cosign.
+alternate:
+  - href: en/kms/operations/signature-verification-cosign.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Signing files and artifacts digitally using Cosign

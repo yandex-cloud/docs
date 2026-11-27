@@ -1,6 +1,10 @@
 ---
 title: Tree chart in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the tree chart visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/tree-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Tree chart ![](../../_assets/datalens/treemap.svg) in {{ datalens-full-name }}

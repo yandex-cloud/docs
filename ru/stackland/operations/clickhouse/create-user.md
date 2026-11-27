@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/clickhouse/create-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать пользователя
 
 Если у вас есть [кластер](create-cluster.md) [{{ CH }}](../../concepts/components/clickhouse.md), вы можете создать в нем пользователя с помощью кастомного ресурса `ClickhouseUser`.

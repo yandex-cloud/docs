@@ -1,6 +1,11 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/routing-instance/update-networks/
+noIndex: true
+alternate:
+  - href: ru/cloud-router/cli-ref/routing-instance/update-networks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloudrouter routing-instance update-networks

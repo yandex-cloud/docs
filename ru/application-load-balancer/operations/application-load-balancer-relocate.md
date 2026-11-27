@@ -1,6 +1,10 @@
 ---
 title: Как переместить ВМ за L7-балансировщиком в целевую группу в новой зоне доступности
 description: Следуя данной инструкции, вы сможете перенести виртуальные машины за L7-балансировщиком в целевую группу в новой зоне доступности.
+alternate:
+  - href: ru/application-load-balancer/operations/application-load-balancer-relocate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переместить виртуальную машину в целевую группу в новой зоне доступности

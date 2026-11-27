@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/logging/api-ref/Sink/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, REST: Sink

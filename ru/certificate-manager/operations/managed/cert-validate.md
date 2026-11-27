@@ -1,6 +1,10 @@
 ---
 title: Как проверить права на домены в {{ certificate-manager-full-name }}
 description: Следуя этой инструкции, вы сможете проверить права на домены.
+alternate:
+  - href: ru/certificate-manager/operations/managed/cert-validate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Проверить права на домены

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/shards/
+alternate:
+  - href: ru/managed-clickhouse/cli-ref/shards/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse shards

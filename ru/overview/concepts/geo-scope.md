@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/overview/concepts/geo-scope.md
+    type: text/markdown
+    title: Markdown version
+---
 # Зоны доступности
 
 _Зона доступности_ — это инфраструктура внутри дата-центра, в котором размещается платформа {{ yandex-cloud }}. Ресурсы в {{ yandex-cloud }} делятся на _зональные_ (привязанные к зоне доступности) и _глобальные_ (не привязанные к зоне). Зональными ресурсами являются, например [виртуальная машина](../../compute/concepts/vm.md) и [диск](../../compute/concepts/disk.md). Примеры глобальных ресурсов — [облачная сеть](../../vpc/concepts/network.md) и [бакет](../../storage/concepts/bucket.md).

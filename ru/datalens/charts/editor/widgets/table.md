@@ -1,6 +1,10 @@
 ---
 title: Как работать с таблицами в Editor
 description: Из статьи вы узнаете, как работать с таблицами в Editor.
+alternate:
+  - href: ru/datalens/charts/editor/widgets/table.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Таблица

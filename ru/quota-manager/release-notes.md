@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ quota-manager-full-name }}
 description: В разделе представлена история изменений сервиса {{ quota-manager-name }}.
+alternate:
+  - href: ru/quota-manager/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ quota-manager-full-name }}

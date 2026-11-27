@@ -1,6 +1,10 @@
 ---
 title: Viewing information about resources in a connection
 description: Follow this guide to view information about resources in a connection.
+alternate:
+  - href: en/websql/operations/view-resources-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing information about resources

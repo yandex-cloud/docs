@@ -1,6 +1,10 @@
 ---
 title: Exporting and importing Hive metadata in a {{ metastore-full-name }} cluster
 description: Follow this guide to export and import Hive metadata in a {{ metastore-name }} cluster.
+alternate:
+  - href: en/metadata-hub/operations/metastore/export-and-import.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Exporting and importing Hive metadata in a {{ metastore-name }} cluster

@@ -1,6 +1,10 @@
 ---
 title: Service roles {{ data-catalog-full-name }}
 description: '{{ data-catalog-name }} service roles allow you to manage access to metadata catalogs and their resources in {{ metadata-hub-name }}.'
+alternate:
+  - href: en/metadata-hub/security/data-catalog-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service roles to manage metadata in {{ data-catalog-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
 description: Утилита Sqoop позволяет импортировать базы данных {{ PG }} в кластер {{ dataproc-name }}. В зависимости от конфигурации кластера {{ dataproc-name }} вы можете выполнить импорт в бакет {{ objstorage-full-name }}, директорию HDFS, Apache Hive и Apache HBase.
+alternate:
+  - href: ru/tutorials/dataplatform/sqoop-mpg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с помощью Sqoop

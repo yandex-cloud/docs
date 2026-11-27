@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/data-processing-operations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Вычисления на кластерах Apache Spark™
 
 Для работы с кластерами {{ dataproc-name }} требуется предварительная настройка проекта, подробнее смотрите в [концепции](data-processing.md#settings).

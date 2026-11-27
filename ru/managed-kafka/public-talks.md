@@ -1,6 +1,10 @@
 ---
 title: Публичные материалы о {{ mkf-full-name }}
 description: Видеозаписи конференций и вебинаров, посвященных {{ mkf-full-name }}.
+alternate:
+  - href: ru/managed-kafka/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные материалы о {{ mkf-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Ограничение скорости обработки запросов
 description: Расширения x-yc-apigateway-rate-limits и x-yc-apigateway-rate-limit позволяют ограничить скорость обработки запросов. Лимиты можно настроить на API-шлюз или конкретные пути и/или HTTP-методы.
+alternate:
+  - href: ru/api-gateway/concepts/extensions/rate-limit.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ограничение скорости обработки запросов

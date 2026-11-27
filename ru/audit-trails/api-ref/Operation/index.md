@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Audit Trails API, REST: Operation

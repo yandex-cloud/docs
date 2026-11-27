@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datasphere/api-ref/DockerImage/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, REST: DockerImage

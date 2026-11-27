@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/cloud-registry/api-ref/grpc/Registry/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, gRPC: RegistryService.List

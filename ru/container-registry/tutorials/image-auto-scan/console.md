@@ -1,6 +1,10 @@
 ---
 title: Как автоматически просканировать Docker-образ при загрузке с помощью консоли управления, CLI и API
 description: Следуя данному руководству, вы сможете автоматически просканировать Docker-образ при загрузке в {{ container-registry-full-name }} с помощью консоли управления, CLI и API.
+alternate:
+  - href: ru/container-registry/tutorials/image-auto-scan/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Автоматическое сканирование Docker-образа при загрузке с помощью консоли управления, CLI и API

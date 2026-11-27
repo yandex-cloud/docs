@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/user/grant-permission/
+alternate:
+  - href: ru/managed-mysql/cli-ref/user/grant-permission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mysql user grant-permission

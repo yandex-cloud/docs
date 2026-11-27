@@ -1,6 +1,10 @@
 ---
 title: Запрос прав доступа
 description: Вы можете запросить права доступа к папке или объекту, к которому у вас нет доступа. Также вы можете запросить изменение прав доступа к папке или объекту, к которому у вас есть доступ на просмотр.
+alternate:
+  - href: ru/datalens/operations/permission/request.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запрос прав доступа

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/OP_MOD.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Modulo (%)

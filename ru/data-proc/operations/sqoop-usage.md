@@ -1,6 +1,10 @@
 ---
 title: Как использовать Sqoop в {{ dataproc-full-name }}
 description: Следуя данной инструкции, вы сможете использовать Sqoop.
+alternate:
+  - href: ru/data-proc/operations/sqoop-usage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование Sqoop

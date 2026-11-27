@@ -142,7 +142,7 @@ ksqlDB — это база данных, которая предназначен
    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<пароль_пользователя_ksql>";
    ```
 
-   Как получить FQDN хоста-брокера, читайте в [инструкции](../../managed-kafka/operations/connect/index.md#get-fqdn).
+   Как получить FQDN хоста-брокера, читайте в [инструкции](../../managed-kafka/operations/connect/fqdn.md#get-fqdn).
 
    Имя кластера можно запросить со [списком кластеров в каталоге](../../managed-kafka/operations/cluster-list.md#list-clusters).
 

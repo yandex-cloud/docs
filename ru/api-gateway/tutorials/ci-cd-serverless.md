@@ -3,6 +3,10 @@ title: Построение пайплайна CI/CD с использовани
 description: Вы можете построить пайплайн непрерывной интеграции и непрерывной поставки (CI/CD) с использованием serverless-продуктов.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/ci-cd-serverless'
+alternate:
+  - href: ru/api-gateway/tutorials/ci-cd-serverless.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Построение пайплайна CI/CD с использованием serverless-продуктов

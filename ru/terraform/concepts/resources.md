@@ -1,6 +1,10 @@
 ---
 title: Ресурсы в {{ TF }}
 description: Узнайте, что такое ресурсы в {{ TF }}, как они описывают облачную инфраструктуру и как зависимости между ними помогают управлять порядком создания и изменения ресурсов.
+alternate:
+  - href: ru/terraform/concepts/resources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ресурсы

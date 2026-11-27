@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/marketplace/license-manager/saas/api-ref/grpc/Lock/ensure.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace License Manager for SaaS, gRPC: LockService.Ensure

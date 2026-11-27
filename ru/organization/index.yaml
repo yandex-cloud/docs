@@ -14,6 +14,10 @@ meta:
     - keyword: корпоративное облако
     - keyword: облако для корпоративных клиентов
     - keyword: как управлять доступом сотрудников
+  alternate:
+    - href: ru/organization/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Identity Hub

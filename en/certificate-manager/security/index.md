@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ certificate-manager-full-name }}
 description: Access management in {{ certificate-manager-full-name }}, a service for issuing and renewing Let's Encrypt TLS certificates and uploading custom certificates. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+alternate:
+  - href: en/certificate-manager/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ certificate-manager-name }}

@@ -1,6 +1,10 @@
 ---
 title: Установка cert-manager c плагином {{ dns-full-name }} ACME webhook
 description: Следуя данной инструкции, вы сможете установить cert-manager c плагином {{ dns-name }} ACME webhook.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/cert-manager-cloud-dns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка cert-manager c плагином {{ dns-full-name }} ACME webhook

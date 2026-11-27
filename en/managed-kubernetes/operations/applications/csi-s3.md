@@ -1,6 +1,10 @@
 ---
 title: Installing Container Storage Interface for S3
 description: Follow this guide to install the Container Storage Interface for S3.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/csi-s3.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing Container Storage Interface for S3

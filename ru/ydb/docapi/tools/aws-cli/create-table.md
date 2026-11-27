@@ -1,6 +1,10 @@
 ---
 title: Создание таблицы в AWS CLI
 description: Следуя данной инструкции, вы сможете создать таблицу в AWS CLI.
+alternate:
+  - href: ru/ydb/docapi/tools/aws-cli/create-table.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание таблицы в AWS CLI

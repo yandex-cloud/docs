@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/video/api-ref/StreamLine/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: StreamLine

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/getting-invoices-when-paying-by-card.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to receive receipts for credit/debit card transfers
 
 

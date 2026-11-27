@@ -1,6 +1,10 @@
 ---
 title: Deleting user data
 description: In this article, you will learn about deleting user data.
+alternate:
+  - href: en/overview/concepts/data-deletion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting user data

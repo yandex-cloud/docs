@@ -1,6 +1,10 @@
 ---
 title: Предварительная настройка подключения к кластеру {{ CH }} в {{ mch-full-name }}
 description: Следуя данной инструкции, вы сможете подготовиться к подключению к базе данных в кластере {{ CH }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Предварительная настройка для подключения к кластеру {{ CH }}

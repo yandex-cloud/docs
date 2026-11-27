@@ -85,6 +85,10 @@ apiPlayground:
             type: string
         required:
           - value
+alternate:
+  - href: en/smartwebsecurity/match_list/api-ref/MatchList/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity MatchList API, REST: MatchList.Update

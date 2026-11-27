@@ -1,6 +1,10 @@
 ---
 title: How to create an image from another custom image in {{ compute-full-name }}
 description: Follow this guide to create an image from another custom image.
+alternate:
+  - href: en/compute/operations/image-create/create-from-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an image from another custom image

@@ -27,6 +27,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/iot-core/api-ref/Device/addCertificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Device.AddCertificate

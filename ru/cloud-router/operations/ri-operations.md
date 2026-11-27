@@ -1,6 +1,11 @@
 ---
 title: Как получить список операций виртуального маршрутизатора
 description: Следуя этой инструкции, вы сможете получить список операций, выполненных с виртуальным маршрутизатором в {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: ru/cloud-router/operations/ri-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список операций с виртуальным маршрутизатором

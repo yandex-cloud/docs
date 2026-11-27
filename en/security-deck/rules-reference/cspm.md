@@ -2,6 +2,10 @@
 title: '{{ cspm-name }} — {{ cspm-full-name }}'
 description: Rules for checking cloud resource configuration
 editable: false
+alternate:
+  - href: en/security-deck/rules-reference/cspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 ## {{ cspm-name }} — {{ cspm-full-name }}

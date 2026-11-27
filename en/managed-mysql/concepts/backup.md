@@ -9,6 +9,10 @@ keywords:
   - '{{ MY }} backups'
   - backup {{ MY }}
   - '{{ MY }}'
+alternate:
+  - href: en/managed-mysql/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backups in {{ mmy-name }}

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/joomla-postgresql/console'
+alternate:
+  - href: en/managed-postgresql/tutorials/joomla-postgresql/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a Joomla website with a {{ PG }} database from the management console

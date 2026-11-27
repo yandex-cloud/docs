@@ -1,6 +1,10 @@
 ---
 title: '{{ metadata-hub-full-name }} API authentication'
 description: To perform operations through the API in {{ metadata-hub-full-name }}, get an IAM token for your account.
+alternate:
+  - href: en/metadata-hub/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ metadata-hub-full-name }} API authentication

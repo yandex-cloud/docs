@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/cluster/import-data/
+alternate:
+  - href: ru/metadata-hub/cli-ref/cluster/import-data.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-metastore cluster import-data

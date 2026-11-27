@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kafka/operations/cluster-hosts.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получение списка хостов кластера {{ KF }}
 
 Вы можете получить список хостов-брокеров в кластере {{ KF }}.

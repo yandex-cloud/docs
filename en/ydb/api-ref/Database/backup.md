@@ -239,6 +239,10 @@ apiPlayground:
               - GLACIER
               - DEEP_ARCHIVE
               - OUTPOSTS
+alternate:
+  - href: en/ydb/api-ref/Database/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for YDB API, REST: Database.Backup

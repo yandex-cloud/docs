@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/tools/cyberduck.md
+    type: text/markdown
+    title: Markdown version
+---
 # CyberDuck
 
 [CyberDuck](https://cyberduck.io/) — это графический клиент для работы с облачными хранилищами, в том числе совместимыми с [Amazon S3 API](../../glossary/s3.md). CyberDuck доступен для macOS и Windows, а также в виде [консольного клиента](https://duck.sh/) для Linux.

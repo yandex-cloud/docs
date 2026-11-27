@@ -1,5 +1,10 @@
 ---
 editable: false
+noIndex: true
+alternate:
+  - href: en/cloud-router/api-ref/grpc/RoutingInstance/removePrivateConnection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Router API, gRPC: RoutingInstanceService.RemovePrivateConnection

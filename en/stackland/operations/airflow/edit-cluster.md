@@ -1,6 +1,10 @@
 ---
 title: Updating {{ AF }} cluster settings
 description: How to update resources, dependencies, and other parameters of an {{ AF }} cluster.
+alternate:
+  - href: en/stackland/operations/airflow/edit-cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating {{ AF }} cluster settings

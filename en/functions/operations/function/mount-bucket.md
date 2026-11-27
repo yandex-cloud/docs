@@ -1,6 +1,10 @@
 ---
 title: How to mount buckets to a function in {{ sf-full-name }}
 description: Follow this guide to mount buckets to a function in {{ sf-name }}.
+alternate:
+  - href: en/functions/operations/function/mount-bucket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Mounting buckets to a function

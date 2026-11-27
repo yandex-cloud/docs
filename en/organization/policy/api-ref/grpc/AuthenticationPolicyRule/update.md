@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/policy/api-ref/grpc/AuthenticationPolicyRule/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organization Policy API, gRPC: AuthenticationPolicyRuleService.Update

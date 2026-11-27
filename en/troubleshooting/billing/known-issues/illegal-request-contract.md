@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/illegal-request-contract.md
+    type: text/markdown
+    title: Markdown version
+---
 # Resolving the `ILLEGAL_REQUEST_CONTRACT` error when generating a payment invoice
 
 

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/route-table/add-labels/
+alternate:
+  - href: en/cli/cli-ref/vpc/cli-ref/route-table/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc route-table add-labels

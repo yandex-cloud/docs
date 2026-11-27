@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cli/operations/profile/manage-properties.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing {{ yandex-cloud }} CLI profile parameters
 
 You can manage your profile parameters in the following ways: 

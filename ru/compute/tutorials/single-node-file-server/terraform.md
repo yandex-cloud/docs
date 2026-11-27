@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/archive/single-node-file-server/terraform'
+alternate:
+  - href: ru/compute/tutorials/single-node-file-server/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Однонодовый файловый сервер с помощью {{ TF }}

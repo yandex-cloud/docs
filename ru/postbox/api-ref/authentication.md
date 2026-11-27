@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в API {{ postbox-full-name }}
 description: Для выполнения операций через API {{ postbox-name }} получите статический ключ доступа.
+alternate:
+  - href: ru/postbox/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в API {{ postbox-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как создать пустой диск с блоком большого размера
 description: Следуя данной инструкции, вы сможете создать пустой диск с блоком большого размера.
+alternate:
+  - href: ru/compute/operations/disk-create/empty-disk-blocksize.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать пустой диск с блоком большого размера

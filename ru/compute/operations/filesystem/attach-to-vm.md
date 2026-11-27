@@ -1,6 +1,10 @@
 ---
 title: Подключить файловое хранилище к виртуальной машине
 description: Следуя данной инструкции, вы сможете подключить файловое хранилище к виртуальной машине.
+alternate:
+  - href: ru/compute/operations/filesystem/attach-to-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключить файловое хранилище к виртуальной машине

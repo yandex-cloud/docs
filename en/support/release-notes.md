@@ -2,6 +2,10 @@
 title: '{{ yandex-cloud }} support release notes'
 description: This document describes the changes made to the {{ yandex-cloud }} support description.
 noIndex: true
+alternate:
+  - href: en/support/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Support release notes

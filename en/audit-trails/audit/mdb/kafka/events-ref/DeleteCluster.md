@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/mdb/kafka/events-ref/DeleteCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® Audit Trails Events: DeleteCluster

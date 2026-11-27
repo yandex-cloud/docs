@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/cloud-router/concepts/routing-instance.md
+    type: text/markdown
+    title: Markdown version
+---
 # Virtual router
 
 The virtual router is a core resource in the [{{ cr-name }}](./index.md) resource model. It is designed to create network topologies enabling network connectivity between cloud resources in different [networks](../../vpc/concepts/network.md).

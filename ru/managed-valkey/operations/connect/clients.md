@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к кластеру {{ VLK }} в {{ mrd-full-name }}
 description: Следуя данной инструкции, вы сможете подключиться к кластеру {{ VLK }}.
+alternate:
+  - href: ru/managed-valkey/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ VLK }} из приложений

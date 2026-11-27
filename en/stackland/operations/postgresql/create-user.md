@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/postgresql/create-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a {{ PG }} user
 
 If you have a [{{ PG }} cluster](../../concepts/components/postgresql.md) in your [project](../projects/create-project.md), you can create a user in it, i.e., a {{ PG }} role with login permissions. Use a `PostgresqlRole` resource to define the user. The user password is stored in a {{ k8s }} Secret: the operator can generate it automatically or you can provide a custom Secret with credentials.

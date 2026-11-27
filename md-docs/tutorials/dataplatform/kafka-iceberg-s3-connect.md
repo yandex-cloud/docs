@@ -193,7 +193,7 @@
             -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
         ```
 
-        Подробнее о получении FQDN хоста-брокера читайте в разделе [Получение FQDN хостов Apache Kafka®](../../managed-kafka/operations/connect/index.md#get-fqdn).
+        Подробнее о получении FQDN хоста-брокера читайте в разделе [Получить FQDN хостов-брокеров](../../managed-kafka/operations/connect/fqdn.md#get-fqdn).
 
 1. После коммита проверьте, что в каталоге бакета `iceberg/warehouse/myschema/mytable-*/` создан каталог `data` с данными в формате `PARQUET`.
 

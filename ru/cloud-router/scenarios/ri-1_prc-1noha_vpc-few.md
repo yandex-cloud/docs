@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/cloud-router/scenarios/ri-1_prc-1noha_vpc-few.md
+    type: text/markdown
+    title: Markdown version
+---
 # On-Prem без резервирования и несколько VPC
 
 

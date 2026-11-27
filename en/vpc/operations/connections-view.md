@@ -1,6 +1,10 @@
 ---
 title: How to view a chart of network connections in {{ vpc-full-name }}
 description: Follow this guide to view a chart of network connections.
+alternate:
+  - href: en/vpc/operations/connections-view.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Chart of network connections

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/kinesisapi/methods/putrecord.md
+    type: text/markdown
+    title: Markdown version
+---
 # PutRecord
 
 Puts one [record](../../concepts/glossary.md#message) into a [data stream](../../concepts/glossary.md#stream-concepts).

@@ -1,6 +1,10 @@
 ---
 title: Выделить память для директории /tmp
 description: Из статьи вы узнаете, как в функции выделить часть оперативной памяти для директории /tmp.
+alternate:
+  - href: ru/functions/operations/function/allocate-memory-tmp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выделить память для директории /tmp

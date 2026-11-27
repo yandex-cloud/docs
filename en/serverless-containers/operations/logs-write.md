@@ -1,6 +1,10 @@
 ---
 title: Writing to the execution log in {{ serverless-containers-full-name }}
 description: Follow this guide to configure container logging.
+alternate:
+  - href: en/serverless-containers/operations/logs-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Writing to the container execution log

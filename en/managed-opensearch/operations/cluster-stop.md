@@ -5,6 +5,10 @@ keywords:
   - Stopping OpenSearch
   - Starting OpenSearch
   - OpenSearch
+alternate:
+  - href: en/managed-opensearch/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Stopping and restarting a {{ OS }} cluster

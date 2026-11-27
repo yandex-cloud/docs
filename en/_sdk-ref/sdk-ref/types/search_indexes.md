@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/types/search_indexes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Search index types
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_indexes.file.**SearchIndexFile**{#yandex_ai_studio_sdk._search_indexes.file.SearchIndexFile}

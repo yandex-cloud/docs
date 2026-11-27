@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/concepts/multipart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Multipart upload
 
 {{ objstorage-name }} allows you to store objects that are up to several terabytes in size (see [{#T}](limits.md) for details). The larger the object, the more likely the upload will fail with a network error. For this reason, it is more efficient to upload large objects in smaller parts. This method of sending objects to {{ objstorage-name }} is called a multipart upload. For more information about multipart upload support, see [{#T}](../s3/api-ref/multipart.md).

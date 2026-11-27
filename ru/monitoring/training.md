@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ monitoring-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ monitoring-full-name }}.
+alternate:
+  - href: ru/monitoring/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ monitoring-full-name }}

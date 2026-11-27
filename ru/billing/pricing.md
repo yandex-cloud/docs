@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ yandex-cloud }}
 description: Из статьи вы узнаете о правилах тарификации сервисов в {{ yandex-cloud }}.
 editable: false
+alternate:
+  - href: ru/billing/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации {{ yandex-cloud }}

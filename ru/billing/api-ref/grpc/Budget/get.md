@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/billing/api-ref/grpc/Budget/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, gRPC: BudgetService.Get

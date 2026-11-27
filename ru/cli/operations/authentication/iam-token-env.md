@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в {{ yandex-cloud }} CLI с IAM-токеном из переменной окружения
 description: Следуя данной инструкции, вы сможете аутентифицироваться в {{ yandex-cloud }} CLI с помощью IAM-токена, сохраненного в переменной окружения.
+alternate:
+  - href: ru/cli/operations/authentication/iam-token-env.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в {{ yandex-cloud }} CLI с IAM-токеном из переменной окружения

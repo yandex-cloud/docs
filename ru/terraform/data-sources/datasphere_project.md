@@ -1,5 +1,9 @@
 ---
 subcategory: DataSphere
+alternate:
+  - href: ru/terraform/data-sources/datasphere_project.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_datasphere_project (DataSource)

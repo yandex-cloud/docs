@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-spark/api-ref/grpc/Cluster/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Spark API, gRPC: ClusterService.ListOperations

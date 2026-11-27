@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/iam/awscompatibility/api-ref/AccessKey/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access Key, REST: AccessKey

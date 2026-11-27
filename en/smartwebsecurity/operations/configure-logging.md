@@ -1,6 +1,10 @@
 ---
 title: Configuring logging in {{ sws-full-name }}
 description: Follow this guide to configure logging in {{ sws-full-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/configure-logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring logging via {{ sws-name }}

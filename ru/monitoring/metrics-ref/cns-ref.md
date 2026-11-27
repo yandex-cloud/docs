@@ -2,6 +2,10 @@
 title: Метрики {{ cns-full-name }}
 description: Из статьи вы узнаете про метрики {{ cns-name }}.
 editable: false
+alternate:
+  - href: ru/monitoring/metrics-ref/cns-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ cns-full-name }}

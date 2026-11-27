@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/operations/node-group/node-label-management.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление {{ k8s }}-метками узлов
 
 {% include [node-vm-explained](../../../_includes/managed-kubernetes/node-vm-explained.md) %}

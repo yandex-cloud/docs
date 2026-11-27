@@ -1,6 +1,10 @@
 ---
 title: Создать канал push-уведомлений в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете создать канал push-уведомлений.
+alternate:
+  - href: ru/notifications/operations/push/channel-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать канал push-уведомлений

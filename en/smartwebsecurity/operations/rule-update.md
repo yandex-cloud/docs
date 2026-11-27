@@ -1,6 +1,10 @@
 ---
 title: How to edit a rule in a security profile in {{ sws-full-name }}
 description: Follow this guide to edit a rule in a security profile in {{ sws-full-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/rule-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a rule in a security profile

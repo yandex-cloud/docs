@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/websql/events-ref/GetDatabaseStructure.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # WebSQL Audit Trails Events: GetDatabaseStructure

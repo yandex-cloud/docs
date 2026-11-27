@@ -1,6 +1,10 @@
 ---
 title: Как записать метрики
 description: Следуя данной инструкции, вы сможете записать метрики.
+alternate:
+  - href: ru/monium/operations/prometheus/ingestion/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запись метрик

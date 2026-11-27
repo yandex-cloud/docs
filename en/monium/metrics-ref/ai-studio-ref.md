@@ -2,6 +2,10 @@
 title: '{{ ai-studio-full-name }} metrics'
 description: In this tutorial, you will learn about {{ ai-studio-full-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/ai-studio-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ai-studio-full-name }} metrics

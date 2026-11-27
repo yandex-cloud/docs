@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/container/allow-unauthenticated-invoke/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/container/allow-unauthenticated-invoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless container allow-unauthenticated-invoke

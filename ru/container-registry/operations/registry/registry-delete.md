@@ -1,6 +1,10 @@
 ---
 title: Как удалить реестр {{ container-registry-full-name }}
 description: Следуя данной инструкции, вы сможете удалить реестр {{ container-registry-short-name }}.
+alternate:
+  - href: ru/container-registry/operations/registry/registry-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить реестр

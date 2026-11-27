@@ -1,6 +1,10 @@
 ---
 title: How to delete a trigger in {{ api-gw-full-name }}
 description: In this guide, you will learn how to delete a trigger in {{ api-gw-full-name }}.
+alternate:
+  - href: en/api-gateway/operations/trigger/trigger-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a trigger in {{ api-gw-full-name }}

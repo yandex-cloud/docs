@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Monitoring
 
 {{ stackland-name }} allows you to set up monitoring for the cluster and platform components with [Prometheus](https://prometheus.io), [Grafana](https://grafana.com), and Alertmanager.

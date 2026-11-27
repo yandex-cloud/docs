@@ -1,6 +1,10 @@
 ---
 title: AWS SDK for .NET
 description: In this article, you will learn about the AWS SDK for .NET, how to install and configure it, and will also see some code examples.
+alternate:
+  - href: en/storage/tools/aws-sdk-net.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AWS SDK for .NET

@@ -1,6 +1,10 @@
 ---
 title: Очистка таблиц и системного каталога в {{ mgp-name }}
 description: Из статьи вы узнаете, зачем нужна очистка таблиц и системного каталога и как она выполняется в {{ mgp-full-name }}.
+alternate:
+  - href: ru/managed-greenplum/concepts/vacuum.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Очистка таблиц и системного каталога в {{ mgp-name }}

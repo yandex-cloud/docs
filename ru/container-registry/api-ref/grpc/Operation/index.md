@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/container-registry/api-ref/grpc/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, gRPC: OperationService

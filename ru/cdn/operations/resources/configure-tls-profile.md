@@ -1,6 +1,10 @@
 ---
 title: Настройка профиля безопасности TLS для CDN-ресурса
 description: Следуя данной инструкции, вы сможете настроить профиль безопасности TLS для CDN-ресурса.
+alternate:
+  - href: ru/cdn/operations/resources/configure-tls-profile.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка профиля безопасности TLS для CDN-ресурса

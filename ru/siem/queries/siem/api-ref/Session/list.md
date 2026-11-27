@@ -49,6 +49,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/siem/queries/siem/api-ref/Session/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM Queries API, REST: Session.List

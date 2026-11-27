@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Reports/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Reports
 
 <!-- markdownlint-disable-file -->

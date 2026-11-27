@@ -1,6 +1,10 @@
 ---
 title: Manually deploying Nextcloud in the {{ yandex-cloud }} infrastructure
 description: In this tutorial, you will manually deploy a fault-tolerant {{ yandex-cloud }} infrastructure that runs Nextcloud integrated with {{ objstorage-full-name }}.
+alternate:
+  - href: en/tutorials/archive/integrate-nextcloud/fault-tolerant.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Manually deploying Nextcloud on a {{ compute-full-name }} VM or in a VM group, integrated with {{ objstorage-full-name }}

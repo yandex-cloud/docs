@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/concepts/logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Logs {{ cloud-logging-name }}
 
 You can [configure](../operations/configure-logging.md) saving endpoint creation and notification logs to [{{ cloud-logging-name }}](../../logging/).

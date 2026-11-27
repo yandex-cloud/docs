@@ -1,6 +1,10 @@
 ---
 title: Creating a namespace
 description: Follow this guide to create a namespace.
+alternate:
+  - href: en/metadata-hub/operations/create-name-space.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a namespace

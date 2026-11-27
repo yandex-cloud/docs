@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/instance-groups/get-info.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting information about an instance group
 
 After creating an [instance group](../../concepts/instance-groups/index.md), you can get basic information about it.

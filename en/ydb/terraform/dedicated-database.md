@@ -1,6 +1,10 @@
 ---
 title: Creating and reconfiguring a dedicated {{ ydb-short-name }} database in {{ yandex-cloud }}
 description: This guide describes the properties of the `yandex_ydb_database_dedicated` resource for creating a dedicated {{ ydb-short-name }} database in {{ yandex-cloud }}.
+alternate:
+  - href: en/ydb/terraform/dedicated-database.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

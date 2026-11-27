@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ mmy-full-name }}
 description: This page covers FAQ about {{ mmy-short-name }}®.
+alternate:
+  - href: en/managed-mysql/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ mmy-short-name }}®

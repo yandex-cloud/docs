@@ -1,6 +1,10 @@
 ---
 title: Setting up hiding of origin headers
 description: Follow this guide to hide HTTP headers received from the content origin from end users.
+alternate:
+  - href: en/cdn/operations/resources/hiding-headers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up hiding of origin headers

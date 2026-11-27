@@ -2,6 +2,10 @@
 title: Time series functions
 description: Time series functions provide various ways to look up values corresponding to a specific time or offset along a given time axis.
 editable: false
+alternate:
+  - href: en/datalens/function-ref/time-series-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Time series functions

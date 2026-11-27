@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/monium/metrics-ref/serverless-containers-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ serverless-containers-full-name }}

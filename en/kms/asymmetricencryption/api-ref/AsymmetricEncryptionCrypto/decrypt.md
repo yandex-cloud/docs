@@ -31,6 +31,10 @@ apiPlayground:
         - ciphertext
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/kms/asymmetricencryption/api-ref/AsymmetricEncryptionCrypto/decrypt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: AsymmetricEncryptionCrypto.Decrypt

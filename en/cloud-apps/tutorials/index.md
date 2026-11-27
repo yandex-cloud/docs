@@ -1,6 +1,10 @@
 ---
 title: '{{ cloud-apps-full-name }} use cases'
 description: Various use cases for {{ cloud-apps-name }} products in {{ yandex-cloud }}.
+alternate:
+  - href: en/cloud-apps/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cloud-apps-name }} tutorials

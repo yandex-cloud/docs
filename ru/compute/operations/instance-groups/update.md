@@ -1,6 +1,10 @@
 ---
 title: Как изменить группу виртуальных машин в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете изменить группу виртуальных машин.
+alternate:
+  - href: ru/compute/operations/instance-groups/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить группу виртуальных машин

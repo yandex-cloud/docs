@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.FILTER.MEASURE_UNSUPPORTED
 description: На странице приведено описание ошибки {{ datalens-full-name }} Measure filter is unsupported for this type of query.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Measure filter is unsupported for this type of query

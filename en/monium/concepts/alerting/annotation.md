@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/concepts/alerting/annotation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Annotation
 
 Annotations enable you to save additional information during alert calculation. The annotation name and value are transmitted when sending alert notifications to the `Email` and `Telegram` [channels](notification-channel.md).

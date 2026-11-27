@@ -1,6 +1,10 @@
 ---
 title: Удалить метку функции
 description: Следуя данной инструкции, вы сможете удалить метку функции.
+alternate:
+  - href: ru/functions/operations/function/label-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить метку функции

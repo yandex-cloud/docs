@@ -1,6 +1,10 @@
 ---
 title: Как создать секрет
 description: Следуя данной инструкции, вы сможете создать секрет.
+alternate:
+  - href: ru/lockbox/operations/secret-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать секрет

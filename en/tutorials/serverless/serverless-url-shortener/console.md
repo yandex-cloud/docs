@@ -1,6 +1,10 @@
 ---
 title: URL shortener
 description: In this tutorial, you will deploy a link shortening service using a {{ api-gw-full-name }} API gateway and a {{ sf-full-name }} function with the help of the management console.
+alternate:
+  - href: en/tutorials/serverless/serverless-url-shortener/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Link shortener from the management console

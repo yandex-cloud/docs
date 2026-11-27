@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/LEN_ARRAY.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # LEN (массивы)

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/gitlab-containers'
+alternate:
+  - href: en/container-registry/tutorials/gitlab-containers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Continuous deployment of containerized applications using {{ GL }}

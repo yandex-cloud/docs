@@ -1,6 +1,10 @@
 ---
 title: How to look up broadcast viewing statistics in {{ video-full-name }}
 description: Follow this guide to look up viewing statistics for a broadcast and its episodes in {{ video-name }}.
+alternate:
+  - href: en/video/operations/streams/get-statistics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Looking up broadcast viewing statistics

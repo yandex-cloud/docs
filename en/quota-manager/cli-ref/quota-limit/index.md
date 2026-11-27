@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/quota-manager/cli-ref/quota-limit/
+alternate:
+  - href: en/quota-manager/cli-ref/quota-limit/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc quota-manager quota-limit

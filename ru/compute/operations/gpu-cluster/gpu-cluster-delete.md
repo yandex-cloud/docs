@@ -1,6 +1,10 @@
 ---
 title: Удалить кластер GPU
 description: Следуя данной инструкции, вы сможете удалить кластер GPU.
+alternate:
+  - href: ru/compute/operations/gpu-cluster/gpu-cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить кластер GPU

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/terraform/concepts/providers.md
+    type: text/markdown
+    title: Markdown version
+---
 # Провайдеры
 
 В {{ TF }} провайдер — это компонент, который позволяет взаимодействовать с различными облачными и инфраструктурными сервисами. По сути, провайдеры являются связующим звеном между {{ TF }} и целевыми платформами, такими как AWS, Google Cloud, Azure, Docker и другие.

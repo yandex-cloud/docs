@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-trino/concepts/greenplum-connector.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ GP }}/Cloudberry connector
 
 The {{ GP }}/Cloudberry [connector](index.md#connector) developed by Yandex based on the [{{ PG }} connector]({{ tr.docs }}/connector/postgresql.html) allows {{ mtr-name }} to read and write data to a {{ GP }}/Cloudberry cluster.

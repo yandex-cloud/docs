@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/queue/PurgeQueue.md
+    type: text/markdown
+    title: Markdown version
+---
 # PurgeQueue
 
 This method enables deleting messages in a queue. It takes some time to delete messages. To make sure no messages are left in the queue, pause sending messages to the queue and call the [GetQueueAttributes](GetQueueAttributes.md) method.

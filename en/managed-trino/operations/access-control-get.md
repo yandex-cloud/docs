@@ -1,6 +1,10 @@
 ---
 title: Getting access rules in {{ mtr-name }}
 description: You can learn what access rules are assigned for a {{ mtr-name }} cluster.
+alternate:
+  - href: en/managed-trino/operations/access-control-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting access rules in {{ mtr-name }}

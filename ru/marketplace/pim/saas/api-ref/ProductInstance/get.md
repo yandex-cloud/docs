@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/marketplace/pim/saas/api-ref/ProductInstance/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace Product Instance Management API, REST: ProductInstance.Get

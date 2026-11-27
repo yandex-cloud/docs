@@ -1,6 +1,10 @@
 ---
 title: Разрешение облачных DNS-имен в корпоративных сетях
 description: С помощью этого руководства вы можете интегрировать корпоративный DNS с внутренними DNS-зонами {{ yandex-cloud }} для разрешения имен облачных ресурсов в корпоративных сетях.
+alternate:
+  - href: ru/tutorials/infrastructure-management/dns-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разрешение облачных DNS-имен в корпоративной сети

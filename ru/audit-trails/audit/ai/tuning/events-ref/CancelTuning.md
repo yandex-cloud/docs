@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ai/tuning/events-ref/CancelTuning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio Tuning Audit Trails Events: CancelTuning

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/security-deck/api-ref/grpc/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck Alerts API, gRPC: OperationService.Get

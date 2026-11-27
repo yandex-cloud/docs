@@ -1,6 +1,10 @@
 ---
 title: How to update NVIDIA drivers
 description: Follow this guide to update NVIDIA and CUDA drivers.
+alternate:
+  - href: en/compute/operations/gpu-driver-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # NVIDIA driver update guide

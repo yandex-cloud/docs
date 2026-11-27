@@ -1,6 +1,10 @@
 ---
 title: Managing deliveries in {{ datalens-platform-full-name }}
 description: Follow this guide to view the list of data deliveries or statistics for a specific delivery, pause or delete a delivery, or change delivery settings in {{ datalens-platform-full-name }}.
+alternate:
+  - href: en/datalens/datalens-platform/operations/data-transfer/manage-transfer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing deliveries

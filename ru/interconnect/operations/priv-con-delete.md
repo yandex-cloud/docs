@@ -1,6 +1,10 @@
 ---
 title: Как удалить приватное соединение в транковом подключении {{ interconnect-name }}
 description: Следуя этой инструкции, вы сможете удалить приватное соединение в транковом подключении {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/operations/priv-con-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить приватное соединение

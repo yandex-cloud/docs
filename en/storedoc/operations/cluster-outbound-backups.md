@@ -2,6 +2,10 @@
 title: Recovering MongoDB from a {{ mmg-full-name }} backup with the help of WAL-G
 description: Follow this guide to recover MongoDB from a WAL-G backup you got from {{ mmg-name }}.
 noIndex: true
+alternate:
+  - href: en/storedoc/operations/cluster-outbound-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recovering MongoDB from a WAL-G backup

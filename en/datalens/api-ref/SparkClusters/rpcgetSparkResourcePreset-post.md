@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/SparkClusters/rpcgetSparkResourcePreset-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Get Spark resource preset

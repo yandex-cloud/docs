@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ resmgr-full-name }}
 description: Access management in {{ resmgr-full-name }}, a service for organizing {{ yandex-cloud }} resources into folders. This section describes the resources for which you can assign a role, the roles this service has, and the roles required for specific actions.
+alternate:
+  - href: en/resource-manager/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ resmgr-name }}

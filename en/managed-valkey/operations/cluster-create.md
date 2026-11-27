@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ VLK }} cluster
 description: Follow this guide to create a {{ VLK }} cluster with one or multiple database hosts.
+alternate:
+  - href: en/managed-valkey/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ VLK }} cluster

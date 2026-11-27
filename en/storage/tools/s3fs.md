@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/tools/s3fs.md
+    type: text/markdown
+    title: Markdown version
+---
 # s3fs
 
 [s3fs](https://github.com/s3fs-fuse/s3fs-fuse) is a utility for Linux and macOS to mount {{ objstorage-name }} buckets via [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).

@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ yq-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ yq-full-name }}.
+alternate:
+  - href: ru/query/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ yq-full-name }}

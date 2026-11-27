@@ -43,6 +43,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/certificate-manager/privateca/api-ref/Template/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, REST: Template.ListAccessBindings

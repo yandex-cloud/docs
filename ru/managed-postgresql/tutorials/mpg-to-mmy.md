@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/mpg-to-mmy'
+alternate:
+  - href: ru/managed-postgresql/tutorials/mpg-to-mmy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция данных из {{ mpg-name }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}

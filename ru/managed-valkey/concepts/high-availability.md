@@ -1,6 +1,10 @@
 ---
 title: Высокая доступность кластера {{ mrd-name }}
 description: Высокая доступность кластера {{ mrd-name }} обеспечивается механизмом репликации и переключения мастера, количеством хостов, настройками хранилища и персистентности, а также планированием обслуживания кластера.
+alternate:
+  - href: ru/managed-valkey/concepts/high-availability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Высокая доступность кластера {{ mrd-name }}

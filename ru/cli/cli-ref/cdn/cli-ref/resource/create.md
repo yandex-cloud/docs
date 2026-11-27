@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/resource/create/
+alternate:
+  - href: ru/cli/cli-ref/cdn/cli-ref/resource/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cdn resource create

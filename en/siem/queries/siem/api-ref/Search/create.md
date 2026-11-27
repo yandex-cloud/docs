@@ -47,6 +47,10 @@ apiPlayground:
         - name
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/siem/queries/siem/api-ref/Search/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM Queries API, REST: Search.Create

@@ -1,5 +1,9 @@
 ---
 subcategory: Identity and Access Management
+alternate:
+  - href: ru/terraform/resources/iam_workload_identity_oidc_federation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_iam_workload_identity_oidc_federation (Resource)

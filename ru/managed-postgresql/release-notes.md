@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ mpg-full-name }}
 description: В разделе представлена история изменений сервиса {{ mpg-name }}.
+alternate:
+  - href: ru/managed-postgresql/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 <!-- Changelog begin -->

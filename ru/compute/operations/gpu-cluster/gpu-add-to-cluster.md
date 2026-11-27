@@ -1,6 +1,10 @@
 ---
 title: Добавить виртуальную машину в кластер GPU
 description: Следуя данной инструкции, вы сможете добавить виртуальную машину в кластер GPU.
+alternate:
+  - href: ru/compute/operations/gpu-cluster/gpu-add-to-cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить виртуальную машину в кластер GPU

@@ -30,6 +30,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/baremetal/api-ref/Vrf/deleteVrf.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Vrf.DeleteVrf

@@ -1,6 +1,10 @@
 ---
 title: Фоновая карта в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Фоновая карта.
+alternate:
+  - href: ru/datalens/visualization-ref/choropleth-map-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Фоновая карта ![](../../_assets/datalens/heatmap.svg) в {{ datalens-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/monitoring/dashboard-delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a dashboard
 
 To delete a dashboard:

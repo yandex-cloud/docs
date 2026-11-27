@@ -1,6 +1,10 @@
 ---
 title: Как получить патч-версию {{ CH }} в {{ mch-full-name }}
 description: Следуя данной инструкции, вы сможете узнать патч-версию {{ CH }}, установленную в кластере {{ mch-full-name }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/cluster-patch-version.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение патч-версии {{ CH }}

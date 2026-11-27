@@ -1,5 +1,9 @@
 ---
 title: Как посмотреть квоты
+alternate:
+  - href: ru/quota-manager/operations/read-quotas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть значение квоты

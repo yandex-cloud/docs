@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/lifecycles/upload.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: PutBucketLifecycleConfiguration
 
 Uploads the bucket object lifecycle configuration to {{ objstorage-name }}.

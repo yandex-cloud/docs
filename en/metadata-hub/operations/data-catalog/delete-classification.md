@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/delete-classification.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a classification
 
 

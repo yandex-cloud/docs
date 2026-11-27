@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/cloud-router/scenarios/ri-2_prc-1noha_vpc-1.md
+    type: text/markdown
+    title: Markdown version
+---
 # Два отдельных виртуальных маршрутизатора без резервирования On-Prem
 
 

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storedoc/concepts/replication.md
+    type: text/markdown
+    title: Markdown version
+---
 # Репликация в {{ SD }}
 
 Репликация в кластере {{ mmg-name }} включается при наличии не менее трех [нескрытых](../operations/hosts.md#update) хостов. Каждый хост-реплика хранит копию одного и того же набора данных.

@@ -2,6 +2,10 @@
 title: Fixing string sorting issues in {{ PG }} after upgrading the glibc library
 description: Analyzing string sorting issues in {{ PG }} after upgrading the glibc (GNU C) library and their solutions.
 canonical: '{{ link-docs }}/tutorials/dataplatform/postgresql-glibc-collation-issues'
+alternate:
+  - href: en/managed-postgresql/tutorials/glibc-collation-issues.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Fixing string sorting issues in {{ PG }} after upgrading glibc

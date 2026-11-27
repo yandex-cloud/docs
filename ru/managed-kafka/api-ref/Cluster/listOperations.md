@@ -36,6 +36,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-kafka/api-ref/Cluster/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, REST: Cluster.ListOperations

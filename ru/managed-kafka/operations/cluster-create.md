@@ -1,6 +1,10 @@
 ---
 title: Как создать кластер {{ KF }}
 description: Следуя данной инструкции, вы сможете создать кластер {{ KF }}.
+alternate:
+  - href: ru/managed-kafka/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ KF }}

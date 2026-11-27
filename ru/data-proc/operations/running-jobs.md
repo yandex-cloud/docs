@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/operations/running-jobs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Запуск заданий
 
 Задание можно запустить несколькими способами:

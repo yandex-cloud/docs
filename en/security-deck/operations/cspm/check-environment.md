@@ -1,6 +1,10 @@
 ---
 title: Initiating the procedure to check a workspace for compliance with security control rules of the {{ cspm-name }} module
 description: Follow this guide to learn how to manually initiate the procedure to check a workspace for compliance with security control rules of the {{ cspm-name }} module in {{ sd-full-name }} and to download the results in CSV format.
+alternate:
+  - href: en/security-deck/operations/cspm/check-environment.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Checking a workspace for compliance with control rules

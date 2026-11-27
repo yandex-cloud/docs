@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ lockbox-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ lockbox-name }}.
+alternate:
+  - href: ru/lockbox/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ lockbox-full-name }}

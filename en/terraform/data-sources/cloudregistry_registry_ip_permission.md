@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Registry
+alternate:
+  - href: en/terraform/data-sources/cloudregistry_registry_ip_permission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cloudregistry_registry_ip_permission (DataSource)

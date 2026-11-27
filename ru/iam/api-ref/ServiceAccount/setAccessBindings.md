@@ -361,6 +361,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: ru/iam/api-ref/ServiceAccount/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: ServiceAccount.SetAccessBindings

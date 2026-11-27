@@ -17,6 +17,11 @@ meta:
     - keyword: '{{ sk-hybrid-name }}'
     - keyword: '{{ speechkit-name }} technologies'
     - keyword: '{{ sk-hybrid-name }} technology'
+  noIndex: true
+  alternate:
+    - href: en/speechkit-hybrid/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Learn how to deploy the service on your hardware

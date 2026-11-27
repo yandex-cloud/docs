@@ -30,6 +30,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/managed-spqr/api-ref/Cluster/deleteHosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR API, REST: Cluster.DeleteHosts

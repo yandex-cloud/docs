@@ -66,6 +66,10 @@ meta:
     - keyword: on-request server
     - keyword: custom server
     - keyword: configurator
+  alternate:
+    - href: en/baremetal/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Lease your first server

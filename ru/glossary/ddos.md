@@ -1,6 +1,10 @@
 ---
 title: 'Что такое DDoS: причины, последствия и методы защиты'
 description: DDoS — это кибератака с целью довести до отказа веб-систему жертвы или затруднить доступ к ней.
+alternate:
+  - href: ru/glossary/ddos.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Что такое DDoS-атаки и как от них защититься

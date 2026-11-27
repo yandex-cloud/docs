@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/types/datasets.md
+    type: text/markdown
+    title: Markdown version
+---
 # Datasets
 
 ## *class* yandex\_ai\_studio\_sdk.\_datasets.status.**DatasetStatus**{#yandex_ai_studio_sdk._datasets.status.DatasetStatus}

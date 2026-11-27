@@ -1,6 +1,10 @@
 ---
 title: Удаление политики MFA в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете удалить политику MFA в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/mfa/delete-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить политику MFA

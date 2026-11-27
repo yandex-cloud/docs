@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о шаблоне плеера в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о шаблоне плеера в сервисе {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/style-presets/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о шаблоне плеера

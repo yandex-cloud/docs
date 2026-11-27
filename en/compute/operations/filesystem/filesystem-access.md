@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for a {{ compute-name }} file storage
 description: Follow this guide to configure file storage access permissions.
+alternate:
+  - href: en/compute/operations/filesystem/filesystem-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring file storage access permissions

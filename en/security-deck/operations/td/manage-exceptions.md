@@ -1,6 +1,10 @@
 ---
 title: Managing exceptions from {{ td-full-name }} ({{ td-name }}) security rules in {{ sd-full-name }}
 description: In this section, you will learn how to create, modify, and delete exceptions from rules in {{ sd-full-name }}'s {{ td-full-name }} ({{ td-name }}) module.
+alternate:
+  - href: en/security-deck/operations/td/manage-exceptions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing exceptions to the {{ td-full-name }} ({{ td-name }}) module's security rules

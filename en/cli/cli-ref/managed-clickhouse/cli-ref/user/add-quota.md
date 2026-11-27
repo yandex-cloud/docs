@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/user/add-quota/
+alternate:
+  - href: en/cli/cli-ref/managed-clickhouse/cli-ref/user/add-quota.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse user add-quota

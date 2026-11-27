@@ -1,6 +1,10 @@
 ---
 title: How to delete a player preset in {{ video-full-name }}
 description: Follow this guide to delete a player preset in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/style-presets/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a player preset

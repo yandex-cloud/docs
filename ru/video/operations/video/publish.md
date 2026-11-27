@@ -1,6 +1,10 @@
 ---
 title: Как опубликовать видео в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете опубликовать и проверить доступность видео, загруженного в сервис {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/video/publish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Опубликовать видео

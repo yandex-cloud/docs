@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/smartwebsecurity/waf/api-ref/grpc/WafProfile/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity WAF API, gRPC: WafProfileService.Update

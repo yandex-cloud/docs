@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к хосту кластера {{ dataproc-full-name }} по SSH
 description: Следуя данной инструкции, вы сможете подключиться к хосту {{ dataproc-name }} по SSH.
+alternate:
+  - href: ru/data-proc/operations/connect-ssh.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к хосту {{ dataproc-name }} по SSH

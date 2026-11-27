@@ -6,6 +6,10 @@ keywords:
   - LAMP-стек
   - LEMP
   - LAMP и LEMP
+alternate:
+  - href: ru/glossary/lamp-and-lemp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Стеки LAMP и LEMP

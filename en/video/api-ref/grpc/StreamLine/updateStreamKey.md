@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/video/api-ref/grpc/StreamLine/updateStreamKey.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, gRPC: StreamLineService.UpdateStreamKey

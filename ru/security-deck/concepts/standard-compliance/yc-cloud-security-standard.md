@@ -1,6 +1,10 @@
 ---
 title: Стандарт по защите облачной инфраструктуры {{ yandex-cloud }}
 description: В этом разделе приведен список правил контроля, которые входят в Стандарт по защите облачной инфраструктуры {{ yandex-cloud }}.
+alternate:
+  - href: ru/security-deck/concepts/standard-compliance/yc-cloud-security-standard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Стандарт по защите облачной инфраструктуры {{ yandex-cloud }}

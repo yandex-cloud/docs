@@ -87,6 +87,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: en/lockbox/api-ref/Secret/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox API, REST: Secret.SetAccessBindings

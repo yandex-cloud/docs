@@ -1,6 +1,10 @@
 ---
 title: Основные принципы API {{ yandex-cloud }}
 description: Из статьи вы узнаете про основные принципы API {{ yandex-cloud }}, а также ознакомитесь с ресурсо-ориентированным подходом.
+alternate:
+  - href: ru/api-design-guide/concepts/general.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Основные принципы

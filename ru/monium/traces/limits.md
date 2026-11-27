@@ -1,6 +1,10 @@
 ---
 title: Ограничения
 description: 'Лимиты и квоты {{ traces-name }}: хранение, запись, чтение. Валидация входящих спанов.'
+alternate:
+  - href: ru/monium/traces/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ограничения

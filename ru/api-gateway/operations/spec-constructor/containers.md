@@ -1,6 +1,10 @@
 ---
 title: Добавить расширение {{ serverless-containers-full-name }}
 description: Следуя данной инструкции, вы сможете добавить расширение {{ serverless-containers-full-name }} с помощью конструктора спецификации.
+alternate:
+  - href: ru/api-gateway/operations/spec-constructor/containers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить расширение x-yc-apigateway-integration:serverless_containers

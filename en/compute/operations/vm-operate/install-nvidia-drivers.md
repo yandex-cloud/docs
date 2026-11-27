@@ -1,6 +1,10 @@
 ---
 title: Installing NVIDIA drivers
 description: Follow this guide to install NVIDIA drivers.
+alternate:
+  - href: en/compute/operations/vm-operate/install-nvidia-drivers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

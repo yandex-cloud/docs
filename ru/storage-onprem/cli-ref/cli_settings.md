@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_settings.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli settings
 
 Show settings

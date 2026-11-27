@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/golang/dependencies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Building and managing Go function dependencies
 
 At the build stage, {{ sf-name }} automatically installs dependencies required for a Go function when creating a new [function version](../../operations/function/version-manage.md).

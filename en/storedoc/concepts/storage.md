@@ -1,6 +1,10 @@
 ---
 title: Storage in {{ mmg-full-name }}
 description: In this article, you will learn what storage is in {{ mmg-name }}, how to manage disk space, and how to select the right disk type when creating a cluster.
+alternate:
+  - href: en/storedoc/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Storage in {{ mmg-name }}

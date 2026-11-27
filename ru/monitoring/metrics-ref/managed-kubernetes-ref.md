@@ -2,6 +2,10 @@
 title: Метрики {{ managed-k8s-full-name }}
 description: Из статьи вы узнаете про метрики {{ managed-k8s-name }}.
 editable: false
+alternate:
+  - href: ru/monitoring/metrics-ref/managed-kubernetes-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ managed-k8s-full-name }}

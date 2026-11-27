@@ -1,6 +1,10 @@
 ---
 title: Информация о кластерах в {{ msp-full-name }}
 description: Вы можете запросить детальную информацию о каждом созданном вами кластере {{ SPRK }}. Чтобы получить список кластеров в каталоге, перейдите на страницу каталога и выберите сервис {{ msp-full-name }}.
+alternate:
+  - href: ru/managed-spark/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Информация об имеющихся кластерах

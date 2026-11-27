@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/python/dependencies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing Python function dependencies
 
 {{ sf-name }} can automatically install dependencies required for a Python function. To do this, when creating a new [function version](../../operations/function/version-manage.md), {{ sf-name }} will run the `pip install` command in the project root (the directory with the function).

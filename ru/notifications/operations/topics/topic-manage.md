@@ -1,6 +1,10 @@
 ---
 title: Управлять топиком в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете обновить или удалить топик.
+alternate:
+  - href: ru/notifications/operations/topics/topic-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять топиком

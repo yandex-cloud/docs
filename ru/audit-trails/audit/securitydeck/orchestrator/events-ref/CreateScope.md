@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/securitydeck/orchestrator/events-ref/CreateScope.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck Orchestrator Audit Trails Events: CreateScope

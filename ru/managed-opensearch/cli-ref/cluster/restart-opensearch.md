@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/cluster/restart-opensearch/
+alternate:
+  - href: ru/managed-opensearch/cli-ref/cluster/restart-opensearch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-opensearch cluster restart-opensearch

@@ -1,6 +1,10 @@
 ---
 title: Управление хостами кластера {{ MY }}
 description: Из статьи вы узнаете, как управлять хостами кластера {{ MY }} и их настройками.
+alternate:
+  - href: ru/managed-mysql/operations/hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление хостами кластера {{ MY }}

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/data-transfer/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer API, REST: Operation

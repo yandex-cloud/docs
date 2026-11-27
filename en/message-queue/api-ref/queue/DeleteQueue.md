@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/queue/DeleteQueue.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteQueue
 
 Method for deleting a queue. If the specified queue does not exist, Message Queue returns a successful response.

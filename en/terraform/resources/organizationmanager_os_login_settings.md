@@ -1,5 +1,9 @@
 ---
 subcategory: Identity Hub
+alternate:
+  - href: en/terraform/resources/organizationmanager_os_login_settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_organizationmanager_os_login_settings (Resource)

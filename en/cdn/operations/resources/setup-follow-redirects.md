@@ -1,6 +1,10 @@
 ---
 title: Setting up how to follow request redirects
 description: Follow this guide to set up redirects for requests received from content origins.
+alternate:
+  - href: en/cdn/operations/resources/setup-follow-redirects.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up how to follow request redirects

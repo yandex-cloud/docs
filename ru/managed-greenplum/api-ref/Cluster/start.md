@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-greenplum/api-ref/Cluster/start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.Start

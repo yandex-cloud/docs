@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/interconnect/operations/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Пошаговые инструкции {{ interconnect-name }}
 
 ## Транковое подключение

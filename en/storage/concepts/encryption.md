@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/concepts/encryption.md
+    type: text/markdown
+    title: Markdown version
+---
 # Encryption in {{ objstorage-name }}
 
 When using [{{ objstorage-full-name }}](../../storage/), you have to make sure to encrypt critical data.

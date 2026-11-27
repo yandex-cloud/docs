@@ -1,6 +1,10 @@
 ---
 title: Сопоставление с Google Cloud Platform
 description: В этой статье сопоставляются сервисы {{ yandex-cloud }} и сервисы Google Cloud Platform.
+alternate:
+  - href: ru/overview/platform-comparison/gcp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сопоставление с Google Cloud Platform

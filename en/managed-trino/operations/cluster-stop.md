@@ -1,6 +1,10 @@
 ---
 title: Stopping and starting a {{ TR }} cluster
 description: You can stop and restart a {{ TR }} cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
+alternate:
+  - href: en/managed-trino/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Stopping and restarting a {{ TR }} cluster

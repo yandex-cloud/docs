@@ -31,6 +31,10 @@ apiPlayground:
         - required:
             - videoId
     definitions: null
+alternate:
+  - href: ru/video/api-ref/Thumbnail/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Thumbnail.Create

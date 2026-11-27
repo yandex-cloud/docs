@@ -1,6 +1,10 @@
 ---
 title: Публичные IP-адреса сервиса {{ captcha-name }}
 description: Для корректной работы с сервисом {{ captcha-name }} необходимо разрешить доступ к определенным IP-адресам.
+alternate:
+  - href: ru/smartcaptcha/concepts/ips.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные IP-адреса сервиса {{ captcha-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to start and stop {{ unified-agent-full-name }}
 description: In this tutorial, you will learn how to start and stop {{ unified-agent-full-name }}.
+alternate:
+  - href: en/monium/concepts/data-collection/unified-agent/run-and-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Starting and stopping {{ unified-agent-full-name }}

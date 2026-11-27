@@ -1,6 +1,10 @@
 ---
 title: Как управлять API-ключами в {{ iam-full-name }}
 description: Из статьи вы узнаете, как создавать и удалять API-ключи в {{ iam-full-name }} через консоль управления, CLI и API сервиса.
+alternate:
+  - href: ru/iam/operations/authentication/manage-api-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление API-ключами

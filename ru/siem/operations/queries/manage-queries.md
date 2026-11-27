@@ -1,6 +1,10 @@
 ---
 title: Управление запросами в {{ yandex-siem-full-name }}
 description: Следуя данной инструкции, вы научитесь создавать, редактировать, запускать и удалять запросы в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/operations/queries/manage-queries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление запросами

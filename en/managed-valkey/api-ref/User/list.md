@@ -38,6 +38,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/managed-valkey/api-ref/User/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, REST: User.List

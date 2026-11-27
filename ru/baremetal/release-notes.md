@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ baremetal-full-name }}
 description: В разделе представлена история изменений сервиса {{ baremetal-name }}.
+alternate:
+  - href: ru/baremetal/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ baremetal-full-name }}

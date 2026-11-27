@@ -1,6 +1,10 @@
 ---
 title: Creating a fixed-size instance group with an L7 load balancer
 description: Follow this guide to create a fixed-size instance group with an L7 load balancer.
+alternate:
+  - href: en/compute/operations/instance-groups/create-with-load-balancer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a fixed-size instance group with an L7 load balancer

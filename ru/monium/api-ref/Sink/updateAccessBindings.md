@@ -105,6 +105,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/monium/api-ref/Sink/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, REST: Sink.UpdateAccessBindings

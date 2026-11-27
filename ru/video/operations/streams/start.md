@@ -1,6 +1,10 @@
 ---
 title: Как начать трансляцию в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете начать трансляцию {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/streams/start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начать трансляцию

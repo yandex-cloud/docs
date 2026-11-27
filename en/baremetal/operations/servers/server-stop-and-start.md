@@ -1,6 +1,10 @@
 ---
 title: How to start, stop, and restart a server in {{ baremetal-full-name }}
 description: In this tutorial, you will learn how to start, stop, and restart a leased {{ baremetal-full-name }} server.
+alternate:
+  - href: en/baremetal/operations/servers/server-stop-and-start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to start, stop, and restart a server

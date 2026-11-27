@@ -5,6 +5,10 @@ keywords:
   - connecting OpenSearch clusters
   - OpenSearch cluster
   - OpenSearch
+alternate:
+  - href: en/managed-opensearch/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pre-configuring a {{ OS }} cluster connection

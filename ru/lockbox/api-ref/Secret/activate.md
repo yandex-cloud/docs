@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/lockbox/api-ref/Secret/activate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox API, REST: Secret.Activate

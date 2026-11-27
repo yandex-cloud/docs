@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/network-load-balancer/known-issues/cannot-access-mk8s-pods.md
+    type: text/markdown
+    title: Markdown version
+---
 # Troubleshooting {{ managed-k8s-name }} pod access via {{ network-load-balancer-name }}
 
 

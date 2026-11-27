@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/list-suppressed-destinations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод ListSuppressedDestinations
 
 Возвращает список адресов в [пользовательском стоп-листе](../../concepts/suppression-list.md#user). Нужное облако определяется по сервисному аккаунту, от имени которого выполняется запрос.

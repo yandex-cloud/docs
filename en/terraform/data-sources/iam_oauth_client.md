@@ -1,5 +1,9 @@
 ---
 subcategory: Identity and Access Management
+alternate:
+  - href: en/terraform/data-sources/iam_oauth_client.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_iam_oauth_client (DataSource)

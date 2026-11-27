@@ -1,6 +1,10 @@
 ---
 title: Как удалить виртуальную машину
 description: Следуя данной инструкции, вы сможете удалить виртуальную машину.
+alternate:
+  - href: ru/compute/operations/vm-control/vm-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить виртуальную машину

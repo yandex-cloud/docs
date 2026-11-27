@@ -1,6 +1,10 @@
 ---
 title: How to view roles assigned for a trail
 description: Follow this guide to view roles assigned for a trail.
+alternate:
+  - href: en/audit-trails/operations/role-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing roles assigned for a trail

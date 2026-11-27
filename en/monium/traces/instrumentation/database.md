@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/traces/instrumentation/database.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with databases
 
 With [auto-instrumentation](auto.md), spans for database calls are created and attributes are filled automatically. In case of [manual instrumentation](manual.md), follow the convention described below.

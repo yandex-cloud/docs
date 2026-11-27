@@ -1,6 +1,10 @@
 ---
 title: Getting {{ yandex-cloud }} organization ID
 description: In this guide, you will learn how to get {{ yandex-cloud }} organization ID.
+alternate:
+  - href: en/organization/operations/organization-get-id.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting organization ID

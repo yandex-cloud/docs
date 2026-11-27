@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о трейле
 description: Следуя данной инструкции, вы сможете получить информацию о трейле {{ at-full-name }}.
+alternate:
+  - href: ru/audit-trails/operations/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о трейле

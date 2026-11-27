@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/v0/asymmetric-signature-key/
+alternate:
+  - href: en/kms/cli-ref/v0/asymmetric-signature-key/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc kms v0 asymmetric-signature-key

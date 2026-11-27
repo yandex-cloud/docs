@@ -18,6 +18,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/cdn/api-ref/ResourceRules/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: ResourceRules.List

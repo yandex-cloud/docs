@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/endpoint/create/postgres-source/
+alternate:
+  - href: ru/cli/cli-ref/datatransfer/cli-ref/endpoint/create/postgres-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc datatransfer endpoint create postgres-source

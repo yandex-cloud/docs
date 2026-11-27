@@ -2,6 +2,10 @@
 title: Метрики {{ mtr-full-name }}
 description: Из статьи вы узнаете про метрики {{ mtr-name }}.
 editable: false
+alternate:
+  - href: ru/monium/metrics-ref/managed-trino-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ mtr-full-name }}

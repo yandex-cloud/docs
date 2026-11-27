@@ -1,6 +1,10 @@
 ---
 title: Troubleshooting slow writes in {{ yds-full-name }}
 description: This tutorial gives a step-by-step description of how to troubleshoot write quota issues in {{ yds-full-name }}.
+alternate:
+  - href: en/data-streams/tutorials/slow-writes-debug.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting slow writes in {{ yds-full-name }}

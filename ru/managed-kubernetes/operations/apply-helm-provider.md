@@ -1,6 +1,10 @@
 ---
 title: Установка приложений из {{ marketplace-full-name }} с помощью {{ TF }}
 description: Следуя данной инструкции, вы подключите {{ TF }}-провайдер Helm и сможете устанавливать приложения из {{ marketplace-name }} с помощью манифестов {{ TF }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/apply-helm-provider.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка приложений из {{ marketplace-full-name }} с помощью {{ TF }}

@@ -1,6 +1,10 @@
 ---
 title: How to get {{ baremetal-full-name }} server information
 description: 'Follow this guide to get information about the {{ baremetal-full-name }} server settings: server configuration, network settings, operating system, and other data.'
+alternate:
+  - href: en/baremetal/operations/servers/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a server

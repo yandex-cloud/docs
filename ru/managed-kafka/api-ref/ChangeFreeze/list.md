@@ -50,6 +50,10 @@ apiPlayground:
               **string**
               The type of the resource, e.g. resource-manager.cloud, resource-manager.folder, compute.instance, etc.
             type: string
+alternate:
+  - href: ru/managed-kafka/api-ref/ChangeFreeze/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, REST: ChangeFreeze.List

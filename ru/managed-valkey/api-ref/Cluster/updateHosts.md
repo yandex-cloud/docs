@@ -68,6 +68,10 @@ apiPlayground:
             format: field-mask
         required:
           - hostName
+alternate:
+  - href: ru/managed-valkey/api-ref/Cluster/updateHosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, REST: Cluster.UpdateHosts

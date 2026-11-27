@@ -8,6 +8,11 @@ keywords:
   - недоступность сервиса
   - резервирование
   - минимизация задержек
+noIndex: true
+alternate:
+  - href: ru/architecture/fault-tolerance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Рекомендации по отказоустойчивости в {{ yandex-cloud }}

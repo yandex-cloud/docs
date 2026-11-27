@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/list-platform-applications.md
+    type: text/markdown
+    title: Markdown version
+---
 # ListPlatformApplications
 
 Gets a list of [mobile push notification channels](../concepts/push.md) or [in-browser push notification channels](../concepts/browser.md). The action always outputs one page and does not support pagination.

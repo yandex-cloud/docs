@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/monitoring/alerts-create-contact-point.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a notification channel
 
 To create a new notification channel:

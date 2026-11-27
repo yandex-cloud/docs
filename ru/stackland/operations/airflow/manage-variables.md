@@ -1,6 +1,10 @@
 ---
 title: Настроить Variables в {{ AF }}
 description: Как создать, изменить, импортировать и экспортировать переменные в веб-интерфейсе {{ AF }}
+alternate:
+  - href: ru/stackland/operations/airflow/manage-variables.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить Variables в {{ AF }}

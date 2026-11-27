@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/trigger/ymq-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a trigger for {{ message-queue-name }} that sends messages to {{ sf-name }}
 
 Create a [trigger](../../concepts/trigger/ymq-trigger.md) for a [message queue](../../../message-queue/concepts/queue.md) in {{ message-queue-short-name }} and process the messages using [{{ sf-name }}](../../concepts/function.md).

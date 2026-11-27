@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/marketplace/operations/update-version.md
+    type: text/markdown
+    title: Markdown version
+---
 # Changing product versions
 
 Before publication, the version must be moderated by technical experts and editors. You can edit a version until it is submitted for moderation. After it passes moderation, you can also make changes. In that case, you will have to resubmit the version for moderation. When moderation succeeds, the publisher can publish the approved version.

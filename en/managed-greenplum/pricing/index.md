@@ -2,6 +2,10 @@
 title: '{{ mgp-full-name }} pricing policy'
 description: This article covers the {{ mgp-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/managed-greenplum/pricing/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mgp-name }} pricing policy

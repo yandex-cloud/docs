@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/concepts/browser.md
+    type: text/markdown
+    title: Markdown version
+---
 # In-browser push notifications
 
 _In-browser push notifications_ are messages popping up in your browser.

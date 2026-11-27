@@ -1,6 +1,10 @@
 ---
 title: Нейроаналитик в Editor
 description: Из статьи вы узнаете, что такое Нейроаналитик в Editor и как его использовать.
+alternate:
+  - href: ru/datalens/charts/editor/code-helper.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Нейроаналитик в Editor

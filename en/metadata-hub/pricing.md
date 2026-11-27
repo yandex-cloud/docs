@@ -2,6 +2,10 @@
 title: '{{ metadata-hub-full-name }} pricing policy'
 description: This article covers the {{ metadata-hub-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/metadata-hub/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ metadata-hub-full-name }} pricing policy

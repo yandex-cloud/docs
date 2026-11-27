@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/projects/use-job-results.md
+    type: text/markdown
+    title: Markdown version
+---
 # Использование результатов работы выполненных заданий
 
 Иногда выходные данные [задания](../../concepts/jobs/index.md) нужно обработать или использовать для запуска другого задания. Для этого загрузите их с помощью функции {{ ds-jobs }} SDK `download_job_files` или подставьте в другое задание с помощью оператора [DAG Airflow](../../concepts/jobs/airflow.md).

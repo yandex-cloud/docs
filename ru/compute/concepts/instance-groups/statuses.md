@@ -1,6 +1,10 @@
 ---
 title: Статусы групп виртуальных машин
 description: В этом разделе перечислены возможные статусы группы виртуальных машин и статусы виртуальных машин в группе.
+alternate:
+  - href: ru/compute/concepts/instance-groups/statuses.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Статусы

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iot-core/operations/certificates/device-certificates.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing device certificates
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}

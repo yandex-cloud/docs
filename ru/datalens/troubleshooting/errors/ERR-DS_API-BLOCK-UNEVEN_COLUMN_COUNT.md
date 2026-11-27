@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.BLOCK.UNEVEN_COLUMN_COUNT
 description: На странице приведено описание ошибки {{ datalens-full-name }} Blocks have different column count.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-BLOCK-UNEVEN_COLUMN_COUNT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Blocks have different column count

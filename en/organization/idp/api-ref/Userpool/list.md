@@ -44,6 +44,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/organization/idp/api-ref/Userpool/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: Userpool.List

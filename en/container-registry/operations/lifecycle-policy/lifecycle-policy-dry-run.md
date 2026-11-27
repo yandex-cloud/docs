@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/container-registry/operations/lifecycle-policy/lifecycle-policy-dry-run.md
+    type: text/markdown
+    title: Markdown version
+---
 # Testing a lifecycle policy
 
 A dry run helps verify which [Docker images](../../concepts/docker-image.md) meet [lifecycle policy](../../concepts/lifecycle-policy.md) rules. Docker images are not actually deleted during dry runs.

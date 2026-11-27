@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/functions/triggers/api-ref/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Triggers Service, REST: Operation.Cancel

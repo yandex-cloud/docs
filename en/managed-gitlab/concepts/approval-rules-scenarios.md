@@ -1,6 +1,10 @@
 ---
 title: Recommendations for using approval rules in {{ mgl-full-name }}
 description: 'This article gives examples of the files named APPROVALRULES and CODEOWNERS for common scenarios: two-stage review, change approval in CI/CD, and role-based approval in {{ mgl-name }}.'
+alternate:
+  - href: en/managed-gitlab/concepts/approval-rules-scenarios.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recommendations for using approval rules in {{ mgl-full-name }}

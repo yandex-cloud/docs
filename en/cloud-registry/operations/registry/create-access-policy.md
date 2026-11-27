@@ -1,6 +1,10 @@
 ---
 title: How to configure a {{ cloud-registry-full-name }} access policy
 description: Follow this guide to configure a registry access policy.
+alternate:
+  - href: en/cloud-registry/operations/registry/create-access-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring a registry access policy

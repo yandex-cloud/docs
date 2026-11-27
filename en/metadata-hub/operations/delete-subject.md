@@ -1,6 +1,10 @@
 ---
 title: Deleting a subject
 description: Follow this guide to delete a subject.
+alternate:
+  - href: en/metadata-hub/operations/delete-subject.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a subject

@@ -1,6 +1,10 @@
 ---
 title: CLI troubleshooting
 description: This article describes solutions for typical issues with the CLI.
+alternate:
+  - href: en/cli/error.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} CLI troubleshooting

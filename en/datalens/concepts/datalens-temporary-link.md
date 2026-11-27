@@ -1,6 +1,10 @@
 ---
 title: Temporary link in {{ datalens-full-name }}
 description: In this article, you will learn how to make a workbook dashboard public using a temporary link in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/concepts/datalens-temporary-link.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Publishing using a temporary link

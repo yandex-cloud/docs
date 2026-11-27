@@ -127,6 +127,10 @@ apiPlayground:
               - externalAddressSpec
           - required:
               - internalAddressSpec
+alternate:
+  - href: ru/network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.AddListener

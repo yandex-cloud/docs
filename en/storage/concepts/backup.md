@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object backups
 
 {{ objstorage-name }} allows you to securely store your uploaded objects in a replicated storage; however, it does not provide any dedicated backup tools.

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/billing/usage/api-ref/grpc/Metadata/getCloud.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing Usage API, gRPC: MetadataService.GetCloud

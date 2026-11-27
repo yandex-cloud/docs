@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/community.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сообщества в {{ ml-platform-name }}
 
 _Сообщества_ — это способ организации групповой работы в {{ ml-platform-name }}. Сообщество определяет область видимости проектов и ресурсов и помогает настроить работу в команде.

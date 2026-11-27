@@ -7,6 +7,10 @@ keywords:
   - cloud apps
   - gatsby installation
 noIndex: true
+alternate:
+  - href: en/tutorials/web/gatsby-static-site-cloudapp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [gatsby-static-website](../../_tutorials/applied/gatsby-static-site-cloudapp.md) %}

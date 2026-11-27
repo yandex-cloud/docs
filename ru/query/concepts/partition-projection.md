@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/concepts/partition-projection.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширенное партицирование
 
 {% include [sunset](../../_includes/query/sunset.md) %}

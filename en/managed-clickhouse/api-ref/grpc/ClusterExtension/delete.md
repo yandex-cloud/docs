@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-clickhouse/api-ref/grpc/ClusterExtension/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, gRPC: ClusterExtensionService.Delete

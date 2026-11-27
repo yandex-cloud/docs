@@ -26,6 +26,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-postgresql/api-ref/ResourcePreset/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, REST: ResourcePreset.List

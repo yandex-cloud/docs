@@ -1,6 +1,10 @@
 ---
 title: Quotas and limits in {{ sd-full-name }}
 description: There are quotas and limits in {{ sd-name }}. For more information about the service restrictions, read this article.
+alternate:
+  - href: en/security-deck/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ sd-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/ytsaurus/get-admin-credentials.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting a {{ yt-name }} administrator password and token
 
 After you [enable the component](enable.md), the {{ YT }} cluster administrator credentials are stored in the `ytadminsec` Secret in the `stackland-ytsaurus` namespace.

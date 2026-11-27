@@ -1,6 +1,10 @@
 ---
 title: Настройки обмена данными между CDN-серверами и источниками
 description: 'Для коммуникаций между CDN-серверами и источниками можно выбрать протокол: всегда HTTP, всегда HTTPS или тот протокол, по которому CDN обменивается данными с клиентом.'
+alternate:
+  - href: ru/cdn/concepts/servers-to-origins.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройки обмена данными между CDN-серверами и источниками

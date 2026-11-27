@@ -1,6 +1,10 @@
 ---
 title: How to create, update, or delete a black or white list of IP addresses, ASNs, regular expressions, or string values
 description: Follow this guide to manage lists of IP addresses, ASNs, regular expressions, and string values.
+alternate:
+  - href: en/smartwebsecurity/operations/list-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing lists

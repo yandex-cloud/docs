@@ -1,6 +1,10 @@
 ---
 title: How to configure dashboard tabs in {{ datalens-full-name }}
 description: Follow this guide to add, delete, or change the order and display of tabs on your dashboard in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/dashboard-tabs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring dashboard tabs in {{ datalens-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Получить информацию о бакете и его статистику в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о бакете и его статистику в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о бакете и его статистику

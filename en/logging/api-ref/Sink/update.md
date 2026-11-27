@@ -114,6 +114,10 @@ apiPlayground:
               Prefix to use for saved log object names
               The maximum string length in characters is 1024.
             type: string
+alternate:
+  - href: en/logging/api-ref/Sink/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, REST: Sink.Update

@@ -25,6 +25,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/managed-trino/api-ref/Catalog/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Trino API, REST: Catalog.Delete

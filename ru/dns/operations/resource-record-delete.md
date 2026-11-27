@@ -1,6 +1,10 @@
 ---
 title: Как удалить ресурсную запись в {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете удалить ресурсную запись.
+alternate:
+  - href: ru/dns/operations/resource-record-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить ресурсную запись

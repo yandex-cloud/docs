@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-scale-scheduled/console'
+alternate:
+  - href: ru/compute/tutorials/vm-scale-scheduled/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Масштабирование группы виртуальных машин по расписанию с помощью консоли управления, CLI и API

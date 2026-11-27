@@ -1,6 +1,10 @@
 ---
 title: Secure password transmission to an initialization script using the management console, CLI, or API
 description: In this tutorial, you will create a Windows-based {{ compute-name }} VM with the help of an initialization script using the management console, CLI, or API.
+alternate:
+  - href: en/tutorials/windows/secure-password-script/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Secure password transmission to an initialization script using the management console, CLI, or API

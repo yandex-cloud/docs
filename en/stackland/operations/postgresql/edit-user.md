@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/postgresql/edit-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating a {{ PG }} user
 
 If you have a {{ PG }} user in your [cluster](../../concepts/components/postgresql.md), you can update the user's permissions and parameters. Once created, the cluster name (`spec.cluster`) and role name (`spec.username`) cannot be changed.

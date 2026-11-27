@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-integrations/tutorials/eventrouter-migration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Миграция с {{ er-name }} на триггеры
 
 {% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}

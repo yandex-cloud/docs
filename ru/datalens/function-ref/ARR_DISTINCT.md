@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/ARR_DISTINCT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # ARR_DISTINCT

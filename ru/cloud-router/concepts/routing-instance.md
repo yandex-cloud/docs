@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/cloud-router/concepts/routing-instance.md
+    type: text/markdown
+    title: Markdown version
+---
 # Виртуальный маршрутизатор
 
 Виртуальный маршрутизатор — это основной ресурс в ресурсной модели сервиса [{{ cr-name }}](./index.md), предназначенный для создания сетевых топологий, в рамках которых облачные ресурсы в разных [сетях](../../vpc/concepts/network.md) будут иметь сетевую связность между собой.

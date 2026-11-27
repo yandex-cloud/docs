@@ -1,6 +1,10 @@
 ---
 title: Как стать участником партнерской программы {{ yandex-cloud }}
 description: Следуя данной инструкции, вы сможете стать участником партнерской программы {{ yandex-cloud }}.
+alternate:
+  - href: ru/partner/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как стать участником партнерской программы

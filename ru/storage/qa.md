@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ objstorage-full-name }}
 description: На странице представлены вопросы и ответы про {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/qa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ objstorage-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как установить агент для сбора метрик {{ prometheus-name }}
 description: Из статьи вы узнаете, как установить агент для сбора метрик {{ prometheus-name }} при создании виртуальной машины и посмотреть собранные метрики.
+alternate:
+  - href: ru/monitoring/operations/prometheus/ingestion/prometheus-agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Агент для сбора метрик {{ prometheus-name }}

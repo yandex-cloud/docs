@@ -1,6 +1,10 @@
 ---
 title: Creating an in-browser push notification channel in {{ cns-full-name }}
 description: Follow this guide to create an in-browser push notification channel.
+alternate:
+  - href: en/notifications/operations/browser/channel-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Create an in-browser push notification channel

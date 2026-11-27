@@ -5,6 +5,10 @@ keywords:
   - ACL
   - список управления доступом
   - access control list
+alternate:
+  - href: ru/storage/concepts/acl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [acl](../../_includes/storage/security/acl.md) %}

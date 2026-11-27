@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/overdraft-while-transferring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Negative balance limit for wire transfers
 
 

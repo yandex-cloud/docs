@@ -1,6 +1,10 @@
 ---
 title: Как получить список операций транкового подключения в {{ interconnect-name }}
 description: Следуя этой инструкции, вы сможете получить список операций транкового подключения в {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/operations/trunk-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список операций транкового подключения

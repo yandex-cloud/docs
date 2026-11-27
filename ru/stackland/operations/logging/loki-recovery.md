@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/logging/loki-recovery.md
+    type: text/markdown
+    title: Markdown version
+---
 # Восстановить Loki в standalone-режиме при заполнении PVC
 
 В режиме `standalone` Loki хранит данные на одном PVC. Если PVC заполнен, pod Loki может перейти в `CrashLoopBackOff`, а в логах появляются ошибки вида `no space left on device`.

@@ -1,5 +1,9 @@
 ---
 title: Как отвязать купленную в {{ marketplace-full-name }} подписку
+alternate:
+  - href: ru/marketplace/operations/users/unlock-subscription.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отвязка подписки

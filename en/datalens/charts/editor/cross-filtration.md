@@ -1,6 +1,10 @@
 ---
 title: Cross-filtering
 description: In this article, you will learn how to configure chart cross-filtering.
+alternate:
+  - href: en/datalens/charts/editor/cross-filtration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cross-filtering

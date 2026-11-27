@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/overview/platform-comparison/vmware/resource-role-model.md
+    type: text/markdown
+    title: Markdown version
+---
 # Resource and role model
 
 In this article, we will compare the private cloud architecture models: VMware Cloud Director (vCloud Director or vCD) vs. {{ yandex-cloud }}.

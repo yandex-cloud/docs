@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/interconnect/api-ref/grpc/PointOfPresence/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Interconnect API, gRPC: PointOfPresenceService.List

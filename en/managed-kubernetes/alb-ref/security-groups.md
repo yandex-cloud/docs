@@ -1,6 +1,10 @@
 ---
 title: Configuring security groups for {{ alb-name }} tools in {{ managed-k8s-name }}
 description: To ensure proper operation of the ingress controller and Gateway API, you must configure appropriate security groups for your cluster, {{ managed-k8s-full-name }} node groups, and {{ alb-name }}.
+alternate:
+  - href: en/managed-kubernetes/alb-ref/security-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring security groups for {{ alb-name }} tools in {{ managed-k8s-full-name }} 

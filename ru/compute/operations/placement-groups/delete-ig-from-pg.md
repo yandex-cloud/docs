@@ -1,6 +1,10 @@
 ---
 title: Исключить группу виртуальных машин из группы размещения в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете исключить группу виртуальных машин из группы размещения.
+alternate:
+  - href: ru/compute/operations/placement-groups/delete-ig-from-pg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Исключить группу виртуальных машин из группы размещения

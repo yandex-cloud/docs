@@ -1,6 +1,10 @@
 ---
 title: Отозвать роли, назначенные на функцию
 description: Следуя данной инструкции, вы сможете отозвать роли, назначенные на функцию.
+alternate:
+  - href: ru/functions/operations/function/role-revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отозвать роли, назначенные на функцию

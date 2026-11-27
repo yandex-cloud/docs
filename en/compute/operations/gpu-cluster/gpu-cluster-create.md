@@ -1,6 +1,10 @@
 ---
 title: How to create a GPU cluster
 description: Follow this guide to create a GPU cluster.
+alternate:
+  - href: en/compute/operations/gpu-cluster/gpu-cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a GPU cluster

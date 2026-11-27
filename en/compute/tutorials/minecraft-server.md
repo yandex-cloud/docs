@@ -12,6 +12,10 @@ keywords:
   - deploying a game server
   - configuring a game server
   - minecraft in {{ yandex-cloud }}
+alternate:
+  - href: en/compute/tutorials/minecraft-server.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [minecraft-server](../../_tutorials/infrastructure/minecraft-server.md) %}

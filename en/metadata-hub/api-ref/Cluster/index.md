@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/metadata-hub/api-ref/Cluster/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Hive Metastore™ API, REST: Cluster

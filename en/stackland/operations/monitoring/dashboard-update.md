@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/monitoring/dashboard-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating a dashboard
 
 To update a dashboard:

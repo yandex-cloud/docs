@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/promocodes-and-grants-features-in-billing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как работают гранты и промокоды в {{ billing-name }}
 
 

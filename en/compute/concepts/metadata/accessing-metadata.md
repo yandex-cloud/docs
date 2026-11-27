@@ -1,6 +1,10 @@
 ---
 title: Getting the {{ compute-name }} VM instance metadata
 description: In this article, you will learn about the ways to get {{ compute-full-name }} VM instance metadata.
+alternate:
+  - href: en/compute/concepts/metadata/accessing-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access to VM instance metadata

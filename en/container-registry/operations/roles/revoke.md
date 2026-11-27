@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/container-registry/operations/roles/revoke.md
+    type: text/markdown
+    title: Markdown version
+---
 # Revoking a role for a resource
 
 You can prevent a [subject](../../../iam/concepts/access-control/index.md#subject) from accessing a resource. To do this, revoke the subject's [roles](../../../iam/concepts/access-control/roles.md) for that resource and any resources from which permissions are inherited. For more information, see [{#T}](../../../iam/concepts/access-control/index.md).

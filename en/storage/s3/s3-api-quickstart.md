@@ -1,6 +1,10 @@
 ---
 title: Getting started with the S3 API in {{ objstorage-full-name }}
 description: In this article, you will learn how to run basic operations in {{ objstorage-full-name }} using the AWS S3 API.
+alternate:
+  - href: en/storage/s3/s3-api-quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with the AWS S3 API in {{ objstorage-full-name }}

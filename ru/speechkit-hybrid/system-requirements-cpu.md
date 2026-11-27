@@ -1,6 +1,11 @@
 ---
 title: Системные требования к серверам на базе CPU
 description: В этой статье описаны системные и программные требования к серверам на базе CPU.
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/system-requirements-cpu.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Системные требования к серверам на базе CPU

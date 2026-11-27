@@ -1,6 +1,10 @@
 ---
 title: Как переместить транковое подключение {{ interconnect-full-name }} в другой каталог
 description: Следуя этой инструкции, вы сможете переместить транковое подключение {{ interconnect-full-name }} в другой каталог.
+alternate:
+  - href: ru/interconnect/operations/trunk-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переместить транковое подключение в другой каталог

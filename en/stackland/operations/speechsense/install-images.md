@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/speechsense/install-images.md
+    type: text/markdown
+    title: Markdown version
+---
 # Uploading {{ speechsense-name }} images
 
 The basic {{ stackland-name }} package does not include {{ speechsense-name }} images. Make sure to upload the images to the cluster before activating the component.

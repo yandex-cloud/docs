@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/v0/database/update/
+alternate:
+  - href: ru/cli/cli-ref/managed-mongodb/cli-ref/v0/database/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb v0 database update

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/operations/trigger/telegram-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать триггер для Telegram, который вызывает функцию {{ sf-name }}
 
 Создайте [триггер для Telegram](../../concepts/trigger/telegram-trigger.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }}, когда Telegram-бот получает новое обновление.

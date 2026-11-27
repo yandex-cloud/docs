@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-mysql/operations/performance-diagnostics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Performance diagnostics in {{ mmy-name }}
 
 {{ mmy-name }} has a built-in tool for collecting session and query statistics. These metrics can be useful when [analyzing the cluster’s performance and optimizing its settings](../tutorials/profiling-mmy.md).

@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ iot-full-name }}
 description: Managing access to a {{ iot-full-name }} cloud MQTT server. This section describes the resources you can assign a role for and the roles existing in the service.
+alternate:
+  - href: en/iot-core/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
     
 # Access management in {{ iot-name }}

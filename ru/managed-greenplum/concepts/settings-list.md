@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройки СУБД
 
 В сервисе {{ mgp-name }} можно задать настройки, которые относятся к СУБД. Часть настроек задается [на уровне кластера](#dbms-cluster-settings), часть — на уровне внешних источников данных: [S3](#s3-settings), [JDBC](#jdbc-settings), [HDFS](#hdfs-settings), [Hive](#hive-settings).

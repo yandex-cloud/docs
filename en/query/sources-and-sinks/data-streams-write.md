@@ -1,6 +1,10 @@
 ---
 title: Writing data from {{ yq-full-name }} to {{ yds-full-name }} streams
 description: In this article, you will learn how to write data from {{ yq-full-name }} to {{ yds-full-name }} streams.
+alternate:
+  - href: en/query/sources-and-sinks/data-streams-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Writing data from {{ yq-full-name }} to {{ yds-full-name }} streams

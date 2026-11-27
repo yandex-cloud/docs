@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED'
 description: This page describes the Subquery source is disallowed in the connection settings {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Subquery source is disallowed in the connection settings

@@ -1,6 +1,10 @@
 ---
 title: Stopping and starting an API gateway
 description: Follow this guide to stop or start an API gateway.
+alternate:
+  - href: en/api-gateway/operations/api-gw-stop-resume.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Stopping and starting an API gateway

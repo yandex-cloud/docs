@@ -1,6 +1,10 @@
 ---
 title: Настроить переменные для спецификации API-шлюза
 description: Следуя данной инструкции, вы сможете настроить переменные для спецификации API-шлюза.
+alternate:
+  - href: ru/api-gateway/operations/api-gw-vars.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить переменные

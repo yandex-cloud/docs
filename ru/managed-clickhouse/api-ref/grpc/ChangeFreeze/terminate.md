@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-clickhouse/api-ref/grpc/ChangeFreeze/terminate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, gRPC: ChangeFreezeService.Terminate

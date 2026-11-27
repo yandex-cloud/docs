@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ vpc-full-name }}
 description: This page covers FAQ about {{ vpc-name }}.
+alternate:
+  - href: en/vpc/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ vpc-name }}

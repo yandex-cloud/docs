@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ metastore-name }}'
 description: This page presents reference information on the {{ TF }} provider resources and data sources supported for {{ metastore-name }} in {{ metadata-hub-full-name }}.
+alternate:
+  - href: en/metadata-hub/metastore-tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ metastore-name }}

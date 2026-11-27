@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/baremetal/api-ref/Image/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Image

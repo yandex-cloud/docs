@@ -1,6 +1,10 @@
 ---
 title: Настройки дашборда в {{ datalens-full-name }}
 description: Из статьи вы узнаете о настройках дашборда в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/dashboard/settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройки дашборда в {{ datalens-full-name }}

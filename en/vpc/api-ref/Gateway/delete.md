@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/vpc/api-ref/Gateway/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: Gateway.Delete

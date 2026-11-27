@@ -1,6 +1,11 @@
 ---
 title: '{{ sk-hybrid-name }} architecture'
 description: In this tutorial, you will learn about the {{ sk-hybrid-name }} components.
+noIndex: true
+alternate:
+  - href: en/speechkit-hybrid/architecture.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sk-hybrid-name }} architecture

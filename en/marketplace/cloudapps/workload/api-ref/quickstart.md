@@ -1,6 +1,10 @@
 ---
 title: Integration with the {{ marketplace-short-name }} {{ cloud-apps-name }} Workload API
 description: You will learn how to work with the {{ cloud-apps-full-name }} Workload API to integrate your application with {{ marketplace-full-name }}.
+alternate:
+  - href: en/marketplace/cloudapps/workload/api-ref/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with the {{ marketplace-short-name }} {{ cloud-apps-name }} Workload API

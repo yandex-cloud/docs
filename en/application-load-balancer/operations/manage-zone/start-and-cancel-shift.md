@@ -1,6 +1,10 @@
 ---
 title: How to enable and disable a zonal shift and start shifting traffic to other zones on an L7 {{ alb-full-name }}
 description: Follow this guide to disable/enable a zonal shift and test traffic redistribution on an L7 load balancer.
+alternate:
+  - href: en/application-load-balancer/operations/manage-zone/start-and-cancel-shift.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling and disabling a zonal shift

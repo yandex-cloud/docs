@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/smartcaptcha/concepts/domain-validation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Валидация домена
 
 При создании капчи указывается список доменов, на которых она будет размещена. По умолчанию {{ captcha-name }} проверяет имя домена и позволяет использовать капчу только на сайтах, которые входят в этот список.

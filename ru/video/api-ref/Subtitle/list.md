@@ -32,6 +32,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/video/api-ref/Subtitle/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Subtitle.List

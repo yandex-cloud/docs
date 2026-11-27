@@ -1,6 +1,10 @@
 ---
 title: How to manage transfers in {{ data-transfer-full-name }}
 description: 'Follow this guide to manage a transfer: get a list of transfers or detailed information about a transfer as well as create, edit, activate, deactivate, and delete a transfer.'
+alternate:
+  - href: en/data-transfer/operations/transfer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing transfer process

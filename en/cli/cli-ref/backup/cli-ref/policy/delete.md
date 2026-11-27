@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/policy/delete/
+alternate:
+  - href: en/cli/cli-ref/backup/cli-ref/policy/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc backup policy delete

@@ -1,6 +1,10 @@
 ---
 title: Migrating data from {{ mmy-name }} to {{ mpg-name }} using {{ data-transfer-name }}
 description: In this tutorial, you will set up a data transfer from a {{ mmy-name }} database to a {{ mpg-name }} database using {{ data-transfer-name }}.
+alternate:
+  - href: en/tutorials/dataplatform/mmy-to-mpg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating data from {{ mmy-name }} to {{ mpg-name }} using {{ data-transfer-name }}

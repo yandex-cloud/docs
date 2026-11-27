@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обзор начала работы с {{ yq-name }}
 
 {% include [sunset](../../_includes/query/sunset.md) %}

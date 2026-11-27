@@ -1,6 +1,10 @@
 ---
 title: Назначение ролей {{ PG }} в {{ mpg-full-name }}
 description: Сервис {{ mpg-name }} не дает доступа к предопределенным ролям. Вместо этого он предоставляет специальные роли, которые можно назначить с помощью CLI или API {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-postgresql/concepts/roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначение ролей {{ PG }}

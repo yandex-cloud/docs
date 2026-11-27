@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/send-request.md
+    type: text/markdown
+    title: Markdown version
+---
 # Отправить запрос HTTP API к {{ cns-full-name }}
 
 HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).

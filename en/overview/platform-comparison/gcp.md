@@ -1,6 +1,10 @@
 ---
 title: Equivalents for Google Cloud Platform
 description: This article establishes the equivalence between {{ yandex-cloud }} services and Google Cloud Platform services.
+alternate:
+  - href: en/overview/platform-comparison/gcp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Equivalents for Google Cloud Platform

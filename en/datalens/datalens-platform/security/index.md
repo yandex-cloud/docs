@@ -1,6 +1,10 @@
 ---
 title: Managing access to {{ datalens-platform-full-name }}
 description: In this article, you will learn about access management in {{ datalens-platform-full-name }}.
+alternate:
+  - href: en/datalens/datalens-platform/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to {{ datalens-platform-full-name }}

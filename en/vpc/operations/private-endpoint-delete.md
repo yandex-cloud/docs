@@ -1,6 +1,10 @@
 ---
 title: How to delete a service connection in {{ vpc-full-name }}
 description: Follow this guide to delete a service connection (private endpoint) in {{ vpc-name }}.
+alternate:
+  - href: en/vpc/operations/private-endpoint-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a service connection

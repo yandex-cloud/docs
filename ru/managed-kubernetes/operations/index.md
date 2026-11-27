@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ managed-k8s-full-name }}
 description: 'В разделе собраны пошаговые инструкции по работе с {{ managed-k8s-name }}: подключение к кластеру, работа с постоянными томами, управление группой узлов и кластером {{ k8s }}.'
+alternate:
+  - href: ru/managed-kubernetes/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ managed-k8s-name }}

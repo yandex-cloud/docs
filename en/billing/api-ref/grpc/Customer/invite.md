@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/billing/api-ref/grpc/Customer/invite.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, gRPC: CustomerService.Invite

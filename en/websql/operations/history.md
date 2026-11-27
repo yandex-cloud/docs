@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/websql/operations/history.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with query history
 
 {{ websql-full-name }} features [query history](../concepts/index.md#query-log). You can:

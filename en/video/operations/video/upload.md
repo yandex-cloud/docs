@@ -1,6 +1,10 @@
 ---
 title: How to upload a video to {{ video-full-name }}
 description: Follow this guide to upload a video to {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/video/upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Uploading a video

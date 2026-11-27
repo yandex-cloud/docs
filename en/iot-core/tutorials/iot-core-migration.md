@@ -1,6 +1,10 @@
 ---
 title: Migrating from {{ iot-full-name }} to open-source MQTT solutions
 description: This tutorial explains how to migrate from {{ iot-full-name }} to open-source MQTT solutions.
+alternate:
+  - href: en/iot-core/tutorials/iot-core-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating from {{ iot-full-name }} to open-source MQTT solutions

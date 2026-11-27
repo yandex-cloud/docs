@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/concepts/billing-account.md
+    type: text/markdown
+    title: Markdown version
+---
 # Платежный аккаунт
 
 Платежный аккаунт используется для идентификации пользователя, оплачивающего ресурсы в {{ yandex-cloud }}.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iot-core/operations/device/alias/alias-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание алиаса в {{ iot-name }}
 
 {% include [iot-sunset-warning](../../../../_includes/iot-core/sunset-warning.md) %}

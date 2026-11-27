@@ -1,6 +1,10 @@
 ---
 title: Профили WAF в {{ sws-full-name }}
 description: 'Типы профилей WAF в {{ sws-name }}: Cloud WAF и SolidWall WAF.'
+alternate:
+  - href: ru/smartwebsecurity/concepts/waf-profiles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Профили WAF

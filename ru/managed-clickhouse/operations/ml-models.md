@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/operations/ml-models.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление моделями машинного обучения в {{ mch-name }}
 
 {{ mch-short-name }} позволяет анализировать данные с помощью моделей машинного обучения [CatBoost](https://catboost.ai/) без использования дополнительных инструментов.

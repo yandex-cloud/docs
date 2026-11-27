@@ -78,6 +78,10 @@ apiPlayground:
           format: int64
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/compute/api-ref/Filesystem/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Filesystem.Create

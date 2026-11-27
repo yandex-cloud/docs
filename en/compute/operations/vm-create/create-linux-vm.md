@@ -1,6 +1,10 @@
 ---
 title: How to create a Linux VM from a public image
 description: Use this tutorial to create a Linux VM.
+alternate:
+  - href: en/compute/operations/vm-create/create-linux-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM from a public Linux image

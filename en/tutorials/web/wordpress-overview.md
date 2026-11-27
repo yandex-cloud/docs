@@ -6,6 +6,10 @@ keywords:
   - WordPress website
   - Setting up WordPress
   - migrating WordPress
+alternate:
+  - href: en/tutorials/web/wordpress-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # WordPress websites

@@ -1,6 +1,10 @@
 ---
 title: Как импортировать образ из другого облака или каталога в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете импортировать образ из другого облака или каталога.
+alternate:
+  - href: ru/compute/operations/image-control/import.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Импортировать образ из другого облака или каталога

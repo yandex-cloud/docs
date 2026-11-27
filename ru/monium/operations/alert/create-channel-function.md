@@ -1,6 +1,10 @@
 ---
 title: Как создать канал уведомлений с вызовом функции в {{ monitoring-full-name }}
 description: Следуя данной инструкции, вы сможете создать канал уведомлений с вызовом функции {{ sf-full-name }}.
+alternate:
+  - href: ru/monium/operations/alert/create-channel-function.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание канала уведомлений с вызовом функции

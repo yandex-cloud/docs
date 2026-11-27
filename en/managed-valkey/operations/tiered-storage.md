@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-valkey/operations/tiered-storage.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing data tiering in {{ mrd-name }}
 
 You can enable [data tiering](../concepts/storage.md#data-tiering) to move infrequently used data from RAM to disk.

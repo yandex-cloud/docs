@@ -1,6 +1,10 @@
 ---
 title: Aggregations in {{ datalens-full-name }}
 description: This guide describes how data aggregation and grouping work in {{ datalens-full-name }} and how to write correct expressions with aggregations.
+alternate:
+  - href: en/datalens/concepts/aggregation-tutorial.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Aggregations in {{ datalens-full-name }}

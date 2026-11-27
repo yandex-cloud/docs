@@ -1,6 +1,10 @@
 ---
 title: Добавить правило-исключение Cloud WAF
 description: Следуя данной инструкции, вы сможете создать правило-исключение для WAF.
+alternate:
+  - href: ru/smartwebsecurity/operations/exclusion-rule-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить правило-исключение Cloud WAF

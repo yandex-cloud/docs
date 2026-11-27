@@ -1,6 +1,10 @@
 ---
 title: Как создать профиль ARL {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете создать профиль ARL {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/arl-profile-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать профиль ARL

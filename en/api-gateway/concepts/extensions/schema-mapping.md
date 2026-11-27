@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/schema-mapping.md
+    type: text/markdown
+    title: Markdown version
+---
 # x-yc-schema-mapping extension
 
 The `x-yc-schema-mapping` extension allows you to transform the JSON body of a request to an integration or response from it.

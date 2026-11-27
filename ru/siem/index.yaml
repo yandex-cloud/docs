@@ -13,6 +13,10 @@ meta:
   description: >-
     {{ yandex-siem-full-name }} — собственная SIEM-система {{ yandex-cloud }}
     для мониторинга и анализа событий безопасности в облачной инфраструктуре.
+  alternate:
+    - href: ru/siem/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первое расследование и выполните KQL-запрос

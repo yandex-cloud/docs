@@ -1,6 +1,10 @@
 ---
 title: Resource relationships in {{ mpg-full-name }}
 description: The main entity {{ mpg-name }} operates is a database cluster. Each cluster consists of one or multiple database hosts, which are virtual machines with DBMS servers deployed. Cluster hosts may reside in different availability zones. A multi-host cluster is natively fault tolerant because one of its replica hosts will take on the master role should the current master host fail.
+alternate:
+  - href: en/managed-postgresql/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource relationships in {{ mpg-name }}

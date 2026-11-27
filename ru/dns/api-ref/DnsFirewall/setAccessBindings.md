@@ -84,6 +84,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: ru/dns/api-ref/DnsFirewall/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, REST: DnsFirewall.SetAccessBindings

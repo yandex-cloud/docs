@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ metadata-hub-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ metadata-hub-name }}.
 editable: false
+alternate:
+  - href: ru/metadata-hub/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ metadata-hub-full-name }}

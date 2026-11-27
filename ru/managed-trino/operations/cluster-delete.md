@@ -5,6 +5,10 @@ keywords:
   - удаление кластера {{ TR }}
   - кластер {{ TR }}
   - '{{ TR }}'
+alternate:
+  - href: ru/managed-trino/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление кластера {{ TR }}

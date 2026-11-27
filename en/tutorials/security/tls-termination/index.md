@@ -1,6 +1,10 @@
 ---
 title: Terminating TLS connections using {{ alb-full-name }}
 description: In this tutorial, you will configure a {{ alb-full-name }} to terminate TLS connections using a certificate from {{ certificate-manager-full-name }} and redirect HTTP requests to HTTPS.
+alternate:
+  - href: en/tutorials/security/tls-termination/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [tls-termination](../../../_tutorials/security/tls-termination.md) %}

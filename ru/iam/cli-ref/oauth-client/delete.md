@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/oauth-client/delete/
+alternate:
+  - href: ru/iam/cli-ref/oauth-client/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam oauth-client delete

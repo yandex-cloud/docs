@@ -1,6 +1,10 @@
 ---
 title: FQDN хостов {{ OS }}
 description: Следуя данной инструкции, вы сможете получить FQDN хоста.
+alternate:
+  - href: ru/managed-opensearch/operations/connect/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FQDN хостов {{ OS }}

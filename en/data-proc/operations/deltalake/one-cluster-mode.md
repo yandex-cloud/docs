@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/operations/deltalake/one-cluster-mode.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring Delta Lake in single-cluster mode
 
 {{ dataproc-name }} 2.0 or higher supports using Delta Lake in single-cluster mode.

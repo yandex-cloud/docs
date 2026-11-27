@@ -1,6 +1,10 @@
 ---
 title: '{{ yds-full-name }} use cases'
 description: Various {{ yds-full-name }} use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/data-streams/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yds-name }} tutorials

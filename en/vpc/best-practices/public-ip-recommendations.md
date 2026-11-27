@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/vpc/best-practices/public-ip-recommendations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Recommendations for using public IP addresses
 
 [Public IPv4 addresses](../concepts/address.md#public-addresses) are a limited resource that becomes more and more expensive. However, the use of public IPv4 addresses is often not required and may even make your infrastructure vulnerable in some cases. {{ yandex-cloud }} provides services and [VM images](../../compute/concepts/image.md) that allow you to minimize the use of public IPv4 addresses and build a more cost-effective and stable infrastructure.

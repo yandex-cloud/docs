@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/eventrouter/rule/update/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/eventrouter/rule/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless eventrouter rule update

@@ -1,6 +1,10 @@
 ---
 title: How to replace a failed disk in a {{ baremetal-full-name }} server’s RAID array
 description: In this tutorial, you will learn how to replace a failed disk in a {{ baremetal-name }} server’s RAID array.
+alternate:
+  - href: en/baremetal/operations/servers/switch-raid-member.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Replacing a disk in a RAID array

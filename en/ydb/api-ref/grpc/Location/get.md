@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/ydb/api-ref/grpc/Location/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for YDB API, gRPC: LocationService.Get

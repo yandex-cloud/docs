@@ -1,6 +1,10 @@
 ---
 title: How to configure {{ monium-full-name }} alerts for {{ backup-full-name }} resources
 description: Follow this guide to configure {{ monium-name }} alerts for {{ backup-name }} resources.
+alternate:
+  - href: en/backup/operations/configure-alerts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring {{ monium-full-name }} alerts for {{ backup-full-name }} resources

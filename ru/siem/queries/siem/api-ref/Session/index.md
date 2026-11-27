@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/siem/queries/siem/api-ref/Session/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM Queries API, REST: Session

@@ -2,6 +2,10 @@
 title: Как настроить эндпоинт-источник {{ metrika-endpoint }}
 description: Следуя данной инструкции, вы сможете настроить эндпоинт-источник {{ metrika-endpoint }}.
 noIndex: true
+alternate:
+  - href: ru/data-transfer/operations/endpoint/source/metrika.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передача данных из эндпоинта-источника {{ metrika }}

@@ -1,6 +1,10 @@
 ---
 title: Включить и приостановить версионирование бакета в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете включить и приостановить версионирование бакета в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включить и приостановить версионирование бакета

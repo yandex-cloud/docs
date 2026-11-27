@@ -1,6 +1,10 @@
 ---
 title: '{{ connection-manager-name }} API authentication'
 description: To perform operations through the API in {{ connection-manager-name }}, get an IAM token for your account.
+alternate:
+  - href: en/metadata-hub/api-ref/authentication-connman.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ metadata-hub-full-name }} API authentication

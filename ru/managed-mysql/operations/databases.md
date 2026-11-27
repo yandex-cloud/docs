@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-mysql/operations/databases.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление базами данных в {{ mmy-name }}
 
 Вы можете добавлять и удалять базы данных, просматривать информацию о них, а также управлять некоторыми настройками баз данных с помощью интерфейсов {{ mmy-name }}.

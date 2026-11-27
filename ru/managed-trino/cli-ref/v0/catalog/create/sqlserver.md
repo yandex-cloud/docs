@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/v0/catalog/create/sqlserver/
+alternate:
+  - href: ru/managed-trino/cli-ref/v0/catalog/create/sqlserver.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-trino v0 catalog create sqlserver

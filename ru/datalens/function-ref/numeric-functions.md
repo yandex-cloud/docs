@@ -1,6 +1,10 @@
 ---
 title: Математические функции
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/numeric-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Математические функции

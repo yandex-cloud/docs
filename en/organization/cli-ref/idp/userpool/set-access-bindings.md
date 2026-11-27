@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/userpool/set-access-bindings/
+alternate:
+  - href: en/organization/cli-ref/idp/userpool/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager idp userpool set-access-bindings

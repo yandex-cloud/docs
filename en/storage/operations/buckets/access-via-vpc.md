@@ -1,6 +1,10 @@
 ---
 title: Configuring access to a bucket using a service connection from {{ vpc-full-name }}
 description: Follow this guide to set up access to a bucket using a service connection from {{ vpc-name }}.
+alternate:
+  - href: en/storage/operations/buckets/access-via-vpc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring access to a bucket using a service connection from {{ vpc-full-name }}

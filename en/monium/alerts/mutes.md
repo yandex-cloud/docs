@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/alerts/mutes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Mutes 
 
 Mutes allow you to temporarily disable notifications from a specific alert or group of alerts. Mutes do not affect the alert calculation process; the relevant status will be shown in the interface.

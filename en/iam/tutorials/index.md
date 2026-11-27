@@ -1,6 +1,10 @@
 ---
 title: '{{ iam-full-name }} use cases'
 description: Various {{ iam-full-name }} use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/iam/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ iam-name }} tutorials

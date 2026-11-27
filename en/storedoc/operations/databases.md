@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/operations/databases.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing databases in {{ mmg-name }}
 
 You can add and remove databases, as well as view their details.

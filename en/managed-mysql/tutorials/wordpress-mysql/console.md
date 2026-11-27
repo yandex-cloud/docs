@@ -3,6 +3,10 @@ title: Creating a WordPress website with a {{ mmy-full-name }} database cluster 
 description: This tutorial will teach you how to deploy a WordPress website with a {{ MY }} database cluster using the {{ yandex-cloud }} management console.
 canonical: '{{ link-docs }}/tutorials/web/wordpress-mysql/console'
 noIndex: true
+alternate:
+  - href: en/managed-mysql/tutorials/wordpress-mysql/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a WordPress website with a {{ MY }} database cluster using the management console

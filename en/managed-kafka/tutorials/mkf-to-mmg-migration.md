@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mmg'
+alternate:
+  - href: en/managed-kafka/tutorials/mkf-to-mmg-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering data to {{ mmg-full-name }} using {{ data-transfer-full-name }}

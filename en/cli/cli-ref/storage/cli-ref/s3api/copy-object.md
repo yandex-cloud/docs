@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/s3api/copy-object/
+alternate:
+  - href: en/cli/cli-ref/storage/cli-ref/s3api/copy-object.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc storage s3api copy-object

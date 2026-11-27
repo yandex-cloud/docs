@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/sdk/CloudVideoPlayerSDK/ContentIdEndpoint.md
+    type: text/markdown
+    title: Markdown version
+---
 # ContentIdEndpoint
 
 ```swift

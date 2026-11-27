@@ -1,6 +1,10 @@
 ---
 title: Maintenance in {{ mgp-full-name }}
 description: In {{ mgp-name }}, maintenance means automatic installation of database updates and patches for hosts (including for stopped clusters), host class and storage size modifications, and other maintenance operations.
+alternate:
+  - href: en/managed-greenplum/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Maintenance in {{ mgp-name }}

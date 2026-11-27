@@ -1,6 +1,10 @@
 ---
 title: Authorized keys
 description: In this article, you will learn what authorized keys are, why we need them, and what services support this authentication method.
+alternate:
+  - href: en/iam/concepts/authorization/key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authorized keys

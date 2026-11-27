@@ -1,6 +1,10 @@
 ---
 title: Тепловая карта в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Тепловая карта.
+alternate:
+  - href: ru/datalens/visualization-ref/heat-map-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Тепловая карта ![](../../_assets/datalens/heatmap.svg) в {{ datalens-full-name }}

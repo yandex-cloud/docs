@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_src-coc-ref/coc-ref/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuration as Code
 
 #|

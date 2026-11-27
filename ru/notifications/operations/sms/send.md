@@ -1,6 +1,10 @@
 ---
 title: Отправить тестовое SMS-уведомление в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете отправить тестовое SMS-уведомление.
+alternate:
+  - href: ru/notifications/operations/sms/send.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправить тестовое SMS-уведомление

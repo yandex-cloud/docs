@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/slo/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обзор
 
 _SLO (Service Level Objective)_ — целевой уровень качества сервиса, выраженный в определенных показателях за период времени. В отличие от SLA, SLO — это внутренняя цель, а не юридическое обязательство.

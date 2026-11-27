@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/trigger/update/billing-budget/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/trigger/update/billing-budget.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless trigger update billing-budget

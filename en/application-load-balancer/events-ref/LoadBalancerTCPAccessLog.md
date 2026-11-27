@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/application-load-balancer/events-ref/LoadBalancerTCPAccessLog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer Audit Trails Events: LoadBalancerTCPAccessLog

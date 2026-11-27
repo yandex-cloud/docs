@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию об OIDC-приложении в {{ org-full-name }}
 description: Следуя данной инструкции, вы получите информацию об OIDC-приложении в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/applications/oidc-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию об OIDC-приложении в {{ org-full-name }}

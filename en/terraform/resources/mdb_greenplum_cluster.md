@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for Greenplum®
+alternate:
+  - href: en/terraform/resources/mdb_greenplum_cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_greenplum_cluster (Resource)

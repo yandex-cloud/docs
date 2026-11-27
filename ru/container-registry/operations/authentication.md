@@ -1,6 +1,10 @@
 ---
 title: Аутентифицироваться в {{ container-registry-full-name }}
 description: Перед началом работы с {{ container-registry-name }} необходимо аутентифицироваться для соответствующего интерфейса.
+alternate:
+  - href: ru/container-registry/operations/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентифицироваться в {{ container-registry-name }}

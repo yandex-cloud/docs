@@ -1,6 +1,10 @@
 ---
 title: How to get information about lifecycle policies in {{ container-registry-full-name }}
 description: Follow this guide to get information about lifecycle policies.
+alternate:
+  - href: en/container-registry/operations/lifecycle-policy/lifecycle-policy-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about lifecycle policies

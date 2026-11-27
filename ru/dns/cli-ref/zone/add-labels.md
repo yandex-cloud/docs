@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/add-labels/
+alternate:
+  - href: ru/dns/cli-ref/zone/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns zone add-labels

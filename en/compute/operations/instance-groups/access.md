@@ -1,6 +1,10 @@
 ---
 title: Configuring instance group access permissions
 description: Follow this guide to configure instance group access permissions.
+alternate:
+  - href: en/compute/operations/instance-groups/access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring instance group access permissions

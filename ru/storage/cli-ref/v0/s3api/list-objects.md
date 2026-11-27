@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/v0/s3api/list-objects/
+alternate:
+  - href: ru/storage/cli-ref/v0/s3api/list-objects.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc storage v0 s3api list-objects

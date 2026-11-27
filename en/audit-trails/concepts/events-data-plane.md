@@ -1,6 +1,10 @@
 ---
 title: Data event reference {{ at-full-name }}
 description: This section provides descriptions of the data events collected in {{ yandex-cloud }} services.
+alternate:
+  - href: en/audit-trails/concepts/events-data-plane.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data event reference

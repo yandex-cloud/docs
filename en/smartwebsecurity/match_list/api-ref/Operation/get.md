@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/smartwebsecurity/match_list/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity MatchList API, REST: Operation.Get

@@ -1,6 +1,10 @@
 ---
 title: '{{ dspm-full-name }} in {{ sd-full-name }}'
 description: '{{ dspm-full-name }}, or {{ dspm-name }}, is a {{ sd-name }} module that helps you detect sensitive information stored in {{ objstorage-full-name }} buckets for assessment of its security posture impact and compliance with industry standards and regulations.'
+alternate:
+  - href: en/security-deck/concepts/dspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ dspm-full-name }} ({{ dspm-name }})

@@ -98,6 +98,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: ru/managed-kafka/api-ref/Cluster/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, REST: Cluster.SetAccessBindings

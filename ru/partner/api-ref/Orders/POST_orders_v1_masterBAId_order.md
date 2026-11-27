@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Orders/POST_orders_v1_masterBAId_order.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Create order

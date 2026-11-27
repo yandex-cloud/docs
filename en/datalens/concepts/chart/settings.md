@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} chart settings'
 description: In this article, you will learn about {{ datalens-full-name }} chart settings and how to undo and redo changes in charts.
+alternate:
+  - href: en/datalens/concepts/chart/settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} chart settings

@@ -1,6 +1,10 @@
 ---
 title: '{{ dataproc-full-name }} component interfaces and ports'
 description: In this tutorial, you will learn what component interfaces and ports are supported in {{ dataproc-name }} and how you can use them.
+alternate:
+  - href: en/data-proc/concepts/interfaces.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ dataproc-name }} component interfaces and ports

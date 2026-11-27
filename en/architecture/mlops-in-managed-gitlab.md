@@ -5,6 +5,11 @@ keywords:
   - Machine learning
   - Managed GitLab
   - MLOps
+noIndex: true
+alternate:
+  - href: en/architecture/mlops-in-managed-gitlab.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing the MLOps lifecycle with ML Registry in {{ mgl-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: '{{ kms-full-name }} use cases'
 description: Various {{ kms-full-name }} use cases in {{ yandex-cloud }}. Encrypting data, encrypting secrets in {{ managed-k8s-full-name }}, managing keys in {{ kms-short-name }} with HashiCorp {{ TF }}, encrypting secrets in HashiCorp {{ TF }}.
+alternate:
+  - href: en/kms/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ kms-full-name }} tutorials

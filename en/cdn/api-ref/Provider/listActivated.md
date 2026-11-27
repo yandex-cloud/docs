@@ -18,6 +18,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/cdn/api-ref/Provider/listActivated.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: Provider.ListActivated

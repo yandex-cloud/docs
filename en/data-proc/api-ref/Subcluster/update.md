@@ -155,6 +155,10 @@ apiPlayground:
             format: int64
         required:
           - measurementDuration
+alternate:
+  - href: en/data-proc/api-ref/Subcluster/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Data Processing API, REST: Subcluster.Update

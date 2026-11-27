@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/tls-termination'
+alternate:
+  - href: en/security/tutorials/data-encryption-and-key-management/tls-termination/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [tls-termination](../../../../_tutorials/security/tls-termination.md) %}

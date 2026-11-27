@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/data-processing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Способы работы с кластерами Apache Spark™ в {{ ml-platform-name }}
 
 Сервис [{{ dataproc-full-name }}](../../data-proc/) позволяет разворачивать кластеры Apache Spark™. Вы можете использовать кластеры {{ dataproc-name }}, чтобы запускать распределенные обучения на кластерах.

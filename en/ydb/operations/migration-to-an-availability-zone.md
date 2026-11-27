@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/ydb/operations/migration-to-an-availability-zone.md
+    type: text/markdown
+    title: Markdown version
+---
 # Migrating a {{ ydb-short-name }} database to a different availability zone
 
 Migration to another availability only makes sense for a {{ ydb-short-name }} [dedicated database](../concepts/serverless-and-dedicated.md). Serverless databases are not migrated between availability zones.

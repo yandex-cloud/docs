@@ -1,6 +1,10 @@
 ---
 title: Создать эндпоинт в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете создать эндпоинт.
+alternate:
+  - href: ru/notifications/operations/push/endpoint-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать эндпоинт

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/match-list/
+alternate:
+  - href: en/smartwebsecurity/cli-ref/match-list/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartwebsecurity match-list

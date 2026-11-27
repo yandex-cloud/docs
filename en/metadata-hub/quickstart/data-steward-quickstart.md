@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ data-catalog-full-name }} as a metadata steward
 description: Follow this guide to get started with {{ data-catalog-name }} as a metadata steward.
+alternate:
+  - href: en/metadata-hub/quickstart/data-steward-quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started as a metadata steward

@@ -1,6 +1,10 @@
 ---
 title: Удаление пространства имен
 description: Следуя данной инструкции, вы сможете удалить пространство имен.
+alternate:
+  - href: ru/metadata-hub/operations/delete-name-space.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление пространства имен

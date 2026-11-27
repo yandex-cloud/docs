@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/datasphere/events-ref/CloseProject.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere Audit Trails Events: CloseProject

@@ -1,6 +1,10 @@
 ---
 title: '{{ mtr-full-name }} release notes'
 description: This section contains the {{ mtr-name }} release notes.
+alternate:
+  - href: en/managed-trino/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mtr-full-name }} release notes

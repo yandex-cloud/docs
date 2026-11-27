@@ -1,6 +1,10 @@
 ---
 title: Как создать ресурс в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете создать ресурс.
+alternate:
+  - href: ru/cdn/operations/resources/create-resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание ресурса

@@ -1,6 +1,10 @@
 ---
 title: Обзор {{ ycdr-full-name }}
 description: '{{ ycdr-name }} — это сервис, собирающий данные о настройках инфраструктуры ваших сервисов в {{ yandex-cloud }}.'
+alternate:
+  - href: ru/ycdr/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор {{ ycdr-full-name }}

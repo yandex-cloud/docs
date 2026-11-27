@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/csharp/errors.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обработка ошибок функции на .NET Core
 
 Если [обработчик](handler.md) сигнализирует об ошибке исполнения или загрузки функции на .NET Core, [среда выполнения](../../concepts/runtime/index.md) автоматически перехватывает ошибку и возвращает в ответ JSON-документ, содержащий информацию о типе ошибки. Формат этого JSON-документа описан в разделе [Вызов функции](../../concepts/function-invoke.md#error).

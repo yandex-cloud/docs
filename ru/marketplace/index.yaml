@@ -24,6 +24,10 @@ meta:
     - keyword: приложения в {{ yandex-cloud }}
     - keyword: облачный магазин яндекс
     - keyword: магазин облачных приложений
+  alternate:
+    - href: ru/marketplace/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Партнерам
     description: Разместите свой продукт в Cloud Marketplace

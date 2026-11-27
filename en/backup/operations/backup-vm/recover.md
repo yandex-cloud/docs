@@ -1,6 +1,10 @@
 ---
 title: How to restore your VM or {{ baremetal-full-name }} server from a backup
 description: Follow this guide to restore a VM or {{ baremetal-full-name }} server from a backup.
+alternate:
+  - href: en/backup/operations/backup-vm/recover.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Restoring a {{ compute-full-name }} VM or {{ baremetal-full-name }} server from a backup

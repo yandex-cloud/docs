@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/getting-invoices-automatically.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to receive invoices to your email automatically
 
 

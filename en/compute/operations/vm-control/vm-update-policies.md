@@ -1,6 +1,10 @@
 ---
 title: Maintenance policy management
 description: Follow this guide to manage your maintenance policy.
+alternate:
+  - href: en/compute/operations/vm-control/vm-update-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Maintenance policy management

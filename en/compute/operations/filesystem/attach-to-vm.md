@@ -1,6 +1,10 @@
 ---
 title: Attaching a file storage to a VM
 description: Follow this guide to attach a file storage to a VM.
+alternate:
+  - href: en/compute/operations/filesystem/attach-to-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Attaching a file storage to a VM

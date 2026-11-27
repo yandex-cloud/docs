@@ -1,6 +1,10 @@
 ---
 title: How to run automatic Docker image scans on push using the management console, CLI, and API
 description: Follow this guide to run automatic Docker image scans on push to {{ container-registry-full-name }} using the management console, CLI, and API.
+alternate:
+  - href: en/container-registry/tutorials/image-auto-scan/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Automatic Docker image scans on push using the management console, CLI, and API

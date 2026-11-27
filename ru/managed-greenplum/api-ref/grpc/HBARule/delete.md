@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-greenplum/api-ref/grpc/HBARule/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, gRPC: HBARuleService.Delete

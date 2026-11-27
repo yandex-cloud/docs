@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ mkf-full-name }}
 description: Access management in Apache Kafka, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+alternate:
+  - href: en/managed-kafka/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ mkf-name }}

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/airflow-and-spark'
+alternate:
+  - href: en/managed-airflow/tutorials/spark-automation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Automating {{ msp-full-name }} operations

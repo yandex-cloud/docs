@@ -24,6 +24,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/baremetal/api-ref/HardwarePool/getHardwarePool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: HardwarePool.GetHardwarePool

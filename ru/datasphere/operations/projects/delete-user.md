@@ -1,6 +1,10 @@
 ---
 title: Как удалить пользователя из проекта
 description: Из статьи вы узнаете, как удалить пользователя из проекта в {{ ml-platform-name }}.
+alternate:
+  - href: ru/datasphere/operations/projects/delete-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить пользователя из проекта

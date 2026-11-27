@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ api-gw-full-name }}
 description: Различные сценарии использования {{ api-gw-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/api-gateway/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ api-gw-name }}

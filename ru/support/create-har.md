@@ -1,6 +1,10 @@
 ---
 title: Сохранение взаимодействия браузера и сервера в HAR-файл
 description: В этой статье вы узнаете о том, как сохранить историю взаимодействия браузера и сервера в HAR-файл.
+alternate:
+  - href: ru/support/create-har.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сохранение взаимодействия браузера и сервера в HAR-файл

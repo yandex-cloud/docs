@@ -1,6 +1,10 @@
 ---
 title: Как включить защиту от удаления группы виртуальных машин
 description: Следуя данной инструкции, вы сможете включить защиту от удаления группы виртуальных машин.
+alternate:
+  - href: ru/compute/operations/instance-groups/enable-deletion-protection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включить защиту от удаления для группы виртуальных машин {{ compute-name }}

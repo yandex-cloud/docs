@@ -2,6 +2,10 @@
 title: '{{ websql-full-name }} pricing policy'
 description: This article covers the {{ websql-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/websql/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ websql-full-name }} pricing policy

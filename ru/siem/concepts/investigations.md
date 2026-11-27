@@ -1,6 +1,10 @@
 ---
 title: Расследования в {{ yandex-siem-full-name }}
 description: Расследования в {{ yandex-siem-full-name }} позволяют анализировать события безопасности с помощью KQL-запросов, шаблонов и датасетов.
+alternate:
+  - href: ru/siem/concepts/investigations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Расследования

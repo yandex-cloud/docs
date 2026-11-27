@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/organization/idp/api-ref/SynchronizationSession/getSession.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: SynchronizationSession.GetSession

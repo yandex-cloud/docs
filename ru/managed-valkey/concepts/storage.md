@@ -1,6 +1,10 @@
 ---
 title: Хранилище в {{ mrd-full-name }}
 description: Из статьи вы узнаете, какие типы дисков есть в {{ mrd-name }} и познакомитесь с особенностями выбора типа диска при создании кластера.
+alternate:
+  - href: ru/managed-valkey/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Хранилище в {{ mrd-name }}

@@ -1,6 +1,10 @@
 ---
 title: '{{ mrd-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ mrd-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/managed-valkey/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

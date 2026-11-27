@@ -7,6 +7,10 @@ meta:
     - keyword: '{{ myt-name }}'
     - keyword: '{{ myt-full-name }}'
     - keyword: '{{ myt-name }}'
+  alternate:
+    - href: en/managed-ytsaurus/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Managed Service for YTsaurus

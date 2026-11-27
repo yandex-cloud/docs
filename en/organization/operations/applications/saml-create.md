@@ -1,6 +1,10 @@
 ---
 title: How to create a SAML application in {{ org-full-name }}
 description: Follow this guide to create a SAML application in {{ org-full-name }} for the users of your organization to authenticate to external apps using SAML-based single sign-on (SSO).
+alternate:
+  - href: en/organization/operations/applications/saml-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a SAML application in {{ org-full-name }}

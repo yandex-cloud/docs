@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ iot-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides a reference of {{ iot-name }} metrics exported to {{ monitoring-full-name }}.
+alternate:
+  - href: en/iot-core/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

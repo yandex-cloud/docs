@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monitoring/concepts/data-collection/unified-agent/storage.md
+    type: text/markdown
+    title: Markdown version
+---
 # Хранилища
 
 Хранилища перечисляются в секции `storages`, ссылки на хранилища добавляются в секцию `pipe`. Количество хранилищ не ограничено, но сослаться на одно хранилище можно только один раз.

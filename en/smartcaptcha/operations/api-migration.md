@@ -1,6 +1,10 @@
 ---
 title: Migrating to the new condition format in the API, CLI, and {{ TF }}
 description: Follow this guide to update {{ captcha-full-name }} conditions to the new format used by the API, CLI, and {{ TF }}.
+alternate:
+  - href: en/smartcaptcha/operations/api-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating the condition format in the API, CLI, and {{ TF }}

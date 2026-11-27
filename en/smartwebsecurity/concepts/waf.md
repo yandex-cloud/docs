@@ -1,6 +1,10 @@
 ---
 title: Cloud WAF in {{ sws-full-name }}
 description: How Web Application Firewall (WAF) profiles analyze HTTP requests and use rule sets and exceptions to protect web applications.
+alternate:
+  - href: en/smartwebsecurity/concepts/waf.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud WAF

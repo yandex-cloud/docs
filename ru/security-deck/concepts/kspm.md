@@ -1,6 +1,10 @@
 ---
 title: Контроль {{ k8s }}® ({{ kspm-name }}) в {{ sd-full-name }}
 description: Контроль {{ k8s }}® ({{ kspm-name }}) контролирует соответствие контейнеризованных приложений и используемых образов в инфраструктуре {{ yandex-cloud }} комплексным требованиям и лучшим практикам в сфере безопасности.
+alternate:
+  - href: ru/security-deck/concepts/kspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Контроль {{ k8s }}® ({{ kspm-name }})

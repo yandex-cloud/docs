@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/parametrization.md
+    type: text/markdown
+    title: Markdown version
+---
 # Параметризация спецификации
 
 Параметризация спецификации позволяет изменять поведение {{ api-gw-short-name }}, указывая разные значения для отдельных переменных, а не всей спецификации. Для этого используется расширение `x-yc-apigateway:variables`.

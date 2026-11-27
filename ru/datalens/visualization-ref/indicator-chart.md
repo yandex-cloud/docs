@@ -1,6 +1,10 @@
 ---
 title: Индикатор в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Индикатор.
+alternate:
+  - href: ru/datalens/visualization-ref/indicator-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Индикатор ![](../../_assets/datalens/indicator.svg) в {{ datalens-full-name }}

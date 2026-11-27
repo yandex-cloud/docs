@@ -1,6 +1,10 @@
 ---
 title: Обзор {{ dns-full-name }}
 description: Сервис {{ dns-name }} позволяет управлять зонами DNS и ресурсными записями, фильтровать DNS-запросы и разрешать облачные доменные имена из корпоративных сетей и с серверов {{ baremetal-name }}.
+alternate:
+  - href: ru/dns/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Концепции {{ dns-name }}

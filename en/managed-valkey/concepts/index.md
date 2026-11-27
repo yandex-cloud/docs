@@ -1,6 +1,10 @@
 ---
 title: Resource relationships in {{ mrd-full-name }}
 description: '{{ VLK }} is a high-performance in-memory DBMS for storing key-value data. With {{ mrd-name }}, you can easily create high-availability {{ VLK }} host clusters. The main entity {{ mrd-name }} operates is a database cluster.'
+alternate:
+  - href: en/managed-valkey/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource relationships in {{ mrd-name }}

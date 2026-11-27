@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/cdn/events-ref/ResourceDelete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN Audit Trails Events: ResourceDelete

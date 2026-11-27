@@ -1,6 +1,10 @@
 ---
 title: AWS SDK for Go
 description: In this article, you will learn what the AWS SDK for Go is, how to install and configure it, and will also see some code examples.
+alternate:
+  - href: en/storage/tools/aws-sdk-go.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AWS SDK for Go

@@ -1,6 +1,10 @@
 ---
 title: Getting ingestion info
 description: Follow this guide to get information about an ingestion in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/get-info-ingestion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting ingestion info

@@ -1,6 +1,10 @@
 ---
 title: Перепаковка данных в {{ mpg-full-name }}
 description: Следуя данной инструкции, вы сможете выполнять перепаковку таблиц и индексов в {{ mpg-name }}.
+alternate:
+  - href: ru/managed-postgresql/operations/managed-pg_repack.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Перепаковка данных в {{ mpg-name }}

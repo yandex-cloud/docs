@@ -1,6 +1,10 @@
 ---
 title: Запись метрик в {{ monitoring-full-name }}
 description: Из статьи вы узнаете, как записывать метрики из {{ yq-full-name }} в {{ monitoring-name }}.
+alternate:
+  - href: ru/query/sources-and-sinks/monitoring-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запись метрик в {{ monitoring-name }}

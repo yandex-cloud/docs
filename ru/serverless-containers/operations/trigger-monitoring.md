@@ -1,6 +1,10 @@
 ---
 title: Просмотр графиков мониторинга в {{ serverless-containers-full-name }}
 description: Вы можете посмотреть график мониторинга в {{ serverless-containers-full-name }} с помощью консоли управления, для этого перейдите в сервис {{ serverless-containers-name }}, нажмите на триггер, графики мониторинга которого вы хотите посмотреть.
+alternate:
+  - href: ru/serverless-containers/operations/trigger-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть графики мониторинга триггера в {{ serverless-containers-name }}

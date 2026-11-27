@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ at-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ at-full-name }}.
+alternate:
+  - href: ru/audit-trails/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ at-full-name }}

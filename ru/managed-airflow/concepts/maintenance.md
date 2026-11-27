@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание в {{ maf-full-name }}
 description: Под техническим обслуживанием в {{ maf-name }} понимается автоматическая установка обновлений и исправлений для компонентов кластера (в т. ч. для выключенных кластеров), изменение конфигурации компонентов и другие сервисные работы.
+alternate:
+  - href: ru/managed-airflow/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание в {{ maf-full-name }}

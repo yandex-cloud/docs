@@ -1,6 +1,10 @@
 ---
 title: How to create a function version
 description: Follow this guide to create a function version.
+alternate:
+  - href: en/functions/operations/function/version-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a function version

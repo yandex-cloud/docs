@@ -1,5 +1,9 @@
 ---
 noIndex: true
+alternate:
+  - href: en/cdn/operations/migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating CDN resources and origin groups to {{ cdn-full-name }}

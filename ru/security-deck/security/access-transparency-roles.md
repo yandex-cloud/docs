@@ -1,6 +1,10 @@
 ---
 title: Роли для анализа данных {{ atr-name }} в {{ sd-full-name }}
 description: На данной странице приведен список ролей, необходимых для анализа данных {{ atr-name }} в сервисе {{ sd-name }}.
+alternate:
+  - href: ru/security-deck/security/access-transparency-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Роли для анализа данных {{ atr-name }}

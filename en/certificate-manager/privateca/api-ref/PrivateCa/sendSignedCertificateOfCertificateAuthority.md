@@ -29,6 +29,10 @@ apiPlayground:
         - pemContent
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/certificate-manager/privateca/api-ref/PrivateCa/sendSignedCertificateOfCertificateAuthority.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, REST: PrivateCa.SendSignedCertificateOfCertificateAuthority

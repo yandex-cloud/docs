@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/operations/logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с логами
 
 Собирает и отображает логи кластера {{ dataproc-name }} сервис [{{ cloud-logging-full-name }}](../../logging). 

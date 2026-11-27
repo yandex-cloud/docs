@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/overview/concepts/services.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сервисы {{ yandex-cloud }}
 
 _Сервис_ в составе {{ yandex-cloud }} позволяет управлять определенными облачными ресурсами и доступом к ним.

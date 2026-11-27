@@ -1,6 +1,10 @@
 ---
 title: Отправить push-уведомление в браузере в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете отправить push-уведомление в браузере.
+alternate:
+  - href: ru/notifications/operations/browser/send.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправить push-уведомление

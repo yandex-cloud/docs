@@ -20,6 +20,10 @@ meta:
     - keyword: serverless functions
     - keyword: serverless computing
     - keyword: cloud functions
+  alternate:
+    - href: en/functions/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first function

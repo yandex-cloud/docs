@@ -14,6 +14,10 @@ meta:
     - keyword: '{{ GL }} instance'
     - keyword: '{{ mgl-name }} instance'
     - keyword: '{{ GL }} in {{ yandex-cloud }}'
+  alternate:
+    - href: en/managed-gitlab/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Managed Service for GitLab

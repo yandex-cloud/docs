@@ -1,6 +1,10 @@
 ---
 title: Adding a new SSH key for a user
 description: In this tutorial, you will learn how to add a new SSH key for a Linux user on the {{ baremetal-name }} server using a Rescue CD boot image.
+alternate:
+  - href: en/baremetal/operations/servers/add-new-ssh-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a new SSH key for a user

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/protected-access-to-content/'
+alternate:
+  - href: ru/security/tutorials/network-security/protected-access-to-content/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Организация защищенного доступа к контенту в {{ cdn-full-name }}

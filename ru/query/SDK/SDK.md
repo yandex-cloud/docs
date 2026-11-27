@@ -1,6 +1,10 @@
 ---
 title: Работа с {{ yq-full-name }} через {{ ydb-short-name }} SDK
 description: Аутентификация, подключение, выполнение запросов и получение результатов.
+alternate:
+  - href: ru/query/SDK/SDK.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SDK

@@ -1,6 +1,10 @@
 ---
 title: Adding a VM to a GPU cluster
 description: Follow this guide to add a VM to a GPU cluster.
+alternate:
+  - href: en/compute/operations/gpu-cluster/gpu-add-to-cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a VM to a GPU cluster

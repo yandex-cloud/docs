@@ -1,6 +1,10 @@
 ---
 title: 'Managing access in {{ datalens-full-name }}: data visualization and analysis service'
 description: This section describes the roles required for specific actions, the resources for which you can assign a role, and the roles existing in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/security/roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} roles

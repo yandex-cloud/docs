@@ -2,6 +2,10 @@
 title: '{{ sd-full-name }} pricing policy'
 description: This article covers the {{ sd-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/security-deck/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sd-full-name }} pricing policy

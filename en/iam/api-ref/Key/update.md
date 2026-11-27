@@ -40,6 +40,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/iam/api-ref/Key/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: Key.Update

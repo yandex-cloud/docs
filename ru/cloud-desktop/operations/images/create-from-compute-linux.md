@@ -1,6 +1,10 @@
 ---
 title: Как создать образ на основе виртуальной машины {{ compute-full-name }} Linux в {{ cloud-desktop-full-name }}
 description: Следуя данной инструкции, вы сможете создать образ на основе виртуальной машины Linux.
+alternate:
+  - href: ru/cloud-desktop/operations/images/create-from-compute-linux.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать образ на основе ВМ Linux {{ compute-name }}

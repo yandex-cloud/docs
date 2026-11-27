@@ -1,6 +1,10 @@
 ---
 title: Настройки оформления в {{ datalens-full-name }}
 description: Настройки оформления в {{ datalens-full-name }} позволяют изменить внешний вид интерфейса.
+alternate:
+  - href: ru/datalens/settings/appearance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

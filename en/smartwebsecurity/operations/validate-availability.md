@@ -1,6 +1,10 @@
 ---
 title: How to check resource availability in a {{ sws-name }} domain
 description: Follow this guide to check the status and availability of your resources from the {{ sws-full-name }} proxy server load balancer.
+alternate:
+  - href: en/smartwebsecurity/operations/validate-availability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Checking resource availability

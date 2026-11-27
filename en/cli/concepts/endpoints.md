@@ -1,6 +1,10 @@
 ---
 title: Connecting {{ yandex-cloud }} CLI to endpoints
 description: In this article, you will learn which endpoints the {{ yandex-cloud }} CLI connects to and how to check a connection.
+alternate:
+  - href: en/cli/concepts/endpoints.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting the CLI to {{ yandex-cloud }} endpoints

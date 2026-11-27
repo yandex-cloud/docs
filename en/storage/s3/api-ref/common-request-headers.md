@@ -1,6 +1,10 @@
 ---
 title: What request headers exist in the {{ objstorage-full-name }} S3 API
 description: In this article, you will learn about the request headers existing in the S3 API.
+alternate:
+  - href: en/storage/s3/api-ref/common-request-headers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Common request headers

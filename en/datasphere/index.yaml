@@ -35,6 +35,10 @@ meta:
     - keyword: computing resource configurations in {{ yandex-cloud }}
     - keyword: seamless resource configurations
     - keyword: machine learning in {{ yandex-cloud }}
+  alternate:
+    - href: en/datasphere/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Concepts
     description: Learn about the concepts and features of the service

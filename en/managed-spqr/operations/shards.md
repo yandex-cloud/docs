@@ -5,6 +5,10 @@ keywords:
   - keyword: managing shards in {{ SPQR }}
   - keyword: creating a shard in {{ SPQR }}
   - '{{ SPQR }}'
+alternate:
+  - href: en/managed-spqr/operations/shards.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ SPQR }} shards

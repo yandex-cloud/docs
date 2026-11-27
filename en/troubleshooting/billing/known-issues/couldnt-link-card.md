@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/couldnt-link-card.md
+    type: text/markdown
+    title: Markdown version
+---
 # Resolving issues with adding a credit/debit card to the billing account
 
 

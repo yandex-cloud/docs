@@ -1,6 +1,10 @@
 ---
 title: Country-based access policy
 description: This section describes the CDN resource access policy by country.
+alternate:
+  - href: en/cdn/concepts/geo-acl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Country-based access policy

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cloud-desktop/concepts/desktops-and-groups.md
+    type: text/markdown
+    title: Markdown version
+---
 # Desktops and their groups
 
 In {{ cloud-desktop-name }}, the main resource is a _desktop_. This is a virtual Linux or Windows-based (soon to come) workspace deployed in the {{ yandex-cloud }} infrastructure.

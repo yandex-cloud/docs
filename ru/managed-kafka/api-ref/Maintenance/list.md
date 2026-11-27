@@ -69,6 +69,10 @@ apiPlayground:
             - resourceId
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-kafka/api-ref/Maintenance/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, REST: Maintenance.List

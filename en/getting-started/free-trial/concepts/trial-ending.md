@@ -1,6 +1,10 @@
 ---
 title: End of trial period
 description: In this article, you will learn about trial period expiration.
+alternate:
+  - href: en/getting-started/free-trial/concepts/trial-ending.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # End of trial period

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Licensing/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Licensing
 
 <!-- markdownlint-disable-file -->

@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/security-deck/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck Alerts API, REST: Operation.Get

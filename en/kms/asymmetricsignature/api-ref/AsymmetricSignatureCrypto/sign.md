@@ -31,6 +31,10 @@ apiPlayground:
         - message
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/kms/asymmetricsignature/api-ref/AsymmetricSignatureCrypto/sign.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: AsymmetricSignatureCrypto.Sign

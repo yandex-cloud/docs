@@ -2,6 +2,10 @@
 title: Правила {{ cspm-full-name }} ({{ cspm-name }})
 description: Правила для проверки конфигурации облачных ресурсов
 editable: false
+alternate:
+  - href: ru/security-deck/rules-reference/cspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 ## {{ cspm-full-name }} ({{ cspm-name }})

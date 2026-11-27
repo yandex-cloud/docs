@@ -1,6 +1,10 @@
 ---
 title: Как получить метаданные виртуальной машины
 description: Следуя данной инструкции, вы сможете получить метаданные изнутри и извне виртуальной машины.
+alternate:
+  - href: ru/compute/operations/vm-metadata/get-vm-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить метаданные виртуальной машины

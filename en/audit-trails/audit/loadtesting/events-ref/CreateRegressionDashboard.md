@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/loadtesting/events-ref/CreateRegressionDashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Load Testing Audit Trails Events: CreateRegressionDashboard

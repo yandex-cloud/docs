@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/iam/workload/oidc/workload-identity/api-ref/grpc/Federation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Federation, gRPC: FederationService.Get

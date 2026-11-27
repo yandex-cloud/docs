@@ -1,6 +1,10 @@
 ---
 title: Управлять исключениями из правил безопасности модуля {{ td-full-name }} ({{ td-name }}) в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в модуле {{ td-full-name }} ({{ td-name }}) {{ sd-full-name }} создавать, изменять и удалять исключения из правил.
+alternate:
+  - href: ru/security-deck/operations/td/manage-exceptions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять исключениями из правил безопасности модуля {{ td-full-name }} ({{ td-name }})

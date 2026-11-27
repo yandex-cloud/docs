@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/subnet/move/
+alternate:
+  - href: ru/cli/cli-ref/vpc/cli-ref/subnet/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc subnet move

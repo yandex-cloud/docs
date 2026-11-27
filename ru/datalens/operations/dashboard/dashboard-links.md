@@ -1,6 +1,10 @@
 ---
 title: Как в {{ datalens-full-name }} настроить связи виджетов на дашборде
 description: Следуя данной инструкции, вы сможете настроить связи виджетов на дашборде в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/dashboard-links.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка связей на дашборде в {{ datalens-full-name }}

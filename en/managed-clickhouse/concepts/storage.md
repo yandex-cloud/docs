@@ -1,6 +1,10 @@
 ---
 title: Storage in {{ mch-full-name }}
 description: In this article, you will learn about disk types in {{ mch-name }}, hybrid storage features, and discover how to select the right disk type when creating a cluster.
+alternate:
+  - href: en/managed-clickhouse/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Storage in {{ mch-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/container-registry/operations/lifecycle-policy/lifecycle-policy-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a lifecycle policy
 
 You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a [repository](../../concepts/repository.md). To find out the repository name, get a [list of repositories in the registry](../repository/repository-list.md#repository-get).

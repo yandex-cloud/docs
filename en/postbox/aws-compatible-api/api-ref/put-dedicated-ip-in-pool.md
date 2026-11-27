@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/put-dedicated-ip-in-pool.md
+    type: text/markdown
+    title: Markdown version
+---
 # PutDedicatedIpInPool method
 
 Moves a [dedicated IP address](../../concepts/glossary.md#dedicated-ip) into the specified [pool](../../concepts/glossary.md#dedicated-ip-pool). The folder is selected based on the service account the request originates from.

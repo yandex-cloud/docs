@@ -2,6 +2,10 @@
 title: Как самостоятельно реализовать защищенное соединение между облачной инфраструктурой и условным корпоративным ЦОД с помощью IPsec-шлюзов в {{ yandex-cloud }}
 description: Следуя данной инструкции, вы сможете самостоятельно реализовать защищенное соединение между облачной инфраструктурой и условным корпоративным ЦОД с помощью IPsec-шлюзов.
 canonical: '{{ link-docs }}/tutorials/routing/ipsec/ipsec-vpn'
+alternate:
+  - href: ru/vpc/tutorials/ipsec/ipsec-vpn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Самостоятельная организация сетевой связности с помощью IPsec-шлюзов средствами {{ yandex-cloud }}

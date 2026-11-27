@@ -1,6 +1,10 @@
 ---
 title: Стандартные методы API {{ yandex-cloud }}
 description: Узнайте, какие HTTP-методы соответствуют стандартным методам API {{ yandex-cloud }} и как работать с ними.
+alternate:
+  - href: ru/api-design-guide/concepts/standard-methods.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Стандартные методы

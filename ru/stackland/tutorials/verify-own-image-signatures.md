@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/tutorials/verify-own-image-signatures.md
+    type: text/markdown
+    title: Markdown version
+---
 # Проверка подписи собственных образов
 
 Вы можете подписывать образы своих приложений и запретить кластеру запускать образы без действительной подписи. При создании пода подпись проверяет компонент [Policy Manager](../concepts/components/policy-manager.md), в основе которого лежит [Kyverno](https://kyverno.io/). Подписи создает утилита [Cosign](https://docs.sigstore.dev/).

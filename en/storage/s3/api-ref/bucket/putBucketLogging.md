@@ -1,6 +1,10 @@
 ---
 title: putBucketLogging method
 description: In this article, you will learn what the putBucketLogging method is, and what its request and response look like.
+alternate:
+  - href: en/storage/s3/api-ref/bucket/putBucketLogging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, Amazon S3-compatible REST: PutBucketLogging

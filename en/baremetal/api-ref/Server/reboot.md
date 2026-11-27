@@ -34,6 +34,10 @@ apiPlayground:
             - BIOS
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/baremetal/api-ref/Server/reboot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Server.Reboot

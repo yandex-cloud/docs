@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md
+    type: text/markdown
+    title: Markdown version
+---
 # My billing account usage details show {{ cloud-logging-name }} consumption
 
 

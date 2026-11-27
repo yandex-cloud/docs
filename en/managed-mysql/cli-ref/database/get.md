@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/database/get/
+alternate:
+  - href: en/managed-mysql/cli-ref/database/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mysql database get

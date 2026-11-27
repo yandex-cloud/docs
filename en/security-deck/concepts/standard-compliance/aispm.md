@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }} security standard for AI systems'
 description: This section lists the control rules that constitute the {{ yandex-cloud }} security standard for AI systems.
+alternate:
+  - href: en/security-deck/concepts/standard-compliance/aispm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} security standard for AI systems

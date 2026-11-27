@@ -1,6 +1,10 @@
 ---
 title: Domains in {{ org-full-name }}
 description: In {{ org-full-name }}, you can associate your domains with user pools and federations. Domains enable users to get authenticated as local users.
+alternate:
+  - href: en/organization/concepts/domains.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Domains

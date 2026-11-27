@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/audit-trails/api-ref/Trail/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Audit Trails API, REST: Trail.Get

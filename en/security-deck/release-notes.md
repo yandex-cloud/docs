@@ -1,6 +1,10 @@
 ---
 title: '{{ sd-full-name }} release notes'
 description: This section contains the {{ sd-name }} release notes.
+alternate:
+  - href: en/security-deck/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sd-full-name }} release notes

@@ -1,6 +1,10 @@
 ---
 title: Блокировать версии объекта в бакете в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить блокировку версии объекта в бакете в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/objects/edit-object-lock.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Блокировать версии объекта (object lock)

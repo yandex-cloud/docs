@@ -1,6 +1,10 @@
 ---
 title: Метод getBucketLogging
 description: Из статьи вы узнаете, что такое метод getBucketLogging, как выглядит его запрос и ответ.
+alternate:
+  - href: ru/storage/s3/api-ref/bucket/getBucketLogging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, REST совместимый с Amazon S3: GetBucketLogging

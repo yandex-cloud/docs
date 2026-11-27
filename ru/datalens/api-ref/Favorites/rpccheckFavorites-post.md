@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Favorites/rpccheckFavorites-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Check favorites

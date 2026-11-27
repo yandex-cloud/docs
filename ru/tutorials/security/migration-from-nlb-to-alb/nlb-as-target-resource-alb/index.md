@@ -1,6 +1,10 @@
 ---
 title: Миграция сервисов с внешнего балансировщика NLB на L7-балансировщик ALB
 description: В этом руководстве описана миграция сервиса с внешнего балансировщика NLB на L7-балансировщик ALB с целевым ресурсом — внутренним сетевым балансировщиком NLB.
+alternate:
+  - href: ru/tutorials/security/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция сервисов с внешнего балансировщика NLB на L7-балансировщик ALB с целевым ресурсом — внутренним сетевым балансировщиком NLB

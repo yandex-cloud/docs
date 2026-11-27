@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iam/workload/oidc/workload-identity/api-ref/grpc/Federation/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Federation, gRPC: FederationService.ListAccessBindings

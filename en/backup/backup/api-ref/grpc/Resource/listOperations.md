@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/backup/backup/api-ref/grpc/Resource/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, gRPC: ResourceService.ListOperations

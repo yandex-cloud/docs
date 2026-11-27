@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Мониторинг сервисов {{ sk-hybrid-name }}
 
 {{ sk-hybrid-name }} собирает и хранит метрики в формате [Prometheus](https://prometheus.io). Подробнее о типах метрик читайте в [документации Prometheus](https://prometheus.io/docs/concepts/metric_types/).

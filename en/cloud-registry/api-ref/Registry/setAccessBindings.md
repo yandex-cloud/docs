@@ -87,6 +87,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: en/cloud-registry/api-ref/Registry/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, REST: Registry.SetAccessBindings

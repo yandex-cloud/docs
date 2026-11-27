@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/yql-tutorials/basic-aggregation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Агрегировать данные
 
 Данные в результате можно агрегировать по полям.

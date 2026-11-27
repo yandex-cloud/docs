@@ -1,6 +1,10 @@
 ---
 title: Как создать политику эскалаций
 description: В этой статье вы узнаете, как создать и настроить политику эскалаций для своевременного оповещения пользователей о критических событиях.
+alternate:
+  - href: ru/monium/operations/alert/create-escalation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание политики эскалаций

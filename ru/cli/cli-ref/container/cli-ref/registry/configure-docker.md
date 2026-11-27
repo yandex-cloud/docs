@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/registry/configure-docker/
+alternate:
+  - href: ru/cli/cli-ref/container/cli-ref/registry/configure-docker.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container registry configure-docker

@@ -1,6 +1,10 @@
 ---
 title: Изменить данные организации в {{ org-full-name }}
 description: Из этой статьи вы узнаете, как изменить данные организации в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/org-profile.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить данные организации

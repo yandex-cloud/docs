@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/trigger/os-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for {{ objstorage-name }} that sends messages to WebSocket connections
 
 A [trigger](../trigger/) for {{ objstorage-name }} sends messages to [WebSocket connections](../extensions/websocket.md) when a specific event occurs with an {{ objstorage-name }} [object](../../../storage/concepts/object.md). The trigger must be in the same cloud as the bucket whose events it is subscribed to.

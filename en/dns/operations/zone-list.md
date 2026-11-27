@@ -1,6 +1,10 @@
 ---
 title: How to get a list of DNS zones
 description: Follow this guide to get a list of DNS zones.
+alternate:
+  - href: en/dns/operations/zone-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of DNS zones

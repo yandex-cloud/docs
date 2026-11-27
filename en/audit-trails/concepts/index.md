@@ -1,6 +1,10 @@
 ---
 title: '{{ at-full-name }}. Overview'
 description: With {{ at-full-name }}, you can collect audit logs about {{ yandex-cloud }} resource events and export those logs for further analysis or export.
+alternate:
+  - href: en/audit-trails/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} overview

@@ -56,6 +56,10 @@ apiPlayground:
         required:
           - action
           - subjectId
+alternate:
+  - href: ru/organization/api-ref/Group/updateMembers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: Group.UpdateMembers

@@ -37,6 +37,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/baremetal/api-ref/Vrf/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Vrf.ListOperations

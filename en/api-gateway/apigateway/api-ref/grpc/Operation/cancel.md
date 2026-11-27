@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/api-gateway/apigateway/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Gateway Service, gRPC: OperationService.Cancel

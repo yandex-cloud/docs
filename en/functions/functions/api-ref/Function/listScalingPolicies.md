@@ -39,6 +39,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/functions/functions/api-ref/Function/listScalingPolicies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, REST: Function.ListScalingPolicies

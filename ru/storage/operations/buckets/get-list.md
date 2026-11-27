@@ -1,6 +1,10 @@
 ---
 title: Получить список бакетов в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете получить список бакетов в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/get-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список бакетов

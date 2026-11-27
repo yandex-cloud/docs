@@ -2,6 +2,10 @@
 title: How to create an instance group from a {{ coi }} in {{ compute-name }}
 description: Follow this guide to create an instance group from a {{ coi }} in {{ compute-name }}.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/ig-create'
+alternate:
+  - href: en/compute/operations/instance-groups/create-with-coi.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an instance group from a {{ coi }} in {{ compute-name }}

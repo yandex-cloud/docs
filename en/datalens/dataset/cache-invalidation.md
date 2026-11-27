@@ -1,6 +1,10 @@
 ---
 title: Cache invalidation in {{ datalens-full-name }}
 description: Follow this guide to learn how to use and configure cache invalidation in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/dataset/cache-invalidation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cache invalidation in {{ datalens-full-name }}

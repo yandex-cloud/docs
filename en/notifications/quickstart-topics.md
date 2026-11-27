@@ -1,6 +1,10 @@
 ---
 title: Getting started with topics in {{ cns-full-name }}
 description: In {{ cns-name }}, you can send notifications to different endpoints subscribed to a topic.
+alternate:
+  - href: en/notifications/quickstart-topics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with topics in {{ cns-full-name }}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/cluster/add-graphite-rollup/
+alternate:
+  - href: ru/managed-clickhouse/cli-ref/cluster/add-graphite-rollup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse cluster add-graphite-rollup

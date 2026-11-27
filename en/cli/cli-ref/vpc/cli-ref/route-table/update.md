@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/route-table/update/
+alternate:
+  - href: en/cli/cli-ref/vpc/cli-ref/route-table/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc route-table update

@@ -1,6 +1,10 @@
 ---
 title: Как зашифровать диск в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете зашифровать диск в {{ compute-short-name }}.
+alternate:
+  - href: ru/compute/operations/disk-control/disk-encrypt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Зашифровать диск

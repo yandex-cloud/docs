@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/any-method.md
+    type: text/markdown
+    title: Markdown version
+---
 # x-yc-apigateway-any-method extension
 
 The `x-yc-apigateway-any-method` extension defines operations performed by any HTTP method that is not defined in the specification.

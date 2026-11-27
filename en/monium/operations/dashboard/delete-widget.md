@@ -1,6 +1,10 @@
 ---
 title: How to delete a widget from a dashboard in {{ monitoring-full-name }}
 description: Follow this guide to delete a widget from a dashboard.
+alternate:
+  - href: en/monium/operations/dashboard/delete-widget.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a widget from a dashboard

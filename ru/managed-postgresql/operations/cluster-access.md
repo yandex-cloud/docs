@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к кластеру {{ mpg-full-name }}
 description: Следуя данной инструкции, вы настроите права доступа к кластеру {{ mpg-name }}.
+alternate:
+  - href: ru/managed-postgresql/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к кластеру {{ mpg-name }}

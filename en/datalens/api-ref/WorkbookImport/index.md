@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/WorkbookImport/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # WorkbookImport
 
 <!-- markdownlint-disable-file -->

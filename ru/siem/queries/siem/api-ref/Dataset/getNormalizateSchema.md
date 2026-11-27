@@ -31,6 +31,10 @@ apiPlayground:
             - workspaceId
     body: null
     definitions: null
+alternate:
+  - href: ru/siem/queries/siem/api-ref/Dataset/getNormalizateSchema.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM Queries API, REST: Dataset.GetNormalizateSchema

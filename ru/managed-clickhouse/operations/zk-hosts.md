@@ -1,6 +1,10 @@
 ---
 title: Управление хостами {{ ZK }}
 description: Следуя данной инструкции, вы сможете управлять хостами {{ ZK }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/zk-hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление хостами {{ ZK }}

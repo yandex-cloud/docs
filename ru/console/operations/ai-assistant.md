@@ -1,6 +1,10 @@
 ---
 title: Использование AI-ассистента для управления ресурсами {{ yandex-cloud }}
 description: В данной инструкции рассматриваются возможности использования AI-ассистента для управления ресурсами {{ yandex-cloud }} в интерфейсе консоли управления.
+alternate:
+  - href: ru/console/operations/ai-assistant.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление ресурсами {{ yandex-cloud }} с помощью AI-ассистента

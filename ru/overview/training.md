@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/overview/training.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обучающие курсы {{ yandex-cloud }}
 
 {% include [training-intro](../_includes/training/training-intro.md) %}

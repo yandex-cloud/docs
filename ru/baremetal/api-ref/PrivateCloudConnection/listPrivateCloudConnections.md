@@ -61,6 +61,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/baremetal/api-ref/PrivateCloudConnection/listPrivateCloudConnections.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PrivateCloudConnection.ListPrivateCloudConnections

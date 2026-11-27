@@ -31,4 +31,8 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
-meta: {}
+meta:
+  alternate:
+    - href: en/stackland/index.yaml
+      type: application/yaml
+      title: Yaml version

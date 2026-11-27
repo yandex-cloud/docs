@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error: ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.KEY_IS_EMPTY'
 description: 'This page describes the `Cannot join: key is empty` {{ datalens-full-name }} error.'
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-KEY_IS_EMPTY.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Cannot join: key is empty

@@ -1,6 +1,10 @@
 ---
 title: Как создать облачную сеть в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете создать облачную сеть.
+alternate:
+  - href: ru/vpc/operations/network-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать облачную сеть

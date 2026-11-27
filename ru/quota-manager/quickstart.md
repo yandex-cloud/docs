@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ quota-manager-full-name }}
 description: Следуя данной инструкции, вы сможете посмотреть квоты для ваших сервисов.
+alternate:
+  - href: ru/quota-manager/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ quota-manager-full-name }}

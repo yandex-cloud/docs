@@ -2,6 +2,10 @@
 title: How to set up a {{ metrika-endpoint }} source endpoint
 description: Follow this guide to configure an {{ metrika-endpoint }} source endpoint.
 noIndex: true
+alternate:
+  - href: en/data-transfer/operations/endpoint/source/metrika.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring data from a {{ metrika }} source endpoint

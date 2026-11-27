@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/audit-trails-events-to-kuma'
+alternate:
+  - href: en/audit-trails/tutorials/audit-trails-events-to-kuma/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Uploading audit logs to KUMA SIEM using the management console, CLI, or API

@@ -1,6 +1,10 @@
 ---
 title: Управлять выгрузкой метаданных объектов (S3 Inventory) в бакете
 description: Из этой инструкции вы узнаете, как управлять выгрузкой метаданных объектов в бакете {{ objstorage-full-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/manage-s3-inventory.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять выгрузкой метаданных объектов (S3 Inventory) в бакете

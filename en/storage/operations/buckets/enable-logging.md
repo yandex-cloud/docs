@@ -1,6 +1,10 @@
 ---
 title: Logging bucket actions in {{ objstorage-full-name }}
 description: Follow this guide to manage bucket action logging in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/buckets/enable-logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Logging bucket actions

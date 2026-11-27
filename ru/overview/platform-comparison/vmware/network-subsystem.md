@@ -1,6 +1,10 @@
 ---
 title: Сетевая подсистема (Network)
 description: В статье сопоставляются основные компоненты сетевой архитектуры VMware Cloud Director и {{ yandex-cloud }}.
+alternate:
+  - href: ru/overview/platform-comparison/vmware/network-subsystem.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сетевая подсистема (Network)

@@ -1,6 +1,10 @@
 ---
 title: Creating a VM in a placement group
 description: Follow this guide to create a VM in a placement group.
+alternate:
+  - href: en/compute/operations/placement-groups/create-vm-in-pg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM in a placement group

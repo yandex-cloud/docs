@@ -1,6 +1,10 @@
 ---
 title: How to manage summarization in {{ video-full-name }}
 description: Follow this guide to manage summarization in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/video/summarization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing summarization

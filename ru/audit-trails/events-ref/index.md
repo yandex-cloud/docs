@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ at-full-name }}
 description: JSON-структура аудитных событий, типы и описание полей. Навигация по справочнику аудитных логов {{ at-full-name }}.
+alternate:
+  - href: ru/audit-trails/events-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов (англ.)

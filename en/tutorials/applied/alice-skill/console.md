@@ -7,6 +7,10 @@ keywords:
   - example of creating a skill for Alice
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/alice-skill/console'
+alternate:
+  - href: en/tutorials/applied/alice-skill/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a skill for Alice using serverless technology via the management console, {{ yandex-cloud }} CLI, or API

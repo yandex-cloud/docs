@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Registry
+alternate:
+  - href: en/terraform/resources/cloudregistry_scan_policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cloudregistry_scan_policy (Resource)

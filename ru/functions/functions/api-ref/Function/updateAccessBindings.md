@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/functions/functions/api-ref/Function/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, REST: Function.UpdateAccessBindings

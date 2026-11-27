@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.CONNECTION.MIGRATION.NO_MATCHING_CONNECTION
 description: На странице приведено описание ошибки {{ datalens-full-name }} Не удалось подобрать подключение {{ connection-manager-name }}.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-NO_MATCHING_CONNECTION.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Не удалось подобрать подключение {{ connection-manager-name }}

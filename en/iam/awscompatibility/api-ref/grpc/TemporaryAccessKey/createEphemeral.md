@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iam/awscompatibility/api-ref/grpc/TemporaryAccessKey/createEphemeral.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access Key, gRPC: TemporaryAccessKeyService.CreateEphemeral

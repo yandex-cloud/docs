@@ -1,6 +1,10 @@
 ---
 title: How to get information about an OIDC app in {{ org-full-name }}
 description: Follow this guide to get information about an OIDC app in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/applications/oidc-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about an OIDC app in {{ org-full-name }}

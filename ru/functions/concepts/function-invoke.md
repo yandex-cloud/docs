@@ -1,6 +1,10 @@
 ---
 title: Вызов функции в {{ sf-full-name }}
 description: Из статьи вы узнаете про вызов функции {{ sf-name }} с помощью HTTPS-запроса, CLI, триггера и расширения {{ api-gw-name }}.
+alternate:
+  - href: ru/functions/concepts/function-invoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вызов функции в {{ sf-name }}

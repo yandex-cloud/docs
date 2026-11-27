@@ -1,6 +1,10 @@
 ---
 title: Creating a {{ network-load-balancer-name }} target group
 description: Follow this guide to create a {{ network-load-balancer-name }} target group.
+alternate:
+  - href: en/network-load-balancer/operations/target-group-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ network-load-balancer-name }} target group

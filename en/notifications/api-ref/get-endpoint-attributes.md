@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/get-endpoint-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # GetEndpointAttributes
 
 Gets attributes of the [endpoint for push notifications](../concepts/push.md#mobile-endpoints).

@@ -1,6 +1,10 @@
 ---
 title: Посмотреть операции с ресурсами сервиса {{ compute-name }}
 description: Все действия с ресурсами сервиса {{ compute-name }} сохраняются в виде списка операций.
+alternate:
+  - href: ru/compute/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть операции с ресурсами сервиса {{ compute-name }}

@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ cloud-desktop-full-name }}
 description: Управление доступом в сервисе {{ cloud-desktop-full-name }}. Разрешения выдаются при назначении роли. Роль можно назначить на организацию, каталог или облако — все разрешения от организации или облака наследуются.
+alternate:
+  - href: ru/cloud-desktop/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ cloud-desktop-full-name }}

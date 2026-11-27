@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/marketplace/concepts/baremetal-product.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a Linux-based {{ baremetal-name }} product to upload to {{ marketplace-name }}
 
 

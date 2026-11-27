@@ -1,6 +1,10 @@
 ---
 title: Connecting to an {{ KF }} cluster in {{ mkf-full-name }}
 description: Follow this guide to connect to {{ KF }} cluster hosts using command line tools and from a Docker container.
+alternate:
+  - href: en/managed-kafka/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to an {{ KF }} cluster from applications

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/backup-retention-policy/
+alternate:
+  - href: ru/cli/cli-ref/managed-redis/cli-ref/backup-retention-policy/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-redis backup-retention-policy

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/gwin-ref/listenersetpolicy.md
+    type: text/markdown
+    title: Markdown version
+---
 # ListenerSetPolicy
 
 ListenerSetPolicy is a Gwin custom resource for configuring listener-level policies for [ListenerSet](./listenerset.md) resources. It allows you to define HTTP protocol settings, stream timeouts, and ALB resource naming that apply to ListenerSet resources matched by name or label selector.

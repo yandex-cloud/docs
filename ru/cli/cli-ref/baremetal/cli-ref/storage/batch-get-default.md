@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/storage/batch-get-default/
+alternate:
+  - href: ru/cli/cli-ref/baremetal/cli-ref/storage/batch-get-default.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal storage batch-get-default

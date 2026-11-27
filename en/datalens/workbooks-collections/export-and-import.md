@@ -1,6 +1,10 @@
 ---
 title: Exporting and importing {{ datalens-full-name }} workbooks
 description: Follow this guide to export and import {{ datalens-full-name }} workbooks.
+alternate:
+  - href: en/datalens/workbooks-collections/export-and-import.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Exporting and importing {{ datalens-full-name }} workbooks

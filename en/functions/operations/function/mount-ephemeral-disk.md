@@ -1,6 +1,10 @@
 ---
 title: How to mount an ephemeral disk in a function in {{ sf-full-name }}
 description: Follow this guide to mount an ephemeral disk in a function in {{ sf-name }}.
+alternate:
+  - href: en/functions/operations/function/mount-ephemeral-disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Mounting an ephemeral disk in a function

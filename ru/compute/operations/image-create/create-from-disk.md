@@ -1,6 +1,10 @@
 ---
 title: Как создать образ из диска в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете создать образ из диска.
+alternate:
+  - href: ru/compute/operations/image-create/create-from-disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать образ из диска

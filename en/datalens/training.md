@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} courses and training materials'
 description: Educational courses, step-by-step guides, and reference materials for {{ datalens-short-name }}.
+alternate:
+  - href: en/datalens/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} courses and training materials

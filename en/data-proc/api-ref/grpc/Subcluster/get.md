@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/data-proc/api-ref/grpc/Subcluster/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Data Processing API, gRPC: SubclusterService.Get

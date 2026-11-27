@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/registry/remove-labels/
+alternate:
+  - href: en/iot-core/cli-ref/registry/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot registry remove-labels

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/DB_CALL_AGG_STRING.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DB_CALL_AGG_STRING

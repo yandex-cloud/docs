@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/multipart/startupload.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: CreateMultipartUpload
 
 Возвращает идентификатор, который следует использовать во всех дальнейших операциях по загрузке объекта.

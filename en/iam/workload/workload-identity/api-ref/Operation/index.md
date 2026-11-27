@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iam/workload/workload-identity/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Workload Identity, REST: Operation

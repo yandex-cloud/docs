@@ -1,6 +1,10 @@
 ---
 title: How to purge the resource cache in {{ cdn-full-name }}
 description: Follow this guide to purge the resource cache.
+alternate:
+  - href: en/cdn/operations/resources/purge-cache.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Purging the resource cache

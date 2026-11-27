@@ -1,6 +1,10 @@
 ---
 title: List of mailing lists in {{ datalens-full-name }}
 description: This article explains how you can view all mailing lists in {{ datalens-name }} and what you can do with them.
+alternate:
+  - href: en/datalens/concepts/maillists-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # List of mailing lists in {{ datalens-full-name }}

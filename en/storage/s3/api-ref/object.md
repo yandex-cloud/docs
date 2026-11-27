@@ -1,6 +1,10 @@
 ---
 title: What S3 API methods can be used to manage objects in a {{ objstorage-full-name }} bucket
 description: In this article, you will learn about S3 API methods that can be used to manage objects in a bucket.
+alternate:
+  - href: en/storage/s3/api-ref/object.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All Object methods

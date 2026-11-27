@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/bucket/putbuckettagging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: PutBucketTagging
 
 Добавляет [метки](../../../concepts/tags.md) бакету. При этом перезаписываются все имеющиеся у бакета метки.

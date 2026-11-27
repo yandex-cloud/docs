@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/RestCatalogs/rpclistCatalogs-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] List REST catalogs

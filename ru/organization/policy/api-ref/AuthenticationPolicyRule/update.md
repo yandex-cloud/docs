@@ -202,6 +202,10 @@ apiPlayground:
               - skipMfa
           - required:
               - reauthenticationRequired
+alternate:
+  - href: ru/organization/policy/api-ref/AuthenticationPolicyRule/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organization Policy API, REST: AuthenticationPolicyRule.Update

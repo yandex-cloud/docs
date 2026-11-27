@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/iam/events-ref/DetectLeakedCredential.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management Audit Trails Events: DetectLeakedCredential

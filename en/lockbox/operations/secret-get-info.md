@@ -1,5 +1,9 @@
 ---
 title: How to get information about a secret in {{ lockbox-full-name }}
+alternate:
+  - href: en/lockbox/operations/secret-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a secret, its contents, and access rights

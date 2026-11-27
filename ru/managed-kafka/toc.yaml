@@ -37,6 +37,8 @@ items:
         items:
           - name: Предварительная настройка
             href: operations/connect/index.md
+          - name: FQDN хостов и эндпоинт кластера
+            href: operations/connect/fqdn.md
           - name: Подключение из приложений
             href: operations/connect/clients.md
           - name: Примеры кода

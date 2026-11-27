@@ -1,6 +1,10 @@
 ---
 title: How to install {{ cloud-apps-name }}
 description: Follow this guide to deploy a {{ yandex-cloud }} app.
+alternate:
+  - href: en/cloud-apps/operations/install-app.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing {{ cloud-apps-name }}

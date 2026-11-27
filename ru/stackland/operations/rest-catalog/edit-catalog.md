@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/rest-catalog/edit-catalog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить настройки каталога
 
 Вы можете изменить описание и защиту от удаления существующего каталога [{{ rest-catalog-name }}](../../concepts/components/rest-catalog.md). Имя каталога (`metadata.name`) и метки `spec.labels` после создания изменить нельзя.

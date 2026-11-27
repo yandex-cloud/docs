@@ -1,6 +1,10 @@
 ---
 title: Using Neuroanalyst for data analysis in {{ datalens-platform-full-name }}
 description: Using Neuroanalyst to analyze databases and optimize queries in the {{ datalens-platform-short-name }} interface.
+alternate:
+  - href: en/datalens/datalens-platform/operations/sql/neuroanalyst.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Analytics and optimization with Neuroanalyst in {{ datalens-platform-full-name }}

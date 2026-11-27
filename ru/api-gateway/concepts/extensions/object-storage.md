@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/object-storage.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение x-yc-apigateway-integration:object_storage
 
 Расширение `x-yc-apigateway-integration:object_storage` передает управление обработки запроса в {{ objstorage-short-name }} с целью раздачи статических файлов.

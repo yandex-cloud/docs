@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/metadata-hub/connection-manager/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connection Manager API, gRPC: OperationService.Cancel

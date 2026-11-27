@@ -1,6 +1,10 @@
 ---
 title: Как добавить таймкоды к видео в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете добавить таймкоды к видео в сервисе {{ video-name }}.
+alternate:
+  - href: ru/video/operations/video/add-timecodes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить таймкоды к видео

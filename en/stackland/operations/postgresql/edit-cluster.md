@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/postgresql/edit-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating PostgreSQL cluster settings
 
 If you have a [{{ PG }}](../../concepts/components/postgresql.md) cluster in your [project](../projects/create-project.md), you can update its settings.

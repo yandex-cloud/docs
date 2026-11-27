@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides on managing jobs in a {{ dataproc-full-name }} cluster
 description: This section contains step-by-step guides on managing jobs in a {{ dataproc-name }} cluster.
+alternate:
+  - href: en/data-proc/operations/jobs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing jobs

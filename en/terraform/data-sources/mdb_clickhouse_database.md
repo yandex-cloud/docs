@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for ClickHouse
+alternate:
+  - href: en/terraform/data-sources/mdb_clickhouse_database.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_clickhouse_database (DataSource)

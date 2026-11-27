@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/cluster-monitoring/nvidia-dcgm-no-mig-monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # NVIDIA DCGM dashboard metrics without MIG
 
 {{ grafana-name }}'s NVIDIA DCGM dashboard without MIG enables comprehensive monitoring of NVIDIA GPUs without Multi-Instance GPU (MIG) support in a {{ k8s }} cluster. The dashboard presents the metrics of performance, temperature, power consumption, GPU utilization, memory usage, as well as the advanced GPU performance and health analysis metrics.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/postgresql/create-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать пользователя PostgreSQL
 
 Если у вас есть кластер [PostgreSQL](../../concepts/components/postgresql.md) в [проекте](../projects/create-project.md), вы можете создать в нем пользователя — роль PostgreSQL с правом входа. Пользователь описывается ресурсом `PostgresqlRole`. Пароль пользователя хранится в Kubernetes Secret: оператор может сгенерировать его автоматически или вы можете указать собственный Secret с учетными данными.

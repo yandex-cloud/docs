@@ -1,6 +1,10 @@
 ---
 title: Detaching a target group from a network load balancer
 description: Follow this guide to detach a target group from a network load balancer.
+alternate:
+  - href: en/network-load-balancer/operations/target-group-detach.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Detaching a target group from a network load balancer

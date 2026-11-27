@@ -1,6 +1,10 @@
 ---
 title: Ресурсные записи в {{ dns-full-name }}
 description: Ресурсная запись — это главная единица информации в DNS. С помощью ресурсных записей вы определяете, куда направить запросы, поступающие на определенные доменные имена.
+alternate:
+  - href: ru/dns/concepts/resource-record.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ресурсные записи

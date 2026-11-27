@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/SparkApplications/rpclistSparkApplicationLog-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] List Spark application log

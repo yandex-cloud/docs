@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/resource-manager/operations/folder/notify.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting notifications from services in a folder
 
 Users specified under **Service notifications** in the folder settings get notifications from services for specific cloud folders.

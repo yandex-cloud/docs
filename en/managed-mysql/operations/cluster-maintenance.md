@@ -1,6 +1,10 @@
 ---
 title: '{{ mmy-name }} cluster maintenance'
 description: How to view information about cluster maintenance and configure a maintenance window in {{ mmy-full-name }}.
+alternate:
+  - href: en/managed-mysql/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

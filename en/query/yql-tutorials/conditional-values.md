@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/yql-tutorials/conditional-values.md
+    type: text/markdown
+    title: Markdown version
+---
 # Adding other aggregation conditions
 
 You can aggregate data by both column values and expressions.

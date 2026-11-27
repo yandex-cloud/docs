@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/iam/api-ref/SubjectDetails/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: SubjectDetails

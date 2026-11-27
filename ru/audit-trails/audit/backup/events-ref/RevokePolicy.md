@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/backup/events-ref/RevokePolicy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup Audit Trails Events: RevokePolicy

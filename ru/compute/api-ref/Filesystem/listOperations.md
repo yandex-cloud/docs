@@ -37,6 +37,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/compute/api-ref/Filesystem/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Filesystem.ListOperations

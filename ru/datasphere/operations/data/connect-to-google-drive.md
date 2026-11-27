@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/data/connect-to-google-drive.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение к Google Drive
 
 Вы можете подключиться к сервису хранения файлов [Google Drive](https://drive.google.com) из интерфейса {{ ml-platform-name }}.

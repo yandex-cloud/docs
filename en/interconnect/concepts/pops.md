@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/interconnect/concepts/pops.md
+    type: text/markdown
+    title: Markdown version
+---
 # Points of presence
 
 

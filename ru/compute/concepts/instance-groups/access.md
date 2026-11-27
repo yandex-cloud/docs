@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/concepts/instance-groups/access.md
+    type: text/markdown
+    title: Markdown version
+---
 # Доступ
 
 По умолчанию все операции в {{ ig-name }} выполняются от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).

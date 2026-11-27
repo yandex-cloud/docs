@@ -5,6 +5,10 @@ keywords:
   - keyword: connecting to a {{ SPQR }} cluster
   - keyword: '{{ SPQR }} cluster'
   - keyword: '{{ SPQR }}'
+alternate:
+  - href: en/managed-spqr/operations/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ SPQR }} cluster

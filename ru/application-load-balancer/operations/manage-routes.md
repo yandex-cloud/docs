@@ -1,6 +1,10 @@
 ---
 title: Как управлять маршрутами HTTP-роутера в {{ alb-full-name }}
 description: Следуя данной инструкции, вы сможете создавать, изменять и удалять маршруты в виртуальном хосте HTTP-роутера в {{ alb-full-name }}.
+alternate:
+  - href: ru/application-load-balancer/operations/manage-routes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять маршрутами

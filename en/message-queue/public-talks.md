@@ -1,6 +1,10 @@
 ---
 title: Public materials about {{ message-queue-full-name }}
 description: This article is about public materials on {{ message-queue-name }}.
+alternate:
+  - href: en/message-queue/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public materials

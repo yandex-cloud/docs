@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/metadata-hub/datacatalog/api-ref/grpc/Catalog/listCatalogs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Datacatalog API, gRPC: CatalogService.ListCatalogs

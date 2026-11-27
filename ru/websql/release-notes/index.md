@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ websql-full-name }}
 description: В разделе представлена история изменений сервиса {{ websql-name }}.
+alternate:
+  - href: ru/websql/release-notes/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений {{ websql-full-name }} в 2026 году

@@ -1,6 +1,10 @@
 ---
 title: Challenge options
 description: In this article, you will learn about captcha display rules, traffic conditions, and metadata.
+alternate:
+  - href: en/smartcaptcha/concepts/captcha-variants.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Challenge options

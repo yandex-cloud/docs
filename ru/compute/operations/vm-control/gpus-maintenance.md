@@ -1,6 +1,10 @@
 ---
 title: Управлять техническим обслуживанием ВМ с GPU в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете управлять техническим обслуживанием виртуальных машин с GPU в сервисе {{ compute-full-name }}.
+alternate:
+  - href: ru/compute/operations/vm-control/gpus-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять техническим обслуживанием виртуальных машин с GPU

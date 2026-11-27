@@ -1,6 +1,10 @@
 ---
 title: Как обновить пользовательский сертификат в {{ certificate-manager-full-name }}
 description: Следуя этой инструкции, вы сможете обновить пользовательский сертификат.
+alternate:
+  - href: ru/certificate-manager/operations/import/cert-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновить пользовательский сертификат

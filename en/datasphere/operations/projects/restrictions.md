@@ -1,6 +1,10 @@
 ---
 title: Setting project limits
 description: Follow this guide to set consumption limits for a project.
+alternate:
+  - href: en/datasphere/operations/projects/restrictions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting project limits

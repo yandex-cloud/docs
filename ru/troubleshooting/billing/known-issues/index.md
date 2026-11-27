@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/index.md
+    type: text/markdown
+    title: Markdown version
+---
 ## Решения для известных проблем {{ billing-name }} {#known-issues-resolving}
 
 * [В детализации по платежному аккаунту стало отображаться потребление по сервису {{ cloud-logging-name }}](cloud-logging-unexpectedly-charges-in-billing-account-details.md)

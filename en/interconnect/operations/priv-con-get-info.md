@@ -1,6 +1,10 @@
 ---
 title: Getting information about a {{ interconnect-name }} private connection
 description: Follow this guide to get information about a {{ interconnect-name }} private connection.
+alternate:
+  - href: en/interconnect/operations/priv-con-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a private connection

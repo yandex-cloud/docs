@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/concepts/player.md
+    type: text/markdown
+    title: Markdown version
+---
 # Video Player
 
 [Broadcasts](./streams.md) and [videos](./videos.md) are played in {{ video-name }} in an integrated _video player_.

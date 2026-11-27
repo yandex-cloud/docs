@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/gpu-cluster/
+alternate:
+  - href: en/compute/cli-ref/gpu-cluster/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute gpu-cluster

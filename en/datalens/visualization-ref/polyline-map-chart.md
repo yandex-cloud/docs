@@ -1,6 +1,10 @@
 ---
 title: Polyline map in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the polyline map visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/polyline-map-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Polyline map ![](../../_assets/datalens/polyline-map.svg) in {{ datalens-full-name }}

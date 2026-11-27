@@ -1,6 +1,10 @@
 ---
 title: Как изменить политику аутентификации в {{ org-full-name }}
 description: Следуя этой инструкции, вы сможете изменить политику аутентификации в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/authentication-policies/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить политику аутентификации

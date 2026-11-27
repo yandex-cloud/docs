@@ -1,6 +1,10 @@
 ---
 title: Creating a table based on an SQL query
 description: Follow this guide to build a table based on an SQL query to the data source in Editor.
+alternate:
+  - href: en/datalens/charts/editor/quickstart/from-database.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a table based on an SQL query

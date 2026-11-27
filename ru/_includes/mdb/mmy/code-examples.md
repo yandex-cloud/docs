@@ -26,7 +26,7 @@ go get github.com/go-sql-driver/mysql
   )
 
   const (
-    host     = "<FQDN_любого_хоста_{{ MY }}>"
+    host     = "<особый_FQDN>"
     port     = {{ port-mmy }}
     user     = "<имя_пользователя>"
     password = "<пароль_пользователя>"
@@ -86,7 +86,7 @@ go get github.com/go-sql-driver/mysql
   )
 
   const (
-    host     = "<FQDN_любого_хоста_{{ MY }}>"
+    host     = "<особый_FQDN>"
     port     = {{ port-mmy }}
     user     = "<имя_пользователя>"
     password = "<пароль_пользователя>"
@@ -309,7 +309,7 @@ go run connect.go
 
   public class App {
     public static void main(String[] args) {
-      String DB_URL     = "jdbc:mysql://<FQDN_любого_хоста_{{ MY }}>:{{ port-mmy }}/<имя_БД>?useSSL=true";
+      String DB_URL     = "jdbc:mysql://<особый_FQDN>:{{ port-mmy }}/<имя_БД>?useSSL=true";
       String DB_USER    = "<имя_пользователя>";
       String DB_PASS    = "<пароль_пользователя>";
 
@@ -343,7 +343,7 @@ go run connect.go
 
   public class App {
     public static void main(String[] args) {
-      String DB_URL     = "jdbc:mysql://<FQDN_любого_хоста_{{ MY }}>:{{ port-mmy }}/<имя_БД>?useSSL=false";
+      String DB_URL     = "jdbc:mysql://<особый_FQDN>:{{ port-mmy }}/<имя_БД>?useSSL=false";
       String DB_USER    = "<имя_пользователя>";
       String DB_PASS    = "<пароль_пользователя>";
 
@@ -395,7 +395,7 @@ npm install mysql2
   const mysql = require('mysql2');
   
   const config = {
-    host     : '<FQDN_любого_хоста_{{ MY }}>',
+    host     : '<особый_FQDN>',
     port     : {{ port-mmy }},
     user     : '<имя_пользователя>',
     password : '<пароль_пользователя>',
@@ -426,7 +426,7 @@ npm install mysql2
   const mysql = require('mysql2');
   
   const config = {
-    host     : '<FQDN_любого_хоста_{{ MY }}>',
+    host     : '<особый_FQDN>',
     port     : {{ port-mmy }},
     user     : '<имя_пользователя>',
     password : '<пароль_пользователя>',
@@ -477,7 +477,7 @@ sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
   ```ini
   [mysql]
   Driver=MySQL ODBC 8.0 Unicode Driver
-  SERVER=<FQDN_любого_хоста_{{ MY }}>
+  SERVER=<особый_FQDN>
   UID=<имя_пользователя>
   PWD=<пароль_пользователя>
   DATABASE=<имя_БД>
@@ -495,7 +495,7 @@ sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
   ```ini
   [mysql]
   Driver=MySQL ODBC 8.0 Unicode Driver
-  SERVER=<FQDN_любого_хоста_{{ MY }}>
+  SERVER=<особый_FQDN>
   UID=<имя_пользователя>
   PWD=<пароль_пользователя>
   DATABASE=<имя_БД>
@@ -536,7 +536,7 @@ sudo apt update && apt install --yes php php-mysql
 
       $conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, true);
       $conn->ssl_set(NULL, NULL, '/home/<домашняя_директория>/.mysql/root.crt', NULL, NULL);
-      $conn->real_connect('<FQDN_любого_хоста_{{ MY }}>', '<имя_пользователя>', '<пароль_пользователя>', '<имя_БД>', {{ port-mmy }}, NULL, MYSQLI_CLIENT_SSL);
+      $conn->real_connect('<особый_FQDN>', '<имя_пользователя>', '<пароль_пользователя>', '<имя_БД>', {{ port-mmy }}, NULL, MYSQLI_CLIENT_SSL);
 
       $q = $conn->query('SELECT version()');
       $result = $q->fetch_row();
@@ -558,7 +558,7 @@ sudo apt update && apt install --yes php php-mysql
       $conn = mysqli_init();
 
       $conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
-      $conn->real_connect('<FQDN_любого_хоста_{{ MY }}>', '<имя_пользователя>', '<пароль_пользователя>', '<имя_БД>', {{ port-mmy }}, NULL, NULL);
+      $conn->real_connect('<особый_FQDN>', '<имя_пользователя>', '<пароль_пользователя>', '<имя_БД>', {{ port-mmy }}, NULL, NULL);
 
       $q = $conn->query('SELECT version()');
       $result = $q->fetch_row();
@@ -600,7 +600,7 @@ pip3 install mysqlclient
   import MySQLdb
   
   conn = MySQLdb.connect(
-        host="<FQDN_любого_хоста_{{ MY }}>",
+        host="<особый_FQDN>",
         port={{ port-mmy }},
         db="<имя_БД>",
         user="<имя_пользователя>",
@@ -623,7 +623,7 @@ pip3 install mysqlclient
   import MySQLdb
   
   conn = MySQLdb.connect(
-        host="<FQDN_любого_хоста_{{ MY }}>",
+        host="<особый_FQDN>",
         port={{ port-mmy }},
         db="<имя_БД>",
         user="<имя_пользователя>",
@@ -667,7 +667,7 @@ sudo apt update && sudo apt install --yes ruby ruby-mysql2
   require "mysql2"
 
   conn = Mysql2::Client.new(
-          :host => "<FQDN_любого_хоста_{{ MY }}>",
+          :host => "<особый_FQDN>",
           :port => {{ port-mmy }},
           :database => "<имя_БД>",
           :username => "<имя_пользователя>",
@@ -692,7 +692,7 @@ sudo apt update && sudo apt install --yes ruby ruby-mysql2
   require "mysql2"
 
   conn = Mysql2::Client.new(
-          :host => "<FQDN_любого_хоста_{{ MY }}>",
+          :host => "<особый_FQDN>",
           :port => {{ port-mmy }},
           :database => "<имя_БД>",
           :username => "<имя_пользователя>",

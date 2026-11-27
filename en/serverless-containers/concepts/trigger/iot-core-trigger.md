@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/concepts/trigger/iot-core-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for {{ iot-short-name }} that sends messages to a {{ serverless-containers-name }} container
 
 A [trigger](../trigger/) for {{ iot-short-name }} manages messages exchanged between devices, registries, and brokers. This trigger is created for [topics](../../../iot-core/concepts/topic/index.md): it receives copies of messages from topics and sends them to a {{ serverless-containers-name }} container for processing.

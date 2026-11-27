@@ -87,6 +87,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: en/iam/workload/oidc/workload-identity/api-ref/Federation/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Federation, REST: Federation.SetAccessBindings

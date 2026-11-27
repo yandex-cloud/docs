@@ -1,6 +1,10 @@
 ---
 title: Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-full-name }}
 description: В этом руководстве вы создадите отказоустойчивый сайт в инфраструктуре {{ yandex-cloud }}, используя балансировщик нагрузки {{ alb-full-name }}.
+alternate:
+  - href: ru/tutorials/web/application-load-balancer-website/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [application-load-balancer-website](../../../_tutorials/infrastructure/application-load-balancer-website.md) %}

@@ -1,6 +1,10 @@
 ---
 title: Operation object
 description: In this tutorial, you will learn about the Operation object, its format, how to track the status of an operation, cancel an operation, and view the list of operations.
+alternate:
+  - href: en/api-design-guide/concepts/operation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Operation object

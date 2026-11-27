@@ -1,6 +1,10 @@
 ---
 title: Установка Loki
 description: Следуя данной инструкции, вы сможете установить Loki.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/loki.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка Loki

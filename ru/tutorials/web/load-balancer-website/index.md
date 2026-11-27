@@ -1,6 +1,10 @@
 ---
 title: Отказоустойчивый сайт с балансировкой нагрузки через {{ network-load-balancer-full-name }}
 description: В этом руководстве мы расскажем, как настроить сайт с балансировкой нагрузки через {{ network-load-balancer-name }} между двумя зонами доступности, защищенный от сбоев в одной зоне.
+alternate:
+  - href: ru/tutorials/web/load-balancer-website/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [load-balancer-website](../../../_tutorials/web/load-balancer-website.md) %}

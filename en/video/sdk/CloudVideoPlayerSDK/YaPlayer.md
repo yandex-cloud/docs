@@ -1,6 +1,10 @@
 ---
 title: 'YaPlayer: {{ video-full-name }} player SDK for iOS'
 description: Managing playback and monitoring the player state in the {{ video-name }} SDK for iOS.
+alternate:
+  - href: en/video/sdk/CloudVideoPlayerSDK/YaPlayer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # YaPlayer

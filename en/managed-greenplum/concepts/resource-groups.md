@@ -1,6 +1,10 @@
 ---
 title: Resource groups in {{ mgp-full-name }}
 description: In this tutorial, you will learn what resource groups are, what parameters they have, and how memory is allocated between them.
+alternate:
+  - href: en/managed-greenplum/concepts/resource-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource groups

@@ -42,6 +42,10 @@ meta:
     - keyword: кластеры {{ k8s }}
     - keyword: кластер {{ k8s }} в {{ yandex-cloud }}
     - keyword: kubernetes в {{ yandex-cloud }}
+  alternate:
+    - href: ru/managed-kubernetes/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первый кластер Kubernetes

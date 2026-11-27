@@ -3,6 +3,10 @@ title: Миграция сервисов с балансировщика NLB с 
 description: Вы можете мигрировать нагрузку с балансировщика {{ network-load-balancer-full-name }} на L7-балансировщик {{ alb-full-name }}.
 canonical: '{{ link-docs }}/tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-vm/'
 noIndex: true
+alternate:
+  - href: ru/smartwebsecurity/tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция сервисов с балансировщика NLB с целевыми ресурсами из виртуальных машин на L7-балансировщик ALB

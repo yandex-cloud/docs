@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/authentication-policy-rule/delete/
+alternate:
+  - href: en/organization/cli-ref/authentication-policy-rule/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager authentication-policy-rule delete

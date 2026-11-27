@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-integrations/tutorials/eventrouter-migration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Migrating from {{ er-name }} to triggers
 
 {% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}

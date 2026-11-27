@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/registry/create/
+alternate:
+  - href: ru/cli/cli-ref/container/cli-ref/registry/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container registry create

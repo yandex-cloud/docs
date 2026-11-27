@@ -1,6 +1,10 @@
 ---
 title: Диапазоны публичных IP-адресов {{ yandex-cloud }}
 description: Диапазоны публичных IPv4-адресов ресурсов {{ yandex-cloud }}, подключенных к {{ vpc-name }}.
+alternate:
+  - href: ru/vpc/concepts/ips.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диапазоны публичных IP-адресов

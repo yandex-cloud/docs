@@ -153,6 +153,10 @@ apiPlayground:
               **boolean**
               Optional. If the PTR record is required, this parameter must be set to "true".
             type: boolean
+alternate:
+  - href: en/vpc/api-ref/Address/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: Address.Create

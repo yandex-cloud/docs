@@ -40,6 +40,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/iot-core/api-ref/Registry/listDeviceTopicAliases.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Registry.ListDeviceTopicAliases

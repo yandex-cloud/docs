@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/applications/kyverno.md
+    type: text/markdown
+    title: Markdown version
+---
 # Installing Kyverno & Kyverno Policies
 
 [Kyverno](https://kyverno.io) is an application to manage {{ k8s }} security policies. Security policies appear in Kyverno as {{ k8s }} resources. Kyverno supports `kubectl`, `git`, and `kustomize`. You can use the Kyverno command line interface to test policies and validate resources as part of the CI/CD pipeline.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/tutorials/internet-store/opencart/console.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating an OpenCart online store using the management console
 
 To create an [OpenCart online store](index.md) using the {{ yandex-cloud }} management console:

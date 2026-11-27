@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/function/metadata-options.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring metadata service parameters for a function
 
 You can configure metadata service parameters when [creating a function version](version-manage.md).

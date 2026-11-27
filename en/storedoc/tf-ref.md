@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ mmg-full-name }}'
 description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ mmg-name }}.
+alternate:
+  - href: en/storedoc/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ mmg-full-name }}

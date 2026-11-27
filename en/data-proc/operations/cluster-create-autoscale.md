@@ -1,6 +1,10 @@
 ---
 title: Creating an autoscaling {{ dataproc-full-name }} cluster in another folder's network
 description: Follow this guide to create and set up an autoscaling {{ dataproc-name }} cluster in another folder's network.
+alternate:
+  - href: en/data-proc/operations/cluster-create-autoscale.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an autoscaling {{ dataproc-name }} cluster in another folder's network

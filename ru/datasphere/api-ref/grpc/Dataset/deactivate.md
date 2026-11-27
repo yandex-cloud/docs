@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datasphere/api-ref/grpc/Dataset/deactivate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, gRPC: DatasetService.Deactivate

@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.REQUEST_TIMEOUT'
 description: This page describes the Backend app request timeout exceeded {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Backend app request timeout exceeded

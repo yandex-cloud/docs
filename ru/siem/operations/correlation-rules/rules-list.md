@@ -1,6 +1,10 @@
 ---
 title: Работа со списком правил корреляции в {{ yandex-siem-full-name }}
 description: Следуя данной инструкции, вы научитесь просматривать, фильтровать правила корреляции и управлять их развертыванием в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/operations/correlation-rules/rules-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа со списком правил корреляции

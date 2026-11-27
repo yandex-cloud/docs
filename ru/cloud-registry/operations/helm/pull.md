@@ -1,6 +1,10 @@
 ---
 title: Скачать Helm-чарт из реестра {{ cloud-registry-name }}
 description: Следуя данной инструкции, вы можете скачать Helm-чарт из реестра {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/helm/pull.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Скачать Helm-чарт из реестра

@@ -1,6 +1,10 @@
 ---
 title: Экспорт данных из чартов
 description: Следуя данной инструкции, вы сможете экспортировать данные из чартов.
+alternate:
+  - href: ru/datalens/concepts/chart/data-export.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Экспорт данных из чартов

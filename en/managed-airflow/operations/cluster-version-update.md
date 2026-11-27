@@ -1,6 +1,10 @@
 ---
 title: Updating {{ AF }} and Python versions
 description: Follow this guide to upgrade your {{ maf-name }} cluster.
+alternate:
+  - href: en/managed-airflow/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating {{ AF }} and Python versions

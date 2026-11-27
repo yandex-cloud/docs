@@ -1,6 +1,10 @@
 ---
 title: Managing access to a {{ msp-full-name }} cluster
 description: Follow this guide to configure {{ msp-name }} cluster access permissions.
+alternate:
+  - href: en/managed-spark/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to a {{ msp-name }} cluster

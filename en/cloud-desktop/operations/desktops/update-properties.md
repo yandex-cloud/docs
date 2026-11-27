@@ -1,6 +1,10 @@
 ---
 title: Updating a {{ cloud-desktop-full-name }} desktop
 description: In this tutorial, you will learn how to update the {{ cloud-desktop-name }} desktop parameters.
+alternate:
+  - href: en/cloud-desktop/operations/desktops/update-properties.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a desktop

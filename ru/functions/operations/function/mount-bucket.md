@@ -1,6 +1,10 @@
 ---
 title: Как смонтировать бакеты в функцию {{ sf-full-name }}
 description: Следуя данной инструкции, вы сможете смонтировать бакеты в функцию {{ sf-name }}.
+alternate:
+  - href: ru/functions/operations/function/mount-bucket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Смонтировать бакеты в функцию

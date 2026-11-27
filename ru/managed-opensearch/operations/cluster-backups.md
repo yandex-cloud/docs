@@ -5,6 +5,10 @@ keywords:
   - резервные копии OpenSearch
   - снапшоты OpenSearch
   - OpenSearch
+alternate:
+  - href: ru/managed-opensearch/operations/cluster-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление резервными копиями в {{ mos-name }}

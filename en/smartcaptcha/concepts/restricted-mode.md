@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/smartcaptcha/concepts/restricted-mode.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ captcha-name }} restricted mode
 
 {{ captcha-name }} will run in restricted mode unless your billing account's [status](../../billing/concepts/billing-account-statuses) is `ACTIVE` or `TRIAL_ACTIVE`.

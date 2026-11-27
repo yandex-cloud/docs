@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/operations/trigger/cloud-logging-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать триггер для {{ cloud-logging-name }}, который отправляет сообщения в WebSocket-соединения
 
 Создайте [триггер для {{ cloud-logging-name }}](../../concepts/trigger/cloud-logging-trigger.md), который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) при добавлении записей в [лог-группу](../../../logging/concepts/log-group.md).

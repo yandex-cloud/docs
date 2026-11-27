@@ -119,11 +119,11 @@
    1. Скачайте и импортируйте сертификат:
 
       ```powershell
-      mkdir -Force $HOME\.yandex; `
+      mkdir -Force $HOME\AppData\Roaming\.yandex; `
       curl.exe https://storage.yandexcloud.net/cloud-certs/RootCA.pem `
-        --output $HOME\.yandex\RootCA.crt; `
+        --output $HOME\AppData\Roaming\.yandex\RootCA.crt; `
       Import-Certificate `
-        -FilePath $HOME\.yandex\RootCA.crt `
+        -FilePath $HOME\AppData\Roaming\.yandex\RootCA.crt `
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 
@@ -131,7 +131,7 @@
 
    1. Подтвердите согласие с установкой сертификата в хранилище «Доверенные корневые центры сертификации».
 
-   Сертификат будет сохранен в файле `$HOME\.yandex\RootCA.crt`.
+   Сертификат будет сохранен в файле `$HOME\AppData\Roaming\.yandex\RootCA.crt`.
 
 {% endlist %}
 

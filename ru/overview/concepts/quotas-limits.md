@@ -1,6 +1,10 @@
 ---
 title: Что такое квоты и лимиты в {{ yandex-cloud }}
 description: В сервисах {{ yandex-cloud }} могут действовать квоты и лимиты. Квоты — организационные ограничения, которые можно изменить по запросу в техническую поддержку. Лимиты — технические ограничения, обусловленные особенностями архитектуры {{ yandex-cloud }}. Изменение лимитов невозможно.
+alternate:
+  - href: ru/overview/concepts/quotas-limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты для сервисов {{ yandex-cloud }}

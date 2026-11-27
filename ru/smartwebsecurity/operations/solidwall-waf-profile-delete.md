@@ -1,6 +1,10 @@
 ---
 title: Удалить профиль SolidWall WAF
 description: Следуя данной инструкции, вы сможете удалить профиль SolidWall WAF.
+alternate:
+  - href: ru/smartwebsecurity/operations/solidwall-waf-profile-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить профиль SolidWall WAF

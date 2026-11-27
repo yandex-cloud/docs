@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/DATE_PARSE.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DATE_PARSE

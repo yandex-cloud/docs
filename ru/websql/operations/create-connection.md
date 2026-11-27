@@ -1,6 +1,10 @@
 ---
 title: Создание подключения в {{ websql-full-name }}
 description: Следуя данной инструкции, вы сможете создать подключение к кластерам управляемых БД и публично доступной БД через интернет.
+alternate:
+  - href: ru/websql/operations/create-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения

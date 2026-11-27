@@ -1,6 +1,10 @@
 ---
 title: How to connect to a {{ ytsaurus-name }} cluster
 description: Follow this guide to connect to a {{ ytsaurus-name }} cluster.
+alternate:
+  - href: en/managed-ytsaurus/operations/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ ytsaurus-name }} cluster

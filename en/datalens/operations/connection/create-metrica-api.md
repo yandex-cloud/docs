@@ -1,6 +1,10 @@
 ---
 title: How to create a Metrica connection in {{ datalens-full-name }}
 description: Follow this guide to create a Metrica connection in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-metrica-api.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a Metrica connection in {{ datalens-full-name }}

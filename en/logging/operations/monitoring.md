@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/logging/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing log group monitoring charts
 
 You can monitor how records are added to a log group with the monitoring tools in the management console. These tools display diagnostic information as charts.

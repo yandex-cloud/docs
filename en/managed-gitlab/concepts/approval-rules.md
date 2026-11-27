@@ -1,6 +1,10 @@
 ---
 title: Approval rules in {{ mgl-name }}
 description: With {{ mgl-name }}, you can flexibly set up mandatory approval rules before merging code into the target branch of the project. This feature is an alternative to the {{ GL }} Enterprise Edition’s Approval Rules tool and is available regardless of the {{ GL }} version.
+alternate:
+  - href: en/managed-gitlab/concepts/approval-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Approval rules in {{ mgl-full-name }}

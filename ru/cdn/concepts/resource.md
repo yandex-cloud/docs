@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cdn/concepts/resource.md
+    type: text/markdown
+    title: Markdown version
+---
 # CDN-ресурс
 
 _Ресурс_ — это основная логическая сущность сервиса {{ cdn-full-name }}, позволяющая настраивать и управлять распространением контента с [источников](origins.md) через CDN. Распространение контента осуществляется через [точки присутствия](points-of-presence.md).

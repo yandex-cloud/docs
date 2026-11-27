@@ -1,6 +1,10 @@
 ---
 title: Интеграция {{ certificate-manager-full-name }} с сервисами {{ yandex-cloud }}
 description: Из статьи вы узнаете, в каких сервисах {{ yandex-cloud }} можно использовать сертификаты из {{ certificate-manager-name }}.
+alternate:
+  - href: ru/certificate-manager/concepts/services.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Интеграция с сервисами {{ yandex-cloud }}

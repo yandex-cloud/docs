@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ console-full-name }}
 description: Ответы на вопросы о {{ console-name }}
+alternate:
+  - href: ru/console/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы

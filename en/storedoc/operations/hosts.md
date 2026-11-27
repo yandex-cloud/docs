@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/operations/hosts.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing {{ SD }} cluster hosts
 
 You can add or remove [cluster hosts](../concepts/index.md), restart host synchronization, and [manage {{ SD }} cluster settings](update.md). To learn how to migrate your cluster hosts to a different availability zone, see [this guide](host-migration.md).

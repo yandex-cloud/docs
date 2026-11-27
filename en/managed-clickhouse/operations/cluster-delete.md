@@ -1,6 +1,10 @@
 ---
 title: Deleting a {{ CH }} cluster
 description: After you delete a {{ CH }} database cluster, its backups are retained and available for recovery for 7 days. To restore a deleted cluster from a backup, you will need its ID. Therefore, make sure to save the cluster ID safely before deletion.
+alternate:
+  - href: en/managed-clickhouse/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a {{ CH }} cluster

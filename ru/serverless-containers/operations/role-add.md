@@ -1,6 +1,10 @@
 ---
 title: Назначить роли на контейнер
 description: Следуя данной инструкции, вы сможете назначить роли на контейнер.
+alternate:
+  - href: ru/serverless-containers/operations/role-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначить роли на контейнер

@@ -1,6 +1,10 @@
 ---
 title: Connections
 description: This page covers FAQ about connections.
+alternate:
+  - href: en/datalens/qa/connections.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connections

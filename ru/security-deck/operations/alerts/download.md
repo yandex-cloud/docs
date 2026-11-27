@@ -1,6 +1,10 @@
 ---
 title: Скачивание алертов в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в {{ sd-full-name }} можно скачать алерты.
+alternate:
+  - href: ru/security-deck/operations/alerts/download.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Скачать алерты

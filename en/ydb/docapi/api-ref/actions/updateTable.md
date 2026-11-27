@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/updateTable.md
+alternate:
+  - href: en/ydb/docapi/api-ref/actions/updateTable.md
+    type: text/markdown
+    title: Markdown version
 ---
 # UpdateTable method
 

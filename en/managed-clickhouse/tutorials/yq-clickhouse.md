@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/ml-ai/yq-clickhouse'
+alternate:
+  - href: en/managed-clickhouse/tutorials/yq-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with data in {{ mch-name }}

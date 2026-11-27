@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/database/list-access-bindings/
+alternate:
+  - href: en/ydb/cli-ref/v0/database/list-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc ydb v0 database list-access-bindings

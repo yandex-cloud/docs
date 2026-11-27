@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/interconnect/api-ref/grpc/TrunkConnection/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Interconnect API, gRPC: TrunkConnectionService.Get

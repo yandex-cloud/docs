@@ -1,6 +1,10 @@
 ---
 title: Notebooks
 description: '{{ monium-name }} notebooks help you collect charts, logs, notes, and links for incident analysis.'
+alternate:
+  - href: en/monium/concepts/visualization/notebooks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Notebooks

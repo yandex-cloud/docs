@@ -1,5 +1,9 @@
 ---
 subcategory: DataSphere
+alternate:
+  - href: ru/terraform/resources/datasphere_community.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_datasphere_community (Resource)

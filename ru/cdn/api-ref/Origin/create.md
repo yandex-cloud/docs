@@ -122,6 +122,10 @@ apiPlayground:
               - website
           - required:
               - balancer
+alternate:
+  - href: ru/cdn/api-ref/Origin/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: Origin.Create

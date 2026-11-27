@@ -1,6 +1,10 @@
 ---
 title: Updating a custom rule set in {{ sd-full-name }}
 description: In this section, you will learn how to update a custom rule sets in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/custom-rules-sets/update-set.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a custom rule set

@@ -1,6 +1,10 @@
 ---
 title: Authentication in {{ container-registry-full-name }}
 description: Before you start using {{ container-registry-name }}, you need to get authenticated for the appropriate interface.
+alternate:
+  - href: en/container-registry/operations/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authentication in {{ container-registry-name }}

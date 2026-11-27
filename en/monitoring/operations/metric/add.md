@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monitoring/operations/metric/add.md
+    type: text/markdown
+    title: Markdown version
+---
 # Writing custom metrics via the API
 
 To start writing custom metrics via the API, use the [write](../../api-ref/MetricsData/write.md) method.

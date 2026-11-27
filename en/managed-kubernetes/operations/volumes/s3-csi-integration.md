@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/volumes/s3-csi-integration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Integration with {{ objstorage-name }}
 
 {{ CSI }} allows you to dynamically reserve [{{ objstorage-full-name }}](../../../storage/) [buckets](../../../storage/concepts/bucket.md) and mount them to [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) [pods](../../concepts/index.md#pod). You can mount existing buckets or create new ones.

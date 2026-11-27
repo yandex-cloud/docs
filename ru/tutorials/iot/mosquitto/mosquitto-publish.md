@@ -1,6 +1,10 @@
 ---
 title: Как отправить сообщение с использованием Mosquitto в {{ iot-full-name }}
 description: Следуя данному руководству, вы сможете отправить сообщение с использованием Mosquitto на MQTT-сервер.
+alternate:
+  - href: ru/tutorials/iot/mosquitto/mosquitto-publish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [mosquitto-publish-intro](../../../_tutorials/applied/mosquitto-publish-intro.md) %}

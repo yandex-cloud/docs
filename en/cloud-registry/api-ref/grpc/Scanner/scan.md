@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/cloud-registry/api-ref/grpc/Scanner/scan.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, gRPC: ScannerService.Scan

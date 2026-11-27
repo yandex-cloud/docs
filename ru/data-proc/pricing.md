@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ dataproc-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ dataproc-name }}.
 editable: false
+alternate:
+  - href: ru/data-proc/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ dataproc-name }}

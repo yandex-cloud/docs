@@ -1,6 +1,10 @@
 ---
 title: Getting an invocation link
 description: Follow this guide to get an invocation link.
+alternate:
+  - href: en/serverless-containers/operations/invocation-link.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting an invocation link

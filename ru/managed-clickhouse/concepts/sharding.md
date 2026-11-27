@@ -1,6 +1,10 @@
 ---
 title: Шардирование в {{ mch-full-name }}
 description: Из статьи вы узнаете о шардировании и особенностях управления им в {{ mch-name }}, а также о преимуществах и примерах использования такого подхода.
+alternate:
+  - href: ru/managed-clickhouse/concepts/sharding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Шардирование в {{ mch-name }}

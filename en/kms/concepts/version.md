@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/kms/concepts/version.md
+    type: text/markdown
+    title: Markdown version
+---
 # Key version
 
 Key version is the cryptographic material you can use for encrypting and decrypting data. 

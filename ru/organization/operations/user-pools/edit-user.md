@@ -1,6 +1,10 @@
 ---
 title: Как изменить данные пользователя в пуле в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете изменить данные пользователя в пуле в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/edit-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить данные пользователя

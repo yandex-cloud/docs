@@ -1,6 +1,10 @@
 ---
 title: Мониторинг состояния кластера {{ CH }} и его хостов
 description: Из статьи вы узнаете, как осуществлять мониторинг состояния кластера {{ CH }} и его хостов.
+alternate:
+  - href: ru/managed-clickhouse/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг состояния кластера {{ CH }} и его хостов

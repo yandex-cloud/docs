@@ -321,85 +321,85 @@ blocks:
 
 | Услуга                                                                                                                           | Цена      | Ед. тарификации | Действует с    | Действует до |
 | -------------------------------------------------------------------------------------------------------------------------------- | --------- | --------------- | -------------- | ------------ |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, AMD Zen 4 HighFreq, 100% vCPU                 | 3,85 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, AMD Zen 4 HighFreq, RAM                       | 0,7566 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, AMD Zen 4, 100% vCPU                          | 1,98 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, AMD Zen 4, 100% vCPU, CVoS на 1 год           | 1,54 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, AMD Zen 4, RAM                                | 0,54 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, AMD Zen 4, RAM, CVoS на 1 год                 | 0,4226 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Broadwell, 100% vCPU                    | 2,38 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Broadwell, 50% vCPU                     | 0,71 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Broadwell, RAM                          | 0,5445 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Cascade Lake, 100% vCPU                 | 2,1 ₽     | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Cascade Lake, 100% vCPU, CVoS на 1 год  | 1,64 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Cascade Lake, 50% vCPU                  | 0,7466 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Cascade Lake, RAM                       | 0,57 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Cascade Lake, RAM, CVoS на 1 год        | 0,4453 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake (Compute Optimized), 100% vCPU | 3,01 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake (Compute Optimized), RAM       | 0,59 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, 100% vCPU                     | 1,88 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, 100% vCPU, CVoS на 1 год      | 1,47 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев  | 1,6 ₽     | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, 50% vCPU                      | 0,6697 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, RAM                           | 0,516 ₽   | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, RAM, CVoS на 1 год            | 0,4025 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, RAM, CVoS на 6 месяцев        | 0,4386 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, AMD Zen 4 HighFreq, 100% vCPU                        | 3,85 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, AMD Zen 4 HighFreq, RAM                              | 0,7566 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, AMD Zen 4, 100% vCPU                                 | 1,98 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, AMD Zen 4, 100% vCPU, CVoS на 1 год                  | 1,54 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, AMD Zen 4, RAM                                       | 0,54 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, AMD Zen 4, RAM, CVoS на 1 год                        | 0,4226 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Broadwell, 100% vCPU                           | 2,5 ₽     | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Broadwell, 20% vCPU                            | 1,1525 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Broadwell, 5% vCPU                             | 1,1525 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Broadwell, 50% vCPU                            | 1,1525 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Broadwell, RAM                                 | 0,57 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, 100% vCPU                        | 2,21 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, 100% vCPU, CVoS на 1 год         | 1,72 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев     | 1,88 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, 20% vCPU                         | 1,1525 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, 5% vCPU                          | 1,1525 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, 50% vCPU                         | 1,1525 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, RAM                              | 0,5995 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, RAM, CVoS на 1 год               | 0,4676 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, RAM, CVoS на 6 месяцев           | 0,5095 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake (Compute Optimized), 100% vCPU        | 3,17 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake (Compute Optimized), RAM              | 0,62 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, 100% vCPU                            | 1,98 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, 100% vCPU, CVoS на 1 год             | 1,54 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев         | 1,68 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, 50% vCPU                             | 1,1525 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, RAM                                  | 0,54 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, RAM, CVoS на 1 год                   | 0,4226 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, RAM, CVoS на 6 месяцев               | 0,46 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, AMD Zen 4 HighFreq, 100% vCPU                          | 2,43 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, AMD Zen 4 HighFreq, RAM                                | 0,4483 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, AMD Zen 4, 100% vCPU                                   | 1,2566 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, AMD Zen 4, RAM                                         | 0,3228 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Broadwell, 100% vCPU                             | 1,56 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Broadwell, 20% vCPU                              | 0,6157 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Broadwell, 5% vCPU                               | 0,2638 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Broadwell, 50% vCPU                              | 0,8576 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Broadwell, RAM                                   | 0,3518 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Cascade Lake, 100% vCPU                          | 1,39 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Cascade Lake, 20% vCPU                           | 0,6456 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Cascade Lake, 5% vCPU                            | 0,2766 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Cascade Lake, 50% vCPU                           | 0,8992 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Cascade Lake, RAM                                | 0,3689 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Ice Lake (Compute Optimized), 100% vCPU          | 2 ₽       | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Ice Lake (Compute Optimized), RAM                | 0,3689 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Ice Lake, 100% vCPU                              | 1,2566 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Ice Lake, 50% vCPU                               | 0,807 ₽   | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Ice Lake, RAM                                    | 0,3228 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Публичный IP-адрес                                                                              | 0,2766 ₽  | IP-адрес × час  | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Резервные копии сверх размера хранилища                                                         | 0,00307 ₽ | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)                                          | 0,0365 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Холодные данные гибридного хранилища и их резервные копии                                       | 0,0032 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Хранилище на локальных SSD-дисках                                                               | 0,0198 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Хранилище на нереплицируемых SSD-дисках                                                         | 0,0147 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Хранилище на сетевых HDD-дисках                                                                 | 0,0052 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for ClickHouse®. Хранилище на сетевых SSD-дисках                                                                 | 0,0218 ₽  | ГБ × час        | 30 апреля 2026 | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, AMD Zen 4 HighFreq, 100% vCPU                 | 3,85 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, AMD Zen 4 HighFreq, RAM                       | 0,7566 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, AMD Zen 4, 100% vCPU                          | 1,98 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, AMD Zen 4, 100% vCPU, CVoS на 1 год           | 1,54 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, AMD Zen 4, RAM                                | 0,54 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, AMD Zen 4, RAM, CVoS на 1 год                 | 0,4226 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Broadwell, 100% vCPU                    | 2,38 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Broadwell, 50% vCPU                     | 0,71 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Broadwell, RAM                          | 0,5445 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Cascade Lake, 100% vCPU                 | 2,1 ₽     | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Cascade Lake, 100% vCPU, CVoS на 1 год  | 1,64 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Cascade Lake, 50% vCPU                  | 0,7466 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Cascade Lake, RAM                       | 0,57 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Cascade Lake, RAM, CVoS на 1 год        | 0,4453 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake (Compute Optimized), 100% vCPU | 3,01 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake (Compute Optimized), RAM       | 0,59 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, 100% vCPU                     | 1,88 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, 100% vCPU, CVoS на 1 год      | 1,47 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев  | 1,6 ₽     | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, 50% vCPU                      | 0,6697 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, RAM                           | 0,516 ₽   | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, RAM, CVoS на 1 год            | 0,4025 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse® Keeper, Intel Ice Lake, RAM, CVoS на 6 месяцев        | 0,4386 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, AMD Zen 4 HighFreq, 100% vCPU                        | 3,85 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, AMD Zen 4 HighFreq, RAM                              | 0,7566 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, AMD Zen 4, 100% vCPU                                 | 1,98 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, AMD Zen 4, 100% vCPU, CVoS на 1 год                  | 1,54 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, AMD Zen 4, RAM                                       | 0,54 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, AMD Zen 4, RAM, CVoS на 1 год                        | 0,4226 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Broadwell, 100% vCPU                           | 2,5 ₽     | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Broadwell, 20% vCPU                            | 1,1525 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Broadwell, 5% vCPU                             | 1,1525 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Broadwell, 50% vCPU                            | 1,1525 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Broadwell, RAM                                 | 0,57 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, 100% vCPU                        | 2,21 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, 100% vCPU, CVoS на 1 год         | 1,72 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев     | 1,88 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, 20% vCPU                         | 1,1525 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, 5% vCPU                          | 1,1525 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, 50% vCPU                         | 1,1525 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, RAM                              | 0,5995 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, RAM, CVoS на 1 год               | 0,4676 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Cascade Lake, RAM, CVoS на 6 месяцев           | 0,5095 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake (Compute Optimized), 100% vCPU        | 3,17 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake (Compute Optimized), RAM              | 0,62 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, 100% vCPU                            | 1,98 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, 100% vCPU, CVoS на 1 год             | 1,54 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев         | 1,68 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, 50% vCPU                             | 1,1525 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, RAM                                  | 0,54 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, RAM, CVoS на 1 год                   | 0,4226 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ClickHouse®, Intel Ice Lake, RAM, CVoS на 6 месяцев               | 0,46 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, AMD Zen 4 HighFreq, 100% vCPU                          | 2,43 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, AMD Zen 4 HighFreq, RAM                                | 0,4483 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, AMD Zen 4, 100% vCPU                                   | 1,2566 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, AMD Zen 4, RAM                                         | 0,3228 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Broadwell, 100% vCPU                             | 1,56 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Broadwell, 20% vCPU                              | 0,6157 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Broadwell, 5% vCPU                               | 0,2638 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Broadwell, 50% vCPU                              | 0,8576 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Broadwell, RAM                                   | 0,3518 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Cascade Lake, 100% vCPU                          | 1,39 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Cascade Lake, 20% vCPU                           | 0,6456 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Cascade Lake, 5% vCPU                            | 0,2766 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Cascade Lake, 50% vCPU                           | 0,8992 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Cascade Lake, RAM                                | 0,3689 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Ice Lake (Compute Optimized), 100% vCPU          | 2 ₽       | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Ice Lake (Compute Optimized), RAM                | 0,3689 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Ice Lake, 100% vCPU                              | 1,2566 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Ice Lake, 50% vCPU                               | 0,807 ₽   | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Вычислительные ресурсы хостов ZooKeeper, Intel Ice Lake, RAM                                    | 0,3228 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Публичный IP-адрес                                                                              | 0,2766 ₽  | IP-адрес × час  | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Резервные копии сверх размера хранилища                                                         | 0,00307 ₽ | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)                                          | 0,0365 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Холодные данные гибридного хранилища и их резервные копии                                       | 0,0032 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Хранилище на локальных SSD-дисках                                                               | 0,0198 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Хранилище на нереплицируемых SSD-дисках                                                         | 0,0147 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Хранилище на сетевых HDD-дисках                                                                 | 0,0052 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for ClickHouse®. Хранилище на сетевых SSD-дисках                                                                 | 0,0218 ₽  | ГБ × час        | 1 мая 2026     | —            |
 
 
 
@@ -414,7 +414,7 @@ blocks:
 Минимальная единица тарификации — 1 байт.
 
 
-| Услуга                                                    | Цена              | Ед. тарификации | Действует с    | Действует до |
-| --------------------------------------------------------- | ----------------- | --------------- | -------------- | ------------ |
-| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 30 апреля 2026 | —            |
-| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 30 апреля 2026 | —            |
+| Услуга                                                    | Цена              | Ед. тарификации | Действует с | Действует до |
+| --------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
+| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
+| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 1 мая 2026  | —            |

@@ -1,6 +1,10 @@
 ---
 title: Как изменить отображение вкладок на дашборде в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете скрыть или показать вкладки на дашборде в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/dashboard-hide-tabs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить отображение вкладок на дашборде в {{ datalens-full-name }}

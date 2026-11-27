@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error: ERR.DS_API.DB.CANNOT_INSERT_NULL_IN_ORDINARY_COLUMN'
 description: This page describes the `Cannot convert NULL value to non-Nullable type` {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DB-CANNOT_INSERT_NULL_IN_ORDINARY_COLUMN.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Cannot convert NULL value to non-Nullable type

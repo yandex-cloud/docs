@@ -1,6 +1,10 @@
 ---
 title: What S3 API methods can be used to manage {{ objstorage-full-name }} buckets
 description: In this article, you will learn what S3 API methods can be used to manage buckets.
+alternate:
+  - href: en/storage/s3/api-ref/bucket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All Bucket methods

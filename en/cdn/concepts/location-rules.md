@@ -1,6 +1,10 @@
 ---
 title: Location rules {{ cdn-full-name }}
 description: This section describes location rules, which enable targeted overrides of CDN resource settings for requests with matching path patterns.
+alternate:
+  - href: en/cdn/concepts/location-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Location rules {{ cdn-full-name }}

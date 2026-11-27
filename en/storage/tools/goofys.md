@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/tools/goofys.md
+    type: text/markdown
+    title: Markdown version
+---
 # goofys
 
 [goofys](https://github.com/kahing/goofys) is a utility for Linux and macOS to mount {{ objstorage-name }} buckets via [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).

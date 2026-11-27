@@ -1,6 +1,10 @@
 ---
 title: Removing an instance group from a placement group in {{ compute-full-name }}
 description: Follow this guide to remove an instance group from a placement group.
+alternate:
+  - href: en/compute/operations/placement-groups/delete-ig-from-pg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Removing an instance group from a placement group

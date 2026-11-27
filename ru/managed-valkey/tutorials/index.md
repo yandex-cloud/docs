@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ mrd-full-name }}
 description: Различные сценарии использования {{ mrd-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-valkey/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ mrd-name }}

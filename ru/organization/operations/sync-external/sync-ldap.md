@@ -1,6 +1,10 @@
 ---
 title: Как настроить синхронизацию с LDAP-совместимыми каталогами в {{ org-full-name }}
 description: Настройте синхронизацию пользователей и групп между LDAP-совместимыми каталогами и {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/sync-external/sync-ldap.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Синхронизировать пользователей и группы с LDAP-совместимыми каталогами

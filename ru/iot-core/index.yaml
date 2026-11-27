@@ -25,6 +25,10 @@ meta:
     - keyword: устройства в облаке
     - keyword: платформа для iot
     - keyword: облако для интернета вещей
+  alternate:
+    - href: ru/iot-core/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первый реестр устройств или брокер

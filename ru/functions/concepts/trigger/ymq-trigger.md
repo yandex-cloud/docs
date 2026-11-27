@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/concepts/trigger/ymq-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для {{ message-queue-short-name }}, который передает сообщения в функцию {{ sf-name }}
 
 [Триггер](../trigger/) для {{ message-queue-short-name }} предназначен для разгрузки [очереди сообщений](../../../message-queue/concepts/queue.md). Он принимает сообщения из очереди и передает их в [функцию](../function.md) {{ sf-name }} для обработки. После успешной обработки триггер удаляет сообщения из очереди, а при ошибке — возвращает сообщения в очередь через [таймаут видимости](../../../message-queue/concepts/visibility-timeout.md). Если для очереди не настроена [Dead Letter Queue](../../../message-queue/concepts/dlq.md), сообщение будет повторно передаваться в функцию, пока успешно не обработается или не закончится срок его хранения.

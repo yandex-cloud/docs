@@ -1,6 +1,10 @@
 ---
 title: How to change a {{ CH }} cluster version in {{ mch-full-name }}
 description: Follow this guide to change a {{ CH }} cluster version.
+alternate:
+  - href: en/managed-clickhouse/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ CH }} version upgrade

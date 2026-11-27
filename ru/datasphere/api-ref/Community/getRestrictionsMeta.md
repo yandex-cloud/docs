@@ -7,6 +7,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/datasphere/api-ref/Community/getRestrictionsMeta.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, REST: Community.GetRestrictionsMeta

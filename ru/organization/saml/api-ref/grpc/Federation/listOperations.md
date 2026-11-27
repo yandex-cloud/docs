@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/organization/saml/api-ref/grpc/Federation/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Federation API, gRPC: FederationService.ListOperations

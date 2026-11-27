@@ -5,6 +5,10 @@ keywords:
   - DHCP
   - Dynamic Host Configuration Protocol
   - Протокол конфигурации динамического хоста
+alternate:
+  - href: ru/glossary/dhcp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Протокол конфигурации динамического хоста (DHCP)

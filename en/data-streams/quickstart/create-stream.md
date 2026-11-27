@@ -1,6 +1,10 @@
 ---
 title: How to create a data stream in {{ yds-name }}
 description: In this tutorial, you will learn how to create a data stream in {{ yds-name }}.
+alternate:
+  - href: en/data-streams/quickstart/create-stream.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a data stream in {{ yds-name }}

@@ -1,6 +1,10 @@
 ---
 title: Authentication in {{ iot-full-name }}
 description: You can authenticate with X.509 certificates, your username and password, or using both methods.
+alternate:
+  - href: en/iot-core/concepts/authorization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authentication

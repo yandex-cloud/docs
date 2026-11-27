@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kafka/concepts/kraft.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ kraft-name }} protocol in {{ mkf-name }} clusters
 
 _[{{ kraft-name }}](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html)_ (short name: {{ kraft-short-name }}) is an approval protocol allowing you to store metadata and manage it in {{ KF }}. {{ kraft-short-name }} makes {{ KF }} independent of the external metadata synchronization service, {{ ZK }}.

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iam/api-ref/grpc/ServiceAccount/reactivate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, gRPC: ServiceAccountService.Reactivate

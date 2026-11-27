@@ -105,6 +105,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/dns/api-ref/DnsZone/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, REST: DnsZone.UpdateAccessBindings

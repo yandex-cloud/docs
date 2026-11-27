@@ -1,6 +1,10 @@
 ---
 title: Создание пользователя {{ VLK }} в {{ mrd-full-name }}
 description: Вы можете создавать пользователей {{ VLK }} и управлять их разрешениями в {{ mrd-name }}.
+alternate:
+  - href: ru/managed-valkey/operations/user-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание пользователя

@@ -1,6 +1,10 @@
 ---
 title: Концепции {{ objstorage-full-name }}
 description: Из статьи вы узнаете, какие понятия используются в сервисе {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Концепции {{ objstorage-name }}

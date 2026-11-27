@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/backup/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Посмотреть операции с ресурсами сервиса {{ backup-name }}
 
 Все действия с ресурсами сервиса {{ backup-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.

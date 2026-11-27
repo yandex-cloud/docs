@@ -384,6 +384,10 @@ apiPlayground:
               - anytime
           - required:
               - weeklyMaintenanceSchedule
+alternate:
+  - href: en/metadata-hub/api-ref/Cluster/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Hive Metastore™ API, REST: Cluster.Update

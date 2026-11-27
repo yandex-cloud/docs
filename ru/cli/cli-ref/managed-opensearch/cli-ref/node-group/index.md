@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/node-group/
+alternate:
+  - href: ru/cli/cli-ref/managed-opensearch/cli-ref/node-group/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-opensearch node-group

@@ -1,6 +1,10 @@
 ---
 title: Инструкция по изменению настроек кластера {{ VLK }} в {{ mrd-full-name }}
 description: Из статьи вы узнаете, как изменить настройки кластера {{ VLK }}.
+alternate:
+  - href: ru/managed-valkey/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек кластера {{ VLK }}

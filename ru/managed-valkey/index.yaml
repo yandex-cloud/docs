@@ -49,6 +49,10 @@ meta:
     - keyword: Кластеры серверов {{ VLK }}
     - keyword: '{{ VLK }}'
     - keyword: '{{ VLK }} в облаке'
+  alternate:
+    - href: ru/managed-valkey/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

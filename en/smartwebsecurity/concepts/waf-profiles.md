@@ -1,6 +1,10 @@
 ---
 title: WAF profiles in {{ sws-full-name }}
 description: 'WAF profile types in {{ sws-name }}: Cloud WAF and SolidWall WAF.'
+alternate:
+  - href: en/smartwebsecurity/concepts/waf-profiles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # WAF profiles

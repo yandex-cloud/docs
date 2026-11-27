@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/yql-tutorials/sort-filter.md
+    type: text/markdown
+    title: Markdown version
+---
 # Data filtering and sorting
 
 When selecting data, you can specify filter expressions that will limit the result. You can also set the order of values returned.

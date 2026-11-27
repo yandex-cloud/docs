@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/kms/operations/symmetric-encryption.md
+    type: text/markdown
+    title: Markdown version
+---
 # Симметричное шифрование данных
 
 В этом разделе вы узнаете, как в {{ kms-short-name }} шифровать и расшифровывать данные небольшого размера (до 32 КБ) с помощью CLI, {{ TF }} и API по схеме [симметричного шифрования](../concepts/symmetric-encryption.md). Подробнее о возможных способах шифрования читайте в разделе [{#T}](../tutorials/encrypt/index.md)

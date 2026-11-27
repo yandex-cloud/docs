@@ -1,6 +1,10 @@
 ---
 title: How to create a disk placement group in {{ compute-full-name }}
 description: Follow this guide to create a disk placement group.
+alternate:
+  - href: en/compute/operations/disk-placement-groups/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a disk placement group

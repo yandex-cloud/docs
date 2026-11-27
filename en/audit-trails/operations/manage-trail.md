@@ -1,6 +1,10 @@
 ---
 title: How to manage {{ at-name }}
 description: Follow this tutorial to update or delete {{ at-full-name }}.
+alternate:
+  - href: en/audit-trails/operations/manage-trail.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing a trail

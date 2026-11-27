@@ -1,6 +1,10 @@
 ---
 title: Как заменить видео в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете заменить уже загруженное видео на новое в сервисе {{ video-name }}.
+alternate:
+  - href: ru/video/operations/video/change-file.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Заменить видеофайл

@@ -1,6 +1,10 @@
 ---
 title: Список квот в сервисах {{ yandex-cloud }}
 description: Во многих сервисах {{ yandex-cloud }} действуют мягкие ограничения на ресурсы — квоты. Посмотреть значение квоты и создать запрос на ее изменение можно по идентификатору квоты, указанному в этом разделе
+alternate:
+  - href: ru/quota-manager/all-quotas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты для сервисов {{ yandex-cloud }}

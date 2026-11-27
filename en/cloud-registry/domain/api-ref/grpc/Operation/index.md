@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/cloud-registry/domain/api-ref/grpc/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry Domains API, gRPC: OperationService

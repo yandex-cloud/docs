@@ -1,6 +1,10 @@
 ---
 title: Расширение x-yc-apigateway-integration:swagger
 description: Из статьи вы узнаете, для чего нужно расширение x-yc-apigateway-integration:swagger, какие параметры оно поддерживает, как выглядит его спецификация.
+alternate:
+  - href: ru/api-gateway/concepts/extensions/swagger.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Расширение x-yc-apigateway-integration:swagger

@@ -1,6 +1,10 @@
 ---
 title: Getting information about a {{ cloud-logging-full-name }} sink
 description: Follow this guide to get information about a log sink.
+alternate:
+  - href: en/logging/operations/get-sink.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a log sink

@@ -1,6 +1,10 @@
 ---
 title: How to delete a NAT gateway in {{ vpc-full-name }}
 description: Follow this guide to delete a NAT gateway.
+alternate:
+  - href: en/vpc/operations/delete-nat-gateway.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a NAT gateway

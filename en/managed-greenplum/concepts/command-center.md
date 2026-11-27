@@ -1,6 +1,10 @@
 ---
 title: '{{ mgp-name }} Command Center'
 description: In this article, you will learn about the {{ mgp-name }} Command Center, the concepts of current state, state history, consumption history, query keys, and query IDs.
+alternate:
+  - href: en/managed-greenplum/concepts/command-center.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mgp-name }} Command Center

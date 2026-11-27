@@ -9,6 +9,10 @@ keywords:
   - Непрерывная интеграция
   - Непрерывное развертывание
   - Непрерывная доставка
+alternate:
+  - href: ru/glossary/ci-cd.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # CI/CD

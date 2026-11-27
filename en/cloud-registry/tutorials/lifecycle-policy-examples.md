@@ -1,6 +1,10 @@
 ---
 title: Configuring lifecycle policies in {{ cloud-registry-full-name }}
 description: This tutorial provides examples of how to configure lifecycle policies to automate artifact management in a registry.
+alternate:
+  - href: en/cloud-registry/tutorials/lifecycle-policy-examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring lifecycle policies

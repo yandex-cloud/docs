@@ -1,6 +1,10 @@
 ---
 title: How to recover a disk from an image in {{ compute-full-name }}
 description: Follow this guide to recover a disk from an image.
+alternate:
+  - href: en/compute/operations/disk-create/from-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recovering a disk from an image

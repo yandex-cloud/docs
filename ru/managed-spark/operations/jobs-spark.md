@@ -1,6 +1,10 @@
 ---
 title: Как управлять заданиями Spark в {{ msp-full-name }}
 description: Из статьи вы узнаете, как управлять заданиями Spark в {{ msp-full-name }}.
+alternate:
+  - href: ru/managed-spark/operations/jobs-spark.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление заданиями Spark

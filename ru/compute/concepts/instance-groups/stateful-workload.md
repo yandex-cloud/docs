@@ -1,6 +1,10 @@
 ---
 title: Работа со Stateful-нагрузкой в группах виртуальных машин
 description: Вы можете использовать группы виртуальных машин для размещения приложений со Stateful-, Stateless- и комбинированной нагрузкой.
+alternate:
+  - href: ru/compute/concepts/instance-groups/stateful-workload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа со Stateful-нагрузкой

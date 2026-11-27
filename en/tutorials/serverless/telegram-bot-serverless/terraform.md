@@ -1,6 +1,10 @@
 ---
 title: How to create a Telegram bot using Serverless and Terraform
 description: In this tutorial, you will learn how to use serverless technology and Terraform to create a Telegram bot that will respond to chat messages.
+alternate:
+  - href: en/tutorials/serverless/telegram-bot-serverless/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to create a Telegram bot using Serverless and {{ TF }}

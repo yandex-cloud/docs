@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/tools.md
+    type: text/markdown
+    title: Markdown version
+---
 # Tools for working with {{ api-gw-name }}
 
 ## {{ TF }} provider {#tf-provider}

@@ -1,6 +1,10 @@
 ---
 title: Pushing a Debian package to a {{ cloud-registry-full-name }}
 description: Follow this guide to push a Debian package to a registry in {{ cloud-registry-full-name }}.
+alternate:
+  - href: en/cloud-registry/operations/debian/push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pushing a Debian package to a registry

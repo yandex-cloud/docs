@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/data-types/SendMessageBatchRequestEntry.md
+    type: text/markdown
+    title: Markdown version
+---
 # SendMessageBatchRequestEntry
 
 Contains the details of a message being sent and its ID. For more information about attributes, see the [SendMessage](../message/SendMessage.md#array-parameters) method description.

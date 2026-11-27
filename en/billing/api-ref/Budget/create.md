@@ -300,6 +300,10 @@ apiPlayground:
         required:
           - amount
           - endDate
+alternate:
+  - href: en/billing/api-ref/Budget/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, REST: Budget.Create

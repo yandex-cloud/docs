@@ -1,6 +1,10 @@
 ---
 title: Allocating instances across zones
 description: In this article, you will learn about allocating instances across availability zones.
+alternate:
+  - href: en/compute/concepts/instance-groups/deploy/zones.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Allocating instances across zones

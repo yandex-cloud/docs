@@ -1,6 +1,10 @@
 ---
 title: Assigning access rules for queries in {{ mtr-name }}
 description: Rules define the actions users can perform with SQL queries.
+alternate:
+  - href: en/managed-trino/operations/access-control-queries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning access rules for queries in {{ mtr-name }}

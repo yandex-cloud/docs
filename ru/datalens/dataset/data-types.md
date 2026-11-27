@@ -1,6 +1,10 @@
 ---
 title: Типы данных {{ datalens-full-name }}
 description: '{{ datalens-full-name }} работает с различными источниками данных, в которых типы данных полей могут отличаться. Для более эффективной работы с данными {{ datalens-name }} конвертирует типы данных полей источника в собственные типы. Это оптимизирует работу с данными. Вы можете изменять тип данных у полей в интерфейсе датасета и в визарде.'
+alternate:
+  - href: ru/datalens/dataset/data-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Типы данных {{ datalens-full-name }}

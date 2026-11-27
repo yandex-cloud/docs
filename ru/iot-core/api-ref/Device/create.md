@@ -77,6 +77,10 @@ apiPlayground:
               **string**
               Public part of the device certificate.
             type: string
+alternate:
+  - href: ru/iot-core/api-ref/Device/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Device.Create

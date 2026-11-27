@@ -1,6 +1,10 @@
 ---
 title: Параметры командного центра {{ mgp-name }}
 description: Из статьи вы узнаете, какую информацию о сессиях и запросах можно получить в командном центре {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/concepts/command-center-parameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Параметры командного центра {{ mgp-name }}

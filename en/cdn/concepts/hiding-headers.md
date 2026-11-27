@@ -1,6 +1,10 @@
 ---
 title: Hiding of origin headers
 description: This section describes the CDN resource option of hiding from end clients the HTTP headers received from the content origin.
+alternate:
+  - href: en/cdn/concepts/hiding-headers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Hiding of origin headers

@@ -28,6 +28,10 @@ meta:
     - keyword: трейлы {{ at-name }}
     - keyword: трейлы в {{ yandex-cloud }}
     - keyword: события безопасности
+  alternate:
+    - href: ru/audit-trails/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Подключите сервис

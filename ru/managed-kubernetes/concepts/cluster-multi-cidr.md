@@ -1,6 +1,10 @@
 ---
 title: Кластеры {{ managed-k8s-name }} с несколькими диапазонами IP-адресов подов
 description: Как поддержка нескольких диапазонов IP-адресов подов позволяет расширять адресное пространство подов в кластере {{ managed-k8s-name }} без его пересоздания.
+alternate:
+  - href: ru/managed-kubernetes/concepts/cluster-multi-cidr.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Кластеры с несколькими диапазонами IP-адресов подов

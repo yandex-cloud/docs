@@ -45,6 +45,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/certificate-manager/privateca/api-ref/Template/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, REST: Template.Update

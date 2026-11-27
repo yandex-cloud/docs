@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/bucket/getbucketencryption.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: GetBucketEncryption
 
 Возвращает информацию о шифровании бакета. Подробнее о шифровании бакета читайте в разделе [{#T}](../../../concepts/encryption.md).

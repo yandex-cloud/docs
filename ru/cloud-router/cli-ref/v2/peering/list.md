@@ -1,6 +1,11 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v2/peering/list/
+noIndex: true
+alternate:
+  - href: ru/cloud-router/cli-ref/v2/peering/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloudrouter v2 peering list

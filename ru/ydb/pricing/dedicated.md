@@ -2,6 +2,10 @@
 title: Правила тарификации для режима Dedicated в {{ ydb-full-name }}
 description: Из статьи вы узнаете о правилах тарификации для режима Dedicated в {{ ydb-full-name }}.
 editable: false
+alternate:
+  - href: ru/ydb/pricing/dedicated.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для режима Dedicated в {{ ydb-name }}

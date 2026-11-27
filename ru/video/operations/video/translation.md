@@ -1,6 +1,10 @@
 ---
 title: Как управлять нейропереводом в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете управлять нейропереводом в сервисе {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/video/translation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять нейропереводом

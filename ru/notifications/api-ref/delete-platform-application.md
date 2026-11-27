@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/delete-platform-application.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие DeletePlatformApplication
 
 Удаляет [канал мобильных Push-уведомлений](../concepts/push.md), а также все связанные с ним [эндпоинты](../concepts/push.md#mobile-endpoints).

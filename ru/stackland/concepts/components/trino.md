@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/trino.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ mtr-name }}
 
 {{ mtr-name }} — это управляемый сервис для работы с распределенным SQL-движком {{ TR }}. Сервис упрощает развертывание и обновление кластеров {{ TR }}, обеспечивает декларативное управление каталогами источников данных и интеграцию с {{ iam-name }}.

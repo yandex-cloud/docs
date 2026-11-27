@@ -1,6 +1,10 @@
 ---
 title: События плеера {{ video-player-name }} в SDK для JavaScript
 description: На странице описаны возможные события видеоплеера {{ video-player-name }}, на которые можно подписаться в SDK для JavaScript.
+alternate:
+  - href: ru/video/sdk/javascript/player-events.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # События плеера

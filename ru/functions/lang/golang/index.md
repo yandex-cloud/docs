@@ -1,6 +1,10 @@
 ---
 title: Разработка на Go в {{ sf-full-name }}. Обзор
 description: С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на Go. Сервис предоставляет среду выполнения с различными версиями.
+alternate:
+  - href: ru/functions/lang/golang/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разработка на Go. Обзор

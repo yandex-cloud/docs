@@ -2,6 +2,10 @@
 title: Создание L7-балансировщика {{ alb-full-name }} с профилем безопасности {{ sws-full-name }} с помощью {{ TF }}
 description: В этом руководстве вы с помощью {{ TF }} создадите тестовый веб-сервер, развернете L7-балансировщик {{ alb-name }} и защитите созданную инфраструктуру с помощью профиля безопасности {{ sws-name }}.
 canonical: '{{ link-docs }}/tutorials/security/balancer-with-sws-profile/terraform'
+alternate:
+  - href: ru/security/tutorials/app-security/balancer-with-sws-profile/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

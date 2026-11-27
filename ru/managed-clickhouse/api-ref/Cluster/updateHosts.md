@@ -58,6 +58,10 @@ apiPlayground:
             type: boolean
         required:
           - hostName
+alternate:
+  - href: ru/managed-clickhouse/api-ref/Cluster/updateHosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.UpdateHosts

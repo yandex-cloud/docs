@@ -1,6 +1,10 @@
 ---
 title: Как принудительно загрузить файлы в кеш CDN-серверов в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете принудительно загрузить контент в кеш CDN-серверов.
+alternate:
+  - href: ru/cdn/operations/resources/prefetch-files.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Принудительная загрузка файлов в кеш CDN-серверов

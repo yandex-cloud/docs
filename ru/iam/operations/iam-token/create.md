@@ -1,6 +1,10 @@
 ---
 title: Как получить IAM-токен для аккаунта
 description: Следуя данной инструкции, вы сможете получить IAM-токен для аккаунта.
+alternate:
+  - href: ru/iam/operations/iam-token/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% note info %}

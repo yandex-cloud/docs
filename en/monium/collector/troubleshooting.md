@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/collector/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
+---
 # Data delivery troubleshooting
 
 This section can help you diagnose and fix most of the issues you may encounter when delivering data to {{ monium-name }}.

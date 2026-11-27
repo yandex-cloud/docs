@@ -1,6 +1,10 @@
 ---
 title: Непрерывная передача изменений в {{ datalens-platform-full-name }}
 description: Следуя данной инструкции, вы сможете создать поставку данных типа CDC в {{ datalens-platform-full-name }}
+alternate:
+  - href: ru/datalens/datalens-platform/operations/data-transfer/cdc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание поставки данных в режиме CDC

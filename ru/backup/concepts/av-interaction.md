@@ -1,6 +1,10 @@
 ---
 title: Взаимодействие {{ backup-full-name }} с антивирусом
 description: В статье содержится информация о влиянии антивируса на инкрементальные резервные копии в {{ backup-name }}.
+alternate:
+  - href: ru/backup/concepts/av-interaction.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Взаимодействие с антивирусом

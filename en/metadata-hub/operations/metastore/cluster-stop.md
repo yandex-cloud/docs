@@ -1,6 +1,10 @@
 ---
 title: How to stop and start a {{ metastore-full-name }} cluster
 description: Follow this guide to learn how to stop and start a {{ metastore-full-name }} cluster.
+alternate:
+  - href: en/metadata-hub/operations/metastore/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Stopping and starting an {{ metastore-full-name }} cluster

@@ -1,6 +1,10 @@
 ---
 title: Public API versioning in {{ datalens-full-name }}
 description: Public API versioning in {{ datalens-full-name }} ensures compatibility of methods and object schemas between the API and the interface.
+alternate:
+  - href: en/datalens/release-notes/api-changelog.md
+    type: text/markdown
+    title: Markdown version
 ---
 # {{ datalens-full-name }} Public API release notes
 

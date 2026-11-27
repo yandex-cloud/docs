@@ -1,6 +1,10 @@
 ---
 title: How to configure resource caching in {{ cdn-full-name }}
 description: Follow this guide to configure resource caching.
+alternate:
+  - href: en/cdn/operations/resources/configure-caching.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring resource caching

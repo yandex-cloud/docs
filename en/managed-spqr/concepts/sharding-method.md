@@ -4,6 +4,10 @@ description: The choice a sharding strategy depends on your data structure. {{ S
 keywords:
   - keyword: SPQR sharding methods
   - keyword: SPQR sharding strategy
+alternate:
+  - href: en/managed-spqr/concepts/sharding-method.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Selecting a sharding strategy

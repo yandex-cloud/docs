@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/multipart/listparts.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: ListParts
 
 Returns a list of already uploaded parts for the specified multipart upload.

@@ -1,6 +1,10 @@
 ---
 title: Управление окружениями в {{ datalens-platform-full-name }}
 description: Создайте окружение {{ yandex-cloud }} для ресурсов {{ datalens-platform-short-name }}, измените его название и описание или удалите окружение.
+alternate:
+  - href: ru/datalens/datalens-platform/operations/clusters/manage-environment.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление окружениями

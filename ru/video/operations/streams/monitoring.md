@@ -1,6 +1,10 @@
 ---
 title: Проверить состояние трансляции в {{ video-full-name }}
 description: Как следить за качеством трансляции в {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/streams/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Проверить состояние трансляции

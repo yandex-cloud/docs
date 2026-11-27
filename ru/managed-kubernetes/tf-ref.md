@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ managed-k8s-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ managed-k8s-full-name }}

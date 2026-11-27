@@ -1,5 +1,9 @@
 ---
 description: Из статьи вы узнаете, как создать подключение для получения детальной статистики по запросам в датасеты и просмотрам дашбордов.
+alternate:
+  - href: ru/datalens/operations/connection/create-usage-tracking.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

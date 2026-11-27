@@ -1,6 +1,10 @@
 ---
 title: Как создать профиль безопасности {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете создать профиль безопасности {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/profile-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать профиль безопасности

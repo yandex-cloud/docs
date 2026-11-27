@@ -1,6 +1,10 @@
 ---
 title: How to create a domain in {{ data-catalog-full-name }}
 description: Follow this guide to create a domain in {{ data-catalog-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/create-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a domain

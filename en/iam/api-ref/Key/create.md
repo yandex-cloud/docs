@@ -43,6 +43,10 @@ apiPlayground:
             - RSA_4096
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/iam/api-ref/Key/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: Key.Create

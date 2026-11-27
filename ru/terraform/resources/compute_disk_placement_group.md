@@ -1,5 +1,9 @@
 ---
 subcategory: Compute Cloud
+alternate:
+  - href: ru/terraform/resources/compute_disk_placement_group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_compute_disk_placement_group (Resource)

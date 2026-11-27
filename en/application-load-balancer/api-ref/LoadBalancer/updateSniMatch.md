@@ -207,6 +207,10 @@ apiPlayground:
               - streamHandler
           - required:
               - httpHandler
+alternate:
+  - href: en/application-load-balancer/api-ref/LoadBalancer/updateSniMatch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.UpdateSniMatch

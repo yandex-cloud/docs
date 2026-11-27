@@ -1,6 +1,10 @@
 ---
 title: Using an AI assistant to manage {{ yandex-cloud }} resources
 description: This guide describes how to use an AI assistant to manage {{ yandex-cloud }} resources in the management console interface.
+alternate:
+  - href: en/console/operations/ai-assistant.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ yandex-cloud }} resources using an AI assistant

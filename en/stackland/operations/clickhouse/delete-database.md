@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/delete-database.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a database
 
 If you have a [{{ CH }}](../../concepts/components/clickhouse.md) [database](create-database.md), you can delete it.

@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ ml-platform-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ ml-platform-name }}.
 editable: false
+alternate:
+  - href: ru/datasphere/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ ml-platform-name }}

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/mysql-to-clickhouse'
+alternate:
+  - href: en/data-transfer/tutorials/mysql-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Loading data from {{ MY }} to a {{ CH }} data mart

@@ -1,6 +1,10 @@
 ---
 title: Подписка для партнеров
 description: Из статьи вы узнаете об условиях подписки для партнеров.
+alternate:
+  - href: ru/marketplace/concepts/subscription.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подписка

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/baremetal/events-ref/BatchCreateServer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal Audit Trails Events: BatchCreateServer

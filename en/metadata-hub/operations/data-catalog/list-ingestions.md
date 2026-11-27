@@ -1,6 +1,10 @@
 ---
 title: How to get a list of data ingestions in {{ data-catalog-full-name }}
 description: Follow this guide to get a list of data ingestions in {{ data-catalog-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/list-ingestions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of ingestions

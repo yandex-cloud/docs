@@ -1,6 +1,10 @@
 ---
 title: Гарантии поставки данных
 description: Из статьи вы узнаете про гарантии поставки данных.
+alternate:
+  - href: ru/data-transfer/concepts/delivery-configuration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Гарантии поставки данных

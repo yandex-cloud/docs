@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/compute/api-ref/grpc/Filesystem/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, gRPC: FilesystemService.List

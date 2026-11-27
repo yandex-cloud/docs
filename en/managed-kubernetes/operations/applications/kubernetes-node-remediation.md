@@ -1,6 +1,10 @@
 ---
 title: Installing Kubernetes Node Remediation
 description: Follow this guide to install Kubernetes Node Remediation.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/kubernetes-node-remediation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing Kubernetes Node Remediation

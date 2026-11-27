@@ -1,6 +1,10 @@
 ---
 title: How to enable file compression in {{ cdn-full-name }}
 description: Follow this guide to enable file compression.
+alternate:
+  - href: en/cdn/operations/resources/enable-compression.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling file compression

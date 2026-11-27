@@ -1,6 +1,10 @@
 ---
 title: Управление классами хранилищ
 description: Следуя данной инструкции, вы сможете управлять классами хранилищ.
+alternate:
+  - href: ru/managed-kubernetes/operations/volumes/manage-storage-class.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление классами хранилищ

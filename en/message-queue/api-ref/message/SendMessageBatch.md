@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/message/SendMessageBatch.md
+    type: text/markdown
+    title: Markdown version
+---
 # SendMessageBatch
 
 Method for simultaneously delivering up to 10 messages to the specified queue. When sending messages to a FIFO queue, they will be delivered in the sending order.

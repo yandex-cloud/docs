@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/quickstart/document-api/aws-http.md
+alternate:
+  - href: ru/ydb/docapi/tools/aws-http.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Работа с данными через HTTP-интерфейс
 

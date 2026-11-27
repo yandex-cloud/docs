@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/vrf/list-operations/
+alternate:
+  - href: ru/baremetal/cli-ref/vrf/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal vrf list-operations

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/smartwebsecurity/waf/api-ref/grpc/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity WAF API, gRPC: OperationService

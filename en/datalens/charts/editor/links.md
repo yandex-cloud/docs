@@ -1,6 +1,10 @@
 ---
 title: Chart links in dashboards and reports
 description: In this article, you will learn about chart links in dashboards and reports.
+alternate:
+  - href: en/datalens/charts/editor/links.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Chart links in dashboards and reports

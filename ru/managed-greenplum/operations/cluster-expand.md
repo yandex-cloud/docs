@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/cluster-expand.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение кластера
 
 Вы можете расширить кластер {{ mgp-name }}, добавив хосты-сегменты. Количество добавляемых хостов не может быть меньше двух. Вы также можете увеличить [количество сегментов на хост](../concepts/index.md).

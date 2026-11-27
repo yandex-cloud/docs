@@ -1,6 +1,10 @@
 ---
 title: Как получить список групп виртуальных машин в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете получить список групп виртуальных машин.
+alternate:
+  - href: ru/compute/operations/instance-groups/get-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список групп виртуальных машин

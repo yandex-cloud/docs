@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/sourcecraft/events-ref/OffboardCloudRegistry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SourceCraft Audit Trails Events: OffboardCloudRegistry

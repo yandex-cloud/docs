@@ -2,6 +2,10 @@
 title: '{{ at-full-name }} metrics'
 description: In this tutorial, you will learn about {{ at-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} metrics

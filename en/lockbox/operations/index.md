@@ -1,6 +1,10 @@
 ---
 title: Guides on using {{ lockbox-full-name }}
 description: In this article, you will learn how to work with {{ lockbox-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/lockbox/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ lockbox-name }}

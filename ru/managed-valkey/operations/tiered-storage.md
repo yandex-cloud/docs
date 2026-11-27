@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-valkey/operations/tiered-storage.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление многоуровневым хранилищем в {{ mrd-name }}
 
 Вы можете включить [многоуровневое хранилище](../concepts/storage.md#data-tiering), которое позволяет переносить редко используемые данные из оперативной памяти на диск.

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/v0/resource-preset/get/
+alternate:
+  - href: en/cli/cli-ref/managed-clickhouse/cli-ref/v0/resource-preset/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse v0 resource-preset get

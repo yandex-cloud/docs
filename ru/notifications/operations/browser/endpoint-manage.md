@@ -1,6 +1,10 @@
 ---
 title: Управлять эндпоинтом в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете изменить или удалить эндпоинт.
+alternate:
+  - href: ru/notifications/operations/browser/endpoint-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять эндпоинтом

@@ -1,6 +1,10 @@
 ---
 title: Добавить обработчик к сетевому балансировщику
 description: Следуя данной инструкции, вы сможете добавить обработчик к сетевому балансировщику.
+alternate:
+  - href: ru/network-load-balancer/operations/listener-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить обработчик к сетевому балансировщику

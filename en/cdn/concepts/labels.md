@@ -1,6 +1,10 @@
 ---
 title: Labels in {{ cdn-full-name }}
 description: A label is a key-value pair used for logical CDN resource labeling.
+alternate:
+  - href: en/cdn/concepts/labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Labels

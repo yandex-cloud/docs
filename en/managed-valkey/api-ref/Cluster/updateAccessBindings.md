@@ -119,6 +119,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/managed-valkey/api-ref/Cluster/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, REST: Cluster.UpdateAccessBindings

@@ -1,6 +1,10 @@
 ---
 title: Конфигурации компонентов кластера {{ myt-name }}
 description: Конфигурация компонента определяет вычислительные мощности, которые выделяются для каждого компонента в кластере {{ myt-name }}.
+alternate:
+  - href: ru/managed-ytsaurus/concepts/component-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Конфигурации компонентов кластера {{ myt-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/network-load-balancer/operations/target-group-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Информация об имеющихся целевых группах
 
 Вы можете запросить детальную информацию о каждой созданной вами целевой группе.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/edit-database.md
+    type: text/markdown
+    title: Markdown version
+---
 # Update database
 
 Once a [{{ CH }}](../../concepts/components/clickhouse.md) [database](create-database.md) is created, you **cannot change** any of the `spec` fields.

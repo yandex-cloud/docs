@@ -1,6 +1,10 @@
 ---
 title: Версионирование датасета в {{ datalens-full-name }}
 description: Версионирование датасета в {{ datalens-full-name }} — это возможность хранить историю изменений конфигурации датасета с помощью версий. Список версий доступен пользователям с минимальным правом доступа {{ permission-write }} на датасет.
+alternate:
+  - href: ru/datalens/dataset/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Версионирование в {{ datalens-full-name }}

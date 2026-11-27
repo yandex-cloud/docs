@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ mch-full-name }}
 description: This page features step-by-step guides for {{ mch-name }}.
+alternate:
+  - href: en/managed-clickhouse/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ mch-name }}

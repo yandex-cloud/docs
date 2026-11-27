@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }} mobile app'
 description: In this article, you will learn about the {{ yandex-cloud }} mobile app.
+alternate:
+  - href: en/overview/mobile-app/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} mobile app

@@ -1,6 +1,10 @@
 ---
 title: User permissions in {{ mmy-name }}
 description: In a {{ mmy-full-name }} cluster, user permissions are decided by one or more privileges assigned to the user.
+alternate:
+  - href: en/managed-mysql/concepts/user-rights.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # User permissions in {{ mmy-name }}

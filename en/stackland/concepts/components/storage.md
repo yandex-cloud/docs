@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/storage.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage
 
 {{ objstorage-name }} is an S3-compatiable object storage based on {{ objstorage-full-name }}. You can use it for data in any format. To operate the storage, use tools supporting the S3 API.

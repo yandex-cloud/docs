@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_license_show.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli license show
 
 Show the current license

@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/organization/saml/api-ref/Federation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Federation API, REST: Federation.Get

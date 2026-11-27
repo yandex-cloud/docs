@@ -1,6 +1,10 @@
 ---
 title: How to create a billing account for individuals in {{ yandex-cloud }}
 description: In this tutorial, you will learn how to create a billing account for an individual in {{ yandex-cloud }}.
+alternate:
+  - href: en/getting-started/individuals/registration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a billing account

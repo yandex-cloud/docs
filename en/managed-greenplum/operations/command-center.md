@@ -1,6 +1,10 @@
 ---
 title: Using the {{ mgp-name }} command center
 description: With the command center, you can manage sessions and queries and view their info.
+alternate:
+  - href: en/managed-greenplum/operations/command-center.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using the {{ mgp-name }} command center

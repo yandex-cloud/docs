@@ -1,6 +1,10 @@
 ---
 title: Изменить основные параметры профиля ARL
 description: Следуя данной инструкции, вы сможете изменить основные параметры профиля ARL.
+alternate:
+  - href: ru/smartwebsecurity/operations/arl-profile-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить основные параметры профиля ARL

@@ -430,6 +430,10 @@ apiPlayground:
               - anytime
           - required:
               - weeklyMaintenanceSchedule
+alternate:
+  - href: ru/managed-greenplum/api-ref/Cluster/restore.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.Restore

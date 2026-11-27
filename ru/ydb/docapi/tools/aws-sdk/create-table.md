@@ -2,6 +2,10 @@
 title: Как создать таблицу в {{ ydb-full-name }}
 description: Следуя данной инструкции, вы сможете создать таблицу.
 sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
+alternate:
+  - href: ru/ydb/docapi/tools/aws-sdk/create-table.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Создание таблицы в AWS SDK
 

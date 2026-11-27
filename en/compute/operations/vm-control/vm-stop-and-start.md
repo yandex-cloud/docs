@@ -1,6 +1,10 @@
 ---
 title: How to stop, start, or restart a VM
 description: The `stop` command shuts down a VM. Once a VM is shut down, its status changes to `STOPPED`. You can restart a VM at any time to continue using it. The `start` command starts a previously stopped VM. Once the VM is started, its status changes to `RUNNING`, and the operating system starts loading.
+alternate:
+  - href: en/compute/operations/vm-control/vm-stop-and-start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Stopping, starting, or restarting a VM

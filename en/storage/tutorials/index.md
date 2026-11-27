@@ -1,6 +1,10 @@
 ---
 title: '{{ objstorage-full-name }} tutorials'
 description: This page provides a list of {{ objstorage-name }} tutorials.
+alternate:
+  - href: en/storage/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ objstorage-name }} tutorials

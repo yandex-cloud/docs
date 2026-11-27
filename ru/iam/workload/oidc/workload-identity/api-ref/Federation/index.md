@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/iam/workload/oidc/workload-identity/api-ref/Federation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Federation, REST: Federation

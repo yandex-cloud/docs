@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md
+    type: text/markdown
+    title: Markdown version
+---
 # В детализации по платежному аккаунту стало отображаться потребление по сервису {{ cloud-logging-name }}
 
 

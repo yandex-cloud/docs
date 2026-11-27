@@ -1,6 +1,10 @@
 ---
 title: '{{ dataproc-full-name }}. FAQ'
 description: How to get my activity logs in {{ dataproc-full-name }}? Find the answer to this and other common questions below.
+alternate:
+  - href: en/data-proc/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ dataproc-name }}

@@ -1,5 +1,9 @@
 ---
 title: Installing {{ stackland-name }} on {{ baremetal-full-name }} via PXE
+alternate:
+  - href: en/stackland/tutorials/install-on-yc-bms-pxe.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing {{ stackland-name }} on {{ baremetal-full-name }} via PXE

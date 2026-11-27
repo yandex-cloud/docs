@@ -1,6 +1,10 @@
 ---
 title: Удалить все объекты из бакета в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете удалить все объекты из бакета в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/objects/delete-all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить все объекты из бакета

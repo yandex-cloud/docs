@@ -1,6 +1,10 @@
 ---
 title: Примеры кода для подключения к кластеру {{ CH }} в {{ mch-full-name }}
 description: Следуя этим примерам, вы сможете подключиться к базе данных в кластере {{ CH }} из кода вашего приложения.
+alternate:
+  - href: ru/managed-clickhouse/operations/connect/code-examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Примеры кода для подключения к кластеру {{ CH }}

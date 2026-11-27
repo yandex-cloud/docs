@@ -1,6 +1,10 @@
 ---
 title: Managing {{ SD }} backups
 description: You can back up {{ SD }} clusters and restore them from existing backups. Point-in-time recovery, or PITR, enables you to restore a cluster’s state to any point in time since the backup was created.
+alternate:
+  - href: en/storedoc/operations/cluster-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing backups in {{ mmg-name }}

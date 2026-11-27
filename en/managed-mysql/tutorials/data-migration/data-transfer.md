@@ -3,6 +3,10 @@ title: Transferring data from a third-party {{ MY }} cluster using {{ data-trans
 description: In this tutorial, you will learn how to transfer data from a third-party {{ MY }} cluster to your {{ mmy-full-name }} cluster using {{ data-transfer-full-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/mysql-data-migration/data-transfer'
 noIndex: true
+alternate:
+  - href: en/managed-mysql/tutorials/data-migration/data-transfer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring data from a third-party {{ MY }} cluster using {{ data-transfer-name }}

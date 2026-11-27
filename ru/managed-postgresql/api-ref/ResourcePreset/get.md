@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-postgresql/api-ref/ResourcePreset/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, REST: ResourcePreset.Get

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/bucket/putBucketVersioning.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: PutBucketVersioning
 
 Enables or suspends bucket versioning.

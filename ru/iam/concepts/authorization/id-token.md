@@ -1,6 +1,10 @@
 ---
 title: Что такое ID-токен
 description: ID-токен — специальный токен, выдаваемый сервисному аккаунту и необходимый для аутентификации от имени этого сервисного аккаунта в сторонней системе, поддерживающей аутентификацию по стандарту OIDC.
+alternate:
+  - href: ru/iam/concepts/authorization/id-token.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # ID-токен сервисного аккаунта

@@ -1,6 +1,10 @@
 ---
 title: Перенести виртуальную машину в другое облако
 description: Следуя данной инструкции, вы сможете перенести виртуальную машину в другое облако.
+alternate:
+  - href: ru/compute/operations/vm-control/vm-change-cloud.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Перенести виртуальную машину в другое облако

@@ -1,6 +1,10 @@
 ---
 title: Проверить состояние целевых ресурсов
 description: Следуя данной инструкции, вы сможете проверить состояние целевых ресурсов.
+alternate:
+  - href: ru/network-load-balancer/operations/check-resource-health.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Проверить состояние целевых ресурсов

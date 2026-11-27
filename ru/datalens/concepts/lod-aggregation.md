@@ -1,6 +1,10 @@
 ---
 title: LOD-выражения в {{ datalens-full-name }}
 description: В данной статье описано, как LOD-выражения в {{ datalens-full-name }} позволяют добавлять или исключать измерения из группировки, а также использовать вложенные агрегации.
+alternate:
+  - href: ru/datalens/concepts/lod-aggregation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # LOD-выражения и управление фильтрацией в агрегатных функциях в {{ datalens-full-name }}

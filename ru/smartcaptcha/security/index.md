@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ captcha-name }}
 description: В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе {{ captcha-name }}.
+alternate:
+  - href: ru/smartcaptcha/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ captcha-name }}

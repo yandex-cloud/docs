@@ -25,6 +25,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/managed-postgresql/api-ref/BackupRetentionPolicy/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, REST: BackupRetentionPolicy.Get

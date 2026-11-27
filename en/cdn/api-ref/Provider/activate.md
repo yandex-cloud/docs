@@ -26,6 +26,10 @@ apiPlayground:
         - providerType
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/cdn/api-ref/Provider/activate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: Provider.Activate

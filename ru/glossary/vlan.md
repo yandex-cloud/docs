@@ -5,6 +5,10 @@ keywords:
   - Virtual Local Area Network
   - VLAN
   - Виртуальная локальная сеть
+alternate:
+  - href: ru/glossary/vlan.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Local Area Network (VLAN)

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/resource-manager/api-ref/grpc/Cloud/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API, gRPC: CloudService.Update

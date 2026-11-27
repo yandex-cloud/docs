@@ -1,6 +1,10 @@
 ---
 title: Как выполнить первый вход в консоль {{ yandex-cloud }}
 description: Следуя данной инструкции, вы сможете выполнить первый вход в консоль управления {{ yandex-cloud }}.
+alternate:
+  - href: ru/organization/operations/user-account/first-login.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Первый вход в консоль

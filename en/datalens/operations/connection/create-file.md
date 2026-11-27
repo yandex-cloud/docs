@@ -1,6 +1,10 @@
 ---
 title: How to create a connection to a file in {{ datalens-full-name }}
 description: Follow this guide to create a connection to a file.
+alternate:
+  - href: en/datalens/operations/connection/create-file.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a connection to a file

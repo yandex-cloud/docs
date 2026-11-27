@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Subaccounts/PATCH_subaccounts_v1_masterBAId_subaccount_subAccountId.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Update subaccount

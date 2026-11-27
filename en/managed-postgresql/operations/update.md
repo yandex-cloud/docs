@@ -1,6 +1,10 @@
 ---
 title: How to update {{ PG }} cluster settings in {{ mpg-full-name }}
 description: In this guide, you will learn how to update {{ PG }} cluster settings.
+alternate:
+  - href: en/managed-postgresql/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating {{ PG }} cluster settings

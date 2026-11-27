@@ -1,6 +1,10 @@
 ---
 title: Загрузка файла в {{ objstorage-full-name }}
 description: Используйте направленный ациклический граф (DAG) для загрузки файлов в {{ objstorage-name }}.
+alternate:
+  - href: ru/managed-airflow/operations/upload-file-to-s3.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузка файла в {{ objstorage-full-name }}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/database/get/
+alternate:
+  - href: en/managed-spqr/cli-ref/database/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-sharded-postgresql database get

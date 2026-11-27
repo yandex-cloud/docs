@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/v0/catalog/create/tpch/
+alternate:
+  - href: en/cli/cli-ref/managed-trino/cli-ref/v0/catalog/create/tpch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-trino v0 catalog create tpch

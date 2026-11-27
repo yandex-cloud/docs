@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/apploadbalancer/events-ref/UpdateBackendGroup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer Audit Trails Events: UpdateBackendGroup

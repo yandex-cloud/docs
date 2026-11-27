@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/metadata-hub/concepts/compatibility-check-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Политики проверки совместимости
 
 

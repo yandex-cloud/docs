@@ -1,6 +1,10 @@
 ---
 title: Экспорт и импорт метаданных Hive в кластере {{ metastore-full-name }}
 description: Следуя данной инструкции, вы научитесь экспортировать и импортировать метаданные Hive в кластере {{ metastore-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/metastore/export-and-import.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Экспорт и импорт метаданных Hive в кластере {{ metastore-name }}

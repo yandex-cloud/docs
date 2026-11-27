@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/changing-account-owner-for-legal-entities.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как сменить владельца аккаунта для юридических лиц
 
 

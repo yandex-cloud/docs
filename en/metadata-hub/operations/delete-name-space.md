@@ -1,6 +1,10 @@
 ---
 title: Deleting a namespace
 description: Follow this guide to delete a namespace.
+alternate:
+  - href: en/metadata-hub/operations/delete-name-space.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a namespace

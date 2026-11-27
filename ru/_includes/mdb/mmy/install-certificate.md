@@ -14,10 +14,10 @@
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.mysql; curl.exe -o $HOME\.mysql\root.crt {{ crt-web-path }}
+   mkdir $HOME\AppData\Roaming\.mysql; curl.exe -o $HOME\AppData\Roaming\.mysql\root.crt {{ crt-web-path }}
    ```
 
-   Сертификат будет сохранен в файле `$HOME\.mysql\root.crt`.
+   Сертификат будет сохранен в файле `$HOME\AppData\Roaming\.mysql\root.crt`.
 
    Корпоративные политики и антивирус могут блокировать скачивание сертификата. Подробнее в разделе [Вопросы и ответы](../../../managed-mysql/qa/connection.md#get-ssl-error).
 

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-zonalshift/cli-ref/v0/drill-type/
+alternate:
+  - href: en/cli/cli-ref/managed-zonalshift/cli-ref/v0/drill-type/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-zonalshift v0 drill-type

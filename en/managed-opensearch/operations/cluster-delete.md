@@ -5,6 +5,10 @@ keywords:
   - Creating an OpenSearch cluster
   - OpenSearch cluster
   - OpenSearch
+alternate:
+  - href: en/managed-opensearch/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an {{ OS }} cluster

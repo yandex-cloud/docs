@@ -1,6 +1,10 @@
 ---
 title: How to get a list of operations for a private connection in {{ interconnect-name }}
 description: Follow this guide to get a list of private connection operations in {{ interconnect-name }}.
+alternate:
+  - href: en/interconnect/operations/priv-con-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of operations for a private connection

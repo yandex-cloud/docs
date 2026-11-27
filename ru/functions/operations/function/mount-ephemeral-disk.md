@@ -1,6 +1,10 @@
 ---
 title: Как смонтировать эфемерный диск в функцию {{ sf-full-name }}
 description: Следуя данной инструкции, вы сможете смонтировать эфемерный диск в функцию {{ sf-name }}.
+alternate:
+  - href: ru/functions/operations/function/mount-ephemeral-disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Смонтировать эфемерный диск в функцию

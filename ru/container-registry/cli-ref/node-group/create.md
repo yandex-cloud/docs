@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/node-group/create/
+alternate:
+  - href: ru/container-registry/cli-ref/node-group/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container node-group create

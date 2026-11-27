@@ -1,6 +1,10 @@
 ---
 title: Как изменить настройки кластера {{ KF }} в {{ mkf-full-name }}
 description: Следуя данной инструкции, вы сможете изменить настройки кластера {{ KF }}.
+alternate:
+  - href: ru/managed-kafka/operations/cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек кластера {{ KF }}

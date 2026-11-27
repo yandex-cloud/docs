@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ mpg-full-name }}
 description: В этой инструкции вы научитесь создавать кластер {{ PG }} и подключаться к нему.
+alternate:
+  - href: ru/managed-postgresql/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ mpg-name }}

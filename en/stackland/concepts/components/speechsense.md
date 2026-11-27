@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/speechsense.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ speechsense-name }}
 
 {{ speechsense-full-name }} is a speech analytics platform within {{ stackland-name }}. It transcribes and analyzes audio recordings of conversations, extracts text, classifies customer interactions, and generates analytical reports.

@@ -1,6 +1,10 @@
 ---
 title: How to configure CORS for responses to clients in {{ cdn-full-name }}
 description: Follow this guide to configure CORS when sending responses to clients.
+alternate:
+  - href: en/cdn/operations/resources/configure-cors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring CORS for responses to clients

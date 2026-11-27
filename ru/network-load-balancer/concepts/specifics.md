@@ -1,6 +1,10 @@
 ---
 title: Особенности реализации
 description: 'В этой статье вы узнаете об особенностях реализации сетевого балансировщика в {{ yandex-cloud }}: алгоритм работы внешнего балансировщика, обработка UDP-трафика, маршрутизация трафика через внутренний балансировщик и др.'
+alternate:
+  - href: ru/network-load-balancer/concepts/specifics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Особенности реализации

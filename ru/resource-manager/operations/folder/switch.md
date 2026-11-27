@@ -1,6 +1,10 @@
 ---
 title: Перейти в каталог {{ yandex-cloud }}
 description: Следуя инструкции на этой странице, вы сможете перейти в нужный каталог {{ yandex-cloud }}.
+alternate:
+  - href: ru/resource-manager/operations/folder/switch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переключиться на другой каталог

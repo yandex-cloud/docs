@@ -1,6 +1,10 @@
 ---
 title: How to connect a Windows Server {{ compute-full-name }} VM to {{ backup-full-name }}
 description: Follow this guide to connect a Windows Server {{ compute-full-name }} VM to {{ backup-name }}.
+alternate:
+  - href: en/backup/operations/connect-vm-windows.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting an existing Windows Server VM to {{ backup-name }}

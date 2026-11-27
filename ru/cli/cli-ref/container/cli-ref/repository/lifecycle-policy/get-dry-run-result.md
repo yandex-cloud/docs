@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/repository/lifecycle-policy/get-dry-run-result/
+alternate:
+  - href: ru/cli/cli-ref/container/cli-ref/repository/lifecycle-policy/get-dry-run-result.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container repository lifecycle-policy get-dry-run-result

@@ -1,6 +1,10 @@
 ---
 title: Uploading a data schema to {{ yq-full-name }}
 description: In this tutorial, you will learn how to upload a data schema.
+alternate:
+  - href: en/query/operations/schema-uploading.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Uploading a data schema

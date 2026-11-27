@@ -1,6 +1,10 @@
 ---
 title: Методы в API
 description: Из статьи вы узнаете про методы в API {{ yandex-cloud }} и их виды.
+alternate:
+  - href: ru/api-design-guide/concepts/about-methods.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Методы в API

@@ -1,6 +1,10 @@
 ---
 title: Серийная консоль в {{ compute-full-name }}
 description: Из статьи вы узнаете, что такое серийная консоль виртуальной машины {{ compute-full-name }}, как и для чего ее можно использовать, а также какие риски несет в себе использование серийной консоли ВМ.
+alternate:
+  - href: ru/compute/concepts/serial-console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Серийная консоль виртуальной машины

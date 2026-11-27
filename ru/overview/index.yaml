@@ -5,6 +5,10 @@ meta:
     - keyword: список сервисов {{ yandex-cloud }}
     - keyword: как взять в аренду вычислительные мощности
     - keyword: облачные вычисления
+  alternate:
+    - href: ru/overview/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: content-layout-block
     textContent:

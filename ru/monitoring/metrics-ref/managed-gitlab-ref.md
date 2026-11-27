@@ -2,6 +2,10 @@
 title: Метрики {{ mgl-full-name }}
 description: Из статьи вы узнаете про метрики {{ mgl-name }}.
 editable: false
+alternate:
+  - href: ru/monitoring/metrics-ref/managed-gitlab-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ mgl-full-name }}

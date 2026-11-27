@@ -1,6 +1,10 @@
 ---
 title: How to view service usage details in {{ billing-name }}
 description: Follow this guide to view service usage details.
+alternate:
+  - href: en/billing/operations/check-charges.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing service usage details

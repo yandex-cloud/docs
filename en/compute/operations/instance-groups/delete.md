@@ -1,6 +1,10 @@
 ---
 title: How to delete an instance group
 description: Deleting an instance group is permanent and cannot be undone, so you cannot recover a deleted instance group. Along with the group, you also delete the {{ network-load-balancer-name }} target group, VM instances, and disks. To delete an instance group, open the folder page in the management console. Navigate to {{ compute-full-name }}. On the **Virtual machines** page, go to the **Instance groups** tab. Select **Delete**.
+alternate:
+  - href: en/compute/operations/instance-groups/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an instance group

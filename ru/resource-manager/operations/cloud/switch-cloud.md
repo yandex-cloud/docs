@@ -1,6 +1,10 @@
 ---
 title: Инструкция по переключению на другое облако в {{ resmgr-full-name }}
 description: Из статьи вы узнаете, как переключиться на другое облако в {{ resmgr-full-name }}.
+alternate:
+  - href: ru/resource-manager/operations/cloud/switch-cloud.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переключение на другое облако

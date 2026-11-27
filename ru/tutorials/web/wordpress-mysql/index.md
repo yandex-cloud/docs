@@ -8,6 +8,10 @@ keywords:
   - настройка wordpress сайта
   - wordpress mysql
   - wordpress сайт на mysql
+alternate:
+  - href: ru/tutorials/web/wordpress-mysql/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [wordpress-mysql](../../../_tutorials/applied/wordpress-mysql.md) %}

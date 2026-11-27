@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/database/restore/
+alternate:
+  - href: ru/cli/cli-ref/ydb/cli-ref/v0/database/restore.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc ydb v0 database restore

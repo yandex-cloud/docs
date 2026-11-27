@@ -1,6 +1,10 @@
 ---
 title: Что такое gRPC?
 description: gRPC — это современная высокопроизводительная платформа от компании Google, основанная на протоколе удаленного вызова процедур (RPC).
+alternate:
+  - href: ru/glossary/grpc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # gRPC

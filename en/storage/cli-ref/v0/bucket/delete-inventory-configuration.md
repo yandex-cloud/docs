@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/v0/bucket/delete-inventory-configuration/
+alternate:
+  - href: en/storage/cli-ref/v0/bucket/delete-inventory-configuration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc storage v0 bucket delete-inventory-configuration

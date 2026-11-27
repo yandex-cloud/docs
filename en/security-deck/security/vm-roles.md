@@ -1,6 +1,10 @@
 ---
 title: Service roles for {{ vuln-man-name }} in {{ sd-full-name }}
 description: This page lists the service roles required to control access to the {{ vuln-man-name }} ({{ vuln-man-short-name }}) module in {{ sd-name }}.
+alternate:
+  - href: en/security-deck/security/vm-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service roles for {{ vuln-man-name }} ({{ vuln-man-short-name }})

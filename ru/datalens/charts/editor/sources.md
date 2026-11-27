@@ -1,6 +1,10 @@
 ---
 title: Какие есть источники данных в Editor {{ datalens-full-name }}
 description: Описание типов источников данных и ограничений на размер и время загрузки в Editor {{ datalens-name }}.
+alternate:
+  - href: ru/datalens/charts/editor/sources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Источники данных в Editor {{ datalens-full-name }}

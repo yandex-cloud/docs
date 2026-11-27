@@ -1,6 +1,10 @@
 ---
 title: Как изменить группу виртуальных машин в {{ compute-full-name }} по спецификации в формате YAML
 description: Следуя данной инструкции, вы сможете изменить группу виртуальных машин по спецификации в формате YAML.
+alternate:
+  - href: ru/compute/operations/instance-groups/update-from-yaml.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить группу виртуальных машин по спецификации в формате YAML

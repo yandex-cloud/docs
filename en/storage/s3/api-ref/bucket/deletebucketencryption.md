@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/bucket/deletebucketencryption.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: DeleteBucketEncryption
 
 Removes encryption from the bucket. For more information about bucket encryption, see [{#T}](../../../concepts/encryption.md).

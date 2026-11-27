@@ -1,6 +1,10 @@
 ---
 title: Cookie в {{ yandex-cloud }}
 description: Из статьи вы узнаете, какие cookie использует {{ yandex-cloud }}.
+alternate:
+  - href: ru/iam/concepts/authorization/cookie.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cookie

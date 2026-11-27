@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/auth.md
+    type: text/markdown
+    title: Markdown version
+---
 # Authentication in the Yandex AI Studio SDK
 
 ## Authentication method classes

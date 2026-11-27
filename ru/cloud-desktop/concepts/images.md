@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cloud-desktop/concepts/images.md
+    type: text/markdown
+    title: Markdown version
+---
 # Образы
 
 _Образ_ — это полная копия структуры файловой системы и данных, находящихся на диске. Образы {{ cloud-desktop-name }} обязательно содержат операционную систему.

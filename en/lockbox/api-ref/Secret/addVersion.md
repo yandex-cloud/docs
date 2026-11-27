@@ -74,6 +74,10 @@ apiPlayground:
               - textValue
           - required:
               - binaryValue
+alternate:
+  - href: en/lockbox/api-ref/Secret/addVersion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox API, REST: Secret.AddVersion

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/v0/provider/
+alternate:
+  - href: en/backup/cli-ref/v0/provider/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc backup v0 provider

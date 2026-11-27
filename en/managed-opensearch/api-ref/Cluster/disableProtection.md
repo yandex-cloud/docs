@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/managed-opensearch/api-ref/Cluster/disableProtection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.DisableProtection

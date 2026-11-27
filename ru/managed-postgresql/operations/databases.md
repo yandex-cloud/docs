@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/operations/databases.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление базами данных в {{ mpg-name }}
 
 Вы можете добавлять, переименовывать и удалять базы данных, просматривать информацию о них, а также изменять владельца базы данных.

@@ -1,6 +1,10 @@
 ---
 title: How to get a list of available CAPTCHAs
 description: In this tutorial, you will learn how to get a list of available {{ captcha-full-name }} CAPTCHAs.
+alternate:
+  - href: en/smartcaptcha/operations/get-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of available CAPTCHAs

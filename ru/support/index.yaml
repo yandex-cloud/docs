@@ -26,6 +26,10 @@ meta:
     - keyword: Как получить помощь в {{ yandex-cloud }}
     - keyword: Решение проблем {{ yandex-cloud }}
     - keyword: Проблема в {{ yandex-cloud }}
+  alternate:
+    - href: ru/support/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: content
     title: Описание технической поддержки Yandex Cloud

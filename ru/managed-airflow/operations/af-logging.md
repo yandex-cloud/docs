@@ -1,6 +1,10 @@
 ---
 title: Передача логов кластера {{ maf-full-name }} в {{ cloud-logging-full-name }}
 description: Следуя данной инструкции, вы сможете настроить передачу логов кластера {{ maf-name }} в {{ cloud-logging-name }}.
+alternate:
+  - href: ru/managed-airflow/operations/af-logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передача логов кластера {{ maf-name }} в {{ cloud-logging-full-name }}

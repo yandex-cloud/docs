@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/CAST_ARR_FLOAT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # CAST_ARR_FLOAT

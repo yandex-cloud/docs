@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ SD }} version upgrade
 
 You can only upgrade your {{ mmg-name }} cluster to the next sequential version, e.g., from 4.2 to 4.4. Upgrading to subsequent versions must be done incrementally. For example, upgrading {{ SD }} from version 4.2 to 8.0 is performed in the following sequence: 4.2 → 4.4 → 5.0 → 6.0 → 7.0 → 8.0. Before each cluster upgrade stage, you must update the [cluster compatibility version](#compatibility-update).

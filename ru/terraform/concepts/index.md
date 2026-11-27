@@ -1,6 +1,10 @@
 ---
 title: Обзор {{ TF }} в {{ yandex-cloud }}
 description: 'Узнайте, как использовать {{ TF }} для управления инфраструктурой в {{ yandex-cloud }}: преимущества, принцип работы и пример конфигурации ресурсов.'
+alternate:
+  - href: ru/terraform/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор

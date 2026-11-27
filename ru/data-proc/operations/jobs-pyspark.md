@@ -1,6 +1,10 @@
 ---
 title: Как управлять заданиями PySpark в {{ dataproc-full-name }}
 description: Из статьи вы узнаете, как управлять заданиями PySpark в {{ dataproc-full-name }}.
+alternate:
+  - href: ru/data-proc/operations/jobs-pyspark.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление заданиями PySpark

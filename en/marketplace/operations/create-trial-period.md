@@ -1,6 +1,10 @@
 ---
 title: Creating a trial period
 description: Follow this guide to create a trial period.
+alternate:
+  - href: en/marketplace/operations/create-trial-period.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a trial period

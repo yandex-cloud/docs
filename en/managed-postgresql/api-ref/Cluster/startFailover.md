@@ -27,6 +27,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/managed-postgresql/api-ref/Cluster/startFailover.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, REST: Cluster.StartFailover

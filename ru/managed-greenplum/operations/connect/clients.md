@@ -1,6 +1,10 @@
 ---
 title: Подключение к кластеру {{ mgp-full-name }}
 description: Следуя этой инструкции, вы сможете подключиться к базе данных в кластере {{ mgp-name }} с помощью инструментов командной строки, из графических IDE, {{ pgadmin }} и Docker-контейнера.
+alternate:
+  - href: ru/managed-greenplum/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ mgp-name }} из приложений

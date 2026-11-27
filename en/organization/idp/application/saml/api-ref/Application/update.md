@@ -271,6 +271,10 @@ apiPlayground:
               - NAME
               - ID
               - EXTERNAL_ID
+alternate:
+  - href: en/organization/idp/application/saml/api-ref/Application/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: Application.Update

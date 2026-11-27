@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение к {{ ydb-name }} в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете создать подключение к {{ ydb-name }} в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/create-ydb.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к {{ ydb-short-name }} в {{ datalens-full-name }}

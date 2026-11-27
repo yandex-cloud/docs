@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cli/operations/update-cli.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обновление {{ yandex-cloud }} CLI
 
 ## Посмотреть версию CLI {#see-version}

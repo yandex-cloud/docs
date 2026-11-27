@@ -1,6 +1,10 @@
 ---
 title: Механизм отписки от рассылок
 description: Механизм one-click unsubscribe в {{ postbox-full-name }} позволяет получателям легко отписаться от рассылок одним кликом.
+alternate:
+  - href: ru/postbox/concepts/unsubscribe.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Механизм отписки от рассылок

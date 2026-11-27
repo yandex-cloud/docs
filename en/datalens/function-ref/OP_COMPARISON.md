@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/OP_COMPARISON.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Comparison

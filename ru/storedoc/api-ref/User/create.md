@@ -91,6 +91,10 @@ apiPlayground:
             type: boolean
         required:
           - name
+alternate:
+  - href: ru/storedoc/api-ref/User/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: User.Create

@@ -1,6 +1,10 @@
 ---
 title: Reserved instance pools for {{ managed-k8s-full-name }} node groups
 description: In this article, you will learn how to use reserved instance pools for {{ managed-k8s-name }} node groups.
+alternate:
+  - href: en/managed-kubernetes/concepts/node-group/reserved-pools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reserved instance pools for {{ managed-k8s-full-name }} node groups

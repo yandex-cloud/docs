@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/baremetal/concepts/server-configurations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Stock server configurations
 
 You can order a server in one of the stock configurations. For example, by selecting a configuration with preferred CPU, RAM, number of [disks](./disks/disk-types.md), type and number of network interfaces. Alternatively, you can choose a server specifically tailored for a particular task, such as servers with a powerful processor for high-performance computing or servers for data storage with many large disks.

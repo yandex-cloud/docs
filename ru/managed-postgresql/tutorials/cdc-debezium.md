@@ -2,6 +2,10 @@
 title: Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью Debezium
 description: Вы можете отслеживать изменения данных в {{ mpg-name }} и отправлять их в {{ mkf-name }} по технологии Change Data Capture с помощью платформы Debezium.
 canonical: '{{ link-docs }}/tutorials/dataplatform/debezium-mpg'
+alternate:
+  - href: ru/managed-postgresql/tutorials/cdc-debezium.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поставка данных в {{ mkf-full-name }} с помощью Debezium

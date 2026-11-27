@@ -1,6 +1,10 @@
 ---
 title: Как отозвать роли на реестр в {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы сможете отозвать роли на реестр.
+alternate:
+  - href: ru/cloud-registry/operations/registry/remove-role.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отозвать роль на реестр

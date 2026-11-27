@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ postbox-full-name }}
 
 Use this guide to create your address and send a verification email.

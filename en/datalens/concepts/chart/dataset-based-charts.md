@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} wizard charts'
 description: In this tutorial, you will learn about the wizard and charts in {{ datalens-full-name }} and familiarize yourself with the wizard interface.
+alternate:
+  - href: en/datalens/concepts/chart/dataset-based-charts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} wizard charts

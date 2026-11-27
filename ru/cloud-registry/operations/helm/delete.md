@@ -1,6 +1,10 @@
 ---
 title: Удалить Helm-чарт из реестра {{ cloud-registry-name }}
 description: Следуя данной инструкции, вы можете удалить Helm-чарт из реестра {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/helm/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить Helm-чарт из реестра

@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.INVALID_QUERY_STRUCTURE.INCONSISTENT_AGGREGATION'
 description: This page describes the Inconsistent aggregation status among SELECT items {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-INVALID_QUERY_STRUCTURE-INCONSISTENT_AGGREGATION.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Inconsistent aggregation status among SELECT items

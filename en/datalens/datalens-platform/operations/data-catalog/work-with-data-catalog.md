@@ -1,6 +1,10 @@
 ---
 title: Working with metadata in {{ datalens-platform-full-name }}
 description: Follow this guide to view metadata, sort it, see where it was ingested from, and explore its relationships with data processing workflows in {{ datalens-platform-full-name }}.
+alternate:
+  - href: en/datalens/datalens-platform/operations/data-catalog/work-with-data-catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing metadata

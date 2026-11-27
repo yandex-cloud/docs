@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/rds-to-mpg'
+alternate:
+  - href: en/data-transfer/tutorials/rds-to-mpg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating data from AWS RDS for {{ PG }} to {{ mpg-full-name }}

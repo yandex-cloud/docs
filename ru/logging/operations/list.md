@@ -1,6 +1,10 @@
 ---
 title: Как получить список лог-групп {{ cloud-logging-full-name }}
 description: Следуя данной инструкции, вы сможете получить список лог-групп.
+alternate:
+  - href: ru/logging/operations/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список лог-групп

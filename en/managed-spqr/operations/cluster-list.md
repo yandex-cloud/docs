@@ -1,6 +1,10 @@
 ---
 title: Information about clusters in {{ mspqr-name }}
 description: You can request detailed information for each {{ mspqr-name }} cluster you have created. To get a list of clusters in a folder, navigate to the folder dashboard and go to {{ mspqr-name }}.
+alternate:
+  - href: en/managed-spqr/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about existing {{ SPQR }} clusters

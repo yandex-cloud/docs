@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ marketplace-full-name }}
 description: Следуя данной инструкции, вы сможете использовать готовые решения {{ yandex-cloud }} и партнеров, размещенные в {{ marketplace-name }}.
+alternate:
+  - href: ru/marketplace/operations/users/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

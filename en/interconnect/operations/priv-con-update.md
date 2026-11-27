@@ -1,6 +1,10 @@
 ---
 title: How to update a private connection in {{ interconnect-full-name }}
 description: Follow this guide to update private connection parameters in {{ interconnect-full-name }}.
+alternate:
+  - href: en/interconnect/operations/priv-con-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating private connection parameters

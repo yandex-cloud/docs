@@ -1,6 +1,10 @@
 ---
 title: Получение информации о пользователях {{ VLK }} в {{ mrd-full-name }}
 description: Вы можете получить информацию о пользователях {{ VLK }} и их разрешениях в {{ mrd-name }}.
+alternate:
+  - href: ru/managed-valkey/operations/user-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации о пользователях

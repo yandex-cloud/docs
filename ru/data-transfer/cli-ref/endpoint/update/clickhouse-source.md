@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/endpoint/update/clickhouse-source/
+alternate:
+  - href: ru/data-transfer/cli-ref/endpoint/update/clickhouse-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc datatransfer endpoint update clickhouse-source

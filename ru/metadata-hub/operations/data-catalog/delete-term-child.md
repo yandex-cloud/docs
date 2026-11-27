@@ -1,6 +1,10 @@
 ---
 title: Удаление дочернего термина в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы удалите дочерний термин из глоссария {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/delete-term-child.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление дочернего термина

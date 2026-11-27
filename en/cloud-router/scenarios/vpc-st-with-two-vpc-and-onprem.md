@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/cloud-router/scenarios/vpc-st-with-two-vpc-and-onprem.md
+    type: text/markdown
+    title: Markdown version
+---
 # Establishing network connectivity between two or more cloud networks and on-prem resources (VPC Stitching)
 
 

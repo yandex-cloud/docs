@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ postbox-full-name }}
 description: В этом разделе собраны пошаговые инструкции для {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ postbox-name }}

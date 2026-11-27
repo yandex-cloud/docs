@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ compute-full-name }}
 description: На странице представлены вопросы и ответы про {{ compute-name }}.
+alternate:
+  - href: ru/compute/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ compute-name }}

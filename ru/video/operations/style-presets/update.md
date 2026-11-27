@@ -1,6 +1,10 @@
 ---
 title: Как изменить или дублировать шаблон плеера в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете изменить или дублировать шаблон плеера в сервисе {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/style-presets/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить или дублировать шаблон плеера

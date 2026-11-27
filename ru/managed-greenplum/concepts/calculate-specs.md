@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/concepts/calculate-specs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расчет конфигурации кластера
 
 В этом разделе приведены общие рекомендации для расчета конфигурации кластера при использовании {{ mgp-name }} в качестве корпоративного [хранилища данных](https://ru.wikipedia.org/wiki/Хранилище_данных) небольших или средних размеров — до 100 ТБ несжатых данных.

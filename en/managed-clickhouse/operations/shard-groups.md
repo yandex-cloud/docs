@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/operations/shard-groups.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing shard groups in a {{ CH }} cluster
 
 You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster into a _shard group_ and then place tables in that group.

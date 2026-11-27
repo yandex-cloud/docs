@@ -1,6 +1,10 @@
 ---
 title: How to activate a promo code in {{ billing-name }}
 description: Follow this guide to activate a promo code.
+alternate:
+  - href: en/billing/operations/activate-promocode.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Activating a promo code

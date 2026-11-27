@@ -1,6 +1,10 @@
 ---
 title: Датасет в {{ datalens-full-name }}
 description: Датасет в {{ datalens-full-name }} описывает набор данных и его структуру. Набор данных датасета представлен в виде полей.
+alternate:
+  - href: ru/datalens/dataset/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Датасет в {{ datalens-full-name }}

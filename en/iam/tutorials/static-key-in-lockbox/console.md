@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/static-key-in-lockbox/console'
+alternate:
+  - href: en/iam/tutorials/static-key-in-lockbox/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using a {{ lockbox-full-name }} secret to store a static access key via the CLI

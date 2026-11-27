@@ -1,6 +1,10 @@
 ---
 title: Установка {{ objstorage-onprem-name }} через Ansible
 description: Запуск установки {{ objstorage-onprem-name }}, назначение шагов плейбука и управление ими с помощью тегов.
+alternate:
+  - href: ru/storage-onprem/v-26-3/install/installation-steps.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Шаги установки

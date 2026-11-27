@@ -98,6 +98,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: ru/managed-mysql/api-ref/Cluster/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, REST: Cluster.SetAccessBindings

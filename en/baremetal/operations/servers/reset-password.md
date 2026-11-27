@@ -1,6 +1,10 @@
 ---
 title: How to reset the root password on a {{ baremetal-full-name }} server
 description: In this tutorial, you will learn how to reset the root password on a {{ baremetal-name }} server using the Rescue CD boot image.
+alternate:
+  - href: en/baremetal/operations/servers/reset-password.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resetting the server root password

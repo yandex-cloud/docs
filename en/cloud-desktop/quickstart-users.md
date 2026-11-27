@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ cloud-desktop-name }} for users
 description: Follow this guide to get access and connect to a desktop.
+alternate:
+  - href: en/cloud-desktop/quickstart-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ cloud-desktop-full-name }} for users

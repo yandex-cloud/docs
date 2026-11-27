@@ -1,6 +1,10 @@
 ---
 title: Подключение к {{ cloud-registry-full-name }} из сети {{ vpc-full-name }} без доступа в интернет
 description: С помощью данного руководства вы сможете организовать доступ к артефактам в реестре {{ cloud-registry-full-name }} из сети {{ vpc-full-name }} без доступа в интернет.
+alternate:
+  - href: ru/tutorials/routing/cloud-registry-via-pe/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [index](../../../_tutorials/routing/cloud-registry-via-pe/index.md) %}

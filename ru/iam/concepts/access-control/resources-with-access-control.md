@@ -1,6 +1,10 @@
 ---
 title: Ресурсы, на которые можно назначать роли в {{ iam-full-name }}
 description: Из статьи вы узнаете, на какие ресурсы {{ yandex-cloud }} можно назначить роли.
+alternate:
+  - href: ru/iam/concepts/access-control/resources-with-access-control.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ресурсы, на которые можно назначать роли

@@ -5,6 +5,10 @@ keywords:
   - создание кластера OpenSearch
   - кластер OpenSearch
   - OpenSearch
+alternate:
+  - href: ru/managed-opensearch/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ OS }}

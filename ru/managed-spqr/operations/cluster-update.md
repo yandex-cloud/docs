@@ -5,6 +5,10 @@ keywords:
   - keyword: изменение кластера {{ SPQR }}
   - keyword: кластер {{ SPQR }}
   - keyword: '{{ SPQR }}'
+alternate:
+  - href: ru/managed-spqr/operations/cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение кластера {{ SPQR }}

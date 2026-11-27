@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for MySQL
+alternate:
+  - href: ru/terraform/resources/mdb_mysql_database_v2.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_mysql_database_v2 (Resource)

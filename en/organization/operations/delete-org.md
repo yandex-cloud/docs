@@ -1,6 +1,10 @@
 ---
 title: Deleting an organization in {{ org-full-name }}
 description: In this tutorial, you will learn how to delete an organization in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/delete-org.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an organization

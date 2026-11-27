@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/operations/pin-card.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a card or linking a different one to a billing account
 
 The owner of a billing account of the **{{ ui-key.yacloud_billing.billing.account.create-new.account-type_label_individual }}** or **{{ ui-key.yacloud_billing.billing.account.create-new.account-type_label_company }}** type may link different bank cards to it.

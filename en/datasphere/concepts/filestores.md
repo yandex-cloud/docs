@@ -1,6 +1,10 @@
 ---
 title: '{{ ml-platform-name }} file storages'
 description: In this tutorial, you will learn what file storages are.
+alternate:
+  - href: en/datasphere/concepts/filestores.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # File storages

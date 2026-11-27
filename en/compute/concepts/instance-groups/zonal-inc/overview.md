@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/zonal-inc/overview.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ compute-full-name }} instance groups during a zonal incident
 
 A _zonal incident_ is a {{ yandex-cloud }} infrastructure failure affecting a single [availability zone](../../../../overview/concepts/geo-scope.md) within a [region](../../../../overview/concepts/region.md). Such incidents may impact the availability of resources in the affected zone as well as the behavior of multizonal resources, e.g., [instance groups](../index.md).

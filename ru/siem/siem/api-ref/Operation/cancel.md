@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/siem/siem/api-ref/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM API, REST: Operation.Cancel

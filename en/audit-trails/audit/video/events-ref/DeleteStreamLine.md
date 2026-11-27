@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/video/events-ref/DeleteStreamLine.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Video Audit Trails Events: DeleteStreamLine

@@ -1,6 +1,10 @@
 ---
 title: Отозвать роли, назначенные на контейнер
 description: Следуя данной инструкции, вы сможете отозвать роли, назначенные на контейнер.
+alternate:
+  - href: ru/serverless-containers/operations/role-revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отозвать роли, назначенные на контейнер

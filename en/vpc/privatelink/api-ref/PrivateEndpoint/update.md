@@ -118,6 +118,10 @@ apiPlayground:
               **boolean**
               If enabled - vpc will create private dns records for specified service.
             type: boolean
+alternate:
+  - href: en/vpc/privatelink/api-ref/PrivateEndpoint/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: PrivateEndpoint.Update

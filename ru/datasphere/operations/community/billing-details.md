@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть детализацию расходов {{ ml-platform-full-name }}
 description: Из статьи вы узнаете, как посмотреть детализацию расходов {{ ml-platform-name }}.
+alternate:
+  - href: ru/datasphere/operations/community/billing-details.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть детализацию расходов {{ ml-platform-name }}

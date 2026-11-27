@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/interconnect/api-ref/Partner/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Interconnect API, REST: Partner.Get

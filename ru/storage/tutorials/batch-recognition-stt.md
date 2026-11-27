@@ -2,6 +2,10 @@
 title: Руководство по регулярному асинхронному распознаванию аудиофайлов в бакете {{ objstorage-name }}
 description: Следуя данному руководству, вы сможете настроить регулярное асинхронное распознавание аудиофайлов в бакете {{ objstorage-name }}.
 canonical: '{{ link-docs }}/tutorials/ml-ai/batch-recognition-stt'
+alternate:
+  - href: ru/storage/tutorials/batch-recognition-stt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Регулярное асинхронное распознавание аудиофайлов в бакете {{ objstorage-name }}

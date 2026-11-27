@@ -28,6 +28,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-spqr/api-ref/Database/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR API, REST: Database.Delete

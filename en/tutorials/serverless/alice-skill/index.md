@@ -5,6 +5,10 @@ keywords:
   - creating a skill for Alice
   - Alice's skill
   - example of creating a skill for Alice
+alternate:
+  - href: en/tutorials/serverless/alice-skill/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [alice-skill](../../../_tutorials/serverless/alice-skill/index.md) %}

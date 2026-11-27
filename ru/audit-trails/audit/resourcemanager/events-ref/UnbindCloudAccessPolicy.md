@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/resourcemanager/events-ref/UnbindCloudAccessPolicy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager Audit Trails Events: UnbindCloudAccessPolicy

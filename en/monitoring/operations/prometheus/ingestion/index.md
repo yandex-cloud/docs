@@ -1,6 +1,10 @@
 ---
 title: How to write metrics
 description: Follow this guide to write metrics.
+alternate:
+  - href: en/monitoring/operations/prometheus/ingestion/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Writing metrics

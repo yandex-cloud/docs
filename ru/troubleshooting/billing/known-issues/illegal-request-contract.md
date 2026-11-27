@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/illegal-request-contract.md
+    type: text/markdown
+    title: Markdown version
+---
 # Устранение ошибки `ILLEGAL_REQUEST_CONTRACT` при формировании счета на оплату
 
 

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/dataproc/events-ref/DeleteCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Data Processing Audit Trails Events: DeleteCluster

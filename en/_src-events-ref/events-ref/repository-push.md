@@ -5,6 +5,10 @@ description: |-
 
   **CI execution_ref:** Created or updated branch or tag. Default branch when deleted.
 editable: false
+alternate:
+  - href: en/_src-events-ref/events-ref/repository-push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # repository.push

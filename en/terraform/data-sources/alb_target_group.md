@@ -1,5 +1,9 @@
 ---
 subcategory: Application Load Balancer
+alternate:
+  - href: en/terraform/data-sources/alb_target_group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_alb_target_group (DataSource)

@@ -1,6 +1,10 @@
 ---
 title: '{{ cns-full-name }} overview'
 description: '{{ cns-name }} ({{ cns-short-name }}): Service for multichannel user notifications. Its HTTP API is compatible with the Amazon SNS API.'
+alternate:
+  - href: en/notifications/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cns-full-name }} overview

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/marketplace/concepts/publisher.md
+    type: text/markdown
+    title: Markdown version
+---
 # Partner profile
 
 A partner profile is a single center you can manage your products from. It is created when you register your organization and serves as a container for all the [products](./product.md) you publish in {{ marketplace-full-name }}.

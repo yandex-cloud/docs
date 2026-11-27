@@ -51,6 +51,10 @@ apiPlayground:
           format: date-time
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/managed-spqr/api-ref/Maintenance/reschedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR API, REST: Maintenance.Reschedule

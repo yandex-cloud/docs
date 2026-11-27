@@ -1,6 +1,10 @@
 ---
 title: Deleting a Helm chart from a {{ cloud-registry-name }}
 description: Follow this guide to delete a Helm chart from a {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/helm/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a Helm chart from a registry

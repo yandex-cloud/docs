@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/concepts/data-collection/unified-agent/outputs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Выходы
 
 Выход можно описать в секции `routes` внутри элемента `channel`:`output` либо в секции именованных каналов `channels`.

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/gpu-cluster/add-access-binding/
+alternate:
+  - href: en/compute/cli-ref/gpu-cluster/add-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute gpu-cluster add-access-binding

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/how-cvos-works.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как работает резервированное потребление ресурсов
 
 

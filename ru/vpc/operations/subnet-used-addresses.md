@@ -1,6 +1,10 @@
 ---
 title: Посмотреть список используемых адресов в подсети
 description: Следуя данной инструкции, вы сможете посмотреть список используемых адресов в подсети.
+alternate:
+  - href: ru/vpc/operations/subnet-used-addresses.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть список используемых адресов в подсети

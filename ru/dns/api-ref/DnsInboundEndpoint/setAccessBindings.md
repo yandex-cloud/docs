@@ -84,6 +84,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: ru/dns/api-ref/DnsInboundEndpoint/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, REST: DnsInboundEndpoint.SetAccessBindings

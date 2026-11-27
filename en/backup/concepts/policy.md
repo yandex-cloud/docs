@@ -1,6 +1,10 @@
 ---
 title: Backup policies in {{ backup-full-name }}
 description: In this article, you will learn how backup policies in {{ backup-name }} work.
+alternate:
+  - href: en/backup/concepts/policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

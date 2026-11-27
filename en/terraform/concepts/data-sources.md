@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/terraform/concepts/data-sources.md
+    type: text/markdown
+    title: Markdown version
+---
 # Data sources in {{ TF }}
 
 In {{ TF }}, data sources represent a mechanism for retrieving information about resources, infrastructure, and other objects from various sources. They enable access to data you can then use to create, modify, or delete resources in your infrastructure.

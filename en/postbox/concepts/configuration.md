@@ -1,6 +1,10 @@
 ---
 title: Configuration in {{ postbox-full-name }}
 description: In this article, you will learn about configuration in {{ postbox-name }}.
+alternate:
+  - href: en/postbox/concepts/configuration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuration

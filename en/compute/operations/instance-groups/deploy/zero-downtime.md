@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/instance-groups/deploy/zero-downtime.md
+    type: text/markdown
+    title: Markdown version
+---
 # Zero-downtime updates
 
 To keep your service available, you can update instance groups by creating additional instances with new configurations. 

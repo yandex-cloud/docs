@@ -1,6 +1,10 @@
 ---
 title: Managing access to a {{ metastore-full-name }} cluster
 description: Follow this guide to configure {{ metastore-name }} cluster access permissions.
+alternate:
+  - href: en/metadata-hub/operations/metastore/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to a {{ metastore-name }} cluster

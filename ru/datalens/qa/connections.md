@@ -1,6 +1,10 @@
 ---
 title: Подключения
 description: На странице представлены вопросы и ответы про подключения.
+alternate:
+  - href: ru/datalens/qa/connections.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключения

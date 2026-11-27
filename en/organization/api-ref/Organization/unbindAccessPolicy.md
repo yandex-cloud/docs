@@ -29,6 +29,10 @@ apiPlayground:
         - accessPolicyTemplateId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/organization/api-ref/Organization/unbindAccessPolicy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: Organization.UnbindAccessPolicy

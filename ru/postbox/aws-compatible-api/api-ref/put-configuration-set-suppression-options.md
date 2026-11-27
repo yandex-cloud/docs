@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/put-configuration-set-suppression-options.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод PutConfigurationSetSuppressionOptions
 
 Обновляет настройки [стоп-листа](../../concepts/suppression-list.md) для [конфигурации](../../concepts/glossary.md#configuration) в каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.

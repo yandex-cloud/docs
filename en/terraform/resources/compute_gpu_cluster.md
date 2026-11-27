@@ -1,5 +1,9 @@
 ---
 subcategory: Compute Cloud
+alternate:
+  - href: en/terraform/resources/compute_gpu_cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_compute_gpu_cluster (Resource)

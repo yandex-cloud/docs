@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-opensearch/concepts/indexing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Indexes in {{ OS }}
 
 When saving a document to {{ OS }}, it is indexed and placed in a user-specified _index_, making it available for search and analysis. One may think of an index as a data table in a traditional DBMS.

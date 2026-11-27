@@ -1,6 +1,10 @@
 ---
 title: Как создать новый платежный аккаунт в {{ billing-name }}
 description: Следуя данной инструкции, вы сможете создать новый платежный аккаунт.
+alternate:
+  - href: ru/billing/operations/create-new-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать новый платежный аккаунт

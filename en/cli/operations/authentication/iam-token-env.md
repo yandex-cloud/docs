@@ -1,6 +1,10 @@
 ---
 title: Authenticating in the {{ yandex-cloud }} CLI with an IAM token from an environment variable
 description: Follow this guide to get authenticated in the {{ yandex-cloud }} CLI using an IAM token stored in an environment variable.
+alternate:
+  - href: en/cli/operations/authentication/iam-token-env.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authenticating in the {{ yandex-cloud }} CLI with an IAM token from an environment variable

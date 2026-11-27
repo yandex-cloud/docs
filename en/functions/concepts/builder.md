@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/concepts/builder.md
+    type: text/markdown
+    title: Markdown version
+---
 # Builder
 
 A _builder_ is a mechanism used to build a function when creating a new version. It loads the necessary dependencies and, if a compiled programming language is used, compiles the source files into an executable file.

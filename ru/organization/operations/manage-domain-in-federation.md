@@ -1,6 +1,10 @@
 ---
 title: Как настроить домен в федерации удостоверений {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете настроить домен в федерации удостоверений {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/manage-domain-in-federation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить домен в федерации удостоверений

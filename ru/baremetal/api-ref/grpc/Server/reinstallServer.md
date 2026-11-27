@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/baremetal/api-ref/grpc/Server/reinstallServer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, gRPC: ServerService.ReinstallServer

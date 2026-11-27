@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ cdn-full-name }}
 description: This page covers questions and answers about {{ cdn-name }}.
+alternate:
+  - href: en/cdn/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ cdn-full-name }}

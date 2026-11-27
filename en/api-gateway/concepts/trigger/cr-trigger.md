@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/trigger/cr-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for {{ container-registry-name }} that sends messages to WebSocket connections
 
 A [trigger](../trigger/) for {{ container-registry-name }} sends messages to [WebSocket connections](../extensions/websocket.md) when certain events occur with a {{ container-registry-name }} [Docker image](../../../container-registry/concepts/docker-image.md). The trigger must be in the same cloud as the [registry](../../../container-registry/concepts/registry.md) whose events it is subscribed to.

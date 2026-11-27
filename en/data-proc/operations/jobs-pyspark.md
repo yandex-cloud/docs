@@ -1,6 +1,10 @@
 ---
 title: How to manage PySpark jobs in {{ dataproc-full-name }}
 description: In this guide, you will learn how to manage PySpark jobs in {{ dataproc-full-name }}.
+alternate:
+  - href: en/data-proc/operations/jobs-pyspark.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing PySpark jobs

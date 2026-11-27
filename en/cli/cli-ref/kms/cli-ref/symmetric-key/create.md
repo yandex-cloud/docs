@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/symmetric-key/create/
+alternate:
+  - href: en/cli/cli-ref/kms/cli-ref/symmetric-key/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc kms symmetric-key create

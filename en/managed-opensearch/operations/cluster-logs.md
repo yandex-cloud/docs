@@ -5,6 +5,10 @@ keywords:
   - OpenSearch logs
   - OpenSearch cluster logs
   - OpenSearch
+alternate:
+  - href: en/managed-opensearch/operations/cluster-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing {{ OS }} cluster logs

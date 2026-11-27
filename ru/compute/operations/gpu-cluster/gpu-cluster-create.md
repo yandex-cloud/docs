@@ -1,6 +1,10 @@
 ---
 title: Как создать кластер GPU
 description: Следуя данной инструкции, вы сможете создать кластер GPU.
+alternate:
+  - href: ru/compute/operations/gpu-cluster/gpu-cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать кластер GPU

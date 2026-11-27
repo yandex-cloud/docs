@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kafka/concepts/available-apis.md
+    type: text/markdown
+    title: Markdown version
+---
 # API в {{ mkf-name }}
 
 В кластере доступно несколько видов API, позволяющих выполнять различные операции.

@@ -1,6 +1,10 @@
 ---
 title: Developing in PHP in {{ sf-full-name }}. Overview
 description: With {{ sf-name }}, you can run applications written in PHP. This service provides the runtimes with PHP 7.4.3 and Ubuntu 18.04.
+alternate:
+  - href: en/functions/lang/php/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Developing in PHP. Overview

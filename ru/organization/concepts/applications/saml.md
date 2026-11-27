@@ -1,6 +1,10 @@
 ---
 title: SAML-приложения в {{ org-full-name }}
 description: В {{ org-full-name }} вы можете аутентифицировать пользователей {{ yandex-cloud }} во внешних приложениях с помощью SAML-приложений с использованием технологии единого входа SAML.
+alternate:
+  - href: ru/organization/concepts/applications/saml.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML-приложения

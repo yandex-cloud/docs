@@ -1,6 +1,10 @@
 ---
 title: Посмотреть настройки масштабирования функции
 description: Следуя данной инструкции, вы сможете посмотреть настройки масштабирования функции.
+alternate:
+  - href: ru/functions/operations/function/scaling-settings-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть настройки масштабирования функции

@@ -1,6 +1,10 @@
 ---
 title: Как управлять виртуальными хостами в {{ alb-full-name }}
 description: Следуя данной инструкции, вы сможете создавать, изменять и удалять виртуальные хосты HTTP-роутера в {{ alb-full-name }}.
+alternate:
+  - href: ru/application-load-balancer/operations/manage-virtual-hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять виртуальными хостами

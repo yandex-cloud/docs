@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/cilium-node-local-dns.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring NodeLocal DNS for the Cilium network policy controller
 
 In this article, you will learn how to configure a local DNS for the [Cilium network policy controller](../concepts/network-policy.md#cilium) using the [Local Redirect Policy](https://docs.cilium.io/en/v1.9/gettingstarted/local-redirect-policy/).

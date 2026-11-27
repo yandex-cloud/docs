@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/api-gateway/triggers/api-ref/grpc/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Triggers Service: gRPC reference

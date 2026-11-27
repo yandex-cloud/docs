@@ -1,6 +1,10 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/mysql-data-migration/'
 noIndex: true
+alternate:
+  - href: ru/managed-mysql/tutorials/data-migration/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция базы данных из стороннего кластера {{ MY }}

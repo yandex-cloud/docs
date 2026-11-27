@@ -1,6 +1,10 @@
 ---
 title: How to change the payment method in {{ billing-name }}
 description: Follow this guide to change the payment method in {{ billing-name }}.
+alternate:
+  - href: en/billing/operations/change-payment-method.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing the payment method

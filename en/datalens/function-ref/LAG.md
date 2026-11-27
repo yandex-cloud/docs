@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/LAG.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # LAG (window)

@@ -1,6 +1,10 @@
 ---
 title: Получение профиля данных
 description: Следуя данной инструкции, вы сможете получить профиль данных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/get-data-profile.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение профиля данных

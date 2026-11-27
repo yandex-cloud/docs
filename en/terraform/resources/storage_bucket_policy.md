@@ -1,5 +1,9 @@
 ---
 subcategory: Object Storage
+alternate:
+  - href: en/terraform/resources/storage_bucket_policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_storage_bucket_policy (Resource)

@@ -6,6 +6,10 @@ keywords:
   - '{{ AF }} cluster'
   - '{{ AF }}'
   - Airflow
+alternate:
+  - href: en/managed-airflow/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an {{ AF }} cluster

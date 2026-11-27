@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/TrinoClusters/rpcaddTrinoClusterCatalog-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Add REST catalog to Trino cluster

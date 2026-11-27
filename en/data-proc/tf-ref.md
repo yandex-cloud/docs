@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ dataproc-full-name }}'
 description: This page lists the {{ TF }} provider resources and data sources supported by {{ dataproc-name }}.
+alternate:
+  - href: en/data-proc/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ dataproc-full-name }}

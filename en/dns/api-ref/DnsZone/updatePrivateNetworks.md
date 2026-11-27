@@ -32,6 +32,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/dns/api-ref/DnsZone/updatePrivateNetworks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, REST: DnsZone.UpdatePrivateNetworks

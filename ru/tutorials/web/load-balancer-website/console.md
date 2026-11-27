@@ -1,6 +1,10 @@
 ---
 title: Отказоустойчивый сайт с балансировкой нагрузки через {{ network-load-balancer-full-name }} с помощью консоли управления
 description: В этом руководстве мы расскажем, как настроить сайт с балансировкой нагрузки через {{ network-load-balancer-name }} между двумя зонами доступности, защищенный от сбоев в одной зоне c помощью консоли управления.
+alternate:
+  - href: ru/tutorials/web/load-balancer-website/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отказоустойчивый сайт с балансировкой нагрузки через {{ network-load-balancer-full-name }} с помощью консоли управления

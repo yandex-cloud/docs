@@ -1,6 +1,10 @@
 ---
 title: Public materials about {{ mos-full-name }}
 description: Video recordings of conferences and webinars on {{ mos-full-name }}.
+alternate:
+  - href: en/managed-opensearch/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public materials about {{ mos-full-name }}

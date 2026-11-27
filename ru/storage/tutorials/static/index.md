@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/static/'
+alternate:
+  - href: ru/storage/tutorials/static/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [static](../../../_tutorials/applied/static.md) %}

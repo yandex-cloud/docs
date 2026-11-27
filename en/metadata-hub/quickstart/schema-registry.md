@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/metadata-hub/quickstart/schema-registry.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ schema-registry-name }}
 
 Manage schema versions with {{ schema-registry-name }}.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/bucket/listObjectVersions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: ListObjectVersions
 
 Возвращает метаданные обо всех версиях объектов в бакете.

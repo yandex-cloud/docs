@@ -1,6 +1,10 @@
 ---
 title: Изменить подсеть
 description: Следуя данной инструкции, вы сможете изменить подсеть.
+alternate:
+  - href: ru/vpc/operations/subnet-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить подсеть

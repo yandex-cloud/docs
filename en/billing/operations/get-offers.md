@@ -1,6 +1,10 @@
 ---
 title: How to accept a {{ billing-name }} commercial offer
 description: Follow this guide to view and accept commercial offers.
+alternate:
+  - href: en/billing/operations/get-offers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Accepting offers

@@ -1,6 +1,10 @@
 ---
 title: Инструкция о том, как получить информацию о триггере в {{ api-gw-full-name }}
 description: Из статьи вы узнаете, как получить подробную информацию о триггере в {{ api-gw-full-name }}.
+alternate:
+  - href: ru/api-gateway/operations/trigger/trigger-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о триггере в {{ api-gw-name }}

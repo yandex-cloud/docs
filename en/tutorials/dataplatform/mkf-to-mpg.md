@@ -1,6 +1,10 @@
 ---
 title: Delivering data from {{ mkf-full-name }} to {{ mpg-full-name }} using {{ data-transfer-full-name }}
 description: You can set up data transfer from a {{ mkf-name }} topic to {{ mpg-name }} using {{ data-transfer-full-name }}.
+alternate:
+  - href: en/tutorials/dataplatform/mkf-to-mpg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering data from {{ mkf-full-name }} to {{ mpg-full-name }} using {{ data-transfer-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED'
 description: 'This page describes the Referenced connection <connection_ID> cannot be loaded: access denied {{ datalens-full-name }} error.'
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Referenced connection <connection_ID> cannot be loaded: access denied

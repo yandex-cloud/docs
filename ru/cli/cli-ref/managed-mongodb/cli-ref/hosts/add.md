@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/hosts/add/
+alternate:
+  - href: ru/cli/cli-ref/managed-mongodb/cli-ref/hosts/add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb hosts add

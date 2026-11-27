@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-transfer/operations/db-actions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с базами данных во время трансфера
 
 При работе с трансферами данных необходимо учитывать особенности баз данных.

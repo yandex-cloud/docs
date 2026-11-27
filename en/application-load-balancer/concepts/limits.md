@@ -2,6 +2,10 @@
 title: Quotas and limits in {{ alb-name }}
 description: '{{ alb-name }} has limits and quotas on the maximum number of load balancers and HTTP routers per cloud. For more information about the service restrictions, read this article.'
 editable: false
+alternate:
+  - href: en/application-load-balancer/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ alb-name }}

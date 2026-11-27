@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/payment/payment-methods-business.md
+    type: text/markdown
+    title: Markdown version
+---
 # Bank account transfers
 
 Businesses and individual entrepreneurs can top up their personal accounts and pay for consumed resources by transferring funds from their bank accounts.

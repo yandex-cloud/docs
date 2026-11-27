@@ -51,6 +51,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/data-proc/api-ref/Cluster/listHosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Data Processing API, REST: Cluster.ListHosts

@@ -2,6 +2,10 @@
 title: Маршрутизация через NAT-инстанс с помощью консоли управления
 description: Следуя данному руководству, вы сможете настроить маршрутизацию через NAT-инстанс с помощью консоли управления.
 canonical: '{{ link-docs }}/tutorials/routing/nat-instance/console'
+alternate:
+  - href: ru/compute/tutorials/nat-instance/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Маршрутизация через NAT-инстанс с помощью консоли управления

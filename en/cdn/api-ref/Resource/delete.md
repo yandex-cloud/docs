@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/cdn/api-ref/Resource/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: Resource.Delete

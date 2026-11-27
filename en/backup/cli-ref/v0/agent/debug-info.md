@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/v0/agent/debug-info/
+alternate:
+  - href: en/backup/cli-ref/v0/agent/debug-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc backup v0 agent debug-info

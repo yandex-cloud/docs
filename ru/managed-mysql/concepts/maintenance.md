@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание в {{ mmy-full-name }}
 description: Под техническим обслуживанием в {{ mmy-name }} понимается автоматическая установка обновлений и исправлений СУБД для хостов (в т. ч. для выключенных кластеров), изменение класса хостов и объема хранилища и другие сервисные работы.
+alternate:
+  - href: ru/managed-mysql/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание в {{ mmy-name }}

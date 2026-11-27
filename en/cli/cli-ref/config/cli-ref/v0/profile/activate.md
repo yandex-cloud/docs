@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/config/cli-ref/v0/profile/activate/
+alternate:
+  - href: en/cli/cli-ref/config/cli-ref/v0/profile/activate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc config v0 profile activate

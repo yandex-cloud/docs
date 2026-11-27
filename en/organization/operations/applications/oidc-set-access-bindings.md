@@ -1,6 +1,10 @@
 ---
 title: How to grant access to an OIDC app in {{ org-full-name }}
 description: In this article, you will learn how to set up access to an OIDC app in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/applications/oidc-set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up access to an OIDC app in {{ org-full-name }}

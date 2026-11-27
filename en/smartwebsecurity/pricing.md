@@ -2,6 +2,10 @@
 title: '{{ sws-full-name }} pricing policy'
 description: This article covers the {{ sws-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/smartwebsecurity/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sws-full-name }} pricing policy

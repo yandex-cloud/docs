@@ -1,6 +1,10 @@
 ---
 title: '{{ speechsense-name }} integration with {{ amocrm-name }}'
 description: You will learn how to integrate {{ speechsense-name }} with {{ amocrm-name }} for data exchange.
+alternate:
+  - href: en/tutorials/ml-ai/speechsense/amocrm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ speechsense-name }} integration with {{ amocrm-name }}

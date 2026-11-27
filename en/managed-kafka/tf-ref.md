@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ mkf-full-name }}'
 description: This page lists the {{ TF }} provider resources and data sources supported by {{ mkf-name }}.
+alternate:
+  - href: en/managed-kafka/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ mkf-full-name }}

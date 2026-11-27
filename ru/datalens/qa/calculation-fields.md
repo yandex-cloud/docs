@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про вычисляемые поля
 description: На странице представлены вопросы и ответы про вычисляемые поля.
+alternate:
+  - href: ru/datalens/qa/calculation-fields.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вычисляемые поля

@@ -1,6 +1,10 @@
 ---
 title: Создать пул резервов ВМ
 description: Из статьи вы узнаете, как создать пул резервов ВМ {{ compute-full-name }} нужной конфигурации в нужной зоне доступности.
+alternate:
+  - href: ru/compute/operations/reserved-pools/create-reserved-pool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание пула резервов виртуальных машин

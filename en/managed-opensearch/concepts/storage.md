@@ -1,6 +1,10 @@
 ---
 title: Storage in {{ mos-full-name }}
 description: In this article, you will learn about disk types in {{ mos-name }} and discover how to select the right type of storage when creating a cluster.
+alternate:
+  - href: en/managed-opensearch/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Storage in {{ mos-name }}

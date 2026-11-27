@@ -1,6 +1,10 @@
 ---
 title: Технические поля Measure Names и Measure Values в {{ datalens-full-name }}
 description: Из статьи вы узнаете о полях Measure Names и Measure Values в {{ datalens-full-name }} и научитесь использовать их в визарде.
+alternate:
+  - href: ru/datalens/concepts/chart/measure-values.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Measure Names и Measure Values в {{ datalens-full-name }}

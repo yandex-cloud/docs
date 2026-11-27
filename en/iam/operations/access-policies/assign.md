@@ -1,6 +1,10 @@
 ---
 title: Creating an access policy for a resource
 description: In this guide, you will learn how to create a {{ iam-full-name }} access policy for a folder, cloud, or organization based on a policy template.
+alternate:
+  - href: en/iam/operations/access-policies/assign.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an access policy for a resource

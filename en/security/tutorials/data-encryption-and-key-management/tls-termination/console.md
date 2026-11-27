@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/tls-termination/console'
+alternate:
+  - href: en/security/tutorials/data-encryption-and-key-management/tls-termination/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Terminating TLS connections using the management console

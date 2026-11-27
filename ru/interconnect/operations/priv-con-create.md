@@ -1,6 +1,10 @@
 ---
 title: Как создать приватное соединение в транковом подключении {{ interconnect-name }}
 description: Следуя этой инструкции, вы сможете создать приватное соединение в транковом подключении {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/operations/priv-con-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать приватное соединение

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/security/security-bulletins/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Security bulletins
 
 This page contains security recommendations from {{ yandex-cloud }} experts.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-mysql/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обновление версии {{ MY }}
 
 Вы можете обновить кластер {{ mmy-name }} до любой поддерживаемой версии: минорной или мажорной.

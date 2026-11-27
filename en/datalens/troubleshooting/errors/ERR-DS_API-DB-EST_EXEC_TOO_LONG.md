@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error: ERR.DS_API.DB.EST_EXEC_TOO_LONG'
 description: 'This page describes the `Estimated query execution time is too long` {{ datalens-full-name }} error. Maximum: 14400.'
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DB-EST_EXEC_TOO_LONG.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Estimated query execution time is too long. Maximum: 14400

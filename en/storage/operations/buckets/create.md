@@ -1,6 +1,10 @@
 ---
 title: Creating a bucket in {{ objstorage-full-name }}
 description: Follow this guide to create a bucket in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/buckets/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a bucket

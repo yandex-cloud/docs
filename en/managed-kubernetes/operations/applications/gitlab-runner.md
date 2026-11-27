@@ -1,6 +1,10 @@
 ---
 title: Installing {{ GLR }}
 description: Follow this guide to install {{ GLR }}.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/gitlab-runner.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing {{ GLR }}

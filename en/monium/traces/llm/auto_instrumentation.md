@@ -1,6 +1,10 @@
 ---
 title: Auto-instrumentation of LLM applications
 description: Guide on auto-instrumentation of LLM applications to send traces to {{ traces-name }}.
+alternate:
+  - href: en/monium/traces/llm/auto_instrumentation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Auto-instrumentation of LLM applications

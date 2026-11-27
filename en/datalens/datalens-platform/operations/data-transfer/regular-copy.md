@@ -1,6 +1,10 @@
 ---
 title: Regular copying in {{ datalens-platform-full-name }}
 description: Follow this guide to create a `Regular copy` data delivery in {{ datalens-platform-full-name }}
+alternate:
+  - href: en/datalens/datalens-platform/operations/data-transfer/regular-copy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a regular copy job

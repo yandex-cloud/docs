@@ -1,6 +1,10 @@
 ---
 title: Managing partner access in {{ marketplace-full-name }}
 description: Managing partner access in {{ marketplace-short-name }}. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+alternate:
+  - href: en/marketplace/security/partners.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing partner access in {{ marketplace-short-name }}

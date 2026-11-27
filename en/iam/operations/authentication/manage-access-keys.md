@@ -1,6 +1,10 @@
 ---
 title: How to manage static access keys in {{ iam-full-name }}
 description: In this guide, you will learn how to create and delete static access keys in {{ iam-full-name }} via the management console, CLI, and API.
+alternate:
+  - href: en/iam/operations/authentication/manage-access-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing static access keys

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-trino/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Trino API, REST: Operation

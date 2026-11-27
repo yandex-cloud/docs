@@ -54,6 +54,10 @@ apiPlayground:
             maxProperties: 64
         required:
           - accessPolicyTemplateId
+alternate:
+  - href: ru/resource-manager/api-ref/Cloud/updateAccessPolicyBindingParameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API, REST: Cloud.UpdateAccessPolicyBindingParameters

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/billing/usage/api-ref/grpc/ConsumptionCore/getFolderUsageReport.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing Usage API, gRPC: ConsumptionCoreService.GetFolderUsageReport

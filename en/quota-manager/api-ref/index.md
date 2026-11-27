@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/quota-manager/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quota Manager API: REST reference

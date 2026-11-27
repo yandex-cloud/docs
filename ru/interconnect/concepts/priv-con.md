@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/interconnect/concepts/priv-con.md
+    type: text/markdown
+    title: Markdown version
+---
 # Приватное соединение
 
 

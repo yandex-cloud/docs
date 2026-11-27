@@ -1,6 +1,10 @@
 ---
 title: Захват изменения данных {{ data-transfer-full-name }}
 description: Захват изменения данных позволяет отслеживать изменения в базе данных и поставлять эти изменения потребителям в режиме реального времени.
+alternate:
+  - href: ru/data-transfer/concepts/cdc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Захват изменения данных

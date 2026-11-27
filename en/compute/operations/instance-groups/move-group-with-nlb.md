@@ -1,6 +1,10 @@
 ---
 title: Moving an instance group with a network load balancer to a different availability zone
 description: In this article, you will learn how to move a {{ compute-full-name }} instance group with a network load balancer from one availability zone to another.
+alternate:
+  - href: en/compute/operations/instance-groups/move-group-with-nlb.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving an instance group with a network load balancer to a different availability zone

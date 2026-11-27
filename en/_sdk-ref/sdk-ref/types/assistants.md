@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/types/assistants.md
+    type: text/markdown
+    title: Markdown version
+---
 # Expiration types
 
 yandex\_ai\_studio\_sdk.\_types.expiration.**ExpirationProtoTypeT** = *TypeVar(ExpirationProtoTypeT, bound=Union)*{#yandex_ai_studio_sdk._types.expiration.ExpirationProtoTypeT}

@@ -1,6 +1,10 @@
 ---
 title: '{{ yq-full-name }} tutorials'
 description: This section provides tutorials for {{ yq-name }}.
+alternate:
+  - href: en/query/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yq-name }} tutorials

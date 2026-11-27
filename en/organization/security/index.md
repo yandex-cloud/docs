@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/organization/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Access management in {{ org-full-name }}
 
 Access management in {{ yandex-cloud }} leverages the [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC) policy. To grant a user certain privileges or access to a resource, you must assign the user the appropriate roles.

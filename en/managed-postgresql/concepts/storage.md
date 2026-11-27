@@ -1,6 +1,10 @@
 ---
 title: Storage in {{ mpg-full-name }}
 description: In this article, you will learn what storage is in {{ mpg-name }}, how to manage disk space, and how to select the right disk type when creating a cluster.
+alternate:
+  - href: en/managed-postgresql/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Storage in {{ mpg-name }}

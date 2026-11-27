@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/security/domains/kubernetes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Security {{ k8s }}
 
 The section includes recommendations for {{ yandex-cloud }} users on security settings in [{{ managed-k8s-full-name }}](../../managed-kubernetes/).

@@ -1,6 +1,10 @@
 ---
 title: Ограничение списка отправителей в {{ postbox-full-name }}
 description: Следуя данной инструкции, вы сможете настроить разрешенных отправителей.
+alternate:
+  - href: ru/postbox/operations/restrict-senders.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ограничение списка отправителей в {{ postbox-name }}

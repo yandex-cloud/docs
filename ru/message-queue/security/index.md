@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ message-queue-full-name }}
 description: Управление доступом в сервисе для обмена сообщениями между приложениями {{ message-queue-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ message-queue-full-name }}, назначьте пользователю нужные роли из приведенного списка.
+alternate:
+  - href: ru/message-queue/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ message-queue-name }}

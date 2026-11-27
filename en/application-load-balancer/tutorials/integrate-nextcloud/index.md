@@ -2,6 +2,10 @@
 title: Deploying Nextcloud in {{ yandex-cloud }}
 description: In this tutorial, you will deploy Nextcloud in a {{ yandex-cloud }} infrastructure, integrated with {{ objstorage-full-name }}.
 canonical: '{{ link-docs }}/tutorials/archive/integrate-nextcloud/'
+alternate:
+  - href: en/application-load-balancer/tutorials/integrate-nextcloud/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [index](../../../_tutorials/archive/integrate-nextcloud/index.md) %}

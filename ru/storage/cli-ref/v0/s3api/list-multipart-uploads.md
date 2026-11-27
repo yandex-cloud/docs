@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/v0/s3api/list-multipart-uploads/
+alternate:
+  - href: ru/storage/cli-ref/v0/s3api/list-multipart-uploads.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc storage v0 s3api list-multipart-uploads

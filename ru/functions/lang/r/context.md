@@ -1,6 +1,10 @@
 ---
 title: Контекст вызова функции на R в {{ sf-full-name }}
 description: Из статьи вы узнаете, что такое контекст вызова функции на R.
+alternate:
+  - href: ru/functions/lang/r/context.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Контекст вызова функции на R

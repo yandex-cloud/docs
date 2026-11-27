@@ -1,6 +1,11 @@
 ---
 title: Управление доступом в {{ cr-full-name }}
 description: Управление доступом в сервисе {{ cr-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ cr-name }}, назначьте пользователю нужные роли из приведенного ниже списка. На данный момент роль может быть назначена только на родительский ресурс (каталог или облако).
+noIndex: true
+alternate:
+  - href: ru/cloud-router/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ cr-name }}

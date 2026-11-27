@@ -1,6 +1,10 @@
 ---
 title: Migrating a database from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster
 description: 'There are two ways to transfer data from a third-party source cluster to a target {{ mmy-name }} cluster: via {{ data-transfer-full-name }} and by creating and restoring a logical dump.'
+alternate:
+  - href: en/tutorials/dataplatform/mysql-data-migration/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating a database from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster

@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ cos-full-name }}
 description: На странице представлены вопросы и ответы про {{ cos-name }}.
+alternate:
+  - href: ru/cos/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ cos-name }}

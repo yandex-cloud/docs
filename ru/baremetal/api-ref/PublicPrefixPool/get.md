@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/baremetal/api-ref/PublicPrefixPool/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PublicPrefixPool.Get

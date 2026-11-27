@@ -50,6 +50,10 @@ meta:
     - keyword: security group
     - keyword: сервисное подключение
     - keyword: Private Endpoint
+  alternate:
+    - href: ru/vpc/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первую облачную сеть

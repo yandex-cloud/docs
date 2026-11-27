@@ -1,6 +1,10 @@
 ---
 title: Создать или переключиться на другую организацию в {{ org-full-name }}
 description: Из этой статьи вы узнаете, как создать дополнительную организацию или переключиться на другую организацию в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/manage-organizations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление несколькими организациями

@@ -1,6 +1,10 @@
 ---
 title: Tutorial on event search in audit logs
 description: In this tutorial, you will learn about the tools you can use to search for events in audit logs and see an example to do the search on your own.
+alternate:
+  - href: en/tutorials/security/search-events-audit-logs/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Event search in audit logs

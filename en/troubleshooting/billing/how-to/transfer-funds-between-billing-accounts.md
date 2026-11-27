@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/transfer-funds-between-billing-accounts.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to transfer funds between billing accounts
 
 

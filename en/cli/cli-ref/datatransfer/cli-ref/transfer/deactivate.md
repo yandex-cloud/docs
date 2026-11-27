@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/transfer/deactivate/
+alternate:
+  - href: en/cli/cli-ref/datatransfer/cli-ref/transfer/deactivate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc datatransfer transfer deactivate

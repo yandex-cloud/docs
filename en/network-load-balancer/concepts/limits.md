@@ -1,6 +1,10 @@
 ---
 title: '{{ network-load-balancer-full-name }} quotas and limits'
 description: '{{ network-load-balancer-full-name }} has limits and quotas on the number of load balancers and target groups per cloud. For more information about the service limitations, read this article.'
+alternate:
+  - href: en/network-load-balancer/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ network-load-balancer-name }} quotas and limits

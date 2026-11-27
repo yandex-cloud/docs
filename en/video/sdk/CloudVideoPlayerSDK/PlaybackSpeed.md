@@ -1,6 +1,10 @@
 ---
 title: 'PlaybackSpeed: {{ video-full-name }} player SDK for iOS'
 description: Setting playback speed in the {{ video-name }} player SDK for iOS.
+alternate:
+  - href: en/video/sdk/CloudVideoPlayerSDK/PlaybackSpeed.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # PlaybackSpeed

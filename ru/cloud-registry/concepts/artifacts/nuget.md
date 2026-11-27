@@ -1,6 +1,10 @@
 ---
 title: NuGet-артефакт в {{ cloud-registry-full-name }}
 description: NuGet-артефакт – это пакет, который содержит код, метаданные, зависимости и другие ресурсы. Пакеты NuGet используются для распространения библиотек, инструментов и компонентов, которые можно добавить в проекты на платформе .NET.
+alternate:
+  - href: ru/cloud-registry/concepts/artifacts/nuget.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # NuGet-артефакт

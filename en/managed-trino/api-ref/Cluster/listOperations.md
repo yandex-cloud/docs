@@ -37,6 +37,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/managed-trino/api-ref/Cluster/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Trino API, REST: Cluster.ListOperations

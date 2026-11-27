@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ maf-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ maf-name }}.
 editable: false
+alternate:
+  - href: ru/managed-airflow/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ maf-name }}

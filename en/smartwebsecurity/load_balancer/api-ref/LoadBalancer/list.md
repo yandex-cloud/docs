@@ -17,6 +17,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/smartwebsecurity/load_balancer/api-ref/LoadBalancer/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Smart Web Security Load Balancer API, REST: LoadBalancer.List

@@ -1,6 +1,10 @@
 ---
 title: How to create an AppMetrica connection in {{ datalens-full-name }}
 description: Follow this guide to create an AppMetrica connection in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-appmetrica.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an AppMetrica connection in {{ datalens-full-name }}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/backup-retention-policy/list-by-folder/
+alternate:
+  - href: en/managed-mysql/cli-ref/backup-retention-policy/list-by-folder.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mysql backup-retention-policy list-by-folder

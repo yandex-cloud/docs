@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cloud-desktop/concepts/showcase.md
+    type: text/markdown
+    title: Markdown version
+---
 # User desktop showcase
 
 _[User desktop showcase]({{ link-cloud-desktop-showcase }})_ is a web page outside the {{ yandex-cloud }} [management console](../../console/), where users can read a quick guide and run basic operations on their desktops.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/monitoring/dashboard-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить дашборд
 
 Чтобы изменить дашборд:

@@ -1,6 +1,10 @@
 ---
 title: Хранилище в {{ mos-full-name }}
 description: Из статьи вы узнаете, какие типы дисков есть в {{ mos-name }} и познакомитесь с особенностями выбора типа хранилища при создании кластера.
+alternate:
+  - href: ru/managed-opensearch/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Хранилище в {{ mos-name }}

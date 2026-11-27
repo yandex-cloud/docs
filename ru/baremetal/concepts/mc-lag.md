@@ -1,6 +1,10 @@
 ---
 title: Резервирование сетевого подключения {{ baremetal-full-name }} с помощью MC-LAG
 description: Из этой статьи вы узнаете об особенностях и преимуществах резервирования сетевого подключения {{ baremetal-full-name }} с помощью технологии MC-LAG.
+alternate:
+  - href: ru/baremetal/concepts/mc-lag.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Резервирование сетевого подключения {{ baremetal-name }} с помощью технологии MC-LAG

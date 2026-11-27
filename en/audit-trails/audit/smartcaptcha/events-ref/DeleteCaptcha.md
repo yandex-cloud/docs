@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/smartcaptcha/events-ref/DeleteCaptcha.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartCaptcha Audit Trails Events: DeleteCaptcha

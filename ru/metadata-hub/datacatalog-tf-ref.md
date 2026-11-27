@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ data-catalog-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для {{ data-catalog-name }} в сервисе {{ metadata-hub-full-name }}.
+alternate:
+  - href: ru/metadata-hub/datacatalog-tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ data-catalog-name }}

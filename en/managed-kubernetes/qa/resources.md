@@ -1,6 +1,10 @@
 ---
 title: FAQ about resources in {{ managed-k8s-name }}
 description: This page provides FAQ about resources in {{ managed-k8s-name }}.
+alternate:
+  - href: en/managed-kubernetes/qa/resources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resources

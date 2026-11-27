@@ -1,6 +1,10 @@
 ---
 title: Посмотреть журнал резервного копирования ВМ {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете узнать подробности о резервном копировании ВМ {{ compute-full-name }} в журнале резервного копирования.
+alternate:
+  - href: ru/backup/operations/get-journal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть журнал резервного копирования

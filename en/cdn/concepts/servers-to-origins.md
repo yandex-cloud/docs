@@ -1,6 +1,10 @@
 ---
 title: Configuring data exchange between CDN servers and origins
 description: 'You can select a protocol for communication between CDN servers and origins: always HTTP, always HTTPS, or the protocol used by the CDN server to communicate with the client.'
+alternate:
+  - href: en/cdn/concepts/servers-to-origins.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring data exchange between CDN servers and origins

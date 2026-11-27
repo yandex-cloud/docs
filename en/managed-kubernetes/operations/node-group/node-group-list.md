@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/node-group/node-group-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Information about existing node groups
 
 To find out the `ID` or `NAME` of a [node group](../../concepts/index.md#node-group), get a [list of node groups](#list) in the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) or [detailed information about the node group](#get).

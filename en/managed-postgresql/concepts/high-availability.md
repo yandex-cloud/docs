@@ -1,6 +1,10 @@
 ---
 title: High availability of a {{ mpg-full-name }} cluster
 description: High availability is the ability of a system to continue to operate when one or more of its components fail. High availability of a {{ mpg-name }} cluster depends on the number and placement of its hosts, replication settings, and other cluster parameters.
+alternate:
+  - href: en/managed-postgresql/concepts/high-availability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # High availability of a {{ mpg-name }} cluster

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/object/restore-object.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: RestoreObject
 
 Метод обеспечивает совместимость с другими решениями — например, можно не менять логику работы с Amazon S3 Glacier при работе с {{ objstorage-name }}. Но в отличие от Amazon S3 Glacier объекты {{ objstorage-name }} доступны для чтения напрямую без перемещения в более горячие классы, поэтому метод всегда возвращает `200 OK`.

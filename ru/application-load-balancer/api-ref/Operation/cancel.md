@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/application-load-balancer/api-ref/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: Operation.Cancel

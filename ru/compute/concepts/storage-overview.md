@@ -1,6 +1,10 @@
 ---
 title: Диски и файловые хранилища в {{ compute-full-name }}
 description: Из статьи вы узнаете, что такое диски и файловые хранилища.
+alternate:
+  - href: ru/compute/concepts/storage-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диски и файловые хранилища

@@ -1,6 +1,10 @@
 ---
 title: Errors and warnings during export and import in {{ datalens-full-name }}
 description: This page lists and describes errors and warnings during export and import in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/workbooks-collections/export-import-notifications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Errors and warnings during export and import in {{ datalens-full-name }}

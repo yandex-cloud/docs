@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение к Snowflake в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете создать подключение к Snowflake.
+alternate:
+  - href: ru/datalens/operations/connection/create-snowflake.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к Snowflake

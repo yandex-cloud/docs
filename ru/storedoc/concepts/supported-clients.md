@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storedoc/concepts/supported-clients.md
+    type: text/markdown
+    title: Markdown version
+---
 # Рекомендуемые клиенты для СУБД {{ mmg-name }}
 
 Для подключения к {{ mmg-short-name }} рекомендуется использовать следующие клиенты:

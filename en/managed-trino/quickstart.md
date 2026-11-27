@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ mtr-full-name }}
 description: Follow this guide to create a {{ TR }} cluster and connect to it.
+alternate:
+  - href: en/managed-trino/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ mtr-full-name }}

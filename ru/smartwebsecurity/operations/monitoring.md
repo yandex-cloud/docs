@@ -1,6 +1,10 @@
 ---
 title: Мониторинг в сервисе {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете настроить мониторинг {{ sws-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг в {{ sws-name }}

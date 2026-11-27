@@ -48,6 +48,10 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/serverless-containers/containers/api-ref/Container/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Serverless Containers Service, REST: Container.Create

@@ -1,6 +1,10 @@
 ---
 title: Редактор SQL в {{ datalens-platform-full-name }}
 description: Как открывать подключение в Редакторе SQL и отправлять SQL-запросы из интерфейса {{ datalens-platform-short-name }}.
+alternate:
+  - href: ru/datalens/datalens-platform/concepts/sql/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Редактор SQL в {{ datalens-platform-full-name }}

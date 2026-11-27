@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/acl/objectput.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: PutObjectAcl
 
 Uploads an access control list for an object.

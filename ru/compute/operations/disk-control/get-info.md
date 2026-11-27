@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о диске в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете  получить информацию о диске.
+alternate:
+  - href: ru/compute/operations/disk-control/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о диске

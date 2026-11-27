@@ -1,6 +1,10 @@
 ---
 title: '{{ KF }} cluster user roles in {{ mkf-full-name }}'
 description: In this article, you will learn about user types in a {{ KF }} cluster.
+alternate:
+  - href: en/managed-kafka/concepts/account-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # User roles in {{ mkf-full-name }}

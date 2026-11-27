@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/new-copy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Create a backup
 
 You can create a backup for any [{{ CH }}](../../concepts/components/clickhouse.md) cluster existing in your [project](../projects/create-project.md).

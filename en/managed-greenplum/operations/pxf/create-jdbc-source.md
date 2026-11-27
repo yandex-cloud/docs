@@ -1,6 +1,10 @@
 ---
 title: Creating an external JDBC data source
 description: Follow this guide to create an external JDBC data source.
+alternate:
+  - href: en/managed-greenplum/operations/pxf/create-jdbc-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an external JDBC data source

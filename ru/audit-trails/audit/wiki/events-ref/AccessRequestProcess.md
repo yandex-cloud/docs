@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/wiki/events-ref/AccessRequestProcess.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Wiki Audit Trails Events: AccessRequestProcess

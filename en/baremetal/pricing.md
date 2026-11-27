@@ -2,6 +2,10 @@
 title: '{{ baremetal-full-name }} pricing policy'
 description: This article covers the {{ baremetal-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/baremetal/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ baremetal-full-name }} pricing policy

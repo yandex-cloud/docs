@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ managed-k8s-name }}
 description: Access management in {{ managed-k8s-name }}, a containerized application management service. This section describes the resources for which you can assign a role, the roles existing in the service, the roles required for the {{ managed-k8s-name }} cluster service accounts, and the roles required to work with {{ managed-k8s-name }} from the {{ yandex-cloud }} management console.
+alternate:
+  - href: en/managed-kubernetes/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ managed-k8s-name }}

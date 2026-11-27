@@ -1,6 +1,10 @@
 ---
 title: Чеклист предотвращения атак программ-шифровальщиков
 description: В этой статье вы ознакомитесь с содержимым чеклиста защиты от атак программ-шифровальщиков в инфраструктуре {{ yandex-cloud }}.
+alternate:
+  - href: ru/security/domains/ransomware-checklist.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чеклист предотвращения атак программ-шифровальщиков

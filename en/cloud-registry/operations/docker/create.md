@@ -1,6 +1,10 @@
 ---
 title: Creating a Docker image in {{ cloud-registry-name }}
 description: This guide describes how to create and build a Docker image based on a Dockerfile in {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/docker/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a Docker image in {{ cloud-registry-name }}

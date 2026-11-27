@@ -2,6 +2,10 @@
 title: Восстановление Greenplum из резервной копии WAL-G
 description: Следуя этой инструкции, вы сможете самостоятельно восстановить базу данных {{ GP }} из резервной копии WAL-G.
 noIndex: true
+alternate:
+  - href: ru/managed-greenplum/operations/cluster-outbound-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановление {{ GP }} из резервной копии WAL-G

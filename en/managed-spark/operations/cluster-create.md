@@ -5,6 +5,10 @@ keywords:
   - creating an {{ SPRK }} cluster
   - '{{ SPRK }} cluster'
   - '{{ SPRK }}'
+alternate:
+  - href: en/managed-spark/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ SPRK }} cluster

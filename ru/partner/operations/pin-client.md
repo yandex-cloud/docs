@@ -1,6 +1,10 @@
 ---
 title: Добавить клиента
 description: Следуя данной инструкции, вы сможете добавить клиента.
+alternate:
+  - href: ru/partner/operations/pin-client.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить сабаккаунт клиента

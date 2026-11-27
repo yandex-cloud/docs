@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание в {{ msp-full-name }}
 description: Под техническим обслуживанием в {{ msp-name }} понимается автоматическая установка обновлений и исправлений для хостов (в т. ч. для выключенных кластеров), изменение класса хостов и другие сервисные работы.
+alternate:
+  - href: ru/managed-spark/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание в {{ msp-full-name }}

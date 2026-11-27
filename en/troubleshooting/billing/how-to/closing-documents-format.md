@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/closing-documents-format.md
+    type: text/markdown
+    title: Markdown version
+---
 # Closing documents format in EDM
 
 

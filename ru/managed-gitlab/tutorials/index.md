@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ mgl-full-name }}
 description: Различные сценарии использования {{ mgl-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-gitlab/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ mgl-name }}

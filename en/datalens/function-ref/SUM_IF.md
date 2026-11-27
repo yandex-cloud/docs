@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/SUM_IF.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SUM_IF

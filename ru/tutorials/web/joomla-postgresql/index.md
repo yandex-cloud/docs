@@ -8,6 +8,10 @@ keywords:
   - установка joomla
   - настройка joomla
   - хостинг сайта joomla
+alternate:
+  - href: ru/tutorials/web/joomla-postgresql/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [joomla-postgresql](../../../_tutorials/applied/joomla-postgresql.md) %}

@@ -1,6 +1,10 @@
 ---
 title: How to reset your password for the {{ yandex-cloud }} management console
 description: Follow this guide to learn how to reset your password for the {{ yandex-cloud }} management console.
+alternate:
+  - href: en/organization/operations/user-account/reset-password.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resetting your password for the {{ yandex-cloud }} management console

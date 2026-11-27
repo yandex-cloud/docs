@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ai/batch_inference/events-ref/DeleteBatchInference.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio Batch Inference Audit Trails Events: DeleteBatchInference

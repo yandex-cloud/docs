@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/clickhouse/edit-role.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить роль
 
 Если у вас есть [роль](create-role.md) [{{ CH }}](../../concepts/components/clickhouse.md), вы можете изменить наследование ролей и блоки прав.

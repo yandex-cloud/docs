@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/python/context.md
+    type: text/markdown
+    title: Markdown version
+---
 # Python function invocation context
 
 _Invocation context_ is an object that contains certain [execution context](../../concepts/runtime/execution-context.md) parameters as well as the parameters for invoking the Python function itself. It is provided to the [request handler](handler.md) as the second argument.

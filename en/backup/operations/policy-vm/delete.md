@@ -1,6 +1,10 @@
 ---
 title: Deleting a backup policy
 description: In this tutorial, you will learn how to delete a backup policy in {{ backup-full-name }}.
+alternate:
+  - href: en/backup/operations/policy-vm/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a backup policy

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ cdn-full-name }} overview
 
 {% include [cdn-overview-intro](../../_includes/cdn/cdn-overview-intro.md) %}

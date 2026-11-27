@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/metadata-options.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring metadata service parameters for a container
 
 You can configure metadata service parameters when [creating a container revision](manage-revision.md).

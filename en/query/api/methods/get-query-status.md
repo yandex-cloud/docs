@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/api/methods/get-query-status.md
+    type: text/markdown
+    title: Markdown version
+---
 # get-query-status
 
 This method returns the query status. You can use it to track query progress and [retrieve the results](get-query-results.md) once it is completed.

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-airflow/cli-ref/v0/cluster/add-access-binding/
+alternate:
+  - href: ru/managed-airflow/cli-ref/v0/cluster/add-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-airflow v0 cluster add-access-binding

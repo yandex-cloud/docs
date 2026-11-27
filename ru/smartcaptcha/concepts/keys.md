@@ -1,6 +1,10 @@
 ---
 title: Ключи капчи в {{ captcha-full-name }}
 description: Из статьи вы узнаете, что такое клиентский и серверный ключи капчи и для чего они используются.
+alternate:
+  - href: ru/smartcaptcha/concepts/keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ключи капчи

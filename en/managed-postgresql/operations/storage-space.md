@@ -1,6 +1,10 @@
 ---
 title: '{{ mpg-name }} disk space management'
 description: When the storage is more than 97% full, the host automatically switches to read-only mode. You can monitor storage usage, configure its automatic scaling, and disable read-only mode.
+alternate:
+  - href: en/managed-postgresql/operations/storage-space.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing disk space

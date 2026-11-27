@@ -1,6 +1,10 @@
 ---
 title: Уведомления об остановке экземпляра функции
 description: На данной странице описаны особенности уведомлений о предстоящей принудительной остановке экземпляров функций, как обрабатывающих вызовы, так и неактивных.
+alternate:
+  - href: ru/functions/concepts/termination-notifications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Уведомления о завершении выполнения функции

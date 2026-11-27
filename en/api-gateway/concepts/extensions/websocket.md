@@ -1,6 +1,10 @@
 ---
 title: WebSocket protocol support
 description: To connect to an API gateway via WebSocket, client applications need to send a GET request to the URI for which integrations are set up in the OpenAPI specification.
+alternate:
+  - href: en/api-gateway/concepts/extensions/websocket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # WebSocket protocol support

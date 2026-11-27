@@ -1,6 +1,10 @@
 ---
 title: Public network in {{ baremetal-full-name }}
 description: In this article, you will learn about public networks and subnets in {{ baremetal-full-name }}.
+alternate:
+  - href: en/baremetal/concepts/public-network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public network {#public-network}

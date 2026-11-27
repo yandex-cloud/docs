@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-gitlab/operations/instance/instance-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating instance settings
 
 After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can update the general and advanced instance settings yourself.

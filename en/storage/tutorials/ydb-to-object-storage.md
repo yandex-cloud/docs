@@ -3,6 +3,10 @@ noIndex: true
 title: Loading data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}
 description: How to load data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/ydb-to-object-storage'
+alternate:
+  - href: en/storage/tutorials/ydb-to-object-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Loading data from {{ ydb-full-name }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}

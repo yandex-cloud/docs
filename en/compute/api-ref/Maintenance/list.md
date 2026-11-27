@@ -69,6 +69,10 @@ apiPlayground:
             - resourceId
     body: null
     definitions: null
+alternate:
+  - href: en/compute/api-ref/Maintenance/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Maintenance.List

@@ -4,6 +4,10 @@ description: In this article, you will learn how to create an environment for an
 keywords:
   - creating an environment for an {{ SPRK }} cluster
   - environment for an {{ SPRK }} cluster
+alternate:
+  - href: en/managed-spark/operations/environment-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a workspace

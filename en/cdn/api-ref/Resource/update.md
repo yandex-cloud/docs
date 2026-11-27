@@ -765,6 +765,10 @@ apiPlayground:
               - PROFILE_LEGACY
               - PROFILE_SECURE
               - PROFILE_STRICT
+alternate:
+  - href: en/cdn/api-ref/Resource/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: Resource.Update

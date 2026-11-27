@@ -1,6 +1,10 @@
 ---
 title: Comparing schemas in a subject
 description: Follow this guide to compare two schemas from different versions of a subject.
+alternate:
+  - href: en/metadata-hub/operations/compare-schemas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Comparing schemas in a subject

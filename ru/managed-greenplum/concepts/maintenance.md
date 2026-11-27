@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание в {{ mgp-full-name }}
 description: Под техническим обслуживанием в {{ mgp-name }} понимается автоматическая установка обновлений и исправлений СУБД для хостов (в т. ч. для выключенных кластеров), изменение класса хостов и размера хранилища и другие сервисные работы.
+alternate:
+  - href: ru/managed-greenplum/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание в {{ mgp-name }}

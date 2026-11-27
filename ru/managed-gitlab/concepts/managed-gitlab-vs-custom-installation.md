@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-gitlab/concepts/managed-gitlab-vs-custom-installation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Преимущества {{ mgl-name }} перед пользовательской инсталляцией {{ GL }} Community Edition
 
 _Пользовательская инсталляция_ — это {{ GL }}, который установлен на сервер или локальный компьютер (self-managed {{ GL }}). Ниже рассматривается пользовательская инсталляция [{{ GL }} Community Edition](https://about.gitlab.com/install/ce-or-ee/).

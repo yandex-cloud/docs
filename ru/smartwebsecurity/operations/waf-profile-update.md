@@ -1,6 +1,10 @@
 ---
 title: Изменить основные параметры профиля Cloud WAF
 description: Следуя данной инструкции, вы сможете изменить основные параметры профиля WAF.
+alternate:
+  - href: ru/smartwebsecurity/operations/waf-profile-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить основные параметры профиля Cloud WAF

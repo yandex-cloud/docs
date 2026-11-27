@@ -1,6 +1,10 @@
 ---
 title: How to delete a notebook or a project in {{ ml-platform-full-name }}
 description: In this guide, you will learn how to delete a notebook or a project in {{ ml-platform-name }}.
+alternate:
+  - href: en/datasphere/operations/projects/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a notebook or a project

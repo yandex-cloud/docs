@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/concepts/external-tables.md
+    type: text/markdown
+    title: Markdown version
+---
 # External tables
 
 {{ mgp-name }} allows you to work with data from sources that are external to a {{ mgp-name }} cluster. This functionality uses _external tables_, i.e., special objects in a database that reference tables, buckets, or files from external sources. External DBMS data is accessed via the [{{ GP }} Platform Extension Framework](../operations/external-tables.md) (PXF) protocol; files on external file servers are accessed via the [{{ GP }} Parallel File Server](../operations/gpfdist/connect.md) (`gpfdist`) utility. {{ GP }} and {{ CB }} use different `gpfdist` utilities. For more information about the utilities, see these [{{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html) and [{{ CB }} guides]({{ gp.docs.cloudberry }}/sys-utilities/gpfdist).

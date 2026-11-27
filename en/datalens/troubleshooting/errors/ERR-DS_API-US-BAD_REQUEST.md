@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.US.BAD_REQUEST'
 description: This page describes the Object request errorin {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-US-BAD_REQUEST.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Object request error

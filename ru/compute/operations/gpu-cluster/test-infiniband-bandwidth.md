@@ -1,6 +1,10 @@
 ---
 title: Проверить пропускную способность InfiniBand
 description: Следуя данной инструкции, вы сможете запустить тест пропускной способности InfiniBand на одной машине с разделением ресурсов по NUMA-нодам.
+alternate:
+  - href: ru/compute/operations/gpu-cluster/test-infiniband-bandwidth.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Проверить пропускную способность InfiniBand

@@ -2,6 +2,10 @@
 title: Quotas and limits in {{ interconnect-full-name }}
 description: In this article, you will learn about quotas and limits in {{ interconnect-name }}.
 editable: false
+alternate:
+  - href: en/interconnect/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ interconnect-name }}

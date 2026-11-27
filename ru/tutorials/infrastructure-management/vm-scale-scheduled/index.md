@@ -1,6 +1,10 @@
 ---
 title: Масштабирование группы виртуальных машин по расписанию в {{ yandex-cloud }}
 description: Следуя данному руководству, вы настроите масштабирование группы виртуальных машин по расписанию в {{ yandex-cloud }}.
+alternate:
+  - href: ru/tutorials/infrastructure-management/vm-scale-scheduled/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [vm-scale-scheduled](../../../_tutorials/infrastructure/vm-scale-scheduled.md) %}

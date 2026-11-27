@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/kms/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ kms-name }}
 
 In this guide, you will create your first [key](../concepts/index.md) and try your hand at encrypting and decrypting text using {{ kms-short-name }}. 

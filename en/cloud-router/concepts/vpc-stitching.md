@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/cloud-router/concepts/vpc-stitching.md
+    type: text/markdown
+    title: Markdown version
+---
 # VPC Stitching
 
 {% include [cic-only-warning](../../_includes/interconnect/cic-only-warning.md) %}

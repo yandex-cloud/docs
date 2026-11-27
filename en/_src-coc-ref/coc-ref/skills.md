@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_src-coc-ref/coc-ref/skills.md
+    type: text/markdown
+    title: Markdown version
+---
 # Skills configuration
 
 Path in repository: `.sourcecraft/ai.yaml`.

@@ -1,6 +1,10 @@
 ---
 title: Enabling and disabling a check under a custom rule set in {{ sd-full-name }}
 description: In this section, you will learn how to enable and disable a check under a custom rule set in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/custom-rules-sets/enable-disable-set.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling and disabling a check under a custom rule set

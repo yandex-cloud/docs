@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/clickhouse/delete-role.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить роль
 
 Если у вас есть [роль](create-role.md) [{{ CH }}](../../concepts/components/clickhouse.md), вы можете удалить ее.

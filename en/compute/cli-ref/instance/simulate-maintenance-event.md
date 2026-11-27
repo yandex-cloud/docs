@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance/simulate-maintenance-event/
+alternate:
+  - href: en/compute/cli-ref/instance/simulate-maintenance-event.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute instance simulate-maintenance-event

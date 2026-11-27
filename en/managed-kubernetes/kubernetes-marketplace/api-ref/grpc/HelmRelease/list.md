@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-kubernetes/kubernetes-marketplace/api-ref/grpc/HelmRelease/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Kubernetes Marketplace, gRPC: HelmReleaseService.List

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-cluster-operations/
+alternate:
+  - href: en/cli/cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-cluster-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal v2 extend stackland-cluster list-stackland-cluster-operations

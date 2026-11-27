@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/quickstart/create-function/go-function-quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a function in Go
 
 Create and run a user welcome [function](../../concepts/function.md) in Go.

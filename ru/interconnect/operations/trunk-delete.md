@@ -1,6 +1,10 @@
 ---
 title: Как удалить транковое подключение в {{ interconnect-name }}
 description: Следуя этой инструкции, вы сможете удалить транковое подключение в {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/operations/trunk-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить транковое подключение

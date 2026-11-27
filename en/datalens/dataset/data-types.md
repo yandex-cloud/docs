@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} data types'
 description: '{{ datalens-full-name }} uses various data sources whose fields may have different data types. To streamline data operations, {{ datalens-name }} converts source data types to its native ones. This optimizes data operations. You can change the field data type both in the dataset interface and in the wizard.'
+alternate:
+  - href: en/datalens/dataset/data-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} data types

@@ -1,6 +1,10 @@
 ---
 title: Как создать виртуальную машину с оборудованием поколения Gen 2
 description: Следуя данной инструкции, вы сможете создать виртуальную машину, работающую на виртуализированном оборудовании поколения Gen 2.
+alternate:
+  - href: ru/compute/operations/vm-create/create-gen2-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать виртуальную машину с оборудованием поколения Gen 2

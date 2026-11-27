@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/siem/instances/siem/api-ref/grpc/SIEMInstance/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM Instances API, gRPC: SIEMInstanceService

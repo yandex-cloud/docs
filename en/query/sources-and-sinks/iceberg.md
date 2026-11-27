@@ -1,6 +1,10 @@
 ---
 title: Reading {{ yq-iceberg-name }} tables
 description: In this article, you will learn how to connect to the {{ yq-iceberg-name }} catalog and read data from tables using {{ yq-full-name }}.
+alternate:
+  - href: en/query/sources-and-sinks/iceberg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reading {{ yq-iceberg-name }} tables

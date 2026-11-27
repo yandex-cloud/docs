@@ -1,6 +1,10 @@
 ---
 title: How to create a notification channel in {{ monium-name }}
 description: Follow this guide to create a notification channel and start sending email and messenger notifications to users.
+alternate:
+  - href: en/monium/operations/alert/create-channel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a notification channel with recipients

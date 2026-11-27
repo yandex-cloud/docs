@@ -5,6 +5,10 @@ keywords:
   - статическая маршрутизация
   - таблица маршрутизации
   - маршрутизация
+alternate:
+  - href: ru/vpc/concepts/routing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Маршрутизация

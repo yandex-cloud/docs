@@ -1,6 +1,10 @@
 ---
 title: Удаление MFA-факторов и сброс даты верификации пользователей в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете удалять MFA-факторы, а также отслеживать и сбрасывать MFA-верификацию пользователей в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/mfa/manage-verification.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить MFA-фактор и сбросить дату верификации

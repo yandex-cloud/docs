@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ mch-full-name }}
 description: В разделе представлена история изменений сервиса {{ mch-name }}.
+alternate:
+  - href: ru/managed-clickhouse/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 <!-- Changelog begin -->

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/request-headers.md
+    type: text/markdown
+    title: Markdown version
+---
 # Request headers
 
 Most headers available for requests in the Amazon API are of `X-Amz-*` type. They are optional and contain authentication information. Use them to create signed requests.

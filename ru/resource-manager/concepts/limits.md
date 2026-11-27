@@ -2,6 +2,10 @@
 title: Квоты и лимиты в {{ resmgr-full-name }}
 description: В сервисе {{ resmgr-full-name }} действуют квоты на количество облаков в организации и количество каталогов в облаке. Лимиты не определены.
 editable: false
+alternate:
+  - href: ru/resource-manager/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ resmgr-name }}

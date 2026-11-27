@@ -1,6 +1,10 @@
 ---
 title: Как в {{ kms-short-name }} шифровать и расшифровывать данные по схеме асимметричного шифрования
 description: Следуя данной инструкции, вы сможете шифровать и расшифровывать данные по схеме асимметричного шифрования.
+alternate:
+  - href: ru/kms/operations/asymmetric-encryption.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Асимметричное шифрование данных

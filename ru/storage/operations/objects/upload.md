@@ -1,6 +1,10 @@
 ---
 title: Загрузить объект в бакет в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете загрузить объект в бакет в {{ objstorage-name }}, а также задать условия загрузки (conditional writes).
+alternate:
+  - href: ru/storage/operations/objects/upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузить объект

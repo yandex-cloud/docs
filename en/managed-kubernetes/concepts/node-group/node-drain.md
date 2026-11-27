@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/concepts/node-group/node-drain.md
+    type: text/markdown
+    title: Markdown version
+---
 # Evicting pods from nodes
 
 When you update a node group, pods are evicted from the old node and migrated to the new one. To make sure eviction does not affect the availability of the services provided by your applications in the {{ k8s }} cluster, configure the {{ k8s }} API [PodDisruptionBudget](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/pod-disruption-budget-v1/) object for the pods of your application.

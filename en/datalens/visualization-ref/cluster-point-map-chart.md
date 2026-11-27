@@ -1,6 +1,10 @@
 ---
 title: Point map with clusters in {{ datalens-full-name }}
 description: In this article, you will learn how to create and customize the point map with clusters visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/cluster-point-map-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Point map with clusters ![](../../_assets/datalens/heatmap.svg) in {{ datalens-full-name }}

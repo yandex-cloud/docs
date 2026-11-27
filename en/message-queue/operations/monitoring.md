@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Monitoring processes in queues
 
 You can monitor the handling processes for messages in queues using monitoring tools in the management console. These tools display diagnostic information as charts.

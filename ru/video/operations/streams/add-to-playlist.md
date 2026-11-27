@@ -1,6 +1,10 @@
 ---
 title: Как добавить трансляцию в плейлист в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете добавить трансляцию в плейлист в сервисе {{ video-name }}.
+alternate:
+  - href: ru/video/operations/streams/add-to-playlist.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить завершенную трансляцию в плейлист

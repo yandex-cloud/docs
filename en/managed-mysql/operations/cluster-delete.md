@@ -1,6 +1,10 @@
 ---
 title: Deleting a {{ MY }} cluster
 description: After you delete a {{ MY }} cluster, its backups are retained for seven days for recovery purposes. To restore a deleted cluster from a backup, you will need its ID. Therefore, make sure to save the cluster ID safely before deletion.
+alternate:
+  - href: en/managed-mysql/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a {{ MY }} cluster

@@ -1,6 +1,10 @@
 ---
 title: Полилинейная карта в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Полилинейная карта.
+alternate:
+  - href: ru/datalens/visualization-ref/polyline-map-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Полилинейная карта ![](../../_assets/datalens/polyline-map.svg) в {{ datalens-full-name }}

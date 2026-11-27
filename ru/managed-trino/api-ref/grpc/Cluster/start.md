@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-trino/api-ref/grpc/Cluster/start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Trino API, gRPC: ClusterService.Start

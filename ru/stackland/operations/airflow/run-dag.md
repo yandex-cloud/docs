@@ -1,6 +1,10 @@
 ---
 title: Запустить DAG в {{ AF }}
 description: Как запустить DAG с параметрами, повторить задачу, настроить расписание и выполнить Backfill в {{ AF }}
+alternate:
+  - href: ru/stackland/operations/airflow/run-dag.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запустить DAG в {{ AF }}

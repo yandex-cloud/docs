@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/operations/configure-logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Setting up logging
 
 {% list tabs group=instructions %}

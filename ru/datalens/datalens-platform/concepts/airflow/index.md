@@ -1,6 +1,10 @@
 ---
 title: Пайплайны в {{ datalens-platform-full-name }}
 description: 'Пайплайны в {{ datalens-platform-full-name }} позволяют организовать обработку данных: задать зависимости между задачами, запускать обработку вручную и по расписанию, отслеживать результаты выполнения.'
+alternate:
+  - href: ru/datalens/datalens-platform/concepts/airflow/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пайплайны в {{ datalens-platform-full-name }}

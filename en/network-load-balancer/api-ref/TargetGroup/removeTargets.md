@@ -44,6 +44,10 @@ apiPlayground:
               **string**
               IP address of the target.
             type: string
+alternate:
+  - href: en/network-load-balancer/api-ref/TargetGroup/removeTargets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Load Balancer API, REST: TargetGroup.RemoveTargets

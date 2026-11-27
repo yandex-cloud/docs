@@ -5,6 +5,10 @@ description: |-
 
   **CI execution_ref:** Pull request source branch.
 editable: false
+alternate:
+  - href: en/_src-events-ref/events-ref/pull-request-comment-publish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # pull_request_comment.publish

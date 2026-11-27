@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ marketplace-short-name }} Metering API
 description: Вы научитесь отправлять метрики потребления вашего продукта в {{ marketplace-short-name }} Metering API.
+alternate:
+  - href: ru/marketplace/api-ref/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ marketplace-short-name }} Metering API

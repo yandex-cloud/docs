@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/bash/handler.md
+    type: text/markdown
+    title: Markdown version
+---
 # Handler script for Bash function calls
 
 A _request handler script_ is called to handle each invocation of a function in Bash. When creating a function version, you must specify the entry point, i.e., the extension file name, e.g., `handler.sh`.

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/function/set-access-bindings/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/function/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless function set-access-bindings

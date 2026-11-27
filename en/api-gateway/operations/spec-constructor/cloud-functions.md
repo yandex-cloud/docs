@@ -1,6 +1,10 @@
 ---
 title: Adding the {{ sf-full-name }} extension
 description: Follow this guide to add the {{ sf-full-name }} extension using the specification constructor.
+alternate:
+  - href: en/api-gateway/operations/spec-constructor/cloud-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding the x-yc-apigateway-integration:cloud_functions extension

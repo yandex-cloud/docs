@@ -629,6 +629,10 @@ apiPlayground:
           - retention
           - scheduling
           - cbt
+alternate:
+  - href: en/backup/backup/api-ref/Policy/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Policy.Update

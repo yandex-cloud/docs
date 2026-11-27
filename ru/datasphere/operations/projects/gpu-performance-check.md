@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/projects/gpu-performance-check.md
+    type: text/markdown
+    title: Markdown version
+---
 # Проверить загрузку GPU
 
 В {{ ml-platform-full-name }} доступны [конфигурации вычислительных ресурсов](../../concepts/configurations.md) с [GPU](../../../glossary/gpu.md).

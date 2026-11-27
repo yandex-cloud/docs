@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/partner/specializations/conditions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Conditions for earning a partner status with a technology specialization
 
 Partners can join and get qualified for the status system twice a year:

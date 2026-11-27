@@ -1,6 +1,10 @@
 ---
 title: Настройка прав доступа к окружению в {{ sd-full-name }}
 description: Из этой инструкции вы узнаете, как настроить права доступа к окружению в {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/operations/workspaces/manage-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к окружению {{ sd-name }}

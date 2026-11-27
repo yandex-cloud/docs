@@ -1,6 +1,10 @@
 ---
 title: Как получить список refresh-токенов
 description: Следуя данной инструкции, вы сможете получить список и метаданные refresh-токенов пользователя.
+alternate:
+  - href: ru/iam/operations/refresh-token/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка refresh-токенов

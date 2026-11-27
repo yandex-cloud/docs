@@ -1,6 +1,10 @@
 ---
 title: Code examples for connecting to a {{ OS }} cluster in {{ mos-full-name }}
 description: These examples show you how to connect to a {{ OS }} cluster database from your application.
+alternate:
+  - href: en/managed-opensearch/operations/connect/code-examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Code examples for connecting to a {{ OS }} cluster

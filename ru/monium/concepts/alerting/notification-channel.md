@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/concepts/alerting/notification-channel.md
+    type: text/markdown
+    title: Markdown version
+---
 # Канал уведомлений
 
 Чтобы получать уведомления о переходе алерта в другой статус, необходимо указать канал уведомлений. Канал содержит информацию о получателях, методе отправки и параметрах уведомлений.

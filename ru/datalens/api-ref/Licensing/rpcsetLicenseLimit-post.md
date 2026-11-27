@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Licensing/rpcsetLicenseLimit-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Set licenses limit

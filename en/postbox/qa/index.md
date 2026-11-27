@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ postbox-full-name }}
 description: This page covers questions and answers about {{ postbox-name }}.
+alternate:
+  - href: en/postbox/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ postbox-name }}

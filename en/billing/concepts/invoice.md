@@ -1,6 +1,10 @@
 ---
 title: Tax invoice
 description: In this tutorial, you will learn about a tax invoice, how it is formed, and the taxes and fees it includes.
+alternate:
+  - href: en/billing/concepts/invoice.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

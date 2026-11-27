@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к виртуальной машине по {{ oslogin }}
 description: Следуя данной инструкции, вы сможете подключиться к виртуальной машине по {{ oslogin }}.
+alternate:
+  - href: ru/compute/operations/vm-connect/os-login.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключиться к виртуальной машине по {{ oslogin }}

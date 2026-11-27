@@ -2,6 +2,10 @@
 title: Организация сетевой связности между облачными и удаленными ресурсами с помощью IPsec-шлюзов
 description: Из статьи вы узнаете, как организовать сетевую связность между облачными и удаленными ресурсами с помощью IPsec-шлюзов.
 canonical: '{{ link-docs }}/tutorials/routing/ipsec'
+alternate:
+  - href: ru/vpc/tutorials/ipsec/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [index](../../../_tutorials/infrastructure/ipsec/index.md) %}

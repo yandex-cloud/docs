@@ -1,6 +1,10 @@
 ---
 title: Сопоставление с VMware
 description: В этой статье сопоставляются сервисы {{ yandex-cloud }} и сервисы VMware.
+alternate:
+  - href: ru/overview/platform-comparison/vmware/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сопоставление с VMware

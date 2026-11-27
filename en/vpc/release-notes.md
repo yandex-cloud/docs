@@ -1,6 +1,10 @@
 ---
 title: '{{ vpc-full-name }} release notes'
 description: This section contains the {{ vpc-name }} release notes.
+alternate:
+  - href: en/vpc/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ vpc-full-name }} release notes

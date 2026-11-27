@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_yarl_list.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli yarl list
 
 List yarl quotas for an entity

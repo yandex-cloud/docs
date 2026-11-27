@@ -1,6 +1,10 @@
 ---
 title: Справочник ролей {{ yandex-cloud }}
 description: В статье приведен полный справочник и описание ролей, действующих в сервисах {{ yandex-cloud }}.
+alternate:
+  - href: ru/iam/roles-reference.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник ролей {{ yandex-cloud }}

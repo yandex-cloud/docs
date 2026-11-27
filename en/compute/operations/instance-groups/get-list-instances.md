@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/instance-groups/get-list-instances.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting a list of VM instances in a group
 
 After creating an instance group, you can get a list of instances in the group.

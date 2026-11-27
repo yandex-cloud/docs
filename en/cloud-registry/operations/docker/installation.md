@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cloud-registry/operations/docker/installation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Installing and configuring Docker in {{ cloud-registry-name }}
 
 Before you start using {{ cloud-registry-name }}, install and configure [Docker](https://www.docker.com/) on your local computer.

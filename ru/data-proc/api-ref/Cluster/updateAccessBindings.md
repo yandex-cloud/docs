@@ -105,6 +105,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/data-proc/api-ref/Cluster/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Data Processing API, REST: Cluster.UpdateAccessBindings

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/marketplace/license-manager/saas/api-ref/Instance/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace License Manager for SaaS, REST: Instance

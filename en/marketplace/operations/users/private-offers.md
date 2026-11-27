@@ -1,6 +1,10 @@
 ---
 title: Personalized offers in {{ marketplace-name }}
 description: Follow this guide to learn how to accept a personalized offer in {{ marketplace-name }}.
+alternate:
+  - href: en/marketplace/operations/users/private-offers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Accepting a personalized offer

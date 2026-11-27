@@ -1,6 +1,10 @@
 ---
 title: Политика поддержки версий {{ PG }}
 description: Из статьи вы узнаете о политике поддержки версий {{ PG }} в сервисе {{ mpg-full-name }}.
+alternate:
+  - href: ru/managed-postgresql/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политика поддержки версий {{ PG }}

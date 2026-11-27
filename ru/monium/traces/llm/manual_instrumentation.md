@@ -1,6 +1,10 @@
 ---
 title: Инструментирование LLM-приложений вручную
 description: Руководство по ручной инструментации LLM-приложений атрибутами GenAI для отправки трейсов в {{ traces-name }}.
+alternate:
+  - href: ru/monium/traces/llm/manual_instrumentation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ручная инструментация LLM-приложений

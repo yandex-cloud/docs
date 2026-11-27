@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/public-prefix-pool/
+alternate:
+  - href: en/cli/cli-ref/baremetal/cli-ref/public-prefix-pool/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal public-prefix-pool

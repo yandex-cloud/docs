@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Registry
+alternate:
+  - href: ru/terraform/data-sources/cloudregistry_folder.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cloudregistry_folder (DataSource)

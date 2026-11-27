@@ -29,6 +29,10 @@ apiPlayground:
         - destinationFolderId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/managed-greenplum/api-ref/Cluster/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.Move

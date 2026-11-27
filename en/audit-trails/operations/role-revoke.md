@@ -1,6 +1,10 @@
 ---
 title: Revoking roles assigned for a trail
 description: Use this guide to revoke roles assigned for a trail.
+alternate:
+  - href: en/audit-trails/operations/role-revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Revoking roles assigned for a trail

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-transfer/operations/endpoint/source/bigquery.md
+    type: text/markdown
+    title: Markdown version
+---
 # Transferring data from a BigQuery endpoint
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, make sure to configure BigQuery access.

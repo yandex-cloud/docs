@@ -1,6 +1,10 @@
 ---
 title: How to connect to a {{ dataproc-full-name }} cluster host over SSH
 description: Follow this guide to connect to a {{ dataproc-name }} host over SSH.
+alternate:
+  - href: en/data-proc/operations/connect-ssh.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ dataproc-name }} host over SSH

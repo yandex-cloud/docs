@@ -1,6 +1,10 @@
 ---
 title: Класс хранилища {{ objstorage-full-name }}
 description: '{{ objstorage-name }} позволяет хранить объекты в хранилищах разных классов в зависимости от ваших требований к длительности хранения и частоте операций с объектами. В сервисе доступны стандартное, холодное, ледяное и умное хранилища.'
+alternate:
+  - href: ru/storage/concepts/storage-class.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Класс хранилища

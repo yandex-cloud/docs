@@ -1,6 +1,10 @@
 ---
 title: Разработка на Kotlin в {{ sf-full-name }}. Обзор
 description: С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на Kotlin. Сервис предоставляет среду выполнения с версией языка 2.0 и операционной системой Ubuntu 22.04 LTS.
+alternate:
+  - href: ru/functions/lang/kotlin/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разработка на Kotlin. Обзор

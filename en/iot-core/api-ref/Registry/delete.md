@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/iot-core/api-ref/Registry/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Registry.Delete

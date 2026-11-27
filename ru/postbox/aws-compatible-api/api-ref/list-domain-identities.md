@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/list-domain-identities.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод ListDomainIdentities
 
 Возвращает список [адресов](../../concepts/glossary.md#address) в каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.

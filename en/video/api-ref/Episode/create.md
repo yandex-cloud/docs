@@ -115,6 +115,10 @@ apiPlayground:
       EpisodeSignURLAccessParams:
         type: object
         properties: {}
+alternate:
+  - href: en/video/api-ref/Episode/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Episode.Create

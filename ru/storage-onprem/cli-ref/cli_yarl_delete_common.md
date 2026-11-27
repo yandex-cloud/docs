@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_yarl_delete_common.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli yarl delete common
 
 Delete a common quota

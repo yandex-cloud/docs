@@ -1,6 +1,10 @@
 ---
 title: Как отправлять запросы на внешний API при срабатывании алерта в {{ monium-name }}
 description: Следуя данной инструкции, вы сможете создать webhook с вызовом функции {{ sf-full-name }}.
+alternate:
+  - href: ru/monium/operations/alert/alert-call-function.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Webhook с использованием {{ sf-name }}

@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ container-registry-full-name }}'
 description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ container-registry-name }}.
+alternate:
+  - href: en/container-registry/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ container-registry-full-name }}

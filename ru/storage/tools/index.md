@@ -1,6 +1,10 @@
 ---
 title: Поддерживаемые инструменты для работы с {{ objstorage-name }}
 description: Перечень поддерживаемых инструментов для работы с {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/tools/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поддерживаемые инструменты

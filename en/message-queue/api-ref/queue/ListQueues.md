@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/queue/ListQueues.md
+    type: text/markdown
+    title: Markdown version
+---
 # ListQueues
 
 Method for getting a list of queues in your folder. The maximum number of queues that can be returned is 1,000. You can filter queues using the `QueueNamePrefix` parameter.

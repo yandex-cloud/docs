@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о приемнике логов {{ cloud-logging-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о приемнике логов.
+alternate:
+  - href: ru/logging/operations/get-sink.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о приемнике логов

@@ -1,6 +1,10 @@
 ---
 title: Создание документных таблиц в базе данных {{ ydb-full-name }} с помощью {{ TF }}
 description: Следуя данному руководству, вы создадите документные таблицы в бессерверной базе данных {{ ydb-full-name }} с помощью провайдера AWS для {{ TF }}.
+alternate:
+  - href: ru/ydb/terraform/dynamodb-tables.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание документных таблиц в базе данных

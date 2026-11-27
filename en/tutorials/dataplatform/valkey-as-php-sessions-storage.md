@@ -1,6 +1,10 @@
 ---
 title: Using a {{ mrd-name }} cluster as a PHP session storage
 description: You can use {{ mrd-name }} clusters for storing PHP session data.
+alternate:
+  - href: en/tutorials/dataplatform/valkey-as-php-sessions-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using a {{ mrd-name }} cluster as a PHP session storage

@@ -1,6 +1,10 @@
 ---
 title: How to manage Spark jobs in {{ dataproc-full-name }}
 description: In this guide, you will learn how to manage Spark jobs in {{ dataproc-full-name }}.
+alternate:
+  - href: en/data-proc/operations/jobs-spark.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing Spark jobs

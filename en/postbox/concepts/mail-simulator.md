@@ -1,6 +1,10 @@
 ---
 title: Email delivery simulator
 description: The {{ postbox-full-name }} email delivery simulator allows you to test successful delivery and delivery error processing without emailing an actual recipient.
+alternate:
+  - href: en/postbox/concepts/mail-simulator.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Email delivery simulator

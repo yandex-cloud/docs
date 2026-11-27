@@ -1,6 +1,10 @@
 ---
 title: Как подключить {{ dataproc-name }} к {{ metastore-name }}
 description: Следуя данной инструкции, вы сможете подключить {{ dataproc-name }} к {{ metastore-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/metastore/data-processing-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение {{ dataproc-name }} к {{ metastore-name }}

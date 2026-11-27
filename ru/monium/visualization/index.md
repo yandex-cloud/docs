@@ -1,6 +1,10 @@
 ---
 title: '{{ monium-name }}. Визуализация'
 description: Платформа {{ monium-name }} позволяет отображать данные телеметрии в виде графиков на дашбордах.
+alternate:
+  - href: ru/monium/visualization/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Визуализация данных телеметрии

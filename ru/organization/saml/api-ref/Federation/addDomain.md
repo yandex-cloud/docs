@@ -31,6 +31,10 @@ apiPlayground:
         - domain
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/organization/saml/api-ref/Federation/addDomain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Federation API, REST: Federation.AddDomain

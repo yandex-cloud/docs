@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/concepts/replication.md
+    type: text/markdown
+    title: Markdown version
+---
 # Replication in {{ SD }}
 
 Replication in a {{ mmg-name }} cluster is enabled when there are two or more [non-hidden](../operations/hosts.md#update) hosts. Each replica host stores a copy of the same dataset.

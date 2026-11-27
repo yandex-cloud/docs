@@ -1,6 +1,10 @@
 ---
 title: How to edit basic settings of a {{ sws-full-name }} profile
 description: Follow this guide to edit basic settings of a {{ sws-full-name }} security profile.
+alternate:
+  - href: en/smartwebsecurity/operations/profile-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing basic settings of a security profile

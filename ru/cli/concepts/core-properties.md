@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cli/concepts/core-properties.md
+    type: text/markdown
+    title: Markdown version
+---
 # Конфигурация {{ yandex-cloud }} CLI
 
 Вы можете [задать конфигурационные параметры](../operations/profile/manage-properties.md) в профиле, чтобы быстро переключать контекст выполнения команд. Для разового запуска команды с определенным значением параметра используйте глобальные параметры.

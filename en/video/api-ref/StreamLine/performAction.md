@@ -48,6 +48,10 @@ apiPlayground:
       DeactivateAction:
         type: object
         properties: {}
+alternate:
+  - href: en/video/api-ref/StreamLine/performAction.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: StreamLine.PerformAction

@@ -1,6 +1,10 @@
 ---
 title: Tutorials for Microsoft products in {{ yandex-cloud }}
 description: This page provides a list of tutorials for Microsoft products.
+alternate:
+  - href: en/microsoft/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Tutorials for using Microsoft products in {{ yandex-cloud }}

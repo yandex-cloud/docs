@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/concepts/delay-queues.md
+    type: text/markdown
+    title: Markdown version
+---
 # Delay queues
 
 You can hide messages when they're sent to a queue. This lets you postpone their delivery for a defined period time. You can configure the delay for an entire queue or an individual message.

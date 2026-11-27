@@ -1,6 +1,10 @@
 ---
 title: Настройка режима управления целевыми группами в {{ managed-k8s-full-name }}
 description: Как в {{ managed-k8s-name }} настроить режим управления целевыми группами v2 для сервиса типа LoadBalancer, проверить состав целевой группы сетевого балансировщика и вернуться к режиму legacy.
+alternate:
+  - href: ru/managed-kubernetes/operations/configure-load-balancer-target-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка режима управления целевыми группами для сетевых балансировщиков

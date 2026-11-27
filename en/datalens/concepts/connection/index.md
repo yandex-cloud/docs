@@ -1,6 +1,10 @@
 ---
 title: Connections in {{ datalens-full-name }}
 description: Connections in {{ datalens-full-name }} contain information about data source access parameters.
+alternate:
+  - href: en/datalens/concepts/connection/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a data source in {{ datalens-full-name }}

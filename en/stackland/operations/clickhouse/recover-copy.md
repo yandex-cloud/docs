@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/recover-copy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Recovering a cluster
 
 If you have lost a [{{ CH }}](../../concepts/components/clickhouse.md) cluster in a [project](../projects/create-project.md), you can recover it.

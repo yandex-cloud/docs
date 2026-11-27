@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/baremetal/api-ref/grpc/Server/startProlongation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, gRPC: ServerService.StartProlongation

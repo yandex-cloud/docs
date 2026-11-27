@@ -1,6 +1,10 @@
 ---
 title: Managing labels in {{ resmgr-full-name }}
 description: Adding, updating, or deleting resource labels using the management console, CLI, Terraform, and API in {{ resmgr-name }}.
+alternate:
+  - href: en/resource-manager/operations/manage-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing labels

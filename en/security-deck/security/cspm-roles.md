@@ -1,6 +1,10 @@
 ---
 title: '{{ cspm-name }} service roles in {{ sd-full-name }}'
 description: This page lists the service roles required to control access to {{ cspm-full-name }} ({{ cspm-name }}) in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/security/cspm-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cspm-full-name }} ({{ cspm-name }}) service roles

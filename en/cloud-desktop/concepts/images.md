@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cloud-desktop/concepts/images.md
+    type: text/markdown
+    title: Markdown version
+---
 # Images
 
 An _image_ is a complete copy of the file system structure and data on a disk. {{ cloud-desktop-name }} images always contain an OS.

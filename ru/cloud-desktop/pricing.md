@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ cloud-desktop-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ cloud-desktop-name }}.
 editable: false
+alternate:
+  - href: ru/cloud-desktop/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ cloud-desktop-full-name }}

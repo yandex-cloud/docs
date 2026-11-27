@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию об имеющихся репозиториях {{ container-registry-full-name }}
 description: Из статьи вы узнаете, как получить информацию об имеющихся репозиториях {{ container-registry-name }}.
+alternate:
+  - href: ru/container-registry/operations/repository/repository-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию об имеющихся репозиториях

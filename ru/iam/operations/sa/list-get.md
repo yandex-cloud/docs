@@ -1,6 +1,10 @@
 ---
 title: Получение списка сервисных аккаунтов каталога
 description: С помощью этой инструкции вы научитесь просматривать список сервисных аккаунтов каталога.
+alternate:
+  - href: ru/iam/operations/sa/list-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка сервисных аккаунтов каталога

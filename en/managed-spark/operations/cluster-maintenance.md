@@ -1,6 +1,10 @@
 ---
 title: '{{ SPRK }} cluster maintenance'
 description: Follow this guide to view the {{ SPRK }} cluster’s scheduled and completed maintenance jobs and schedule a maintenance window.
+alternate:
+  - href: en/managed-spark/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ SPRK }} cluster maintenance

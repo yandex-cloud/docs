@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/clickhouse/edit-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить пользователя
 
 Если у вас есть [пользователь](create-user.md) [{{ CH }}](../../concepts/components/clickhouse.md), вы можете изменить набор назначенных ему ролей.

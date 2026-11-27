@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/message/ReceiveMessage.md
+    type: text/markdown
+    title: Markdown version
+---
 # ReceiveMessage
 
 Метод для приема от одного до десяти сообщений из указанной очереди. С помощью параметра `WaitTimeSeconds` выполняются long-polling запросы.

@@ -43,6 +43,10 @@ meta:
     - keyword: '{{ sd-name }} workspaces'
     - keyword: Workspaces {{ sd-name }}
     - keyword: managing security workspaces
+  alternate:
+    - href: en/security-deck/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: content-layout-block
     textContent:

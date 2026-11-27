@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/objs-mmy-migration'
+alternate:
+  - href: ru/storage/tutorials/objs-mmy-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция данных из {{ objstorage-name }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}

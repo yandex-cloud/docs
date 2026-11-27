@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/access-management.md
+    type: text/markdown
+    title: Markdown version
+---
 # Access management
 
 In {{ stackland-name }}, access management includes authentication and authorization. The platforms supports two authorization methods: Kubernetes RBAC and IAM AccessBinding.

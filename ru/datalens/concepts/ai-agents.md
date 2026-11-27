@@ -1,6 +1,10 @@
 ---
 title: AI-агенты в {{ datalens-full-name }}
 description: Из этой статьи вы узнаете, как AI-агенты взаимодействуют с {{ datalens-name }}.
+alternate:
+  - href: ru/datalens/concepts/ai-agents.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI-агенты в {{ datalens-full-name }}

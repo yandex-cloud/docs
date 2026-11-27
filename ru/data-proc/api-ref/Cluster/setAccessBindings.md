@@ -84,6 +84,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: ru/data-proc/api-ref/Cluster/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Data Processing API, REST: Cluster.SetAccessBindings

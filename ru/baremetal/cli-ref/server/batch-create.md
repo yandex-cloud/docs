@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/server/batch-create/
+alternate:
+  - href: ru/baremetal/cli-ref/server/batch-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal server batch-create

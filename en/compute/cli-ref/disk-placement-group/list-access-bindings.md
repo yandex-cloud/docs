@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/disk-placement-group/list-access-bindings/
+alternate:
+  - href: en/compute/cli-ref/disk-placement-group/list-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute disk-placement-group list-access-bindings

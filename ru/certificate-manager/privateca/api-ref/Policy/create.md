@@ -318,6 +318,10 @@ apiPlayground:
               Allowed registered IDs in the SAN field.
               The maximum string length in characters is 1000.
             type: string
+alternate:
+  - href: ru/certificate-manager/privateca/api-ref/Policy/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, REST: Policy.Create

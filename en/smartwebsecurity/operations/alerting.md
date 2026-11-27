@@ -1,6 +1,10 @@
 ---
 title: How to configure {{ sws-full-name }} alerts
 description: Follow this guide to configure {{ sws-full-name }} alerts.
+alternate:
+  - href: en/smartwebsecurity/operations/alerting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring alerts for the service

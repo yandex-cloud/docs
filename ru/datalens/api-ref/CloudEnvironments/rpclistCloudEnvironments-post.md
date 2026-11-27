@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/CloudEnvironments/rpclistCloudEnvironments-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] List cloud environments

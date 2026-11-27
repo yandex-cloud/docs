@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/traces/instrumentation/rpc.md
+    type: text/markdown
+    title: Markdown version
+---
 # RPC calls
 
 If you are using [automatic instrumentation](auto.md), RPC call spans are created and attributes filled automatically. If using [manual instrumentation](manual.md), follow the conventions described below:

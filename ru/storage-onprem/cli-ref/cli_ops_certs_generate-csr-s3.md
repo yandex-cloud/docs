@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_certs_generate-csr-s3.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops certs generate-csr-s3
 
 Generate CSR for S3 certificate via cert-manager

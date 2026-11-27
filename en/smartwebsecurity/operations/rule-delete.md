@@ -1,6 +1,10 @@
 ---
 title: How to delete a rule from a security profile in {{ sws-full-name }}
 description: Follow this guide to delete a rule from a security profile in {{ sws-full-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/rule-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a rule from a security profile

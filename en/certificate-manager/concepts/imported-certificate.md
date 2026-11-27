@@ -1,6 +1,10 @@
 ---
 title: Custom certificate in {{ certificate-manager-full-name }}
 description: In this tutorial, you will learn what a custom certificate is.
+alternate:
+  - href: en/certificate-manager/concepts/imported-certificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Custom certificate

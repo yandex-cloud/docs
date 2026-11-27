@@ -1,6 +1,10 @@
 ---
 title: Пулы резервов ВМ {{ compute-full-name }}
 description: Из статьи вы узнаете, что такое пул резервов ВМ и как резервировать необходимые вычислительные ресурсы для создания ВМ нужных конфигураций в нужных зонах доступности.
+alternate:
+  - href: ru/compute/concepts/reserved-pools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пулы резервов виртуальных машин в {{ compute-name }}

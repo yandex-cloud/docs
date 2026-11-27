@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/organization/idp/api-ref/Userpool/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: Userpool.UpdateAccessBindings

@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ mgl-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ mgl-name }}.
+alternate:
+  - href: ru/managed-gitlab/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ mgl-name }}

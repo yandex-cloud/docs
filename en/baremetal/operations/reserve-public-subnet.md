@@ -1,6 +1,10 @@
 ---
 title: How to order a dedicated public subnet in {{ baremetal-full-name }}
 description: Follow this guide to order a dedicated public subnet in {{ baremetal-full-name }}.
+alternate:
+  - href: en/baremetal/operations/reserve-public-subnet.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ordering a dedicated public subnet

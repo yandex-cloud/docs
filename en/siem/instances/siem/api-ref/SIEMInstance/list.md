@@ -28,6 +28,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/siem/instances/siem/api-ref/SIEMInstance/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM Instances API, REST: SIEMInstance.List

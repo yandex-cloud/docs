@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/user-auth-rules.md
+    type: text/markdown
+    title: Markdown version
+---
 # Правила аутентификации пользователей
 
 Правила [аутентификации пользователей](../concepts/user-authentication.md) определяют, какие пользователи и с каких адресов могут подключаться к кластеру и к каким базам данных они могут получить доступ.

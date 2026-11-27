@@ -1,6 +1,10 @@
 ---
 title: Deleting an environment for an {{ SPRK }} cluster
 description: You can delete an {{ SPRK }} cluster environment if you no longer need it.
+alternate:
+  - href: en/managed-spark/operations/environment-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an environment

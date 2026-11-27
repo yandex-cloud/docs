@@ -51,6 +51,10 @@ apiPlayground:
           format: date-time
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/compute/api-ref/HostGroup/updateHost.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: HostGroup.UpdateHost

@@ -1,6 +1,10 @@
 ---
 title: '{{ network-load-balancer-full-name }} release notes'
 description: This section contains the {{ network-load-balancer-name }} release notes.
+alternate:
+  - href: en/network-load-balancer/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ network-load-balancer-full-name }} release notes

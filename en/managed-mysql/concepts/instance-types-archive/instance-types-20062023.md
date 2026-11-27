@@ -1,6 +1,10 @@
 ---
 title: '{{ mmy-name }} host classes before June 20, 2023'
 description: The host class determines the computing power allocated for each host in a MySQL cluster. {{ mmy-name }} host classes before June 20, 2023.
+alternate:
+  - href: en/managed-mysql/concepts/instance-types-archive/instance-types-20062023.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ MY }} host classes before June 20, 2023

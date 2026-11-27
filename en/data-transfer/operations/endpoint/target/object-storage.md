@@ -1,6 +1,10 @@
 ---
 title: Transferring data to a {{ objstorage-full-name }} target endpoint
 description: In this tutorial, you will learn how to set up an {{ objstorage-name }} target endpoint.
+alternate:
+  - href: en/data-transfer/operations/endpoint/target/object-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring data to a {{ objstorage-full-name }} target endpoint

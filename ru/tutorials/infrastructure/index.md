@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования систем управления базовой инфраструктурой в {{ yandex-cloud }}
 description: Различные сценарии использования систем управления базовой инфраструктурой в {{ yandex-cloud }}.
+alternate:
+  - href: ru/tutorials/infrastructure/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Руководства по работе с системами управления базовой инфраструктурой

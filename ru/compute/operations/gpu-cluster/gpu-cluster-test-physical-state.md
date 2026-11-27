@@ -1,6 +1,10 @@
 ---
 title: Проверить физическое состояние кластера GPU
 description: Следуя данной инструкции, вы сможете проверить работоспособность InfiniBand-соединений между GPU в кластере.
+alternate:
+  - href: ru/compute/operations/gpu-cluster/gpu-cluster-test-physical-state.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Проверить физическое состояние кластера GPU

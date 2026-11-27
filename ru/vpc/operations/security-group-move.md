@@ -1,6 +1,10 @@
 ---
 title: Переместить группу безопасности в другой каталог
 description: Следуя данной инструкции, вы сможете переместить группу безопасности в другой каталог.
+alternate:
+  - href: ru/vpc/operations/security-group-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переместить группу безопасности в другой каталог

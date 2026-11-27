@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/certificate-manager/api-ref/grpc/Certificate/requestNew.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager API, gRPC: CertificateService.RequestNew

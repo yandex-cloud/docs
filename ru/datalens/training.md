@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы и материалы по {{ datalens-full-name }}
 description: Обучающие курсы, пошаговые инструкции и полезные материалы для работы с {{ datalens-short-name }}.
+alternate:
+  - href: ru/datalens/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы и материалы по {{ datalens-full-name }}

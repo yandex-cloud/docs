@@ -1,6 +1,10 @@
 ---
 title: Требования к кластеру {{ k8s }} для {{ objstorage-onprem-name }}
 description: Требования и рекомендации к узлам, дискам и сетевым интерфейсам кластера {{ k8s }} для {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/kubernetes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Требования к кластеру {{ k8s }}

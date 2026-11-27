@@ -54,6 +54,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/compute/instancegroup/api-ref/InstanceGroup/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud Instance Groups API, REST: InstanceGroup.List

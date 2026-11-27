@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/organization/operations/enable-org.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать организацию
 
 [_Организация_](../../overview/roles-and-resources.md) — это рабочее пространство, которое объединяет разные типы ресурсов {{ yandex-cloud }} и пользователей. Чтобы сотрудники вашей компании могли использовать ресурсы {{ yandex-cloud }}, создайте организацию и добавьте в нее сотрудников вашей компании. Создать организацию в {{ org-full-name }} может любой пользователь Яндекса.

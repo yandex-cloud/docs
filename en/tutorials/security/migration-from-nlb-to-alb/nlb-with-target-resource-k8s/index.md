@@ -1,6 +1,10 @@
 ---
 title: Migrating services from an NLB with a cluster as a target to an L7 ALB
 description: Follow this guide to migrate a service from a network load balancer with a {{ managed-k8s-full-name }} cluster as a target to an L7 load balancer.
+alternate:
+  - href: en/tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating services from an NLB with a {{ managed-k8s-full-name }} cluster as a target to an L7 ALB

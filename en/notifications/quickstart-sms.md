@@ -1,6 +1,10 @@
 ---
 title: Getting started with SMS in {{ cns-full-name }}
 description: With {{ cns-name }}, you can send text messages (SMS) using SMS notification channels.
+alternate:
+  - href: en/notifications/quickstart-sms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with SMS in {{ cns-full-name }}

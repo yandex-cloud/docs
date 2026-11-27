@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/network-load-balancer/api-ref/NetworkLoadBalancer/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.Get

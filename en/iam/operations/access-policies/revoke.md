@@ -1,6 +1,10 @@
 ---
 title: Deleting an access policy created for a resource
 description: In this guide, you will learn how to delete a {{ iam-full-name }} access policy for a folder, cloud, or organization.
+alternate:
+  - href: en/iam/operations/access-policies/revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an access policy

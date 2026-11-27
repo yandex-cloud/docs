@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/concepts/alerting/notification-channel.md
+    type: text/markdown
+    title: Markdown version
+---
 # Notification channel
 
 To enable notifications of alert status changes, specify a notification channel. This channel contains information about the recipients, send method, and notification parameters.

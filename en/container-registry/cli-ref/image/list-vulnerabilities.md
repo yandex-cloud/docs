@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/image/list-vulnerabilities/
+alternate:
+  - href: en/container-registry/cli-ref/image/list-vulnerabilities.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container image list-vulnerabilities

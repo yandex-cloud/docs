@@ -1,6 +1,10 @@
 ---
 title: Использование AI-ассистента для аналитики в {{ websql-name }}
 description: В данной инструкции рассматриваются возможности использования AI-ассистента для анализа баз данных и оптимизации запросов в интерфейсе {{ websql-full-name }}.
+alternate:
+  - href: ru/websql/operations/ai-assistant.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аналитика и оптимизация с помощью AI-ассистента

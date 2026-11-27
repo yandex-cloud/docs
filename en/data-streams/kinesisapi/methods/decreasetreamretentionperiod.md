@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/kinesisapi/methods/decreasetreamretentionperiod.md
+    type: text/markdown
+    title: Markdown version
+---
 # DecreaseStreamRetentionPeriod
 
 Decreases the [record retention period](../../concepts/glossary.md#retention-time) in a data stream.

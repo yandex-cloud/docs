@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/registry/force-delete/
+alternate:
+  - href: en/container-registry/cli-ref/registry/force-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container registry force-delete

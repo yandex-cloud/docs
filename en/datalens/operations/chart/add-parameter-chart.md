@@ -1,6 +1,10 @@
 ---
 title: How to add a parameter to a chart in {{ datalens-full-name }}
 description: Follow this guide to add a parameter to a chart in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/chart/add-parameter-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a parameter to a chart in {{ datalens-full-name }}

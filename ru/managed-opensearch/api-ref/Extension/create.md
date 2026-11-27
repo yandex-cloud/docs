@@ -65,6 +65,10 @@ apiPlayground:
           - name
           - uri
           - type
+alternate:
+  - href: ru/managed-opensearch/api-ref/Extension/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for OpenSearch API, REST: Extension.Create

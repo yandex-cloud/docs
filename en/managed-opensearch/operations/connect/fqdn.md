@@ -1,6 +1,10 @@
 ---
 title: FQDNs of {{ OS }} hosts
 description: Follow this guide to get a host's FQDN.
+alternate:
+  - href: en/managed-opensearch/operations/connect/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FQDNs of {{ OS }} hosts

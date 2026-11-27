@@ -1,6 +1,10 @@
 ---
 title: Настроить NuGet
 description: Следуя данной инструкции, вы настроите NuGet.
+alternate:
+  - href: ru/cloud-registry/operations/nuget/installation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить NuGet

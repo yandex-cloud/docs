@@ -1,6 +1,10 @@
 ---
 title: Дашборд {{ datalens-full-name }}
 description: Дашборд в {{ datalens-full-name }} — страница или набор страниц, на которых размещены виджеты. Позволяет собрать в одном месте чарты, добавить к ним поясняющие надписи и заголовки. Новые страницы дашборда можно создать с помощью элемента вкладка. {{ datalens-name }} позволяет отображать дашборд в полноэкранном режиме.
+alternate:
+  - href: ru/datalens/concepts/dashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Дашборд {{ datalens-full-name }}

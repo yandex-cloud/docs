@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/organizationmanager/application/oauth/events-ref/DeleteApplication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub Audit Trails Events: DeleteApplication

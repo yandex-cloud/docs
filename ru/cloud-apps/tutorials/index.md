@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования продуктов {{ cloud-apps-full-name }}
 description: Различные сценарии использования продуктов {{ cloud-apps-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/cloud-apps/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ cloud-apps-name }}

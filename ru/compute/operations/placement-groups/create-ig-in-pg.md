@@ -1,6 +1,10 @@
 ---
 title: Создать группу виртуальных машин в группе размещения
 description: Следуя данной инструкции, вы сможете создать группу виртуальных машин в группе размещения.
+alternate:
+  - href: ru/compute/operations/placement-groups/create-ig-in-pg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать группу виртуальных машин в группе размещения

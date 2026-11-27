@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/projects/get-notebook-cell-ids.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting a notebook ID
 
 To work with a project through the API, you may need the notebook ID.

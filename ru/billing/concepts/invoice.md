@@ -1,6 +1,10 @@
 ---
 title: Счет-фактура
 description: Из статьи вы узнаете, что такое счет-фактура, как он формируется и учитывает налоги и сборы.
+alternate:
+  - href: ru/billing/concepts/invoice.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

@@ -1,6 +1,10 @@
 ---
 title: My account portal in {{ org-full-name }}
 description: '[_My account_]({{ link-my-account }}) is a user''s personal workspace where they can manage their {{ org-full-name }} account.'
+alternate:
+  - href: en/organization/concepts/my-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # My account portal

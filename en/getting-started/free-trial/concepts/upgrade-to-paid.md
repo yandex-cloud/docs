@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/getting-started/free-trial/concepts/upgrade-to-paid.md
+    type: text/markdown
+    title: Markdown version
+---
 # Upgrading to the paid version
 
 {% note warning %}

@@ -1,6 +1,10 @@
 ---
 title: Setting up npm
 description: Follow this guide to configure npm.
+alternate:
+  - href: en/cloud-registry/operations/npm/installation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up npm

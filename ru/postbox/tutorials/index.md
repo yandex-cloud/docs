@@ -1,6 +1,10 @@
 ---
 title: Практические руководства {{ postbox-full-name }}
 description: В этом разделе собраны практические руководства для {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ postbox-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/concepts/init-action.md
+    type: text/markdown
+    title: Markdown version
+---
 # Initialization scripts
 
 When [creating a cluster](../operations/cluster-create.md), you can specify host initialization scripts. This can be useful to automatically install or update software you need to run [jobs](./jobs.md). Each script will be run under the `root` superuser only once, when the host starts for the first time.

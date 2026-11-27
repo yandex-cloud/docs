@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/policy/put.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: PutBucketPolicy
 
 Applies the access policy to the specified bucket.

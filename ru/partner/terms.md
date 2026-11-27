@@ -1,6 +1,10 @@
 ---
 title: Термины и определения
 description: В статье вы ознакомитесь с терминами и определениями в партнерской программе {{ yandex-cloud }}.
+alternate:
+  - href: ru/partner/terms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Термины и определения

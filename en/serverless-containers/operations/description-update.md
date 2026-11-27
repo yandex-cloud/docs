@@ -1,6 +1,10 @@
 ---
 title: Updating a container description
 description: Follow this guide to update a container description.
+alternate:
+  - href: en/serverless-containers/operations/description-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a container description

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/logs/concepts/attributes-guide.md
+    type: text/markdown
+    title: Markdown version
+---
 # Рекомендации по разметке логов
 
 В этом разделе собраны рекомендации по оптимальному формированию логов из полей и атрибутов, что позволит улучшить визуализацию и скорость работы системы.

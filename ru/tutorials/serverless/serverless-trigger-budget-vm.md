@@ -3,6 +3,10 @@ title: Создание триггера для бюджетов, который
 description: С помощью этого сценария вы создадите триггер для бюджетов, который вызывает функцию {{ sf-name }} для остановки ВМ.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/serverless-trigger-budget-vm'
+alternate:
+  - href: ru/tutorials/serverless/serverless-trigger-budget-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание триггера для бюджетов, который вызывает функцию {{ sf-name }} для остановки ВМ

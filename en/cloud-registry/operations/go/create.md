@@ -1,6 +1,10 @@
 ---
 title: Creating a Go module
 description: Follow this guide to create a Go module for pushing to {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/go/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a Go module

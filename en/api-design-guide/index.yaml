@@ -23,6 +23,10 @@ meta:
     - keyword: '{{ yandex-cloud }} API endpoints'
     - keyword: HTTP methods in {{ yandex-cloud }}
     - keyword: '{{ yandex-cloud }} API architecture'
+  alternate:
+    - href: en/api-design-guide/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Basic principles
     description: How APIs work and the principles of the resource-based approach

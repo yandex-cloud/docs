@@ -1,6 +1,10 @@
 ---
 title: Stopping and starting a {{ CH }} cluster
 description: You can stop and restart a {{ CH }} database cluster as needed. While your cluster is idle, you only pay for the size of your storage and backups.
+alternate:
+  - href: en/managed-clickhouse/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Stopping and restarting a {{ CH }} cluster

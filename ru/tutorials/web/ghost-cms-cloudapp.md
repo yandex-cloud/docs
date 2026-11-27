@@ -7,6 +7,10 @@ keywords:
   - cloudapp
   - установка ghost
   - ghost cloudapp
+alternate:
+  - href: ru/tutorials/web/ghost-cms-cloudapp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [ghost-cms-cloudapp](../../_tutorials/applied/ghost-cms-cloudapp.md) %}

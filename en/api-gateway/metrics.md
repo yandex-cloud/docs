@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ api-gw-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides a reference of {{ api-gw-name }} metrics exported to {{ monitoring-full-name }}.
+alternate:
+  - href: en/api-gateway/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

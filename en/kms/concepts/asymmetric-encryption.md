@@ -1,6 +1,10 @@
 ---
 title: Asymmetric encryption in {{ kms-short-name }}
 description: This guide describes the features of asymmetric encryption in {{ kms-short-name }}.
+alternate:
+  - href: en/kms/concepts/asymmetric-encryption.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Asymmetric encryption in {{ kms-short-name }}

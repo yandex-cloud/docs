@@ -1,6 +1,10 @@
 ---
 title: Посмотреть результаты и логи задач {{ AF }}
 description: Как проверить запуск DAG, прочитать логи задачи и посмотреть XCom в веб-интерфейсе {{ AF }}
+alternate:
+  - href: ru/stackland/operations/airflow/view-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть результаты и логи задач {{ AF }}

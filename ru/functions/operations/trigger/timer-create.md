@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/operations/trigger/timer-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать таймер, который вызывает функцию {{ sf-name }}
 
 Создайте [таймер](../../concepts/trigger/timer.md) — триггер, который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} по расписанию.

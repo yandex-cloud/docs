@@ -1,6 +1,10 @@
 ---
 title: Examples of working with PyPI registries
 description: Step-by-step examples of creating, configuring, and using PyPI registries in {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/pypi/examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Examples of working with PyPI registries

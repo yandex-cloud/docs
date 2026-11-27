@@ -1,6 +1,10 @@
 ---
 title: Подключение к кластеру {{ SD }} в {{ mmg-full-name }}
 description: Следуя этой инструкции, вы сможете подключиться к базе данных в кластере {{ SD }} с помощью инструментов командной строки, из графических IDE и Docker-контейнера.
+alternate:
+  - href: ru/storedoc/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ SD }} из приложений

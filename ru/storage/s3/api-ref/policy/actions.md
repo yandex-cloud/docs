@@ -1,6 +1,10 @@
 ---
 title: Какие действия при срабатывании политики доступа к бакету {{ objstorage-full-name }} можно задать в S3 API
 description: Из статьи вы узнаете, какие действия при срабатывании политики доступа к бакету {{ objstorage-full-name }} можно задать в S3 API.
+alternate:
+  - href: ru/storage/s3/api-ref/policy/actions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Действия

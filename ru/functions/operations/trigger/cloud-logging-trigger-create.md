@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/operations/trigger/cloud-logging-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать триггер для {{ cloud-logging-name }}, который вызывает функцию {{ sf-name }}
 
 Создайте [триггер для {{ cloud-logging-name }}](../../concepts/trigger/cloud-logging-trigger.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} при добавлении записей в [лог-группу](../../../logging/concepts/log-group.md).

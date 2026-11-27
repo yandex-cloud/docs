@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ kms-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ kms-full-name }}.
+alternate:
+  - href: ru/kms/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ kms-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/concepts/stream-processing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Streaming data analysis
 
 The easiest way to explain how streaming data analysis works is to use an example. Let's say we want to build a pre-ordering system for our online store. Every day we are going to analyze the number of searches for "air conditioner" during the past day on our online store website to make an order on the next one. 

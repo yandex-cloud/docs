@@ -1,6 +1,10 @@
 ---
 title: Настройка рабочих мест в {{ datalens-full-name }}
 description: Настройки рабочих мест в {{ datalens-full-name }} позволяют управлять рабочими местами сервиса.
+alternate:
+  - href: ru/datalens/settings/seats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка рабочих мест в {{ datalens-full-name }}

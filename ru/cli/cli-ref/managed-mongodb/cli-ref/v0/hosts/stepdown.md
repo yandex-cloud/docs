@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/v0/hosts/stepdown/
+alternate:
+  - href: ru/cli/cli-ref/managed-mongodb/cli-ref/v0/hosts/stepdown.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb v0 hosts stepdown

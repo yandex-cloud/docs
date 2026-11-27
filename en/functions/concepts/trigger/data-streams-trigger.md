@@ -1,6 +1,10 @@
 ---
 title: Trigger for {{ yds-full-name }} that invokes a {{ sf-full-name }} function
 description: In this article, you will learn about the trigger for {{ yds-name }} which calls the {{ sf-name }} function, the roles required for the trigger, and its message format.
+alternate:
+  - href: en/functions/concepts/trigger/data-streams-trigger.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Trigger for {{ yds-name }} that invokes a {{ sf-name }} function

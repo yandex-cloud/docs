@@ -2,6 +2,10 @@
 title: '{{ mtr-full-name }} metrics'
 description: In this tutorial, you will learn about {{ mtr-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/managed-trino-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mtr-full-name }} metrics

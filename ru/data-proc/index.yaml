@@ -15,6 +15,10 @@ meta:
     - keyword: Apache в {{ yandex-cloud }}
     - keyword: '{{ dataproc-name }} в {{ yandex-cloud }}'
     - keyword: сервис {{ dataproc-name }}
+  alternate:
+    - href: ru/data-proc/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Data Processing

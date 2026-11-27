@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/interconnect/api-ref/Partner/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Interconnect API, REST: Partner

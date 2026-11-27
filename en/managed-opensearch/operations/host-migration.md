@@ -1,6 +1,10 @@
 ---
 title: Migrating {{ mos-full-name }} cluster host groups to a different availability zone
 description: Follow this guide to move host groups in a {{ mos-full-name }} cluster to a different availability zone.
+alternate:
+  - href: en/managed-opensearch/operations/host-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating {{ mos-name }} cluster host groups to a different availability zone

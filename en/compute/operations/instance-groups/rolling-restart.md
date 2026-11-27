@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/instance-groups/rolling-restart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Sequentially restarting instances in a group
 
 You can [sequentially restart group instances](../../concepts/instance-groups/rolling-actions.md) based on the parameters specified in the [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md).

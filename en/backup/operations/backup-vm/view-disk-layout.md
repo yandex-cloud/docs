@@ -1,6 +1,10 @@
 ---
 title: How to view disk and partition parameters of a backup in {{ backup-full-name }}
 description: Follow this guide to view disk and partition parameters of a backup in {{ backup-full-name }}.
+alternate:
+  - href: en/backup/operations/backup-vm/view-disk-layout.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing the parameters of backup disks and partitions

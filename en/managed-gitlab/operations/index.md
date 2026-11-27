@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ mgl-full-name }}
 description: This page features step-by-step guides for {{ mgl-name }}.
+alternate:
+  - href: en/managed-gitlab/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ mgl-name }}

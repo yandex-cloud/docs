@@ -1,6 +1,10 @@
 ---
 title: How to get trail info
 description: Follow this tutorial to get {{ at-full-name }} trail info.
+alternate:
+  - href: en/audit-trails/operations/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting trail info

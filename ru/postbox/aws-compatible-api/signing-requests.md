@@ -1,6 +1,10 @@
 ---
 title: Подписывание запросов к {{ postbox-full-name }}
 description: Многие запросы к {{ postbox-name }} аутентифицируются на стороне сервиса, поэтому запросы нужно подписывать при отправке.
+alternate:
+  - href: ru/postbox/aws-compatible-api/signing-requests.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подписывание запросов

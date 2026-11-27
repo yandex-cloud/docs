@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/vm-control/vm-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating a VM
 
 After you create a VM, you can edit its name, description, labels, platform, or metadata.

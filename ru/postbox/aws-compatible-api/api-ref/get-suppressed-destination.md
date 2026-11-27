@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/get-suppressed-destination.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод GetSuppressedDestination
 
 Возвращает информацию об адресе в [пользовательском стоп-листе](../../concepts/suppression-list.md#user). Нужное облако определяется по сервисному аккаунту, от имени которого выполняется запрос.

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/serverless/apigateway/events-ref/UpdateApiGatewayAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Gateway Audit Trails Events: UpdateApiGatewayAccessBindings

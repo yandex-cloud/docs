@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/bash/errors.md
+    type: text/markdown
+    title: Markdown version
+---
 # Bash function error handling
 
 The Bash script’s standard error output stream, `stderr`, is sent to the [centralized logging system](logging.md).

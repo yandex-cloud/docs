@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/smartcaptcha/concepts/validation.md
+    type: text/markdown
+    title: Markdown version
+---
 # User validation
 
 {{ captcha-name }} runs user requests through its ML algorithms and [challenges](./tasks.md) only users whose requests it finds suspicious.

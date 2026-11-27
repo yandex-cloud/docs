@@ -1,6 +1,10 @@
 ---
 title: Основные понятия {{ metadata-hub-full-name }}
 description: Из статьи вы узнаете, что такое подключение и реестр схем.
+alternate:
+  - href: ru/metadata-hub/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # О сервисе {{ metadata-hub-full-name }}

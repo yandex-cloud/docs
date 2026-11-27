@@ -1,6 +1,10 @@
 ---
 title: Как получить FQDN хоста {{ dataproc-full-name }}
 description: Следуя данной инструкции, вы сможете получить FQDN хоста {{ dataproc-name }}.
+alternate:
+  - href: ru/data-proc/operations/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение FQDN хоста {{ dataproc-name }}

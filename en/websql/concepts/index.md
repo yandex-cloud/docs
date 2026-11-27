@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/websql/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # About {{ websql-full-name }}
 
 {{ websql-full-name }} is a {{ yandex-cloud }} service that allows you to connect to public databases and managed database clusters.

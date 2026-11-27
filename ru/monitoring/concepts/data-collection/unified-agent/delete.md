@@ -1,6 +1,10 @@
 ---
 title: Как удалить {{ unified-agent-full-name }}
 description: Из статьи вы узнаете, как удалить {{ unified-agent-full-name }}.
+alternate:
+  - href: ru/monitoring/concepts/data-collection/unified-agent/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление {{ unified-agent-full-name }}

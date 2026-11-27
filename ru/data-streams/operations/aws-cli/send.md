@@ -1,6 +1,10 @@
 ---
 title: Инструкция по отправке данных из {{ ydb-full-name }} в поток в AWS CLI
 description: Из статьи вы узнаете, как отправить данные из {{ ydb-full-name }} в поток в AWS CLI.
+alternate:
+  - href: ru/data-streams/operations/aws-cli/send.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправка данных в поток в AWS CLI

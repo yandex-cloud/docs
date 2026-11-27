@@ -1,6 +1,10 @@
 ---
 title: Как создать виртуальную машину Linux на базе публичного образа
 description: Следуя данной инструкции, вы сможете создать виртуальную машину с операционной системой Linux.
+alternate:
+  - href: ru/compute/operations/vm-create/create-linux-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать виртуальную машину из публичного образа Linux

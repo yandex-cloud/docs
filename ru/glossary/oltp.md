@@ -1,6 +1,10 @@
 ---
 title: 'Знакомство с OLTP: ключевые концепции и сценарии применения'
 description: OLTP (OnLine Transaction Processing) — это система оперативной обработки транзакций.
+alternate:
+  - href: ru/glossary/oltp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OLTP

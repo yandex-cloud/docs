@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ backup-full-name }}
 description: Различные сценарии использования {{ backup-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/backup/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ backup-name }}

@@ -1,6 +1,10 @@
 ---
 title: SQL-запросы в {{ mch-name }}
 description: '{{ mch-name }} позволяет подключаться к базам данных в вашем кластере {{ CH }} и отправлять SQL-запросы из консоли управления {{ yandex-cloud }}. Для этого войдите в консоль управления, откройте страницу нужного кластера и перейдите в раздел **Интеграции** → WebSQL.'
+alternate:
+  - href: ru/managed-clickhouse/operations/web-sql-query.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

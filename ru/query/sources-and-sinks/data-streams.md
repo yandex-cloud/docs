@@ -1,6 +1,10 @@
 ---
 title: Чтение данных из {{ yds-full-name }} с помощью соединений в {{ yq-full-name }}
 description: Из статьи вы узнаете, как настроить соединение и читать данные из {{ yds-full-name }} с помощью {{ yq-full-name }}.
+alternate:
+  - href: ru/query/sources-and-sinks/data-streams.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение данных из {{ yds-name }} с помощью соединений в {{ yq-name }}

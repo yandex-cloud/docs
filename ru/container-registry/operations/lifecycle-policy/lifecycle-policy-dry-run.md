@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/container-registry/operations/lifecycle-policy/lifecycle-policy-dry-run.md
+    type: text/markdown
+    title: Markdown version
+---
 # Протестировать политику удаления
 
 Тестовый запуск позволяет проверить, какие [Docker-образы](../../concepts/docker-image.md) соответствуют правилам [политики удаления](../../concepts/lifecycle-policy.md). Реального удаления Docker-образов при тестовом запуске не происходит.

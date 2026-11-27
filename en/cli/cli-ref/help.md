@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/help/
+alternate:
+  - href: en/cli/cli-ref/help.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc help

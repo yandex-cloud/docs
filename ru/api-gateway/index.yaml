@@ -19,6 +19,10 @@ meta:
     - keyword: спецификация OpenAPI в {{ yandex-cloud }}
     - keyword: api-шлюзы
     - keyword: шлюзы
+  alternate:
+    - href: ru/api-gateway/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первый API-шлюз

@@ -2,6 +2,10 @@
 title: Создание внешней таблицы в {{ mgp-full-name }} на базе таблицы из бакета с помощью конфигурационного файла
 description: В этом руководстве вы создадите внешнюю таблицу в {{ mgp-name }} на базе таблицы из бакета с помощью конфигурационного файла.
 canonical: '{{ link-docs }}/tutorials/dataplatform/mgp-config-server-for-s3'
+alternate:
+  - href: ru/storage/tutorials/mgp-config-server-for-s3.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание внешней таблицы на базе таблицы из бакета с помощью конфигурационного файла

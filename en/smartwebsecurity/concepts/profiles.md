@@ -1,6 +1,10 @@
 ---
 title: Security profiles
 description: Security profiles combine {{ sws-name }} rules to protect web resources from attacks.
+alternate:
+  - href: en/smartwebsecurity/concepts/profiles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security profiles

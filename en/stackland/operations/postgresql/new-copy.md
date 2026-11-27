@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/postgresql/new-copy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Create a backup
 
 You can create a backup for any [{{ PG }}](../../concepts/components/postgresql.md) cluster existing in your [project](../projects/create-project.md).

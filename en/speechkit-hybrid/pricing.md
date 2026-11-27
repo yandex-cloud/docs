@@ -2,6 +2,11 @@
 title: '{{ sk-hybrid-full-name }} pricing policy'
 description: This article covers the {{ sk-hybrid-name }} pricing policy.
 editable: false
+noIndex: true
+alternate:
+  - href: en/speechkit-hybrid/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sk-hybrid-full-name }} pricing policy

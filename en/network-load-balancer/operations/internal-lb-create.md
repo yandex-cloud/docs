@@ -1,6 +1,10 @@
 ---
 title: How to create an internal network load balancer
 description: Follow this guide to create an internal network load balancer.
+alternate:
+  - href: en/network-load-balancer/operations/internal-lb-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Create an internal network load balancer

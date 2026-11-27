@@ -1,6 +1,10 @@
 ---
 title: Networking in {{ mmy-name }}
 description: When creating a {{ MY }} cluster, you can set a network for the cluster itself and subnets for each cluster host. You can also request public access for connection to the cluster from outside {{ yandex-cloud }}.
+alternate:
+  - href: en/managed-mysql/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network and clusters in {{ mmy-name }}

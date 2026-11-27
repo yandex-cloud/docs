@@ -1,6 +1,10 @@
 ---
 title: Решение проблем при работе с аккаунтом пользователя
 description: В этом разделе описаны решения часто возникающих проблем при входе и работе с аккаунтом пользователя.
+alternate:
+  - href: ru/organization/operations/user-account/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение проблем

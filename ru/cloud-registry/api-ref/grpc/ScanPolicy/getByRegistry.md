@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/cloud-registry/api-ref/grpc/ScanPolicy/getByRegistry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, gRPC: ScanPolicyService.GetByRegistry

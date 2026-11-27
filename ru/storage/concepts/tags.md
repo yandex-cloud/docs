@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/concepts/tags.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метки
 
 _Метка_ — это пара ключ-значение для логической маркировки бакетов и объектов.

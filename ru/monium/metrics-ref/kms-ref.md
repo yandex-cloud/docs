@@ -2,6 +2,10 @@
 title: Метрики {{ kms-full-name }}
 description: Из статьи вы узнаете про метрики {{ kms-name }}.
 editable: false
+alternate:
+  - href: ru/monium/metrics-ref/kms-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ kms-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Настройка подключения для работы в Редакторе SQL {{ datalens-platform-full-name }}
 description: Как подключиться к базам данных и отправлять SQL-запросы из интерфейса {{ datalens-platform-short-name }}.
+alternate:
+  - href: ru/datalens/datalens-platform/operations/sql/connection-setting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка подключения для работы в Редакторе SQL {{ datalens-platform-full-name }}

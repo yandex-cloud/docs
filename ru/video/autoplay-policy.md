@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/video/autoplay-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Политика автозапуска браузеров
 
 Автоматический запуск видео, размещенного на HTML-странице с помощью [SDK видеоплеера для IFrame](./sdk/iframe/index.md), может не работать из-за политики автозапуска медиаконтента браузера.

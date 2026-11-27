@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/gwin-ref/listenerset.md
+    type: text/markdown
+    title: Markdown version
+---
 # ListenerSet
 
 ListenerSet allows attaching additional listeners to an existing [Gateway](./gateway.md). It enables different teams or namespaces to extend a shared Gateway with their own listeners without modifying the Gateway resource itself.

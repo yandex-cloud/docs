@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-transfer/concepts/sharded.md
+    type: text/markdown
+    title: Markdown version
+---
 # Параллельное копирование
 
 Сервис {{ data-transfer-name }} может одновременно задействовать для трансфера несколько потоков исполнения. Это существенно увеличивает пропускную способность трансфера и позволяет использовать для него больший объем ресурсов. Параллельное копирование применяется для [всех видов копирования](transfer-lifecycle.md#copy) в трансферах типа _{{ dt-type-copy }}_ и _{{ dt-type-copy-repl }}_, находящихся в [статусе](transfer-lifecycle.md#statuses) {{ dt-status-copy }}.

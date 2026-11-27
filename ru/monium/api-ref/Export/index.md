@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/monium/api-ref/Export/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, REST: Export

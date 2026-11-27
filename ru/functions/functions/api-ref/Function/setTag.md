@@ -28,6 +28,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/functions/functions/api-ref/Function/setTag.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, REST: Function.SetTag

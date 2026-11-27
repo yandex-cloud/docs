@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ mmg-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ mmg-name }}.
 editable: false
+alternate:
+  - href: ru/storedoc/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ mmg-name }}

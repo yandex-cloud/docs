@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/operations/dictionaries.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение внешних словарей в {{ mch-name }}
 
 Вы можете подключать к кластеру [внешние словари](../concepts/dictionaries.md#external-dicts) и отключать их. Подробнее о словарях читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary).

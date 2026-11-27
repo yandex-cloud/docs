@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/data-types/BatchResultErrorEntry.md
+    type: text/markdown
+    title: Markdown version
+---
 # BatchResultErrorEntry
 
 Describes why the action failed on the entry.

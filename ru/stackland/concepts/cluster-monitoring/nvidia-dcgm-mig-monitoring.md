@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/cluster-monitoring/nvidia-dcgm-mig-monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метрики дашборда NVIDIA DCGM с поддержкой MIG
 
 Дашборд NVIDIA DCGM с поддержкой MIG в {{ grafana-name }} предоставляет комплексный мониторинг графических ускорителей NVIDIA в кластере {{ k8s }}. Дашборд поддерживает как обычные GPU, так и GPU с технологией Multi-Instance GPU (MIG), предоставляя метрики температуры, энергопотребления, загрузки GPU, использования памяти и других важных параметров работы графических ускорителей.

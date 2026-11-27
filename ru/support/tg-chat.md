@@ -1,6 +1,10 @@
 ---
 title: Чат с поддержкой {{ yandex-cloud }} в Telegram
 description: Эта инструкция поможет настроить чат с поддержкой {{ yandex-cloud }} в Telegram.
+alternate:
+  - href: ru/support/tg-chat.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чат с поддержкой {{ yandex-cloud }} в Telegram

@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for a {{ compute-name }} GPU cluster
 description: Follow this guide to configure GPU cluster access permissions.
+alternate:
+  - href: en/compute/operations/gpu-cluster/access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring GPU cluster access permissions

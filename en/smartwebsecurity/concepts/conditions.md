@@ -1,6 +1,10 @@
 ---
 title: Conditions
 description: Conditions available for use in {{ sws-name }} rules to filter HTTP requests based on IP addresses, headers, URIs, cookies, and bot-related signals.
+alternate:
+  - href: en/smartwebsecurity/concepts/conditions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Conditions

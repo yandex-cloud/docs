@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.FIELD.TITLE.CONFLICT'
 description: This page describes the Field title conflicts with another field {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-FIELD-TITLE-CONFLICT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Field title conflicts with another field

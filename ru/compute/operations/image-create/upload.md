@@ -7,6 +7,10 @@ keywords:
   - загрузка в облако
   - образ диска
   - образ ОС Linux
+alternate:
+  - href: ru/compute/operations/image-create/upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузить свой образ диска в {{ yandex-cloud }}

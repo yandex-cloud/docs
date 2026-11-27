@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Screenshots/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Screenshots
 
 <!-- markdownlint-disable-file -->

@@ -1,6 +1,10 @@
 ---
 title: Описание полей, доступных для формы продукта {{ cloud-apps-name }}
 description: Из этой инструкции вы узнаете, как правильно добавить поля в форму для продукта {{ cloud-apps-name }}.
+alternate:
+  - href: ru/marketplace/concepts/form-fields-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник полей, доступных для формы продукта {{ cloud-apps-name }}

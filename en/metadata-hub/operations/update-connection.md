@@ -1,6 +1,10 @@
 ---
 title: How to update a {{ metadata-hub-name }} connection. Step-by-step guides
 description: Step-by-step guides on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to modify connections.
+alternate:
+  - href: en/metadata-hub/operations/update-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a connection

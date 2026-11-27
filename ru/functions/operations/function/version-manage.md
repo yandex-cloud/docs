@@ -1,6 +1,10 @@
 ---
 title: Как создать версию функции
 description: Следуя данной инструкции, вы сможете создать версию функции.
+alternate:
+  - href: ru/functions/operations/function/version-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать версию функции

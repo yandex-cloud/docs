@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm/terraform'
+alternate:
+  - href: ru/container-registry/tutorials/run-docker-on-vm/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запуск Docker-образа на виртуальной машине с помощью {{ TF }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/concepts/cors.md
+    type: text/markdown
+    title: Markdown version
+---
 # CORS in {{ objstorage-name }}
 
 {{ objstorage-full-name }} supports [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) to bucket objects.

@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/cloud-registry/api-ref/Registry/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, REST: Registry.UpdateAccessBindings

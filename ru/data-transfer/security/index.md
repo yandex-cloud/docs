@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ data-transfer-full-name }}
 description: Управление доступом в сервисе по переносу данных между хранилищами — {{ data-transfer-full-name }}. В разделе описано, какие роли необходимы для того или иного действия, на какие ресурсы можно назначить роль, какие роли действуют в сервисе.
+alternate:
+  - href: ru/data-transfer/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ data-transfer-name }}

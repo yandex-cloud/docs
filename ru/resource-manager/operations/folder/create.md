@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/resource-manager/operations/folder/create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание каталога
 
 _Каталог_  — это пространство, в котором создаются и [группируются ресурсы](../../concepts/resources-hierarchy.md) {{ yandex-cloud }}.

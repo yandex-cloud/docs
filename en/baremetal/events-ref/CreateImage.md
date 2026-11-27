@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/baremetal/events-ref/CreateImage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal Audit Trails Events: CreateImage

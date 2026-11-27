@@ -1,6 +1,10 @@
 ---
 title: Настройки чарта в {{ datalens-full-name }}
 description: В этой статье вы узнаете о настройках чарта в {{ datalens-full-name }}, а также узнаете, как отменить и восстановить изменения в чартах.
+alternate:
+  - href: ru/datalens/concepts/chart/settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройки чарта в {{ datalens-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/DataTransfers/rpcdeleteDataTransfer-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Delete data transfer

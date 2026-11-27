@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/concepts/trigger/cloud-logging-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for {{ cloud-logging-name }} that invokes a {{ serverless-containers-name }} container
 
 A [trigger](../trigger/) for {{ cloud-logging-name }} invokes a {{ serverless-containers-name }} [container](../container.md) when messages are received in a [log group](../../../logging/concepts/log-group.md).

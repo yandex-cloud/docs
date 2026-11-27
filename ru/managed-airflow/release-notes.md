@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ maf-full-name }}
 description: В разделе представлена история изменений сервиса {{ maf-name }}.
+alternate:
+  - href: ru/managed-airflow/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ maf-full-name }}

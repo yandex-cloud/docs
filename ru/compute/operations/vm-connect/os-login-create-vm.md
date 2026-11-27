@@ -1,6 +1,10 @@
 ---
 title: Как создать виртуальную машину с {{ oslogin }}
 description: Следуя данной инструкции, вы сможете создать виртуальную машину с возможностью доступа по {{ oslogin }}.
+alternate:
+  - href: ru/compute/operations/vm-connect/os-login-create-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать виртуальную машину с {{ oslogin }}

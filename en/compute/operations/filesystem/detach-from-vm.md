@@ -1,6 +1,10 @@
 ---
 title: How to detach a file storage from a VM in {{ compute-full-name }}
 description: Follow this guide to detach a file storage from a VM.
+alternate:
+  - href: en/compute/operations/filesystem/detach-from-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Detaching a file storage from a VM

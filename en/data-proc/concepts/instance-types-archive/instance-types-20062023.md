@@ -1,6 +1,10 @@
 ---
 title: '{{ dataproc-name }} host classes before June 20, 2023'
 description: This article describes {{ dataproc-name }} host classes available before June 20, 2023.
+alternate:
+  - href: en/data-proc/concepts/instance-types-archive/instance-types-20062023.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ dataproc-name }} host classes before June 20, 2023

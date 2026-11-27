@@ -1,6 +1,10 @@
 ---
 title: '{{ mgp-name }} cluster and host state monitoring'
 description: Follow this guide to get detailed information about a {{ mgp-name }} cluster's state and run diagnostics.
+alternate:
+  - href: en/managed-greenplum/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mgp-name }} cluster and host state monitoring

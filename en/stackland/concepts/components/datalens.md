@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/datalens.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ datalens-name }}
 
 {{ datalens-full-name }} is a business analytics and data visualization platform. With it, you can create interactive dashboards, charts, and tables based on various data sources. The component is built upon [DataLens On-premises](https://datalens.ru/on-premises/docs/ru/).

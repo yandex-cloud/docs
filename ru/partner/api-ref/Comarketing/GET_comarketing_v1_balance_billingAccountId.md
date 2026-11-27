@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Comarketing/GET_comarketing_v1_balance_billingAccountId.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get co-marketing balance

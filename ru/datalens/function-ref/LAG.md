@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/LAG.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # LAG (оконная)

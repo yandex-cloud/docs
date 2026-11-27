@@ -38,6 +38,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/baremetal/api-ref/PrivateCloudConnection/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PrivateCloudConnection.Update

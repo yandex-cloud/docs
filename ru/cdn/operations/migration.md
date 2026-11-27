@@ -1,5 +1,9 @@
 ---
 noIndex: true
+alternate:
+  - href: ru/cdn/operations/migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция CDN-ресурсов и групп источников на {{ cdn-full-name }}

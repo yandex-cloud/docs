@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ msp-full-name }}
 description: В этой инструкции вы научитесь создавать кластер {{ msp-full-name }} и запускать в нем задания.
+alternate:
+  - href: ru/managed-spark/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ msp-full-name }}

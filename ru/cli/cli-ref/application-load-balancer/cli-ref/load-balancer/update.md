@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/load-balancer/update/
+alternate:
+  - href: ru/cli/cli-ref/application-load-balancer/cli-ref/load-balancer/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc application-load-balancer load-balancer update

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/cluster-backups.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing backups in {{ mgp-name }}
 
 You can view your existing [backups](../concepts/backup.md) and restore clusters from them.

@@ -1,6 +1,10 @@
 ---
 title: Шифрование в {{ compute-full-name }}
 description: Из статьи вы узнаете про варианты шифрования в {{ compute-name }} и использование пользовательских ключей {{ kms-short-name }}.
+alternate:
+  - href: ru/compute/concepts/encryption.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Шифрование в {{ compute-name }}

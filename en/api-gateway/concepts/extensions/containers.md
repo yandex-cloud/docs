@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/containers.md
+    type: text/markdown
+    title: Markdown version
+---
 # x-yc-apigateway-integration:serverless_containers extension
 
 The `x-yc-apigateway-integration:serverless_containers` extension invokes the relevant [container](../../../serverless-containers/concepts/container.md) and provides the HTTP request sent to the API gateway to it. In which case the `Host` header specifies the host used by the user to access the API gateway, not the container's host.

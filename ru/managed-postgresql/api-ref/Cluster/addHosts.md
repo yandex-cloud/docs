@@ -8665,6 +8665,10 @@ apiPlayground:
               Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
+alternate:
+  - href: ru/managed-postgresql/api-ref/Cluster/addHosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, REST: Cluster.AddHosts

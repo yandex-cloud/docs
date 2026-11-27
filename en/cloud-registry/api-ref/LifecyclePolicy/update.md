@@ -238,6 +238,10 @@ apiPlayground:
                   - dockerFilters
               - required:
                   - mavenFilters
+alternate:
+  - href: en/cloud-registry/api-ref/LifecyclePolicy/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, REST: LifecyclePolicy.Update

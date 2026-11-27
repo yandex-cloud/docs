@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-ytsaurus/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ytsaurus API: REST reference

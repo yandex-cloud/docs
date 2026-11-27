@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/datalens/data-from-metrica-yc-visualization'
+alternate:
+  - href: ru/datasphere/tutorials/data-from-metrica-yc-visualization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики

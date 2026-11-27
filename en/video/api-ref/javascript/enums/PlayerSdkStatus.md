@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/api-ref/javascript/enums/PlayerSdkStatus.md
+    type: text/markdown
+    title: Markdown version
+---
 # Enumeration: PlayerSdkStatus
 
 [Playback status](../../../sdk/javascript/player-state.md#status-desc).

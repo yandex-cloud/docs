@@ -3,6 +3,10 @@ title: Deploying a fault-tolerant architecture with preemptible VMs
 description: In this tutorial, you will create a scheduled function in Node.js that will start a preemptible {{ compute-full-name }} VM if it was stopped.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/infrastructure/nodejs-cron-restart-vm'
+alternate:
+  - href: en/tutorials/serverless/nodejs-cron-restart-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deploying a fault-tolerant architecture with preemptible VMs

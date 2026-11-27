@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-valkey/operations/cluster-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Просмотр логов кластера {{ VLK }}
 
 {{ mrd-name }} позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).

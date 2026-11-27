@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/clickhouse/edit-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить настройки кластера СlickHouse
 
 Если у вас есть кластер [{{ CH }}](../../concepts/components/clickhouse.md) в [проекте](../projects/create-project.md)), вы можете изменить его настройки.

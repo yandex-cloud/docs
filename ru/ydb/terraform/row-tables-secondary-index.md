@@ -1,6 +1,10 @@
 ---
 title: Создание вторичных индексов в строковых таблицах {{ ydb-short-name }}
 description: В инструкции описаны свойства ресурса yandex_ydb_table_index для создания вторичных индексов строковых таблиц {{ ydb-short-name }}.
+alternate:
+  - href: ru/ydb/terraform/row-tables-secondary-index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание вторичных индексов строковых таблиц

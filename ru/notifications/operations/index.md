@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ cns-full-name }}
 description: Пошаговые инструкции по работе с push-уведомлениями и SMS в {{ cns-full-name }}.
+alternate:
+  - href: ru/notifications/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ cns-name }}

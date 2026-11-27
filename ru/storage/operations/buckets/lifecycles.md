@@ -1,6 +1,10 @@
 ---
 title: Настроить жизненный цикл объектов в бакете {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете управлять жизненными циклами объектов в бакете {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/lifecycles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить жизненный цикл объектов в бакете

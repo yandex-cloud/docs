@@ -1,6 +1,10 @@
 ---
 title: Создать кластер {{ AF }}
 description: Как создать кластер {{ AF }} с Git- или S3-источником DAG-файлов
+alternate:
+  - href: ru/stackland/operations/airflow/create-cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать кластер {{ AF }}

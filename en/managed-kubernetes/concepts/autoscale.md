@@ -1,6 +1,10 @@
 ---
 title: Autoscaling in {{ managed-k8s-name }}
 description: Autoscaling in {{ managed-k8s-name }} allows you to resize a node group, change the number of pods and the amount of resources allocated to each one.
+alternate:
+  - href: en/managed-kubernetes/concepts/autoscale.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Autoscaling

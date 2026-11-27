@@ -1,6 +1,10 @@
 ---
 title: Лицензии Microsoft в {{ yandex-cloud }}
 description: Из этой статьи вы узнаете, как управлять лицензиями на продукты Microsoft в {{ yandex-cloud }}.
+alternate:
+  - href: ru/microsoft/licensing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Лицензии Microsoft в {{ yandex-cloud }}

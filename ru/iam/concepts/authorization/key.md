@@ -1,6 +1,10 @@
 ---
 title: Авторизованные ключи
 description: Из статьи вы узнаете, что такое авторизованные ключи, зачем они нужны и какие сервисы поддерживают этот способ аутентификации.
+alternate:
+  - href: ru/iam/concepts/authorization/key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Авторизованные ключи

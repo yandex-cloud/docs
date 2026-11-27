@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} resources'
 description: Learn about resources in {{ TF }}, how they describe cloud infrastructure, and how dependencies between them help manage the order of creation and modification of resources.
+alternate:
+  - href: en/terraform/concepts/resources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resources

@@ -1,6 +1,10 @@
 ---
 title: Информация о кластерах в {{ mspqr-name }}
 description: Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mspqr-name }}. Чтобы получить список кластеров в каталоге, перейдите на страницу каталога и перейдите в сервис {{ mspqr-name }}.
+alternate:
+  - href: ru/managed-spqr/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации об имеющихся кластерах {{ SPQR }}

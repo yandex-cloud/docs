@@ -2,6 +2,10 @@
 title: '{{ quota-manager-full-name }} pricing policy'
 description: This article covers the {{ quota-manager-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/quota-manager/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ quota-manager-full-name }} pricing policy

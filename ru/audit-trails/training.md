@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ at-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ at-full-name }}.
+alternate:
+  - href: ru/audit-trails/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ at-full-name }}

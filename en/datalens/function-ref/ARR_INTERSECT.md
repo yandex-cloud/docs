@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/ARR_INTERSECT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # ARR_INTERSECT

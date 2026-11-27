@@ -1,6 +1,10 @@
 ---
 title: How to move a disk to a different availability zone in {{ compute-full-name }}
 description: Follow this guide to move a disk to a different availability zone.
+alternate:
+  - href: en/compute/operations/disk-control/disk-change-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving a disk to a different availability zone

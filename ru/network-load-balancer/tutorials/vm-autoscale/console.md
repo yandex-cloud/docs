@@ -2,6 +2,10 @@
 title: Работа с группой виртуальных машин с автоматическим масштабированием с помощью консоли управления, CLI и API
 description: Следуя данному руководству, вы сможете поработать с группой виртуальных машин с автоматическим масштабированием с помощью консоли управления, CLI и API.
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/console'
+alternate:
+  - href: ru/network-load-balancer/tutorials/vm-autoscale/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с группой виртуальных машин с автоматическим масштабированием с помощью консоли управления, CLI и API

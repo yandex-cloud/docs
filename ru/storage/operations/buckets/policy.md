@@ -1,6 +1,10 @@
 ---
 title: Управлять политикой доступа к бакету {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы научитесь управлять политикой доступа к бакету в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять политикой доступа (bucket policy)

@@ -2,6 +2,10 @@
 title: run.complete
 description: CI run completed - emitted when a CI run completes (terminal status)
 editable: false
+alternate:
+  - href: en/_src-events-ref/events-ref/run-complete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # run.complete

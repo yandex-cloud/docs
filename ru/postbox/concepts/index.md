@@ -1,6 +1,10 @@
 ---
 title: '{{ postbox-full-name }}. Обзор сервиса'
 description: '{{ postbox-full-name }} — облачный сервис для упрощенной и экономичной отправки электронной почты.'
+alternate:
+  - href: ru/postbox/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор сервиса {{ postbox-full-name }}

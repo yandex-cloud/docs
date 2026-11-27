@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ iam-full-name }}
 description: В разделе представлена история изменений сервиса {{ iam-name }}.
+alternate:
+  - href: ru/iam/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ iam-full-name }}

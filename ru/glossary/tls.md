@@ -1,6 +1,10 @@
 ---
 title: 'Введение в TLS: обзор принципов и основных характеристик'
 description: TLS — один из наиболее широко используемых протоколов для криптографии данных в интернете.
+alternate:
+  - href: ru/glossary/tls.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Введение в TLS: обзор принципов и основных характеристик

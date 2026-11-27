@@ -1,6 +1,10 @@
 ---
 title: Запустить группу виртуальных машин
 description: При запуске группы будут запущены все остановленные ВМ в группе.
+alternate:
+  - href: ru/compute/operations/instance-groups/start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запустить группу виртуальных машин

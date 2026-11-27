@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_help.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli help
 
 Help about any command

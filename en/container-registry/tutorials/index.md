@@ -1,6 +1,10 @@
 ---
 title: '{{ container-registry-full-name }} use cases'
 description: Use cases for {{ container-registry-full-name }} in {{ yandex-cloud }}. Running a Docker image on a VM.
+alternate:
+  - href: en/container-registry/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ container-registry-name }} tutorials

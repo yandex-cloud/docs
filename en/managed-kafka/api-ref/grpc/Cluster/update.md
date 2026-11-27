@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-kafka/api-ref/grpc/Cluster/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, gRPC: ClusterService.Update

@@ -1,6 +1,10 @@
 ---
 title: Установка Fluent Bit с плагином для {{ cloud-logging-full-name }}
 description: Следуя данной инструкции, вы сможете установить Fluent Bit с плагином для {{ cloud-logging-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/fluentbit.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка Fluent Bit с плагином для {{ cloud-logging-full-name }}

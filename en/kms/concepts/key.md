@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/kms/concepts/key.md
+    type: text/markdown
+    title: Markdown version
+---
 # Symmetric key in {{ kms-short-name }}
 
 A symmetric key is a set of [versions](version.md), each of which defines an algorithm and cryptographic material for data encryption or decryption operations.

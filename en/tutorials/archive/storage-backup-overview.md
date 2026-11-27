@@ -1,6 +1,10 @@
 ---
 title: Backing up to {{ objstorage-full-name }}
 description: This page features a list of tutorials on backups in {{ objstorage-name }}.
+alternate:
+  - href: en/tutorials/archive/storage-backup-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backing up to {{ objstorage-full-name }}

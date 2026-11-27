@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
+---
 # Резервное копирование
 
 {% include [sunset](../../_includes/query/sunset.md) %}

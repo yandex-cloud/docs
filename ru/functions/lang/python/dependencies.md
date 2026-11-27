@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/python/dependencies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление зависимостями функции на Python
 
 Сервис {{ sf-name }} может автоматически устанавливать зависимости, необходимые для работы функции на Python. Для этого при создании новой [версии функции](../../operations/function/version-manage.md) сервис выполнит команду `pip install` в корне проекта (каталога с функцией).

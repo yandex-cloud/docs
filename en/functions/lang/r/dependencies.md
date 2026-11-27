@@ -1,6 +1,10 @@
 ---
 title: How to build and manage R function dependencies in {{ sf-full-name }}
 description: In this guide, you will learn how to build and manage R function dependencies in {{ sf-name }}.
+alternate:
+  - href: en/functions/lang/r/dependencies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Building and managing R function dependencies

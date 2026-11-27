@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/network-load-balancer/known-issues/cannot-access-mk8s-pods.md
+    type: text/markdown
+    title: Markdown version
+---
 # Устранение проблем с доступом к подам {{ managed-k8s-name }} через {{ network-load-balancer-name }}
 
 

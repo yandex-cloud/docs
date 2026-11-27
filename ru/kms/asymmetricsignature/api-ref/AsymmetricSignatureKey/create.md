@@ -83,6 +83,10 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: AsymmetricSignatureKey.Create

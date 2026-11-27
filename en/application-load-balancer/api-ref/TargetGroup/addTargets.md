@@ -76,6 +76,10 @@ apiPlayground:
         oneOf:
           - required:
               - ipAddress
+alternate:
+  - href: en/application-load-balancer/api-ref/TargetGroup/addTargets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: TargetGroup.AddTargets

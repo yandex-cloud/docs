@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iam/operations/sa/create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание сервисного аккаунта
 
 {% note warning %}

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/routing/data-processing-nat-instance'
+alternate:
+  - href: en/data-proc/tutorials/configure-network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring a network for {{ dataproc-name }}

@@ -1,6 +1,10 @@
 ---
 title: Сканирование реестра {{ cloud-registry-name }}
 description: Из этой инструкции вы узнаете, как настроить сканирование реестра {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/registry/scanning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сканирование реестра {{ cloud-registry-name }}

@@ -1,6 +1,10 @@
 ---
 title: Резервное копирование в {{ objstorage-full-name }}
 description: На странице представлен список практических руководств о резервном копировании в {{ objstorage-name }}.
+alternate:
+  - href: ru/tutorials/archive/storage-backup-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Резервное копирование в {{ objstorage-full-name }}

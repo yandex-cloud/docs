@@ -1,6 +1,10 @@
 ---
 title: Миграция сервисов с балансировщика NLB с целевыми ресурсами из кластера на L7-балансировщик ALB
 description: В этом руководстве описана миграция сервиса с сетевого балансировщика с целевыми ресурсами из кластера {{ managed-k8s-full-name }} на L7-балансировщик.
+alternate:
+  - href: ru/tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция сервисов с балансировщика NLB с целевыми ресурсами из кластера {{ managed-k8s-full-name }} на L7-балансировщик ALB

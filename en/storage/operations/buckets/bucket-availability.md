@@ -1,6 +1,10 @@
 ---
 title: Enabling and disabling public access to a bucket in {{ objstorage-full-name }}
 description: Follow this guide to configure public access to a bucket in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/buckets/bucket-availability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling and disabling public access to a bucket

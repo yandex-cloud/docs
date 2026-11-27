@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iot-core/concepts/topic/usage.md
+    type: text/markdown
+    title: Markdown version
+---
 # Использование топиков
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}

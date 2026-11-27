@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/overview.md
+    type: text/markdown
+    title: Markdown version
+---
 # Components {{ stackland-name }}
 
 {{ stackland-full-name }} includes default components that are ready to use. A user can modify their settings, if required, through a special custom resource.

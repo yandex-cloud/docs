@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/logging/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление доступом в {{ cloud-logging-name }}
 
 Для управления правами доступа в {{ cloud-logging-name }} используются [роли](../../iam/concepts/access-control/roles.md).

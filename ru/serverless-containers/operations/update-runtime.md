@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/operations/update-runtime.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить режим работы контейнера
 
 {% list tabs group=instructions %}

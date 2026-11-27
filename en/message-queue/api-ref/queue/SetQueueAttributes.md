@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/queue/SetQueueAttributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # SetQueueAttributes
 
 Method for setting attributes for the specified queue. It may take up to 60 seconds to change attributes. It may take up to 15 minutes to change the `MessageRetentionPeriod` attribute.

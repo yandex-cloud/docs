@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/datatransfer/events-ref/PauseTransfer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer Audit Trails Events: PauseTransfer

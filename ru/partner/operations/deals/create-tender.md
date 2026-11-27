@@ -1,6 +1,10 @@
 ---
 title: Как создать сделку в рамках регламентированной закупки
 description: Следуя данной инструкции, вы сможете создать сделку в рамках регламентированной закупки
+alternate:
+  - href: ru/partner/operations/deals/create-tender.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать сделку в рамках регламентированной закупки

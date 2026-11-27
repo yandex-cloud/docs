@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-opensearch/operations/cluster-users.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление пользователями {{ OS }}
 
 Вы можете управлять пользователями кластера с помощью специального пользователя `admin`. Задать пароль этого пользователя можно при [создании](cluster-create.md#create-cluster) или [изменении](update.md) кластера.

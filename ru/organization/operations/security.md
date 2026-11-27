@@ -1,6 +1,10 @@
 ---
 title: Инструкции по управлению доступом в {{ org-full-name }}
 description: В этом разделе собраны пошаговые инструкции по управлению доступом для {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/security.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ org-full-name }}

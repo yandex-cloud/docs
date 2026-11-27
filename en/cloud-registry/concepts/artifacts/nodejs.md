@@ -1,6 +1,10 @@
 ---
 title: Node.js artifact in {{ cloud-registry-full-name }}
 description: A Node.js artifact is a package containing the code and relevant information. These packages are used to distribute libraries, frameworks, and other components you can add to Node.js projects.
+alternate:
+  - href: en/cloud-registry/concepts/artifacts/nodejs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Node.js artifact

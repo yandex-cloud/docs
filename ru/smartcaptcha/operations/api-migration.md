@@ -1,6 +1,10 @@
 ---
 title: Миграция на новый формат условий в API, CLI и Terraform
 description: Следуя данной инструкции, вы сможете обновить условия в {{ captcha-full-name }} для нового формата API, CLI и Terraform.
+alternate:
+  - href: ru/smartcaptcha/operations/api-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновление формата условий в API, CLI и Terraform

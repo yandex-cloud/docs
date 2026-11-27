@@ -1,6 +1,10 @@
 ---
 title: Managing access to a {{ mpg-full-name }} cluster
 description: Follow this guide to configure {{ mpg-name }} cluster access permissions.
+alternate:
+  - href: en/managed-postgresql/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to a {{ mpg-name }} cluster

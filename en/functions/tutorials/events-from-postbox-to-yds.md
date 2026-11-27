@@ -3,6 +3,10 @@ title: Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analy
 description: In this tutorial, you will configure streaming of [{{ postbox-full-name }}](../../postbox/) events to [{{ yds-full-name }}](../../data-streams/), data storage and processing with {{ sf-full-name }} and {{ ydb-full-name }}, as well as visualization in {{ datalens-full-name }} for event analysis.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/events-from-postbox-to-yds'
+alternate:
+  - href: en/functions/tutorials/events-from-postbox-to-yds.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [events-from-postbox-to-yds](../../_tutorials/serverless/events-from-postbox-to-yds.md) %}

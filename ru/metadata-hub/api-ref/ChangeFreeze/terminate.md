@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/metadata-hub/api-ref/ChangeFreeze/terminate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Hive Metastore™ API, REST: ChangeFreeze.Terminate

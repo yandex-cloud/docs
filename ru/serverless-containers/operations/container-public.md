@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/operations/container-public.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сделать контейнер публичным
 
 Чтобы любой пользователь мог вызвать контейнер без передачи заголовка авторизации, сделайте контейнер публичным.

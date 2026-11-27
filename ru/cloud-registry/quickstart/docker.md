@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ cloud-registry-name }}
 description: В этой инструкции вы создадите свой первый реестр {{ cloud-registry-name }} и попробуете управлять Docker-образами.
+alternate:
+  - href: ru/cloud-registry/quickstart/docker.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ cloud-registry-name }}

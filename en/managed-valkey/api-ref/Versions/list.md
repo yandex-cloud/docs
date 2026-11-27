@@ -27,6 +27,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/managed-valkey/api-ref/Versions/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, REST: Versions.List

@@ -1,6 +1,10 @@
 ---
 title: Как создать статический маршрут в VRF {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете настроить статический маршрут в VRF {{ baremetal-full-name }}.
+alternate:
+  - href: ru/baremetal/operations/create-static-route.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать статический маршрут

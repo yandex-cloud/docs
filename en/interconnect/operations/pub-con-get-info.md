@@ -1,6 +1,10 @@
 ---
 title: How to get information about {{ interconnect-name }} public connections
 description: In this tutorial, we will get information about {{ interconnect-name }} public connections.
+alternate:
+  - href: en/interconnect/operations/pub-con-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about public connections

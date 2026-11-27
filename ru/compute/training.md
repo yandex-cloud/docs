@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ compute-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ compute-full-name }}.
+alternate:
+  - href: ru/compute/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ compute-full-name }}

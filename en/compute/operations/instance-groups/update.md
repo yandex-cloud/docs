@@ -1,6 +1,10 @@
 ---
 title: How to update an instance group in {{ compute-full-name }}
 description: Follow this guide to update an instance group.
+alternate:
+  - href: en/compute/operations/instance-groups/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating an instance group

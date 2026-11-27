@@ -1,6 +1,10 @@
 ---
 title: FAQ about dashboards
 description: This page covers FAQ about dashboards.
+alternate:
+  - href: en/datalens/qa/dashboards.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Dashboards

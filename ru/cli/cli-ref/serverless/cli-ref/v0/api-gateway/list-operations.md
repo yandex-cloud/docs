@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/api-gateway/list-operations/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/v0/api-gateway/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless v0 api-gateway list-operations

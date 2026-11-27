@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/private-endpoint/list/
+alternate:
+  - href: ru/cli/cli-ref/vpc/cli-ref/private-endpoint/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc private-endpoint list

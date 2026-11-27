@@ -1,6 +1,10 @@
 ---
 title: How to configure access permissions for a dashboard in {{ datalens-full-name }}
 description: Follow this guide to configure access permissions for a dashboard.
+alternate:
+  - href: en/datalens/operations/dashboard/manage-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to a dashboard

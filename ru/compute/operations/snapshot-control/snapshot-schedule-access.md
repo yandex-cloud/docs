@@ -1,6 +1,10 @@
 ---
 title: Настроить права доступа к расписанию, по которому создаются снимки дисков {{ compute-name }}
 description: Следуя данной инструкции, вы настроите права доступа к расписанию, по которому создаются снимки дисков.
+alternate:
+  - href: ru/compute/operations/snapshot-control/snapshot-schedule-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к расписанию снимков диска

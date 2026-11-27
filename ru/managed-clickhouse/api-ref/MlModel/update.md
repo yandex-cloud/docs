@@ -46,6 +46,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/managed-clickhouse/api-ref/MlModel/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: MlModel.Update

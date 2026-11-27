@@ -1,6 +1,10 @@
 ---
 title: Какие ошибки возникают при работе с модулем Контроль {{ k8s }} ({{ kspm-name }}) в {{ sd-full-name }}
 description: Из статьи вы узнаете, какие бывают ошибки в работе модуля Контроль {{ k8s }} ({{ kspm-name }}).
+alternate:
+  - href: ru/security-deck/diagnostics/kspm-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика ошибок в работе модуля Контроль {{ k8s }} ({{ kspm-name }})

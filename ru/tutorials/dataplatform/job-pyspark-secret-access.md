@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/job-pyspark-secret-access'
+alternate:
+  - href: ru/tutorials/dataplatform/job-pyspark-secret-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование секрета {{ lockbox-name }} в PySpark-задании для подключения к {{ mpg-full-name }}

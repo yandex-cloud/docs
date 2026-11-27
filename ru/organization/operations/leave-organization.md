@@ -1,6 +1,10 @@
 ---
 title: Как покинуть организацию в {{ org-full-name }}
 description: Следуя данной инструкции, вы узнаете, как можно покинуть организацию.
+alternate:
+  - href: ru/organization/operations/leave-organization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Покинуть организацию

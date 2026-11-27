@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/data/secrets.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with secrets
 
 [Secrets](../../concepts/secrets.md) enable storing sensitive data in encrypted form and using it securely within your project code.

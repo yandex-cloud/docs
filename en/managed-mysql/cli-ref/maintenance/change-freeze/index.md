@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/maintenance/change-freeze/
+alternate:
+  - href: en/managed-mysql/cli-ref/maintenance/change-freeze/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mysql maintenance change-freeze

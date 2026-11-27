@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/subnet/remove-labels/
+alternate:
+  - href: ru/cli/cli-ref/vpc/cli-ref/subnet/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc subnet remove-labels

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iam/concepts/federations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Федерации удостоверений
 
 С помощью [{{ org-full-name }}](../../organization/) вы можете настроить Single Sign-On аутентификацию в {{ yandex-cloud }} через ваш Identity Provider, например Active Directory или Google Workspace. 

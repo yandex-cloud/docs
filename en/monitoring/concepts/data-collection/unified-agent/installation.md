@@ -1,6 +1,10 @@
 ---
 title: How to install and update {{ unified-agent-full-name }}
 description: In this tutorial, you will learn how to install and update {{ unified-agent-full-name }}.
+alternate:
+  - href: en/monitoring/concepts/data-collection/unified-agent/installation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing and updating {{ unified-agent-full-name }}

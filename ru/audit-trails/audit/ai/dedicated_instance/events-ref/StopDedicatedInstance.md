@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ai/dedicated_instance/events-ref/StopDedicatedInstance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio Dedicated Instance Audit Trails Events: StopDedicatedInstance

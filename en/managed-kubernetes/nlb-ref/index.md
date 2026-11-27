@@ -2,6 +2,10 @@
 title: '{{ network-load-balancer-full-name }} tool reference for {{ managed-k8s-full-name }}'
 description: This page provides a {{ network-load-balancer-name }} tool reference for {{ managed-k8s-name }}.
 noIndex: true
+alternate:
+  - href: en/managed-kubernetes/nlb-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ network-load-balancer-full-name }} tool reference

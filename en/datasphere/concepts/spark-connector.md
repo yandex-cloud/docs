@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/spark-connector.md
+    type: text/markdown
+    title: Markdown version
+---
 # Spark connector
 
 {{ ml-platform-name }} allows processing large amounts of data on [{{ dataproc-full-name }}](../../data-proc/) clusters. With a Spark connector, you can either [use existing {{ dataproc-name }} clusters](data-processing-operations.md#spark-with-existing-cluster) or [create temporary clusters](temporary-data-processing-clusters.md#spark-with-temporary-cluster).

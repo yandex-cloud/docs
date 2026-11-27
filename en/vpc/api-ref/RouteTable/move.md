@@ -27,6 +27,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/vpc/api-ref/RouteTable/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: RouteTable.Move

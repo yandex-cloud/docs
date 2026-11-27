@@ -1,6 +1,10 @@
 ---
 title: Reading a file from {{ objstorage-full-name }}
 description: Use a directed acyclic graph to read files from {{ objstorage-full-name }} of the service account attached to your {{ AF }} cluster.
+alternate:
+  - href: en/managed-airflow/operations/read-file-from-dags-bucket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reading a file from {{ objstorage-full-name }}

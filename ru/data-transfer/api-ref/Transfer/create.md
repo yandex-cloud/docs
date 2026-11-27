@@ -573,6 +573,10 @@ apiPlayground:
             type: array
             items:
               type: string
+alternate:
+  - href: ru/data-transfer/api-ref/Transfer/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer API, REST: Transfer.Create

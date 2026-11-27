@@ -2,6 +2,10 @@
 title: Running a Docker image on a VM using {{ cloud-registry-full-name }}
 description: In this tutorial, you will deploy a Docker image from the {{ cloud-registry-name }} registry and run a container on a {{ compute-name }} virtual machine.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/docker-cloud-registry'
+alternate:
+  - href: en/compute/tutorials/docker-cloud-registry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Running a Docker image on a VM using {{ cloud-registry-full-name }}

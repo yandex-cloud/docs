@@ -1,6 +1,10 @@
 ---
 title: Миграция данных из {{ objstorage-full-name }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}
 description: В этом руководстве вы перенесете данные из объектного хранилища {{ objstorage-name }} в кластер-приемник {{ mmy-name }} с помощью сервиса {{ data-transfer-name }}.
+alternate:
+  - href: ru/tutorials/dataplatform/objs-mmy-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция данных из {{ objstorage-full-name }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}

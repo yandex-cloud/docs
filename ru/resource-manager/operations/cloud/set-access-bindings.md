@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/resource-manager/operations/cloud/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка прав доступа к облаку
 
 {% note warning %}

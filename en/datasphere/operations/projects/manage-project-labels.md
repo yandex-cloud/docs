@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/projects/manage-project-labels.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing project labels
 
 You can add and delete a project [label](../../../resource-manager/concepts/labels.md#services). Resources of a project inherit its labels.

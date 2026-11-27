@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/billing/api-ref/Sku/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, REST: Sku

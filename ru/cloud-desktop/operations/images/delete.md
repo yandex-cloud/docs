@@ -1,6 +1,10 @@
 ---
 title: Как удалить пользовательский образ
 description: Следуя данной инструкции, вы сможете удалить пользовательский образ.
+alternate:
+  - href: ru/cloud-desktop/operations/images/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить пользовательский образ

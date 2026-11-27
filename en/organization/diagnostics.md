@@ -1,6 +1,10 @@
 ---
 title: Possible common errors when using {{ org-full-name }}
 description: In this article, you will learn about possible common errors when using federations and organizations.
+alternate:
+  - href: en/organization/diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Common errors

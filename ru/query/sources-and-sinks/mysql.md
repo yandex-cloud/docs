@@ -1,6 +1,10 @@
 ---
 title: Работа с базами данных {{ mmy-full-name }}
 description: Из статьи вы узнаете, как подключиться к базе данных {{ mmy-name }} и выполнять запросы к ней из {{ yq-full-name }}.
+alternate:
+  - href: ru/query/sources-and-sinks/mysql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с базами данных {{ mmy-name }}

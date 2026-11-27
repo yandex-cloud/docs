@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/invalid-person-type.md
+    type: text/markdown
+    title: Markdown version
+---
 # Устранение ошибки `INVALID_PERSON_TYPE` при регистрации платежного аккаунта
 
 

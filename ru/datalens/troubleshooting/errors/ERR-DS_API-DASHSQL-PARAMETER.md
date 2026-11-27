@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DASHSQL.PARAMETER
 description: На странице приведено описание ошибки {{ datalens-full-name }} Internal server error.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DASHSQL-PARAMETER.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Internal server error

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/connectionmanager/events-ref/SetConnectionAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connection Manager Audit Trails Events: SetConnectionAccessBindings

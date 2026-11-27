@@ -3,6 +3,10 @@ title: '{{ datalens-full-name }} Gallery'
 description: '{{ datalens-full-name }} Gallery is a collection of ready-made dashboards for your inspiration and business needs.'
 keywords:
   - '{{ datalens-gallery }}'
+alternate:
+  - href: en/datalens/concepts/gallery.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-short-name }} Gallery

@@ -1,6 +1,10 @@
 ---
 title: Managing a {{ sd-full-name }} subscription
 description: In this section, you will learn how to subscribe to alerts and comments on them in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/alerts/notification.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing a subscription

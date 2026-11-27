@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ yds-full-name }}
 description: Различные сценарии использования {{ yds-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/data-streams/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ yds-name }}

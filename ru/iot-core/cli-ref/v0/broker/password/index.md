@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/broker/password/
+alternate:
+  - href: ru/iot-core/cli-ref/v0/broker/password/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot v0 broker password

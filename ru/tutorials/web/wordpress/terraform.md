@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/tutorials/web/wordpress/terraform.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание сайта на WordPress с помощью {{ TF }}
 
 Чтобы создать и настроить [сайт на WordPress](index.md) с помощью {{ TF }}:

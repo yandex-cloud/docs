@@ -1,6 +1,10 @@
 ---
 title: Authenticating in {{ yandex-cloud }} and managing databases in {{ ydb-short-name }} using {{ TF }}
 description: Follow this guide to authenticate {{ TF }} in {{ yandex-cloud }} using a service account or federated account.
+alternate:
+  - href: en/ydb/terraform/credentials.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting authentication credentials

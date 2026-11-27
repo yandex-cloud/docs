@@ -1,6 +1,10 @@
 ---
 title: Installing the {{ GL }} agent
 description: Follow this guide to install the {{ GL }} agent.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/gitlab-agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing the {{ GL }} agent

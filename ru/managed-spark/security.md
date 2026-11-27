@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ msp-full-name }}
 description: Управление доступом в сервисе по созданию и управлению кластерами {{ SPRK }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
+alternate:
+  - href: ru/managed-spark/security.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к {{ msp-full-name }}

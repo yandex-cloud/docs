@@ -40,6 +40,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: AsymmetricSignatureKey.ListOperations

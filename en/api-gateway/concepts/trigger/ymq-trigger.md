@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/trigger/ymq-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for {{ message-queue-short-name }} that sends messages to WebSocket connections
 
 A [trigger](../trigger/) for {{ message-queue-short-name }} speeds up the processing of messages in a [queue](../../../message-queue/concepts/queue.md). It picks up messages from the queue and forwards them to [WebSocket connections](../extensions/websocket.md).

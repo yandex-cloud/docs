@@ -1,6 +1,10 @@
 ---
 title: x-yc-apigateway-authorizer:function extension for {{ api-gw-full-name }}
 description: On this page, you will learn what the x-yc-apigateway-authorizer:function extension is used for and what its specification includes. We will also invoke a sample function using this extension.
+alternate:
+  - href: en/api-gateway/concepts/extensions/function-authorizer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # x-yc-apigateway-authorizer:function extension

@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} dataset settings'
 description: In {{ datalens-full-name }}, dataset settings decide how the dataset will use the source data.
+alternate:
+  - href: en/datalens/dataset/settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} dataset settings

@@ -1,6 +1,10 @@
 ---
 title: Как перенести виртуальную машину в другую зону доступности
 description: Следуя данной инструкции, вы сможете перенести виртуальную машину в другую зону доступности.
+alternate:
+  - href: ru/compute/operations/vm-control/vm-change-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Перенести виртуальную машину в другую зону доступности

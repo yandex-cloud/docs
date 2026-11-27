@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/put-dedicated-ip-in-pool.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод PutDedicatedIpInPool
 
 Перемещает [выделенный IP-адрес](../../concepts/glossary.md#dedicated-ip) в указанный [пул](../../concepts/glossary.md#dedicated-ip-pool). Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.

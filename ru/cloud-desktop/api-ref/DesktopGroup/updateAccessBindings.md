@@ -105,6 +105,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/cloud-desktop/api-ref/DesktopGroup/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop API, REST: DesktopGroup.UpdateAccessBindings

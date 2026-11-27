@@ -1,6 +1,10 @@
 ---
 title: How to manage HTTP router routes in {{ alb-full-name }}
 description: Follow this guide to create, update, and delete routes in an HTTP router's virtual host in {{ alb-full-name }}.
+alternate:
+  - href: en/application-load-balancer/operations/manage-routes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing routes

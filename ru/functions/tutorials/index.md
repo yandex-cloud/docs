@@ -1,6 +1,10 @@
 ---
 title: Практические руководства {{ sf-full-name }}
 description: В этом разделе собраны практические руководства для {{ sf-name }}.
+alternate:
+  - href: ru/functions/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ sf-name }}

@@ -1,6 +1,10 @@
 ---
 title: Setting up multiple domain name support for a website using {{ TF }}
 description: Follow this guide to set up multiple domain name support for a website using {{ TF }}.
+alternate:
+  - href: en/storage/operations/hosting/multiple-domains/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up support for multiple domain names using {{ TF }}

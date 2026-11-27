@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/lockbox/api-ref/Secret/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox API, REST: Secret.UpdateAccessBindings

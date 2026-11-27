@@ -1,6 +1,10 @@
 ---
 title: Signing requests to {{ objstorage-full-name }}
 description: Follow this guide to set up signing for requests to {{ objstorage-name }}.
+alternate:
+  - href: en/storage/s3/signing-requests.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Signing requests

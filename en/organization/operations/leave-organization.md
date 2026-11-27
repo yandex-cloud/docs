@@ -1,6 +1,10 @@
 ---
 title: How to leave an organization in {{ org-full-name }}
 description: Follow this guide to leave an organization.
+alternate:
+  - href: en/organization/operations/leave-organization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Leaving an organization

@@ -1,6 +1,10 @@
 ---
 title: Working with a report
 description: Follow this guide to learn how to work with a report.
+alternate:
+  - href: en/datalens/reports/report-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with a report

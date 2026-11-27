@@ -1,6 +1,10 @@
 ---
 title: All {{ yds-full-name }} HTTP API methods
 description: Learn about available {{ yds-full-name }} HTTP API methods.
+alternate:
+  - href: en/data-streams/kinesisapi/api-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All methods

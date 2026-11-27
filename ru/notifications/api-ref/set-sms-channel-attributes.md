@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/set-sms-channel-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие SetSMSChannelAttributes
 
 Задать параметры [канала SMS-уведомлений](../concepts/sms.md).

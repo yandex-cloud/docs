@@ -1,6 +1,10 @@
 ---
 title: Scatter chart in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the scatter chart visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/scatter-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Scatter chart ![](../../_assets/datalens/scatter-chart.svg) in {{ datalens-full-name }}

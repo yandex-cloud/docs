@@ -1,6 +1,10 @@
 ---
 title: Viewing a schema
 description: Follow this guide to view a schema.
+alternate:
+  - href: en/metadata-hub/operations/view-schema.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing a schema

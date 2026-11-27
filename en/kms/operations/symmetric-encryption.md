@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/kms/operations/symmetric-encryption.md
+    type: text/markdown
+    title: Markdown version
+---
 # Symmetric data encryption
 
 In this section, you will learn how to use {{ kms-short-name }} to encrypt and decrypt small-sized data (up to 32 KB) in [symmetric encryption](../concepts/symmetric-encryption.md) mode using the CLI, {{ TF }}, and API. For more information about the available encryption methods, see [{#T}](../tutorials/encrypt/index.md).

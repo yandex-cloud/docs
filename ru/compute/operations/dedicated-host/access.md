@@ -1,6 +1,10 @@
 ---
 title: Настроить права доступа к группе выделенных хостов
 description: Для группы выделенных хостов {{ compute-name }} вы можете назначить или отозвать права доступа.
+alternate:
+  - href: ru/compute/operations/dedicated-host/access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к группе выделенных хостов

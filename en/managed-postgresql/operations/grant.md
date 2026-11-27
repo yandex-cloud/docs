@@ -1,6 +1,10 @@
 ---
 title: Assigning privileges and roles to PostgreSQL users
 description: '{{ PG }} manages database access permissions using roles. Roles can own database objects and have privileges. In {{ PG }}, a user is a role that can log in to the database. To learn more about access permissions, see {{ PG }} guides. The user created for a new {{ mpg-name }} cluster is the owner of its first database. You can create more users and configure their permissions as needed.'
+alternate:
+  - href: en/managed-postgresql/operations/grant.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning privileges and roles to {{ PG }} users

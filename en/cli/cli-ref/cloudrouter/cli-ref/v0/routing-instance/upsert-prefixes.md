@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v0/routing-instance/upsert-prefixes/
+alternate:
+  - href: en/cli/cli-ref/cloudrouter/cli-ref/v0/routing-instance/upsert-prefixes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloudrouter v0 routing-instance upsert-prefixes

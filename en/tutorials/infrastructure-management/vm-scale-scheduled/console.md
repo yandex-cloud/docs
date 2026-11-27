@@ -1,6 +1,10 @@
 ---
 title: Scheduled scaling of instance groups using the management console, CLI, and API
 description: Follow this tutorial to create a {{ compute-full-name }} VM group and set up scheduled scaling for it using {{ sf-full-name }} functions and timer via the management console, CLI, and API.
+alternate:
+  - href: en/tutorials/infrastructure-management/vm-scale-scheduled/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Scheduled instance group scaling with the management console, CLI, and API

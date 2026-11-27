@@ -1,6 +1,10 @@
 ---
 title: Как отключить и включить зону доступности и начать перенос трафика в другие зоны на L7-балансировщике {{ alb-full-name }}
 description: Следуя данной инструкции, вы сможете отключить и включить зону доступности и проверить перераспределение трафика на L7-балансировщике.
+alternate:
+  - href: ru/application-load-balancer/operations/manage-zone/start-and-cancel-shift.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отключить и включить зону доступности

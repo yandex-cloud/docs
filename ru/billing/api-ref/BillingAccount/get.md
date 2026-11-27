@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/billing/api-ref/BillingAccount/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, REST: BillingAccount.Get

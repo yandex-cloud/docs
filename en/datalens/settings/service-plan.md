@@ -1,6 +1,10 @@
 ---
 title: Billing and payment settings in {{ datalens-full-name }}
 description: From this article, you will learn how to configure billing for {{ datalens-short-name }} by selecting a plan and adding a billing account.
+alternate:
+  - href: en/datalens/settings/service-plan.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing and payment settings in {{ datalens-full-name }}

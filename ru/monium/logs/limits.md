@@ -1,6 +1,10 @@
 ---
 title: Ограничения
 description: 'Лимиты {{ monium-logs-name }}: запись логов и валидация входящих данных.'
+alternate:
+  - href: ru/monium/logs/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ограничения

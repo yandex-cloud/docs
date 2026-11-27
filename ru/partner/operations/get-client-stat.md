@@ -1,6 +1,10 @@
 ---
 title: Посмотреть детализацию сабаккаунтов
 description: Следуя данной инструкции, вы сможете посмотреть детальную информацию о том, как клиенты используют сервисы.
+alternate:
+  - href: ru/partner/operations/get-client-stat.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть детализацию сабаккаунтов

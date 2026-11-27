@@ -1,6 +1,10 @@
 ---
 title: Managing {{ org-full-name }} user sessions
 description: Follow this guide to view and terminate sessions of federated and local users in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/manage-sessions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing user sessions

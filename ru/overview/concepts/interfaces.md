@@ -1,6 +1,10 @@
 ---
 title: Обзор интерфейсов для работы с сервисами
 description: Сервисы в {{ yandex-cloud }} могут быть доступны в различных интерфейсах — консоль управления, отдельный веб-интерфейс, мобильное приложение, а также CLI, {{ TF }} и API.
+alternate:
+  - href: ru/overview/concepts/interfaces.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор интерфейсов для работы с сервисами

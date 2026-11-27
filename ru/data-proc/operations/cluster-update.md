@@ -1,6 +1,10 @@
 ---
 title: Изменение кластера {{ dataproc-name }}
 description: После создания кластера {{ dataproc-name }} вы можете изменить его основные и дополнительные настройки.
+alternate:
+  - href: ru/data-proc/operations/cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение кластера {{ dataproc-name }}

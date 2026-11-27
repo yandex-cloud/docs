@@ -381,6 +381,10 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/CreateSubclusterConfigSpec'
+alternate:
+  - href: en/data-proc/api-ref/Cluster/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Data Processing API, REST: Cluster.Create

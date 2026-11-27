@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/smartwebsecurity/advanced_rate_limiter/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity ARL API, REST: Operation

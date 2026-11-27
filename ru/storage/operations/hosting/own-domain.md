@@ -1,6 +1,10 @@
 ---
 title: Поддержать собственный домен
 description: Следуя данной инструкции, вы сможете настроить собственный домен для хостинга.
+alternate:
+  - href: ru/storage/operations/hosting/own-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поддержать собственный домен

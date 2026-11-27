@@ -1,6 +1,11 @@
 ---
 title: Access management in {{ cr-full-name }}
 description: Access management in {{ cr-name }}. To allow access to {{ cr-name }} resources, assign the necessary roles to the user from the list below. Currently, a role can only be assigned for a parent resource (folder or cloud).
+noIndex: true
+alternate:
+  - href: en/cloud-router/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ cr-name }}

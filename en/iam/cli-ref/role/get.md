@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/role/get/
+alternate:
+  - href: en/iam/cli-ref/role/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam role get

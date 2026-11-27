@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Services for Kubernetes
+alternate:
+  - href: en/terraform/resources/kubernetes_cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_kubernetes_cluster (Resource)

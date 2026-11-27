@@ -1,6 +1,10 @@
 ---
 title: Monitoring the database state in {{ ydb-name }}
 description: You can track the state of a {{ ydb-name }} database using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure Yandex Monitoring alerts for automatic database state monitoring.
+alternate:
+  - href: en/ydb/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Monitoring a database state

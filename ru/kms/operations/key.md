@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/kms/operations/key.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление ключами
 
 С помощью {{ kms-name }} вы можете создавать, ротировать и удалять симметричные ключи шифрования.

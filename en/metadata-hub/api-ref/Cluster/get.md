@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/metadata-hub/api-ref/Cluster/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Hive Metastore™ API, REST: Cluster.Get

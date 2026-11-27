@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iam/concepts/access-control/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # How access management works in {{ yandex-cloud }}
 
 Here you can learn how to manage access to your resources and how {{ iam-short-name }} checks permissions to access them.

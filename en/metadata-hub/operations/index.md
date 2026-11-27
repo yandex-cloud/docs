@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides
 description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yandex-cloud }}. In this article, you will learn how to work with connections and schema registry.
+alternate:
+  - href: en/metadata-hub/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All step-by-step guides

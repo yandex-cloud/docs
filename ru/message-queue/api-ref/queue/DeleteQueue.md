@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/queue/DeleteQueue.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteQueue
 
 Метод для удаления очереди. Если указанная очередь не существует, Message Queue сообщит об успешном выполнении запроса.

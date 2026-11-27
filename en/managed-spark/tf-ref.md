@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ msp-full-name }}'
 description: This page lists {{ TF }} provider resources and data sources supported by {{ msp-name }}.
+alternate:
+  - href: en/managed-spark/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ msp-full-name }}

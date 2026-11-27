@@ -1,6 +1,10 @@
 ---
 title: Creating a {{ iot-full-name }} registry
 description: Follow this guide to create a {{ iot-name }} registry.
+alternate:
+  - href: en/iot-core/operations/registry/registry-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a registry

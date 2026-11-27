@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/sourcecraft/events-ref/GetSecret.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SourceCraft Audit Trails Events: GetSecret

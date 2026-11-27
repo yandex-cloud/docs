@@ -2,6 +2,10 @@
 title: '{{ alb-full-name }} pricing policy'
 description: This article covers the {{ alb-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/application-load-balancer/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ alb-full-name }} pricing policy

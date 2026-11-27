@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-transfer/operations/db-actions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with databases during transfer
 
 When working with data transfers, you must take into account the specific features of databases.

@@ -1,6 +1,10 @@
 ---
 title: How to get information about a backup policy
 description: In this tutorial, you will learn how to get information about a {{ backup-full-name }} backup policy.
+alternate:
+  - href: en/backup/operations/policy-vm/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a backup policy

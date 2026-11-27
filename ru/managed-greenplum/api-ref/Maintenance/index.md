@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-greenplum/api-ref/Maintenance/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: Maintenance

@@ -1,6 +1,10 @@
 ---
 title: Сделать виртуальную машину прерываемой
 description: Следуя данной инструкции, вы сможете сделать виртуальную машину прерываемой.
+alternate:
+  - href: ru/compute/operations/vm-create/create-preemptible-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сделать виртуальную машину прерываемой

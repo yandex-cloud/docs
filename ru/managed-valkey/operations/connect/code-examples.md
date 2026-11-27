@@ -1,6 +1,10 @@
 ---
 title: Примеры кода для подключения к кластеру {{ VLK }} в {{ mrd-full-name }}
 description: Следуя этим примерам, вы сможете подключиться к базе данных в кластере {{ VLK }} из кода вашего приложения.
+alternate:
+  - href: ru/managed-valkey/operations/connect/code-examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Примеры кода для подключения к кластеру {{ VLK }}

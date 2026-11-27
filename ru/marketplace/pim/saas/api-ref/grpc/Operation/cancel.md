@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/marketplace/pim/saas/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace Product Instance Management API, gRPC: OperationService.Cancel

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/concepts/network.md
+    type: text/markdown
+    title: Markdown version
+---
 # Networking in {{ dataproc-name }}
 
 All subclusters of a cluster belong to the same [cloud network](../../vpc/concepts/network.md), while all hosts of each subcluster are in a certain subnet of that network.

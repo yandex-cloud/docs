@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/certificate-manager/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager API, REST: Operation.Get

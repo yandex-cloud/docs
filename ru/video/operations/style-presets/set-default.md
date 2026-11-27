@@ -1,6 +1,10 @@
 ---
 title: Как назначить шаблон плеера по умолчанию в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете выбрать шаблон плеера по умолчанию в сервисе {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/style-presets/set-default.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначить шаблон плеера по умолчанию

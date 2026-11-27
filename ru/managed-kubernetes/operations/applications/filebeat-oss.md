@@ -1,6 +1,10 @@
 ---
 title: Установка Filebeat OSS
 description: Следуя данной инструкции, вы сможете установить Filebeat OSS.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/filebeat-oss.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка Filebeat OSS

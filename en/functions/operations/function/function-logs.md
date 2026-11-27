@@ -1,6 +1,10 @@
 ---
 title: Viewing the execution log in {{ sf-full-name }}
 description: You can view monitoring charts in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the function whose execution log you want to view. In the window that opens, go to **Logs** and specify the time period. The default period is one hour. All times in the log are UTC.
+alternate:
+  - href: en/functions/operations/function/function-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing function logs

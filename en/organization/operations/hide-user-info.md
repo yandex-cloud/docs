@@ -1,6 +1,10 @@
 ---
 title: How to hide information about organization members in {{ org-full-name }}
 description: Follow this guide to block organization users from viewing information about other organization members.
+alternate:
+  - href: en/organization/operations/hide-user-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Blocking users from viewing information about organization members

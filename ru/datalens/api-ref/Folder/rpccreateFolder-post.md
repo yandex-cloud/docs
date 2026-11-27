@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Folder/rpccreateFolder-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # CreateFolder

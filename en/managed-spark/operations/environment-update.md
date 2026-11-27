@@ -1,6 +1,10 @@
 ---
 title: Updating an environment for a {{ SPRK }} cluster
 description: In this article, you will learn how to update environment parameters for an {{ SPRK }} cluster.
+alternate:
+  - href: en/managed-spark/operations/environment-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating an environment

@@ -1,6 +1,10 @@
 ---
 title: OAuth token
 description: In this article, you will learn what an OAuth token is, about its purpose, format, and TTL, and about the services supporting the OAuth token authentication method.
+alternate:
+  - href: en/iam/concepts/authorization/oauth-token.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OAuth token

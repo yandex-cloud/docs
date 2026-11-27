@@ -105,6 +105,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/billing/api-ref/BillingAccount/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, REST: BillingAccount.UpdateAccessBindings

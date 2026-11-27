@@ -1,6 +1,10 @@
 ---
 title: Queries in {{ yandex-siem-full-name }}
 description: Queries in {{ yandex-siem-full-name }} use KQL to find and analyze security events.
+alternate:
+  - href: en/siem/concepts/queries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Queries

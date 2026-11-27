@@ -1,6 +1,10 @@
 ---
 title: Как создать пустой проект
 description: Следуя данной инструкции, вы сможете создать пустой проект.
+alternate:
+  - href: ru/datasphere/operations/projects/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать пустой проект

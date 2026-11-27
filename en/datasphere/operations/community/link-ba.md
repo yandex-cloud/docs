@@ -1,6 +1,10 @@
 ---
 title: Linking a billing account to work with {{ ml-platform-name }}
 description: A billing account is used to identify the user who pays for computing resources, nodes, and resource storage for all community projects.
+alternate:
+  - href: en/datasphere/operations/community/link-ba.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Linking a billing account

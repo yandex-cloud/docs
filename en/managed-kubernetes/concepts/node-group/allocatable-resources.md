@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/concepts/node-group/allocatable-resources.md
+    type: text/markdown
+    title: Markdown version
+---
 # Dynamic resource allocation
 
 Nodes need resources to run the {{ k8s }} components in charge of running the node as part of the {{ k8s }} cluster. This is why the resulting amount of node resources may not match the resources allocated for the jobs in the {{ k8s }} cluster.

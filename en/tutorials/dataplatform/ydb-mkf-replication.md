@@ -1,6 +1,10 @@
 ---
 title: Delivering data from {{ ydb-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
 description: You can track data changes in a {{ ydb-name }} source and send them to a {{ mkf-name }} target cluster using Change Data Capture (CDC). This data is automatically added to {{ mkf-short-name }} topics with {{ ydb-name }} table names.
+alternate:
+  - href: en/tutorials/dataplatform/ydb-mkf-replication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering data from {{ ydb-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Restoring a YDB from a backup
 description: Restoring an IAM database in YDB from a local archive.
+alternate:
+  - href: en/stackland/operations/iam/ydb-restore.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Restoring a YDB from a backup

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/sa.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting a service account IAM token using a container
 
 If a container revision was created with a service account, you can get an [IAM token](../../iam/concepts/authorization/iam-token.md) from the metadata service in [Google Compute Engine](../../compute/operations/vm-info/get-info.md#inside-instance) using the API.

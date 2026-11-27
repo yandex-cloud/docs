@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/cookbooks/installation/04-components-diagnostics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Диагностика компонентов
 
 Этот рецепт показывает, как собрать диагностическую информацию о кластере {{ stackland-name }} с помощью утилиты `sladm` и использовать ее для поиска ошибок и их причин.

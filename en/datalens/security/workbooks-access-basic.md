@@ -1,6 +1,10 @@
 ---
 title: Basic access in workbooks and collections
 description: In this tutorial, you will learn how to manage basic access to objects in {{ datalens-short-name }} with workbook and collection navigation on.
+alternate:
+  - href: en/datalens/security/workbooks-access-basic.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Basic access permissions setup in workbooks and collections

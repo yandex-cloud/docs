@@ -1,6 +1,10 @@
 ---
 title: How to connect a {{ compute-full-name }} Linux VM to {{ backup-full-name }}
 description: Follow this guide to connect a {{ compute-full-name }} Linux VM to {{ backup-full-name }}.
+alternate:
+  - href: en/backup/operations/connect-vm-linux.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting an existing Linux VM to {{ backup-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to create, update, and delete an encryption key pair
 description: Follow this guide to create, update, and delete an encryption key pair.
+alternate:
+  - href: en/kms/operations/asymmetric-encryption-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing encryption key pairs

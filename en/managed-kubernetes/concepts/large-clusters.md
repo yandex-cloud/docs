@@ -1,6 +1,10 @@
 ---
 title: Large clusters in {{ managed-k8s-full-name }}
 description: '{{ managed-k8s-name }} features for clusters from hundreds to thousands of nodes: expanding address space in pods, autoscaling, and NLB target groups.'
+alternate:
+  - href: en/managed-kubernetes/concepts/large-clusters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Large clusters

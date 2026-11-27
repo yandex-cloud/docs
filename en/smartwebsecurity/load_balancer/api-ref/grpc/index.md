@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/smartwebsecurity/load_balancer/api-ref/grpc/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Smart Web Security Load Balancer API: gRPC reference

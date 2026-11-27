@@ -1,5 +1,9 @@
 ---
 subcategory: Identity Hub
+alternate:
+  - href: en/terraform/resources/organizationmanager_organization_iam_member.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_organizationmanager_organization_iam_member (Resource)

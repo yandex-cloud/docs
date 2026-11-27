@@ -1,6 +1,10 @@
 ---
 title: Как создать очередь сообщений в {{ message-queue-full-name }}
 description: Следуя данной инструкции, вы сможете создать очередь сообщений.
+alternate:
+  - href: ru/message-queue/operations/message-queue-new-queue.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание новой очереди сообщений

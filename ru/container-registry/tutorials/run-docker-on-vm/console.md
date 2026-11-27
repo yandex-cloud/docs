@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm/console'
+alternate:
+  - href: ru/container-registry/tutorials/run-docker-on-vm/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запуск Docker-образа на виртуальной машине с помощью консоли управления, CLI и API

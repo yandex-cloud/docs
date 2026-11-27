@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/trigger/budget-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a trigger for budgets that invokes {{ sf-name }}
 
 Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that invokes [{{ sf-name }}](../../concepts/function.md) when threshold values are exceeded.

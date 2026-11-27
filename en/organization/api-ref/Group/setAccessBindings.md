@@ -61,6 +61,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: en/organization/api-ref/Group/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: Group.SetAccessBindings

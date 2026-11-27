@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/backup/backup/api-ref/grpc/Resource/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, gRPC: ResourceService.Delete

@@ -1,6 +1,10 @@
 ---
 title: Fetching data from {{ RMQ }} to {{ mch-full-name }}
 description: A {{ mch-name }} cluster can get data from {{ RMQ }} in real time. {{ mch-name }} will automatically add to a {{ RMQ }} table the data received at the specified {{ RMQ }} queue exchange points.
+alternate:
+  - href: en/tutorials/dataplatform/fetch-data-from-rabbitmq.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Fetching data from {{ RMQ }} to {{ mch-full-name }}

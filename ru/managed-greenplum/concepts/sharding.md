@@ -1,6 +1,10 @@
 ---
 title: Распределение данных в {{ mgp-name }}
 description: Из статьи вы узнаете о политиках распределения данных, а также о том, как выбрать политику распределения и ключ распределения в {{ mgp-full-name }}.
+alternate:
+  - href: ru/managed-greenplum/concepts/sharding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Распределение данных в {{ mgp-name }}

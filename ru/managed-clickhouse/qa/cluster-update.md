@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/qa/cluster-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменение {{ CH }}-кластера
 
 {% include [cluster-update-minitoc](../../_qa/managed-clickhouse/minitoc/cluster-update.md) %}

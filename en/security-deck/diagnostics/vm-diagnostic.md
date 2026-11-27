@@ -1,6 +1,10 @@
 ---
 title: Possible errors when using {{ vuln-man-name }} ({{ vuln-man-short-name }}) in {{ sd-full-name }}
 description: In this tutorial, you will learn about the possible errors when using {{ vuln-man-name }} ({{ vuln-man-short-name }}).
+alternate:
+  - href: en/security-deck/diagnostics/vm-diagnostic.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting {{ vuln-man-name }} ({{ vuln-man-short-name }})

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ai/guardrails/events-ref/UnsetBinding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio Guardrails Audit Trails Events: UnsetBinding

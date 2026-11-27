@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ cloud-desktop-full-name }}
 description: 'Access management in {{ cloud-desktop-full-name }}. Permissions are granted via role assignment. You can assign a role for an organization, folder, or cloud: all permissions for a cloud or organization are inherited.'
+alternate:
+  - href: en/cloud-desktop/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ cloud-desktop-full-name }}

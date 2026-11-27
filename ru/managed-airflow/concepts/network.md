@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-airflow/concepts/network.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сеть в {{ maf-name }}
 
 При создании кластера вы можете задать следующие сетевые настройки:

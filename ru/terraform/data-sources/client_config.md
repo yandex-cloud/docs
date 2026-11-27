@@ -1,5 +1,9 @@
 ---
 subcategory: Client Config
+alternate:
+  - href: ru/terraform/data-sources/client_config.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_client_config (DataSource)

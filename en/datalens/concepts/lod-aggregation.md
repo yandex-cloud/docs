@@ -1,6 +1,10 @@
 ---
 title: LOD expressions in {{ datalens-full-name }}
 description: This article describes how {{ datalens-full-name }} LOD expressions allow you to add or remove dimensions to/from a group and use nested aggregations.
+alternate:
+  - href: en/datalens/concepts/lod-aggregation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # LOD expressions and filtering management in aggregation functions in {{ datalens-full-name }}

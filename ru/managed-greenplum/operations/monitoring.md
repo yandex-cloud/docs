@@ -1,6 +1,10 @@
 ---
 title: Мониторинг состояния кластера {{ mgp-name }} и хостов
 description: Следуя этой инструкции, вы сможете получить детальную информацию о состоянии кластера {{ mgp-name }} и провести диагностику.
+alternate:
+  - href: ru/managed-greenplum/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг состояния кластера {{ mgp-name }} и хостов

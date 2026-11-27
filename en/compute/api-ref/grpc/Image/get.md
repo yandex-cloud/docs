@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/compute/api-ref/grpc/Image/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, gRPC: ImageService.Get

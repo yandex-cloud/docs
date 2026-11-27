@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storedoc/operations/shards.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление шардами {{ SD }}
 
 Кластер можно [создать шардированным](cluster-create.md#creating-a-sharded-cluster) либо [включить шардирование](#enable) позже. Затем можно [добавлять и настраивать шарды](#add-shard).

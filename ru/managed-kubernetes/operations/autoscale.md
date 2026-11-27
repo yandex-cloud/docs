@@ -1,6 +1,10 @@
 ---
 title: Как настроить автомасштабирование кластера {{ k8s }} в {{ managed-k8s-full-name }}
 description: Следуя данной инструкции, вы сможете настроить автомасштабирование.
+alternate:
+  - href: ru/managed-kubernetes/operations/autoscale.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка автомасштабирования

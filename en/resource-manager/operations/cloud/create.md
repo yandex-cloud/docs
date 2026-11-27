@@ -1,6 +1,10 @@
 ---
 title: Creating a new cloud
 description: Follow this guide to create a new cloud.
+alternate:
+  - href: en/resource-manager/operations/cloud/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a new cloud

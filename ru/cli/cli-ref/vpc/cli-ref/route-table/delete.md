@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/route-table/delete/
+alternate:
+  - href: ru/cli/cli-ref/vpc/cli-ref/route-table/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc route-table delete

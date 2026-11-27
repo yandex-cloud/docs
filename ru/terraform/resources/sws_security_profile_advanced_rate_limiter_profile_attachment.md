@@ -1,5 +1,9 @@
 ---
 subcategory: Smart Web Security
+alternate:
+  - href: ru/terraform/resources/sws_security_profile_advanced_rate_limiter_profile_attachment.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_sws_security_profile_advanced_rate_limiter_profile_attachment (Resource)

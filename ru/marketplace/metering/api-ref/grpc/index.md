@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/marketplace/metering/api-ref/grpc/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Marketplace Metering API: gRPC reference

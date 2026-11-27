@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/container-registry/api-ref/grpc/Scanner/listVulnerabilities.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, gRPC: ScannerService.ListVulnerabilities

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/
+alternate:
+  - href: ru/managed-spark/cli-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-spark

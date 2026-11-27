@@ -5,6 +5,10 @@ keywords:
   - подключение кластера OpenSearch
   - кластер OpenSearch
   - OpenSearch
+alternate:
+  - href: ru/managed-opensearch/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Предварительная настройка для подключения к кластеру {{ OS }}

@@ -1,6 +1,10 @@
 ---
 title: How to change {{ SPRK }} version in a {{ msp-full-name }} cluster
 description: Follow this guide to change {{ SPRK }} version in a {{ msp-full-name }} cluster.
+alternate:
+  - href: en/managed-spark/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ SPRK }} version update

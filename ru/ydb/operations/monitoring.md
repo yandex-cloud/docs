@@ -1,6 +1,10 @@
 ---
 title: Мониторинг состояния базы данных Managed Service for YDB
 description: Вы можете отслеживать состояние базы данных Managed Service for YDB с помощью инструментов мониторинга в консоли управления. Эти инструменты предоставляют диагностическую информацию в виде графиков. Также вы можете настроить алерты Yandex Monitoring для автоматического мониторинга состояния БД.
+alternate:
+  - href: ru/ydb/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг состояния базы данных

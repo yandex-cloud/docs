@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-transfer/troubleshooting/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Troubleshooting in {{ data-transfer-name }}
 
 This section describes typical problems that may arise during [transfer](../concepts/index.md#transfer) [activation](../operations/transfer.md#activate) or operation, and the relevant solutions.

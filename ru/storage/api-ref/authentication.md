@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в API {{ objstorage-full-name }}
 description: Для выполнения операций через API в масштабируемом хранилище данных — {{ objstorage-full-name }} — необходимо получить IAM-токен для своего аккаунта.
+alternate:
+  - href: ru/storage/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в API {{ objstorage-name }}

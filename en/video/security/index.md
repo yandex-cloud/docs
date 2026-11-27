@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Access management in {{ video-full-name }}
 
 In this section, you will learn about:

@@ -1,6 +1,10 @@
 ---
 title: How to create a broker
 description: Follow this guide to create a broker.
+alternate:
+  - href: en/iot-core/operations/broker/broker-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a broker

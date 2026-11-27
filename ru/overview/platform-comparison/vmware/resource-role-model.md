@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/overview/platform-comparison/vmware/resource-role-model.md
+    type: text/markdown
+    title: Markdown version
+---
 # Ресурсно-ролевая модель
 
 Сравним модели организации частного облака — VMware Cloud Director (vCloud Director или vCD) и {{ yandex-cloud }}.

@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ message-queue-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ message-queue-name }}.
 editable: false
+alternate:
+  - href: ru/message-queue/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ message-queue-name }}

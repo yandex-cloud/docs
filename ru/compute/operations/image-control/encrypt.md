@@ -1,6 +1,10 @@
 ---
 title: Зашифровать образ в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете зашифровать образ диска в {{ compute-short-name }}.
+alternate:
+  - href: ru/compute/operations/image-control/encrypt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Зашифровать образ

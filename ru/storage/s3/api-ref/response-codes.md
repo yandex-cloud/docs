@@ -1,6 +1,10 @@
 ---
 title: Коды ответов и ошибок. {{ objstorage-name }} API (S3)
 description: Описаны коды ответов и ошибок в {{ objstorage-name }} API (S3). Успешный ответ – при отсутствии ошибок {{ objstorage-name }} отвечает HTTP-кодами 2xx. Код и тело ответа зависят от запроса и рассматриваются в описаниях запросов. Ответ с ошибкой – при возникновении ошибки {{ objstorage-name }} отвечает сообщением с соответствующим HTTP-кодом и дополнительным описанием в формате XML. Подробно описаны коды ошибок и их расшифровка.
+alternate:
+  - href: ru/storage/s3/api-ref/response-codes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ответы

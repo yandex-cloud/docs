@@ -1,6 +1,10 @@
 ---
 title: Как настроить эндпоинт-приемник {{ CH }} в {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ CH }} в {{ data-transfer-full-name }}.
+alternate:
+  - href: ru/data-transfer/operations/endpoint/target/clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передача данных в эндпоинт-приемник {{ CH }}

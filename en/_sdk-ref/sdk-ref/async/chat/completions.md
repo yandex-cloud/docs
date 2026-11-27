@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/async/chat/completions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_chat.completions.function.**AsyncChatCompletions**{#yandex_ai_studio_sdk._chat.completions.function.AsyncChatCompletions}

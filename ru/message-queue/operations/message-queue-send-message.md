@@ -1,6 +1,10 @@
 ---
 title: Как отправлять сообщения в {{ message-queue-full-name }}
 description: Следуя данной инструкции, вы сможете отправлять сообщения.
+alternate:
+  - href: ru/message-queue/operations/message-queue-send-message.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправка сообщений

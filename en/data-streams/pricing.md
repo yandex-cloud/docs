@@ -2,6 +2,10 @@
 title: '{{ yds-full-name }} pricing policy'
 description: This article covers the {{ yds-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/data-streams/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yds-full-name }} pricing policy

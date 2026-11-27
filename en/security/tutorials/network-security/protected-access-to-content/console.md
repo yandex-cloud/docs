@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/protected-access-to-content/console'
+alternate:
+  - href: en/security/tutorials/network-security/protected-access-to-content/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Providing secure access to content in {{ cdn-full-name }} using the management console, CLI, or API

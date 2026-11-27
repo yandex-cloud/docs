@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/certificate-manager/operations/import/cert-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Adding a custom certificate
 
 In this article, we will add a self-signed certificate as an example of a custom certificate. Check the custom certificate requirements in [{#T}](../../concepts/imported-certificate.md).

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_license_setup-online.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli license setup-online
 
 Configure online licensing with a service account key

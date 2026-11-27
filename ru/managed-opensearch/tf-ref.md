@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ mos-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mos-name }}.
+alternate:
+  - href: ru/managed-opensearch/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ mos-full-name }}

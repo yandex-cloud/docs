@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/monitoring/metrics-ref/serverless-containers-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ serverless-containers-full-name }} metrics

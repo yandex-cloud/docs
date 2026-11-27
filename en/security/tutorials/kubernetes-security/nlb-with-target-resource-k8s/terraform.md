@@ -2,6 +2,10 @@
 title: Migrating services from an NLB to an L7 ALB using {{ TF }}
 description: Follow this guide to migrate a service from a network load balancer with a {{ managed-k8s-full-name }} cluster as a target to an L7 load balancer using {{ TF }}.
 canonical: '{{ link-docs }}/tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform'
+alternate:
+  - href: en/security/tutorials/kubernetes-security/nlb-with-target-resource-k8s/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating services from an NLB with a {{ managed-k8s-full-name }} cluster as a target to an L7 ALB using {{ TF }}

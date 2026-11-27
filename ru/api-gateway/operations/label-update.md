@@ -1,6 +1,10 @@
 ---
 title: Изменить метку API-шлюза
 description: Следуя данной инструкции, вы сможете изменить метку API-шлюза.
+alternate:
+  - href: ru/api-gateway/operations/label-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить метку API-шлюза

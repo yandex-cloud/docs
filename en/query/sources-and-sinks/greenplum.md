@@ -1,6 +1,10 @@
 ---
 title: Working with {{ mgp-full-name }} databases
 description: In this tutorial, you will learn how to connect to a {{ mgp-name }} database and run queries against it from {{ yq-full-name }}.
+alternate:
+  - href: en/query/sources-and-sinks/greenplum.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with {{ mgp-name }} databases

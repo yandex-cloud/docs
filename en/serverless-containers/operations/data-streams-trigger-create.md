@@ -1,6 +1,10 @@
 ---
 title: Creating a trigger for {{ yds-full-name }} that invokes a container from {{ serverless-containers-full-name }}
 description: Follow this guide to create a trigger for {{ yds-name }} that invokes a container from {{ serverless-containers-name }}.
+alternate:
+  - href: en/serverless-containers/operations/data-streams-trigger-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a trigger for {{ yds-name }} that invokes a container from {{ serverless-containers-name }}

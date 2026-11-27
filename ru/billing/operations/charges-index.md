@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть детализацию расходов в {{ billing-name }}
 description: Узнайте, зачем нужна детализация расходов и какие способы ее получения существуют в {{ billing-name }}.
+alternate:
+  - href: ru/billing/operations/charges-index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть детализацию расходов

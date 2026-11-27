@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/datasphere/events-ref/CreateYandexDataProcessing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere Audit Trails Events: CreateYandexDataProcessing

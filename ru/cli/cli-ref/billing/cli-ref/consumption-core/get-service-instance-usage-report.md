@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/billing/cli-ref/consumption-core/get-service-instance-usage-report/
+alternate:
+  - href: ru/cli/cli-ref/billing/cli-ref/consumption-core/get-service-instance-usage-report.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc billing consumption-core get-service-instance-usage-report

@@ -1,6 +1,10 @@
 ---
 title: Domain
 description: A domain is a unique domain name you can use in {{ yandex-cloud }} services that require a confirmation of the user's domain rights.
+alternate:
+  - href: en/certificate-manager/concepts/domains/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Domain

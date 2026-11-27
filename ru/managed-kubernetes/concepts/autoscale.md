@@ -1,6 +1,10 @@
 ---
 title: Автоматическое масштабирование в {{ managed-k8s-name }}
 description: Автоматическое масштабирование в {{ managed-k8s-name }} позволяет изменять размер группы узлов, количество подов и объем ресурсов, выделяемых каждому поду.
+alternate:
+  - href: ru/managed-kubernetes/concepts/autoscale.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Автоматическое масштабирование

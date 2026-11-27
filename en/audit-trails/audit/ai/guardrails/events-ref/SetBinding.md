@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/ai/guardrails/events-ref/SetBinding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio Guardrails Audit Trails Events: SetBinding

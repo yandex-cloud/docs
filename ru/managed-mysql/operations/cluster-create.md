@@ -1,6 +1,10 @@
 ---
 title: Как создать кластер {{ MY }}
 description: Следуя данной инструкции, вы сможете создать кластер {{ MY }} с одним или несколькими хостами базы данных.
+alternate:
+  - href: ru/managed-mysql/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ MY }}

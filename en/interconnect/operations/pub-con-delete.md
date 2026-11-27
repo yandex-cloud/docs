@@ -1,6 +1,10 @@
 ---
 title: How to delete a public connection from a {{ interconnect-name }} trunk
 description: Follow this guide to delete a public connection from a {{ interconnect-name }} trunk.
+alternate:
+  - href: en/interconnect/operations/pub-con-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a public connection

@@ -1,6 +1,10 @@
 ---
 title: Миграция хостов кластера {{ MY }} в другую зону доступности
 description: Следуя данной инструкции, вы сможете переместить хосты кластера {{ MY }} в другую зону доступности.
+alternate:
+  - href: ru/managed-mysql/operations/host-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция хостов кластера {{ MY }} в другую зону доступности

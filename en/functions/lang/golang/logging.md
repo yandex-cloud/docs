@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/golang/logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Go function execution logging
 
 {{ sf-name }} automatically captures the Go application's standard output streams and sends them to the centralized logging system in {{ yandex-cloud }}. In addition to the application execution logs, the system also logs request execution events.

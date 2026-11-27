@@ -3,6 +3,10 @@ title: Подключение к кластеру {{ TR }}
 description: Следуя данной инструкции, вы сможете подключиться к кластеру {{ TR }}.
 keywords:
   - подключение к кластеру {{ TR }}
+alternate:
+  - href: ru/managed-trino/operations/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ TR }}

@@ -1,6 +1,10 @@
 ---
 title: How to update a {{ managed-k8s-name }} cluster
 description: Follow this guide to update a {{ managed-k8s-name }} cluster.
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a {{ managed-k8s-name }} cluster

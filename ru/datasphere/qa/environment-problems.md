@@ -1,6 +1,10 @@
 ---
 title: '{{ ml-platform-full-name }}. Решение проблем с зависимостями'
 description: Как установить библиотеки и решить связанные с этим ошибки {{ ml-platform-full-name }}? Ответы на этот и другие вопросы в данной статье.
+alternate:
+  - href: ru/datasphere/qa/environment-problems.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение проблем с зависимостями в {{ ml-platform-full-name }}

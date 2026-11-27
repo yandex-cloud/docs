@@ -19,6 +19,10 @@ meta:
     - keyword: containers in cloud
     - keyword: cloud containers
     - keyword: serverless containers
+  alternate:
+    - href: en/serverless-containers/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Prepare a Docker image and create a container

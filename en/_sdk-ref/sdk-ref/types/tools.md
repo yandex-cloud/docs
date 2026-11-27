@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/types/tools.md
+    type: text/markdown
+    title: Markdown version
+---
 # Tools
 
 ## Function tool

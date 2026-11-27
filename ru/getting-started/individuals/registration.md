@@ -1,6 +1,10 @@
 ---
 title: Инструкция о создании платежного аккаунта для физических лиц в {{ yandex-cloud }}
 description: Из статьи вы узнаете, как создать платежный аккаунт физическому лицу в {{ yandex-cloud }}.
+alternate:
+  - href: ru/getting-started/individuals/registration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание платежного аккаунта

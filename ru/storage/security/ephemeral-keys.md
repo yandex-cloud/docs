@@ -1,5 +1,9 @@
 ---
 noIndex: true
+alternate:
+  - href: ru/storage/security/ephemeral-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [ephemeral-key](../../_includes/iam/ephemeral-keys.md) %}

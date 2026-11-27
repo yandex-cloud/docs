@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.COMPOUND_EXPR_NOT_SUPPORTED
 description: На странице приведено описание ошибки {{ datalens-full-name }} CHYT does not support compound expressions in ON/USING clause.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-COMPOUND_EXPR_NOT_SUPPORTED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] CHYT does not support compound expressions in ON/USING clause

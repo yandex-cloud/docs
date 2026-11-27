@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/operations/trigger/ymq-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать триггер для {{ message-queue-name }}, который передает сообщения в функцию {{ sf-name }}
 
 Создайте [триггер](../../concepts/trigger/ymq-trigger.md) для [очереди сообщений](../../../message-queue/concepts/queue.md) сервиса {{ message-queue-short-name }} и обрабатывайте их с помощью [функции](../../concepts/function.md) {{ sf-name }}.

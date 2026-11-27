@@ -1,6 +1,10 @@
 ---
 title: Deleting expired metrics (TTL)
 description: In this article, you will learn how to delete expired metrics (TTL).
+alternate:
+  - href: en/monium/concepts/ttl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting expired metrics (TTL)

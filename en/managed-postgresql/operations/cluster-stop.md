@@ -1,6 +1,10 @@
 ---
 title: Stopping and starting a {{ PG }} cluster in {{ mpg-name }}
 description: If necessary, you can stop and restart a {{ PG }} database cluster. While your cluster is idle, you only pay for the size of your storage and backups.
+alternate:
+  - href: en/managed-postgresql/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Stopping and restarting a {{ PG }} cluster

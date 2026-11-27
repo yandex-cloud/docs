@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/application/saml/signature-certificate/create/
+alternate:
+  - href: ru/organization/cli-ref/idp/application/saml/signature-certificate/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager idp application saml signature-certificate create

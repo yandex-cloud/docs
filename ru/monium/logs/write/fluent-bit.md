@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/logs/write/fluent-bit.md
+    type: text/markdown
+    title: Markdown version
+---
 # Отправка логов через Fluent Bit
 
 {% include [about-agent](../../../_includes/monium/about-agent.md) %}

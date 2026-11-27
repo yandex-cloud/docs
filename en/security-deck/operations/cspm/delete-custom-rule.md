@@ -1,6 +1,10 @@
 ---
 title: Deleting a custom rule in {{ sd-full-name }}
 description: In this guide, you will learn how to delete a custom security rule if you no longer need it to check your infrastructure.
+alternate:
+  - href: en/security-deck/operations/cspm/delete-custom-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a custom rule

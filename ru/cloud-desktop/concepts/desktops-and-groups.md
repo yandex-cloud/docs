@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cloud-desktop/concepts/desktops-and-groups.md
+    type: text/markdown
+    title: Markdown version
+---
 # Рабочие столы и их группы
 
 Основной ресурс сервиса {{ cloud-desktop-name }} — _рабочий стол_. Это виртуальное рабочее пространство под управлением операционной системы на базе Linux или Windows (будет доступно позднее), развернутое в инфраструктуре {{ yandex-cloud }}.

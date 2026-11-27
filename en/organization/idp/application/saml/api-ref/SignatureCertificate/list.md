@@ -37,6 +37,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/organization/idp/application/saml/api-ref/SignatureCertificate/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: SignatureCertificate.List

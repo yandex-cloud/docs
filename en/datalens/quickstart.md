@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ datalens-full-name }}
 description: 'In this tutorial, you will get going with {{ datalens-full-name }}: connect to a data source, create your first dataset, build several data visualization charts, and put them on a dashboard.'
+alternate:
+  - href: en/datalens/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ datalens-full-name }}

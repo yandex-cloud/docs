@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/group/list-effective/
+alternate:
+  - href: ru/cli/cli-ref/organization-manager/cli-ref/group/list-effective.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager group list-effective

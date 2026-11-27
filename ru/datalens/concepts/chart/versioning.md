@@ -1,6 +1,10 @@
 ---
 title: Версионирование чарта в {{ datalens-full-name }}
 description: Версионирование чарта в {{ datalens-full-name }} — это возможность хранить историю изменений конфигурации чарта с помощью версий. Список версий доступен пользователям с минимальным правом доступа {{ permission-write }} на чарт.
+alternate:
+  - href: ru/datalens/concepts/chart/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Версионирование в {{ datalens-full-name }}

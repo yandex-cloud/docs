@@ -1,6 +1,10 @@
 ---
 title: Deleting a GPU cluster
 description: Follow this guide to delete a GPU cluster.
+alternate:
+  - href: en/compute/operations/gpu-cluster/gpu-cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a GPU cluster

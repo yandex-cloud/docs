@@ -27,6 +27,11 @@ meta:
     - keyword: роутер {{ cr-full-name }}
     - keyword: Гибридное облако {{ cr-full-name }}
     - keyword: Гибридное облако {{ yandex-cloud }}
+  noIndex: true
+  alternate:
+    - href: ru/cloud-router/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Концепции
     description: Узнайте про возможности сервиса

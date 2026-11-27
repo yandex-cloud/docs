@@ -1,6 +1,10 @@
 ---
 title: Отключить диск от виртуальной машины
 description: Отключить диск можно как от работающей, так и от остановленной виртуальной машины.
+alternate:
+  - href: ru/compute/operations/vm-control/vm-detach-disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отключить диск от виртуальной машины

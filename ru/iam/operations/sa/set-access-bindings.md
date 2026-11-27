@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iam/operations/sa/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка прав доступа к сервисному аккаунту
 
 Этот раздел про назначение [роли](../../concepts/access-control/roles.md) на [сервисный аккаунт](../../concepts/users/service-accounts.md) как на ресурс. Чтобы выдать роль сервисному аккаунту на другой ресурс, воспользуйтесь инструкцией [{#T}](assign-role-for-sa.md).

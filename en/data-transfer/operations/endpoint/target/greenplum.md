@@ -1,6 +1,10 @@
 ---
 title: How to set up a {{ GP }}/{{ CB }} target endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to set up a {{ GP }}/{{ CB }} target endpoint in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/operations/endpoint/target/greenplum.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Transferring data to a {{ GP }}/{{ CB }} target endpoint
 

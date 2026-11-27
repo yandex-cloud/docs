@@ -1,6 +1,10 @@
 ---
 title: Java programming model
 description: In this article, you will learn about the Java programming models supported by {{ sf-name }} and the handler requirements.
+alternate:
+  - href: en/functions/lang/java/model/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Java programming model

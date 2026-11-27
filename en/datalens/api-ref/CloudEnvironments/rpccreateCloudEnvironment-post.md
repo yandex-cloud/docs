@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/CloudEnvironments/rpccreateCloudEnvironment-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Create cloud environment

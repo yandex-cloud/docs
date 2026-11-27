@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/trino/create-catalog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать каталог {{ mtr-name }}
 
 [Каталог](../../concepts/components/trino.md#catalogs) {{ TR }} задает подключение к источнику данных. Один каталог описывается ресурсом `TrinoCatalog` и привязывается к конкретному кластеру через поле `spec.cluster`.

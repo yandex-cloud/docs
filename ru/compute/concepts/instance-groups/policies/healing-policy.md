@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/concepts/instance-groups/policies/healing-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Политика восстановления
 
 При создании группы виртуальных машин можно выбрать, каким образом будут восстанавливаться ВМ, не прошедшие проверку [работоспособности](../../instance-groups/autohealing.md#auto-healthcheck) или [состояния приложений](../../instance-groups/autohealing.md#functional-healthcheck).

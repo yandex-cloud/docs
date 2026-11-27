@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/trigger/os-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для {{ objstorage-name }}, который отправляет сообщения в WebSocket-соединения
 
 [Триггер](../trigger/) для {{ objstorage-name }} отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md), когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) {{ objstorage-name }}. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.

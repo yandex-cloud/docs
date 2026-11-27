@@ -1,6 +1,10 @@
 ---
 title: Мониторинг состояния кластера {{ KF }} и хостов
 description: Из статьи вы узнаете, как осуществлять мониторинг состояния кластера {{ KF }} и хостов.
+alternate:
+  - href: ru/managed-kafka/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг состояния кластера {{ KF }} и хостов

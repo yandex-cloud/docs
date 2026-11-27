@@ -1,6 +1,10 @@
 ---
 title: Работа с рекомендациями в {{ sd-full-name }} {{ access-analyzer-name }}
 description: В данном разделе вы узнаете, как в {{ sd-full-name }} {{ access-analyzer-name }} можно получить и применить рекомендации, касающиеся неиспользуемых и избыточно выданных прав доступа к ресурсам организации.
+alternate:
+  - href: ru/security-deck/operations/access-analyzer/use-recommendations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с рекомендациями в модуле {{ access-analyzer-name }}

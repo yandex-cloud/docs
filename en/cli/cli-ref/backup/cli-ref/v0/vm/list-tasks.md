@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/v0/vm/list-tasks/
+alternate:
+  - href: en/cli/cli-ref/backup/cli-ref/v0/vm/list-tasks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc backup v0 vm list-tasks

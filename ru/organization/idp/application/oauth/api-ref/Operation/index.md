@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/organization/idp/application/oauth/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OAUTH Application API, REST: Operation

@@ -102,10 +102,10 @@
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.opensearch; curl.exe -o $HOME\.opensearch\root.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
+   mkdir $HOME\AppData\Roaming\.opensearch; curl.exe -o $HOME\AppData\Roaming\.opensearch\root.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
    ```
 
-   Сертификат будет сохранен в файле `$HOME\.opensearch\root.crt`.
+   Сертификат будет сохранен в файле `$HOME\AppData\Roaming\.opensearch\root.crt`.
 
    Корпоративные политики и антивирус могут блокировать скачивание сертификата. Подробнее читайте в разделе [Вопросы и ответы](../../qa/index.md#get-ssl-error).
 

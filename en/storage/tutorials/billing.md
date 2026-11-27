@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/billing-detail-files-processing'
+alternate:
+  - href: en/storage/tutorials/billing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Processing files with usage details in {{ billing-name }}

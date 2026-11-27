@@ -1,6 +1,10 @@
 ---
 title: Создание группы узлов
 description: Следуя данной инструкции, вы сможете создать группы узлов.
+alternate:
+  - href: ru/managed-kubernetes/operations/node-group/node-group-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание группы узлов

@@ -1,6 +1,10 @@
 ---
 title: Configuring HTTPS for hosting in {{ objstorage-full-name }}
 description: Follow this guide to configure HTTPS for hosting in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/hosting/certificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring HTTPS

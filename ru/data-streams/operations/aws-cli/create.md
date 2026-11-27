@@ -1,6 +1,10 @@
 ---
 title: Создание потока данных в AWS CLI
 description: Следуя данной инструкции, вы сможете создать поток данных в AWS CLI.
+alternate:
+  - href: ru/data-streams/operations/aws-cli/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание потока данных в AWS CLI

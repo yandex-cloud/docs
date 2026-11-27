@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/cloud-router/concepts/announces.md
+    type: text/markdown
+    title: Markdown version
+---
 ## Анонсы облачных подсетей и взаимодействие с {{ vpc-short-name }} {#prc-announce}
 
 Для анонсирования IP-префиксов виртуальных сетей в виртуальном маршрутизаторе необходимо знать:

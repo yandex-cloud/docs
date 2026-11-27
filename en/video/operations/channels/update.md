@@ -1,6 +1,10 @@
 ---
 title: How to edit a channel in {{ video-full-name }}
 description: Follow this guide to edit a {{ video-full-name }} channel.
+alternate:
+  - href: en/video/operations/channels/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a channel

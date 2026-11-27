@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/metadata-hub/operations/metastore/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a {{ metastore-full-name }} cluster
 
 You can delete a {{ metastore-name }} cluster along with all its stored data. Before that, [disable](cluster-update.md) cluster deletion protection if enabled.

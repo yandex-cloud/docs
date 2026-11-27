@@ -1,6 +1,10 @@
 ---
 title: Getting information about {{ mtr-name }} clusters
 description: You can request detailed information for each {{ mtr-name }} cluster you have created. To get a list of clusters in a folder, go to the folder dashboard and select {{ mtr-name }}.
+alternate:
+  - href: en/managed-trino/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information on existing {{ mtr-name }} clusters

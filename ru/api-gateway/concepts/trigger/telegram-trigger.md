@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/trigger/telegram-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для Telegram, который отправляет сообщения в WebSocket-соединения
 
 [Триггер](../trigger/) для Telegram отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md), когда Telegram-бот получает обновление: сообщение, команду, срабатывание кнопки и другие события. Для получения обновлений триггер использует токен Telegram-бота.

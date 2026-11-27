@@ -1,6 +1,10 @@
 ---
 title: Селекторы в {{ datalens-full-name }}
 description: Селекторы в {{ datalens-full-name }} — это фильтр, который влияет на результаты запросов на связанных с ним виджетах.
+alternate:
+  - href: ru/datalens/dashboard/selector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Селекторы в {{ datalens-full-name }}

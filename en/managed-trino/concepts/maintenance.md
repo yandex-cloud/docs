@@ -1,6 +1,10 @@
 ---
 title: Maintenance in {{ mtr-full-name }}
 description: In {{ mtr-name }}, maintenance means automatic installation of updates and patches for hosts (including for stopped clusters), host class modifications, and other maintenance operations.
+alternate:
+  - href: en/managed-trino/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Maintenance in {{ mtr-name }}

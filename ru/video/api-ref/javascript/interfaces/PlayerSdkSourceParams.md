@@ -1,6 +1,10 @@
 ---
 title: 'Interface: PlayerSdkSourceParams'
 description: Из статьи вы узнаете про параметры источника для работы видеоплеера SDK.
+alternate:
+  - href: ru/video/api-ref/javascript/interfaces/PlayerSdkSourceParams.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Interface: PlayerSdkSourceParams

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/getting-invoices-automatically.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как получать счета на электронную почту автоматически
 
 

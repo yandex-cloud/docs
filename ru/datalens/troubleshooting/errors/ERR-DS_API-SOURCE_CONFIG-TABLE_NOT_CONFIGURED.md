@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED
 description: На странице приведено описание ошибки {{ datalens-full-name }} Нарушена конфигурация таблицы.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Нарушена конфигурация таблицы

@@ -1,6 +1,10 @@
 ---
 title: Шифрование в {{ managed-k8s-full-name }}
 description: Из статьи вы узнаете, что такое шифрование в {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/concepts/encryption.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Шифрование в {{ managed-k8s-name }}

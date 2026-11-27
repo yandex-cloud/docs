@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/billing/cli-ref/metadata/get-service-instance/
+alternate:
+  - href: en/cli/cli-ref/billing/cli-ref/metadata/get-service-instance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc billing metadata get-service-instance

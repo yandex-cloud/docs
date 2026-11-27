@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/compute/api-ref/Filesystem/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Filesystem.UpdateAccessBindings

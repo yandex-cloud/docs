@@ -2,6 +2,10 @@
 title: Как прочитать запись из таблицы в {{ ydb-full-name }}
 description: Следуя данной инструкции, вы сможете прочитать запись из таблицы.
 sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
+alternate:
+  - href: ru/ydb/docapi/tools/aws-sdk/read-item.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Чтение записи
 

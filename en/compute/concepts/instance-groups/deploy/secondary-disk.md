@@ -1,6 +1,10 @@
 ---
 title: Updating secondary disks in an instance template
 description: This guide tells you how to update secondary disks in an instance template.
+alternate:
+  - href: en/compute/concepts/instance-groups/deploy/secondary-disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating secondary disks in an instance template

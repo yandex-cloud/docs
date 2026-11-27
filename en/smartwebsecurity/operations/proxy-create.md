@@ -1,6 +1,10 @@
 ---
 title: How to create a proxy server in {{ sws-full-name }}
 description: Follow this guide to create a proxy server to process incoming requests and protect domains in {{ sws-full-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/proxy-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a proxy server

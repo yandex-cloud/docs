@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cloud-desktop/concepts/showcase.md
+    type: text/markdown
+    title: Markdown version
+---
 # Витрина пользовательских рабочих столов
 
 _[Витрина пользовательских рабочих столов]({{ link-cloud-desktop-showcase }})_ — веб-страница вне [консоли управления](../../console/) {{ yandex-cloud }}, на которой пользователю доступны основные действия с его рабочими столами и краткая инструкция.

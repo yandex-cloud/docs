@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/backup/backup/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Operation.Get

@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ at-full-name }}'
 description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ at-name }}.
+alternate:
+  - href: en/audit-trails/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ at-full-name }}

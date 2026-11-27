@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v1/partner/list/
+alternate:
+  - href: en/interconnect/cli-ref/v1/partner/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cic v1 partner list

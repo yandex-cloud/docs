@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/tools/sftps.md
+    type: text/markdown
+    title: Markdown version
+---
 # Docker-контейнер для монтирования бакета {{ objstorage-name }} к (S)FTP(S)-серверу
 
 Для доступа к [бакету](../concepts/bucket.md) по протоколу FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS) или [SFTP](https://ru.wikipedia.org/wiki/SFTP) можно развернуть сервер с помощью публичного [Docker-контейнера](/blog/posts/2022/03/docker-containers), предоставляемого {{ objstorage-name }}.

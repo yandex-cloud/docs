@@ -1,6 +1,10 @@
 ---
 title: Создание конфигурационных файлов и подключение к {{ ydb-short-name }}
 description: Следуя данной инструкции, вы сможете создать конфигурационные файлы и подключиться к {{ ydb-short-name }}.
+alternate:
+  - href: ru/ydb/terraform/configure.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание конфигурационных файлов и подключение к {{ ydb-short-name }}

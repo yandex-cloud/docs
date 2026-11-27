@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/concepts/cors.md
+    type: text/markdown
+    title: Markdown version
+---
 # CORS in {{ cdn-name }}
 
 {{ cdn-full-name }} supports [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) via CORS (cross-origin resource sharing).

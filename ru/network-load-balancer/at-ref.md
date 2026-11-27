@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ network-load-balancer-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ network-load-balancer-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/network-load-balancer/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ at-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: '{{ monitoring-full-name }} release notes'
 description: This section contains the {{ monitoring-name }} release notes.
+alternate:
+  - href: en/monitoring/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} release notes

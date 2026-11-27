@@ -131,6 +131,10 @@ apiPlayground:
               - logGroupId
           - required:
               - folderId
+alternate:
+  - href: ru/iot-core/broker/api-ref/Broker/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Broker Service, REST: Broker.Create

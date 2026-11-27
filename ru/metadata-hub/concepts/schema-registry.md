@@ -1,6 +1,10 @@
 ---
 title: Реестр схем данных
 description: Из статьи вы узнаете, что такое что такое пространство имен, субъект, схема и референс.
+alternate:
+  - href: ru/metadata-hub/concepts/schema-registry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Реестр схем данных

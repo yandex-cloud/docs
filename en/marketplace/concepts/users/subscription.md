@@ -1,6 +1,10 @@
 ---
 title: User subscription in {{ marketplace-full-name }}
 description: In this article, you will learn about subscriptions in {{ marketplace-name }}.
+alternate:
+  - href: en/marketplace/concepts/users/subscription.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Subscription

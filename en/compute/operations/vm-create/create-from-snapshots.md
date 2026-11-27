@@ -1,6 +1,10 @@
 ---
 title: How to create a VM with disks from snapshots
 description: Use this guide to create a VM with disks recovered from snapshots available in the folder.
+alternate:
+  - href: en/compute/operations/vm-create/create-from-snapshots.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM with disks recovered from snapshots

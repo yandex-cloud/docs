@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/organization/api-ref/grpc/UserSshKey/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, gRPC: UserSshKeyService.Update

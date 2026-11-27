@@ -1,6 +1,10 @@
 ---
 title: Группы узлов с GPU
 description: Из статьи вы узнаете про группы узлов с GPU, требования к ним и ознакомитесь с особенностями тарификации.
+alternate:
+  - href: ru/managed-kubernetes/concepts/node-group/node-group-gpu.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Группы узлов с GPU

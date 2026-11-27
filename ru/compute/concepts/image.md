@@ -5,6 +5,10 @@ keywords:
   - вм
   - вм образ
   - образ виртуальной машины
+alternate:
+  - href: ru/compute/concepts/image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Образы

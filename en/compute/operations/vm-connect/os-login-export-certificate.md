@@ -1,6 +1,10 @@
 ---
 title: How to export an SSH certificate
 description: Follow this guide to locally export an SSH certificate to use it for {{ oslogin }} access to properly configured VMs.
+alternate:
+  - href: en/compute/operations/vm-connect/os-login-export-certificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Exporting an SSH certificate

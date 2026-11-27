@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ myt-full-name }}
 description: To get started with {{ myt-full-name }}, create a service cluster and open the {{ ytsaurus-name }} web interface.
+alternate:
+  - href: en/managed-ytsaurus/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ myt-full-name }}

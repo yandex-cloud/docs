@@ -1,6 +1,10 @@
 ---
 title: Managing access permissions in {{ datalens-platform-full-name }}
 description: Follow this guide to configure access permissions for {{ datalens-platform-short-name }} and its objects as well as handle access requests.
+alternate:
+  - href: en/datalens/datalens-platform/security/manage-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access permissions

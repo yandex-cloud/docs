@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/network-load-balancer/known-issues/index.md
+    type: text/markdown
+    title: Markdown version
+---
 ## Solutions for known {{ network-load-balancer-name }} issues {#known-issues-resolving}
 
 * [Fixing the `Permission denied to create UDP listener in folder` error when creating a {{ network-load-balancer-name }}](permission-denied-to-create-udp-listener-in-folder.md)

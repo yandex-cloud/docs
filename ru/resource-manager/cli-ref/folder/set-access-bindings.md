@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/folder/set-access-bindings/
+alternate:
+  - href: ru/resource-manager/cli-ref/folder/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc resource-manager folder set-access-bindings

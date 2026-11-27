@@ -1,6 +1,10 @@
 ---
 title: How to update a subcluster in {{ dataproc-full-name }}
 description: Follow this guide to update a subcluster.
+alternate:
+  - href: en/data-proc/operations/subcluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a subcluster

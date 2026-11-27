@@ -1,6 +1,10 @@
 ---
 title: How to select data from a {{ ydb-full-name }} table
 description: Follow this guide to select data from a table.
+alternate:
+  - href: en/ydb/docapi/tools/aws-cli/query.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data selection

@@ -2,6 +2,10 @@
 title: How to create a table in {{ ydb-full-name }}
 description: Follow this guide to create a table.
 sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
+alternate:
+  - href: en/ydb/docapi/tools/aws-sdk/create-table.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Creating a table in the AWS SDK
 

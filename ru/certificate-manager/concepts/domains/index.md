@@ -1,6 +1,10 @@
 ---
 title: Домен
 description: Домен — уникальное доменное имя, которое можно использовать в сервисах {{ yandex-cloud }}, которым требуется подтверждение прав пользователя на домен.
+alternate:
+  - href: ru/certificate-manager/concepts/domains/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Домен

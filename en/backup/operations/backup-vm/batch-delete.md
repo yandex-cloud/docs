@@ -1,6 +1,10 @@
 ---
 title: How to delete all backups of a resource
 description: Follow this guide to delete all backups of a resource.
+alternate:
+  - href: en/backup/operations/backup-vm/batch-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting all backups of a resource

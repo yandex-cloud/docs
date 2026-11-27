@@ -1,6 +1,10 @@
 ---
 title: Передача данных из эндпоинта-источника Microsoft SQL Server
 description: Следуя данной инструкции, вы сможете настроить передачу данных из эндпоинта-источника Microsoft SQL Server.
+alternate:
+  - href: ru/data-transfer/operations/endpoint/source/mssql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передача данных из эндпоинта-источника Microsoft SQL Server

@@ -2,6 +2,10 @@
 title: Правила оценки стоимости запросов к {{ ydb-full-name }} через специализированные API
 description: Из статьи вы узнаете, как рассчитывается стоимость запросов к {{ ydb-short-name }} через специализированные API.
 editable: false
+alternate:
+  - href: ru/ydb/pricing/ru-special.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила оценки стоимости запросов к {{ ydb-short-name }} через специализированные API

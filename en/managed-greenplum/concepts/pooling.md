@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/concepts/pooling.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing connections in {{ mgp-name }}
 
 {{ mgp-name }} allocates a separate process for each established connection. With numerous client connections, it creates multiple processes and manages distributed data structures. This may cause a lack of computing resources affecting the DBMS performance.

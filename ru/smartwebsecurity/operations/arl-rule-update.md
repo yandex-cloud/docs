@@ -1,6 +1,10 @@
 ---
 title: Изменить правило в профиле ARL
 description: Следуя данной инструкции, вы сможете изменить правило в профиле ARL.
+alternate:
+  - href: ru/smartwebsecurity/operations/arl-rule-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить правило в профиле ARL

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/logging/operations/access-rights.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление правами доступа к лог-группе
 
 Вы можете посмотреть, какие роли [назначены](#list) на лог-группу, [отозвать](#revoke) их или [назначить](#add-access) новые.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/iam.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ iam-name }}
 
 {{ iam-name }} — компонент для управления доступом пользователей и сервисных аккаунтов к ресурсам платформы. Компонент обеспечивает централизованную аутентификацию и авторизацию во всех сервисах платформы.

@@ -1,6 +1,10 @@
 ---
 title: Examples of sending messages in {{ yds-full-name }}
 description: The following examples demonstrate how to send messages in {{ yds-name }}.
+alternate:
+  - href: en/data-streams/kinesisapi/examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Examples of sending messages in {{ yds-name }}

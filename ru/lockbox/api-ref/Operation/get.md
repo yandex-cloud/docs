@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/lockbox/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox API, REST: Operation.Get

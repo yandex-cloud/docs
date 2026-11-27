@@ -1,6 +1,10 @@
 ---
 title: How to connect to a {{ dataproc-full-name }} cluster host from graphical IDEs
 description: Follow this guide to connect to a {{ dataproc-name }} host from graphical IDEs.
+alternate:
+  - href: en/data-proc/operations/connect-ide.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ dataproc-name }} host from graphical IDEs

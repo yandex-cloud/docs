@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/kms/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing {{ kms-name }} resource operations
 
 The system logs all actions with {{ kms-name }} resources as a list of operations. Each operation gets a unique ID.

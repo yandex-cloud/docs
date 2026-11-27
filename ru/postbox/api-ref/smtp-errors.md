@@ -1,6 +1,10 @@
 ---
 title: Ответы SMTP в {{ postbox-full-name }}
 description: В статье описаны успешные ответы и ошибки, которые возвращает SMTP-интерфейс {{ postbox-name }} при отправке писем.
+alternate:
+  - href: ru/postbox/api-ref/smtp-errors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ответы SMTP

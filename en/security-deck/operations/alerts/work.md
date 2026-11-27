@@ -1,6 +1,10 @@
 ---
 title: Working with alerts in {{ sd-full-name }}
 description: In this section, you will learn how to work with alerts in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/alerts/work.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with alerts

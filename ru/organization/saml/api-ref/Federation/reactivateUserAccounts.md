@@ -29,6 +29,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/organization/saml/api-ref/Federation/reactivateUserAccounts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Federation API, REST: Federation.ReactivateUserAccounts

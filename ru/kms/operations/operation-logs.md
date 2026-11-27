@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/kms/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Посмотреть операции с ресурсами сервиса {{ kms-name }}
 
 Все действия с ресурсами сервиса {{ kms-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.

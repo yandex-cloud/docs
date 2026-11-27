@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/iam/create-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать пользователя
 
 Создайте локального пользователя в {{ iam-name }} и назначьте ему нужную [роль](../../access-management.md).

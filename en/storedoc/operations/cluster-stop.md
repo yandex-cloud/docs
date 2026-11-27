@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
+---
 # Stopping and restarting a {{ SD }} cluster
 
 If necessary, you can stop and restart your {{ SD }} cluster. While your cluster is idle, you only pay for the size of your storage and backups as per the [pricing policy](../pricing.md#rules-storage).

@@ -1,6 +1,10 @@
 ---
 title: Deleting a partially uploaded object in {{ objstorage-full-name }}
 description: Follow this guide to delete a partially uploaded object from a bucket in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/objects/deleting-multipart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a partially uploaded object

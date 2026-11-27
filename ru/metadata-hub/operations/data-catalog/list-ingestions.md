@@ -1,6 +1,10 @@
 ---
 title: Как получить список загрузок данных в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы сможете получить список загрузок данных в {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/list-ingestions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка загрузок

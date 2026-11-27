@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/sms-alerts-are-not-arriving.md
+    type: text/markdown
+    title: Markdown version
+---
 # Устранение проблем с привязкой номера телефона для SMS-уведомлений к платежному аккаунту
 
 

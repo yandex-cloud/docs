@@ -1,6 +1,10 @@
 ---
 title: How to update an instance group in {{ compute-full-name }} based on a YAML specification
 description: Follow this guide to update an instance group based on a YAML specification.
+alternate:
+  - href: en/compute/operations/instance-groups/update-from-yaml.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating an instance group based on a YAML specification

@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ video-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ video-name }}.
 editable: false
+alternate:
+  - href: ru/video/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ video-full-name }}

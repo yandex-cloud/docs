@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/licensing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Licensing
 
 In {{ stackland-name }}, licenses are metered by the total number of vCPUs within a cluster. A dedicated component called *License Server* provides information about limits. The cluster regularly sends resource usage data to License Server, gets active limits in response, and uses them to generate the license status.

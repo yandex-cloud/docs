@@ -1,6 +1,10 @@
 ---
 title: Системные и технические требования при установке модуля {{ kspm-name }}
 description: В этом разделе собраны системные и технические требования к кластерам {{ k8s }} для установки модуля Контроль {{ k8s }}® ({{ kspm-name }}) в {{ sd-name }}.
+alternate:
+  - href: ru/security-deck/operations/kspm/requirements.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Системные и технические требования

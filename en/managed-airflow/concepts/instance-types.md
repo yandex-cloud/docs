@@ -1,6 +1,10 @@
 ---
 title: '{{ maf-name }} host classes'
 description: The host class determines the computing power allocated for each host in a {{ maf-name }} cluster.
+alternate:
+  - href: en/managed-airflow/concepts/instance-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ maf-name }} host classes

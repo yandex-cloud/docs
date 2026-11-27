@@ -1,6 +1,10 @@
 ---
 title: Как назначить пользователя администратором организации в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете назначить пользователя администратором организации в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/add-org-admin.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначить пользователя администратором организации

@@ -2,6 +2,10 @@
 title: Quotas and limits in {{ resmgr-full-name }}
 description: '{{ resmgr-full-name }} has quotas for the number of clouds per organization and the number of folders per cloud. There are no limits defined for the service.'
 editable: false
+alternate:
+  - href: en/resource-manager/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ resmgr-name }}

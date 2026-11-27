@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/resource-model.md
+    type: text/markdown
+    title: Markdown version
+---
 # Взаимосвязь ресурсов в {{ ml-platform-name }}
 
 {{ ml-platform-name }} работает в рамках [организаций {{ yandex-cloud }}](../../organization/). Все создаваемые сущности {{ ml-platform-name }} являются ресурсами организации. Обмен ресурсами между организациями невозможен.

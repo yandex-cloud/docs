@@ -1,6 +1,10 @@
 ---
 title: How to set up cross-chart filtering on a dashboard in {{ datalens-full-name }}
 description: Follow this guide to set up cross-chart filtering on a dashboard in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/add-filtration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up cross-chart filtering in {{ datalens-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Creating a term in {{ data-catalog-full-name }}
 description: Follow this guide to create a term in a {{ data-catalog-name }} glossary.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/create-term.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a term

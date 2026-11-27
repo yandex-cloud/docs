@@ -1,6 +1,10 @@
 ---
 title: Отозвать роли, назначенные на трейл
 description: Следуя данной инструкции, вы сможете отозвать роли, назначенные на трейл.
+alternate:
+  - href: ru/audit-trails/operations/role-revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отозвать роли, назначенные на трейл

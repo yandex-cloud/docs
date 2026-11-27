@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/billing/cli-ref/metadata/get-usage/
+alternate:
+  - href: ru/cli/cli-ref/billing/cli-ref/metadata/get-usage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc billing metadata get-usage

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/metadata-hub/concepts/schema-registry-content-model.md
+    type: text/markdown
+    title: Markdown version
+---
 # Content models and JSON schema evolution issues
 
 

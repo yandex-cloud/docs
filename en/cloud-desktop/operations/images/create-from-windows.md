@@ -1,6 +1,10 @@
 ---
 title: How to create a Windows image and add it to {{ cloud-desktop-name }}
 description: Follow this guide to add an image based on a custom Windows image.
+alternate:
+  - href: en/cloud-desktop/operations/images/create-from-windows.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Create a Windows-based image

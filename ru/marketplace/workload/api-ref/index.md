@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/marketplace/workload/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Apps Workload API: REST reference

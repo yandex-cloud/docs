@@ -1,6 +1,10 @@
 ---
 title: Как настроить инфраструктуру при добавлении домена в {{ sws-name }}
 description: Следуя данной инструкции, вы сможете настроить свой домен для работы через прокси-сервер {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/setup-infrastructure.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить инфраструктуру

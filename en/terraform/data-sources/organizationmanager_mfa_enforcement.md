@@ -1,5 +1,9 @@
 ---
 subcategory: Identity Hub
+alternate:
+  - href: en/terraform/data-sources/organizationmanager_mfa_enforcement.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_organizationmanager_mfa_enforcement (DataSource)

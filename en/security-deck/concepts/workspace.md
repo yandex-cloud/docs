@@ -1,6 +1,10 @@
 ---
 title: '{{ sd-full-name }} workspaces'
 description: A {{ sd-full-name }} workspace is a container holding the {{ sd-name }} module settings and resources, a list of controlled resources, control parameters, and other settings.
+alternate:
+  - href: en/security-deck/concepts/workspace.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sd-name }} workspaces

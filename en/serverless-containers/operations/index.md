@@ -1,6 +1,10 @@
 ---
 title: How to work with {{ serverless-containers-full-name }}
 description: In this article, you will learn how to work with the managed service for {{ serverless-containers-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/serverless-containers/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All {{ serverless-containers-name }} guides

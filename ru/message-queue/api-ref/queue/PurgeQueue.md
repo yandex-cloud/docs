@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/queue/PurgeQueue.md
+    type: text/markdown
+    title: Markdown version
+---
 # PurgeQueue
 
 Метод для очистки очереди сообщений. Удаление сообщений занимает некоторое время. Чтобы убедиться, что в очереди не осталось сообщений, приостановите отправку сообщений в очередь и вызовите метод [GetQueueAttributes](GetQueueAttributes.md).

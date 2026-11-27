@@ -1,6 +1,10 @@
 ---
 title: Updating a function description
 description: Follow this guide to update a function description.
+alternate:
+  - href: en/functions/operations/function/description-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a function description

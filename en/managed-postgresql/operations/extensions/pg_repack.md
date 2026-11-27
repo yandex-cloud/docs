@@ -1,6 +1,10 @@
 ---
 title: How to use pg_repack in {{ mpg-name }}
 description: In this tutorial, you will learn how to install and use pg_repack and its client, with a practical example.
+alternate:
+  - href: en/managed-postgresql/operations/extensions/pg_repack.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using pg_repack in {{ mpg-name }}

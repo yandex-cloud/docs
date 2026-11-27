@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/golang/dependencies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сборка и управление зависимостями функции на Go
 
 Сервис {{ sf-name }} на этапе сборки автоматически устанавливает зависимости, необходимые для работы функции на Go, во время создания новой [версии функции](../../operations/function/version-manage.md).

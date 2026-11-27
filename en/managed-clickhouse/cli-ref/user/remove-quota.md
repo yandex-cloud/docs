@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/user/remove-quota/
+alternate:
+  - href: en/managed-clickhouse/cli-ref/user/remove-quota.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse user remove-quota

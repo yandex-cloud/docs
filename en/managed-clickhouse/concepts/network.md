@@ -1,6 +1,10 @@
 ---
 title: Network and database clusters in {{ mch-name }}
 description: When creating a {{ mch-name }} cluster, you can set a network for the cluster itself and subnets for each cluster host. You can also request public access to connect to the cluster from outside {{ yandex-cloud }}.
+alternate:
+  - href: en/managed-clickhouse/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network and database clusters in {{ mch-name }}

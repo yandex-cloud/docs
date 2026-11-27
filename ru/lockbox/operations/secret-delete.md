@@ -1,6 +1,10 @@
 ---
 title: Как удалить секрет в {{ lockbox-full-name }}
 description: Следуя данной инструкции, вы сможете удалить секрет.
+alternate:
+  - href: ru/lockbox/operations/secret-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить секрет

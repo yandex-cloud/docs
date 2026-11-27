@@ -1,6 +1,10 @@
 ---
 title: Как настроить парольную политику в пуле пользователей {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете настроить парольную политику в пуле пользователей {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/set-password-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить парольную политику

@@ -1,6 +1,10 @@
 ---
 title: Создание виртуальной машины на выделенном хосте
 description: Следуя данной инструкции, вы сможете создать виртуальную машину на выделенном хосте.
+alternate:
+  - href: ru/compute/operations/dedicated-host/running-host-vms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание виртуальной машины на выделенном хосте

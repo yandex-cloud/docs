@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/cluster/
+alternate:
+  - href: en/managed-spark/cli-ref/cluster/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-spark cluster

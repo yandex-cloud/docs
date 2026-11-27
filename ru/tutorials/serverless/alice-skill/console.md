@@ -5,6 +5,10 @@ keywords:
   - создание навыка алисы
   - навык алисы
   - пример создания навыка алисы
+alternate:
+  - href: ru/tutorials/serverless/alice-skill/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание навыка Алисы в консоли управления, с помощью {{ yandex-cloud }} CLI или API

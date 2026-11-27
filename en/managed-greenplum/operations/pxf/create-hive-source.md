@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/pxf/create-hive-source.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating an external Hive data source
 
 In {{ mgp-name }}, you can use a Hive DBMS as part of [{{ dataproc-full-name }}](../../../data-proc/index.yaml) or other third-party Hive services as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the Hive connection type.

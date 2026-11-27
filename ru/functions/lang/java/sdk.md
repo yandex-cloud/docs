@@ -1,6 +1,10 @@
 ---
 title: Использование SDK для функции на Java в {{ sf-full-name }}. Обзор
 description: Вы можете управлять функцией {{ sf-name }} на Java с помощью SDK.
+alternate:
+  - href: ru/functions/lang/java/sdk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование SDK для функции на Java

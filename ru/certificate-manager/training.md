@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ certificate-manager-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ certificate-manager-full-name }}.
+alternate:
+  - href: ru/certificate-manager/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ certificate-manager-full-name }}

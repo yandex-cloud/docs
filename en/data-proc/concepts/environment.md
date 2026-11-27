@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/concepts/environment.md
+    type: text/markdown
+    title: Markdown version
+---
 # Runtime environment
 
 When creating a {{ dataproc-name }} cluster, you can choose the image version that determines component versions.

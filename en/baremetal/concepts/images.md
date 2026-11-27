@@ -1,6 +1,10 @@
 ---
 title: OS images in {{ baremetal-full-name }}
 description: In this guide, you will learn about the OS images you can use for OS installation on servers in {{ baremetal-full-name }}.
+alternate:
+  - href: en/baremetal/concepts/images.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OS images

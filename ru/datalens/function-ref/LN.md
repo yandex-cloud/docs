@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/LN.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # LN

@@ -4,6 +4,10 @@ description: SOAP — протокол обмена информацией ме�
 keywords:
   - SOAP
   - Simple Object Access Protocol
+alternate:
+  - href: ru/glossary/soap.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Протокол SOAP: что это и как работает

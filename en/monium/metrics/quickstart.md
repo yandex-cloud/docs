@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/metrics/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ yandex-cloud }} resource metrics
 
 {{ monium-name }} allows you to work with the metrics of {{ yandex-cloud }} services as well as any other metrics uploaded to {{ monium-name }}, e.g., from your applications, infrastructure, or other clouds.

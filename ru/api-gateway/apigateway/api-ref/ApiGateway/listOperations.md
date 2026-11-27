@@ -49,6 +49,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/api-gateway/apigateway/api-ref/ApiGateway/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Gateway Service, REST: ApiGateway.ListOperations

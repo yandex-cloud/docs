@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/operations/trigger/timer-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать таймер, который отправляет сообщения в WebSocket-соединения
 
 Создайте [таймер](../../concepts/trigger/timer.md) — триггер, который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) по расписанию.

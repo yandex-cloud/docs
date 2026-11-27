@@ -1,6 +1,10 @@
 ---
 title: Installing Velero
 description: Follow this guide to install Velero.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/velero-yc-csi.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing Velero

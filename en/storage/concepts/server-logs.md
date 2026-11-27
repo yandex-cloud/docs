@@ -1,6 +1,10 @@
 ---
 title: Bucket logging
 description: In this article, you will learn about the bucket logging algorithm, source and target bucket requirements, log object key format, and logging features.
+alternate:
+  - href: en/storage/concepts/server-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Bucket logging

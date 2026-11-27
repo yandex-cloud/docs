@@ -1,6 +1,10 @@
 ---
 title: Methods of using Lifecycles in the {{ objstorage-full-name }} HTTP API (S3)
 description: The Lifecycles service in the {{ objstorage-name }} HTTP API (S3) manages lifecycle configurations for objects in buckets. This section describes the methods for using the service (upload, get, delete).
+alternate:
+  - href: en/storage/s3/api-ref/lifecycles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All methods

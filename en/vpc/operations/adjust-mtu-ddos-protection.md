@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/vpc/operations/adjust-mtu-ddos-protection.md
+    type: text/markdown
+    title: Markdown version
+---
 # Setting up the MTU when enabling DDoS protection
 
 We recommend setting the MTU to `1450` bytes when [{{ ddos-protection-full-name }}](./enable-ddos-protection.md) protection is active.

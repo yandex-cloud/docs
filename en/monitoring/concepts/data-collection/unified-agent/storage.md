@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monitoring/concepts/data-collection/unified-agent/storage.md
+    type: text/markdown
+    title: Markdown version
+---
 # Storages
 
 Storages are listed in the `storages` section, while storage references are added to the `pipe` section. The number of storages is unlimited; however, you can make only one reference to a storage.

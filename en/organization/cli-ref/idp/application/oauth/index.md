@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/application/oauth/
+alternate:
+  - href: en/organization/cli-ref/idp/application/oauth/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager idp application oauth

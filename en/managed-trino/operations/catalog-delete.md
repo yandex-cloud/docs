@@ -1,6 +1,10 @@
 ---
 title: Deleting a {{ TR }} catalog
 description: Follow this guide to delete a catalog from a {{ mtr-name }} cluster.
+alternate:
+  - href: en/managed-trino/operations/catalog-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a {{ TR }} catalog

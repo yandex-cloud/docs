@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/organizationmanager/oauth/events-ref/OAuthFederationPrivateTlsCreateCertificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub Audit Trails Events: OAuthFederationPrivateTlsCreateCertificate

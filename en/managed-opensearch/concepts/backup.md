@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-opensearch/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
+---
 # Backups in {{ mos-name }}
 
 {{ mos-short-name }} supports automatic and manual [index](./indexing.md) backups.

@@ -1,6 +1,10 @@
 ---
 title: Работа с правилами корреляции в {{ yandex-siem-full-name }}
 description: Обзор возможностей работы с правилами корреляции в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/operations/correlation-rules/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с правилами корреляции

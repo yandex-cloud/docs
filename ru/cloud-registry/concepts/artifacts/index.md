@@ -1,6 +1,10 @@
 ---
 title: Артефакты в {{ cloud-registry-full-name }}
 description: Артефакт — это пакеты программного обеспечения и другие файлы, используемые в процессе разработки и развертывания приложений.
+alternate:
+  - href: ru/cloud-registry/concepts/artifacts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Артефакты

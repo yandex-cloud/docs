@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/concepts/topics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Topics
 
 To send a notification to multiple endpoints at once, use _topics_. Topics also allow you to group messages by category, e.g., security alerts, promotional messages, etc. To group messages, create a separate topic for each category.

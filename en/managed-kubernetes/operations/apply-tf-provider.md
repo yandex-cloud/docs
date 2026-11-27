@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/apply-tf-provider.md
+    type: text/markdown
+    title: Markdown version
+---
 # Activating the {{ k8s }} {{ TF }} provider
 
 You can use {{ TF }} manifests to create {{ k8s }} resources. To do this, activate the `kubernetes` {{ TF }} provider. It supports {{ TF }} resources that are mapped to YAML configuration files for various {{ k8s }} resources.

@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-kubernetes/kubernetes-marketplace/api-ref/HelmRelease/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Kubernetes Marketplace, REST: HelmRelease.Get

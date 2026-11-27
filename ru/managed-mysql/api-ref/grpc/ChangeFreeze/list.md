@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-mysql/api-ref/grpc/ChangeFreeze/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, gRPC: ChangeFreezeService.List

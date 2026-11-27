@@ -1,6 +1,10 @@
 ---
 title: Deleting a network load balancer
 description: Follow this guide to delete a network load balancer.
+alternate:
+  - href: en/network-load-balancer/operations/load-balancer-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a network load balancer

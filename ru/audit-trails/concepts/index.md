@@ -1,6 +1,10 @@
 ---
 title: '{{ at-full-name }}. Обзор сервиса'
 description: '{{ at-full-name }} позволяет собирать аудитные логи о происходящих с ресурсами {{ yandex-cloud }} событиях и выгружать эти логи для дальнейшего анализа или экспорта.'
+alternate:
+  - href: ru/audit-trails/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор сервиса {{ at-full-name }}

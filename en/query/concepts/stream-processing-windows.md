@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/concepts/stream-processing-windows.md
+    type: text/markdown
+    title: Markdown version
+---
 # Streaming data processing windows
 
 Streaming data processing is used for computations on unlimited data streams. With an unlimited data stream, aggregate functions like COUNT or SUM cannot be completed because the data stream has no end. This prevents you from getting correct results. 

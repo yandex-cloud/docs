@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/interconnect/concepts/monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Мониторинг {{ interconnect-name }}
  
 Сервис {{ monium-full-name }} позволяет оценить состояние и потребление ресурсов {{ interconnect-full-name }}.

@@ -1,6 +1,10 @@
 ---
 title: Отслеживание открытия писем
 description: В {{ postbox-full-name }} можно отслеживать открытие писем получателями. Когда получатель открывает письмо в почтовом клиенте, {{ postbox-name }} отправляет уведомление о том, что письмо было открыто.
+alternate:
+  - href: ru/postbox/concepts/mail-opened.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отслеживание открытия писем

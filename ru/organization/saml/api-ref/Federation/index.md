@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/organization/saml/api-ref/Federation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Federation API, REST: Federation

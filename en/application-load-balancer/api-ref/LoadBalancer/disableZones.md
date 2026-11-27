@@ -34,6 +34,10 @@ apiPlayground:
           format: duration
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/application-load-balancer/api-ref/LoadBalancer/disableZones.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.DisableZones

@@ -1,6 +1,10 @@
 ---
 title: '{{ mmy-full-name }} use cases'
 description: Various {{ mmy-full-name }} use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/managed-mysql/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mmy-name }} tutorials

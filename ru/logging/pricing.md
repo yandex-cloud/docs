@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ cloud-logging-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ cloud-logging-name }}.
 editable: false
+alternate:
+  - href: ru/logging/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ cloud-logging-name }}

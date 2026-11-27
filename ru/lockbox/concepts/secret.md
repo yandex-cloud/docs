@@ -1,6 +1,10 @@
 ---
 title: Что такое секреты в {{ lockbox-full-name }}
 description: Из статьи вы узнаете, что такое секреты в {{ lockbox-full-name }} и из чего они состоят.
+alternate:
+  - href: ru/lockbox/concepts/secret.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Секреты в {{ lockbox-full-name }}

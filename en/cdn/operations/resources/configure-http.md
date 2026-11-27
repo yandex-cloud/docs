@@ -1,6 +1,10 @@
 ---
 title: How to configure HTTP methods in {{ cdn-full-name }}
 description: Follow this guide to configure HTTP methods.
+alternate:
+  - href: en/cdn/operations/resources/configure-http.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring HTTP methods

@@ -32,6 +32,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/certificate-manager/privateca/api-ref/Template/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, REST: Template.List

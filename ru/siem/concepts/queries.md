@@ -1,6 +1,10 @@
 ---
 title: Запросы в {{ yandex-siem-full-name }}
 description: Запросы в {{ yandex-siem-full-name }} используют язык KQL для поиска и анализа событий безопасности.
+alternate:
+  - href: ru/siem/concepts/queries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запросы

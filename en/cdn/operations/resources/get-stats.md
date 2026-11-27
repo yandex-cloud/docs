@@ -1,6 +1,10 @@
 ---
 title: Viewing CDN resource statistics
 description: Follow this guide to view the CDN resource statistics.
+alternate:
+  - href: en/cdn/operations/resources/get-stats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing CDN resource statistics

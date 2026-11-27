@@ -1,6 +1,10 @@
 ---
 title: Как восстановить доступ к виртуальной машине в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете восстановить доступ к виртуальной машине.
+alternate:
+  - href: ru/compute/operations/vm-connect/recovery-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановление доступа к виртуальной машине

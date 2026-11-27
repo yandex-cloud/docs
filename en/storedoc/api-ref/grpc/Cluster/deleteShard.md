@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/storedoc/api-ref/grpc/Cluster/deleteShard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, gRPC: ClusterService.DeleteShard

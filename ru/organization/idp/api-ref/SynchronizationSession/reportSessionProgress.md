@@ -89,6 +89,10 @@ apiPlayground:
               $ref: '#/definitions/ChangeInfo'
         required:
           - objectType
+alternate:
+  - href: ru/organization/idp/api-ref/SynchronizationSession/reportSessionProgress.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: SynchronizationSession.ReportSessionProgress

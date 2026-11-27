@@ -1,6 +1,10 @@
 ---
 title: Сканирование уязвимостей при непрерывном развертывании приложений {{ managed-k8s-name }} с помощью {{ GL }}
 description: Вы можете сканировать уязвимости Docker-образов в {{ container-registry-full-name }} при непрерывном развертывании приложений {{ managed-k8s-full-name }} через {{ GL }}.
+alternate:
+  - href: ru/tutorials/container-infrastructure/cr-scanner-with-k8s-and-gitlab.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сканирование уязвимостей при непрерывном развертывании приложений {{ managed-k8s-name }} с помощью {{ GL }}

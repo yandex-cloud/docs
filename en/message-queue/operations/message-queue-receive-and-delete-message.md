@@ -1,6 +1,10 @@
 ---
 title: How to receive and delete messages in {{ message-queue-full-name }}
 description: Follow this guide to receive and delete messages.
+alternate:
+  - href: en/message-queue/operations/message-queue-receive-and-delete-message.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Receiving and deleting messages

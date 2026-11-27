@@ -1,6 +1,10 @@
 ---
 title: Actions upon triggering the {{ objstorage-full-name }} bucket access policy you can set in the S3 API
 description: In this article, you will learn what actions upon triggering the {{ objstorage-full-name }} bucket access policy can be set in the S3 API.
+alternate:
+  - href: en/storage/s3/api-ref/policy/actions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Actions

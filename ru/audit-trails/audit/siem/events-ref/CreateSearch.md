@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/siem/events-ref/CreateSearch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Siem Audit Trails Events: CreateSearch

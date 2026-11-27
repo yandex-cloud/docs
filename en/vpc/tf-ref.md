@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ vpc-full-name }}'
 description: This page provides information about {{ TF }} resources and data sources supported by {{ vpc-name }}.
+alternate:
+  - href: en/vpc/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ vpc-full-name }}

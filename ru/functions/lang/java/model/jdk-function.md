@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/java/model/jdk-function.md
+    type: text/markdown
+    title: Markdown version
+---
 # Использование интерфейса Function для задания функции-обработчика на Java
 
 Вы можете задать функцию-обработчик на Java, реализовав интерфейс [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html).

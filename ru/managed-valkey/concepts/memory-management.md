@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-valkey/concepts/memory-management.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление памятью в {{ mrd-name }}
 
 Для пользовательских данных на хостах кластера {{ mrd-name }} выделяется {{ mrd-memory-used }} от общего объема оперативной памяти. Оставшаяся память резервируется для служебных нужд процесса {{ VLK }}. Объем памяти, доступной для пользовательских данных, можно понизить с помощью параметра [Maxmemory percent](settings-list.md#settings-maxmemory-percent) — это может быть полезно, если в кластере возникают ошибки Out of Memory.

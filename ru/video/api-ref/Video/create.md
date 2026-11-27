@@ -147,6 +147,10 @@ apiPlayground:
       VideoSignURLAccessParams:
         type: object
         properties: {}
+alternate:
+  - href: ru/video/api-ref/Video/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Video.Create

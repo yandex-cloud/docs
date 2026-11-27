@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ data-catalog-name }}'
 description: This page presents reference information on the {{ TF }} provider resources and data sources supported for {{ data-catalog-name }} in {{ metadata-hub-full-name }}.
+alternate:
+  - href: en/metadata-hub/datacatalog-tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ data-catalog-name }}

@@ -1,6 +1,10 @@
 ---
 title: Working with an instance group with autoscaling in response to overload using {{ TF }}
 description: In this tutorial, you will deploy an instance group with an autoscaling policy in response to overload using {{ TF }}.
+alternate:
+  - href: en/tutorials/infrastructure-management/vm-autoscale/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with an instance group with autoscaling using {{ TF }}

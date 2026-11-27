@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ sf-name }}
 description: Управление доступом сервиса для запуска приложений без создания и обслуживания виртуальных машин — {{ sf-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе.
+alternate:
+  - href: ru/functions/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ sf-name }}

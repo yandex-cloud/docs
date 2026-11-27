@@ -1,6 +1,10 @@
 ---
 title: 'Environment: {{ video-full-name }} player SDK for iOS'
 description: Creating players and configuring the environment and network requests in the {{ video-name }} player SDK for iOS.
+alternate:
+  - href: en/video/sdk/CloudVideoPlayerSDK/Environment.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Environment

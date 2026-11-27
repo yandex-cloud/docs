@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/operations/dashboard/api-examples.md
+    type: text/markdown
+    title: Markdown version
+---
 # Examples of working with the gRPC API
 
 The examples below use `grpcurl`.

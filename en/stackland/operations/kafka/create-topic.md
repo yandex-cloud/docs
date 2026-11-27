@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/kafka/create-topic.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a topic
 
 If you have created a [cluster](create-cluster.md), you can create a topic in it.

@@ -1,6 +1,10 @@
 ---
 title: Удалить политику удаления
 description: Следуя данной инструкции, вы сможете удалить политику удаления.
+alternate:
+  - href: ru/container-registry/operations/lifecycle-policy/lifecycle-policy-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить политику удаления

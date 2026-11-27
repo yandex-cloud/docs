@@ -1,6 +1,10 @@
 ---
 title: Стандарт безопасности ИИ-систем в {{ yandex-cloud }}
 description: В этом разделе приведен список правил контроля, которые входят в стандарт безопасности ИИ-систем в {{ yandex-cloud }}.
+alternate:
+  - href: ru/security-deck/concepts/standard-compliance/aispm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Стандарт безопасности ИИ-систем в {{ yandex-cloud }}

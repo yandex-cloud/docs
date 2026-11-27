@@ -1,6 +1,10 @@
 ---
 title: How to create a VM from a custom image
 description: Follow this guide to create a VM from a custom image.
+alternate:
+  - href: en/compute/operations/vm-create/create-from-user-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM from a custom image

@@ -1,6 +1,10 @@
 ---
 title: Как удалить плейлист в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете удалить плейлист в сервисе {{ video-name }}.
+alternate:
+  - href: ru/video/operations/playlists/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить плейлист

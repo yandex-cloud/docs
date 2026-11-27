@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/serverless-containers/containers/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Serverless Containers Service: REST reference

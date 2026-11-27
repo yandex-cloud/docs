@@ -1,6 +1,10 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/metastore-import'
 noIndex: true
+alternate:
+  - href: ru/data-proc/tutorials/metastore-import.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{ metastore-name }}

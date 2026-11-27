@@ -1,6 +1,10 @@
 ---
 title: Создание реестра в {{ iot-full-name }}
 description: Следуя данной инструкции, вы сможете создать реестр в {{ iot-name }}.
+alternate:
+  - href: ru/iot-core/operations/registry/registry-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание реестра

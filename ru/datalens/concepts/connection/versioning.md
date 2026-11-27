@@ -1,6 +1,10 @@
 ---
 title: Версионирование подключения
 description: Версионирование подключения — это возможность хранить историю изменений конфигурации подключения с помощью версий. Список версий доступен пользователям с минимальным правом доступа {{ permission-write }} на подключение.
+alternate:
+  - href: ru/datalens/concepts/connection/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Версионирование

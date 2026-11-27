@@ -1,6 +1,10 @@
 ---
 title: Виджеты в {{ datalens-full-name }}
 description: Виджет в {{ datalens-full-name }} – это элемент дашборда. Между виджетами Селектор и Чарт можно строить связи.
+alternate:
+  - href: ru/datalens/dashboard/widget.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Виджеты в {{ datalens-full-name }}

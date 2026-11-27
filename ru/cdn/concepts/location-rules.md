@@ -1,6 +1,10 @@
 ---
 title: Локационные правила {{ cdn-full-name }}
 description: В данном разделе описана функциональность локационных правил, позволяющая точечно переопределять настройки CDN-ресурса для запросов, пути которых соответствуют заданным шаблонам.
+alternate:
+  - href: ru/cdn/concepts/location-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Локационные правила {{ cdn-full-name }}

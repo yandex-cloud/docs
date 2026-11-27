@@ -1,6 +1,10 @@
 ---
 title: Как добавить SSH-ключ пользователя
 description: Следуя данной инструкции, вы сможете добавить в профиль пользователя SSH-ключи, которые позволят ему подключаться к ВМ, узлам кластеров {{ k8s }} и серверам {{ baremetal-name }}.
+alternate:
+  - href: ru/organization/operations/add-ssh.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить SSH-ключ

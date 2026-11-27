@@ -1,6 +1,10 @@
 ---
 title: Добавить новый SSH-ключ пользователя
 description: Следуя данной инструкции, вы сможете добавить новый SSH-ключ пользователя ОС Linux на сервере {{ baremetal-name }} с помощью загрузочного CD-образа Rescue-CD.
+alternate:
+  - href: ru/baremetal/operations/servers/add-new-ssh-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить новый SSH-ключ пользователя

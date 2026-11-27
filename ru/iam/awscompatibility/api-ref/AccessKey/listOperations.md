@@ -40,6 +40,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/iam/awscompatibility/api-ref/AccessKey/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access Key, REST: AccessKey.ListOperations

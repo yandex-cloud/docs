@@ -25,6 +25,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/backup/backup/api-ref/Backup/listArchives.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Backup.ListArchives

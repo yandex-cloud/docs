@@ -1,6 +1,10 @@
 ---
 title: Machine learning and artificial intelligence use cases in {{ yandex-cloud }}
 description: Various use cases for machine learning and artificial intelligence in {{ yandex-cloud }}.
+alternate:
+  - href: en/tutorials/ml-ai/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Tutorials for machine learning and artificial intelligence

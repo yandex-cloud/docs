@@ -192,6 +192,10 @@ apiPlayground:
               Enables automatic source language deduction for each track
               and thus may lead to performance degradation.
             type: boolean
+alternate:
+  - href: ru/video/api-ref/Video/transcode.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Video.Transcode

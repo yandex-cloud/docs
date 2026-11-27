@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
+---
 # Stopping and starting a {{ mgp-name }} cluster
 
 You can stop and restart clusters if required. You are not charged for the number of vCPUs and host RAM in a stopped cluster, but you continue to pay for cluster storage capacity and backups based on your [plan](../pricing/index.md#rules-storage).

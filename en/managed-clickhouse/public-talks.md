@@ -1,6 +1,10 @@
 ---
 title: Public materials about {{ mch-full-name }}
 description: Videos of conferences and webinars on {{ mch-full-name }}.
+alternate:
+  - href: en/managed-clickhouse/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public materials about {{ mch-full-name }}

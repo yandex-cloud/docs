@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/cloud-registry/domain/api-ref/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry Domains API, REST: Operation.Cancel

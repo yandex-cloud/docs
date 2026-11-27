@@ -1,6 +1,10 @@
 ---
 title: Placing your product on {{ marketplace-full-name }}
 description: Follow this guide to place your product on {{ marketplace-full-name }}.
+alternate:
+  - href: en/marketplace/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Placing your product on {{ marketplace-full-name }}

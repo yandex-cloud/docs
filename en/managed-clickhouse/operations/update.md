@@ -1,6 +1,10 @@
 ---
 title: How to update {{ CH }} cluster settings in {{ mch-full-name }}
 description: Follow this guide to update {{ CH }} cluster settings.
+alternate:
+  - href: en/managed-clickhouse/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating {{ CH }} cluster settings

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Yandex AI Studio SDK documentation
 
 Current package version: 0.22.1

@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ mmy-name }}
 description: Расчет стоимости использования {{ mmy-name }} учитывает тип диска и размер хранилища, вычислительные ресурсы, выделенные хостам кластера, настройки и количество резервных копий и объем исходящего трафика из {{ yandex-cloud }} в интернет.
 editable: false
+alternate:
+  - href: ru/managed-mysql/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

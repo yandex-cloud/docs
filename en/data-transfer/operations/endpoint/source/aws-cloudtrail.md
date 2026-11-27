@@ -1,6 +1,10 @@
 ---
 title: Transferring data from an AWS CloudTrail endpoint
 description: In this tutorial, you will learn how to set up data transfer from an AWS CloudTrail endpoint.
+alternate:
+  - href: en/data-transfer/operations/endpoint/source/aws-cloudtrail.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring data from an AWS CloudTrail endpoint

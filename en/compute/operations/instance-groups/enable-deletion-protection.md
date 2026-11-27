@@ -1,6 +1,10 @@
 ---
 title: How to enable deletion protection for an instance group
 description: Follow this guide to enable deletion protection for an instance group.
+alternate:
+  - href: en/compute/operations/instance-groups/enable-deletion-protection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling deletion protection for a {{ compute-name }} instance group

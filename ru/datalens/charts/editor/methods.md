@@ -1,6 +1,10 @@
 ---
 title: Доступные методы в Editor
 description: Из статьи вы узнаете про доступные методы в Editor.
+alternate:
+  - href: ru/datalens/charts/editor/methods.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Доступные методы в Editor

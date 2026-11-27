@@ -1,6 +1,10 @@
 ---
 title: Dead Letter Queue в {{ sf-name }}
 description: Dead Letter Queue (DLQ) — это очередь, куда перенаправляются сообщения, которые не смогли обработать вызываемые триггером функцию или контейнер. Сообщение считается обработанным, если функция или контейнер, которые его получили, завершились без ошибок. Перенаправленные в DLQ сообщения хранятся в ней для дальнейшей диагностики.
+alternate:
+  - href: ru/functions/concepts/dlq.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Dead Letter Queue в {{ sf-name }}

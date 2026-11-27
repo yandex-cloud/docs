@@ -1,6 +1,10 @@
 ---
 title: Создание глоссария
 description: Следуя данной инструкции, вы сможете создать глоссарий в каталоге метаданных.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/create-glossary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание глоссария

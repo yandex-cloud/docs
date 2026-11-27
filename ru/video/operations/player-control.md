@@ -1,6 +1,10 @@
 ---
 title: Как управлять видеоплеером в {{ video-full-name }}
 description: В этой статье описаны кнопки, горячие клавиши и способы управления видеоплеером в {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/player-control.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление видеоплеером

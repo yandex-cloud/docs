@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/OP_PLUS.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Addition and concatenation (+)

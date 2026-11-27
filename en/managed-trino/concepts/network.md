@@ -1,6 +1,10 @@
 ---
 title: Networking in {{ mtr-full-name }}
 description: This article outlines networking in {{ mtr-full-name }} and ways to configure it.
+alternate:
+  - href: en/managed-trino/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Networking in {{ mtr-name }}

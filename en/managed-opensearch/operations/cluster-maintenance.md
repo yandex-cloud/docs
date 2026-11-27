@@ -1,6 +1,10 @@
 ---
 title: '{{ OS }} cluster maintenance'
 description: Follow this guide to view the {{ OS }} cluster’s scheduled and completed maintenance jobs and schedule a maintenance window.
+alternate:
+  - href: en/managed-opensearch/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ OS }} cluster maintenance

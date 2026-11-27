@@ -1,6 +1,10 @@
 ---
 title: Редактировать ACL объекта в бакете в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете редактировать ACL объекта в бакете в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/objects/edit-acl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Редактировать ACL объекта

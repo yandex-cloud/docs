@@ -19,6 +19,10 @@ meta:
     - keyword: контейнеры в облаке
     - keyword: облачные контейнеры
     - keyword: бессерверные контейнеры
+  alternate:
+    - href: ru/serverless-containers/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Подготовьте Docker-образ и создайте контейнер

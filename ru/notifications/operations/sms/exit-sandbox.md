@@ -1,6 +1,10 @@
 ---
 title: Выйти из песочницы в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете выйти из песочницы.
+alternate:
+  - href: ru/notifications/operations/sms/exit-sandbox.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выйти из песочницы

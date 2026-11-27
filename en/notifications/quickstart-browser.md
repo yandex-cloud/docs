@@ -1,6 +1,10 @@
 ---
 title: How to get started with browser push notifications in {{ cns-full-name }}
 description: With {{ cns-name }}, you can send push notifications to users' browsers.
+alternate:
+  - href: en/notifications/quickstart-browser.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to get started with browser push notifications in {{ cns-full-name }}

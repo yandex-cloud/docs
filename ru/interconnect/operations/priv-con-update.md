@@ -1,6 +1,10 @@
 ---
 title: Как изменить приватное соединение в {{ interconnect-full-name }}
 description: Следуя этой инструкции, вы сможете изменить параметры в приватном соединении в {{ interconnect-full-name }}.
+alternate:
+  - href: ru/interconnect/operations/priv-con-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить параметры приватного соединения

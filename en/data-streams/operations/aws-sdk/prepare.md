@@ -1,6 +1,10 @@
 ---
 title: Preparing the environment in the AWS SDK in {{ yds-full-name }}
 description: Follow this guide to configure the environment for your programming language.
+alternate:
+  - href: en/data-streams/operations/aws-sdk/prepare.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Preparing the environment in the AWS SDK

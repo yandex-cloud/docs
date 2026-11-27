@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/registry/yds-export/add/
+alternate:
+  - href: ru/cli/cli-ref/iot/cli-ref/registry/yds-export/add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot registry yds-export add

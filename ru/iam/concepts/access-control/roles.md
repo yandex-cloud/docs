@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iam/concepts/access-control/roles.md
+    type: text/markdown
+    title: Markdown version
+---
 # Роли
 
 {% note info %}

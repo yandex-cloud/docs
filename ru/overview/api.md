@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/overview/api.md
+    type: text/markdown
+    title: Markdown version
+---
 # API сервисов {{ yandex-cloud }}
 
 Сервисы {{ yandex-cloud }} дают вам возможность создавать системы автоматизации, плагины и другие приложения для управления облачными ресурсами на базе API.

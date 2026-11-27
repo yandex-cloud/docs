@@ -1,6 +1,10 @@
 ---
 title: Configuring the environment for deploying a standalone service
 description: Follow this guide to configure the environment for deploying a standalone service.
+alternate:
+  - href: en/datasphere/operations/deploy/node-customization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring the environment for deploying a standalone service

@@ -1,6 +1,10 @@
 ---
 title: Gaining access to a bucket using {{ sts-full-name }}
 description: With {{ sts-name }}, you can get temporary keys for limited access to {{ objstorage-name }} buckets.
+alternate:
+  - href: en/storage/operations/buckets/create-sts-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Gaining access to a bucket using {{ sts-name }}

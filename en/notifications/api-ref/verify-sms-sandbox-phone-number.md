@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/verify-sms-sandbox-phone-number.md
+    type: text/markdown
+    title: Markdown version
+---
 # VerifySMSSandboxPhoneNumber
 
 Confirms the test phone number for the SMS notification channel in the [sandbox](../concepts/sms.md#sandbox) using a verification code.

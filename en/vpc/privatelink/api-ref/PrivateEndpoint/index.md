@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/vpc/privatelink/api-ref/PrivateEndpoint/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: PrivateEndpoint

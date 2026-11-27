@@ -1,6 +1,10 @@
 ---
 title: Как переместить ВМ в целевую группу за сетевым балансировщиком в новой зоне доступности
 description: Следуя данной инструкции, вы сможете переместить виртуальные машины за сетевым балансировщиком {{ network-load-balancer-full-name }} в целевую группу в другой зоне доступности.
+alternate:
+  - href: ru/network-load-balancer/operations/load-balancer-change-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переместить ВМ в целевую группу в новой зоне доступности

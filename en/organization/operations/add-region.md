@@ -1,6 +1,10 @@
 ---
 title: How to add a controlled organization in {{ org-full-name }}
 description: In this tutorial, you will learn how to link a new region to an organization.
+alternate:
+  - href: en/organization/operations/add-region.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a controlled organization

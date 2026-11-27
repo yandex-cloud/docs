@@ -1,6 +1,10 @@
 ---
 title: Как настроить вкладки на дашборде в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить, удалить, изменить порядок и отображение вкладок на дашборде в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/dashboard-tabs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка вкладок на дашборде в {{ datalens-full-name }}

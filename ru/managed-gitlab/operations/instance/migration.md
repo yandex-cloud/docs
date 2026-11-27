@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-gitlab/operations/instance/migration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Миграция из {{ GL }} в {{ mgl-name }}
 
 Существуют следующие способы перенести проекты в {{ mgl-name }}:

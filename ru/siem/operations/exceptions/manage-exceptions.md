@@ -1,6 +1,10 @@
 ---
 title: Управление исключениями в {{ yandex-siem-full-name }}
 description: Следуя данной инструкции, вы научитесь создавать, редактировать, выключать и удалять исключения в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/operations/exceptions/manage-exceptions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление исключениями

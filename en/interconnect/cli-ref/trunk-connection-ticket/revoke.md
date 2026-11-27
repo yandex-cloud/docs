@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/trunk-connection-ticket/revoke/
+alternate:
+  - href: en/interconnect/cli-ref/trunk-connection-ticket/revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cic trunk-connection-ticket revoke

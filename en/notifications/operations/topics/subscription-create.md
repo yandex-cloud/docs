@@ -1,6 +1,10 @@
 ---
 title: Creating a subscription in {{ cns-full-name }}
 description: Follow this guide to subscribe an endpoint to notifications in a topic.
+alternate:
+  - href: en/notifications/operations/topics/subscription-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a subscription

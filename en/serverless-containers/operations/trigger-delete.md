@@ -1,6 +1,10 @@
 ---
 title: How to delete a trigger in {{ serverless-containers-full-name }}
 description: In this guide, you will learn how to delete a trigger in {{ serverless-containers-full-name }}.
+alternate:
+  - href: en/serverless-containers/operations/trigger-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a trigger in {{ serverless-containers-name }}

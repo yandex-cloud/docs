@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/operations/binding.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление привязками
 
 [Привязки](../concepts/glossary.md#binding) содержат информацию о соединении, формате и схеме данных. В одном запросе можно использовать несколько разных привязок.

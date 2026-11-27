@@ -75,6 +75,10 @@ apiPlayground:
         required:
           - passwordHash
           - passwordHashType
+alternate:
+  - href: ru/organization/idp/api-ref/User/setPasswordHash.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: User.SetPasswordHash

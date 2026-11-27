@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/concepts/request-processing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обработка запроса
 
 {% include [sunset](../../_includes/query/sunset.md) %}

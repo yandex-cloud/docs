@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.US.BAD_REQUEST.ALREADY_EXISTS
 description: На странице приведено описание ошибки {{ datalens-full-name }} Не удалось создать <тип_объекта>.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Не удалось создать <тип_объекта>

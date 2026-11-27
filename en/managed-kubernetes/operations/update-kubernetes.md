@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/update-kubernetes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating {{ k8s }}
 
 {% include [preflight-check](../../_includes/managed-kubernetes/preflight-check.md) %}

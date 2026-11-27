@@ -1,6 +1,10 @@
 ---
 title: Как добавить домен в {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете добавить свой домен для защиты в {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/domain-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить домен

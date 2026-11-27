@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание кластера {{ PG }}
 description: Следуя данной инструкции, вы сможете просмотреть информацию о планируемых и проведенных технических обслуживаниях кластера {{ PG }}, а также выбрать время для проведения обслуживания.
+alternate:
+  - href: ru/managed-postgresql/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание кластера {{ PG }}

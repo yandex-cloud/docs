@@ -3,6 +3,10 @@ title: URL shortener
 description: In this tutorial, you will deploy a URL shortening service using {{ api-gw-full-name }} and a {{ sf-full-name }} function.
 canonical: '{{ link-docs }}/tutorials/serverless/serverless-url-shortener/'
 noIndex: true
+alternate:
+  - href: en/ydb/tutorials/serverless-url-shortener/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [serverless-url-shortener](../../../_tutorials/serverless/serverless-url-shortener.md) %}

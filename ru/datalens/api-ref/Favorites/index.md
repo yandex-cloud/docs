@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Favorites/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Favorites
 
 <!-- markdownlint-disable-file -->

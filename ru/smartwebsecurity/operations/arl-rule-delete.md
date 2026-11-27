@@ -1,6 +1,10 @@
 ---
 title: Удалить правило из профиля ARL
 description: Следуя данной инструкции, вы сможете удалить правило из профиля ARL.
+alternate:
+  - href: ru/smartwebsecurity/operations/arl-rule-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить правило из профиля ARL

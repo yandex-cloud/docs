@@ -1,6 +1,10 @@
 ---
 title: Как указать облачную сеть, в которой будет исполняться контейнер
 description: Следуя данной инструкции, вы сможете указать облачную сеть, в которой будет исполняться контейнер.
+alternate:
+  - href: ru/serverless-containers/operations/network-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Указать облачную сеть, в которой будет исполняться контейнер

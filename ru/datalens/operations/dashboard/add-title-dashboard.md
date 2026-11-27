@@ -1,6 +1,10 @@
 ---
 title: Как настроить отображение заголовка дашборда в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете настроить отображение заголовка дашборда в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-title-dashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить отображение заголовка дашборда в {{ datalens-full-name }}

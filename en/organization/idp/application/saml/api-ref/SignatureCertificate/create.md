@@ -32,6 +32,10 @@ apiPlayground:
         - applicationId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/organization/idp/application/saml/api-ref/SignatureCertificate/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: SignatureCertificate.Create

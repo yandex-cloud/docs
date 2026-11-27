@@ -1,6 +1,10 @@
 ---
 title: Миграция базы данных из стороннего кластера {{ VLK }} в {{ mrd-full-name }}
 description: Для миграции данных в {{ VLK }} используется логический дамп — файл с набором команд, последовательное выполнение которых восстанавливает состояние баз данных в кластере. Его можно создать разными способами, далее для примера используется redis-dump-go.
+alternate:
+  - href: ru/tutorials/dataplatform/valkey-data-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция базы данных из стороннего кластера {{ VLK }} в {{ mrd-full-name }}

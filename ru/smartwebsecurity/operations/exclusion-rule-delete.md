@@ -1,6 +1,10 @@
 ---
 title: Удалить правило-исключение Cloud WAF
 description: Следуя данной инструкции, вы сможете удалить правило-исключение для WAF.
+alternate:
+  - href: ru/smartwebsecurity/operations/exclusion-rule-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить правило-исключение Cloud WAF

@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ data-transfer-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ data-transfer-name }}.
 editable: false
+alternate:
+  - href: ru/data-transfer/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ data-transfer-name }}

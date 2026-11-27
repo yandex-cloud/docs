@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/container-registry/operations/registry/registry-access.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring access to a registry
 
 You can set up policies for accessing a [registry](../../concepts/registry.md) from specific [IP addresses](../../../vpc/concepts/address.md).

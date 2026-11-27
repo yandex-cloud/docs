@@ -1,6 +1,10 @@
 ---
 title: Migrating a lightweight {{ dataproc-full-name }} cluster to a different availability zone
 description: Follow this guide to migrate a lightweight {{ dataproc-name }} cluster to another availability zone.
+alternate:
+  - href: en/data-proc/operations/migration-to-an-availability-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating a lightweight {{ dataproc-name }} cluster to a different availability zone

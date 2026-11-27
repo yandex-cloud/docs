@@ -1,6 +1,10 @@
 ---
 title: Getting {{ AF }} administrator credentials
 description: How to get the username and password of an {{ AF }} cluster's administrator.
+alternate:
+  - href: en/stackland/operations/airflow/get-admin-credentials.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting {{ AF }} administrator credentials

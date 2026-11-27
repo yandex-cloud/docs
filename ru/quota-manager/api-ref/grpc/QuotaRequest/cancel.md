@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/quota-manager/api-ref/grpc/QuotaRequest/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quota Manager API, gRPC: QuotaRequestService.Cancel

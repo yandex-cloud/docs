@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for Apache Airflow™
+alternate:
+  - href: ru/terraform/data-sources/airflow_cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_airflow_cluster (DataSource)

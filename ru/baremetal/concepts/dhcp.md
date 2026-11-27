@@ -1,6 +1,10 @@
 ---
 title: Сервис DHCP в сети {{ baremetal-full-name }}
 description: Узнайте, как DHCP передает IP-адреса, маршруты и DNS-настройки серверам {{ baremetal-name }} в публичных и приватных подсетях.
+alternate:
+  - href: ru/baremetal/concepts/dhcp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сервис DHCP в сети {{ baremetal-full-name }}

@@ -20,8 +20,8 @@
 
     Если у вас еще нет настроенной фермы {{ microsoft-idp.adfs-abbreviated }}, то выполните следующие действия для настройки:
 
-    1. [Разверните и настройте {{ microsoft-idp.ad-short }} Domain Services (AD DS)](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-), если это еще не сделано. Наличие AD DS — необходимое условие для развертывания {{ microsoft-idp.adfs-abbreviated }}.
-    1. [Разверните и настройте ферму {{ microsoft-idp.adfs-abbreviated }}](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm) из одного или нескольких серверов.
+    1. [Разверните и настройте {{ microsoft-idp.ad-short }} Domain Services (AD DS)](https://learn.microsoft.com/{{ lang }}/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-), если это еще не сделано. Наличие AD DS — необходимое условие для развертывания {{ microsoft-idp.adfs-abbreviated }}.
+    1. [Разверните и настройте ферму {{ microsoft-idp.adfs-abbreviated }}](https://learn.microsoft.com/{{ lang }}/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm) из одного или нескольких серверов.
 
         {% note tip %}
 
@@ -167,9 +167,7 @@
       Где:
 
       * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-      * `description` — описание федерации.
       * `organization_id` — [идентификатор](../../organization/operations/organization-get-id.md) организации.
-      * `labels` — набор пар меток ключ/значение, которые присвоены федерации. Необязательный параметр.
       * `issuer` — идентификатор поставщика удостоверений (Identity Provider, IdP), с помощью которого будет происходить аутентификация.
 
           Укажите ссылку в формате `http://<FQDN_фермы_AD_FS>/adfs/services/trust`.
@@ -183,12 +181,12 @@
 
           {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
 
-      * `cookie_max_age` — время в секундах, в течение которого браузер не должен требовать у пользователя повторной аутентификации. Значение по умолчанию `8 часов`.
-      * `auto_create_account_on_login` — опция, которая активирует автоматическое создание новых пользователей в облаке после аутентификации с помощью поставщика удостоверений.
+      * `cookie_max_age` — время в секундах, в течение которого браузер не должен требовать у пользователя повторной аутентификации. Значение по умолчанию — 8 часов.
+      * `auto_create_account_on_login` — параметр, который активирует автоматическое создание новых пользователей в облаке после аутентификации с помощью поставщика удостоверений.
 
           Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [публичной группе](../../iam/concepts/access-control/public-group.md) `All users` или `All authenticated users`.
 
-          Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию с помощью поставщика удостоверений. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
+          Если параметр не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию с помощью поставщика удостоверений. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
 
       * `case_insensitive_name_ids` — зависимость имен пользователей от регистра.
           Если опция включена, идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
@@ -356,7 +354,7 @@
 
           ```json
           {
-            "federationId": "<ID_федерации>",
+            "federationId": "<идентификатор_федерации>",
             "name": "my-certificate",
             "data": "MII...=="
           }
@@ -435,7 +433,7 @@
 
 1. На шаге Choose Access Control Policy выберите, кому будет доступна аутентификация с помощью этой федерации. По умолчанию выбрана политика **Permit for everyone**, которая разрешает доступ для всех пользователей.
 
-    Вы можете выбрать другую политику. Например, чтобы разрешить доступ только для отдельной группы пользователей, выберите **Permit specific group** и нажмите на слово `<parameter>`, чтобы выбрать, для каких групп разрешить доступ. [Подробнее о политиках управления доступом](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-in-ad-fs).
+    Вы можете выбрать другую политику. Например, чтобы разрешить доступ только для отдельной группы пользователей, выберите **Permit specific group** и нажмите на слово `<parameter>`, чтобы выбрать, для каких групп разрешить доступ. [Подробнее о политиках управления доступом](https://learn.microsoft.com/{{ lang }}/windows-server/identity/ad-fs/operations/access-control-policies-in-ad-fs).
 
     ![image](../../_assets/iam/federations/specify-access-policy-ad.png)
 
@@ -498,7 +496,7 @@
 
     1. Настройте сопоставление для обязательного утверждения `Name ID`, добавив запись в списке **Mapping of LDAP attributes**:
 
-        1. Выберите тип утверждения `Name ID` в столбце **Outgoing Claim Type**.
+        1. Укажите тип утверждения `Name ID` в столбце **Outgoing Claim Type**.
         1. Выберите нужный атрибут в столбце **LDAP Attribute**.
 
             Вы можете выбрать либо [один из рекомендуемых атрибутов](#explore-claims-list), либо другой атрибут. Выбранный атрибут должен быть неизменным и уникальным, чтобы можно было однозначно идентифицировать пользователя по этому атрибуту.
@@ -627,7 +625,7 @@
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer <IAM-токен>" \
         --data '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID_федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<идентификатор_федерации>:addUserAccounts
       ```
 
 {% endlist %}
@@ -641,7 +639,7 @@
 1. Перейдите по URL для входа в консоль управления:
 
    ```url
-   {{ link-console-main }}/federations/<ID_федерации>
+   {{ link-console-main }}/federations/<идентификатор_федерации>
    ```
 
    {% cut "Как получить ID федерации" %}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/image/add-labels/
+alternate:
+  - href: en/compute/cli-ref/image/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute image add-labels

@@ -1,6 +1,10 @@
 ---
 title: Как создать нереплицируемый диск в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете создать нереплицируемый диск.
+alternate:
+  - href: ru/compute/operations/disk-create/nonreplicated.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать нереплицируемый диск

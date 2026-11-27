@@ -1,6 +1,10 @@
 ---
 title: Обновление мажорной версии {{ PG }} в {{ mpg-name }}
 description: Чтобы обновить мажорную версию {{ PG }} в {{ mpg-name }}, выберите подходящее время, версию и запустите обновление. Обновление мажорной версии выполняется автоматически.
+alternate:
+  - href: ru/managed-postgresql/concepts/upgrade.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновление мажорной версии {{ PG }} в {{ mpg-full-name }}

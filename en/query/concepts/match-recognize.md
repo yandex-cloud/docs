@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/concepts/match-recognize.md
+    type: text/markdown
+    title: Markdown version
+---
 # MATCH_RECOGNIZE
 
 The `MATCH_RECOGNIZE` expression performs pattern recognition in a sequence of rows and returns the hits. This has various applications in different areas, such as fraud detection, pricing analysis in finance, and sensor data processing. These tasks fall within the domain of _complex event processing (CEP)_, where pattern recognition is a key tool. For a `MATCH_RECOGNIZE` use case, follow [this link](#example).

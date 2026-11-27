@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance-group/enable-zones/
+alternate:
+  - href: ru/compute/cli-ref/instance-group/enable-zones.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute instance-group enable-zones

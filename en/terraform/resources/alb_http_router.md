@@ -1,5 +1,9 @@
 ---
 subcategory: Application Load Balancer
+alternate:
+  - href: en/terraform/resources/alb_http_router.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_alb_http_router (Resource)

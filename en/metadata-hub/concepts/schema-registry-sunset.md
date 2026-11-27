@@ -1,6 +1,10 @@
 ---
 title: '{{ schema-registry-name }} shutdown'
 description: We are sunsetting {{ schema-registry-name }}. This page outlines the decommissioning timeline and procedure, and provides migration recommendations.
+alternate:
+  - href: en/metadata-hub/concepts/schema-registry-sunset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ schema-registry-name }} shutdown

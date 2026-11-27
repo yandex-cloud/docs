@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for MongoDB
+alternate:
+  - href: en/terraform/data-sources/mdb_mongodb_cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_mongodb_cluster (DataSource)

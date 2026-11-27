@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/video/events-ref/DeleteStylePreset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Video Audit Trails Events: DeleteStylePreset

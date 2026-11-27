@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-airflow/api-ref/grpc/Cluster/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Airflow™ API, gRPC: ClusterService.Create

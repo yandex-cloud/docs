@@ -1,6 +1,10 @@
 ---
 title: Инспектор чартов в {{ datalens-full-name }}
 description: Из статьи вы узнаете, что такое инспектор чартов в {{ datalens-full-name }}, и познакомитесь с интерфейсом инспектора.
+alternate:
+  - href: ru/datalens/concepts/chart/inspector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Инспектор чартов в {{ datalens-full-name }}

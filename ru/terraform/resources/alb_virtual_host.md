@@ -1,5 +1,9 @@
 ---
 subcategory: Application Load Balancer
+alternate:
+  - href: ru/terraform/resources/alb_virtual_host.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_alb_virtual_host (Resource)

@@ -1,6 +1,10 @@
 ---
 title: Изменить вычислительные ресурсы виртуальной машины
 description: Следуя данной инструкции, вы сможете изменить вычислительные ресурсы виртуальной машины.
+alternate:
+  - href: ru/compute/operations/vm-control/vm-update-resources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить вычислительные ресурсы виртуальной машины

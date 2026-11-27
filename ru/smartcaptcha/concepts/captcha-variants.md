@@ -1,6 +1,10 @@
 ---
 title: Варианты заданий
 description: Из статьи вы узнаете о правилах показа капчи, условиях на трафик и метаданных.
+alternate:
+  - href: ru/smartcaptcha/concepts/captcha-variants.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Варианты заданий

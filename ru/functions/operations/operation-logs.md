@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Просмотр операций с ресурсами сервиса {{ sf-name }}
 
 Все действия с ресурсами сервиса {{ sf-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.

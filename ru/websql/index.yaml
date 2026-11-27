@@ -28,6 +28,10 @@ meta:
     - keyword: Как подключиться к кластеру {{ yandex-cloud }}
     - keyword: Как подключиться к публичной базе данных
     - keyword: сервис для работы с SQL-командами
+  alternate:
+    - href: ru/websql/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Подключитесь к базе данных

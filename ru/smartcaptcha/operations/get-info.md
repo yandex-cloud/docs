@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о капче
 description: Следуя данной инструкции, вы сможете получить информацию о капче {{ captcha-full-name }}.
+alternate:
+  - href: ru/smartcaptcha/operations/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о капче

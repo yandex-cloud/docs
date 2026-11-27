@@ -784,6 +784,10 @@ apiPlayground:
               - staticQuota
           - required:
               - dynamicQuota
+alternate:
+  - href: ru/smartwebsecurity/advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Update

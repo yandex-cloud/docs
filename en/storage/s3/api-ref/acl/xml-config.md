@@ -1,6 +1,10 @@
 ---
 title: ACL configuration in XML format. {{ objstorage-name }} API (S3)
 description: Here you can find a typical XML structure of an ACL configuration, as well as each of its elements. AccessControlPolicy, Owner, AccessControlList, Grant, Grantee, ID, DisplayName, URI, Permission.
+alternate:
+  - href: en/storage/s3/api-ref/acl/xml-config.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # ACL configuration in XML format

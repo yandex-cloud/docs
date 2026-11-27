@@ -1,6 +1,10 @@
 ---
 title: Как изменить настройки кластера {{ SD }} в {{ mmg-full-name }}
 description: Следуя данной инструкции, вы сможете изменить настройки кластера {{ SD }}.
+alternate:
+  - href: ru/storedoc/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек кластера {{ SD }} 

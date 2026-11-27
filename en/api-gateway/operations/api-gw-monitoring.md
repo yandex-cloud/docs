@@ -1,6 +1,10 @@
 ---
 title: Viewing API gateway monitoring charts in {{ api-gw-full-name }}
 description: You can view monitoring charts in {{ api-gw-full-name }} for such metrics as the number of API gateway requests, number of API gateway access errors, and the time for executing API gateway requests. To view the chart, click {{ api-gw-name }} in the folder with the API gateway you want to get details about. In the window that opens, select the API gateway for which you want to view monitoring charts.
+alternate:
+  - href: en/api-gateway/operations/api-gw-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing monitoring charts in {{ api-gw-name }}

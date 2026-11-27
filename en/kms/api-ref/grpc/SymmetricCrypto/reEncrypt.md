@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/kms/api-ref/grpc/SymmetricCrypto/reEncrypt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, gRPC: SymmetricCryptoService.ReEncrypt

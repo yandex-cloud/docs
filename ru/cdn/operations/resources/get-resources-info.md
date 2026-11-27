@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о ресурсе в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о ресурсе.
+alternate:
+  - href: ru/cdn/operations/resources/get-resources-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации о ресурсе

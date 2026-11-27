@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/projects/create-project.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a project
 
 A project is a logical resource organization unit that groups together several Kubernetes namespaces. With a project, you can manage access and quotas at the team or application level.

@@ -1,5 +1,9 @@
 ---
 title: Granting access to an application running in a {{ k8s }} cluster
+alternate:
+  - href: en/managed-kubernetes/operations/create-load-balancer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Granting access to an application running in a {{ k8s }} cluster

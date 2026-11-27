@@ -10,6 +10,10 @@ keywords:
   - valkey
   - субд redis
   - субд valkey
+alternate:
+  - href: ru/managed-valkey/concepts/supported-clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Рекомендуемые клиенты для СУБД {{ mrd-name }}

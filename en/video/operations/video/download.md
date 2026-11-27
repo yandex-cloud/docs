@@ -1,6 +1,10 @@
 ---
 title: How to download a video in {{ video-full-name }}
 description: Follow this guide to download a video from {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/video/download.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Downloading a video

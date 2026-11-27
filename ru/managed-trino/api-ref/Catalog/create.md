@@ -797,6 +797,10 @@ apiPlayground:
         required:
           - name
           - connector
+alternate:
+  - href: ru/managed-trino/api-ref/Catalog/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Trino API, REST: Catalog.Create

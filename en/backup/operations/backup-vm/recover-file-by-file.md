@@ -1,6 +1,10 @@
 ---
 title: How to restore individual directories and files on a {{ compute-full-name }} VM or {{ baremetal-full-name }} server
 description: Follow this guide to restore individual directories and files on a {{ compute-full-name }} VM or {{ baremetal-full-name }} server.
+alternate:
+  - href: en/backup/operations/backup-vm/recover-file-by-file.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Restoring individual directories and files on a {{ compute-full-name }} VM or {{ baremetal-full-name }} server

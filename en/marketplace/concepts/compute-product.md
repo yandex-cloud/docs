@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/marketplace/concepts/compute-product.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a Linux-based product image to upload to {{ marketplace-name }}
 
 To add a product for {{ compute-full-name }} to the Marketplace, you need to upload the image to {{ yandex-cloud }}. You can add products based on Linux. This section will help you create a Linux-based image.

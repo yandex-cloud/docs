@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/dns/api-ref/DnsInboundEndpoint/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, REST: DnsInboundEndpoint

@@ -1,6 +1,10 @@
 ---
 title: One-time copy to {{ datalens-platform-full-name }}
 description: Follow this guide to create a _one-time copy_ data transfer in {{ datalens-platform-full-name }}.
+alternate:
+  - href: en/datalens/datalens-platform/operations/data-transfer/one-time-copy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a one-time copy job

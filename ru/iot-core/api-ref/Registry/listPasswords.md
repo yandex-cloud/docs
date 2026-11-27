@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/iot-core/api-ref/Registry/listPasswords.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Registry.ListPasswords

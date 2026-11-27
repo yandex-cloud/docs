@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-transfer/concepts/transfer-lifecycle.md
+    type: text/markdown
+    title: Markdown version
+---
 # Типы и жизненные циклы трансферов
 
 Жизненный цикл трансфера — это набор его статусов и переходов между ними. Порядок перехода между статусами зависит от типа трансфера.

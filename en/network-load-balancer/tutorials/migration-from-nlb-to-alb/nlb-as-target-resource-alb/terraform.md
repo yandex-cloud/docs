@@ -3,6 +3,10 @@ title: Migrating services from an external NLB to L7 ALB, with an internal NLB a
 description: Follow this guide to migrate a service from an external NLB to an L7 ALB with an internal NLB as a target using {{ TF }}.
 canonical: '{{ link-docs }}/tutorials/security/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform'
 noIndex: true
+alternate:
+  - href: en/network-load-balancer/tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating services from an external NLB to an L7 ALB with an internal NLB as a target using {{ TF }}

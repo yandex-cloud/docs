@@ -1,6 +1,10 @@
 ---
 title: Мультидатасетные чарты
 description: Из статьи вы узнаете, что такое мультидатасетные чарты, и ознакомитесь с их особенностями.
+alternate:
+  - href: ru/datalens/concepts/chart/multidataset-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мультидатасетные чарты

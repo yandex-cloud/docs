@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for a {{ compute-name }} non-replicated disk placement group
 description: Follow this guide to configure access permissions for a non-replicated disk placement group.
+alternate:
+  - href: en/compute/operations/disk-placement-groups/access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring access permissions for a non-replicated disk placement group

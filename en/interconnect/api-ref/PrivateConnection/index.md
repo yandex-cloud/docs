@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/interconnect/api-ref/PrivateConnection/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Interconnect API, REST: PrivateConnection

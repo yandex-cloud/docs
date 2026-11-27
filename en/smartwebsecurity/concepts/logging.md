@@ -1,6 +1,10 @@
 ---
 title: Logging in {{ sws-name }}
 description: Available request, rule, and verdict data in {{ sws-name }} logs, and how to use it for traffic analysis.
+alternate:
+  - href: en/smartwebsecurity/concepts/logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Logging

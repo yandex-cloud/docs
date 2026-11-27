@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию об инстансах {{ mgl-full-name }}
 description: Из статьи вы узнаете, как получить список инстансов {{ mgl-name }} и информацию о них.
+alternate:
+  - href: ru/managed-gitlab/operations/instance/instance-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации об инстансах {{ mgl-full-name }}

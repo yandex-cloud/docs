@@ -1,6 +1,10 @@
 ---
 title: Security guides
 description: Various security use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/tutorials/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security guides

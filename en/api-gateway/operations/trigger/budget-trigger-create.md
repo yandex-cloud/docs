@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/operations/trigger/budget-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a trigger for budgets that sends messages to WebSocket connections
 
 Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) to send messages to [WebSocket connections](../../concepts/extensions/websocket.md) when threshold values are exceeded.

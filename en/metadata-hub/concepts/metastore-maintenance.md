@@ -1,6 +1,10 @@
 ---
 title: Maintenance in {{ metastore-full-name }}
 description: In {{ metastore-full-name }}, maintenance includes installing {{ metastore-name }} updates and patches as well as other maintenance works.
+alternate:
+  - href: en/metadata-hub/concepts/metastore-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

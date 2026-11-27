@@ -1,6 +1,10 @@
 ---
 title: Migrating a database from a third-party {{ KF }} cluster to {{ mkf-full-name }}
 description: You can migrate topics from an {{ KF }} source cluster to a {{ mkf-name }} cluster using the {{ mkf-full-name }} built-in MirrorMaker connector or MirrorMaker 2.0.
+alternate:
+  - href: en/tutorials/dataplatform/kafka-connector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating a database from a third-party {{ KF }} cluster to {{ mkf-full-name }}

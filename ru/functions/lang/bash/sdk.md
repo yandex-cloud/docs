@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/bash/sdk.md
+    type: text/markdown
+    title: Markdown version
+---
 # Использование SDK для функции на Bash
 
 В среду выполнения по умолчанию установлена утилита [{{ yandex-cloud }} CLI](../../../cli/) для работы с API {{ yandex-cloud }}.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/video/sdk/CloudVideoPlayerSDK/PlayerError.md
+    type: text/markdown
+    title: Markdown version
+---
 # PlayerError
 
 ## Contents

@@ -1,6 +1,10 @@
 ---
 title: Строка запроса в {{ monium-name }}
 description: 'Строка запроса в сервисе {{ monium-name }} позволяет указать параметры для построения графиков и выборки данных телеметрии. Поддерживаются два режима ввода: токенами и текстом.'
+alternate:
+  - href: ru/monium/concepts/visualization/query-string.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Строка запроса в {{ monium-name }}

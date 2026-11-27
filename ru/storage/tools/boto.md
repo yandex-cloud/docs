@@ -1,6 +1,10 @@
 ---
 title: boto3 и boto
 description: Из статьи вы узнаете, что такое boto3 и boto, как их установить и настроить, а также ознакомитесь с примерами операций.
+alternate:
+  - href: ru/storage/tools/boto.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # boto3 и boto

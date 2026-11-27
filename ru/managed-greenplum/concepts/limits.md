@@ -2,6 +2,10 @@
 title: Квоты и лимиты в {{ mgp-full-name }}
 description: В сервисе {{ mgp-full-name }} действует ряд квот и лимитов. Более подробно об ограничениях в сервисах вы узнаете из этой статьи.
 editable: false
+alternate:
+  - href: ru/managed-greenplum/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

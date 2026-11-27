@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ captcha-full-name }}
 description: Различные сценарии использования {{ captcha-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/smartcaptcha/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ captcha-full-name }}

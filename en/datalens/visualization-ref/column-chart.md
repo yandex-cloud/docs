@@ -1,6 +1,10 @@
 ---
 title: Column chart in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the column chart visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/column-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Column chart ![](../../_assets/datalens/column.svg) in {{ datalens-full-name }}

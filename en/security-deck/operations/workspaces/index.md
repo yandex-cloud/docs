@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides on using workspaces in {{ sd-full-name }}
 description: This section contains step-by-step guides on how to use workspaces in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/workspaces/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sd-full-name }} workspaces

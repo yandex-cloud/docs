@@ -1,6 +1,10 @@
 ---
 title: Creating a {{ dataproc-full-name }} cluster
 description: Follow this guide to create and set up a {{ dataproc-name }} cluster and see a real example of one.
+alternate:
+  - href: en/data-proc/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ dataproc-name }} cluster

@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ mtr-full-name }}
 description: В разделе представлена история изменений сервиса {{ mtr-name }}.
+alternate:
+  - href: ru/managed-trino/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ mtr-full-name }}

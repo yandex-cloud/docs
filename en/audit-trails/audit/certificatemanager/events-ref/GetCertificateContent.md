@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/certificatemanager/events-ref/GetCertificateContent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Audit Trails Events: GetCertificateContent

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройки {{ PG }}
 
 Для кластера {{ mpg-name }} можно задать настройки, которые относятся к {{ PG }}. Часть настроек задается [на уровне кластера](#dbms-cluster-settings), часть — [на уровне пользователя](#dbms-user-settings).

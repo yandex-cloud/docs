@@ -1,6 +1,10 @@
 ---
 title: Reserving a {{ baremetal-full-name }} network connection using MC-LAG
 description: This article describes the specifics and benefits of using MC-LAG to reserve a {{ baremetal-full-name }} network connection.
+alternate:
+  - href: en/baremetal/concepts/mc-lag.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reserving a {{ baremetal-name }} network connection using MC-LAG

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/v0/ml-model/list/
+alternate:
+  - href: en/cli/cli-ref/managed-clickhouse/cli-ref/v0/ml-model/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse v0 ml-model list

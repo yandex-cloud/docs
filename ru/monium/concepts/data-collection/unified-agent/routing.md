@@ -1,6 +1,10 @@
 ---
 title: Маршрутизация сообщений в {{ monitoring-full-name }}
 description: К маршрутизации сообщений можно отнести маршруты, каналы и цепочки преобразования.
+alternate:
+  - href: ru/monium/concepts/data-collection/unified-agent/routing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Маршрутизация

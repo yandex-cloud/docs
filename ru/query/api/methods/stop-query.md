@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/api/methods/stop-query.md
+    type: text/markdown
+    title: Markdown version
+---
 # stop-query
 
 Метод останавливает запрос.

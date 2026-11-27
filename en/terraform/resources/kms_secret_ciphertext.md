@@ -1,5 +1,9 @@
 ---
 subcategory: Key Management Service
+alternate:
+  - href: en/terraform/resources/kms_secret_ciphertext.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_kms_secret_ciphertext (Resource)

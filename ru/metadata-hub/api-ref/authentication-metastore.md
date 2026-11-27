@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в API {{ metastore-name }}
 description: Для выполнения операций через API в сервисе {{ metastore-name }}, необходимо получить IAM-токен для своего аккаунта.
+alternate:
+  - href: ru/metadata-hub/api-ref/authentication-metastore.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в API {{ metastore-full-name }}

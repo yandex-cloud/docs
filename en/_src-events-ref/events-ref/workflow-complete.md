@@ -2,6 +2,10 @@
 title: workflow.complete
 description: CI workflow completed - emitted when a single CI workflow completes (terminal status)
 editable: false
+alternate:
+  - href: en/_src-events-ref/events-ref/workflow-complete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # workflow.complete

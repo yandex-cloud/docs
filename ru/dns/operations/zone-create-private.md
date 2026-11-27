@@ -1,6 +1,10 @@
 ---
 title: Как создать внутреннюю зону DNS в {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете создать внутреннюю зону DNS.
+alternate:
+  - href: ru/dns/operations/zone-create-private.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать внутреннюю зону DNS

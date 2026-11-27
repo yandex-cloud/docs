@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Subscriptions/rpcdeleteSubscription-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Delete subscription by id

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/cloud-stuck-in-creating-status.md
+    type: text/markdown
+    title: Markdown version
+---
 # Облако зависло в статусе `CREATING` или долго не создается
 
 

@@ -1,6 +1,10 @@
 ---
 title: Просмотр правил контроля безопасности модуля {{ td-name }} в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в модуле {{ td-full-name }} ({{ td-name }}) {{ sd-full-name }} можно посмотреть действующие правила безопасности.
+alternate:
+  - href: ru/security-deck/operations/td/view-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть правила контроля безопасности модуля {{ td-full-name }} ({{ td-name }})

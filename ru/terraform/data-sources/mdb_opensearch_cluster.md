@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for OpenSearch
+alternate:
+  - href: ru/terraform/data-sources/mdb_opensearch_cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_opensearch_cluster (DataSource)

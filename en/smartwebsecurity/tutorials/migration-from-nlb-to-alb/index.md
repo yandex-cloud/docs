@@ -1,6 +1,10 @@
 ---
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/security/migration-from-nlb-to-alb/'
+alternate:
+  - href: en/smartwebsecurity/tutorials/migration-from-nlb-to-alb/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating services from an NLB to an L7 ALB to enable {{ sws-full-name }} protection

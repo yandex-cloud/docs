@@ -32,6 +32,10 @@ meta:
     - keyword: Postgres
     - keyword: '{{ PG }} in cloud'
     - keyword: Object-relational DBMS
+  alternate:
+    - href: en/managed-postgresql/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first database cluster

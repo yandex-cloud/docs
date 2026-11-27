@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/DataCatalog/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # DataCatalog
 
 <!-- markdownlint-disable-file -->

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/policies/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Policies
 
 When creating an instance group, you need to set _policies_ that describe the [zones](allocation-policy.md) for [deploying](deploy-policy.md), [scaling](scale-policy.md), and [recovering](healing-policy.md) group instances.

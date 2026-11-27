@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kafka/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ mkf-name }} tutorials
 
 You can use {{ mkf-name }} to transfer data between databases. {{ mkf-name }} clusters, third-party {{ KF }} clusters, or {{ yandex-cloud }} managed databases can be used as sources and targets.

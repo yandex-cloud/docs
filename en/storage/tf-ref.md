@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ objstorage-full-name }}'
 description: This page provides reference information on the {{ TF }} provider resources supported for {{ objstorage-name }}.
+alternate:
+  - href: en/storage/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ objstorage-full-name }}

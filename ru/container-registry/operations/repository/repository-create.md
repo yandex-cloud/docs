@@ -1,6 +1,10 @@
 ---
 title: Как создать репозиторий в {{ container-registry-full-name }}
 description: Следуя данной инструкции, вы сможете создать репозиторий.
+alternate:
+  - href: ru/container-registry/operations/repository/repository-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать репозиторий

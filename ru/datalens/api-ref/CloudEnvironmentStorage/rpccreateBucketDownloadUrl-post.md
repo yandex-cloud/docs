@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/CloudEnvironmentStorage/rpccreateBucketDownloadUrl-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Create bucket object download URL

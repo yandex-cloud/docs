@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/trino/events-ref/CreateCatalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Trino Audit Trails Events: CreateCatalog

@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ mmg-full-name }}
 description: В разделе представлена история изменений сервиса {{ mmg-name }}.
+alternate:
+  - href: ru/storedoc/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ mmg-full-name }}

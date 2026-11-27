@@ -1,6 +1,10 @@
 ---
 title: Удалить алиас в {{ ml-platform-full-name }}
 description: Следуя данной инструкции, вы сможете удалить алиас в {{ ml-platform-name }}.
+alternate:
+  - href: ru/datasphere/operations/deploy/alias-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить алиас

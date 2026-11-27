@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/concepts/function.md
+    type: text/markdown
+    title: Markdown version
+---
 # Function
 
 A _function_ allows you to put your code in {{ yandex-cloud }} and run it on request or trigger.

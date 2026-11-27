@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/smartwebsecurity/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity API, gRPC: OperationService.Cancel

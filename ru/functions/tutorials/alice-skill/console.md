@@ -3,6 +3,10 @@ title: Как создать навык Алисы с помощью консо�
 description: Из этого руководства вы узнаете, как с помощью serverless-технологий создать навык Алисы в консоли управления {{ yandex-cloud }}, с помощью CLI или API.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/alice-skill/console'
+alternate:
+  - href: ru/functions/tutorials/alice-skill/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание навыка Алисы в консоли управления, с помощью {{ yandex-cloud }} CLI или API

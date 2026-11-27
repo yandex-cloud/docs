@@ -1,6 +1,10 @@
 ---
 title: Managing cloud access policies
 description: In this tutorial, you will learn how to view {{ iam-full-name }} access policies created for a cloud, as well as create and delete such policies.
+alternate:
+  - href: en/resource-manager/operations/cloud/manage-access-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing cloud access policies

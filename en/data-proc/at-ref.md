@@ -1,6 +1,10 @@
 ---
 title: '{{ dataproc-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ dataproc-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/data-proc/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

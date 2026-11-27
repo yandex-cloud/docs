@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/container-registry/api-ref/Scanner/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: Scanner.Get

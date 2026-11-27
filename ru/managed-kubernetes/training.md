@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ managed-k8s-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ managed-k8s-full-name }}.
+alternate:
+  - href: ru/managed-kubernetes/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ managed-k8s-name }}

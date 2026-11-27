@@ -2,6 +2,10 @@
 title: Восстановление базы данных {{ MY }} из резервной копии {{ mmy-full-name }}
 description: Следуя инструкции, вы сможете восстановить базу данных {{ MY }} из переданной резервной копии {{ mmy-name }} на собственном сервере.
 noIndex: true
+alternate:
+  - href: ru/managed-mysql/operations/cluster-outbound-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановление базы данных {{ MY }} из резервной копии WAL-G

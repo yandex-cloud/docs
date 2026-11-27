@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ ml-platform-name }}
 
 {{ ml-platform-full-name }} is an end-to-end ML development environment where you can use well-known IDEs, serverless computing technology, and seamlessly combine a broad range of {{ yandex-cloud }} computing resource configurations. {{ ml-platform-full-name }} is part of the data platform and provides powerful features to work with {{ yandex-cloud }} services. As an IDE, {{ ml-platform-name }} provides [{{ jlab }}® Notebook](https://jupyter.org/).

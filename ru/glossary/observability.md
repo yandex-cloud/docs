@@ -8,6 +8,10 @@ keywords:
   - метрики
   - логи
   - трейсы
+alternate:
+  - href: ru/glossary/observability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Observability

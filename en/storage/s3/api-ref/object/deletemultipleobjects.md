@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/object/deletemultipleobjects.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: DeleteObjects
 
 Deletes objects based on a list of keys provided in a request.

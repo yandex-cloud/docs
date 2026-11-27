@@ -1,6 +1,10 @@
 ---
 title: Getting a list of service accounts in a folder
 description: Follow this guide to view a list of service accounts in a folder.
+alternate:
+  - href: en/iam/operations/sa/list-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of service accounts in a folder

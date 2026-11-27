@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы о {{ TF }} в {{ yandex-cloud }}
 description: 'Ответы на часто задаваемые вопросы о {{ TF }}: ошибки настройки провайдера.'
+alternate:
+  - href: ru/terraform/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы

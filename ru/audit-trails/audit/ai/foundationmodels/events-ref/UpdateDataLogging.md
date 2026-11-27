@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ai/foundationmodels/events-ref/UpdateDataLogging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio Audit Trails Events: UpdateDataLogging

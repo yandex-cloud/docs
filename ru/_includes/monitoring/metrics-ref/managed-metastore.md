@@ -1,4 +1,6 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ metastore-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) — в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
 Общие метки для всех метрик сервиса {{ metastore-name }}:
 
@@ -180,3 +182,5 @@ instance | Идентификатор инстанса в кластере
 || `memory_limit.gauge`
 `DGAUGE`, байты | Максимально доступная для инстанса оперативная память. ||
 |#
+
+[*monium-folder-project]: {% include notitle [folder-project](../../../_popups/monium/folder-project.md) %}

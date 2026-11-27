@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете использовать сервис {{ cdn-full-name }}, чтобы создать и настроить CDN-ресурс с бакетом {{ objstorage-full-name }} в качестве источника.
+alternate:
+  - href: ru/cdn/quickstart/bucket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание CDN-ресурса с источником-бакетом {{ objstorage-full-name }}

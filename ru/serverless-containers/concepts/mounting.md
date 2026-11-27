@@ -1,6 +1,10 @@
 ---
 title: Монтирование файловых систем в контейнер {{ serverless-containers-full-name }}
 description: Из статьи вы узнаете как монтировать файловые системы в контейнер {{ serverless-containers-name }}.
+alternate:
+  - href: ru/serverless-containers/concepts/mounting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Монтирование внешних ресурсов на файловую систему контейнера

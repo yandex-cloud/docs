@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ alb-full-name }}
 description: Различные сценарии использования {{ alb-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/application-load-balancer/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ alb-name }}

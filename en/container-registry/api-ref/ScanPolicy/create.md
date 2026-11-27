@@ -93,6 +93,10 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/ScheduledRule'
+alternate:
+  - href: en/container-registry/api-ref/ScanPolicy/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: ScanPolicy.Create

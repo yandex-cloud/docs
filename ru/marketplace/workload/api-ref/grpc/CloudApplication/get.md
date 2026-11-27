@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/marketplace/workload/api-ref/grpc/CloudApplication/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Apps Workload API, gRPC: CloudApplicationService.Get

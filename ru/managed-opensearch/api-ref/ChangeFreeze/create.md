@@ -48,6 +48,10 @@ apiPlayground:
         - endAt
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/managed-opensearch/api-ref/ChangeFreeze/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for OpenSearch API, REST: ChangeFreeze.Create

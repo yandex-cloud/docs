@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/message/SendMessage.md
+    type: text/markdown
+    title: Markdown version
+---
 # SendMessage
 
 Method for delivering a message to the specified queue. A message can include only XML, JSON, and unformatted text.

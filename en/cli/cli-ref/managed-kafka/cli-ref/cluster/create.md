@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/cluster/create/
+alternate:
+  - href: en/cli/cli-ref/managed-kafka/cli-ref/cluster/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kafka cluster create

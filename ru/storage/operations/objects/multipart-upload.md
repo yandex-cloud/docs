@@ -1,6 +1,10 @@
 ---
 title: Загрузить объект составной (multipart) загрузкой в бакет в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете загрузить объект в бакет в {{ objstorage-name }} по частям, а также задать условия загрузки (conditional writes).
+alternate:
+  - href: ru/storage/operations/objects/multipart-upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузить объект составной (multipart) загрузкой

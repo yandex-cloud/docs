@@ -2,6 +2,10 @@
 title: '{{ monium-name }} quotas and limits'
 description: '{{ monium-name }} has limits and quotas for the number of alerts per cloud and the number of labels per metric (including required ones). For more information about the service limitations, read this article.'
 editable: false
+alternate:
+  - href: en/monium/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monium-name }} quotas and limits

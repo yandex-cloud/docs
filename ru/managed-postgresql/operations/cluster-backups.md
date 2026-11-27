@@ -1,6 +1,10 @@
 ---
 title: Управление резервными копиями PostgreSQL
 description: Вы можете создавать резервные копии и восстанавливать кластеры из имеющихся резервных копий PostgreSQL. Технология Point-in-Time Recovery (PITR) позволяет восстановить состояние кластера на любой момент времени, начиная от создания резервной копии.
+alternate:
+  - href: ru/managed-postgresql/operations/cluster-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление резервными копиями в {{ mpg-name }}

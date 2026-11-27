@@ -1,6 +1,10 @@
 ---
 title: Guides on working with jobs in {{ dataproc-full-name }}
 description: This page provides a list of guides on how to work with jobs in {{ dataproc-name }}.
+alternate:
+  - href: en/data-proc/tutorials/job-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with jobs

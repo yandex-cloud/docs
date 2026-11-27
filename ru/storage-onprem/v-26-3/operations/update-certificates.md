@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/operations/update-certificates.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обновление сертификатов
 
 Чтобы установить или обновить сертификат для S3 API или консоли управления:

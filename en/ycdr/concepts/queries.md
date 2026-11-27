@@ -1,6 +1,10 @@
 ---
 title: Queries in {{ ycdr-full-name }}
 description: Queries in {{ ycdr-name }} use KQL to find and analyze security events.
+alternate:
+  - href: en/ycdr/concepts/queries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Queries

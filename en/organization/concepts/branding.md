@@ -1,6 +1,10 @@
 ---
 title: Branding in {{ org-full-name }}
 description: '{{ org-full-name }} allows you to customize the appearance of authentication pages and login forms to align them with your corporate style and preferences.'
+alternate:
+  - href: en/organization/concepts/branding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Branding

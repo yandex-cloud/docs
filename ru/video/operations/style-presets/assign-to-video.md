@@ -1,6 +1,10 @@
 ---
 title: Как выбрать шаблон плеера в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете выбрать шаблон плеера для конкретного видео в сервисе {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/style-presets/assign-to-video.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выбрать шаблон плеера

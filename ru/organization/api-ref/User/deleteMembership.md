@@ -25,6 +25,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/api-ref/User/deleteMembership.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: User.DeleteMembership

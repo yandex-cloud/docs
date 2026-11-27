@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/external-tables.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с PXF
 
 Протокол [{{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/intro_pxf.html) (PXF) используется для доступа к данным во внешних СУБД.

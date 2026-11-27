@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/send-request.md
+    type: text/markdown
+    title: Markdown version
+---
 # Sending an HTTP API request to {{ cns-full-name }}
 
 Its HTTP API is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).

@@ -5,6 +5,10 @@ keywords:
   - keyword: роли для работы с {{ mspqr-name }}
   - keyword: шардированный кластер для PostgreSQL
   - keyword: SPQR
+alternate:
+  - href: ru/managed-spqr/security.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ mspqr-name }}

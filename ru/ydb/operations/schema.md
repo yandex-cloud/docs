@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/ydb/operations/schema.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление таблицами и директориями
 
 В этом разделе описано, как с помощью облачной консоли управления или [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md) управлять строковыми и документными таблицами, а также директориями.

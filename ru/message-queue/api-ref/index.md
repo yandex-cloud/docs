@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ message-queue-full-name }} API
 
 {{ message-queue-full-name }} предоставляет HTTP [API](../../glossary/rest-api.md), частично совместимый с Amazon SQS API.

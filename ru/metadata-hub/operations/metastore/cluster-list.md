@@ -1,6 +1,10 @@
 ---
 title: Получение информации о кластерах {{ metastore-full-name }}
 description: Следуя данной инструкции, вы сможете запросить подробную информацию об имеющихся кластерах {{ metastore-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/metastore/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации о кластерах {{ metastore-full-name }}

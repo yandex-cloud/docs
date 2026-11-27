@@ -1,6 +1,10 @@
 ---
 title: Какие инструменты для анализа производительности есть в {{ SD }}
 description: Из статьи вы узнаете, какие инструменты для анализа производительности есть в {{ SD }}.
+alternate:
+  - href: ru/storedoc/operations/tools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Инструменты для анализа производительности

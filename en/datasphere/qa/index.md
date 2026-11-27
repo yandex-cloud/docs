@@ -1,6 +1,10 @@
 ---
 title: '{{ ml-platform-full-name }}. FAQ'
 description: How do I get my activity logs in {{ ml-platform-full-name }}? Find answers to this and other questions in this article.
+alternate:
+  - href: en/datasphere/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ ml-platform-name }}

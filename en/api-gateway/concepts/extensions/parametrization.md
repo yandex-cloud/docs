@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/parametrization.md
+    type: text/markdown
+    title: Markdown version
+---
 # Specification parameterization
 
 With specification parameterization, you can change the way {{ api-gw-short-name }} works by setting different values for individual variables rather than the entire specification. For this, you can use the `x-yc-apigateway:variables` extension.

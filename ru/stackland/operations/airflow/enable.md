@@ -1,6 +1,10 @@
 ---
 title: Включить {{ maf-name }}
 description: Как включить компонент {{ maf-name }} и проверить его готовность
+alternate:
+  - href: ru/stackland/operations/airflow/enable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включить {{ maf-name }}

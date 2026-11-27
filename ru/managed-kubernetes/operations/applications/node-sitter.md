@@ -1,6 +1,10 @@
 ---
 title: Установка node-sitter
 description: Следуя данной инструкции, вы сможете установить node-sitter.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/node-sitter.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка node-sitter

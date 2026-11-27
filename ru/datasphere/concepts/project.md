@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/project.md
+    type: text/markdown
+    title: Markdown version
+---
 # Проекты {{ ml-platform-name }}
 
 _Проект_ — это основное рабочее место пользователя, которое служит единой точкой входа для всех возможностей {{ ml-platform-name }}. Проект позволяет запускать вычисления на [виртуальных машинах](../../glossary/vm.md) {{ yandex-cloud }} стандартных [конфигураций](configurations.md) и хранит пользовательские [ресурсы {{ ml-platform-name }}](resources.md).

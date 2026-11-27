@@ -1,6 +1,10 @@
 ---
 title: Formula syntax in {{ datalens-full-name }}
 description: This article describes the syntax of formulas for calculated expressions in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/concepts/calculations/formula-syntax.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Formula syntax in {{ datalens-full-name }}

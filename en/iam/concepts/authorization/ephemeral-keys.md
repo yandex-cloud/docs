@@ -1,6 +1,10 @@
 ---
 title: Ephemeral access keys compatible with AWS APIs
 description: In this article, you will learn about the purpose of an ephemeral access key, its format, and about the services supporting this authentication method.
+alternate:
+  - href: en/iam/concepts/authorization/ephemeral-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [ephemeral-key](../../../_includes/iam/ephemeral-keys.md) %}

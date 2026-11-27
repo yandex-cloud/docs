@@ -44,6 +44,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/serverless-containers/triggers/api-ref/Trigger/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Triggers Service, REST: Trigger.List

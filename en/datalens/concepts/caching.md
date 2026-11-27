@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/concepts/caching.md
+    type: text/markdown
+    title: Markdown version
+---
 # Caching
 
 _Cache_ stores frequently queried data and provides quick access to it.

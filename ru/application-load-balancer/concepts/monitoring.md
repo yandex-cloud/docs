@@ -1,6 +1,10 @@
 ---
 title: Мониторинг и логирование в {{ alb-full-name }}
 description: Узнайте, как отслеживать метрики {{ alb-name }}, просматривать логи запросов и собирать аудитные логи изменений конфигурации.
+alternate:
+  - href: ru/application-load-balancer/concepts/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг и логирование

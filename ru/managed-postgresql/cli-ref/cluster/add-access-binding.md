@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/cluster/add-access-binding/
+alternate:
+  - href: ru/managed-postgresql/cli-ref/cluster/add-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-postgresql cluster add-access-binding

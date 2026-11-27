@@ -31,11 +31,11 @@
    1. Скачайте и импортируйте сертификат:
 
       ```powershell
-      mkdir -Force $HOME\.yandex; `
+      mkdir -Force $HOME\AppData\Roaming\.yandex; `
       curl.exe {{ crt-web-path-root }} `
-        --output $HOME\.yandex\{{ crt-local-file-root }}; `
+        --output $HOME\AppData\Roaming\.yandex\{{ crt-local-file-root }}; `
       Import-Certificate `
-        -FilePath $HOME\.yandex\{{ crt-local-file-root }} `
+        -FilePath $HOME\AppData\Roaming\.yandex\{{ crt-local-file-root }} `
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 
@@ -43,6 +43,6 @@
 
    1. Подтвердите согласие с установкой сертификата в хранилище «Доверенные корневые центры сертификации».
 
-   Сертификат будет сохранен в файле `$HOME\.yandex\{{ crt-local-file-root }}`.
+   Сертификат будет сохранен в файле `$HOME\AppData\Roaming\.yandex\{{ crt-local-file-root }}`.
 
 {% endlist %}

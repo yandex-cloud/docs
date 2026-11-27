@@ -6,6 +6,10 @@ keywords:
   - apache spark
   - spark
   - PySpark
+alternate:
+  - href: ru/data-proc/tutorials/run-spark-job.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [tutorial](../../_tutorials/dataplatform/data-processing/run-spark-job.md) %}

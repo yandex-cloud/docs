@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/delete-configuration-set.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteConfigurationSet method
 
 Deletes a [configuration](../../concepts/glossary.md#configuration) in a folder. The folder is selected based on the service account the request originates from.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/concepts/trigger/timer.md
+    type: text/markdown
+    title: Markdown version
+---
 # Таймер, который вызывает функцию {{ sf-name }}
 
 _Таймер_ — это [триггер](../trigger/), который запускает [функцию](../function.md) {{ sf-name }} по расписанию. Расписание задается в виде [cron-выражения](#cron-expression). Время в cron-выражении указывается по [UTC+0](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).

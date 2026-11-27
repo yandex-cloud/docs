@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/video/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление доступом в {{ video-full-name }}
 
 В этом разделе вы узнаете:

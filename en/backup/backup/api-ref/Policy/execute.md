@@ -29,6 +29,10 @@ apiPlayground:
         - computeInstanceId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/backup/backup/api-ref/Policy/execute.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Policy.Execute

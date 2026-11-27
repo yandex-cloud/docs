@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о группе безопасности в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о группе безопасности.
+alternate:
+  - href: ru/vpc/operations/security-group-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о группе безопасности

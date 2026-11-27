@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_license_setup-offline.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli license setup-offline
 
 Configure offline licensing with a license bundle

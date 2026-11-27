@@ -1,5 +1,9 @@
 ---
 subcategory: Application Load Balancer
+alternate:
+  - href: ru/terraform/resources/alb_backend_group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_alb_backend_group (Resource)

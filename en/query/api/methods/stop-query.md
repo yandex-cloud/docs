@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/api/methods/stop-query.md
+    type: text/markdown
+    title: Markdown version
+---
 # stop-query
 
 This method terminates a query.

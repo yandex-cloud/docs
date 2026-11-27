@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/yql-tutorials/json.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with JSON
 
 The [JSON](https://en.wikipedia.org/wiki/JSON) format is used for storing and processing data.

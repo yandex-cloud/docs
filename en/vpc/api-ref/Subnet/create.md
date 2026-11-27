@@ -94,6 +94,10 @@ apiPlayground:
             type: array
             items:
               type: string
+alternate:
+  - href: en/vpc/api-ref/Subnet/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: Subnet.Create

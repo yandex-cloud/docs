@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ yandex-cloud }} technical support
 description: This page presents questions and answers about {{ yandex-cloud }} support.
+alternate:
+  - href: en/support/qa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ yandex-cloud }} technical support

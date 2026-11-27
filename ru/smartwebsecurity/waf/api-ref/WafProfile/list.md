@@ -18,6 +18,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/smartwebsecurity/waf/api-ref/WafProfile/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity WAF API, REST: WafProfile.List

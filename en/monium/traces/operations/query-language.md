@@ -1,6 +1,10 @@
 ---
 title: Query language
 description: Reference for the query language to search for traces and spans in {{ traces-name }}.
+alternate:
+  - href: en/monium/traces/operations/query-language.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Query language

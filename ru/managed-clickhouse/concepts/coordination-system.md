@@ -1,6 +1,10 @@
 ---
 title: Сервисы координации в {{ mch-name }}
 description: Вы узнаете о сервисах координации, используемых в {{ mch-full-name }}.
+alternate:
+  - href: ru/managed-clickhouse/concepts/coordination-system.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сервисы координации в {{ mch-name }}

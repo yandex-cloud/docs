@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/cloud-registry/api-ref/ScanPolicy/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, REST: ScanPolicy

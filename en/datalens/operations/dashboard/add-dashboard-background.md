@@ -1,6 +1,10 @@
 ---
 title: How to set up a dashboard background in {{ datalens-full-name }}
 description: Follow this guide to set up a dashboard background in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/add-dashboard-background.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up a dashboard background in {{ datalens-full-name }}

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/ISTRUE.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IS TRUE

@@ -1,6 +1,10 @@
 ---
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/dataplatform/opensearch-to-ydb'
+alternate:
+  - href: ru/ydb/tutorials/opensearch-to-ydb.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция данных из {{ mos-full-name }} в {{ ydb-short-name }} с помощью {{ data-transfer-full-name }}

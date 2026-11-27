@@ -1,6 +1,10 @@
 ---
 title: Configuring dedicated IP addressing of CDN resources
 description: Follow this guide to configure dedicated IP addressing of CDN resources.
+alternate:
+  - href: en/cdn/operations/resources/dedicated-ip-addressing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring dedicated IP addressing of CDN resources

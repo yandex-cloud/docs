@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ mtr-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mtr-name }}.
+alternate:
+  - href: ru/managed-trino/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ mtr-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/gpu.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ gpu-operator }}
 
 {{ stackland-name }} enables you to provision {{ nvidia }} GPUs in a {{ stackland-name }} cluster using {{ gpu-operator }}, a component which automates management of GPU resources and ensures their availability for workloads. An implementation of the [{{ nvidia }} GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html), it provides a comprehensive toolkit for GPU provisioning in Kubernetes.

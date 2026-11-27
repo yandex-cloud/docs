@@ -1,5 +1,9 @@
 ---
 subcategory: Smart Web Security
+alternate:
+  - href: en/terraform/resources/sws_advanced_rate_limiter_profile.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_sws_advanced_rate_limiter_profile (Resource)
@@ -97,6 +101,24 @@ filename: yandex/cloud/smartwebsecurity/v1/advanced_rate_limiter/advanced_rate_l
             - `str_lists_not_match` [Block]. String lists to not match with.
               - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
         - `authority_matcher` [Block]. Authority matcher.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `body` [Block]. Match HTTP request body.
+        - `body_matcher` [Block]. HTTP request body matcher.
           - `defined` (Bool). Matches if the field is defined.
           - `exact_match` (String). Exact match condition.
           - `exact_not_match` (String). Exact not match condition.
@@ -361,6 +383,24 @@ filename: yandex/cloud/smartwebsecurity/v1/advanced_rate_limiter/advanced_rate_l
             - `str_lists_not_match` [Block]. String lists to not match with.
               - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
         - `authority_matcher` [Block]. Authority matcher.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `body` [Block]. Match HTTP request body.
+        - `body_matcher` [Block]. HTTP request body matcher.
           - `defined` (Bool). Matches if the field is defined.
           - `exact_match` (String). Exact match condition.
           - `exact_not_match` (String). Exact not match condition.

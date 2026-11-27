@@ -27,6 +27,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/iot-core/api-ref/Registry/addCertificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Registry.AddCertificate

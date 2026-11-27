@@ -1,6 +1,10 @@
 ---
 title: '{{ certificate-manager-full-name }}. Ответы на вопросы'
 description: 'Ответы на вопросы о {{ certificate-manager-name }}: получение логов, проверка прав на домен, ошибки выпуска и обновления сертификатов Let''s Encrypt.'
+alternate:
+  - href: ru/certificate-manager/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие вопросы про {{ certificate-manager-name }}

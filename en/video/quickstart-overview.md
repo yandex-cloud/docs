@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ video-full-name }}
 description: Get started with broadcasts or video hosting in {{ video-name }}.
+alternate:
+  - href: en/video/quickstart-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ video-full-name }}

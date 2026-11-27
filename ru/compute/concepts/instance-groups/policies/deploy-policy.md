@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/concepts/instance-groups/policies/deploy-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Политика развертывания
 
 При создании группы виртуальных машин можно выбрать, каким образом будут развертываться ВМ в группе.

@@ -57,6 +57,10 @@ meta:
     - keyword: Open source DBMS
     - keyword: Analytical DBMS
     - keyword: Column-oriented DBMS
+  alternate:
+    - href: en/managed-clickhouse/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first database cluster

@@ -1,6 +1,10 @@
 ---
 title: Обновление подключения в {{ websql-full-name }}
 description: Следуя данной инструкции, вы сможете обновлять подключения.
+alternate:
+  - href: ru/websql/operations/update-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновление подключения

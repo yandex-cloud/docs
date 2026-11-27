@@ -1,6 +1,10 @@
 ---
 title: Overview videos of {{ datalens-full-name }} updates
 description: Videos overviewing new {{ datalens-name }} features on a quarterly basis.
+alternate:
+  - href: en/datalens/release-notes/videos.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Overview videos of {{ datalens-full-name }} updates

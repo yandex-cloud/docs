@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/serverless-containers/containers/api-ref/grpc/Container/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Serverless Containers Service, gRPC: ContainerService.SetAccessBindings

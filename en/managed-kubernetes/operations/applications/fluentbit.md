@@ -1,6 +1,10 @@
 ---
 title: Installing Fluent Bit with the plugin for {{ cloud-logging-full-name }}
 description: Follow this guide to install Fluent Bit with the plugin for {{ cloud-logging-name }}.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/fluentbit.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing Fluent Bit with the plugin for {{ cloud-logging-full-name }}

@@ -48,6 +48,10 @@ apiPlayground:
           format: date-time
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/organization/api-ref/UserSshKey/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: UserSshKey.Update

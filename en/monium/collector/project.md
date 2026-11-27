@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/collector/project.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating and setting up a project
 
 A project is a logical unit used to organize telemetry data in {{ monium-name }}. In {{ monium-name }}, telemetry has this hierarchy: project → cluster → service. Data is stored in shards in _service-cluster_ pairs.

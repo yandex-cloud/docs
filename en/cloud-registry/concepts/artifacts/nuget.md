@@ -1,6 +1,10 @@
 ---
 title: NuGet artifact in {{ cloud-registry-full-name }}
 description: NuGet artifact is a package containing code, metadata, dependencies, and other resources. NuGet packages are used to distribute libraries, tools, and components you can add to your .NET projects.
+alternate:
+  - href: en/cloud-registry/concepts/artifacts/nuget.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # NuGet artifact

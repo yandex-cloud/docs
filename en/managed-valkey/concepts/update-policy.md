@@ -1,6 +1,10 @@
 ---
 title: '{{ VLK }} versioning policy'
 description: In this tutorial, you will learn about the {{ VLK }} versioning policy in {{ mrd-full-name }}.
+alternate:
+  - href: en/managed-valkey/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ VLK }} versioning policy

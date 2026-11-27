@@ -1,6 +1,10 @@
 ---
 title: How to delete an inbound DNS connection in {{ dns-full-name }}
 description: Follow this guide to delete an inbound DNS connection.
+alternate:
+  - href: en/dns/operations/connection-inbound-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an inbound DNS connection

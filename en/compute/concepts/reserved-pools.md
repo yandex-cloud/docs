@@ -1,6 +1,10 @@
 ---
 title: '{{ compute-full-name }} reserved instance pools'
 description: In this article, you will learn what a reserved instance pool is and how to reserve computing resources to create properly configured VMs in availability zones of your choice.
+alternate:
+  - href: en/compute/concepts/reserved-pools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reserved instance pools in {{ compute-name }}

@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ cns-full-name }}
 description: Управление доступом в сервисе для отправки почтовых сообщений {{ cns-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ cns-name }}, назначьте пользователю нужные роли из приведенного списка.
+alternate:
+  - href: ru/notifications/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ cns-full-name }}

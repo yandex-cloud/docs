@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/saml/api-ref/grpc/Federation/validateDomain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Federation API, gRPC: FederationService.ValidateDomain

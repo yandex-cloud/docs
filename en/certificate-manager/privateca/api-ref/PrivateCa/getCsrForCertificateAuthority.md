@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/certificate-manager/privateca/api-ref/PrivateCa/getCsrForCertificateAuthority.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, REST: PrivateCa.GetCsrForCertificateAuthority

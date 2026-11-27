@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ dns-full-name }}
 description: This page covers questions and answers about {{ dns-name }}.
+alternate:
+  - href: en/dns/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ dns-name }}

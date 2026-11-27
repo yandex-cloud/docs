@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/cloud/get/
+alternate:
+  - href: ru/cli/cli-ref/resource-manager/cli-ref/cloud/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc resource-manager cloud get

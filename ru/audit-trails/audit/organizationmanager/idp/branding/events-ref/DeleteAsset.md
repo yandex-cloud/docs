@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/organizationmanager/idp/branding/events-ref/DeleteAsset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub Audit Trails Events: DeleteAsset

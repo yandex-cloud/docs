@@ -1,6 +1,10 @@
 ---
 title: Setting up {{ IBRG }} in a {{ dataproc-name }} cluster
 description: How to set up and use {{ IBRG }} in a {{ dataproc-name }} cluster.
+alternate:
+  - href: en/data-proc/operations/apache-iceberg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up {{ IBRG }} in a {{ dataproc-name }} cluster

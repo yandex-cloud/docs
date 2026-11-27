@@ -1,6 +1,10 @@
 ---
 title: Migrating to {{ managed-k8s-name }}
 description: This section contains guides for migrating Kubernetes workloads from a public cloud or on-premises setup to {{ managed-k8s-name }}.
+alternate:
+  - href: en/managed-kubernetes/tutorials/migration/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating to {{ managed-k8s-name }}

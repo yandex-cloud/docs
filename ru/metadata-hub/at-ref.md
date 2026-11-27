@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ metadata-hub-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ metadata-hub-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/metadata-hub/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ metadata-hub-full-name }}

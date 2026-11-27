@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/edit-invoice-template-or-content.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как изменить форму и данные в выставляемых счетах на оплату
 
 

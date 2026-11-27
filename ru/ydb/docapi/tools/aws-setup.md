@@ -2,6 +2,10 @@
 title: Настройка инструментов AWS в {{ ydb-full-name }}
 description: На странице представлены инструменты AWS, которые вы можете использовать для работы с БД через Document API в режиме совместимости с AWS DynamoDB.
 sourcePath: overlay/quickstart/document-api/aws-setup.md
+alternate:
+  - href: ru/ydb/docapi/tools/aws-setup.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Настройка инструментов AWS
 

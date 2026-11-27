@@ -1,6 +1,10 @@
 ---
 title: Configuring a connection to use SQL Editor in {{ datalens-platform-full-name }}
 description: How to connect to databases and run SQL queries from the {{ datalens-platform-short-name }} UI.
+alternate:
+  - href: en/datalens/datalens-platform/operations/sql/connection-setting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring a connection to use SQL Editor in {{ datalens-platform-full-name }}

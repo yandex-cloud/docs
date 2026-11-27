@@ -1,6 +1,10 @@
 ---
 title: How to link a cloud to a billing account
 description: Follow this guide to link a cloud to a billing account.
+alternate:
+  - href: en/billing/operations/pin-cloud.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Linking a cloud to a billing account

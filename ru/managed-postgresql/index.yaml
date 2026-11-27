@@ -36,6 +36,10 @@ meta:
     - keyword: Постгрес
     - keyword: '{{ PG }} в облаке'
     - keyword: Объектно-реляционная СУБД
+  alternate:
+    - href: ru/managed-postgresql/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

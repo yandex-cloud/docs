@@ -1,6 +1,10 @@
 ---
 title: Managing {{ MY }} user permissions
 description: You can manage {{ MY }} user permissions for the whole cluster or individual databases by changing user privileges. User’s privileges can vary across different databases. To learn more about supported privileges, see the privilege descriptions.
+alternate:
+  - href: en/managed-mysql/operations/grant.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing user permissions

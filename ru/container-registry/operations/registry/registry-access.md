@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/container-registry/operations/registry/registry-access.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настроить доступ к реестру
 
 Для [реестра](../../concepts/registry.md) можно настроить политики доступа с конкретных [IP-адресов](../../../vpc/concepts/address.md).

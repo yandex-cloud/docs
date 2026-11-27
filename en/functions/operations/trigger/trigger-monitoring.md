@@ -1,6 +1,10 @@
 ---
 title: Viewing monitoring charts in {{ sf-full-name }}
 description: You can view monitoring charts in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the trigger whose monitoring charts you want to view.
+alternate:
+  - href: en/functions/operations/trigger/trigger-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing trigger monitoring charts in {{ sf-name }}

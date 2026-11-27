@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/vpc/privatelink/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, gRPC: OperationService.Cancel

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/projects/jobs-toolkit.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с заданиями из Visual Studio Code
 
 Расширение {{ ds-jobs }} Toolkit позволяет работать с [заданиями](../../concepts/jobs/index.md) {{ ml-platform-name }} из IDE [Visual Studio Code](https://code.visualstudio.com/). Для этого потребуется аккаунт {{ yandex-cloud }} и [проект](../../concepts/project.md) {{ ml-platform-name }}.

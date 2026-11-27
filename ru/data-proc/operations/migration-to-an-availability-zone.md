@@ -1,6 +1,10 @@
 ---
 title: Миграция легковесного кластера {{ dataproc-full-name }} в другую зону доступности
 description: Следуя данной инструкции, вы сможете выполнить миграцию легковесного кластера {{ dataproc-name }} в другую зону доступности.
+alternate:
+  - href: ru/data-proc/operations/migration-to-an-availability-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция легковесного кластера {{ dataproc-name }} в другую зону доступности

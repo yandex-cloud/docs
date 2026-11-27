@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for a {{ compute-name }} VM placement group
 description: Follow this guide to configure access permissions for a {{ compute-name }} VM placement group.
+alternate:
+  - href: en/compute/operations/placement-groups/access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring VM placement group access permissions

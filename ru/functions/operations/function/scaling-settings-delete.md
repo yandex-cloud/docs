@@ -1,6 +1,10 @@
 ---
 title: Удалить настройки масштабирования функции
 description: Следуя данной инструкции, вы сможете удалить настройки масштабирования функции.
+alternate:
+  - href: ru/functions/operations/function/scaling-settings-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить настройки масштабирования функции

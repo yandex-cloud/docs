@@ -32,6 +32,10 @@ meta:
     - keyword: '{{ unified-agent-full-name }}'
     - keyword: '{{ prometheus-name }}'
     - keyword: notification channel in {{ monitoring-name }}
+  alternate:
+    - href: en/monium/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Get started with the platform

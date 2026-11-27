@@ -217,6 +217,10 @@ apiPlayground:
               The minimum value is 0.
             type: string
             format: int64
+alternate:
+  - href: en/managed-mysql/api-ref/User/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, REST: User.Update

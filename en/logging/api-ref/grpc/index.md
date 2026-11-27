@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/logging/api-ref/grpc/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service: gRPC reference

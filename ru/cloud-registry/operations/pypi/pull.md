@@ -1,6 +1,10 @@
 ---
 title: Скачать Python-пакет из реестра {{ cloud-registry-name }}
 description: Следуя данной инструкции, вы скачаете Python-пакет из реестра {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/pypi/pull.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Скачать Python-пакет из реестра {{ cloud-registry-name }}

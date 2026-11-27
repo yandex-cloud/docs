@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/terraform/concepts/modules.md
+    type: text/markdown
+    title: Markdown version
+---
 # Modules
 
 **Modules in {{ TF }}** are a code organization tool that allows you to break down a larger infrastructure into smaller, manageable parts.

@@ -1,6 +1,10 @@
 ---
 title: Configuring cross-origin resource sharing (CORS) for objects in an {{ objstorage-full-name }} bucket
 description: Follow this guide to configure cross-origin resource sharing (CORS) for objects in an {{ objstorage-name }} bucket.
+alternate:
+  - href: en/storage/operations/buckets/cors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring CORS

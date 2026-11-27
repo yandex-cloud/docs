@@ -1,6 +1,10 @@
 ---
 title: How to configure the display of null values ​​in a {{ datalens-full-name }} chart
 description: "Follow this guide to\_configure the display of null values in a {{ datalens-full-name }} chart."
+alternate:
+  - href: en/datalens/operations/chart/chart-null-settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring the display of null values in a {{ datalens-full-name }} chart

@@ -1,6 +1,10 @@
 ---
 title: Политики перезапуска Docker-контейнера
 description: 'В описании Docker-контейнера можно указать три политики запуска: Always, Never и OnFailure.'
+alternate:
+  - href: ru/cos/concepts/restart-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политики перезапуска Docker-контейнера

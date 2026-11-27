@@ -49,6 +49,10 @@ apiPlayground:
         required:
           - folderId
           - secretName
+alternate:
+  - href: en/lockbox/api-ref/Payload/getEx.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox API, REST: Payload.GetEx

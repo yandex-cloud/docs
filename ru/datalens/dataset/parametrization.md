@@ -1,6 +1,10 @@
 ---
 title: Параметризация источников датасета в {{ datalens-full-name }}
 description: Параметризация источников датасета в {{ datalens-full-name }} позволяет динамически подставлять параметры из чарта в SQL-запрос или название таблицы или схемы.
+alternate:
+  - href: ru/datalens/dataset/parametrization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Параметризация источников датасета в {{ datalens-full-name }}

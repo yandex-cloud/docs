@@ -1,6 +1,10 @@
 ---
 title: Удалить профиль ARL
 description: Следуя данной инструкции, вы сможете удалить профиль ARL.
+alternate:
+  - href: ru/smartwebsecurity/operations/arl-profile-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить профиль ARL

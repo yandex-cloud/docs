@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/database/update/
+alternate:
+  - href: ru/managed-postgresql/cli-ref/database/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-postgresql database update

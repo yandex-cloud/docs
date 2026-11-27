@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/operations/shards.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление шардами в кластере {{ CH }}
 
 Вы можете включить шардирование для кластера, а также добавлять и настраивать отдельные шарды.

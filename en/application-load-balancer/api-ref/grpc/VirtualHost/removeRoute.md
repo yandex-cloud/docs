@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/application-load-balancer/api-ref/grpc/VirtualHost/removeRoute.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, gRPC: VirtualHostService.RemoveRoute

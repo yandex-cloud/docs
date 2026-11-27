@@ -65,6 +65,10 @@ apiPlayground:
           maxProperties: 64
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/serverless-containers/containers/api-ref/Container/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Serverless Containers Service, REST: Container.Update

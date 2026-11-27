@@ -1,6 +1,10 @@
 ---
 title: Device topics in {{ iot-full-name }}
 description: This page describes all device topics available in {{ iot-name }}.
+alternate:
+  - href: en/iot-core/concepts/topic/devices-topic.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Device topics

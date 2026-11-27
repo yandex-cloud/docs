@@ -59,6 +59,10 @@ apiPlayground:
               Information about the app for which the Refresh Token was issued.
               The maximum string length in characters is 1000.
             type: string
+alternate:
+  - href: en/iam/api-ref/RefreshToken/revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: RefreshToken.Revoke

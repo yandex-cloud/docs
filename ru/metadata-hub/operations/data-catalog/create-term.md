@@ -1,6 +1,10 @@
 ---
 title: Создание термина в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы создадите термин в глоссарии {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/create-term.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание термина

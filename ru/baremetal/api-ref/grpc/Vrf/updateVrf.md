@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/baremetal/api-ref/grpc/Vrf/updateVrf.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, gRPC: VrfService.UpdateVrf

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/CloudEnvironmentStorage/rpcgetBucketObjectMetadata-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Get bucket object metadata

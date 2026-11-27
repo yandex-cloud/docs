@@ -1,6 +1,10 @@
 ---
 title: '{{ postbox-full-name }} event reference'
 description: This section provides descriptions of the {{ at-full-name }} audit events collected in {{ postbox-name }}.
+alternate:
+  - href: en/postbox/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

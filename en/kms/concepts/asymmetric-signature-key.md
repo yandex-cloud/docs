@@ -1,6 +1,10 @@
 ---
 title: Asymmetric signature key pair in {{ kms-short-name }}
 description: This article describes the features of asymmetric signature key pairs in {{ kms-short-name }}.
+alternate:
+  - href: en/kms/concepts/asymmetric-signature-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Asymmetric signature key pair in {{ kms-short-name }}

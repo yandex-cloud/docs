@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/python/handler.md
+    type: text/markdown
+    title: Markdown version
+---
 # Request handler for a function in Python
 
 A _request handler_ is a method used to process each Python function call. When creating a function [version](../../concepts/function.md#version), you must set up an _entry point_ for it, i.e., a path to the request handler in `<file>`.`<function>` format, where:

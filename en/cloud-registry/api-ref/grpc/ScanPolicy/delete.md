@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/cloud-registry/api-ref/grpc/ScanPolicy/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, gRPC: ScanPolicyService.Delete

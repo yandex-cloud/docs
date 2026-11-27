@@ -47,6 +47,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/managed-kubernetes/managed-kubernetes/api-ref/Cluster/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Services for Kubernetes API, REST: Cluster.List

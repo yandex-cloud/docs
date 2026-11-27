@@ -2,6 +2,10 @@
 title: Загрузка аудитных логов в MaxPatrol SIEM
 description: Следуя данному руководству, вы сможете настроить загрузку аудитных логов {{ at-full-name }} в MaxPatrol SIEM с помощью {{ yds-full-name }}.
 canonical: '{{ link-docs }}/tutorials/security/maxpatrol'
+alternate:
+  - href: ru/data-streams/tutorials/maxpatrol/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [maxpatrol-siem](../../../_tutorials/security/at-maxpatrol-siem.md) %}

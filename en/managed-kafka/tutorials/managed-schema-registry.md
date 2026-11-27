@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/managed-schema-registry'
+alternate:
+  - href: en/managed-kafka/tutorials/managed-schema-registry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with the managed schema registry

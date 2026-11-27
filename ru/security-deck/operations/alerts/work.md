@@ -1,6 +1,10 @@
 ---
 title: Работать с алертами в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в {{ sd-full-name }} работать с алертами.
+alternate:
+  - href: ru/security-deck/operations/alerts/work.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работать с алертами

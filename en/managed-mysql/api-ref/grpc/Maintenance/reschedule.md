@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-mysql/api-ref/grpc/Maintenance/reschedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, gRPC: MaintenanceService.Reschedule

@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ dns-full-name }}'
 description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ dns-name }}.
+alternate:
+  - href: en/dns/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ dns-full-name }}

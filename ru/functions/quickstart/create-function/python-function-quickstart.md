@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/quickstart/create-function/python-function-quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание функции на Python
 
 Создайте и выполните [функцию](../../concepts/function.md) на Python, которая приветствует пользователя.

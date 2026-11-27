@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/v0/users/get/
+alternate:
+  - href: en/cli/cli-ref/managed-greenplum/cli-ref/v0/users/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-greenplum v0 users get

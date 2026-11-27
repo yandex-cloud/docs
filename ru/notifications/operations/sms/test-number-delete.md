@@ -1,6 +1,10 @@
 ---
 title: Удалить тестовый номер в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете удалить тестовый номер.
+alternate:
+  - href: ru/notifications/operations/sms/test-number-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить тестовый номер

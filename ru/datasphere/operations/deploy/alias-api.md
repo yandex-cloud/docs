@@ -1,6 +1,10 @@
 ---
 title: Как отправить запрос в алиас в {{ ml-platform-full-name }}
 description: Следуя данной инструкции, вы сможете отправить запрос в алиас.
+alternate:
+  - href: ru/datasphere/operations/deploy/alias-api.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправить запрос в алиас

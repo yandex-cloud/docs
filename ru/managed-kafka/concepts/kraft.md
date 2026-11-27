@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kafka/concepts/kraft.md
+    type: text/markdown
+    title: Markdown version
+---
 # Протокол {{ kraft-name }} в кластерах {{ mkf-name }}
 
 _[{{ kraft-name }}](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html)_ (сокращенно {{ kraft-short-name }}) — протокол согласования, который позволяет хранить метаданные и управлять ими внутри {{ KF }}. {{ kraft-short-name }} устраняет зависимость {{ KF }} от внешнего сервиса синхронизации метаданных {{ ZK }}.

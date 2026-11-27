@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/dsvm/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a VM from a public DSVM image
 
 In the {{ yandex-cloud }} management console, create a VM from a DSVM image using {{ compute-name }} and connect to it via SSH.

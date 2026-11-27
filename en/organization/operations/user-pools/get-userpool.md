@@ -1,6 +1,10 @@
 ---
 title: How to get information about a user pool in {{ org-full-name }}
 description: Follow this guide to get information about a user pool in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/user-pools/get-userpool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a user pool

@@ -1,6 +1,10 @@
 ---
 title: DNS connections in {{ yandex-cloud }} networks
 description: DNS connections allow you to configure the integration of corporate (on-premise) DNS services with internal DNS zones in {{ yandex-cloud }}.
+alternate:
+  - href: en/dns/concepts/dns-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DNS connections

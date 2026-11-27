@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/security/operations/account-deletion.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a Yandex account from an organization
 
 This guide describes how to delete a privileged [Yandex account](../../iam/concepts/users/accounts.md#passport) with the `organization-manager.organizations.owner` role from an [organization](../../organization/).

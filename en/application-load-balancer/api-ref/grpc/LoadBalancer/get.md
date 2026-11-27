@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/application-load-balancer/api-ref/grpc/LoadBalancer/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, gRPC: LoadBalancerService.Get

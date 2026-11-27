@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/qa/cluster-settings.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ CH }} cluster settings
 
 {% include [cluster-settings-minitoc](../../_qa/managed-clickhouse/minitoc/cluster-settings.md) %}

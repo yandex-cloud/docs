@@ -1,5 +1,9 @@
 ---
 subcategory: Certificate Manager
+alternate:
+  - href: ru/terraform/resources/cm_certificate_iam_member.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cm_certificate_iam_member (Resource)

@@ -1,6 +1,10 @@
 ---
 title: Настроить права доступа к диску {{ compute-name }}
 description: Следуя данной инструкции, вы настроите права доступа к диску.
+alternate:
+  - href: ru/compute/operations/disk-control/disk-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к диску

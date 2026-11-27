@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/api/methods/create-query.md
+    type: text/markdown
+    title: Markdown version
+---
 # create-query
 
 This method creates a data query and runs it. Once started, the query status changes to `RUNNING`. You can only [get](get-query-results.md) results after the query completes successfully. To check the query status, use the [get-query-status](get-query-status.md) method.

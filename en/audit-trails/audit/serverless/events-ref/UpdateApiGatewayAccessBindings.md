@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/serverless/events-ref/UpdateApiGatewayAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Audit Trails Events: UpdateApiGatewayAccessBindings

@@ -1,6 +1,10 @@
 ---
 title: How do I get started with {{ metadata-hub-full-name }}
 description: In this tutorial, you will learn how to create your first connection and how to get started with a data registry.
+alternate:
+  - href: en/metadata-hub/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ metadata-hub-full-name }} services

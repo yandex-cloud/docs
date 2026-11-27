@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ CH }} cluster
 description: Follow this guide to create a {{ CH }} cluster with one or multiple database hosts.
+alternate:
+  - href: en/managed-clickhouse/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ CH }} cluster

@@ -3,6 +3,10 @@ title: Работа с данными в {{ objstorage-name }} из {{ msp-full-
 description: На странице представлен список практических руководств о работе с таблицами в {{ objstorage-name }} из PySpark-заданий в {{ msp-name }} с использованием локального каталога Hive, {{ metastore-name }} и формата {{ IBRG }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/spark-object-storage-overview'
 noIndex: true
+alternate:
+  - href: ru/managed-spark/tutorials/object-storage-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с данными в {{ objstorage-full-name }}

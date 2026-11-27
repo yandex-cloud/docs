@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/ymq/events-ref/CreateMessageQueue.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Message Queue Audit Trails Events: CreateMessageQueue

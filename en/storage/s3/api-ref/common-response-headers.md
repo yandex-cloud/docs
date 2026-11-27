@@ -1,6 +1,10 @@
 ---
 title: What response headers exist in the {{ objstorage-full-name }} S3 API
 description: In this article, you will learn about the response headers existing in the S3 API.
+alternate:
+  - href: en/storage/s3/api-ref/common-response-headers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Common response headers

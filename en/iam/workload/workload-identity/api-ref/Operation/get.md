@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/iam/workload/workload-identity/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Workload Identity, REST: Operation.Get

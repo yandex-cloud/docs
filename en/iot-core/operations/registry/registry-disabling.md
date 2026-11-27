@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iot-core/operations/registry/registry-disabling.md
+    type: text/markdown
+    title: Markdown version
+---
 # Disabling and enabling a registry
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}

@@ -1,6 +1,10 @@
 ---
 title: Resource groups in {{ mtr-name }}
 description: ''
+alternate:
+  - href: en/managed-trino/concepts/resource-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource groups in {{ mtr-name }}

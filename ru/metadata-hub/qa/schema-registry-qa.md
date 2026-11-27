@@ -1,6 +1,10 @@
 ---
 title: '{{ schema-registry-full-name }}. Решение проблем'
 description: Как исправить ошибку при работе с реестром схем? Ответы на этот и другие вопросы в данной статье.
+alternate:
+  - href: ru/metadata-hub/qa/schema-registry-qa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение проблем в {{ schema-registry-full-name }}

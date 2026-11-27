@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/lifecycles/xml-config.md
+    type: text/markdown
+    title: Markdown version
+---
 # Bucket object lifecycle configuration
 
 {{ objstorage-name }} allows you to manage bucket [object lifecycles](../../../concepts/lifecycles.md). To upload a lifecycle configuration to {{ objstorage-name }}, you need to create an XML document as described in this section. You can get a document in this format by downloading an existing configuration.

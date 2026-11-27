@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.CK.TOO_MANY_LINES
 description: На странице приведено описание ошибки {{ datalens-full-name }} Too many series on the chart.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Too many series on the chart

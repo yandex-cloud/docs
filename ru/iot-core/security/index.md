@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ iot-full-name }}
 description: Управление доступом облачного MQTT-сервера {{ iot-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе.
+alternate:
+  - href: ru/iot-core/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
     
 # Управление доступом в {{ iot-name }}

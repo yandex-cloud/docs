@@ -20338,6 +20338,10 @@ apiPlayground:
               - anytime
           - required:
               - weeklyMaintenanceSchedule
+alternate:
+  - href: en/managed-postgresql/api-ref/Cluster/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, REST: Cluster.Update

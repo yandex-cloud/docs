@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/concepts/network.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сеть в {{ dataproc-name }}
 
 Все подкластеры кластера находятся в одной [облачной сети](../../vpc/concepts/network.md), все хосты каждого подкластера — в определенной подсети этой сети.

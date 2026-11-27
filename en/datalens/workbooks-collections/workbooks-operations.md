@@ -1,6 +1,10 @@
 ---
 title: Operations with a {{ datalens-full-name }} workbook
 description: Follow this guide to create, edit, move, copy, export, delete, and manage access to a {{ datalens-full-name }} workbook.
+alternate:
+  - href: en/datalens/workbooks-collections/workbooks-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Operations with a {{ datalens-full-name }} workbook

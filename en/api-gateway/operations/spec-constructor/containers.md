@@ -1,6 +1,10 @@
 ---
 title: Adding the {{ serverless-containers-full-name }} extension
 description: Follow this guide to add the {{ serverless-containers-full-name }} extension using the specification constructor.
+alternate:
+  - href: en/api-gateway/operations/spec-constructor/containers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding the x-yc-apigateway-integration:serverless_containers extension

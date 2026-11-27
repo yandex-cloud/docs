@@ -1,6 +1,10 @@
 ---
 title: How to add an ID as a parameter in {{ datalens-full-name }}
 description: Follow this guide to add an ID as a parameter in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/chart/add-guid.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding an ID as a parameter in {{ datalens-full-name }}

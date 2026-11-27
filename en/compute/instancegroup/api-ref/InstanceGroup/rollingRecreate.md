@@ -31,6 +31,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/compute/instancegroup/api-ref/InstanceGroup/rollingRecreate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud Instance Groups API, REST: InstanceGroup.RollingRecreate

@@ -1,6 +1,10 @@
 ---
 title: Public materials about {{ mrd-full-name }}
 description: Video recordings of conferences and webinars on {{ mrd-full-name }}.
+alternate:
+  - href: en/managed-valkey/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public materials about {{ mrd-full-name }}

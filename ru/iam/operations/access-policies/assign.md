@@ -1,6 +1,10 @@
 ---
 title: Создать политику авторизации для ресурса
 description: Из статьи вы узнаете, как создать политику авторизации {{ iam-full-name }} для каталога, облака или организации на основе шаблона политики.
+alternate:
+  - href: ru/iam/operations/access-policies/assign.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание политики авторизации для ресурса

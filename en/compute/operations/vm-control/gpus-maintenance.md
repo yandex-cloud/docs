@@ -1,6 +1,10 @@
 ---
 title: Managing maintenance of GPU VMs in {{ compute-full-name }}
 description: Follow this guide to manage maintenance of GPU virtual machines in {{ compute-full-name }}.
+alternate:
+  - href: en/compute/operations/vm-control/gpus-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing maintenance of GPU VMs

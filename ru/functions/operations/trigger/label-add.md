@@ -1,6 +1,10 @@
 ---
 title: Добавить метку триггеру в {{ sf-name }}
 description: Следуя данной инструкции, вы сможете добавить метку триггеру в {{ sf-name }}.
+alternate:
+  - href: ru/functions/operations/trigger/label-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить метку триггеру в {{ sf-name }}

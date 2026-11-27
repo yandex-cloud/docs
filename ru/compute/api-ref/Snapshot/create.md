@@ -104,6 +104,10 @@ apiPlayground:
               - legacyFeatures
           - required:
               - generation2Features
+alternate:
+  - href: ru/compute/api-ref/Snapshot/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Snapshot.Create

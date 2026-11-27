@@ -156,6 +156,10 @@ apiPlayground:
                   - securityGroupId
               - required:
                   - predefinedTarget
+alternate:
+  - href: en/vpc/api-ref/SecurityGroup/updateRules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.UpdateRules

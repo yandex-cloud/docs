@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/api-ref/grpc-api-ref.md
+    type: text/markdown
+    title: Markdown version
+---
 # On-premises {{ objstorage-full-name }} gRPC API reference
 
 ## Table of Contents

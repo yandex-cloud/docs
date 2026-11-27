@@ -6,6 +6,10 @@ keywords:
   - '{{ AF }} cluster'
   - '{{ AF }}'
   - Airflow
+alternate:
+  - href: en/managed-airflow/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a {{ AF }} cluster

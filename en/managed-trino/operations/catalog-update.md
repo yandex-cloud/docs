@@ -1,6 +1,10 @@
 ---
 title: Updating a {{ TR }} catalog
 description: Follow this guide to update catalog parameters in a {{ mtr-name }} cluster.
+alternate:
+  - href: en/managed-trino/operations/catalog-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a {{ TR }} catalog

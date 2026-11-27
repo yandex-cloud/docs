@@ -1,6 +1,10 @@
 ---
 title: Как переместить NAT-шлюз в другой каталог
 description: Следуя данной инструкции, вы сможете переместить NAT-шлюз в другой каталог.
+alternate:
+  - href: ru/vpc/operations/static-gateway-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переместить NAT-шлюз в другой каталог

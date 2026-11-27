@@ -1,6 +1,10 @@
 ---
 title: Pushing a Docker image to a registry in {{ container-registry-name }}
 description: This guide describes how to push a local Docker image to a {{ container-registry-name }}.
+alternate:
+  - href: en/container-registry/operations/docker-image/docker-image-push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pushing a Docker image to a registry

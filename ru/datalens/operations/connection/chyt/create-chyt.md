@@ -1,6 +1,10 @@
 ---
 title: Инструкция по созданию подключения к CHYT в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как создать подключение к CHYT в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/chyt/create-chyt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

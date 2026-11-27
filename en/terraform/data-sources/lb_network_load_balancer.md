@@ -1,5 +1,9 @@
 ---
 subcategory: Network Load Balancer
+alternate:
+  - href: en/terraform/data-sources/lb_network_load_balancer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_lb_network_load_balancer (DataSource)

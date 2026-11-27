@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ sws-full-name }} Cloud WAF profile
 description: Follow this guide to create a {{ sws-name }} Cloud WAF profile.
+alternate:
+  - href: en/smartwebsecurity/operations/waf-profile-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a Cloud WAF profile

@@ -1,6 +1,10 @@
 ---
 title: Получение списка операций с каталогом метаданных
 description: Следуя данной инструкции, вы сможете получить список операций в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/catalog-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка операций

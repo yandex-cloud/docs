@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/smartwebsecurity/advanced_rate_limiter/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity ARL API, gRPC: OperationService.Cancel

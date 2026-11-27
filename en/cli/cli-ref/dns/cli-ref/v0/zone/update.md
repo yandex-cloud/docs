@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/zone/update/
+alternate:
+  - href: en/cli/cli-ref/dns/cli-ref/v0/zone/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns v0 zone update

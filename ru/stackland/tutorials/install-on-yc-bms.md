@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/tutorials/install-on-yc-bms.md
+    type: text/markdown
+    title: Markdown version
+---
 # Установка {{ stackland-name }} на {{ baremetal-full-name }}
 
 [{{ baremetal-full-name }}](https://yandex.cloud/ru/services/baremetal) — это сервис по аренде выделенных физических серверов, все ресурсы которых доступны для решения только ваших задач. {{ stackland-full-name }} поддерживает {{ baremetal-full-name }} как одно из окружений для развертывания.
@@ -136,6 +142,7 @@ IP-адреса, назначенные серверам по DHCP, могут �
     sudo ufw allow 22/tcp comment 'SSH'
     sudo ufw allow 1194/udp comment 'OpenVPN'
     sudo ufw allow from 192.168.22.0/24 to any port 53,123 proto udp
+    sudo ufw allow from 192.168.22.0/24 to any port 53 proto tcp
     sudo ufw enable
     ```
 

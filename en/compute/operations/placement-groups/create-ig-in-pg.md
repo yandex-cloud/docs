@@ -1,6 +1,10 @@
 ---
 title: Creating an instance group in a placement group
 description: Follow this guide to create an instance group in a placement group.
+alternate:
+  - href: en/compute/operations/placement-groups/create-ig-in-pg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an instance group in a placement group

@@ -1,6 +1,10 @@
 ---
 title: Deleting a {{ sd-full-name }} workspace
 description: In this guide, you will learn how to delete a workspace in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/workspaces/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a {{ sd-name }} workspace

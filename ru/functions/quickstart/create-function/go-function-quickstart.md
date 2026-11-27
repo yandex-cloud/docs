@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/quickstart/create-function/go-function-quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание функции на Go
 
 Создайте и выполните [функцию](../../concepts/function.md) на Go, которая приветствует пользователя.

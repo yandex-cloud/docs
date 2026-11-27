@@ -1,6 +1,10 @@
 ---
 title: Pulling a Go module from a {{ cloud-registry-name }}
 description: Follow this guide to pull a Go module from a {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/go/pull.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pulling a Go module from a {{ cloud-registry-name }}

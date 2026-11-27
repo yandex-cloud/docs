@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/bind-domain-vm/console'
+alternate:
+  - href: en/compute/tutorials/bind-domain-vm/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning a domain name to a web server VM using the management console, CLI, or API

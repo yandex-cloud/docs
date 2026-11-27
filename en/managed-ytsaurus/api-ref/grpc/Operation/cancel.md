@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-ytsaurus/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ytsaurus API, gRPC: OperationService.Cancel

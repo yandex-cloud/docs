@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/billing-account-is-charged-by-unused-resources.md
+    type: text/markdown
+    title: Markdown version
+---
 # Funds for unused resources are debited from the billing account
 
 

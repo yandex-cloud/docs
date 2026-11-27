@@ -58,6 +58,10 @@ apiPlayground:
         - uri
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/baremetal/api-ref/Image/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Image.Create

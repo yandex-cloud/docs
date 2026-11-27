@@ -1,6 +1,10 @@
 ---
 title: '{{ metastore-full-name }}. Решение проблем'
 description: Как исправить ошибку при создании БД в {{ metastore-name }}? Ответы на этот и другие вопросы в данной статье.
+alternate:
+  - href: ru/metadata-hub/qa/metastore-qa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение проблем в {{ metastore-full-name }}

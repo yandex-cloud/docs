@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/deploy/metrics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Справочник метрик нод
 
 В этом разделе описаны метрики, поставляемые в [{{ monitoring-name }}](../../../monitoring/). Помимо описанных метрик ноды могут поставлять в {{ monitoring-name }} метрики, указанные пользователем на  этапе создания ноды.

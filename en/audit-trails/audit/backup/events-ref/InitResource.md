@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/backup/events-ref/InitResource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup Audit Trails Events: InitResource

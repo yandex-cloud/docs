@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ai/mcp_hub/events-ref/UpdateMcpGatewayAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio MCP Hub Audit Trails Events: UpdateMcpGatewayAccessBindings

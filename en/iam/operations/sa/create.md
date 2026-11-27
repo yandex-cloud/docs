@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iam/operations/sa/create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a service account
 
 {% note warning %}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-transfer/operations/endpoint/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing endpoints
 
 The source [endpoint](../../concepts/index.md#endpoint) describes the settings of the database from which the information will be transferred using {{ data-transfer-name }}, while the target endpoint, the database you are going to transfer the data to. You can [create](#create), [edit](#update), [clone](#clone), or [delete](#delete) such endpoints.

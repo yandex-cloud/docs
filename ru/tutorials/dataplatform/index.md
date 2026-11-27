@@ -1,6 +1,10 @@
 ---
 title: Практические руководства для построения Data Platform на базе {{ yandex-cloud }}
 description: На странице представлен список практических руководств для построения Data Platform на базе {{ yandex-cloud }} с применением различных СУБД.
+alternate:
+  - href: ru/tutorials/dataplatform/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Построение Data Platform на базе {{ yandex-cloud }}

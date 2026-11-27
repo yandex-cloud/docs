@@ -1,6 +1,10 @@
 ---
 title: How to add Insight to a dashboard chart in {{ datalens-full-name }}
 description: Follow this guide to add Insight for a chart to a dashboard in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/add-ai.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding an insight widget to a dashboard in {{ datalens-full-name }}

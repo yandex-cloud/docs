@@ -5,6 +5,10 @@ keywords:
   - логи OpenSearch
   - логи кластера OpenSearch
   - OpenSearch
+alternate:
+  - href: ru/managed-opensearch/operations/cluster-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотр логов кластера {{ OS }}

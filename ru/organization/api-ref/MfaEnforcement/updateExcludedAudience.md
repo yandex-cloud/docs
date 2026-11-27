@@ -52,6 +52,10 @@ apiPlayground:
         required:
           - action
           - subjectId
+alternate:
+  - href: ru/organization/api-ref/MfaEnforcement/updateExcludedAudience.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: MfaEnforcement.UpdateExcludedAudience

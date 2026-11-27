@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/organization/concepts/os-login.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ oslogin }}
 
 {{ oslogin }} упрощает процесс [SSH](../../glossary/ssh-keygen.md)-подключений к _виртуальным машинам_ в {{ yandex-cloud }}. Под виртуальными машинами (или ВМ) здесь и ниже подразумеваются собственно [виртуальные машины сервиса {{ compute-full-name }}](../../compute/concepts/vm.md#project), хосты [подкластеров {{ dataproc-full-name }}](../../data-proc/concepts/index.md#resources) и [отдельные узлы в группах узлов](../../managed-kubernetes/concepts/index.md#node-group) в составе [кластеров {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), на которых запускаются пользовательские контейнеры.

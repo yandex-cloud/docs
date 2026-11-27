@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_certs_install-cert-console.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops certs install-cert-console
 
 Install signed Console certificate returned by client CA

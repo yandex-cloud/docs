@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/audittrails/events-ref/SetTrailAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Audit Trails Events: SetTrailAccessBindings

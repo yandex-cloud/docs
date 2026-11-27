@@ -1,6 +1,10 @@
 ---
 title: '{{ captcha-full-name }} widget installation methods'
 description: You can use either the automatic or advanced method to connect a {{ captcha-name }} widget. Depending on the connection method, different widget parameter transmission methods are used.
+alternate:
+  - href: en/smartcaptcha/concepts/widget-methods.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ captcha-full-name }} widget installation methods

@@ -5,6 +5,10 @@ keywords:
   - управление группами хостов OpenSearch
   - группы хостов OpenSearch
   - OpenSearch
+alternate:
+  - href: ru/managed-opensearch/operations/host-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление группами хостов {{ OS }}

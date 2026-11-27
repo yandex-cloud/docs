@@ -1,5 +1,9 @@
 ---
 title: How to unlink a subscription purchased on {{ marketplace-full-name }}
+alternate:
+  - href: en/marketplace/operations/users/unlock-subscription.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Unlinking a subscription

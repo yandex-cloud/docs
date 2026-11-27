@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ mrd-full-name }}'
 description: This page lists {{ TF }} provider resources and data sources supported by {{ mrd-name }}.
+alternate:
+  - href: en/managed-valkey/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ mrd-full-name }}

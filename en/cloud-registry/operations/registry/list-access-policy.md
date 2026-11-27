@@ -1,6 +1,10 @@
 ---
 title: How to get information about a registry access policy in {{ cloud-registry-full-name }}
 description: Follow this guide to get information about a registry access policy.
+alternate:
+  - href: en/cloud-registry/operations/registry/list-access-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a registry access policy

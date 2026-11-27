@@ -1,6 +1,10 @@
 ---
 title: Работа с коллекцией {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете создать, отредактировать, переместить, удалить коллекцию {{ datalens-full-name }} и настроить к ней доступ.
+alternate:
+  - href: ru/datalens/workbooks-collections/collections-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с коллекцией {{ datalens-full-name }}

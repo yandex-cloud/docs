@@ -28,6 +28,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/application-load-balancer/api-ref/LoadBalancer/enableZones.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.EnableZones

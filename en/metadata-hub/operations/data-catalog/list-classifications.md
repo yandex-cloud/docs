@@ -1,6 +1,10 @@
 ---
 title: Getting a list of classifications in {{ data-catalog-full-name }}
 description: Follow this guide to get a list of classifications in {{ data-catalog-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/list-classifications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of classifications

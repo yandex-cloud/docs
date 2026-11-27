@@ -1,6 +1,10 @@
 ---
 title: Управление соединениями для подключения {{ yq-full-name }} к источникам и приемникам данных
 description: Соединение необходимо для подключения {{ yq-name }} к источникам и приемникам данных.
+alternate:
+  - href: ru/query/operations/connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление соединениями

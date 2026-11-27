@@ -2,6 +2,10 @@
 title: Transferring {{ mgp-name }} cluster logs to {{ cloud-logging-full-name }}
 description: Follow this guide to set up the transfer of cluster logs from {{ mgp-name }} to {{ cloud-logging-name }}.
 canonical: '{{ link-docs }}/tutorials/security/mgp-to-cloud-logging'
+alternate:
+  - href: en/managed-greenplum/operations/mgp-to-cloud-logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring a {{ mgp-name }} cluster's logs to {{ cloud-logging-full-name }}

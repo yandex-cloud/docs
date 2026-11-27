@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-spark/environment/api-ref/grpc/Environment/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Spark Environment API, gRPC: EnvironmentService.ListOperations

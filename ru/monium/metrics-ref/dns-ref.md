@@ -2,6 +2,10 @@
 title: Метрики {{ dns-full-name }}
 description: Из статьи вы узнаете про метрики {{ dns-name }}.
 editable: false
+alternate:
+  - href: ru/monium/metrics-ref/dns-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ dns-full-name }}

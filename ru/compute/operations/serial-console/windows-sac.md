@@ -1,6 +1,10 @@
 ---
 title: Подключение к серийной консоли ВМ с операционной системой Windows
 description: Следуя данной инструкции, вы научитесь подключаться к серийной консоли виртуальной машины {{ compute-full-name }} под управлением операционной системы Windows с использованием Windows SAC.
+alternate:
+  - href: ru/compute/operations/serial-console/windows-sac.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключиться к серийной консоли виртуальной машины с ОС Windows

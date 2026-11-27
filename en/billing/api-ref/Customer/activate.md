@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/billing/api-ref/Customer/activate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, REST: Customer.Activate

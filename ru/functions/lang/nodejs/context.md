@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/nodejs/context.md
+    type: text/markdown
+    title: Markdown version
+---
 # Контекст вызова функции на Node.js
 
 _Контекст вызова_ — это объект, который принимается [обработчиком запросов](handler.md) функции на Node.js в качестве второго аргумента.

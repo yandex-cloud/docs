@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/trigger/iot-core-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для {{ iot-short-name }}, который отправляет сообщения в WebSocket-соединения
 
 [Триггер](../trigger/) для {{ iot-short-name }} предназначен для управления сообщениями, которыми обмениваются устройства, реестры и брокеры. Он создается для топиков: принимает из них копии сообщений и отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md) для обработки.

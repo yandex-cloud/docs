@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/cookbooks/installation/01-architecture-and-components.md
+    type: text/markdown
+    title: Markdown version
+---
 # Архитектура {{ stackland-full-name }} и роли компонентов
 
 В этом рецепте вы получите общее представление о {{ stackland-full-name }}: узнаете, из чего состоит продукт, какие задачи он помогает решать и в чем его ценность.

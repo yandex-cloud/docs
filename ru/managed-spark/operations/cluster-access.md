@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к кластеру {{ msp-full-name }}
 description: Следуя данной инструкции, вы настроите права доступа к кластеру {{ msp-name }}.
+alternate:
+  - href: ru/managed-spark/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к кластеру {{ msp-name }}

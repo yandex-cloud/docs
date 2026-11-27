@@ -88,6 +88,11 @@ apiPlayground:
               $ref: '#/definitions/VpcAzInfoPrefixes'
         required:
           - vpcNetworkId
+noIndex: true
+alternate:
+  - href: en/cloud-router/api-ref/RoutingInstance/updateNetworks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Router API, REST: RoutingInstance.UpdateNetworks

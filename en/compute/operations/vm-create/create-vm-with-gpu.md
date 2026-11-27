@@ -1,6 +1,10 @@
 ---
 title: How to create a VM with a GPU
 description: Follow this guide to create a VM with a GPU.
+alternate:
+  - href: en/compute/operations/vm-create/create-vm-with-gpu.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM with a GPU

@@ -1,6 +1,10 @@
 ---
 title: AWS SDK for JavaScript
 description: In this tutorial, you will learn what the AWS SDK for JavaScript is, how to install and configure it, and will also see some code examples.
+alternate:
+  - href: en/storage/tools/aws-sdk-js.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AWS SDK for JavaScript

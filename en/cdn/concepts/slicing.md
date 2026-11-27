@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/concepts/slicing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Content segmentation
 
 You can _segment_ CDN content: request it from origins and store it on servers in parts. Segmentation is enabled in the resource settings.

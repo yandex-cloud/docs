@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/organization/bind-access-policy/
+alternate:
+  - href: ru/organization/cli-ref/v0/organization/bind-access-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager v0 organization bind-access-policy

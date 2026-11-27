@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ schema-registry-name }}
 description: Access management in {{ schema-registry-name }}. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+alternate:
+  - href: en/metadata-hub/security/schema-registry-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service roles for managing data schemas using {{ schema-registry-name }}

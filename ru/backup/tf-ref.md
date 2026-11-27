@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ backup-full-name }}
 description: На этой странице приведен справочник ресурсов провайдера Terraform, которые поддерживаются для сервиса {{ backup-name }}.
+alternate:
+  - href: ru/backup/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ backup-full-name }}

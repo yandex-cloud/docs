@@ -1,6 +1,10 @@
 ---
 title: Группы пользователей
 description: Вы можете объединять пользователей организации в группы, чтобы назначить одинаковую роль нескольким пользователям одновременно.
+alternate:
+  - href: ru/organization/concepts/groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Группы пользователей

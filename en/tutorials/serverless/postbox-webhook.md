@@ -6,6 +6,10 @@ keywords:
   - webhook integration
   - integration via webhooks
   - setting up webhooks
+alternate:
+  - href: en/tutorials/serverless/postbox-webhook.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [postbox-webhook](../../_tutorials/serverless/postbox-webhook.md) %}

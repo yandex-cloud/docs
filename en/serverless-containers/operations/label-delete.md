@@ -1,6 +1,10 @@
 ---
 title: Deleting a container label
 description: Follow this guide to delete a container label.
+alternate:
+  - href: en/serverless-containers/operations/label-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a container label

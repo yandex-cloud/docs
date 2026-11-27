@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-transfer/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ data-transfer-name }}
 
 With {{ data-transfer-name }}, you can transfer data from a third-party source cluster to a target cluster without interrupting user service. In this guide, you will learn how to transfer a third-party {{ MY }} cluster to {{ mmy-name }}. Replication is performed by configuring [endpoints](concepts/index.md#endpoint) and the [transfer](concepts/index.md#transfer) between them.

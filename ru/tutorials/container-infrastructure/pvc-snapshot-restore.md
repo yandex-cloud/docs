@@ -1,6 +1,10 @@
 ---
 title: Снапшоты в {{ managed-k8s-full-name }}
 description: Из данного руководства вы узнаете, как работать со снапшотами в {{ managed-k8s-name }}.
+alternate:
+  - href: ru/tutorials/container-infrastructure/pvc-snapshot-restore.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа со снапшотами {{ compute-name }} в {{ managed-k8s-full-name }}

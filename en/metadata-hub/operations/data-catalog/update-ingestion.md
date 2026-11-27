@@ -1,6 +1,10 @@
 ---
 title: How to update a data ingestion in {{ data-catalog-full-name }}
 description: In this tutorial, you will learn how to update a data ingestion in {{ data-catalog-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/update-ingestion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a data ingestion

@@ -43,6 +43,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/billing/api-ref/BillingAccount/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, REST: BillingAccount.ListAccessBindings

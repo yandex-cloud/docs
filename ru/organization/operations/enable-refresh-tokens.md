@@ -1,6 +1,10 @@
 ---
 title: Как включить возможность использования refresh-токенов в {{ yandex-cloud }} CLI
 description: Следуя данной инструкции, вы сможете включить возможность использования refresh-токенов пользователями {{ org-full-name }} в {{ yandex-cloud }} CLI.
+alternate:
+  - href: ru/organization/operations/enable-refresh-tokens.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включить возможность использования refresh-токенов в {{ yandex-cloud }} CLI

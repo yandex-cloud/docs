@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как начать работать с {{ postbox-full-name }}
 
 С помощью этой инструкции вы создадите свой адрес и отправите проверочное письмо.

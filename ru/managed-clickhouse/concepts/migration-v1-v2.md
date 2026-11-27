@@ -1,6 +1,10 @@
 ---
 title: Изменения в кластере {{ mch-full-name }} v2
 description: 'В этом разделе описаны отличия ресурса v2 провайдера {{ TF }} от ресурса v1 для сервиса {{ mch-name }}: изменение структуры вложенных блоков, формата хостов, шардирования и других параметров.'
+alternate:
+  - href: ru/managed-clickhouse/concepts/migration-v1-v2.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменения в кластере v2

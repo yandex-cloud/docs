@@ -8,6 +8,10 @@ keywords:
   - keyword: Sharding in PostrgeSQL
   - keyword: Sharded PostrgeSQL
   - keyword: PostrgeSQL shard
+alternate:
+  - href: en/managed-spqr/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ mspqr-name }}

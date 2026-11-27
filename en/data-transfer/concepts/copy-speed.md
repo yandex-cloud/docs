@@ -1,6 +1,10 @@
 ---
 title: Speed for copying data in {{ data-transfer-full-name }}
 description: The speed for copying data can reach 15 MBps.
+alternate:
+  - href: en/data-transfer/concepts/copy-speed.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Speed for copying data

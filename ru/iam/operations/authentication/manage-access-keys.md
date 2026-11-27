@@ -1,6 +1,10 @@
 ---
 title: Как управлять статическими ключами доступа в {{ iam-full-name }}
 description: Из статьи вы узнаете, как создавать и удалять статические ключи доступа в {{ iam-full-name }} через консоль управления, CLI и API сервиса.
+alternate:
+  - href: ru/iam/operations/authentication/manage-access-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление статическими ключами доступа

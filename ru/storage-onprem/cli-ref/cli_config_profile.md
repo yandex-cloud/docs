@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_config_profile.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli config profile
 
 Show or select configuration profile

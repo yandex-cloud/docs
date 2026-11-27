@@ -1,6 +1,10 @@
 ---
 title: Migrating {{ PG }} cluster hosts to a different availability zone
 description: Follow this guide to migrate {{ PG }} cluster hosts to a different availability zone.
+alternate:
+  - href: en/managed-postgresql/operations/host-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating {{ PG }} cluster hosts to a different availability zone

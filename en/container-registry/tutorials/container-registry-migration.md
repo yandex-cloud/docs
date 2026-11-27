@@ -1,6 +1,10 @@
 ---
 title: Migrating from {{ container-registry-name }} to {{ cloud-registry-name }}
 description: This tutorial explains how to migrate from {{ container-registry-name }} to {{ cloud-registry-name }}.
+alternate:
+  - href: en/container-registry/tutorials/container-registry-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating from {{ container-registry-name }} to {{ cloud-registry-name }}

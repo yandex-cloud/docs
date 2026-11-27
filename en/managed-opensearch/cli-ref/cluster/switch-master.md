@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/cluster/switch-master/
+alternate:
+  - href: en/managed-opensearch/cli-ref/cluster/switch-master.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-opensearch cluster switch-master

@@ -1,6 +1,10 @@
 ---
 title: Selectors in {{ datalens-full-name }}
 description: In {{ datalens-full-name }}, selectors are filters that affect the results of queries in the linked widgets.
+alternate:
+  - href: en/datalens/dashboard/selector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Selectors in {{ datalens-full-name }}

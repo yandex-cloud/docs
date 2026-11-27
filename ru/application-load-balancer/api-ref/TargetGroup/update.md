@@ -125,6 +125,10 @@ apiPlayground:
         oneOf:
           - required:
               - ipAddress
+alternate:
+  - href: ru/application-load-balancer/api-ref/TargetGroup/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: TargetGroup.Update

@@ -1,6 +1,10 @@
 ---
 title: Installing cert-manager with the {{ dns-full-name }} ACME webhook plugin
 description: Follow this guide to install cert-manager with the {{ dns-name }} ACME webhook plugin.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/cert-manager-cloud-dns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing cert-manager with the {{ dns-full-name }} ACME webhook plugin

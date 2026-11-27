@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-postgresql/api-ref/grpc/User/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, gRPC: UserService.Delete

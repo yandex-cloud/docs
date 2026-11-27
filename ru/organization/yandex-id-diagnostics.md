@@ -1,6 +1,10 @@
 ---
 title: Какие возникают ошибки при аутентификации с аккаунтом на Яндексе
 description: Из статьи вы узнаете, какие бывают ошибки при аутентификации с аккаунтом на Яндексе.
+alternate:
+  - href: ru/organization/yandex-id-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика ошибок при аутентификации с аккаунтом на Яндексе

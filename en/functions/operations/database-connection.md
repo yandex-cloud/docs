@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/database-connection.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to managed databases from a function
 
 To enable functions to connect to managed databases and other {{ yandex-cloud }} resources with no public access, specify a [user network](../concepts/networking.md#user-network).

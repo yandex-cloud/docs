@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/create-configuration-set.md
+    type: text/markdown
+    title: Markdown version
+---
 # CreateConfigurationSet method
 
 Creates a [configuration](../../concepts/glossary.md#configuration) in a folder. The folder is selected based on the service account the request originates from.

@@ -1,6 +1,10 @@
 ---
 title: How to work with Spark connectors from {{ ds-jobs }}
 description: In this article, you will learn how to work with Spark connectors from {{ ds-jobs }}.
+alternate:
+  - href: en/datasphere/concepts/jobs/work-with-spark.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with Spark connectors

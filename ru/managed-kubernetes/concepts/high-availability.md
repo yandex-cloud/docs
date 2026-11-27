@@ -1,6 +1,10 @@
 ---
 title: Высокая доступность и отказоустойчивость {{ managed-k8s-name }}
 description: Рекомендации по обеспечению высокой доступности и отказоустойчивости приложений в {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/concepts/high-availability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Высокая доступность и отказоустойчивость {{ managed-k8s-name }}

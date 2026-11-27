@@ -1,6 +1,10 @@
 ---
 title: Резервное копирование в {{ sf-full-name }}
 description: Данные в сервисе {{ sf-name }} надежно хранятся и реплицируются в инфраструктуре {{ yandex-cloud }}. Вы можете получить списки функций, списки версий функций, информацию о версиях функций, списки триггеров, информацию о триггерах.
+alternate:
+  - href: ru/functions/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Резервное копирование в {{ sf-name }}

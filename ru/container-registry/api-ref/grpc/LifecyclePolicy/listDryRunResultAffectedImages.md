@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/container-registry/api-ref/grpc/LifecyclePolicy/listDryRunResultAffectedImages.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, gRPC: LifecyclePolicyService.ListDryRunResultAffectedImages

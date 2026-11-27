@@ -1,6 +1,10 @@
 ---
 title: Resource relationships in {{ mkf-full-name }}
 description: '{{ KF }} is a distributed cross-application communication system that uses the _publication-subscription_ principle. With {{ mkf-full-name }}, you can deploy and maintain {{ KF }} {{ versions.console.str }} server clusters in the {{ yandex-cloud }} infrastructure. Each {{ mkf-name }} cluster consists of one or more broker hosts that host topics and their partitions.'
+alternate:
+  - href: en/managed-kafka/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource relationships in {{ mkf-name }}

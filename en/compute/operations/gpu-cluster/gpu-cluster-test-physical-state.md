@@ -1,6 +1,10 @@
 ---
 title: Testing GPU cluster physical state
 description: Follow this guide to test InfiniBand connections between cluster GPUs.
+alternate:
+  - href: en/compute/operations/gpu-cluster/gpu-cluster-test-physical-state.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Testing a GPU cluster physical state

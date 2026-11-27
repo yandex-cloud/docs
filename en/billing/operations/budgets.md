@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/operations/budgets.md
+    type: text/markdown
+    title: Markdown version
+---
 # Enabling notifications 
 
 To manage costs in {{ yandex-cloud }}, you can configure notifications using [budgets](../concepts/budget.md). 

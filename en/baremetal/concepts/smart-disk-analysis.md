@@ -1,6 +1,10 @@
 ---
 title: Analysis of {{ baremetal-full-name }} server disk status
 description: If you encounter disk read/write errors, disk or RAID array failures while using a {{ baremetal-full-name }} server, you can run server diagnostics to identify the source of the problem and generate a report for support.
+alternate:
+  - href: en/baremetal/concepts/smart-disk-analysis.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Analysis of {{ baremetal-full-name }} server disk status

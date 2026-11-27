@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/smartwebsecurity/load_balancer/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Smart Web Security Load Balancer API, REST: Operation

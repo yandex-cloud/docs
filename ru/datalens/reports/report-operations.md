@@ -1,6 +1,10 @@
 ---
 title: Работа с отчетом
 description: Следуя данной инструкции, вы научитесь работать с отчетом.
+alternate:
+  - href: ru/datalens/reports/report-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с отчетом

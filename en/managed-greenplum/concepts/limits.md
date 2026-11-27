@@ -2,6 +2,10 @@
 title: '{{ mgp-full-name }} quotas and limits'
 description: '{{ mgp-full-name }} has quotas and limits. For more information about the service limitations, read this article.'
 editable: false
+alternate:
+  - href: en/managed-greenplum/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

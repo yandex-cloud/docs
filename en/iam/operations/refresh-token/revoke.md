@@ -1,6 +1,10 @@
 ---
 title: How to revoke a refresh token
 description: Follow this guide to revoke refresh tokens.
+alternate:
+  - href: en/iam/operations/refresh-token/revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Revoking a refresh token

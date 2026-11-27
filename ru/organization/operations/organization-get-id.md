@@ -1,6 +1,10 @@
 ---
 title: Получить идентификатор организации {{ yandex-cloud }}
 description: С помощью этой инструкции вы узнаете, как получить идентификатор организации {{ yandex-cloud }}.
+alternate:
+  - href: ru/organization/operations/organization-get-id.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить идентификатор организации

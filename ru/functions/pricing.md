@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ sf-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ sf-name }}.
 editable: false
+alternate:
+  - href: ru/functions/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ sf-name }}

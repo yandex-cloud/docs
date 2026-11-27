@@ -1,6 +1,10 @@
 ---
 title: How to enable the use of refresh tokens in the {{ yandex-cloud }} CLI
 description: Follow this guide to enable refresh tokens in the {{ yandex-cloud }} CLI for {{ org-full-name }} users.
+alternate:
+  - href: en/organization/operations/enable-refresh-tokens.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling the use of refresh tokens in the {{ yandex-cloud }} CLI

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/baremetal/events-ref/CreatePublicPrefixPool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal Audit Trails Events: CreatePublicPrefixPool

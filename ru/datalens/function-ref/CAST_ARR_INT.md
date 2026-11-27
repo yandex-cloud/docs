@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/CAST_ARR_INT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # CAST_ARR_INT

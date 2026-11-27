@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-scale-scheduled/terraform'
+alternate:
+  - href: ru/compute/tutorials/vm-scale-scheduled/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Масштабирование группы виртуальных машин по расписанию с помощью {{ TF }}

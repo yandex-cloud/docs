@@ -1,6 +1,10 @@
 ---
 title: Date/Time functions
 editable: false
+alternate:
+  - href: en/datalens/function-ref/date-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Date/Time functions

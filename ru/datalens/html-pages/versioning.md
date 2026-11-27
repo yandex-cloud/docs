@@ -1,6 +1,10 @@
 ---
 title: Версионирование HTML-страницы в {{ datalens-full-name }}
 description: Из статьи вы узнаете про версионирование HTML-страницы и ознакомитесь с видами версий в {{ datalens-short-name }}.
+alternate:
+  - href: ru/datalens/html-pages/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Версионирование

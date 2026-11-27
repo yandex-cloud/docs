@@ -1,6 +1,10 @@
 ---
 title: Managing CDN resource labels in {{ cdn-full-name }}
 description: Follow this guide to manage CDN resource labels in {{ cdn-name }}.
+alternate:
+  - href: en/cdn/operations/resources/labeling.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing resource labels

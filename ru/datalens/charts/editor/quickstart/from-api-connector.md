@@ -1,6 +1,10 @@
 ---
 title: Создание таблицы через API
 description: Следуя данной инструкции, вы сможете построить таблицу на основе API Connector в Editor.
+alternate:
+  - href: ru/datalens/charts/editor/quickstart/from-api-connector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание таблицы через API

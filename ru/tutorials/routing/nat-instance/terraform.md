@@ -1,6 +1,10 @@
 ---
 title: Маршрутизация через NAT-инстанс с помощью {{ TF }}
 description: В этом руководстве вы создадите ВМ {{ compute-full-name }} и настроите связь ВМ с интернетом через NAT-инстанс с помощью статической маршрутизации в {{ vpc-full-name }}, используя {{ TF }}.
+alternate:
+  - href: ru/tutorials/routing/nat-instance/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Маршрутизация через NAT-инстанс с помощью {{ TF }}

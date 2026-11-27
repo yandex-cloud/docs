@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/maintenance/change-freeze/terminate/
+alternate:
+  - href: en/managed-valkey/cli-ref/maintenance/change-freeze/terminate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-redis maintenance change-freeze terminate

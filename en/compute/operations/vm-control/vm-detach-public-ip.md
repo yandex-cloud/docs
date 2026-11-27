@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/vm-control/vm-detach-public-ip.md
+    type: text/markdown
+    title: Markdown version
+---
 # Unassigning a public IP address from a VM
 
 If you have previously assigned a public IP address to a VM [network interface](../../concepts/network.md), you can unassign it.

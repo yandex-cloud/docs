@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_create.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets create
 
 Create bucket

@@ -1,6 +1,10 @@
 ---
 title: CIS Benchmark™ requirements for {{ k8s }}
 description: This ruleset contains the CIS {{ k8s }} Benchmark recommendations for secure operation of components running on {{ k8s }} nodes.
+alternate:
+  - href: en/security-deck/concepts/standard-compliance/cis-kubernetes-benchmark.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # CIS Benchmark™ requirements for {{ k8s }}

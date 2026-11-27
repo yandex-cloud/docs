@@ -18,6 +18,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/smartwebsecurity/advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.List

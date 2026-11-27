@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/trunk-connection/move/
+alternate:
+  - href: ru/cli/cli-ref/cic/cli-ref/trunk-connection/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cic trunk-connection move

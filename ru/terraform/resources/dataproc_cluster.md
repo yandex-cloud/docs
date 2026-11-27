@@ -1,5 +1,9 @@
 ---
 subcategory: Yandex Data Processing
+alternate:
+  - href: ru/terraform/resources/dataproc_cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_dataproc_cluster (Resource)

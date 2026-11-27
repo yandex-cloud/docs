@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/iam.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ iam-name }}
 
 {{ iam-name }}: Component for managing user and service account access to Stackland resources. {{ iam-name }} implements centralized authentication and authorization in all platform services.

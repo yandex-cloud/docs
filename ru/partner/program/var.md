@@ -1,6 +1,10 @@
 ---
 title: Условия программы прямого партнерства {{ yandex-cloud }}.
 description: Участие в программе, партнерская премия или скидка и порядок выхода из программы.
+alternate:
+  - href: ru/partner/program/var.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Программа прямого партнерства

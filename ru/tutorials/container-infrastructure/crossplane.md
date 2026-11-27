@@ -1,6 +1,10 @@
 ---
 title: Интеграция {{ managed-k8s-full-name }} с Crossplane
 description: Следуя данному руководству, вы сможете настроить интеграцию {{ managed-k8s-name }} с crossplane.
+alternate:
+  - href: ru/tutorials/container-infrastructure/crossplane.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Интеграция {{ managed-k8s-full-name }} с Crossplane

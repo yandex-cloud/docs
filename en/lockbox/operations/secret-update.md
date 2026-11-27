@@ -1,6 +1,10 @@
 ---
 title: How to update a secret in {{ lockbox-full-name }}
 description: Follow this guide to update a secret.
+alternate:
+  - href: en/lockbox/operations/secret-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a secret

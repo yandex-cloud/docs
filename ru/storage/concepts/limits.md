@@ -2,6 +2,10 @@
 title: Квоты и лимиты в {{ objstorage-full-name }}
 description: В сервисе {{ objstorage-full-name }} действуют лимиты и квоты на объем хранилища в одном облаке, количество бакетов в одном облаке. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
 editable: false
+alternate:
+  - href: ru/storage/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ objstorage-name }}

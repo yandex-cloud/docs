@@ -1,6 +1,10 @@
 ---
 title: Как управлять трансфером в {{ data-transfer-full-name }}
 description: 'Следуя данной инструкции, вы сможете управлять трансфером: получать список трансферов, детальную информацию о трансфере, создавать, изменять, активировать, деактивировать, удалять трансфер.'
+alternate:
+  - href: ru/data-transfer/operations/transfer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление трансфером

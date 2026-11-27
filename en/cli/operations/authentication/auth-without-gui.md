@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cli/operations/authentication/auth-without-gui.md
+    type: text/markdown
+    title: Markdown version
+---
 # Authenticating with the {{ yandex-cloud }} CLI on a server with no GUI
 
 {% include [note-auth-without-gui](../../../_includes/cli/note-auth-without-gui.md) %}

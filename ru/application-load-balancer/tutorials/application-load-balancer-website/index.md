@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/application-load-balancer-website'
+alternate:
+  - href: ru/application-load-balancer/tutorials/application-load-balancer-website/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [application-load-balancer-website](../../../_tutorials/infrastructure/application-load-balancer-website.md) %}

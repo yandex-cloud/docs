@@ -1,6 +1,10 @@
 ---
 title: Sensitive data search in {{ objstorage-name }}
 description: Sensitive data search is a tool hat helps to detect sensitive information stored in {{ objstorage-full-name }} buckets for timely action to protect it through access policies, anonymization, etc.
+alternate:
+  - href: en/storage/concepts/sensitive-data-search.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sensitive data search in {{ objstorage-name }}

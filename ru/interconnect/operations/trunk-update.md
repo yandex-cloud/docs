@@ -1,6 +1,10 @@
 ---
 title: Как изменить транковое подключение в {{ interconnect-name }}
 description: Следуя этой инструкции, вы сможете изменить параметры в транковом подключении в {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/operations/trunk-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить параметры транкового подключения

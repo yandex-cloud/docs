@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/operations/permission/revoke.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удаление прав доступа
 
 Удалить права доступа к объекту или папке может только пользователь с правом доступа `Администрирование`: он может отозвать права самостоятельно или отклонить запрос.

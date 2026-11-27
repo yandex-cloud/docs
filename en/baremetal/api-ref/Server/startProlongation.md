@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/baremetal/api-ref/Server/startProlongation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Server.StartProlongation

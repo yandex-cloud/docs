@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/iot/mosquitto/mosquitto-publish'
+alternate:
+  - href: ru/iot-core/tutorials/mosquitto/mosquitto-publish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [mosquitto-publish-intro](../../../_tutorials/applied/mosquitto-publish-intro.md) %}

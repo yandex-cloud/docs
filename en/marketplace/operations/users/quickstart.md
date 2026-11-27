@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ marketplace-full-name }}
 description: Follow this guide to learn how to use out-of-the-box solutions from {{ yandex-cloud }} and partners featured on {{ marketplace-name }}.
+alternate:
+  - href: en/marketplace/operations/users/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

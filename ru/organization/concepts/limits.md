@@ -2,6 +2,10 @@
 title: Квоты и лимиты в {{ org-full-name }}
 description: В {{ org-full-name }} действуют квоты. Организации, субъекты, федерации группы, приглашения и сертификаты расходуют квоты вашего облака для всех сервисов. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
 editable: false
+alternate:
+  - href: ru/organization/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ org-full-name }}

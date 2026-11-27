@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ cloud-logging-full-name }}
 description: Из статьи вы узнаете, как работать с {{ cloud-logging-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/logging/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ cloud-logging-name }}

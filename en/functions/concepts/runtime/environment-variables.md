@@ -1,6 +1,10 @@
 ---
 title: Function environment content in {{ sf-full-name }}
 description: In this tutorial, you will learn what a function environment consists of in {{ sf-name }}.
+alternate:
+  - href: en/functions/concepts/runtime/environment-variables.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Environment

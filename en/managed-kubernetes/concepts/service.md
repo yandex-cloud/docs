@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/concepts/service.md
+    type: text/markdown
+    title: Markdown version
+---
 # Service
 
 Each pod in the {{ k8s }} cluster is assigned an internal IP address. Since pods are created and deleted and their IP addresses change, it makes no sense to use IP addresses for pods directly. Use _services_ to get permanent access to pods and stop using their internal IP addresses.

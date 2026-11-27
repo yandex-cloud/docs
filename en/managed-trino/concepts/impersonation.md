@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-trino/concepts/impersonation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Impersonation in {{ mtr-name }}
 
 _Impersonation_ in {{ mtr-name }} is when an {{ TR }} cluster performs actions with user resources on behalf of a service account.

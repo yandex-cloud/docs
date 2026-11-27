@@ -1,6 +1,10 @@
 ---
 title: Как задать настройки масштабирования функции в {{ sf-full-name }}
 description: Следуя данной инструкции, вы сможете задать настройки масштабирования функции.
+alternate:
+  - href: ru/functions/operations/function/scaling-settings-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить настройки масштабирования функции

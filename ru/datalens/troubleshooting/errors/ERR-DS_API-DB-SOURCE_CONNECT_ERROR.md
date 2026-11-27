@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.SOURCE_CONNECT_ERROR
 description: На странице приведено описание ошибки {{ datalens-full-name }} Data source refused connection.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-SOURCE_CONNECT_ERROR.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Data source refused connection

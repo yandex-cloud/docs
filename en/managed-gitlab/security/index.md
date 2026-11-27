@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ mgl-full-name }}
 description: Access management in {{ mgl-full-name }}, a web-based open-source DevOps lifecycle tool. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
+alternate:
+  - href: en/managed-gitlab/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ mgl-name }}

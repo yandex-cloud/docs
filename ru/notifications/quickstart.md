@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ cns-full-name }}
 description: '{{ cns-name }} ({{ cns-short-name }}) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с Amazon SNS API.'
+alternate:
+  - href: ru/notifications/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ cns-full-name }}

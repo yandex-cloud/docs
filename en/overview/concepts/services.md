@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/overview/concepts/services.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ yandex-cloud }} services
 
 In {{ yandex-cloud }}, _Services_ allow you to manage specific cloud resources and access to them.

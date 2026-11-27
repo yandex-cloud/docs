@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/smartwebsecurity/waf/api-ref/grpc/RuleSetDescriptor/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity WAF API, gRPC: RuleSetDescriptorService.Get

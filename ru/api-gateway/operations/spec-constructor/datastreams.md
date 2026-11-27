@@ -1,6 +1,10 @@
 ---
 title: Добавить расширение {{ yds-full-name }}
 description: Следуя данной инструкции, вы сможете добавить расширение {{ yds-full-name }} с помощью конструктора спецификации.
+alternate:
+  - href: ru/api-gateway/operations/spec-constructor/datastreams.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить расширение x-yc-apigateway-integration:cloud_datastreams

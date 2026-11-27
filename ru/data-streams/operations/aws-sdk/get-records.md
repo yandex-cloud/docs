@@ -1,6 +1,10 @@
 ---
 title: Чтение данных из потока в AWS SDK
 description: Следуя данной инструкции, вы сможете получить данные из потока в AWS SDK.
+alternate:
+  - href: ru/data-streams/operations/aws-sdk/get-records.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение данных из потока в AWS SDK

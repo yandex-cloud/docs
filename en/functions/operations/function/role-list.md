@@ -1,6 +1,10 @@
 ---
 title: How to view roles assigned for a function
 description: Follow this guide to view roles assigned for a function.
+alternate:
+  - href: en/functions/operations/function/role-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing roles assigned for a function

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/instance-groups/enable-autohealing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring application health checks on a VM instance
 
 By configuring app health checks on a VM instance, you can improve application availability and ensure its responsiveness. {{ ig-name }} will run a check and automatically recover the instance if it fails it. Do not confuse this with a network load balancer [health check](../../../network-load-balancer/concepts/health-check.md). Learn more about automatic recovery and types of checks [here](../../concepts/instance-groups/autohealing.md).

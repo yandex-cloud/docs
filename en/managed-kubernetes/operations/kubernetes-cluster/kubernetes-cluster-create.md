@@ -1,6 +1,10 @@
 ---
 title: Creating a {{ managed-k8s-full-name }} cluster
 description: Follow this guide to create a {{ managed-k8s-name }} cluster.
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ managed-k8s-name }} cluster

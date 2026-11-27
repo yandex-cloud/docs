@@ -111,6 +111,10 @@ apiPlayground:
         - subnetId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/managed-gitlab/api-ref/Instance/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Gitlab API, REST: Instance.Create

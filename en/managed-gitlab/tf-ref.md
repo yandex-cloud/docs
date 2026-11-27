@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ mgl-full-name }}'
 description: This page lists the {{ TF }} provider resources and data sources supported by {{ mgl-name }}.
+alternate:
+  - href: en/managed-gitlab/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ mgl-full-name }}

@@ -62,6 +62,10 @@ apiPlayground:
         required:
           - action
           - assignment
+alternate:
+  - href: en/organization/idp/application/saml/api-ref/Application/updateAssignments.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: Application.UpdateAssignments

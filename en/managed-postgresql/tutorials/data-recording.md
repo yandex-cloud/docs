@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/iot/data-recording'
+alternate:
+  - href: en/managed-postgresql/tutorials/data-recording.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Writing device data to a database

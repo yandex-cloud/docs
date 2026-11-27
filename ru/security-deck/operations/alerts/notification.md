@@ -1,6 +1,10 @@
 ---
 title: Управление подпиской {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в {{ sd-full-name }} можно подписаться на алерты и комментарии к ним.
+alternate:
+  - href: ru/security-deck/operations/alerts/notification.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять подпиской

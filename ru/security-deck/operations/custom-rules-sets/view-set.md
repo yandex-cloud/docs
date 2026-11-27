@@ -1,6 +1,10 @@
 ---
 title: Просмотр списка пользовательских наборов правил в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в {{ sd-full-name }} посмотреть список пользовательских наборов правил.
+alternate:
+  - href: ru/security-deck/operations/custom-rules-sets/view-set.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть список пользовательских наборов правил

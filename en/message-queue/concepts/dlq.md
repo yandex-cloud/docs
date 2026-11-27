@@ -1,6 +1,10 @@
 ---
 title: What is Dead Letter Queue (DLQ)?
 description: The Dead Letter Queue (DLQ) is a queue for messages that consumers couldn't process in standard queues. There are many reasons for problems with message processing, such as unexpected state changes in producers or consumers. Messages that are moved to the DLQ are stored there for analysis and no longer affect the activity of applications.
+alternate:
+  - href: en/message-queue/concepts/dlq.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # What is Dead Letter Queue (DLQ)?

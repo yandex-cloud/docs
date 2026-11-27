@@ -1,6 +1,10 @@
 ---
 title: How to delete a Docker image from a {{ container-registry-full-name }} registry
 description: In this guide, you will learn how to delete a Docker image from a {{ container-registry-full-name }} registry.
+alternate:
+  - href: en/container-registry/operations/docker-image/docker-image-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a Docker image from a registry

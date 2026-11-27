@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/organization/operations/add-role.md
+    type: text/markdown
+    title: Markdown version
+---
 # Assigning a role to a user
 
 [Organization administrators and owners](add-org-admin.md) can assign roles in {{ org-full-name }}. You can assign to users not just organization management roles but also roles for access to your organization's connected cloud resources.

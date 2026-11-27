@@ -1,6 +1,10 @@
 ---
 title: How to set up a channel in {{ video-full-name }}
 description: Follow this guide to set up a {{ video-full-name }} channel and manage monetization.
+alternate:
+  - href: en/video/operations/channels/settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up a channel and monetization

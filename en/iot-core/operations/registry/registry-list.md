@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iot-core/operations/registry/registry-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting information about registries
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}

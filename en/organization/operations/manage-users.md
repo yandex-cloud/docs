@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/organization/operations/manage-users.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing user accounts
 
 With {{ org-full-name }}, you can manage user accounts and access to corporate apps via SAML and OpenID Connect (identity provider) protocols in a centralized way.

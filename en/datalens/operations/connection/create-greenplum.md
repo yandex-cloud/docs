@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ GP }} connection in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to connect to {{ GP }} in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-greenplum.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a connection to {{ GP }} in {{ datalens-full-name }}

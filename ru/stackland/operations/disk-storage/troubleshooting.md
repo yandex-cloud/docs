@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/disk-storage/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
+---
 # Диагностика дисковой подсистемы
 
 На этой странице описаны типовые проблемы дисковой подсистемы {{ stackland-name }} и способы их устранения.

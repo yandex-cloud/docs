@@ -1,6 +1,10 @@
 ---
 title: Образы в {{ baremetal-full-name }}
 description: Узнайте, чем отличаются образы {{ marketplace-short-name }} для автоматической установки ПО на серверы {{ baremetal-name }} от загрузочных ISO-образов.
+alternate:
+  - href: ru/baremetal/concepts/images.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Образы в {{ baremetal-full-name }}

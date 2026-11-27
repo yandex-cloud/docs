@@ -6,6 +6,10 @@ keywords:
   - keyword: Sharding in PostrgeSQL
   - keyword: Sharded PostrgeSQL
   - keyword: PostrgeSQL shard
+alternate:
+  - href: en/managed-spqr/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource relationships in {{ mspqr-full-name }}

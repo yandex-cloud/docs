@@ -8,6 +8,11 @@ keywords:
   - service unavailability
   - reservation
   - delay minimization
+noIndex: true
+alternate:
+  - href: en/architecture/fault-tolerance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recommendations on fault tolerance in {{ yandex-cloud }}

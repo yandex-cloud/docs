@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/storage/create-accesskey.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating an access key
 
 To use {{ objstorage-name }} via the S3 API you need an access key. Access keys are created in {{ iam-name }} using a service account. You can use a static key or release a [temporary key](#create-sts-key) based on the static key, with limited permissions and validity.

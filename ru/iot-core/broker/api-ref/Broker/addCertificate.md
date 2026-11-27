@@ -27,6 +27,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/iot-core/broker/api-ref/Broker/addCertificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Broker Service, REST: Broker.AddCertificate

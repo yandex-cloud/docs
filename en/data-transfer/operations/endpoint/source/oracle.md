@@ -1,6 +1,10 @@
 ---
 title: Transferring data from an Oracle source endpoint
 description: Follow this guide to set up a data transfer from an Oracle source endpoint.
+alternate:
+  - href: en/data-transfer/operations/endpoint/source/oracle.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring data from an Oracle source endpoint

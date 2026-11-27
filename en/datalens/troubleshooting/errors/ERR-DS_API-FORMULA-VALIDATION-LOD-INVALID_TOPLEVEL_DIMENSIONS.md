@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.FORMULA.VALIDATION.LOD.INVALID_TOPLEVEL_DIMENSIONS'
 description: This page describes the Invalid top-level LOD dimension found in expression {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-LOD-INVALID_TOPLEVEL_DIMENSIONS.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Invalid top-level LOD dimension found in expression

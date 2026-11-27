@@ -493,6 +493,10 @@ apiPlayground:
               **string**
               Optional id of service account with permission to invoke container.
             type: string
+alternate:
+  - href: ru/serverless-containers/containers/api-ref/Container/deployRevision.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Serverless Containers Service, REST: Container.DeployRevision

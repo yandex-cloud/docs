@@ -1,6 +1,10 @@
 ---
 title: How to create a VM with metadata from environment variables
 description: Follow this guide to use environment variables when creating a VM with a custom `cloud-init` script to install additional software and customize your VM while creating it.
+alternate:
+  - href: en/compute/operations/vm-create/create-with-env-variables.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM with metadata from environment variables

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/clickhouse.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ mch-name }}
 
 {{ mch-name }} is a managed service for working with an open-source column-oriented {{ CH }} DBMS. It simplifies database cluster deployment and upgrades, ensures fault tolerance through replication and sharding, and provides backup and monitoring tools.

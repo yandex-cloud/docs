@@ -1,6 +1,10 @@
 ---
 title: System groups
 description: In this tutorial, you will learn about system groups and their types.
+alternate:
+  - href: en/iam/concepts/access-control/system-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # System groups

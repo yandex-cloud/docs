@@ -1,6 +1,10 @@
 ---
 title: Setting up a DMARC policy
 description: Follow this guide to set up a DMARC policy.
+alternate:
+  - href: en/postbox/operations/setup-dmarc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up a DMARC policy

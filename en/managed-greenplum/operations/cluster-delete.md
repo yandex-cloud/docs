@@ -1,6 +1,10 @@
 ---
 title: How to delete a {{ mgp-full-name }} cluster
 description: In this tutorial, you will learn how to delete a {{ mgp-name }} cluster.
+alternate:
+  - href: en/managed-greenplum/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a {{ mgp-name }} cluster

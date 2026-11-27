@@ -1,6 +1,10 @@
 ---
 title: Managing a custom suppression list in {{ postbox-full-name }}
 description: Follow this guide to add an address to a custom suppression list, view the list of addresses, and delete an address from it.
+alternate:
+  - href: en/postbox/operations/manage-suppression-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing a custom suppression list

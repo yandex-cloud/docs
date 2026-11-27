@@ -1,6 +1,10 @@
 ---
 title: How to scan a Docker image for vulnerabilities in {{ container-registry-full-name }}
 description: Follow this guide to scan a Docker image for vulnerabilities.
+alternate:
+  - href: en/container-registry/operations/scanning-docker-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Scanning Docker images for vulnerabilities

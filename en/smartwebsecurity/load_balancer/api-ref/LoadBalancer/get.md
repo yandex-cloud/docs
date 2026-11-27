@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/smartwebsecurity/load_balancer/api-ref/LoadBalancer/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Smart Web Security Load Balancer API, REST: LoadBalancer.Get

@@ -1,6 +1,10 @@
 ---
 title: How to delete a static public IP address
 description: Follow this guide to delete a static public IP address.
+alternate:
+  - href: en/vpc/operations/address-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a static public IP address

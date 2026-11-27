@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/application-load-balancer/gwin-ref/directresponse.md
+    type: text/markdown
+    title: Markdown version
+---
 # DirectResponse
 
 DirectResponse is a Gwin custom resource that instructs the load balancer to return a fixed HTTP response directly to the client, without forwarding the request to any backend service.

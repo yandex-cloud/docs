@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_access-keys_list.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli access-keys list
 
 List access keys for service account

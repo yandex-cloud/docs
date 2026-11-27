@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.CLIENT.POPUP_BLOCKED'
 description: The page describes a {{ datalens-full-name }} pop-up blocking error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-CLIENT-POPUP_BLOCKED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] pop-up blocking error

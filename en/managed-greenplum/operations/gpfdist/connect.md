@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/gpfdist/connect.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to an external file server
 
 [{{ GP }} Parallel File Server]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) is a utility used to read and write data from files located on remote servers. Installed on each segment host of a {{ mgp-name }} cluster, it ensures parallel data loading by distributing data across segments either evenly or according to a specified [distribution key](../../concepts/sharding.md#distribution-key). This improves performance when handling large amounts of external data.

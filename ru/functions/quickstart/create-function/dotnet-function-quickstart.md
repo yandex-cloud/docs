@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/quickstart/create-function/dotnet-function-quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание функции на .NET Core
 
 Создайте и выполните [функцию](../../concepts/function.md) на .NET Core, которая приветствует пользователя.

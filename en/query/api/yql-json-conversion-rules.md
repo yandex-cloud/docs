@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/api/yql-json-conversion-rules.md
+    type: text/markdown
+    title: Markdown version
+---
 # YQL to JSON type mapping
 
 The following rules apply when converting YQL types to JSON types.

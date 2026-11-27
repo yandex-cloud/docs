@@ -108,6 +108,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-mysql/api-ref/Cluster/listLogs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, REST: Cluster.ListLogs

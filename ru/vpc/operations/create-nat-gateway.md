@@ -1,6 +1,10 @@
 ---
 title: Как создать и настроить NAT-шлюз в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете создать и настроить NAT-шлюз.
+alternate:
+  - href: ru/vpc/operations/create-nat-gateway.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить NAT-шлюз

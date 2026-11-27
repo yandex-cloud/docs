@@ -1,6 +1,10 @@
 ---
 title: Информация о кластерах в {{ mkf-name }}
 description: Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mkf-name }}. Чтобы получить список кластеров БД в каталоге, перейдите на страницу каталога и перейдите в сервис {{ mkf-name }}.
+alternate:
+  - href: ru/managed-kafka/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Информация об имеющихся кластерах в {{ mkf-name }}

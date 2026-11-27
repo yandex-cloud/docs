@@ -50,6 +50,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/baremetal/api-ref/PublicSubnet/listPublicSubnetOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PublicSubnet.ListPublicSubnetOperations

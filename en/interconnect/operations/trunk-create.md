@@ -1,6 +1,10 @@
 ---
 title: How to create a trunk in {{ interconnect-name }}
 description: Follow this guide to create a trunk in {{ interconnect-name }}.
+alternate:
+  - href: en/interconnect/operations/trunk-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a trunk

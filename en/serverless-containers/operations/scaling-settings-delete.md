@@ -1,6 +1,10 @@
 ---
 title: Deleting container scaling settings
 description: Follow this guide to delete container scaling settings.
+alternate:
+  - href: en/serverless-containers/operations/scaling-settings-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting container scaling settings

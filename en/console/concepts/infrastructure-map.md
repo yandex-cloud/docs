@@ -1,6 +1,10 @@
 ---
 title: Infrastructure map in the {{ yandex-cloud }} management console
 description: The infrastructure map in the {{ yandex-cloud }} management console visualizes relationships between resources as well as between networks and subnets within the resource folder.
+alternate:
+  - href: en/console/concepts/infrastructure-map.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Infrastructure map

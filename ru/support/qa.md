@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про техническую поддержку {{ yandex-cloud }}
 description: На странице представлены вопросы и ответы про техническую поддержку {{ yandex-cloud }}.
+alternate:
+  - href: ru/support/qa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про техническую поддержку {{ yandex-cloud }}

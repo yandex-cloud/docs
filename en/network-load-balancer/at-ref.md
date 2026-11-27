@@ -1,6 +1,10 @@
 ---
 title: '{{ network-load-balancer-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ network-load-balancer-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/network-load-balancer/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

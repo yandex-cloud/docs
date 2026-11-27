@@ -5,6 +5,10 @@ keywords:
   - Valkey replication
   - Valkey
   - Valkey DBMS
+alternate:
+  - href: en/managed-valkey/concepts/replication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Replication and persistence in {{ mrd-name }}

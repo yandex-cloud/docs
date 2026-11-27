@@ -1,6 +1,10 @@
 ---
 title: Breaking changes in {{ CB }} as compared to {{ GP }} in {{ mgp-full-name }}
 description: In this article, you will learn about breaking changes in {{ CB }} as compared to {{ GP }} in {{ mgp-full-name }}.
+alternate:
+  - href: en/managed-greenplum/concepts/cloudberry-vs-greenplum/breaking-changes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Breaking changes in {{ CB }} as compared to {{ GP }} in {{ mgp-full-name }}

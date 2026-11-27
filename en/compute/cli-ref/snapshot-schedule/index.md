@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/snapshot-schedule/
+alternate:
+  - href: en/compute/cli-ref/snapshot-schedule/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute snapshot-schedule

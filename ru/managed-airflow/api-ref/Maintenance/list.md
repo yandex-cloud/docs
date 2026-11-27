@@ -69,6 +69,10 @@ apiPlayground:
             - resourceId
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-airflow/api-ref/Maintenance/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Airflow™ API, REST: Maintenance.List

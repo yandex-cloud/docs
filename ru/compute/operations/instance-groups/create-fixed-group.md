@@ -1,6 +1,10 @@
 ---
 title: Создать группу виртуальных машин фиксированного размера
 description: Следуя данной инструкции, вы сможете создать группу виртуальных машин фиксированного размера.
+alternate:
+  - href: ru/compute/operations/instance-groups/create-fixed-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать группу виртуальных машин фиксированного размера

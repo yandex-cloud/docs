@@ -1,6 +1,10 @@
 ---
 title: Настройка CI/CD между {{ sf-full-name }} и {{ src-name }}
 description: Как настроить CI/CD между {{ sf-full-name }} и {{ src-name }}.
+alternate:
+  - href: ru/tutorials/serverless/ci-cd-sourcecraft-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка CI/CD между {{ sf-full-name }} и {{ src-name }}

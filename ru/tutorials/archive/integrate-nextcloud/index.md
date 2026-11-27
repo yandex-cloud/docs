@@ -1,6 +1,10 @@
 ---
 title: Развертывание Nextcloud в {{ yandex-cloud }}
 description: С помощью данного руководства вы развернете решение Nextcloud в облачной инфраструктуре {{ yandex-cloud }} с интеграцией объектного хранилища {{ objstorage-full-name }}.
+alternate:
+  - href: ru/tutorials/archive/integrate-nextcloud/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [index](../../../_tutorials/archive/integrate-nextcloud/index.md) %}

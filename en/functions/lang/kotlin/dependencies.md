@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/kotlin/dependencies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Building and managing Kotlin function dependencies
 
 {{ sf-name }} supports two methods of managing Kotlin function dependencies: automatic installation from the source code using Gradle and adding dependencies manually to a project archive. However, you cannot configure dependencies using both methods at the same time.

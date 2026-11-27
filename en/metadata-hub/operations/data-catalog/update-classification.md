@@ -1,6 +1,10 @@
 ---
 title: Updating a classification in {{ data-catalog-full-name }}
 description: Follow this guide to update a classification in {{ data-catalog-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/update-classification.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a classification

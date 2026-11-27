@@ -1,6 +1,10 @@
 ---
 title: x-yc-apigateway-integration:cloud_datastreams extension
 description: In this article, you will learn about the `x-yc-apigateway-integration:cloud_datastreams` extension use cases, supported parameters, and specification.
+alternate:
+  - href: en/api-gateway/concepts/extensions/datastreams.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # x-yc-apigateway-integration:cloud_datastreams extension

@@ -1,6 +1,10 @@
 ---
 title: Управление метками в {{ resmgr-full-name }}
 description: Добавление, изменение и удаление меток ресурсов с помощью консоли управления, CLI, Terraform и API в {{ resmgr-name }}.
+alternate:
+  - href: ru/resource-manager/operations/manage-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление метками

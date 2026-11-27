@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_update_versioning.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets update versioning
 
 Update bucket versioning

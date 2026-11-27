@@ -1,6 +1,10 @@
 ---
 title: Data validation in {{ api-gw-full-name }}
 description: In this article, you will learn about {{ api-gw-name }} extensions that allow you to define a validator for schemas described in the API gateway specification.
+alternate:
+  - href: en/api-gateway/concepts/extensions/validator.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data validation

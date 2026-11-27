@@ -1,6 +1,10 @@
 ---
 title: Points of presence in {{ cdn-full-name }}
 description: A {{ cdn-name }} point of presence is the physical location of CDN servers.
+alternate:
+  - href: en/cdn/concepts/points-of-presence.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Points of presence

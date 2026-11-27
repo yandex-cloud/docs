@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/database/remove-access-binding/
+alternate:
+  - href: ru/cli/cli-ref/ydb/cli-ref/database/remove-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc ydb database remove-access-binding

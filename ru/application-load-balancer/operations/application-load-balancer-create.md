@@ -1,6 +1,10 @@
 ---
 title: Как создать L7-балансировщик в {{ alb-full-name }}
 description: Следуя данной инструкции, вы сможете создать L7-балансировщик.
+alternate:
+  - href: ru/application-load-balancer/operations/application-load-balancer-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать L7-балансировщик

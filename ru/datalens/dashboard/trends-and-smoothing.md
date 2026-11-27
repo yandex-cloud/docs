@@ -1,6 +1,10 @@
 ---
 title: Тренды и сглаживания в чартах {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете применить сглаживание или добавить линию тренда в чарт на дашборде в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/dashboard/trends-and-smoothing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Тренды и сглаживания в чартах {{ datalens-full-name }}

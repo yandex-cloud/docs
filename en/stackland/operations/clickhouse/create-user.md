@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/create-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a user
 
 If you have a [{{ CH }}](../../concepts/components/clickhouse.md) [cluster](create-cluster.md), you can create a user in it using a custom `ClickhouseUser` resource.

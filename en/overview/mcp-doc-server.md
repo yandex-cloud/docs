@@ -33,6 +33,10 @@ keywords:
   - generative search across docs
   - Model Context Protocol Yandex Cloud
   - MCP server without authorization
+alternate:
+  - href: en/overview/mcp-doc-server.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} guides in AI tools

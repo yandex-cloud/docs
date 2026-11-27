@@ -1,6 +1,10 @@
 ---
 title: DNS records for working with {{ postbox-full-name }}
 description: This article describes the required and recommended DNS records for sending emails via {{ postbox-name }}.
+alternate:
+  - href: en/postbox/concepts/dns-records.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DNS records for working with {{ postbox-name }}

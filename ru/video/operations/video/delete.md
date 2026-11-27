@@ -1,6 +1,10 @@
 ---
 title: Как удалить видео в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете удалить видео из сервиса {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/video/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить видео

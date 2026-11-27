@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/troubleshooting/troubles-with-spark.md
+    type: text/markdown
+    title: Markdown version
+---
 # Ошибки при работе коннектора Spark
 
 При работе со Spark в хранилище проекта создается скрытая папка `.spark/`, внутри которой находится служебная информация обо всех коннекторах Spark, доступных в проекте. Чтобы увидеть скрытые файлы и папки, на верхней панели интерфейса {{ jlab }}Lab нажмите **View** ⟶ **Show Hidden Files**.

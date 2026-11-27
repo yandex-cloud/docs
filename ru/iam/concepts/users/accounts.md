@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iam/concepts/users/accounts.md
+    type: text/markdown
+    title: Markdown version
+---
 # Аккаунты в {{ yandex-cloud }}
 
 В {{ yandex-cloud }} используются [аккаунты на Яндексе](#passport), [сервисные аккаунты](#sa), [федеративные аккаунты](#saml-federation) и [локальные аккаунты](#local).

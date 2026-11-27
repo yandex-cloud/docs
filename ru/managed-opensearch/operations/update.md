@@ -5,6 +5,10 @@ keywords:
   - настройки OpenSearch
   - настройки кластера OpenSearch
   - OpenSearch
+alternate:
+  - href: ru/managed-opensearch/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек кластера {{ OS }}

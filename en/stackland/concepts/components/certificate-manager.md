@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/certificate-manager.md
+    type: text/markdown
+    title: Markdown version
+---
 # Certificate Manager
 
 Certificate Manager is a component to manage certificates used in cross-service interaction. There are two global issuers (`kind: ClusterIssuer`) available for certificate management: Default CA Issuer (`stackland-default`) and Let's Encrypt HTTP01 (`stackland-letsencrypt`). Both issuers are based on the open-source [cert-manager](https://cert-manager.io/) project.

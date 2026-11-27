@@ -529,6 +529,10 @@ apiPlayground:
               - hdfs
           - required:
               - hive
+alternate:
+  - href: en/managed-greenplum/api-ref/PXFDatasource/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: PXFDatasource.Update

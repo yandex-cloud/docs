@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/operations/organizations/change-organization.md
+    type: text/markdown
+    title: Markdown version
+---
 # Switching between {{ datalens-short-name }} instances
 
 If you are an administrator or user of multiple [organizations](../../concepts/organizations.md), you can switch between them. Thus, you can work with multiple {{ datalens-short-name }} instances.

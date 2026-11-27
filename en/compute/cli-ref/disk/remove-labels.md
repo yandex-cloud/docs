@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/disk/remove-labels/
+alternate:
+  - href: en/compute/cli-ref/disk/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute disk remove-labels

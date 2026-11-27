@@ -2,6 +2,10 @@
 title: Text markup functions
 description: Markup functions are used for creating marked up text (hypertext) from string values and/or other marked up text.
 editable: false
+alternate:
+  - href: en/datalens/function-ref/markup-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Text markup functions

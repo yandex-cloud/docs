@@ -1,6 +1,10 @@
 ---
 title: '{{ org-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ org-full-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/organization/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

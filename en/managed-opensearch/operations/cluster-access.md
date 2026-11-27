@@ -1,6 +1,10 @@
 ---
 title: Managing access to a {{ mos-full-name }} cluster
 description: Follow this guide to configure {{ mos-name }} cluster access permissions.
+alternate:
+  - href: en/managed-opensearch/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to a {{ mos-name }} cluster

@@ -1,6 +1,10 @@
 ---
 title: Сетевая топология и балансировка трафика в {{ objstorage-onprem-name }}
 description: Передача данных между Goose и Angel и балансировка запросов в {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/goose-mds2.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сетевая топология и балансировка трафика

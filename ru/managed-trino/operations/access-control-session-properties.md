@@ -1,6 +1,10 @@
 ---
 title: Назначение правил доступа к системным свойствам сессии в {{ mtr-name }}
 description: Правила определяют, могут ли пользователи устанавливать те или иные системные свойства сессии.
+alternate:
+  - href: ru/managed-trino/operations/access-control-session-properties.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначение правил доступа к системным свойствам сессии в {{ mtr-name }}

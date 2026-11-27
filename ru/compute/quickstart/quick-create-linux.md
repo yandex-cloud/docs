@@ -8,6 +8,10 @@ keywords:
   - linux виртуальная машина
   - виртуальная машина
   - вм
+alternate:
+  - href: ru/compute/quickstart/quick-create-linux.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание виртуальной машины Linux

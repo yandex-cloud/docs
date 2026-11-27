@@ -1,6 +1,10 @@
 ---
 title: How to perform {{ managed-k8s-name }} node maintenance with zero resource loss
 description: Follow this guide to remove load from a {{ managed-k8s-name }} node and perform its maintenance without losing any resources, e.g., GPUs.
+alternate:
+  - href: en/managed-kubernetes/operations/node-group/node-group-gpu-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cluster node maintenance with zero resource loss

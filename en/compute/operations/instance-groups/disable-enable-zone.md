@@ -1,6 +1,10 @@
 ---
 title: How to disable or enable an availability zone for a {{ compute-full-name }} instance group
 description: Follow this guide to disable or enable availability zones for an instance group.
+alternate:
+  - href: en/compute/operations/instance-groups/disable-enable-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Disabling and enabling availability zones for a {{ compute-full-name }} instance group

@@ -5,6 +5,10 @@ keywords:
   - keyword: создание кластера {{ SPQR }}
   - keyword: кластер {{ SPQR }}
   - keyword: '{{ SPQR }}'
+alternate:
+  - href: ru/managed-spqr/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ SPQR }}

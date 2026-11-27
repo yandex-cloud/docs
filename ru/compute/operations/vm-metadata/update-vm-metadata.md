@@ -1,6 +1,10 @@
 ---
 title: Как изменить метаданные виртуальной машины
 description: Следуя данной инструкции, вы сможете изменить метаданные виртуальной машины.
+alternate:
+  - href: ru/compute/operations/vm-metadata/update-vm-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить метаданные виртуальной машины

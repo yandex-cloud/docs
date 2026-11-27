@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/data/dataset.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с датасетами
 
 {% include [stop-create-dataset](../../../_includes/datasphere/stop-create-datasets.md) %}

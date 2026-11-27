@@ -49,6 +49,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/serverless-containers/containers/api-ref/Container/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Serverless Containers Service, REST: Container.ListOperations

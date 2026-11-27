@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ serverless-containers-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ serverless-containers-name }}.
 editable: false
+alternate:
+  - href: ru/serverless-containers/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ serverless-containers-name }}

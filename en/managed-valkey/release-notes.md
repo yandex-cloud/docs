@@ -1,6 +1,10 @@
 ---
 title: '{{ mrd-full-name }} release notes'
 description: This section contains the {{ mrd-name }} release notes.
+alternate:
+  - href: en/managed-valkey/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mrd-full-name }} release notes

@@ -27,6 +27,10 @@ apiPlayground:
         - domainId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/api-gateway/apigateway/api-ref/ApiGateway/removeDomain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Gateway Service, REST: ApiGateway.RemoveDomain

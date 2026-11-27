@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/policy-manager.md
+    type: text/markdown
+    title: Markdown version
+---
 # Policy Manager
 
 Policy Manager checks Kubernetes resources for compliance with policies and scans custom application images for known vulnerabilities. [Kyverno](https://kyverno.io/) runs policy checks, while images are scanned by Trivy

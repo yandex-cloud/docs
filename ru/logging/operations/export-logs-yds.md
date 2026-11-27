@@ -1,6 +1,10 @@
 ---
 title: Инструкция о том, как выгрузить логи из {{ cloud-logging-name }} в поток {{ yds-name }}
 description: Из статьи вы узнаете, как выгрузить логи из {{ cloud-logging-name }} в поток {{ yds-name }}.
+alternate:
+  - href: ru/logging/operations/export-logs-yds.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выгрузить логи в {{ yds-name }}

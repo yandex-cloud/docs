@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/container-registry/concepts/repository.md
+    type: text/markdown
+    title: Markdown version
+---
 # Репозиторий в {{ container-registry-name }}
 
 _Репозиторий_ — набор Docker-образов с одинаковым именем. Обычно в одном репозитории находятся несколько версий одного Docker-образа. Для работы с версиями внутри репозитория используются теги и хеш. Подробнее читайте в разделе [Docker-образ](docker-image.md).

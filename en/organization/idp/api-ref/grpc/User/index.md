@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/idp/api-ref/grpc/User/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, gRPC: UserService

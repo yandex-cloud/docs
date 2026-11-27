@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-spqr/qa/limitations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Limitations in {{ mspqr-name }}
 
 {% include [limitations-minitoc](../../_qa/managed-spqr/minitoc/limitations.md) %}

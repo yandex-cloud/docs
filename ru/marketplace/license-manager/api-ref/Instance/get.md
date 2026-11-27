@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/marketplace/license-manager/api-ref/Instance/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace License Manager, REST: Instance.Get

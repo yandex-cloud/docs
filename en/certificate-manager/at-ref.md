@@ -1,6 +1,10 @@
 ---
 title: '{{ certificate-manager-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ certificate-manager-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/certificate-manager/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

@@ -13,6 +13,10 @@ keywords:
   - deploying a game server
   - configuring a game server
   - gta in {{ yandex-cloud }}
+alternate:
+  - href: en/tutorials/infrastructure/gta-v-server.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [gta-v-server](../../_tutorials/infrastructure/gta-v-server.md) %}

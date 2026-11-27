@@ -1,6 +1,10 @@
 ---
 title: How to connect external nodes to a {{ managed-k8s-name }} cluster
 description: Follow this guide to connect external nodes to a {{ managed-k8s-name }} cluster.
+alternate:
+  - href: en/managed-kubernetes/operations/external-nodes-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting external nodes to a cluster

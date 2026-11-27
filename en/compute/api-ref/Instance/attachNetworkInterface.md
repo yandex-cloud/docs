@@ -118,6 +118,10 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/DnsRecordSpec'
+alternate:
+  - href: en/compute/api-ref/Instance/attachNetworkInterface.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Instance.AttachNetworkInterface

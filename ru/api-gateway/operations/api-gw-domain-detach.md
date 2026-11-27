@@ -1,6 +1,10 @@
 ---
 title: Как отключить домен от API-шлюза {{ api-gw-full-name }}
 description: Из статьи вы узнаете, как отключить домен от API-шлюза {{ api-gw-full-name }}.
+alternate:
+  - href: ru/api-gateway/operations/api-gw-domain-detach.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отключить домен

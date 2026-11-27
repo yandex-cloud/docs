@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/organization/operations/revoke-role.md
+    type: text/markdown
+    title: Markdown version
+---
 # Revoking a user's role 
 
 If you want to deny a user access to a resource, revoke the relevant roles for this resource as well as for other resources access permissions can be inherited from. For more information on access management in {{ yandex-cloud }}, see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.

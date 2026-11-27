@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }} service API endpoints'
 description: In this article, you will learn about {{ yandex-cloud }} service API endpoints and see endpoint examples.
+alternate:
+  - href: en/api-design-guide/concepts/endpoints.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} service API endpoints

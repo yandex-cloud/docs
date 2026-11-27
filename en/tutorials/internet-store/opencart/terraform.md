@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/tutorials/internet-store/opencart/terraform.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating an OpenCart online store using {{ TF }}
 
 To create an [OpenCart online store](index.md) using {{ TF }}:

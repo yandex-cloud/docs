@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/concepts/stream-processing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Потоковый анализ данных
 
 {% include [sunset](../../_includes/query/sunset.md) %}

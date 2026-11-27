@@ -2,6 +2,10 @@
 title: '{{ myt-full-name }} pricing policy'
 description: This article covers the {{ myt-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/managed-ytsaurus/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ myt-full-name }} pricing policy

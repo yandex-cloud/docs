@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/bucket/update/
+alternate:
+  - href: en/cli/cli-ref/storage/cli-ref/bucket/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc storage bucket update

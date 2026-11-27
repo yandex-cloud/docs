@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ mspqr-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides reference information on the {{ mspqr-name }} metrics delivered to {{ monitoring-full-name }}.
+alternate:
+  - href: en/managed-spqr/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

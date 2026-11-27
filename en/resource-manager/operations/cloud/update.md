@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/resource-manager/operations/cloud/update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Renaming a cloud
 
 To rename a cloud, you need either the [resource-manager.editor](../../security/index.md#resource-manager-editor) or [editor](../../../iam/roles-reference.md#editor) role for that cloud or a broader role. You cannot rename a suspended cloud. If you cannot perform this operation, contact the cloud [administrator](../../../iam/roles-reference.md#admin) or [owner](../../concepts/resources-hierarchy.md#owner).

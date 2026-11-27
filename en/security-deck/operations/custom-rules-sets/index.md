@@ -1,6 +1,10 @@
 ---
 title: Custom rule sets
 description: This section contains step-by-step guides on how to use custom rule sets in {{ sd-name }}.
+alternate:
+  - href: en/security-deck/operations/custom-rules-sets/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Custom rule sets

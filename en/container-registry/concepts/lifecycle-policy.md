@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/container-registry/concepts/lifecycle-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Docker image lifecycle policy
 
 A [Docker image](docker-image.md) lifecycle policy lets you set [rules](#lifecycle-rules) for deleting Docker images automatically.

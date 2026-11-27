@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error: ERR.DS_API.DB.COMMIT_OR_ROLLBACK_FAILED'
 description: This page describes the `Failed to COMMIT or ROLLBACK` {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DB-COMMIT_OR_ROLLBACK_FAILED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Failed to COMMIT or ROLLBACK

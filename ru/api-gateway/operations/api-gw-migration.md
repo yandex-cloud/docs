@@ -1,6 +1,10 @@
 ---
 title: Миграция API-шлюзов в зону {{ region-id }}-d
 description: В статье вы узнаете, как перенести подсети для API-шлюзов в другую зону.
+alternate:
+  - href: ru/api-gateway/operations/api-gw-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция API-шлюзов в зону {{ region-id }}-d

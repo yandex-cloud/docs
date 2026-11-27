@@ -1,6 +1,10 @@
 ---
 title: Delivering data from {{ mkf-full-name }} to {{ mmg-full-name }} using {{ data-transfer-full-name }}
 description: A {{ mmg-name }} cluster can get data from {{ KF }} topics in real time.
+alternate:
+  - href: en/tutorials/dataplatform/data-transfer-mkf-mmg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering data from {{ mkf-full-name }} to {{ mmg-full-name }} using {{ data-transfer-full-name }}

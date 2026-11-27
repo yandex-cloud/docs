@@ -1,6 +1,10 @@
 ---
 title: Переименовать и переместить объект в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете переименовать или переместить объект в бакете в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/objects/rename-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переименовать и переместить объект

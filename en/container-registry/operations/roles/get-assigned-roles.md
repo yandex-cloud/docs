@@ -1,6 +1,10 @@
 ---
 title: How to view roles for a resource in {{ container-registry-full-name }}
 description: Follow this guide to view roles assigned for a resource.
+alternate:
+  - href: en/container-registry/operations/roles/get-assigned-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing roles for a resource

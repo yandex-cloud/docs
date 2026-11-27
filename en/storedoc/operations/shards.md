@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/operations/shards.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing {{ SD }} shards
 
 You can [create a sharded cluster](cluster-create.md#creating-a-sharded-cluster) or you can [enable sharding](#enable) later. Next, you can [add and configure shards](#add-shard).

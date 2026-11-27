@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ video-full-name }} overview
 
 {% include [about-service](../../_includes/video/about-service.md) %}

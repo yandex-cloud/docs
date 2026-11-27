@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ interconnect-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ interconnect-name }}.
 editable: false
+alternate:
+  - href: ru/interconnect/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ interconnect-name }}

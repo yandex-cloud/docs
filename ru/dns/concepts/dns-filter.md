@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/dns/concepts/dns-filter.md
+    type: text/markdown
+    title: Markdown version
+---
 # Фильтры DNS
 
 *Фильтр DNS* — это возможность контролировать и фильтровать исходящие DNS-запросы от облачных ресурсов с помощью списков FQDN. Исходящие DNS-запросы, проходящие через облачный [DNS Resolver](./dns-resolver.md), могут фильтроваться с помощью фильтров DNS.

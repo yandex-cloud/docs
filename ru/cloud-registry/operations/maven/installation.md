@@ -1,6 +1,10 @@
 ---
 title: Настроить Maven
 description: Следуя данной инструкции, вы настроите Maven.
+alternate:
+  - href: ru/cloud-registry/operations/maven/installation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить Maven

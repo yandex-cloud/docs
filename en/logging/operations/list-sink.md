@@ -1,6 +1,10 @@
 ---
 title: How to get a list of log sinks in {{ cloud-logging-full-name }}
 description: Follow this guide to get a list of log sinks.
+alternate:
+  - href: en/logging/operations/list-sink.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of log sinks

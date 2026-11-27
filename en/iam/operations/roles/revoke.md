@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iam/operations/roles/revoke.md
+    type: text/markdown
+    title: Markdown version
+---
 # Revoking a role for a resource
 
 {% note info %}

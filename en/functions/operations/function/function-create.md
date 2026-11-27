@@ -1,6 +1,10 @@
 ---
 title: Creating a function
 description: Follow this guide to create a function.
+alternate:
+  - href: en/functions/operations/function/function-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a function

@@ -1,6 +1,10 @@
 ---
 title: Как удалить пользовательский сертификат в {{ certificate-manager-full-name }}
 description: Следуя данной инструкции, вы сможете удалить пользовательский сертификат.
+alternate:
+  - href: ru/certificate-manager/operations/import/cert-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить пользовательский сертификат

@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for ClickHouse
+alternate:
+  - href: en/terraform/resources/mdb_clickhouse_cluster_v2.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_clickhouse_cluster_v2 (Resource)
@@ -742,7 +746,7 @@ If the parameter is set to 0 (default), no hops is allowed.
 - `disk_encryption_key_id` (String). ID of the KMS key for cluster disk encryption.
 - `embedded_keeper` (Bool). Whether to use ClickHouse Keeper as a coordination system.
 - `environment` (**Required**)(String). Deployment environment of the ClickHouse cluster.
-- `external_dictionary` [Block]. External dictionaries configuration. The map key is the dictionary name.
+- `external_dictionary` [Block]. External dictionaries configuration. The map key is the dictionary name. Configure exactly one source per dictionary. To migrate from PostgreSQL v1, explicitly replace postgresql_source with postgresql_source_v2 and convert hosts into replicas. Dictionary updates are applied by recreating the affected dictionary; existing v1 dictionaries are not migrated automatically. See the [PostgreSQL dictionary example](https://github.com/yandex-cloud/terraform-provider-yandex/tree/master/examples/mdb_clickhouse_cluster_v2/dictionaries/postgresql) and [YTsaurus dictionary example](https://github.com/yandex-cloud/terraform-provider-yandex/tree/master/examples/mdb_clickhouse_cluster_v2/dictionaries/ytsaurus).
   - `layout` [Block]. Layout of the external dictionary.
     - `access_to_key_from_attributes` (Bool). Allows to retrieve key attribute using dictGetString function.
     - `allow_read_expired_keys` (Bool). Allow reading expired keys.
@@ -803,7 +807,7 @@ If the parameter is set to 0 (default), no hops is allowed.
       - `table` (**Required**)(String). MySQL table name.
       - `user` (**Required**)(String). Default user for replicas.
       - `where` (String). WHERE clause for selecting rows.
-    - `postgresql_source` [Block]. PostgreSQL source for the external dictionary.
+    - `postgresql_source` [Block]. Deprecated ODBC-based PostgreSQL source. Use postgresql_source_v2 for new configurations. Existing configurations remain supported and are not migrated automatically.
       - `db` (**Required**)(String). PostgreSQL database name.
       - `hosts` (**Required**)(List Of String). PostgreSQL hosts.
       - `invalidate_query` (String). Query to check if the dictionary data has changed.
@@ -812,6 +816,27 @@ If the parameter is set to 0 (default), no hops is allowed.
       - `ssl_mode` (String). SSL mode for the PostgreSQL connection (DISABLE, ALLOW, PREFER, VERIFY_CA, VERIFY_FULL).
       - `table` (**Required**)(String). PostgreSQL table name.
       - `user` (**Required**)(String). PostgreSQL user.
+    - `postgresql_source_v2` [Block]. PostgreSQL source using the native ClickHouse integration. Use this source for new PostgreSQL dictionaries instead of the deprecated ODBC-based postgresql_source.
+      - `background_reconnect` (Bool). Reconnect to unavailable replicas in the background.
+      - `db` (**Required**)(String). PostgreSQL database name.
+      - `invalidate_query` (String). Query to check if the dictionary data has changed.
+      - `password` (String). Default PostgreSQL password inherited by replicas without a password override. Sensitive; stored in Terraform state. The API does not return passwords.
+      - `port` (Number). Default PostgreSQL port inherited by replicas without a port override. Defaults to 5432.
+      - `query` (String). Custom SQL query returning the dictionary key and attributes. Specify exactly one of table or query. Cannot be combined with where.
+      - `replicas` [Block]. PostgreSQL replicas used as dictionary sources. The API requires at least one replica. Replicas inherit port, user and password from the source unless overridden.
+        - `host` (**Required**)(String). PostgreSQL replica host.
+        - `password` (String). Replica password. Inherits the source password when omitted. Sensitive; stored in Terraform state. The API does not return passwords.
+        - `port` (Number). Replica port. Inherits the source port when omitted.
+        - `priority` (Number). Replica priority. Lower values have higher priority. Defaults to 0 when omitted.
+        - `user` (String). Replica user. Inherits the source user when omitted.
+      - `ssl_mode` (String). SSL mode for the PostgreSQL connection. When omitted, the current value is preserved. Valid values: DISABLE, ALLOW, PREFER, VERIFY_CA, VERIFY_FULL, REQUIRE.
+      - `table` (String). PostgreSQL table name. Specify exactly one of table or query. The source user must have SELECT access to the table.
+      - `user` (String). Default PostgreSQL user inherited by replicas without a user override. Set this value or specify a user for every replica.
+      - `where` (String). Selection criteria (WHERE clause) for data in the specified table. Cannot be combined with query.
+    - `yt_source_v2` [Block]. YTsaurus source using the native ClickHouse integration. Available in public and internal clouds. Use this source for YTsaurus dictionaries; the legacy library-based source is unavailable starting with ClickHouse 26.8.
+      - `cypress_path` (**Required**)(String). Cypress path to the YTsaurus table used as the dictionary source, for example //home/user/cities.
+      - `http_proxy_urls` (**Required**)(List Of String). URLs of the YTsaurus HTTP proxies, reachable from the ClickHouse cluster. At least one non-empty URL is required.
+      - `oauth_token` (String). OAuth token with read access to the YTsaurus table. Sensitive; stored in Terraform state. The API does not return this token.
   - `structure` [Block]. Structure of the external dictionary.
     - `attributes` [Block]. Dictionary attributes.
       - `expression` (String). Expression for computing the attribute.

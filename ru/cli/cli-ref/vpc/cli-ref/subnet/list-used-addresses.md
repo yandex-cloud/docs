@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/subnet/list-used-addresses/
+alternate:
+  - href: ru/cli/cli-ref/vpc/cli-ref/subnet/list-used-addresses.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc subnet list-used-addresses

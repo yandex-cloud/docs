@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/QL/rpccreateQLChart-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Create QL chart

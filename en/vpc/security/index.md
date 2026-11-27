@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ vpc-full-name }} ({{ vpc-short-name }})
 description: Access management within the cloud network (private cloud) service, communications of cloud resources between themselves and with the internet – {{ vpc-full-name }} ({{ vpc-short-name }}). This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+alternate:
+  - href: en/vpc/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ vpc-name }}

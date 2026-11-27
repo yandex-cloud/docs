@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/getting-contract-originals.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to get an original of the agreement
 
 

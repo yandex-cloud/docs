@@ -1,6 +1,10 @@
 ---
 title: How to manage dashboard elements in {{ monitoring-full-name }}
 description: In this guide, you will learn how to manage dashboard elements in {{ monitoring-name }}.
+alternate:
+  - href: en/monitoring/operations/dashboard/widget-management.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing widgets

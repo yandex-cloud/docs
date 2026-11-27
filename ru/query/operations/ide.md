@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/operations/ide.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение с помощью IDE
 
 {% include [sunset](../../_includes/query/sunset.md) %}

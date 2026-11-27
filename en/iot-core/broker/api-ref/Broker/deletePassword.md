@@ -27,6 +27,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/iot-core/broker/api-ref/Broker/deletePassword.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Broker Service, REST: Broker.DeletePassword

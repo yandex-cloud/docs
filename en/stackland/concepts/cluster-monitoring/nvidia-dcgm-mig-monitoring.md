@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/cluster-monitoring/nvidia-dcgm-mig-monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # NVIDIA DCGM Dashboard with MIG metrics
 
 {{ grafana-name }}'s NVIDIA DCGM dashboard with MIG support enables comprehensive monitoring of NVIDIA GPUs in a {{ k8s }} cluster. The dashboard supports both standard GPUs and GPUs using multi-instance GPU (MIG) technology, delivering metrics on temperature, power consumption, GPU utilization, memory usage, and other critical GPU operational parameters.

@@ -36,6 +36,10 @@ meta:
     - keyword: реестр docker-образов
     - keyword: docker в облаке
     - keyword: реестр контейнеров
+  alternate:
+    - href: ru/container-registry/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первый реестр

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/data/connect-to-postgresql.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to a {{ PG }} database
 
 {{ mpg-short-name }} enables deploying and maintaining [{{ PG }}](https://www.postgresql.org/) server clusters in the {{ yandex-cloud }} infrastructure.

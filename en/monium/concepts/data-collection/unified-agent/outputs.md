@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/concepts/data-collection/unified-agent/outputs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Outputs
 
 You can describe an output in the `routes` section within the `channel`:`output` element, or in the `channels` section for named channels.

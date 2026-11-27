@@ -1,6 +1,10 @@
 ---
 title: Настройки тарификации и оплаты в {{ datalens-full-name }}
 description: 'Из статьи вы узнаете, как настроить тарификацию для {{ datalens-short-name }}: выбрать тариф и добавить платежный аккаунт.'
+alternate:
+  - href: ru/datalens/settings/service-plan.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройки тарификации и оплаты в {{ datalens-full-name }}

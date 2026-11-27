@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/message/SendMessage.md
+    type: text/markdown
+    title: Markdown version
+---
 # SendMessage
 
 Метод для отправки сообщения в указанную очередь. В теле сообщения можно передавать только XML, JSON и неформатированный текст.

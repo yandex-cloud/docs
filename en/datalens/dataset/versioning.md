@@ -1,6 +1,10 @@
 ---
 title: Dataset versioning in {{ datalens-full-name }}
 description: In {{ datalens-full-name }}, dataset versioning means storing the history of dataset configuration changes through versions. A list of versions is available to users with the minimum {{ permission-write }} access permissions to the dataset.
+alternate:
+  - href: en/datalens/dataset/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Versioning in {{ datalens-full-name }}

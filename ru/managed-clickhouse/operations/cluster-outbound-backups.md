@@ -2,6 +2,10 @@
 title: Восстановление данных из резервной копии ch-backup кластера {{ mch-full-name }}
 description: Следуя этой инструкции, вы сможете самостоятельно восстановить данные из резервной копии ch-backup кластера {{ mch-name }} на своем сервере.
 noIndex: true
+alternate:
+  - href: ru/managed-clickhouse/operations/cluster-outbound-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановление данных из резервной копии ch-backup

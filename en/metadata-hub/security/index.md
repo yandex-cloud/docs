@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ metadata-hub-full-name }}
 description: Access management in {{ metadata-hub-full-name }}. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
+alternate:
+  - href: en/metadata-hub/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ metadata-hub-name }}

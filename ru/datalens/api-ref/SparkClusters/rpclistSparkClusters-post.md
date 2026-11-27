@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/SparkClusters/rpclistSparkClusters-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] List Spark clusters

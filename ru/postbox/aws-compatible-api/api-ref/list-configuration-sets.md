@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/list-configuration-sets.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод ListConfigurationSets
 
 Возвращает список [конфигураций](../../concepts/glossary.md#configuration) в каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.

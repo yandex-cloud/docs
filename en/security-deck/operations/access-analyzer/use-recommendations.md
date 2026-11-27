@@ -1,6 +1,10 @@
 ---
 title: Working with recommendations in {{ sd-full-name }} {{ access-analyzer-name }}
 description: In this section, you will learn how to get and apply recommendations in {{ sd-full-name }} {{ access-analyzer-name }} regarding unused and excessive access permissions to organizational resources.
+alternate:
+  - href: en/security-deck/operations/access-analyzer/use-recommendations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with recommendations in the {{ access-analyzer-name }} module

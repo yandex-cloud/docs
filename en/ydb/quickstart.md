@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ ydb-full-name }}
 description: Follow this guide to create and set up a {{ ydb-name }} database.
+alternate:
+  - href: en/ydb/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ ydb-name }}

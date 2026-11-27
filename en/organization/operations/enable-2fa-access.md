@@ -1,6 +1,10 @@
 ---
 title: Enabling the two-factor authentication requirement
 description: This guide will help you set up access to resources only for users with two-factor authentication.
+alternate:
+  - href: en/organization/operations/enable-2fa-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling the two-factor authentication requirement

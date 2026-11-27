@@ -2,6 +2,10 @@
 title: Восстановление MongoDB из резервной копии {{ mmg-full-name }} с помощью WAL-G
 description: Следуя этой инструкции, вы сможете самостоятельно восстановить MongoDB из резервной копии WAL-G, полученной из {{ mmg-name }}.
 noIndex: true
+alternate:
+  - href: ru/storedoc/operations/cluster-outbound-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановление MongoDB из резервной копии WAL-G

@@ -1,6 +1,10 @@
 ---
 title: Line chart in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the line chart visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/line-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Line chart ![](../../_assets/datalens/line.svg) in {{ datalens-full-name }}

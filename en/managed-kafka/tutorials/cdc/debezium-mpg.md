@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/debezium-mpg'
+alternate:
+  - href: en/managed-kafka/tutorials/cdc/debezium-mpg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering data from {{ mpg-full-name }} using Debezium

@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/organization/policy/api-ref/AuthenticationPolicyRule/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organization Policy API, REST: AuthenticationPolicyRule.Delete

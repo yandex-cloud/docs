@@ -19,6 +19,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/smartcaptcha/api-ref/Captcha/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartCaptcha API, REST: Captcha.List

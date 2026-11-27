@@ -1,6 +1,10 @@
 ---
 title: Response and error codes. {{ objstorage-name }} API (S3)
 description: 'In this article, you will find the error and response codes in the {{ objstorage-name }} API (S3). Successful response: If there are no errors, {{ objstorage-name }} returns 2xx HTTP codes. The response code and body are request-specific and given in request descriptions. Error response: If there is an error, {{ objstorage-name }} returns a message with the relevant HTTP code and its additional description in XML format. Below you can find the error codes and their description.'
+alternate:
+  - href: en/storage/s3/api-ref/response-codes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Responses

@@ -1,6 +1,10 @@
 ---
 title: How to deactivate a user in {{ org-full-name }}
 description: Follow this guide to deactivate a user in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/user-pools/deactivate-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deactivating a user

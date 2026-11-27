@@ -3,6 +3,10 @@ noIndex: true
 title: Загрузка данных из {{ objstorage-name }} в {{ mch-name }} с помощью {{ data-transfer-name }}
 description: Как загрузить данные из {{ objstorage-name }} в {{ mch-name }} с помощью {{ data-transfer-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/object-storage-to-clickhouse'
+alternate:
+  - href: ru/storage/tutorials/object-storage-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузка данных из {{ objstorage-name }} в {{ mch-full-name }} с помощью {{ data-transfer-full-name }}

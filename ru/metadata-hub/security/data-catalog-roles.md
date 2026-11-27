@@ -1,6 +1,10 @@
 ---
 title: Сервисные роли {{ data-catalog-full-name }}
 description: Сервисные роли {{ data-catalog-name }} позволяют управлять доступом к каталогам метаданных и их ресурсам в {{ metadata-hub-name }}.
+alternate:
+  - href: ru/metadata-hub/security/data-catalog-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сервисные роли для работы с метаданными в {{ data-catalog-full-name }}

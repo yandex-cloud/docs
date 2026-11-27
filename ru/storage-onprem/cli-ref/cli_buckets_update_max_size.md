@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_update_max_size.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets update max_size
 
 Update bucket max_size

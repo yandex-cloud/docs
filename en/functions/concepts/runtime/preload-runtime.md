@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/concepts/runtime/preload-runtime.md
+    type: text/markdown
+    title: Markdown version
+---
 # Preloaded runtime
 
 A _preloaded runtime environment_ is a special environment that enables you to reduce the cold start time of functions and to receive runtime updates automatically.

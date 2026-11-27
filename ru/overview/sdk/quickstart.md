@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ yandex-cloud }} SDK
 description: Познакомьтесь с возможностями {{ yandex-cloud }} SDK
+alternate:
+  - href: ru/overview/sdk/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ yandex-cloud }} SDK

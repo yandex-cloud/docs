@@ -1,6 +1,10 @@
 ---
 title: Инструкция по удалению группы рабочих столов в {{ cloud-desktop-full-name }}
 description: Из статьи вы узнаете, как удалить группу рабочих столов в {{ cloud-desktop-full-name }}.
+alternate:
+  - href: ru/cloud-desktop/operations/desktop-groups/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить группу рабочих столов

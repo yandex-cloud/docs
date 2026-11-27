@@ -1,6 +1,10 @@
 ---
 title: Как изменить версию {{ SPRK }} в кластере {{ msp-full-name }}
 description: Следуя данной инструкции, вы сможете изменить версию {{ SPRK }} в кластере {{ msp-full-name }}.
+alternate:
+  - href: ru/managed-spark/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновление версии {{ SPRK }}

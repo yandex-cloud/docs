@@ -48,6 +48,10 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/functions/functions/api-ref/Function/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, REST: Function.Create

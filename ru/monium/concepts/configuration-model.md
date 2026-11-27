@@ -1,6 +1,10 @@
 ---
 title: Конфигурация объектов {{ monium-name }}
 description: 'В сервисе {{ monium-name }} для логического разделения данных телеметрии используются различные объекты конфигурации: проект, кластер, сервис и шард.'
+alternate:
+  - href: ru/monium/concepts/configuration-model.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Конфигурация объектов {{ monium-name }}

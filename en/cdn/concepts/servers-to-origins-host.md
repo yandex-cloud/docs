@@ -1,6 +1,10 @@
 ---
 title: Host header in CDN server requests to origins in {{ cdn-full-name }}
 description: This tutorial describes what Host headers are used for in CDN server requests to origins and how to configure them properly.
+alternate:
+  - href: en/cdn/concepts/servers-to-origins-host.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Host header in CDN server requests to origins

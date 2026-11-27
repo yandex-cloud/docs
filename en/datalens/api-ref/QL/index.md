@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/QL/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # QL
 
 <!-- markdownlint-disable-file -->

@@ -1,6 +1,10 @@
 ---
 title: Deleting a backup
 description: In this tutorial, you will learn how to delete a VM or server backup in {{ backup-full-name }}.
+alternate:
+  - href: en/backup/operations/backup-vm/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a backup

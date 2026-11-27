@@ -1,6 +1,10 @@
 ---
 title: Chart inspector in {{ datalens-full-name }}
 description: In this tutorial, you will learn about the chart inspector in {{ datalens-full-name }} and explore its interface.
+alternate:
+  - href: en/datalens/concepts/chart/inspector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Chart inspector in {{ datalens-full-name }}

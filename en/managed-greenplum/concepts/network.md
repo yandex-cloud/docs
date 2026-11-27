@@ -1,6 +1,10 @@
 ---
 title: Network and database clusters in {{ mgp-full-name }}
 description: In this tutorial, you will learn about the basic network interface settings for a {{ mgp-name }} cluster.
+alternate:
+  - href: en/managed-greenplum/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network and database clusters in {{ mgp-name }}

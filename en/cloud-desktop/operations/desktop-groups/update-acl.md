@@ -1,6 +1,10 @@
 ---
 title: How to change desktop group access permissions in {{ cloud-desktop-full-name }}
 description: In this tutorial, you will learn how to change access permissions for a desktop group in {{ cloud-desktop-full-name }}.
+alternate:
+  - href: en/cloud-desktop/operations/desktop-groups/update-acl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing desktop group access permissions

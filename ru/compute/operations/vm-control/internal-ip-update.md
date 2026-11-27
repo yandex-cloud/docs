@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/vm-control/internal-ip-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить внутренний IP-адрес виртуальной машины
 
 После создания [ВМ](../../concepts/vm.md) вы можете изменить [внутренние IP-адреса](../../../vpc/concepts/address.md#internal-addresses) ее [сетевых интерфейсов](../../concepts/network.md).

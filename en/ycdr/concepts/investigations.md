@@ -1,6 +1,10 @@
 ---
 title: Investigations in {{ ycdr-full-name }}
 description: Use investigations in {{ ycdr-name }} to analyze security events with the help of KQL queries, templates, and datasets.
+alternate:
+  - href: en/ycdr/concepts/investigations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Investigations

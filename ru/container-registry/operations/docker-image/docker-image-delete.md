@@ -1,6 +1,10 @@
 ---
 title: Инструкция по удалению Docker-образа из реестра {{ container-registry-full-name }}
 description: Из статьи вы узнаете, как удалить Docker-образ из реестра {{ container-registry-full-name }}.
+alternate:
+  - href: ru/container-registry/operations/docker-image/docker-image-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить Docker-образ из реестра

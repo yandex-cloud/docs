@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-kubernetes/kubernetes-marketplace/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Kubernetes Marketplace, REST: Operation

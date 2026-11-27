@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/concepts/partitioning.md
+    type: text/markdown
+    title: Markdown version
+---
 # Data partitioning
 
 {{ objstorage-full-name }} allows you to store very large amounts of data. Queries may only affect some of this data. If you describe the markup rules for the structure of your data storage in {{ yq-full-name }}, then you do not even need to read data that is not required for a query from {{ objstorage-full-name }}. This makes query execution much faster without affecting the results. 

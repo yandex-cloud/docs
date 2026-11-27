@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/concepts/instance-groups/balancers.md
+    type: text/markdown
+    title: Markdown version
+---
 # Интеграция группы ВМ с {{ network-load-balancer-name }} или {{ alb-name }}
 
 Сервисы [{{ network-load-balancer-full-name }}](/services/network-load-balancer) и [{{ alb-full-name }}](/services/application-load-balancer) позволяют распределять входящую нагрузку между виртуальными машинами {{ compute-full-name }}. [Группу виртуальных машин](index.md) можно интегрировать с этими сервисами: {{ compute-name }} автоматически создаст из группы ВМ целевую группу {{ network-load-balancer-name }} или {{ alb-name }} и будет следить, чтобы в группу не добавлялись «нездоровые» ВМ.

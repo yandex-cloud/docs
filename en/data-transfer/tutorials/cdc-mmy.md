@@ -2,6 +2,10 @@
 title: Guide for setting up data delivery from {{ mmy-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
 description: Follow this guide to set up data delivery from {{ mmy-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mmy'
+alternate:
+  - href: en/data-transfer/tutorials/cdc-mmy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ MY }} change data capture and delivery to {{ KF }}

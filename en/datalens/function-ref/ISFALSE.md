@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/ISFALSE.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IS FALSE

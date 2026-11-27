@@ -1,6 +1,10 @@
 ---
 title: Authentication and database connection using the Kafka API
 description: In this tutorial, you will learn how to authenticate and establish a database connection using the Kafka API.
+alternate:
+  - href: en/data-streams/kafkaapi/auth.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authentication and database connection using the Kafka API

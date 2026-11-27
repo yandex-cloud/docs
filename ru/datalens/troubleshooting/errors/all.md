@@ -1,6 +1,10 @@
 ---
 title: Ошибки в {{ datalens-full-name }}
 description: На странице приведены коды ошибок в {{ datalens-full-name }} и их описания.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все ошибки в {{ datalens-full-name }}

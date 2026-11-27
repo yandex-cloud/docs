@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/concepts/glossary.md
+    type: text/markdown
+    title: Markdown version
+---
 # Основные понятия {{ monium-name }}
 
 В разделе описаны понятия, которые используются в сервисе и документации {{ monium-name }}.

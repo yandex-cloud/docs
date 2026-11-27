@@ -1,6 +1,10 @@
 ---
 title: Вычисление метрик по логам
 description: Метрики по логам — непрерывное вычисление статистики по данным в логах с записью результатов в виде метрик в {{ monium-name }}.
+alternate:
+  - href: ru/monium/logs/aggregates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вычисление метрик по логам {#aggregates}

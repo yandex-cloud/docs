@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/application/saml/application/list-operations/
+alternate:
+  - href: ru/organization/cli-ref/idp/application/saml/application/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager idp application saml application list-operations

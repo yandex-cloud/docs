@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/concepts/object.md
+    type: text/markdown
+    title: Markdown version
+---
 # Объект
 
 Объекты размещаются в бакетах и содержат пользовательские данные произвольного формата в том виде, в котором они были загружены.

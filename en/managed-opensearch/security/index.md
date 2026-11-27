@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ mos-full-name }}
 description: Access management in the {{ OS }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+alternate:
+  - href: en/managed-opensearch/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to {{ mos-name }}

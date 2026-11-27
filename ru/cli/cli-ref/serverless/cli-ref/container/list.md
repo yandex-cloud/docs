@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/container/list/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/container/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless container list

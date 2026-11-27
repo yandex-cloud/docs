@@ -1,6 +1,10 @@
 ---
 title: Visualization types in Editor
 description: In this article, you will learn about visualization types available in Editor.
+alternate:
+  - href: en/datalens/charts/editor/widgets/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Visualization types

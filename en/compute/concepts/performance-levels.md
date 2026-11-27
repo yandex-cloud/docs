@@ -1,6 +1,10 @@
 ---
 title: vCPU performance levels
 description: In this article, you will learn about vCPU performance levels and available configurations on different platforms.
+alternate:
+  - href: en/compute/concepts/performance-levels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # vCPU performance levels

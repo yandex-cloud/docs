@@ -1,6 +1,10 @@
 ---
 title: SDK видеоплеера
 description: Из статьи вы узнаете про SDK видеоплееров.
+alternate:
+  - href: ru/video/sdk/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SDK видеоплеера

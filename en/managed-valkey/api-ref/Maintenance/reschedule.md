@@ -48,6 +48,10 @@ apiPlayground:
           format: date-time
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/managed-valkey/api-ref/Maintenance/reschedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, REST: Maintenance.Reschedule

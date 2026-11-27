@@ -1,6 +1,10 @@
 ---
 title: Syncing users and groups with {{ microsoft-idp.ad-full }} in {{ org-full-name }}
 description: Syncing users, groups, passwords, and their attributes from {{ microsoft-idp.ad-short }} with {{ org-full-name }}
+alternate:
+  - href: en/organization/concepts/ad-sync/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Syncing users and groups with {{ microsoft-idp.ad-full }}

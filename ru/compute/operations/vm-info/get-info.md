@@ -1,6 +1,10 @@
 ---
 title: Получить информацию о виртуальной машине
 description: Следуя данной инструкции, вы сможете получить информацию о виртуальной машине.
+alternate:
+  - href: ru/compute/operations/vm-info/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о виртуальной машине

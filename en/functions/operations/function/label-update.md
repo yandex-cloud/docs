@@ -1,6 +1,10 @@
 ---
 title: Updating a function label
 description: Follow this guide to update a function label.
+alternate:
+  - href: en/functions/operations/function/label-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a function label

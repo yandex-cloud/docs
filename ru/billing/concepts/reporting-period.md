@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/concepts/reporting-period.md
+    type: text/markdown
+    title: Markdown version
+---
 # Отчетный период
 
 Отчетный период — интервал времени, равный одному календарному месяцу, в течение которого вы пользуетесь ресурсами {{ yandex-cloud }}.

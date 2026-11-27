@@ -1,6 +1,10 @@
 ---
 title: Настройки обмена данными между клиентами и CDN в {{ cdn-full-name }}
 description: 'Настройки соединений между клиентами и {{ cdn-name }}: протоколы, сертификаты, HTTP-заголовки и методы, CORS и сжатие контента. Ограничение на тело запросов GET, HEAD и OPTIONS.'
+alternate:
+  - href: ru/cdn/concepts/clients-to-servers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройки обмена данными между клиентами и CDN

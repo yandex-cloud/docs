@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/mdb/spqr/events-ref/DeleteClusterShards.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR Audit Trails Events: DeleteClusterShards

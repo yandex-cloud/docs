@@ -1,5 +1,9 @@
 ---
 subcategory: Container Registry
+alternate:
+  - href: en/terraform/data-sources/container_repository_lifecycle_policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_container_repository_lifecycle_policy (DataSource)

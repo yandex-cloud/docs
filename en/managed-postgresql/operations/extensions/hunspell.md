@@ -6,6 +6,10 @@ keywords:
   - word normalization
   - lexemes
   - Hunspell
+alternate:
+  - href: en/managed-postgresql/operations/extensions/hunspell.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Hunspell dictionaries for full-text search

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cli/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Запуск команд {{ yandex-cloud }} CLI
 
 Команды [CLI](../../glossary/cli.md) разделены на группы, каждая из которых соответствует сервису или компоненту {{ yandex-cloud }}.

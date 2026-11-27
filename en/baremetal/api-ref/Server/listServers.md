@@ -61,6 +61,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/baremetal/api-ref/Server/listServers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Server.ListServers

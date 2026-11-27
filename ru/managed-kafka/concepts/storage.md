@@ -1,6 +1,10 @@
 ---
 title: Хранилище в {{ mkf-full-name }}
 description: Из статьи вы узнаете, что такое хранилище в {{ mkf-name }}, его минимальный размер, максимальный размер сегмента логов, как работает автоматическое увеличение размера хранилища и ознакомитесь с особенностями выбора типа дисков при создании кластера.
+alternate:
+  - href: ru/managed-kafka/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Хранилище в {{ mkf-name }}

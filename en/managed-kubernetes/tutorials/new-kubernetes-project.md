@@ -2,6 +2,10 @@
 title: Creating a new {{ k8s }} project in {{ yandex-cloud }}
 description: Follow this tutorial to create a new {{ k8s }} project in {{ yandex-cloud }}.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/new-kubernetes-project'
+alternate:
+  - href: en/managed-kubernetes/tutorials/new-kubernetes-project.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a new {{ k8s }} project in {{ yandex-cloud }}

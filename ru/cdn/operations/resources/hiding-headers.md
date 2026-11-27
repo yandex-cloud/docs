@@ -1,6 +1,10 @@
 ---
 title: Настройка скрытия заголовков от источника
 description: Следуя данной инструкции, вы сможете настроить скрытие HTTP-заголовков, полученных от источника контента, от конечных клиентов.
+alternate:
+  - href: ru/cdn/operations/resources/hiding-headers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка скрытия заголовков от источника

@@ -1,6 +1,10 @@
 ---
 title: Решение проблем в {{ managed-k8s-name }}
 description: В этой статье приводятся решения для типичных проблем, которые могут возникать при работе с {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/qa/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение проблем в {{ managed-k8s-name }}

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/ai/batch_inference/events-ref/CancelBatchInference.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio Batch Inference Audit Trails Events: CancelBatchInference

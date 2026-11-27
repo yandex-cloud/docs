@@ -1,6 +1,10 @@
 ---
 title: Как использовать расширение {{ YZ }} в {{ mgp-full-name }}
 description: Следуя данной инструкции, вы сможете использовать гибридное хранилище в {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/extensions/yezzey.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование {{ YZ }} в {{ mgp-name }}

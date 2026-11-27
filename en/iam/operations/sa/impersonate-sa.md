@@ -1,6 +1,10 @@
 ---
 title: How to use impersonation in {{ iam-full-name }}
 description: Follow this guide to perform operations on {{ yandex-cloud }} resources as a service account using impersonation.
+alternate:
+  - href: en/iam/operations/sa/impersonate-sa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using impersonation

@@ -1,6 +1,10 @@
 ---
 title: Possible errors when using {{ dspm-full-name }} ({{ dspm-name }}) in {{ sd-full-name }}
 description: In this tutorial, you will learn about possible errors related to {{ dspm-full-name }} ({{ dspm-name }}).
+alternate:
+  - href: en/security-deck/diagnostics/dspm-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting {{ dspm-full-name }} ({{ dspm-name }})

@@ -1,6 +1,10 @@
 ---
 title: Другое
 description: На странице представлены вопросы и ответы про работу сервиса {{ datalens-name }}.
+alternate:
+  - href: ru/datalens/qa/other.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Другое

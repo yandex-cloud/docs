@@ -1,6 +1,10 @@
 ---
 title: Управлять политиками авторизации организации
 description: Из статьи вы узнаете, как просматривать политики авторизации {{ iam-full-name }}, созданные для организации, а также создавать и удалять такие политики.
+alternate:
+  - href: ru/organization/operations/manage-access-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять политиками авторизации организации

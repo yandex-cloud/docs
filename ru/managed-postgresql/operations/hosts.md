@@ -1,6 +1,10 @@
 ---
 title: Управление хостами кластера {{ PG }}
 description: Из статьи вы узнаете, как управлять хостами кластера {{ PG }}. Вы сможете добавлять и удалять хосты кластера, а также управлять настройками через консоль управления, CLI и API сервиса.
+alternate:
+  - href: ru/managed-postgresql/operations/hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление хостами кластера {{ PG }}

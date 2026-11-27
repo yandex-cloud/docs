@@ -1,6 +1,10 @@
 ---
 title: Security standard for implementing and operating AI systems in {{ yandex-cloud }}, version {{ security-standard-ai-current-version }}
 description: This document contains all sections of the security standard for artificial intelligence systems deployed, fully or partially, within {{ yandex-cloud }}, and assists in selecting information security measures to apply when developing and operating AI systems.
+alternate:
+  - href: en/security/standard-ai/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security standard for implementing and operating AI systems in {{ yandex-cloud }}, version {{ security-standard-ai-current-version }}

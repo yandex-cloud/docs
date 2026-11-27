@@ -287,6 +287,10 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/HealthCheck'
+alternate:
+  - href: ru/network-load-balancer/api-ref/NetworkLoadBalancer/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.Update

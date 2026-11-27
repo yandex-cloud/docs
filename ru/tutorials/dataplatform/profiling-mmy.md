@@ -1,6 +1,10 @@
 ---
 title: Анализ производительности и оптимизация {{ mmy-name }}
 description: К снижению производительности кластера {{ mmy-name }} обычно приводит высокая утилизация CPU, дискового I/O и сети, неэффективное выполнение запросов в {{ MY }} и блокировки.
+alternate:
+  - href: ru/tutorials/dataplatform/profiling-mmy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Анализ производительности и оптимизация {{ mmy-name }}

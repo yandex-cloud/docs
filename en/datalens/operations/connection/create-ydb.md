@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ ydb-name }} connection in {{ datalens-full-name }}
 description: Follow this guide to create a connection to {{ ydb-name }} in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-ydb.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a connection to {{ ydb-short-name }} from {{ datalens-full-name }}

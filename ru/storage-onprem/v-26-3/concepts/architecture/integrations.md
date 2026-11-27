@@ -1,6 +1,10 @@
 ---
 title: Интеграции с внешними системами в {{ objstorage-onprem-name }}
 description: Подключение корпоративного IdP, внешнего мониторинга и SIEM к {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/integrations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Интеграции с внешними системами

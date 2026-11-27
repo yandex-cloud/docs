@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ certificate-manager-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ certificate-manager-name }}.
+alternate:
+  - href: ru/certificate-manager/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ certificate-manager-full-name }}

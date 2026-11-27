@@ -1,6 +1,10 @@
 ---
 title: Как удалить группу источников {{ cdn-full-name }}
 description: Из статьи вы узнаете, как удалить группу источников {{ cdn-name }}.
+alternate:
+  - href: ru/cdn/operations/origin-groups/delete-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление группы источников

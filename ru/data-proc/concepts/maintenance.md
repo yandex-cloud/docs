@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание {{ dataproc-full-name }}
 description: Из статьи вы узнаете, из чего состоит и как проводится техническое обслуживание {{ dataproc-name }}.
+alternate:
+  - href: ru/data-proc/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание {{ dataproc-name }}

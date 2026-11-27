@@ -1,6 +1,10 @@
 ---
 title: Поиск чувствительных данных в бакете {{ objstorage-name }}
 description: Следуя данной инструкции, вы узнаете, как создавать сканирование бакета и работать с результатами сканирования в {{ objstorage-full-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/sensitive-data-search.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Искать чувствительные данные в бакете

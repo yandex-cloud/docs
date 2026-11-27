@@ -13,6 +13,10 @@ meta:
     - keyword: управление данными в {{ yandex-cloud }}
     - keyword: управление подключением к базе данных
     - keyword: каталог метаданных в {{ yandex-cloud }}
+  alternate:
+    - href: ru/metadata-hub/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex MetaData Hub

@@ -1,6 +1,10 @@
 ---
 title: How to get information about a {{ metadata-hub-name }} operation. Step-by-step guides
 description: Step-by-step guides on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to get information about an operation.
+alternate:
+  - href: en/metadata-hub/operations/operation-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting operation info

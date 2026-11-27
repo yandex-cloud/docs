@@ -1,6 +1,10 @@
 ---
 title: Эндпоинты API сервисов {{ yandex-cloud }}
 description: Из статьи вы узнаете про эндпоинты API сервисов {{ yandex-cloud }}, а также ознакомитесь с примерами эндпоинтов.
+alternate:
+  - href: ru/api-design-guide/concepts/endpoints.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Эндпоинты API сервисов {{ yandex-cloud }}

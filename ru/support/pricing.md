@@ -2,6 +2,10 @@
 title: Правила тарификации для технической поддержки
 description: В статье содержатся правила тарификации технической поддержки.
 editable: false
+alternate:
+  - href: ru/support/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для технической поддержки

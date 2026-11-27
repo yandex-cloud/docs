@@ -1,6 +1,10 @@
 ---
 title: Creating a new product version in {{ marketplace-full-name }}
 description: Follow this guide to create a new product version.
+alternate:
+  - href: en/marketplace/operations/create-new-version.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a new product version

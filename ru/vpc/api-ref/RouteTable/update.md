@@ -101,6 +101,10 @@ apiPlayground:
                   - nextHopAddress
               - required:
                   - gatewayId
+alternate:
+  - href: ru/vpc/api-ref/RouteTable/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: RouteTable.Update

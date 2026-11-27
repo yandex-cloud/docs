@@ -1,6 +1,10 @@
 ---
 title: How to troubleshoot issues when writing metrics via the Remote API
 description: Follow this guide to troubleshoot issues when writing metrics via the Remote API.
+alternate:
+  - href: en/monitoring/operations/prometheus/ingestion/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting issues when writing metrics via the Remote API

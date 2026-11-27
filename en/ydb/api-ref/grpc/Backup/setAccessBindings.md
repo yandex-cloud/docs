@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/ydb/api-ref/grpc/Backup/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for YDB API, gRPC: BackupService.SetAccessBindings

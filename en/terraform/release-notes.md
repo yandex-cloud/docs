@@ -2,7 +2,234 @@
 title: '{{ yandex-cloud }} {{ TF }} provider release notes'
 description: Changelog, updates, and version history for the {{ yandex-cloud }} {{ TF }} provider.
 editable: false
+alternate:
+  - href: en/terraform/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
+
+## 0.255.0 (November 27, 2026)
+
+##### ENHANCEMENTS:
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.defined` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.exact_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.defined` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.str_lists_match.list_ids` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.pire_regex_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.str_lists_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.str_lists_match.list_ids` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.reg_exp_lists_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.str_lists_not_match.list_ids` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.defined` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.str_lists_match.list_ids` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.prefix_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.exact_not_match` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.exact_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.reg_exp_lists_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.reg_exp_lists_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.str_lists_not_match` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.str_lists_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match.list_ids` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match.list_ids` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.exact_not_match` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.defined` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.prefix_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.reg_exp_lists_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.exact_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.pire_regex_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.str_lists_match.list_ids` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.str_lists_not_match.list_ids` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.pire_regex_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match.list_ids` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.exact_match` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.exact_not_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.prefix_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match.list_ids` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.str_lists_match` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.pire_regex_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.pire_regex_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.reg_exp_lists_match.list_ids` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.str_lists_not_match.list_ids` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.str_lists_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.reg_exp_lists_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.prefix_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.pire_regex_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.exact_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.pire_regex_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.str_lists_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.str_lists_not_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.str_lists_match.list_ids` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.exact_not_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.reg_exp_lists_match.list_ids` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.pire_regex_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.pire_regex_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.prefix_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.exact_not_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.str_lists_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.exact_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.str_lists_not_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.pire_regex_match` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.prefix_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.str_lists_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.reg_exp_lists_match` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.exact_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.str_lists_match` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.exact_match` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.pire_regex_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.exact_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.str_lists_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.prefix_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.str_lists_not_match.list_ids` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.str_lists_not_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.str_lists_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.defined` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.pire_regex_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.pire_regex_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.pire_regex_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match.list_ids` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.prefix_not_match` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.prefix_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match.list_ids` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.defined` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.exact_not_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.exact_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match.list_ids` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.exact_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.prefix_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.pire_regex_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.reg_exp_lists_match.list_ids` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.str_lists_not_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.str_lists_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.prefix_not_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.exact_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.reg_exp_lists_match.list_ids` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.str_lists_not_match` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.str_lists_not_match.list_ids` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.reg_exp_lists_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.str_lists_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.str_lists_not_match.list_ids` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.str_lists_not_match.list_ids` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.prefix_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.reg_exp_lists_match.list_ids` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.str_lists_match.list_ids` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers.reg_exp_lists_match` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.str_lists_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.pire_regex_not_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.prefix_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.exact_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.prefix_not_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.str_lists_not_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.reg_exp_lists_match.list_ids` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.str_lists_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.str_lists_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.defined` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.prefix_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.str_lists_not_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.str_lists_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.pire_regex_not_match` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.prefix_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.prefix_match` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.exact_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.str_lists_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.pire_regex_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.str_lists_not_match.list_ids` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.prefix_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.prefix_not_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.str_lists_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.str_lists_not_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.lists_matchers` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.pire_regex_not_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.str_lists_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.defined` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.str_lists_match.list_ids` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.pire_regex_not_match` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.exact_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match.list_ids` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.prefix_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.prefix_match` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.str_lists_not_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.exact_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.prefix_not_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.exact_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.defined` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.exact_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.str_lists_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.prefix_not_match` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.pire_regex_not_match` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.pire_regex_match` to `yandex_sws_waf_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.lists_matchers.reg_exp_lists_match.list_ids` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.reg_exp_lists_match.list_ids` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.str_lists_match.list_ids` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.pire_regex_not_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.pire_regex_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `exclusion_rule.condition.body.body_matcher.defined` to `yandex_sws_waf_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body` to `yandex_sws_advanced_rate_limiter_profile` data source
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.prefix_not_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.rule_condition.condition.body.body_matcher.defined` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `advanced_rate_limiter_rule.static_quota.condition.body.body_matcher.defined` to `yandex_sws_advanced_rate_limiter_profile` resource
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match` to `yandex_sws_security_profile` data source
+* smartwebsecurity: add `security_rule.waf.condition.body.body_matcher.lists_matchers.str_lists_match.list_ids` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `security_rule.smart_protection.condition.body.body_matcher.lists_matchers.str_lists_match` to `yandex_sws_security_profile` resource
+* smartwebsecurity: add `advanced_rate_limiter_rule.dynamic_quota.condition.body.body_matcher.lists_matchers.reg_exp_lists_not_match` to `yandex_sws_advanced_rate_limiter_profile` resource
+* mdb_clickhouse: support PostgreSQL v2 and YTsaurus v2 dictionary sources in `yandex_mdb_clickhouse_cluster_v2` resource and data source
+
+
 
 ## 0.254.0 (November 26, 2026)
 

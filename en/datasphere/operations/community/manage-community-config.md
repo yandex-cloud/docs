@@ -1,6 +1,10 @@
 ---
 title: How to manage community restrictions
 description: Follow this guide to restrict the {{ ml-platform-name }} resources and features available across all your community projects.
+alternate:
+  - href: en/datasphere/operations/community/manage-community-config.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing community restrictions

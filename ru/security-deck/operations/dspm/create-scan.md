@@ -1,6 +1,10 @@
 ---
 title: Создание сканирования в {{ dspm-name }}
 description: Следуя данной инструкции, вы узнаете как создавать сканирования в модуле {{ dspm-name }} сервиса {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/operations/dspm/create-scan.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать сканирование {{ dspm-name }}

@@ -2,6 +2,10 @@
 title: Дашборд сети магазинов из БД {{ CH }}
 description: В этом руководстве вы создадите подключение к демонстрационному источнику данных и подготовите дашборд для анализа продаж в сети московских магазинов.
 canonical: '{{ link-docs }}/tutorials/datalens/data-from-ch-visualization'
+alternate:
+  - href: ru/datalens/tutorials/data-from-ch-visualization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [data-from-ch-visualization](../../_tutorials/datalens/data-from-ch-visualization.md) %}

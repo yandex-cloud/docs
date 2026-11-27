@@ -15,6 +15,10 @@ meta:
     - keyword: How to connect to a data source
     - keyword: business metrics in {{ yandex-cloud }}
     - keyword: '{{ yandex-cloud }} analytics'
+  alternate:
+    - href: en/datalens/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: header-block
     title: Yandex DataLens documentation

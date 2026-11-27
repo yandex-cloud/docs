@@ -4,6 +4,10 @@ description: You will create a function with a Node.js app that will run simple 
 author: gayratv
 sourcePath: overlay/tutorials/connect-from-cf-nodejs.md
 canonical: '{{ link-docs }}/tutorials/serverless/connect-from-cf-nodejs'
+alternate:
+  - href: en/ydb/tutorials/connect-from-cf-nodejs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ ydb-name }} database from a {{ sf-full-name }} Node.js function

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/securitydeck/dspm/events-ref/ExportDiscoveryResults.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck DSPM Audit Trails Events: ExportDiscoveryResults

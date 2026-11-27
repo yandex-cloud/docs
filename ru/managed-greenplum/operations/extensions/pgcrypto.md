@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/extensions/pgcrypto.md
+    type: text/markdown
+    title: Markdown version
+---
 # Использование pgcrypto в {{ mgp-name }}
 
 Расширение [pgcrypto]({{ pg-docs }}/static/pgcrypto.html) предоставляет криптографические функции, которые позволяют администраторам баз данных хранить определенные столбцы данных в зашифрованном виде.

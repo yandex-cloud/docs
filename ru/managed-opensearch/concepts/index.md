@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-opensearch/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Взаимосвязь ресурсов в {{ mos-name }}
 
 

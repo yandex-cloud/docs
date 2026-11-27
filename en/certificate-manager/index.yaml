@@ -28,6 +28,10 @@ meta:
     - keyword: security certificate in {{ yandex-cloud }}
     - keyword: validation in {{ certificate-manager-name }}
     - keyword: termination in {{ yandex-cloud }}
+  alternate:
+    - href: en/certificate-manager/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first certificate

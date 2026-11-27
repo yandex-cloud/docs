@@ -1,6 +1,10 @@
 ---
 title: Trial period for new customers
 description: The trial period is a one-time introductory offer for businesses that selected wire transfer as their payment method. You are eligible for a trial period provided you never purchased {{ yandex-cloud }} services nor activated the trial period before.
+alternate:
+  - href: en/billing/concepts/trial-period.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Trial period for new customers

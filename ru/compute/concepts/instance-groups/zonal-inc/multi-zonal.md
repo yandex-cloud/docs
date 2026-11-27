@@ -1,6 +1,10 @@
 ---
 title: Мультизональная группа ВМ {{ compute-full-name }} с ВМ в зоне инцидента
 description: Чтобы компенсировать выпавшие из группы мощности ВМ из проблемной зоны, рекомендуется заранее задавать размер группы ВМ с запасом. Если это не сделано, на время инцидента увеличьте размер группы ВМ в работающих зонах.
+alternate:
+  - href: ru/compute/concepts/instance-groups/zonal-inc/multi-zonal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мультизональная группа ВМ {{ compute-full-name }} с ВМ в зоне инцидента

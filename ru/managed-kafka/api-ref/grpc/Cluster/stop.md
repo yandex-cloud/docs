@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-kafka/api-ref/grpc/Cluster/stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, gRPC: ClusterService.Stop

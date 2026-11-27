@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/interconnect/concepts/priv-con.md
+    type: text/markdown
+    title: Markdown version
+---
 # Private connection
 
 A private connection is a logical link of your on-prem infrastructure to a virtual network in a cloud. A private connection’s destination in the cloud network is a [routing instance](../../cloud-router/concepts/routing-instance.md).

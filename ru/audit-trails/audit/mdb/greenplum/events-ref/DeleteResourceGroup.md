@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/mdb/greenplum/events-ref/DeleteResourceGroup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® Audit Trails Events: DeleteResourceGroup

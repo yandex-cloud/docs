@@ -1,6 +1,10 @@
 ---
 title: Переместить подсеть в другой каталог
 description: Следуя данной инструкции, вы сможете переместить подсеть в другой каталог.
+alternate:
+  - href: ru/vpc/operations/subnet-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переместить подсеть в другой каталог

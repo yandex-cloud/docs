@@ -1,6 +1,10 @@
 ---
 title: Настройка маскарадинга в кластерах {{ managed-k8s-name }} с несколькими диапазонами IP-адресов подов
 description: Как настроить маскарадинг в кластере с несколькими диапазонами IP-адресов подов и синхронизировать ip-masq-agent после добавления диапазона.
+alternate:
+  - href: ru/managed-kubernetes/operations/network/manage-ip-masq-agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка маскарадинга в кластерах с несколькими диапазонами IP-адресов подов

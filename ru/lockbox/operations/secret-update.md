@@ -1,6 +1,10 @@
 ---
 title: Как изменить секрет в {{ lockbox-full-name }}
 description: Следуя данной инструкции, вы сможете изменить секрет.
+alternate:
+  - href: ru/lockbox/operations/secret-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить секрет

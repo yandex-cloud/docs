@@ -1,6 +1,10 @@
 ---
 title: '{{ iam-full-name }} overview'
 description: '{{ iam-name }} (IAM) controls access to resources and offers functions for access permission setup. You decide who gets what permissions for a resource, and {{ iam-short-name }} provides access according to the permissions you assign.'
+alternate:
+  - href: en/iam/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ iam-full-name }} overview

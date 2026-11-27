@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/secrets-store/inject-secrets-env.md
+    type: text/markdown
+    title: Markdown version
+---
 # Injecting secrets into environment variables (Env mode)
 
 This guide explains how to configure secret injection from Secrets Store into pod environment variables using Secrets Injector.

@@ -1,6 +1,10 @@
 ---
 title: Connection management
 description: 'This page enlists the guides you can use to manage connections: create a connection to publicly available databases or managed database clusters, view information about a managed database cluster, a connection, or a database, edit connection settings, update a connection; add a connection to a managed database cluster; and delete an idle connection.'
+alternate:
+  - href: en/websql/operations/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Guides for managing connections

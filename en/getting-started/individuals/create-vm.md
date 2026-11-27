@@ -1,6 +1,10 @@
 ---
 title: A guide for individuals on creating a VM and connecting to it over SSH
 description: In this guide, you will learn how to create a VM, configure its security group, and connect to the VM over SSH.
+alternate:
+  - href: en/getting-started/individuals/create-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM and connecting to it

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/operations/trigger/ymq-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a trigger for {{ message-queue-name }} that sends messages to WebSocket connections
 
 Create a [trigger for a {{ message-queue-short-name }} message queue](../../concepts/trigger/ymq-trigger.md) to send messages to [WebSocket connections](../../concepts/extensions/websocket.md).

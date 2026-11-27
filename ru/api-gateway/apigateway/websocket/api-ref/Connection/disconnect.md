@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/api-gateway/apigateway/websocket/api-ref/Connection/disconnect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Gateway WebSocket Connection Service, REST: Connection.Disconnect

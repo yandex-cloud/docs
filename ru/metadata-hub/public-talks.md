@@ -1,6 +1,10 @@
 ---
 title: Публичные материалы о {{ metadata-hub-full-name }}
 description: Видеозаписи конференций и вебинаров, посвященных {{ metadata-hub-full-name }}.
+alternate:
+  - href: ru/metadata-hub/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные материалы о {{ metadata-hub-full-name }}

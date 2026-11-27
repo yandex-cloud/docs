@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/disk/remove-access-binding/
+alternate:
+  - href: ru/compute/cli-ref/v0/disk/remove-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute v0 disk remove-access-binding

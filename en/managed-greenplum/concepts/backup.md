@@ -1,6 +1,10 @@
 ---
 title: Backups in {{ mgp-full-name }}
 description: In this tutorial, you will learn about {{ mgp-name }} backups and how to create and store them.
+alternate:
+  - href: en/managed-greenplum/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backups in {{ mgp-name }}

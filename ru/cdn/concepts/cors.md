@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cdn/concepts/cors.md
+    type: text/markdown
+    title: Markdown version
+---
 # CORS в {{ cdn-name }}
 
 {{ cdn-full-name }} поддерживает [кросс-доменные запросы](../../glossary/cors.md) по механизму CORS (cross-origin resource sharing).

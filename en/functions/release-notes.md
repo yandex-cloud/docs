@@ -1,6 +1,10 @@
 ---
 title: '{{ sf-full-name }} release notes'
 description: This section contains the {{ sf-name }} release notes.
+alternate:
+  - href: en/functions/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sf-full-name }} release notes

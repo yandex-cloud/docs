@@ -2,6 +2,10 @@
 title: '{{ ydb-full-name }} pricing policy'
 description: This article covers the {{ ydb-full-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/ydb/pricing/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ydb-full-name }} pricing policy

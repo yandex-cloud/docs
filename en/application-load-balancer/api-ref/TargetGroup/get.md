@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/application-load-balancer/api-ref/TargetGroup/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: TargetGroup.Get

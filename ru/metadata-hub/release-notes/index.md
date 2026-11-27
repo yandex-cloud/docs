@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ metadata-hub-full-name }}
 description: В разделе представлена история изменений сервиса {{ metadata-hub-name }}.
+alternate:
+  - href: ru/metadata-hub/release-notes/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 <!-- Changelog begin -->

@@ -6,6 +6,10 @@ keywords:
   - Opening a {{ yandex-cloud }} service
   - Finding a {{ yandex-cloud }} service
   - Selecting a {{ yandex-cloud }} service
+alternate:
+  - href: en/console/operations/select-service.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to get started with the services and create resources

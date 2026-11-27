@@ -1,6 +1,10 @@
 ---
 title: Подключение к терминалу запущенного контейнера в {{ managed-k8s-full-name }}
 description: Из статьи вы узнаете, как в {{ yandex-cloud }} подключиться к терминалу запущенного контейнера в {{ k8s }} с помощью консоли управления без использования kubectl.
+alternate:
+  - href: ru/managed-kubernetes/operations/kubernetes-console/pod-terminal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к терминалу запущенного контейнера

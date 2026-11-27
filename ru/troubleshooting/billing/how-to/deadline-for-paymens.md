@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/deadline-for-paymens.md
+    type: text/markdown
+    title: Markdown version
+---
 # До какой даты вносить оплату
 
 

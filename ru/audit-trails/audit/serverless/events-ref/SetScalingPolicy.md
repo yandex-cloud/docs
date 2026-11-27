@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/serverless/events-ref/SetScalingPolicy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Audit Trails Events: SetScalingPolicy

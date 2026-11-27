@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/operations/ide.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting via an IDE
 
 {{ yq-full-name }} supports [JDBC](https://ru.wikipedia.org/wiki/Java_Database_Connectivity) (Java DataBase Connectivity) connections. It allows you to use JDBC-compatible IDEs, e.g., DBeaver and DataGrip, to work with {{ yq-name }} connections.

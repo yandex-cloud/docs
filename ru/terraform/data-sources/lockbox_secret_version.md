@@ -1,5 +1,9 @@
 ---
 subcategory: Lockbox
+alternate:
+  - href: ru/terraform/data-sources/lockbox_secret_version.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_lockbox_secret_version (DataSource)

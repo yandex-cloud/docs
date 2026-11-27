@@ -1,6 +1,10 @@
 ---
 title: Triggers in {{ api-gw-full-name }}. Overview
 description: A trigger is a condition, upon meeting which an automatic message is sent to WebSocket connections. With triggers, you can automate your work with other {{ yandex-cloud }} services, e.g., Yandex Object Storage, Yandex Message Queue, and Yandex IoT Core.
+alternate:
+  - href: en/api-gateway/concepts/trigger/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Triggers in {{ api-gw-full-name }}. Overview

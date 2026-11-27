@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/application-load-balancer/concepts/application-load-balancer.md
+    type: text/markdown
+    title: Markdown version
+---
 # Балансировщики нагрузки
 
 Балансировщик нагрузки служит для приема входящего трафика и передачи его на эндпоинты бэкендов. Маршрутизация запросов происходит по настройкам [обработчиков](#listener) балансировщика. Подача трафика на бэкенды настраивается в [группах бэкендов](backend-group.md).

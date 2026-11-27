@@ -1,6 +1,10 @@
 ---
 title: How to get an FQDN of a {{ dataproc-full-name }} host
 description: Follow this guide to get an FQDN of a {{ dataproc-name }} host.
+alternate:
+  - href: en/data-proc/operations/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting an FQDN of a {{ dataproc-name }} host

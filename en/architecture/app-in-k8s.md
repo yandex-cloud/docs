@@ -6,6 +6,11 @@ keywords:
   - Managed Kubernetes
   - Managed PostgreSQL
   - Application Load Balancer
+noIndex: true
+alternate:
+  - href: en/architecture/app-in-k8s.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deploying a web app in a fault-tolerant configuration in {{ yandex-cloud }}

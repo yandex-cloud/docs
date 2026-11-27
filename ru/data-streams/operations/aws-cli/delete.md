@@ -1,6 +1,10 @@
 ---
 title: Удаление потока данных в AWS CLI
 description: Следуя данной инструкции, вы сможете удалить поток данных в AWS CLI.
+alternate:
+  - href: ru/data-streams/operations/aws-cli/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление потока данных в AWS CLI

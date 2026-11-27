@@ -1,6 +1,10 @@
 ---
 title: Как управлять трейлом {{ at-name }}
 description: Следуя данной инструкции, вы сможете изменить или удалить трейл {{ at-full-name }}.
+alternate:
+  - href: ru/audit-trails/operations/manage-trail.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление трейлом

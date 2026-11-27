@@ -1,6 +1,10 @@
 ---
 title: Квоты и лимиты в {{ cloud-shell-full-name }}
 description: В {{ cloud-shell-full-name }} действует ряд лимитов. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
+alternate:
+  - href: ru/console/concepts/cloud-shell/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ cloud-shell-full-name }}

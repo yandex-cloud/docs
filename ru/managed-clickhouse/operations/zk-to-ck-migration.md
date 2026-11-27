@@ -1,6 +1,10 @@
 ---
 title: Изменение сервиса координации с {{ ZK }} на {{ CK }} на отдельных хостах
 description: Как перейти с сервиса координации {{ ZK }} на {{ CK }} на отдельных хостах в {{ mch-full-name }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/zk-to-ck-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

@@ -3,6 +3,10 @@ title: Migrating services from an NLB with VMs as targets to an L7 ALB
 description: You can migrate the load from a {{ network-load-balancer-full-name }} load balancer to a {{ alb-full-name }} L7 load balancer.
 canonical: '{{ link-docs }}/tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-vm/'
 noIndex: true
+alternate:
+  - href: en/network-load-balancer/tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating services from an NLB with VMs as targets to an L7 ALB

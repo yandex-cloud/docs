@@ -1,6 +1,10 @@
 ---
 title: Как удалить образ диска
 description: Следуя данной инструкции, вы сможете удалить образ диска.
+alternate:
+  - href: ru/compute/operations/image-control/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить образ диска

@@ -1,6 +1,10 @@
 ---
 title: How to create a security group
 description: Follow this guide to create a security group.
+alternate:
+  - href: en/vpc/operations/security-group-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a security group

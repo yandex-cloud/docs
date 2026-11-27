@@ -1,6 +1,10 @@
 ---
 title: How to add a video to a playlist in {{ video-full-name }}
 description: Follow this guide to add a video to a playlist in {{ video-name }}.
+alternate:
+  - href: en/video/operations/video/add-to-playlist.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a video to a playlist

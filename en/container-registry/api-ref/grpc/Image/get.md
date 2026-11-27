@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/container-registry/api-ref/grpc/Image/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, gRPC: ImageService.Get

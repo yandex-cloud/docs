@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-valkey/operations/hosts.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление хостами кластера {{ VLK }}
 
 Вы можете добавлять и удалять хосты кластера, а также управлять их настройками. О том, как перенести хосты кластера в другую [зону доступности](../../overview/concepts/geo-scope.md), читайте в [инструкции](host-migration.md).

@@ -1,6 +1,10 @@
 ---
 title: Getting a list of operations with a metadata catalog
 description: Follow this guide to get a list of operations in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/catalog-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of operations

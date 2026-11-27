@@ -2,6 +2,10 @@
 title: '{{ metastore-full-name }} metrics'
 description: In this tutorial, you will learn about {{ metastore-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/managed-metastore-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ metastore-full-name }} metrics

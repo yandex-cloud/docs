@@ -1,6 +1,10 @@
 ---
 title: Как создать пустой диск в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете создать пустой диск заданного размера.
+alternate:
+  - href: ru/compute/operations/disk-create/empty.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать пустой диск

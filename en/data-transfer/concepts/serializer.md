@@ -1,6 +1,10 @@
 ---
 title: Serialization in {{ data-transfer-full-name }}
 description: In this article, you will learn what serialization is and what types of serialization you can use depending on delivery.
+alternate:
+  - href: en/data-transfer/concepts/serializer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Serialization

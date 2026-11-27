@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/resource-groups.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление ресурсными группами
 
 Вы можете управлять квотами на использование ресурсов кластера при помощи [ресурсных групп](../concepts/resource-groups.md).

@@ -1,6 +1,10 @@
 ---
 title: Уровни производительности vCPU
 description: Из статьи вы узнаете об уровнях производительности vCPU и доступных конфигурациях на разных платформах.
+alternate:
+  - href: ru/compute/concepts/performance-levels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Уровни производительности vCPU

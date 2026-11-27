@@ -1,6 +1,10 @@
 ---
 title: How to delete a function version
 description: Follow this guide to delete a function version.
+alternate:
+  - href: en/functions/operations/function/version-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a function version

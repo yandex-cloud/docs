@@ -2,6 +2,10 @@
 title: '{{ mrd-full-name }} pricing policy'
 description: This article covers the {{ mrd-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/managed-valkey/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mrd-name }} pricing policy

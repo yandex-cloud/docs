@@ -1,6 +1,10 @@
 ---
 title: Suspending and resuming resource operation
 description: Follow this guide to suspend and resume a CDN resource.
+alternate:
+  - href: en/cdn/operations/resources/disable-resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Suspending and resuming resource operation

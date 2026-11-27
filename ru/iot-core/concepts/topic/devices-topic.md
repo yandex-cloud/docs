@@ -1,6 +1,10 @@
 ---
 title: Топики устройства в {{ iot-full-name }}
 description: На странице представлены все доступные топики устройства в сервисе {{ iot-name }}.
+alternate:
+  - href: ru/iot-core/concepts/topic/devices-topic.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Топики устройства

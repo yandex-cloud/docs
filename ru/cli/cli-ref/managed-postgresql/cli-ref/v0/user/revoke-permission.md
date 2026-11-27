@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/v0/user/revoke-permission/
+alternate:
+  - href: ru/cli/cli-ref/managed-postgresql/cli-ref/v0/user/revoke-permission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-postgresql v0 user revoke-permission

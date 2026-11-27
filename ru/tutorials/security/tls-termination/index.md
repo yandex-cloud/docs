@@ -1,6 +1,10 @@
 ---
 title: Терминирование TLS-соединений с помощью {{ alb-full-name }}
 description: В этом руководстве вы настроите балансировщик {{ alb-full-name }}, чтобы он терминировал TLS-соединения с помощью сертификата из {{ certificate-manager-full-name }} и перенаправлял HTTP-запросы на HTTPS.
+alternate:
+  - href: ru/tutorials/security/tls-termination/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [tls-termination](../../../_tutorials/security/tls-termination.md) %}

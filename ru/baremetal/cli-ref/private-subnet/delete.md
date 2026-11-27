@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/private-subnet/delete/
+alternate:
+  - href: ru/baremetal/cli-ref/private-subnet/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal private-subnet delete

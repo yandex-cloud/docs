@@ -1,6 +1,10 @@
 ---
 title: How to create a public connection in a {{ interconnect-name }} trunk
 description: Follow this guide to create a public connection in a {{ interconnect-name }} trunk.
+alternate:
+  - href: en/interconnect/operations/pub-con-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a public connection

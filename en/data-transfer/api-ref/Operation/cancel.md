@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/data-transfer/api-ref/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer API, REST: Operation.Cancel

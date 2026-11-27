@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/siem/queries/siem/api-ref/SearchLaunch/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM Queries API, REST: SearchLaunch

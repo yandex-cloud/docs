@@ -1,6 +1,10 @@
 ---
 title: Как изменить подкластер в {{ dataproc-full-name }}
 description: Следуя данной инструкции, вы сможете изменить подкластер.
+alternate:
+  - href: ru/data-proc/operations/subcluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение подкластера

@@ -56,14 +56,14 @@
       1. При необходимости добавьте описание.
 
       1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
-  
-      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** скопируйте ссылку, указанную в поле **Идентификатор объекта (Entity ID)** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
+
+      1. Скопируйте значение поля **Идентификатор объекта (Entity ID)** со страницы **Сведения о поставщике идентификационной информации Google** в Google Workspace и вставьте его в поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}**. Формат значения:
 
           ```text
           https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>
           ```
 
-      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** скопируйте ссылку, указанную в поле **URL системы единого входа** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
+      1. Скопируйте значение поля **URL системы единого входа** со страницы **Сведения о поставщике идентификационной информации Google** в Google Workspace и вставьте его в поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}**. Формат значения:
 
           ```text
           https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>
@@ -119,7 +119,7 @@
         
         * `--issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
 
-            Используйте ссылку, которая указана в поле **Идентификатор объекта** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Это ссылка в формате:
+            Используйте ссылку, которая указана в поле **Идентификатор объекта** на странице **Сведения о поставщике идентификационной информации Google** в Google Workspace. Это ссылка в формате:
 
             ```text
             https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>
@@ -127,7 +127,7 @@
 
         * `--sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
 
-            Используйте ссылку, указанную в поле **URL Системы единого входа** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
+            Используйте ссылку, указанную в поле **URL системы единого входа** на странице **Сведения о поставщике идентификационной информации Google** в Google Workspace. Формат ссылки:
 
             ```text
             https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>
@@ -155,21 +155,16 @@
         issuer          = "https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>"
         sso_url         = "https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>"
         sso_binding     = "POST"
-        security_settings {
-          encrypted_assertions = "true"
-        }
       }
       ```
 
       Где:
 
       * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-      * `description` — описание федерации.
-      * `organization_id` — [идентификатор](../../organization/operations/organization-get-id.md) организации. 
-      * `labels` — набор пар меток ключ/значение, которые присвоены федерации. Необязательный параметр.
+      * `organization_id` — [идентификатор](../../organization/operations/organization-get-id.md) организации.
       * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
 
-          Используйте ссылку, указанную в поле **Идентификатор объекта** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
+          Используйте ссылку, указанную в поле **Идентификатор объекта** на странице **Сведения о поставщике идентификационной информации Google** в Google Workspace. Формат ссылки:
 
           ```text
           https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>
@@ -178,7 +173,7 @@
       * `sso_binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
       * `sso_url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
 
-          Скопируйте сюда ссылку, указанную в поле **URL Системы единого входа** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
+          Скопируйте сюда ссылку, указанную в поле **URL системы единого входа** на странице **Сведения о поставщике идентификационной информации Google** в Google Workspace. Формат ссылки:
 
           ```text
           https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>
@@ -194,11 +189,6 @@
 
       * `case_insensitive_name_ids` — зависимость имен пользователей от регистра.
           Если опция включена, идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
-      * `security_settings` — настройки безопасности федерации: 
-
-          * {% include [encrypted-assertions-tf](../../_includes/organization/encrypted-assertions-tf.md) %}
-
-          * {% include [force-authn-tf](../../_includes/organization/force-authn-tf.md) %}
 
       {% include [organizationmanager_saml_federation-tf](../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
@@ -259,14 +249,14 @@
         
         * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
 
-            Используйте ссылку, указанную в поле **Идентификатор объекта** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
+            Используйте ссылку, указанную в поле **Идентификатор объекта** на странице **Сведения о поставщике идентификационной информации Google** в Google Workspace. Формат ссылки:
 
             ```text
             https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>
             ```
         * `ssoUrl` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
 
-            Скопируйте сюда ссылку, указанную в поле **URL Системы единого входа** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
+            Скопируйте сюда ссылку, указанную в поле **URL системы единого входа** на странице **Сведения о поставщике идентификационной информации Google** в Google Workspace. Формат ссылки:
 
             ```text
             https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>
@@ -284,7 +274,7 @@
 
 ### Добавьте сертификаты {#add-certificate}
 
-При аутентификации у сервиса {{ org-full-name }} должна быть возможность проверить сертификат IdP-сервера. Для этого скачайте сертификат с открытой страницы **Сведения о поставщике услуг идентификации Google** в Google Workspace и добавьте его в созданную федерацию:
+При аутентификации у сервиса {{ org-full-name }} должна быть возможность проверить сертификат IdP-сервера. Для этого скачайте сертификат с открытой страницы **Сведения о поставщике идентификационной информации Google** в Google Workspace и добавьте его в созданную федерацию:
 
 {% list tabs group=instructions %}
 
@@ -307,7 +297,7 @@
   1. Добавьте сертификат для федерации, указав путь к файлу сертификата:
 
       ```bash
-      yc organization-manager federation saml certificate create --federation-id <ID_федерации> \
+      yc organization-manager federation saml certificate create --federation-id <идентификатор_федерации> \
         --name "my-certificate" \
         --certificate-file certificate.pem
       ```
@@ -320,7 +310,7 @@
 
       ```json
       {
-        "federationId": "<ID_федерации>",
+        "federationId": "<идентификатор_федерации>",
         "name": "my-certificate",
         "data": "-----BEGIN CERTIFICATE..."
       }
@@ -376,7 +366,7 @@
     
     {% note tip %}
 
-    Чтобы пользователь мог обратиться в службу технической поддержки {{ yandex-cloud }} из [консоли управления]({{ link-console-support }}), на шаге **Сопоставление атрибутов** нажмите **Добавить сопоставления** и настройте передачу атрибутов:
+    Чтобы пользователь мог обратиться в службу технической поддержки {{ yandex-cloud }} из [консоли управления]({{ link-console-support }}), на шаге **Сопоставление атрибутов** нажмите **Добавить сопоставление** и настройте передачу атрибутов:
     * **Primary email**.
     * **First name**.
     * **Last name**.
@@ -455,7 +445,7 @@
   1. Добавьте пользователей, перечислив их Name ID через запятую:
 
       ```bash
-      yc organization-manager federation saml add-user-accounts --id <ID_федерации> \
+      yc organization-manager federation saml add-user-accounts --id <идентификатор_федерации> \
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
@@ -487,7 +477,7 @@
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer <IAM-токен>" \
         --data '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID_федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<идентификатор_федерации>:addUserAccounts
       ```
 
 {% endlist %}
@@ -501,7 +491,7 @@
 1. Перейдите по URL для входа в консоль:
 
    ```text
-   {{ link-console-main }}/federations/<ID_федерации>
+   {{ link-console-main }}/federations/<идентификатор_федерации>
    ```
 
    {% cut "Как получить ID федерации" %}

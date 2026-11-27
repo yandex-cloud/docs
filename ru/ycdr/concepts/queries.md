@@ -1,6 +1,10 @@
 ---
 title: Запросы в {{ ycdr-full-name }}
 description: Запросы в {{ ycdr-name }} используют язык KQL для поиска и анализа событий безопасности.
+alternate:
+  - href: ru/ycdr/concepts/queries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запросы

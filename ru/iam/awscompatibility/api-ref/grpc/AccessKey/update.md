@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/iam/awscompatibility/api-ref/grpc/AccessKey/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access Key, gRPC: AccessKeyService.Update

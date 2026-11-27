@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for ValKey
+alternate:
+  - href: ru/terraform/resources/mdb_redis_cluster_change_freeze.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_redis_cluster_change_freeze (Resource)

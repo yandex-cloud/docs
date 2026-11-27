@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/create-domain-identity.md
+    type: text/markdown
+    title: Markdown version
+---
 # CreateDomainIdentity method
 
 This method creates an [address](../../concepts/glossary.md#address) in a folder. The folder is selected based on the service account the request originates from.

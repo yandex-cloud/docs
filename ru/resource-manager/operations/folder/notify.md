@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/resource-manager/operations/folder/notify.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получение уведомлений сервисов в каталоге
 
 Уведомления сервисов для определенных каталогов в облаке получают пользователи, указанные в настройках каталога в разделе **Уведомления сервисов**.

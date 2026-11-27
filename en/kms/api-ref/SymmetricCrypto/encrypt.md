@@ -47,6 +47,10 @@ apiPlayground:
         - plaintext
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/kms/api-ref/SymmetricCrypto/encrypt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: SymmetricCrypto.Encrypt

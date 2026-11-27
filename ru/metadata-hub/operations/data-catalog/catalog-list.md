@@ -1,6 +1,10 @@
 ---
 title: Получение списка каталогов метаданных
 description: Следуя данной инструкции, вы сможете получить список каталогов метаданных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/catalog-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка каталогов

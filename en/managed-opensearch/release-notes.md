@@ -1,6 +1,10 @@
 ---
 title: '{{ mos-full-name }} release notes'
 description: This section contains the {{ mos-name }} release notes.
+alternate:
+  - href: en/managed-opensearch/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mos-full-name }} release notes

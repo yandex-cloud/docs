@@ -25,6 +25,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/storage/api-ref/Bucket/listInventoryConfigurations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, REST: Bucket.ListInventoryConfigurations

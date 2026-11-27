@@ -1,5 +1,9 @@
 ---
 title: How to get information about a placement group in {{ compute-full-name }}
+alternate:
+  - href: en/compute/operations/placement-groups/placement-groups-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting placement group info

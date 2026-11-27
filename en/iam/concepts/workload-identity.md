@@ -1,6 +1,10 @@
 ---
 title: Workload identity federation in {{ iam-full-name }}
 description: This section describes workload identity federations, an {{ iam-name }} tool that enables you to configure exchange of tokens from any OpenID Connect-compatible systems for IAM tokens to access the {{ yandex-cloud }} API.
+alternate:
+  - href: en/iam/concepts/workload-identity.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Workload identity federations

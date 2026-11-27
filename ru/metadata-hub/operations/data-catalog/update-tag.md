@@ -1,6 +1,10 @@
 ---
 title: Изменение тега
 description: Следуя данной инструкции, вы сможете изменить тег для метаданных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/update-tag.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение тега

@@ -48,6 +48,10 @@ apiPlayground:
         - endAt
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/managed-airflow/api-ref/ChangeFreeze/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Airflow™ API, REST: ChangeFreeze.Create

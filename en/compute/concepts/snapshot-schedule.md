@@ -1,6 +1,10 @@
 ---
 title: Creating scheduled disk snapshots
 description: In this tutorial, you will learn how to create scheduled disk snapshots.
+alternate:
+  - href: en/compute/concepts/snapshot-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating scheduled disk snapshots

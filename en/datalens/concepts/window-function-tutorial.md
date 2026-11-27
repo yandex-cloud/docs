@@ -1,6 +1,10 @@
 ---
 title: Window functions in {{ datalens-full-name }}
 description: This article describes the window functions in {{ datalens-full-name }}, which allow you to get additional information about the original selection.
+alternate:
+  - href: en/datalens/concepts/window-function-tutorial.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Window functions in {{ datalens-full-name }}

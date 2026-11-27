@@ -1,6 +1,10 @@
 ---
 title: Сеть в {{ mpg-name }}
 description: При создании кластера {{ PG }} вы можете задать сеть для самого кластера, подсети для каждого из хостов кластера и запросить публичный доступ, чтобы подключаться к кластеру извне {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-postgresql/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сеть в {{ mpg-name }}

@@ -1,6 +1,10 @@
 ---
 title: Working with a {{ datalens-full-name }} collection
 description: Follow this guide to create, edit, move, delete, and set up access to a {{ datalens-full-name }} collection.
+alternate:
+  - href: en/datalens/workbooks-collections/collections-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with a {{ datalens-full-name }} collection

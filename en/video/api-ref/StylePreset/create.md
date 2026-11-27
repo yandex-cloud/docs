@@ -192,6 +192,10 @@ apiPlayground:
               - summarization
           - required:
               - description
+alternate:
+  - href: en/video/api-ref/StylePreset/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: StylePreset.Create

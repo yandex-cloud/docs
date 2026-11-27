@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.TABLE_NOT_SORTED
 description: На странице приведено описание ошибки {{ datalens-full-name }} Tables should be sorted.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-TABLE_NOT_SORTED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Tables should be sorted

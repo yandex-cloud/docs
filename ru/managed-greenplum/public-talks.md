@@ -1,6 +1,10 @@
 ---
 title: Публичные материалы о {{ mgp-full-name }}
 description: Видеозаписи конференций и вебинаров, посвященных {{ mgp-full-name }}.
+alternate:
+  - href: ru/managed-greenplum/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные материалы о {{ mgp-full-name }}

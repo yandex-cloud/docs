@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/api-ref/javascript/enums/PlayerSdkEvents.md
+    type: text/markdown
+    title: Markdown version
+---
 # Enumeration: PlayerSdkEvents
 
 [Player events](../../../sdk/javascript/player-events.md).

@@ -5,6 +5,10 @@ keywords:
   - SSO
   - Single Sign-On
   - Технология единого входа
+alternate:
+  - href: ru/glossary/sso.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Технология единого входа (SSO)

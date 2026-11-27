@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о политике доступа к реестру {{ container-registry-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о политике доступа к реестру.
+alternate:
+  - href: ru/container-registry/operations/registry/registry-permissions-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о политике доступа к реестру

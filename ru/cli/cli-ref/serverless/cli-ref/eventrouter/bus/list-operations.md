@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/eventrouter/bus/list-operations/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/eventrouter/bus/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless eventrouter bus list-operations

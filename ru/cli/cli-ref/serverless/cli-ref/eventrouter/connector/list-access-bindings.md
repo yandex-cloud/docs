@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/eventrouter/connector/list-access-bindings/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/eventrouter/connector/list-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless eventrouter connector list-access-bindings

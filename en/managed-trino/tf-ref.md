@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ mtr-full-name }}'
 description: This page lists {{ TF }} provider resources and data sources supported by {{ mtr-name }}.
+alternate:
+  - href: en/managed-trino/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ mtr-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to view operations with DNS zones in {{ dns-full-name }}
 description: Follow this tutorial to be able to view the list of operations with DNS zones.
+alternate:
+  - href: en/dns/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing operations with zones

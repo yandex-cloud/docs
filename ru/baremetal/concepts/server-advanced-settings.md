@@ -1,6 +1,10 @@
 ---
 title: Как донастроить сервер {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете донастроить аппаратную часть сервера {{ baremetal-full-name }} под использование с определенной операционной системой и выполнение конкретных задач.
+alternate:
+  - href: ru/baremetal/concepts/server-advanced-settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Дополнительные настройки серверов

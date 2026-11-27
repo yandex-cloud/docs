@@ -1,6 +1,10 @@
 ---
 title: Testing InfiniBand throughput
 description: Follow this guide to run an InfiniBand throughput test on a single machine with NUMA node resource isolation.
+alternate:
+  - href: en/compute/operations/gpu-cluster/test-infiniband-bandwidth.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Testing InfiniBand throughput

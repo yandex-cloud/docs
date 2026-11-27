@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/tutorials/install-on-yc-vm.md
+    type: text/markdown
+    title: Markdown version
+---
 # Installing {{ stackland-name }} on {{ yandex-cloud }} VMs
 
 This guide describes how to install {{ stackland-full-name }} on {{ yandex-cloud }} VMs from a custom boot image.

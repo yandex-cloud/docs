@@ -123,6 +123,10 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/Replica'
+alternate:
+  - href: ru/managed-clickhouse/api-ref/Cluster/createShardGroup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.CreateShardGroup

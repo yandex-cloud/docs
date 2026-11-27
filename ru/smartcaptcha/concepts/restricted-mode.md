@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/smartcaptcha/concepts/restricted-mode.md
+    type: text/markdown
+    title: Markdown version
+---
 # Ограниченный режим {{ captcha-name }}
 
 {{ captcha-name }} будет работать в ограниченном режиме, если ваш платежный аккаунт не находится в [статусе](../../billing/concepts/billing-account-statuses) `ACTIVE` или `TRIAL_ACTIVE`.

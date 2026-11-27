@@ -1,6 +1,10 @@
 ---
 title: Создать триггер для {{ yds-full-name }}, который отправляет сообщения в WebSocket-соединения
 description: Следуя данной инструкции, вы сможете создать триггер для {{ yds-name }}, который отправляет сообщения в WebSocket-соединения, а также проверить результат его работы.
+alternate:
+  - href: ru/api-gateway/operations/trigger/data-streams-trigger-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать триггер для {{ yds-name }}, который отправляет сообщения в WebSocket-соединения

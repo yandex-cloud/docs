@@ -1,6 +1,10 @@
 ---
 title: Как назначить политику доступа в {{ objstorage-short-name }} для сервисного подключения {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете назначить политику доступа в {{ objstorage-short-name }} для сервисного подключения.
+alternate:
+  - href: ru/vpc/operations/private-endpoint-storage-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначить политику доступа в {{ objstorage-short-name }} для сервисного подключения

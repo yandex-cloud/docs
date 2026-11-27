@@ -1,6 +1,10 @@
 ---
 title: Linking a backup policy to a VM automatically
 description: This tutorial describes how to create a VM with a linked backup policy.
+alternate:
+  - href: en/tutorials/archive/vm-with-backup-policy/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [vm-with-backup-policy](../../../_tutorials/archive/vm-with-backup-policy.md) %}

@@ -1,6 +1,10 @@
 ---
 title: Как создать виртуальную машину с пользовательским скриптом
 description: Следуя данной инструкции, вы сможете использовать скрипты в cloud-init, чтобы установить дополнительное ПО и донастроить ВМ при ее создании.
+alternate:
+  - href: ru/compute/operations/vm-create/create-with-cloud-init-scripts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать виртуальную машину с пользовательским скриптом конфигурации

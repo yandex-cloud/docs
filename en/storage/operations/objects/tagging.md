@@ -1,6 +1,10 @@
 ---
 title: Managing object labels in {{ objstorage-full-name }}
 description: Follow this guide to manage object labels in an {{ objstorage-name }} bucket.
+alternate:
+  - href: en/storage/operations/objects/tagging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing object labels

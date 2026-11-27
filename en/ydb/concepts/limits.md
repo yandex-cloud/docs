@@ -3,6 +3,10 @@ title: Quotas and limits in {{ ydb-full-name }}
 description: '{{ ydb-full-name }} has limits and quotas for the total number of processor cores for all database hosts, total amount of RAM for all database hosts, maximum number of hosts, and maximum number of databases per cloud. For more information about the service restrictions, read this article.'
 editable: false
 sourcePath: overlay/concepts/limits.md
+alternate:
+  - href: en/ydb/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ ydb-name }}

@@ -1,6 +1,10 @@
 ---
 title: '{{ org-full-name }} use cases'
 description: Different use cases for {{ org-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/organization/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ org-full-name }} tutorials

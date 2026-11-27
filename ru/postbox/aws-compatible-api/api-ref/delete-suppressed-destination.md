@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/delete-suppressed-destination.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод DeleteSuppressedDestination
 
 Удаляет адрес из [пользовательского стоп-листа](../../concepts/suppression-list.md#user). Нужное облако определяется по сервисному аккаунту, от имени которого выполняется запрос.

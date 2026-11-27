@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/organization/operations/manage-federations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing identity federations
 
 If your company uses a unified credential management system, setting up identity federation will enable single sign-on to {{ yandex-cloud }} services with employee corporate accounts.

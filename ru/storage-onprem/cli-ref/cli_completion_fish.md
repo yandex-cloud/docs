@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_completion_fish.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli completion fish
 
 Generate the autocompletion script for fish

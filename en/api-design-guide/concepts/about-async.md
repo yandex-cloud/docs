@@ -1,6 +1,10 @@
 ---
 title: Working with operations using the API
 description: In this article, you will learn about asynchronous operations, the object they return and how to work with it, and about the idempotency mechanism.
+alternate:
+  - href: en/api-design-guide/concepts/about-async.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with operations

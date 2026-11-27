@@ -1,6 +1,10 @@
 ---
 title: Fault-tolerant website with load balancing via {{ alb-full-name }} using the management console
 description: In this tutorial, you will create a fault-tolerant website in the {{ yandex-cloud }} infrastructure with load balancing via {{ alb-full-name }} using the management console.
+alternate:
+  - href: en/tutorials/web/application-load-balancer-website/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Fault-tolerant website with load balancing via {{ alb-full-name }} using the management console

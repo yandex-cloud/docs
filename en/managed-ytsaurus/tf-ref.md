@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ myt-full-name }}'
 description: This page lists {{ TF }} provider resources and data sources supported by {{ myt-name }}.
+alternate:
+  - href: en/managed-ytsaurus/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ myt-full-name }}

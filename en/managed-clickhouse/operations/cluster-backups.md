@@ -1,6 +1,10 @@
 ---
 title: Managing {{ CH }} backups
 description: You can back up {{ CH }} clusters and restore them from existing backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If your cloud lacks resources to create such a cluster, you will not be able to restore your data from the backup.
+alternate:
+  - href: en/managed-clickhouse/operations/cluster-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing backups in {{ mch-name }}

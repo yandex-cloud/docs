@@ -1,6 +1,10 @@
 ---
 title: Правила тарификации для {{ org-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ org-full-name }}.
+alternate:
+  - href: ru/organization/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации в {{ org-full-name }}

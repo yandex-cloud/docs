@@ -237,6 +237,24 @@ resource "yandex_sws_security_profile" "demo-profile-advanced" {
               - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
             - `str_lists_not_match` [Block]. String lists to not match with.
               - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `body` [Block]. Match HTTP request body.
+        - `body_matcher` [Block]. HTTP request body matcher.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
       - `bot_category` [Block]. Match bot category.
         - `bot_category_lists_match` [Block]. Bot category lists to match with.
           - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
@@ -482,6 +500,24 @@ resource "yandex_sws_security_profile" "demo-profile-advanced" {
             - `str_lists_not_match` [Block]. String lists to not match with.
               - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
         - `authority_matcher` [Block]. Authority matcher.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `body` [Block]. Match HTTP request body.
+        - `body_matcher` [Block]. HTTP request body matcher.
           - `defined` (Bool). Matches if the field is defined.
           - `exact_match` (String). Exact match condition.
           - `exact_not_match` (String). Exact not match condition.
@@ -744,6 +780,24 @@ resource "yandex_sws_security_profile" "demo-profile-advanced" {
             - `str_lists_not_match` [Block]. String lists to not match with.
               - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
         - `authority_matcher` [Block]. Authority matcher.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `body` [Block]. Match HTTP request body.
+        - `body_matcher` [Block]. HTTP request body matcher.
           - `defined` (Bool). Matches if the field is defined.
           - `exact_match` (String). Exact match condition.
           - `exact_not_match` (String). Exact not match condition.

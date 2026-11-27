@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ myt-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ myt-full-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/managed-ytsaurus/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

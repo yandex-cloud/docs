@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/logs/concepts/glossary.md
+    type: text/markdown
+    title: Markdown version
+---
 # Overview and basic terms
 
 {{ monium-logs-name }} is a distributed system for storing, searching, visualizing, and analyzing logs.

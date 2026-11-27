@@ -1,6 +1,10 @@
 ---
 title: Connecting VMs and servers located outside {{ yandex-cloud }} to {{ backup-full-name }}
 description: In this tutorial, you will learn how to connect VMs and servers located in your own infrastructure or in a third-party provider infrastructure to {{ backup-full-name }}.
+alternate:
+  - href: en/backup/concepts/vm-connection/external-resources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting VMs and servers from outside {{ yandex-cloud }} to {{ backup-name }} 

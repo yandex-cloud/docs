@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Просмотр операций с ресурсами сервиса {{ serverless-containers-name }}
 
 Все действия с ресурсами сервиса {{ serverless-containers-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.

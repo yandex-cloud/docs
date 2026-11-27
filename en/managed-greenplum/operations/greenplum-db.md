@@ -1,6 +1,10 @@
 ---
 title: How to use auxiliary utilities in {{ mgp-full-name }}
 description: This guide describes how to use auxiliary utilities.
+alternate:
+  - href: en/managed-greenplum/operations/greenplum-db.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Auxiliary utilities

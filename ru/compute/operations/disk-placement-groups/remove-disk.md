@@ -1,6 +1,10 @@
 ---
 title: Удалить диск из группы размещения
 description: Следуя данной инструкции, вы сможете удалить диск из группы размещения.
+alternate:
+  - href: ru/compute/operations/disk-placement-groups/remove-disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить диск из группы размещения

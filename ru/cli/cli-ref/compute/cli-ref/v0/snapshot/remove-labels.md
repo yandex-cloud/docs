@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/snapshot/remove-labels/
+alternate:
+  - href: ru/cli/cli-ref/compute/cli-ref/v0/snapshot/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute v0 snapshot remove-labels

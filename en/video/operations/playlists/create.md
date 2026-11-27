@@ -1,6 +1,10 @@
 ---
 title: How to create a playlist in {{ video-full-name }}
 description: Follow this guide to create a playlist in {{ video-name }}.
+alternate:
+  - href: en/video/operations/playlists/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a playlist

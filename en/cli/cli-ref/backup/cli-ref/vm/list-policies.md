@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/vm/list-policies/
+alternate:
+  - href: en/cli/cli-ref/backup/cli-ref/vm/list-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc backup vm list-policies

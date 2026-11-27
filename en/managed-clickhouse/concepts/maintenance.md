@@ -1,6 +1,10 @@
 ---
 title: Maintenance in {{ mch-full-name }}
 description: In {{ mch-name }}, maintenance means automatic installation of database updates and patches for hosts (including for stopped clusters), host class and storage size modifications, and other maintenance operations.
+alternate:
+  - href: en/managed-clickhouse/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Maintenance in {{ mch-name }}

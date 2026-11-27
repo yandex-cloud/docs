@@ -1,6 +1,10 @@
 ---
 title: Updating a backup policy in {{ backup-full-name }}
 description: In this tutorial, you will learn how to update a backup policy in {{ backup-full-name }}.
+alternate:
+  - href: en/backup/operations/policy-vm/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a backup policy

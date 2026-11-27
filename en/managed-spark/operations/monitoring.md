@@ -1,6 +1,10 @@
 ---
 title: '{{ SPRK }} cluster state monitoring'
 description: You can monitor the state of a {{ SPRK }} cluster using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster state monitoring.
+alternate:
+  - href: en/managed-spark/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ SPRK }} cluster state monitoring

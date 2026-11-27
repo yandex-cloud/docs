@@ -1,6 +1,10 @@
 ---
 title: How to save a chart as an image in {{ datalens-full-name }}
 description: Follow this guide to save a chart as an image in {{ datalens-name }}.
+alternate:
+  - href: en/datalens/operations/chart/save-as-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Saving a chart as an image in {{ datalens-full-name }}

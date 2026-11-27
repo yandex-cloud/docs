@@ -1,6 +1,10 @@
 ---
 title: Политика распределения
 description: Из этой статьи вы узнаете про политику распределения виртуальных машин.
+alternate:
+  - href: ru/compute/concepts/instance-groups/policies/allocation-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политика распределения

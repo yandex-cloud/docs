@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/billing/usage/api-ref/grpc/ConsumptionCore/getServiceInstanceUsageReport.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing Usage API, gRPC: ConsumptionCoreService.GetServiceInstanceUsageReport

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/concepts/videos.md
+    type: text/markdown
+    title: Markdown version
+---
 # Videos in {{ video-name }}
 
 With {{ video-name }}, you can upload _videos_ to your [channel](index.md#channels) for subsequent publication on external resources.

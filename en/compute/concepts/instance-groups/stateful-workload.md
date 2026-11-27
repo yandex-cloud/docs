@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/stateful-workload.md
+    type: text/markdown
+    title: Markdown version
+---
 # Handling a stateful workload
 
 You can use instance groups to host applications with _stateful_, _stateless_, and combined workloads.

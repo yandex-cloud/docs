@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/publish.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие Publish
 
 Отправляет [Push-уведомление](../concepts/push.md) в [эндпоинт](../concepts/push.md#mobile-endpoints) или [SMS](../concepts/sms.md) на телефонный номер.

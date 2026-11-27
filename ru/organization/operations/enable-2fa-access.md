@@ -1,6 +1,10 @@
 ---
 title: Включить требование двухфакторной аутентификации
 description: Следуя данной инструкции, вы сможете настроить доступ к ресурсам только для пользователей с двухфакторной аутентификацией.
+alternate:
+  - href: ru/organization/operations/enable-2fa-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включить требование двухфакторной аутентификации

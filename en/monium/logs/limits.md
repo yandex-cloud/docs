@@ -1,6 +1,10 @@
 ---
 title: Limits
 description: '{{ monium-logs-name }} limits: logging and validation of incoming data.'
+alternate:
+  - href: en/monium/logs/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Limits

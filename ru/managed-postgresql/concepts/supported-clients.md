@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/concepts/supported-clients.md
+    type: text/markdown
+    title: Markdown version
+---
 # Рекомендуемые клиенты для СУБД {{ mpg-name }}
 
 Для подключения к {{ mpg-short-name }} рекомендуется использовать следующие клиенты:

@@ -2,6 +2,10 @@
 title: '{{ ydb-full-name }} HTTP API methods'
 description: The {{ ydb-full-name }} HTTP API provides the following methods. Working with tables (CreateTable, DeleteTable, DescribeTable, ListTables). Working with items (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem).
 sourcePath: overlay/docapi/api-ref/index.md
+alternate:
+  - href: en/ydb/docapi/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All methods

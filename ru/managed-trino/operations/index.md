@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ mtr-full-name }}
 description: Из статьи вы узнаете, как работать с {{ mtr-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-trino/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ mtr-name }}

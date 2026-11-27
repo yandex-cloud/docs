@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/dns/api-ref/grpc/DnsZone/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, gRPC: DnsZoneService

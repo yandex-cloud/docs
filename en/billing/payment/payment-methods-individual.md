@@ -1,6 +1,10 @@
 ---
 title: Payment methods for individuals
 description: Read this article to learn how individuals can top up their personal account and pay for resources.
+alternate:
+  - href: en/billing/payment/payment-methods-individual.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Payment methods for individuals

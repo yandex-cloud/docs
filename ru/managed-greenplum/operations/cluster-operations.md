@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/cluster-operations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Просмотр операций с кластерами
 
 Все действия с кластерами {{ mgp-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.

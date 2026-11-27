@@ -1,6 +1,10 @@
 ---
 title: How to view operations with a {{ certificate-manager-full-name }} certificate
 description: Follow this guide to get a list of certificate operations and their details.
+alternate:
+  - href: en/certificate-manager/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing operations with a certificate

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/v0/shards/delete/
+alternate:
+  - href: en/storedoc/cli-ref/v0/shards/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb v0 shards delete

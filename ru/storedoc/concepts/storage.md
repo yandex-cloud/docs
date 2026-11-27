@@ -1,6 +1,10 @@
 ---
 title: Хранилище в {{ mmg-full-name }}
 description: Из статьи вы узнаете, что такое хранилище в {{ mmg-name }}, ознакомитесь с особенностями управления дисковым пространством и выбора типа дисков при создании кластера.
+alternate:
+  - href: ru/storedoc/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Хранилище в {{ mmg-name }}

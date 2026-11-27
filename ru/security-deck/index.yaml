@@ -42,6 +42,10 @@ meta:
     - keyword: окружения {{ sd-name }}
     - keyword: Workspaces {{ sd-name }}
     - keyword: управление окружениями безопасности
+  alternate:
+    - href: ru/security-deck/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: content-layout-block
     textContent:

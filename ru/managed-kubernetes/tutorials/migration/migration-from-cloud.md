@@ -1,6 +1,10 @@
 ---
 title: Миграция из публичного облака в {{ managed-k8s-name }}
 description: Руководство по переносу рабочих нагрузок {{ k8s }} из публичного облака в {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/tutorials/migration/migration-from-cloud.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция из публичного облака в {{ managed-k8s-name }}

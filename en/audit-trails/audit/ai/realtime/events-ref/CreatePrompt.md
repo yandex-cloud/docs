@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/ai/realtime/events-ref/CreatePrompt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio Realtime API Audit Trails Events: CreatePrompt

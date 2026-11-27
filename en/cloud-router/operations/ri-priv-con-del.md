@@ -1,6 +1,11 @@
 ---
 title: How to delete a private connection from a virtual router in {{ cr-name }}
 description: Follow this guide to delete a private connection from a virtual router in {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: en/cloud-router/operations/ri-priv-con-del.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a private connection from a virtual router

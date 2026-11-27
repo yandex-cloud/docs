@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-streams/kinesisapi/methods/increasestreamretentionperiod.md
+    type: text/markdown
+    title: Markdown version
+---
 # IncreaseStreamRetentionPeriod
 
 Увеличивает [время хранения сообщений](../../concepts/glossary.md#retention-time) потока данных.

@@ -1,6 +1,10 @@
 ---
 title: Managing databases in {{ SPQR }}
 description: In this tutorial, you will learn how to add, rename, and delete databases in {{ SPQR }}, and view their info.
+alternate:
+  - href: en/managed-spqr/operations/databases.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing databases in {{ SPQR }}

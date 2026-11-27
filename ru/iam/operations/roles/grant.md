@@ -1,6 +1,10 @@
 ---
 title: Назначение роли
 description: Следуя данной инструкции, вы сможете назначить роль на ресурс.
+alternate:
+  - href: ru/iam/operations/roles/grant.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначение роли

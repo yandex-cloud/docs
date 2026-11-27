@@ -1,6 +1,10 @@
 ---
 title: Таблица в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Таблица.
+alternate:
+  - href: ru/datalens/visualization-ref/table-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Таблица ![](../../_assets/datalens/table-chart.svg) в {{ datalens-full-name }}

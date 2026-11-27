@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ alb-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ alb-full-name }}.
+alternate:
+  - href: ru/application-load-balancer/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ alb-full-name }}

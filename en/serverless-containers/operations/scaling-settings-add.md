@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/scaling-settings-add.md
+    type: text/markdown
+    title: Markdown version
+---
 # Adding container scaling settings
 
 You can set the following:

@@ -1,6 +1,10 @@
 ---
 title: How to change VM metadata
 description: Follow this guide to change VM metadata.
+alternate:
+  - href: en/compute/operations/vm-metadata/update-vm-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing VM metadata

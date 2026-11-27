@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/application-load-balancer/api-ref/grpc/HttpRouter/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, gRPC: HttpRouterService.List

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/yql-tutorials/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using {{ yql-full-name }} syntax in {{ yq-full-name }}
 
 In this tutorial, you will learn how to use {{ yql-full-name }} syntax and perform data operations in {{ yq-full-name }} with [analytical](#analytical-query) and [streaming](#stream-query) query examples.

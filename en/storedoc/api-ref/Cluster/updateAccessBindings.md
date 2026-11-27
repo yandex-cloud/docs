@@ -119,6 +119,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/storedoc/api-ref/Cluster/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.UpdateAccessBindings

@@ -1,6 +1,10 @@
 ---
 title: Загрузка данных из {{ ydb-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
 description: Вы можете перенести данные из {{ ydb-name }} в объектное хранилище {{ objstorage-name }} с помощью сервиса {{ data-transfer-name }}.
+alternate:
+  - href: ru/tutorials/dataplatform/ydb-to-object-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузка данных из {{ ydb-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}

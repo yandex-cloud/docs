@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/message/DeleteMessageBatch.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteMessageBatch
 
 Метод для удаления нескольких сообщений из очереди. Удалять можно не более 10 сообщений одновременно.

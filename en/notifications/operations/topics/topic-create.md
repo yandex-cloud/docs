@@ -1,6 +1,10 @@
 ---
 title: Creating a topic in {{ cns-full-name }}
 description: Follow this guide to create a topic.
+alternate:
+  - href: en/notifications/operations/topics/topic-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a topic

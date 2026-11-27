@@ -1,6 +1,10 @@
 ---
 title: How to invoke a container in {{ serverless-containers-full-name }}
 description: Follow this guide to invoke a container.
+alternate:
+  - href: en/serverless-containers/operations/invoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Invoking a container

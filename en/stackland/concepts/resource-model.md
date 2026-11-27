@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/resource-model.md
+    type: text/markdown
+    title: Markdown version
+---
 # Resource model
 
 {{ stackland-name }} uses a hierarchical resource model allowing you to group the resources, perform access management, and apply consumption quotas at different levels.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kafka/operations/cluster-connector.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing connectors
 
 [Connectors](../concepts/connectors.md) manage the transfer of {{ KF }} topics to a different cluster or data storage system.

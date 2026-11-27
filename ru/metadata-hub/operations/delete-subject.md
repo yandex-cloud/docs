@@ -1,6 +1,10 @@
 ---
 title: Удаление субъекта
 description: Следуя данной инструкции, вы сможете удалить субъекта.
+alternate:
+  - href: ru/metadata-hub/operations/delete-subject.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление субъекта

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-transfer/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Transfer state monitoring
 
 Transfer status details are available in the management console:

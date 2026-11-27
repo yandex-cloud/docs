@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/concepts/logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Function logs
 
 A function writes logs to {{ cloud-logging-full-name }}, to the [default log group](../../logging/concepts/log-group.md) for the folder where the function is located.

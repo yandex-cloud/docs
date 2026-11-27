@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о пользователе в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о пользователе организации в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/users-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о пользователе

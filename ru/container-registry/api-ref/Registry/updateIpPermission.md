@@ -73,6 +73,10 @@ apiPlayground:
         required:
           - action
           - ipPermission
+alternate:
+  - href: ru/container-registry/api-ref/Registry/updateIpPermission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: Registry.UpdateIpPermission

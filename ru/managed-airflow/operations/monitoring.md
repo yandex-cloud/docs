@@ -1,6 +1,10 @@
 ---
 title: Мониторинг состояния кластера {{ maf-full-name }}
 description: Из статьи вы узнаете, как отслеживать состояние кластера {{ maf-name }}.
+alternate:
+  - href: ru/managed-airflow/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг состояния кластера {{ maf-name }}

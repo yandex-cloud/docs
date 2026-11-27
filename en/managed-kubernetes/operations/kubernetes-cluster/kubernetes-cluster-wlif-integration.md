@@ -1,6 +1,10 @@
 ---
 title: Enabling support for a {{ iam-full-name }} workload identity federation in a {{ managed-k8s-full-name }} cluster
 description: Follow this guide to enable support for a {{ iam-name }} workload identity federation in a {{ managed-k8s-name }} cluster.
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-wlif-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling support for a {{ iam-full-name }} workload identity federation in a {{ managed-k8s-full-name }} cluster

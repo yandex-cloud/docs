@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/add-records/
+alternate:
+  - href: ru/dns/cli-ref/zone/add-records.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns zone add-records

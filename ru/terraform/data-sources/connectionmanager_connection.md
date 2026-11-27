@@ -1,5 +1,9 @@
 ---
 subcategory: Connection Manager
+alternate:
+  - href: ru/terraform/data-sources/connectionmanager_connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_connectionmanager_connection (DataSource)

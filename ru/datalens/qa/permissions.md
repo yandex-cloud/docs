@@ -1,6 +1,10 @@
 ---
 title: Пользователи и права доступа
 description: На странице представлены вопросы и ответы про пользователей и управление правами доступа.
+alternate:
+  - href: ru/datalens/qa/permissions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пользователи и управление доступом

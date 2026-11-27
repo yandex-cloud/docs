@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/cluster/remove-access-binding/
+alternate:
+  - href: en/cli/cli-ref/managed-mongodb/cli-ref/cluster/remove-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb cluster remove-access-binding

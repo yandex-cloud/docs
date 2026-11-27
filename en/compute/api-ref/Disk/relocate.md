@@ -46,6 +46,10 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
+alternate:
+  - href: en/compute/api-ref/Disk/relocate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Disk.Relocate

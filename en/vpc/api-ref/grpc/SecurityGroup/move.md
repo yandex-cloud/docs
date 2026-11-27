@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/vpc/api-ref/grpc/SecurityGroup/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, gRPC: SecurityGroupService.Move

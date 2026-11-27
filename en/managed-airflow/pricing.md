@@ -2,6 +2,10 @@
 title: '{{ maf-full-name }} pricing policy'
 description: This article covers the {{ maf-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/managed-airflow/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ maf-name }} pricing policy

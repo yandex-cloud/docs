@@ -1,6 +1,10 @@
 ---
 title: Статистика
 description: 'В {{ postbox-full-name }} можно посмотреть статистику по отправленным письмам: сколько писем было отправлено, доставлено или не доставлено, открыто и сколько раз получатели переходили по ссылкам в письмах.'
+alternate:
+  - href: ru/postbox/concepts/statistics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Статистика

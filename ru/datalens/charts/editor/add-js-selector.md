@@ -1,6 +1,10 @@
 ---
 title: Добавление селектора JS на дашборд
 description: Из статьи вы узнаете, как добавить селектор JS на дашборд.
+alternate:
+  - href: ru/datalens/charts/editor/add-js-selector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление селектора JS на дашборд

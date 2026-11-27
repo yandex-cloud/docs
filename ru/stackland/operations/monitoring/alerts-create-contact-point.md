@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/monitoring/alerts-create-contact-point.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать канал уведомлений
 
 Чтобы создать новый канал уведомлений:

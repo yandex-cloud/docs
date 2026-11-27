@@ -1,6 +1,10 @@
 ---
 title: Оконные функции в {{ datalens-full-name }}
 description: В данной статье описано, как работают оконные функции в {{ datalens-full-name }}, которые позволяют получить дополнительную информацию об исходной выборке.
+alternate:
+  - href: ru/datalens/concepts/window-function-tutorial.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Оконные функции в {{ datalens-full-name }}

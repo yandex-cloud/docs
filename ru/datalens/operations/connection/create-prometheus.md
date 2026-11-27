@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение к {{ prometheus-name }} в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете создать подключение к {{ prometheus-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/create-prometheus.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к {{ prometheus-name }}

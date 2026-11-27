@@ -1,6 +1,10 @@
 ---
 title: Контекст вызова функции на Go в {{ sf-full-name }}
 description: Из статьи вы узнаете, что такое контекст вызова функции на Go.
+alternate:
+  - href: ru/functions/lang/golang/context.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Контекст вызова функции на Go

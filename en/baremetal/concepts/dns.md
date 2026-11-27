@@ -1,6 +1,10 @@
 ---
 title: DNS in a {{ baremetal-full-name }} private network
 description: Learn how to provide DNS servers and domain name to {{ baremetal-name }} servers via DHCP, use incoming DNS connections, and work within the limitations.
+alternate:
+  - href: en/baremetal/concepts/dns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DNS in a private network

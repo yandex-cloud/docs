@@ -1,6 +1,10 @@
 ---
 title: How to delete a subnet
 description: Follow this guide to delete a subnet.
+alternate:
+  - href: en/vpc/operations/subnet-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a subnet

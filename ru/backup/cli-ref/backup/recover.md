@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/backup/recover/
+alternate:
+  - href: ru/backup/cli-ref/backup/recover.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc backup backup recover

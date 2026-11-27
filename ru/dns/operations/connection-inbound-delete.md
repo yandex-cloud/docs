@@ -1,6 +1,10 @@
 ---
 title: Как удалить входящее DNS-подключение в {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете удалить входящее DNS-подключение.
+alternate:
+  - href: ru/dns/operations/connection-inbound-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить входящее DNS-подключение

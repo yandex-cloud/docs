@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание ВМ с GPU в {{ compute-full-name }}
 description: Из этой статьи вы узнаете об особенностях технического обслуживания виртуальных машин с GPU в сервисе {{ compute-full-name }} и о возможностях управления техническим обслуживанием таких ВМ.
+alternate:
+  - href: ru/compute/concepts/gpus-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание виртуальных машин с GPU

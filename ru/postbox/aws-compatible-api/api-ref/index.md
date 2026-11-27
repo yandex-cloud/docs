@@ -1,6 +1,10 @@
 ---
 title: Методы API Amazon для {{ postbox-full-name }}
 description: Из статьи вы узнаете, какие методы API Amazon доступны для управления {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Методы API Amazon для сервиса {{ postbox-name }}

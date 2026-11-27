@@ -1,6 +1,10 @@
 ---
 title: Как получить IAM-токен для аккаунта локального пользователя
 description: Следуя данной инструкции, вы сможете получить IAM-токен для аккаунта локального пользователя.
+alternate:
+  - href: ru/iam/operations/iam-token/create-for-local.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение IAM-токена для аккаунта локального пользователя

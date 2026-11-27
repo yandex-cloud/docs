@@ -23,6 +23,10 @@ meta:
     - keyword: coi
     - keyword: оптимизация запуска docker-контейнеров
     - keyword: Docker-контейнеры в {{ yandex-cloud }}
+  alternate:
+    - href: ru/cos/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первую ВМ на основе образа Container Optimized Image

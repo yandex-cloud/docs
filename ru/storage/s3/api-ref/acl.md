@@ -1,6 +1,10 @@
 ---
 title: Какие методы S3 API доступны для управления списками управления доступом (ACL) в {{ objstorage-full-name }}
 description: Из статьи вы узнаете, какие методы S3 API доступны для управления списками управления доступом (ACL).
+alternate:
+  - href: ru/storage/s3/api-ref/acl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все методы ACL

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/sync/sdk.md
+    type: text/markdown
+    title: Markdown version
+---
 # SDK
 
 ## *class* yandex\_ai\_studio\_sdk.**AIStudio**{#yandex_ai_studio_sdk.AIStudio}

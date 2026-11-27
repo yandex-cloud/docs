@@ -1,6 +1,10 @@
 ---
 title: How to update {{ VLK }} cluster settings in {{ mrd-full-name }}
 description: In this guide, you will learn how to update {{ VLK }} cluster settings.
+alternate:
+  - href: en/managed-valkey/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating {{ VLK }} cluster settings

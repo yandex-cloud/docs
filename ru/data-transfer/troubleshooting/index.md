@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-transfer/troubleshooting/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Решение проблем в {{ data-transfer-name }}
 
 В этом разделе описаны типичные проблемы, которые могут возникать при [активации](../operations/transfer.md#activate) или во время работы [трансферов](../concepts/index.md#transfer), и методы их решения.

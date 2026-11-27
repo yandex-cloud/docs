@@ -1,6 +1,10 @@
 ---
 title: Working with investigations in {{ ycdr-full-name }}
 description: Overview of operations with investigations in {{ ycdr-name }}.
+alternate:
+  - href: en/ycdr/operations/investigations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with investigations

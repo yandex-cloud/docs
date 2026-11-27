@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/concepts/trigger/os-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for {{ objstorage-name }} that invokes a {{ sf-name }} function
 
 A [trigger](../trigger/) for {{ objstorage-name }} runs a {{ sf-name }} [function](../function.md) when a specific event occurs with a {{ objstorage-name }} [object](../../../storage/concepts/object.md). The trigger must be in the same cloud as the bucket whose events it is subscribed to.

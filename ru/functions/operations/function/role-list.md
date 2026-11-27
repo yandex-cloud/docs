@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть роли, назначенные на функцию
 description: Следуя данной инструкции, вы сможете посмотреть роли, назначенные на функцию.
+alternate:
+  - href: ru/functions/operations/function/role-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть роли, назначенные на функцию

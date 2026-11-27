@@ -1,6 +1,10 @@
 ---
 title: Getting information about existing Helm charts in a {{ container-registry-name }} repository
 description: Follow this guide to get a list of Helm charts in a {{ container-registry-name }} repository.
+alternate:
+  - href: en/container-registry/operations/helm-chart/helm-chart-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about existing Helm charts

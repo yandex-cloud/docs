@@ -1,6 +1,10 @@
 ---
 title: Messages in {{ message-queue-full-name }}
 description: Message states, field composition, and an example of message structure in {{ message-queue-name }}.
+alternate:
+  - href: en/message-queue/concepts/message.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Messages

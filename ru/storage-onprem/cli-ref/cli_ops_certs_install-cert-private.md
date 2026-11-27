@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_certs_install-cert-private.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops certs install-cert-private
 
 Install signed Private ingress certificate returned by client CA

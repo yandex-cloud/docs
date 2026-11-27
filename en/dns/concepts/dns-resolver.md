@@ -1,6 +1,10 @@
 ---
 title: DNS resolvers in {{ yandex-cloud }} networks
 description: DNS resolvers are responsible for processing DNS requests from resources connected to subnets in {{ vpc-full-name }} cloud networks.
+alternate:
+  - href: en/dns/concepts/dns-resolver.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DNS resolver

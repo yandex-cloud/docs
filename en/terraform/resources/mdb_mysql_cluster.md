@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for MySQL
+alternate:
+  - href: en/terraform/resources/mdb_mysql_cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_mysql_cluster (Resource)

@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть логи пользователя
 description: Следуя данной инструкции, вы сможете посмотреть логи пользователей организации или всех пользователей пула.
+alternate:
+  - href: ru/organization/operations/user-pools/user-get-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть логи пользователя

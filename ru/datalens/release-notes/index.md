@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ datalens-full-name }} в октябре 2026
 description: Ознакомьтесь с историей изменений в {{ datalens-full-name }} за октябрь 2026.
+alternate:
+  - href: ru/datalens/release-notes/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ datalens-full-name }} в октябре 2026

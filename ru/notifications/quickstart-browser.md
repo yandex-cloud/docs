@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с push-уведомлениями в браузере в {{ cns-full-name }}
 description: С помощью {{ cns-name }} вы можете отправлять push-уведомления в браузеры пользователей.
+alternate:
+  - href: ru/notifications/quickstart-browser.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с push-уведомлениями в браузере в {{ cns-full-name }}

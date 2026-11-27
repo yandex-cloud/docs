@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/api/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with the {{ yq-full-name }} HTTP API
 
 With the {{ yq-name }} HTTP API, you can both perform one-time operations and automate routine tasks, e.g., querying data from scripts or programs on a schedule.

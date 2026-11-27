@@ -5,6 +5,10 @@ keywords:
   - keyword: updating a {{ SPQR }} cluster
   - keyword: '{{ SPQR }} cluster'
   - keyword: '{{ SPQR }}'
+alternate:
+  - href: en/managed-spqr/operations/cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a {{ SPQR }} cluster

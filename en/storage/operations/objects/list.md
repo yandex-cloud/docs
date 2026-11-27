@@ -1,6 +1,10 @@
 ---
 title: Get a list of objects in a bucket in {{ objstorage-full-name }}
 description: Follow this guide to get a list of bucket objects in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/objects/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of objects in a bucket

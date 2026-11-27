@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/monitoring/api-ref/MetricsMeta/listLabelValues.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метод listLabelValues

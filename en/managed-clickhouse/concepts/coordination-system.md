@@ -1,6 +1,10 @@
 ---
 title: Coordination services in {{ mch-name }}
 description: You will learn about coordination services used in {{ mch-full-name }}.
+alternate:
+  - href: en/managed-clickhouse/concepts/coordination-system.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Coordination services in {{ mch-name }}

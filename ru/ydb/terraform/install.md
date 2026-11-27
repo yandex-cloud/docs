@@ -1,6 +1,10 @@
 ---
 title: Установка и настройка {{ TF }} и провайдера для подключения к {{ ydb-short-name }}
 description: В инструкции пошагово изложен процесс установки, настройки {{ TF }} и провайдера {{ yandex-cloud }}.
+alternate:
+  - href: ru/ydb/terraform/install.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка и настройка {{ TF }} и провайдера для подключения к {{ ydb-short-name }}

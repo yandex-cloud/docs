@@ -1,6 +1,10 @@
 ---
 title: 'Ключи, обрабатываемые в публичных образах {{ yandex-cloud }} '
 description: Из этой статьи вы узнаете, какие ключи обрабатываются сервисом метаданных в публичных образах виртуальных машин в {{ yandex-cloud }} .
+alternate:
+  - href: ru/compute/concepts/metadata/public-image-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ключи, обрабатываемые в публичных образах {{ yandex-cloud }}

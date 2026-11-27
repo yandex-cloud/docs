@@ -1,6 +1,10 @@
 ---
 title: Temporarily disabling an availability zone for a {{ compute-full-name }} instance group
 description: You can temporarily disable an availability zone for an instance group.
+alternate:
+  - href: en/compute/concepts/instance-groups/disable-enable-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Temporarily disabling availability zones for {{ compute-full-name }} instance groups

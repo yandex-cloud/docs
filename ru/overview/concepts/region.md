@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/overview/concepts/region.md
+    type: text/markdown
+    title: Markdown version
+---
 # Регионы
 
 Регион — географическая область, которая объединяет [зоны доступности](geo-scope.md). Каждый регион имеет свою инфраструктуру и [набор сервисов](services.md).

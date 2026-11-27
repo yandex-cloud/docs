@@ -1,6 +1,10 @@
 ---
 title: Управлять исключениями из правил контроля безопасности в модуле Контроль {{ k8s }}® ({{ kspm-name }}) в {{ sd-full-name }}
 description: Инструкция по управлению исключениями из правил контроля безопасности в модуле {{ kspm-name }}.
+alternate:
+  - href: ru/security-deck/operations/kspm/manage-exceptions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять исключениями из правил контроля безопасности модуля {{ kspm-name }}

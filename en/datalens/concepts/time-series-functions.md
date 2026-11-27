@@ -1,6 +1,10 @@
 ---
 title: Functions for time series in {{ datalens-name }}
 description: This section describes how to use the time series functions based on the AGO function example. This function calculates measure values for past or future periods.
+alternate:
+  - href: en/datalens/concepts/time-series-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Functions for time series

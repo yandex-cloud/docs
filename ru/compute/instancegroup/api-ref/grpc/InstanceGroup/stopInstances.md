@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/compute/instancegroup/api-ref/grpc/InstanceGroup/stopInstances.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud Instance Groups API, gRPC: InstanceGroupService.StopInstances

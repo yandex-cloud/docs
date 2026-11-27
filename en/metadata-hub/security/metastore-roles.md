@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/metadata-hub/security/metastore-roles.md
+    type: text/markdown
+    title: Markdown version
+---
 # Service roles to manage metadata in a {{ metastore-full-name }} cluster
 
 With {{ metastore-name }} service roles, you can view {{ metastore-name }} cluster metadata and manage clusters.

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/gpu-cluster/add-labels/
+alternate:
+  - href: ru/compute/cli-ref/gpu-cluster/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute gpu-cluster add-labels

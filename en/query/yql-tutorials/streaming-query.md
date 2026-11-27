@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/yql-tutorials/streaming-query.md
+    type: text/markdown
+    title: Markdown version
+---
 
 # Querying real-time data
 

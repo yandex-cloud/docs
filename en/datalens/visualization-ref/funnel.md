@@ -1,6 +1,10 @@
 ---
 title: Funnel in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the funnel visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/funnel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Funnel ![](../../_assets/datalens/funnel.svg) in {{ datalens-full-name }}

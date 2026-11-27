@@ -1,6 +1,10 @@
 ---
 title: '{{ objstorage-full-name }} event reference in {{ at-full-name }}'
 description: This page gives a reference for {{ objstorage-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/storage/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

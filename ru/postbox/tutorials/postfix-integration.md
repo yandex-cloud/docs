@@ -2,6 +2,10 @@
 title: Как настроить Postfix для отправки писем через {{ postbox-full-name }}
 description: В этом руководстве вы узнаете, как настроить Postfix на ВМ в {{ yandex-cloud }} для отправки писем через {{ postbox-name }}.
 canonical: '{{ link-docs }}/tutorials/serverless/postfix-integration'
+alternate:
+  - href: ru/postbox/tutorials/postfix-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка Postfix для отправки через {{ postbox-name }}

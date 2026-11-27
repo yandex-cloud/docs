@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/move-cloud-between-billing-accounts.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to link the cloud to another billing account
 
 

@@ -34,6 +34,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/iot-core/api-ref/Device/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Device.Get

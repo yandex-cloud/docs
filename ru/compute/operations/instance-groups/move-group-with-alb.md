@@ -1,6 +1,10 @@
 ---
 title: Перенос группы виртуальных машин с L7-балансировщиком в другую зону доступности
 description: Из статьи вы узнаете, как можно перенести группу ВМ {{ compute-full-name }} с L7-балансировщиком из одной зоны доступности в другую.
+alternate:
+  - href: ru/compute/operations/instance-groups/move-group-with-alb.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Перенести группу виртуальных машин с L7-балансировщиком в другую зону доступности

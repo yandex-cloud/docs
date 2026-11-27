@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ ydb-full-name }}
 description: Следуя данной инструкции, вы сможете создать и настроить БД {{ ydb-name }}.
+alternate:
+  - href: ru/ydb/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ ydb-name }}

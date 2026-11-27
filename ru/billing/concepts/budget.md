@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/concepts/budget.md
+    type: text/markdown
+    title: Markdown version
+---
 # Бюджет
 
 [_Бюджет_](../operations/budgets.md#create-budget) — это способ контролировать расходы на потребление ресурсов в {{ yandex-cloud }}.

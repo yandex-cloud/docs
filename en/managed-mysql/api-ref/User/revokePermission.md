@@ -97,6 +97,10 @@ apiPlayground:
                 - TRIGGER
                 - UPDATE
                 - REFERENCES
+alternate:
+  - href: en/managed-mysql/api-ref/User/revokePermission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, REST: User.RevokePermission

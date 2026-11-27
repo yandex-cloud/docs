@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/index.md
+    type: text/markdown
+    title: Markdown version
+---
 ## Примеры конфигураций и сценариев {{ billing-name }} {#configuration-examples}
 
 * [Как работают гранты и промокоды в {{ billing-name }}](promocodes-and-grants-features-in-billing.md)

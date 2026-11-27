@@ -6,6 +6,10 @@ keywords:
   - Столбцовые базы данных
   - Колоночное хранение
   - Column-oriented
+alternate:
+  - href: ru/glossary/columnar-databases.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

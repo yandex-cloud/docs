@@ -1,6 +1,10 @@
 ---
 title: Особенности работы с дисками в {{ cos-full-name }}
 description: Из статьи вы узнаете про особенности работы с загрузочным и дополнительными дисками при создании виртуальной машины с {{ coi }}.
+alternate:
+  - href: ru/cos/concepts/disks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Особенности работы с дисками

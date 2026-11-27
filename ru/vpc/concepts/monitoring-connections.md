@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/vpc/concepts/monitoring-connections.md
+    type: text/markdown
+    title: Markdown version
+---
 # Мониторинг сетевых соединений
 
 Для обеспечения работы [сетевого балансировщика](../../network-load-balancer) и [групп безопасности](./security-groups.md) {{ vpc-short-name }} использует мониторинг сетевых соединений.

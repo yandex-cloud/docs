@@ -1,6 +1,10 @@
 ---
 title: '{{ websql-full-name }} release notes'
 description: This section contains the {{ websql-name }} release notes.
+alternate:
+  - href: en/websql/release-notes/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ websql-full-name }} release notes: 2026

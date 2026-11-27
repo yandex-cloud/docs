@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/cluster/
+alternate:
+  - href: en/container-registry/cli-ref/cluster/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container cluster

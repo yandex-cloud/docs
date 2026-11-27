@@ -3726,6 +3726,10 @@ apiPlayground:
               - anytime
           - required:
               - weeklyMaintenanceSchedule
+alternate:
+  - href: ru/managed-mysql/api-ref/Cluster/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, REST: Cluster.Update

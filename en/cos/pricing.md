@@ -2,6 +2,10 @@
 title: '{{ cos-full-name }} pricing policy'
 description: This article covers the {{ cos-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/cos/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cos-name }} pricing policy

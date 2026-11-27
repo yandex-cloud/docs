@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/kotlin/handler.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обработчик запросов функции на Kotlin
 
 _Обработчик запросов_ — это метод, который используется для обработки каждого вызова функции на Kotlin. Пример скрипта, где метод `handle` — обработчик:

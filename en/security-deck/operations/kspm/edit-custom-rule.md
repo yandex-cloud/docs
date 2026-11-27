@@ -1,6 +1,10 @@
 ---
 title: Editing a custom rule in {{ sd-full-name }}
 description: 'In this guide, you will learn how to update the settings of a custom security rule: its name, description, severity, remediation recommendations, and more.'
+alternate:
+  - href: en/security-deck/operations/kspm/edit-custom-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a custom rule

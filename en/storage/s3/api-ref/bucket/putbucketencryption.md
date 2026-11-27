@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/bucket/putbucketencryption.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: PutBucketEncryption
 
 Adds encryption to the bucket. By default, objects added to the bucket are encrypted with the specified [{{ kms-short-name }}](../../../../kms/concepts/key.md) key. For more information about bucket encryption, see [{#T}](../../../concepts/encryption.md).

@@ -716,6 +716,10 @@ apiPlayground:
               **boolean**
               Do not send logs to Cloud Logging log group.
             type: boolean
+alternate:
+  - href: ru/application-load-balancer/api-ref/LoadBalancer/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.Create

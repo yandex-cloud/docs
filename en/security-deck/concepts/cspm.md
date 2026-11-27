@@ -1,6 +1,10 @@
 ---
 title: '{{ cspm-full-name }} ({{ cspm-name }}) in {{ sd-full-name }}'
 description: '{{ cspm-full-name }} ({{ cspm-name }}) ensures that the cloud infrastructure and applications deployed in {{ yandex-cloud }} comply with complex security requirements and best practices.'
+alternate:
+  - href: en/security-deck/concepts/cspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cspm-full-name }} ({{ cspm-name }})

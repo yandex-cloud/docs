@@ -1,6 +1,10 @@
 ---
 title: Правила ревью кода в {{ mgl-name }}
 description: '{{ mgl-name }} позволяет гибко настраивать обязательные правила ревью кода, прежде чем он может быть добавлен в целевую ветку проекта. Функциональность является альтернативой встроенному в {{ GL }} Enterprise Edition инструменту Approval Rules и доступна вне зависимости от версии {{ GL }}.'
+alternate:
+  - href: ru/managed-gitlab/concepts/approval-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила ревью кода в {{ mgl-full-name }}

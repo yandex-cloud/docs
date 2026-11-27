@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/concepts/decommission.md
+    type: text/markdown
+    title: Markdown version
+---
 # Decommissioning {{ dataproc-name }} subclusters and hosts
 
 Decommissioning is the process of reducing the cluster capacity (the number of hosts and their class) without stopping the cluster and interrupting its workload. Decommissioning is supported for {{ dataproc-name }} clusters version 1.2 and higher.

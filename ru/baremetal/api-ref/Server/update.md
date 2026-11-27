@@ -266,6 +266,10 @@ apiPlayground:
                   - privateInterface
               - required:
                   - publicInterface
+alternate:
+  - href: ru/baremetal/api-ref/Server/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Server.Update

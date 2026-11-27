@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/organization/operations/groups-access-binding.md
+    type: text/markdown
+    title: Markdown version
+---
 # Assigning a role to a user group
 
 Assign a role to a [user group](../../organization/operations/manage-groups.md) to grant access to a resource. To grant group access permissions to a [subject](../../iam/concepts/access-control/index.md#subject), see [{#T}](../../organization/operations/access-manage-group.md).

@@ -5,6 +5,10 @@ keywords:
   - создание кластера {{ TR }}
   - кластер {{ TR }}
   - '{{ TR }}'
+alternate:
+  - href: ru/managed-trino/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ TR }}

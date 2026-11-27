@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_yarl_get.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli yarl get
 
 Get a yarl quota by composed name

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/queue/ListQueueTags.md
+    type: text/markdown
+    title: Markdown version
+---
 # ListQueueTags
 
 Метод для получения [меток очереди](../../concepts/tags.md).

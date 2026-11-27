@@ -1,6 +1,10 @@
 ---
 title: Observability-инструменты {{ yandex-cloud }} для мониторинга и логирования
 description: В {{ yandex-cloud }} доступны несколько инструментов для мониторинга и логирования сервисов — {{ monitoring-full-name }}, {{ cloud-logging-full-name }} и {{ at-full-name }}.
+alternate:
+  - href: ru/overview/concepts/monitoring-logging-tools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Observability-инструменты мониторинга и логирования

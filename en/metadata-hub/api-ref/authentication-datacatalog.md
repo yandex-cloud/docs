@@ -1,6 +1,10 @@
 ---
 title: '{{ data-catalog-name }} API authentication'
 description: To perform operations through the API in {{ data-catalog-name }}, get an IAM token for your account.
+alternate:
+  - href: en/metadata-hub/api-ref/authentication-datacatalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ data-catalog-name }} API authentication

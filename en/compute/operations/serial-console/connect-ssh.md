@@ -1,6 +1,10 @@
 ---
 title: Connecting to a Linux VM serial console
 description: Follow this guide to connect to the serial console of a {{ compute-full-name }} VM instance running Linux.
+alternate:
+  - href: en/compute/operations/serial-console/connect-ssh.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a Linux VM serial console

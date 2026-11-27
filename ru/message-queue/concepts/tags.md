@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/concepts/tags.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метки очередей
 
 _Метка_ — это пара ключ-значение для логической маркировки очередей.

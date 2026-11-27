@@ -1,5 +1,9 @@
 ---
 subcategory: Lockbox
+alternate:
+  - href: ru/terraform/resources/lockbox_secret_iam_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_lockbox_secret_iam_binding (Resource)

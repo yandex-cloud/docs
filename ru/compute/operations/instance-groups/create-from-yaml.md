@@ -1,6 +1,10 @@
 ---
 title: Как создать группу виртуальных машин в {{ compute-full-name }} по спецификации в формате YAML
 description: Следуя данной инструкции, вы сможете создать группу виртуальных машин по спецификации в формате YAML.
+alternate:
+  - href: ru/compute/operations/instance-groups/create-from-yaml.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать группу виртуальных машин по спецификации в формате YAML

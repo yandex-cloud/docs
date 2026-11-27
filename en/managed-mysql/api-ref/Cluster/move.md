@@ -31,6 +31,10 @@ apiPlayground:
         - destinationFolderId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/managed-mysql/api-ref/Cluster/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, REST: Cluster.Move

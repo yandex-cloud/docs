@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Wizard/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Wizard
 
 <!-- markdownlint-disable-file -->

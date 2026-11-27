@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_certs_list-csr.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops certs list-csr
 
 List active CSRs

@@ -1,6 +1,10 @@
 ---
 title: Как читать метрики
 description: Следуя данной инструкции, вы сможете прочитать метрики.
+alternate:
+  - href: ru/monium/operations/prometheus/querying/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение метрик

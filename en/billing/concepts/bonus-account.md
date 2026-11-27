@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/concepts/bonus-account.md
+    type: text/markdown
+    title: Markdown version
+---
 # Grant
 
 A grant is a discount on {{ yandex-cloud }} services provided to an individual entrepreneur, business, or individual. The discount amount is equal to the grant amount. The discount is applied to the total cost of the consumed services.

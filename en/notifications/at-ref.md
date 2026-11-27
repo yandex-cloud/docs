@@ -1,6 +1,10 @@
 ---
 title: '{{ cns-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ cns-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/notifications/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

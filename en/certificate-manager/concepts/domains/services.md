@@ -1,6 +1,10 @@
 ---
 title: Integration of the domain management system with {{ yandex-cloud }} services
 description: You can use verified {{ certificate-manager-name }} domains in {{ api-gw-full-name }}.
+alternate:
+  - href: en/certificate-manager/concepts/domains/services.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Integration of the domain management system with {{ yandex-cloud }} services

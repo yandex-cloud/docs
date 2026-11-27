@@ -83,6 +83,10 @@ apiPlayground:
               * false - don't assign a public IP to the host.
               * true - the host should have a public IP address.
             type: boolean
+alternate:
+  - href: ru/managed-valkey/api-ref/Cluster/addShard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, REST: Cluster.AddShard

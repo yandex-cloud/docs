@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for Trino
+alternate:
+  - href: en/terraform/resources/trino_cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_trino_cluster (Resource)

@@ -1,6 +1,10 @@
 ---
 title: Recommendations for improving {{ mmy-name }} cluster reliability, cost optimization, and performance
 description: In this section, you will learn how to work with the results of {{ mmy-name }} cluster checks and diagnostics.
+alternate:
+  - href: en/managed-mysql/advisor.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Inspections and recommendations in {{ mmy-name }} 

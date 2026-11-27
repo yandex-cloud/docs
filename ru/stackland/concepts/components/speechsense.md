@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/speechsense.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ speechsense-name }}
 
 {{ speechsense-full-name }} — платформа анализа речи в составе {{ stackland-name }}. Платформа распознает и анализирует аудиозаписи разговоров, извлекает из них текст, классифицирует обращения и формирует аналитические отчеты.

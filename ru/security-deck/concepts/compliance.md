@@ -1,6 +1,10 @@
 ---
 title: Портал соответствия требованиям в {{ sd-full-name }}
 description: Портал соответствия требованиям — это один из модулей сервиса {{ sd-name }}, содержащий все необходимые документы, отчеты, инструкции и дополнительные сведения о системе безопасности {{ yandex-cloud }}.
+alternate:
+  - href: ru/security-deck/concepts/compliance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Портал соответствия требованиям

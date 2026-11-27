@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление продуктом {{ objstorage-onprem-name }}
 
 Программное обеспечение предназначено для размещения в клиентской инфраструктуре объектного хранилища, совместимого с [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Type_API_Reference.html).

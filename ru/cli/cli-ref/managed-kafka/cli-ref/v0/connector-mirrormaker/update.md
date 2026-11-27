@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/v0/connector-mirrormaker/update/
+alternate:
+  - href: ru/cli/cli-ref/managed-kafka/cli-ref/v0/connector-mirrormaker/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kafka v0 connector-mirrormaker update

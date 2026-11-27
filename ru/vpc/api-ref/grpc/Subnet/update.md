@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/vpc/api-ref/grpc/Subnet/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, gRPC: SubnetService.Update

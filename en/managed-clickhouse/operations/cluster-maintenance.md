@@ -1,6 +1,10 @@
 ---
 title: '{{ CH }} cluster maintenance'
 description: Follow this guide to view the {{ CH }} cluster’s scheduled and completed maintenance jobs and schedule a maintenance window.
+alternate:
+  - href: en/managed-clickhouse/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ CH }} cluster maintenance

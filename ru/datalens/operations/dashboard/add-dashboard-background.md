@@ -1,6 +1,10 @@
 ---
 title: Как настроить фон для дашборда в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете настроить фон для дашборда в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-dashboard-background.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить фон для дашборда в {{ datalens-full-name }}

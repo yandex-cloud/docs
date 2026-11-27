@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/terraform/concepts/states.md
+    type: text/markdown
+    title: Markdown version
+---
 # State
 
 A state describes the configuration of infrastructure that was created or modified using {{ TF }}. Stored in a `.tfstate` file, a state contains information about resources, their attributes, and dependencies between them.

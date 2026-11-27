@@ -1,6 +1,10 @@
 ---
 title: How to create a SolidWall WAF profile in {{ sws-full-name }}
 description: Follow this guide to create a SolidWall WAF profile in {{ sws-name }}, select a service plan, and set the peak load for applications.
+alternate:
+  - href: en/smartwebsecurity/operations/solidwall-waf-profile-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a SolidWall WAF profile

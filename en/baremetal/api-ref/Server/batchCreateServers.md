@@ -781,6 +781,10 @@ apiPlayground:
               **[Server](#yandex.cloud.baremetal.v2.Server)**
               The server to create.
             $ref: '#/definitions/Server'
+alternate:
+  - href: en/baremetal/api-ref/Server/batchCreateServers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Server.BatchCreateServers

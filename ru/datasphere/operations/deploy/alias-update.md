@@ -1,6 +1,10 @@
 ---
 title: Как изменить алиас в {{ ml-platform-full-name }}
 description: Следуя данной инструкции, вы сможете изменить алиас.
+alternate:
+  - href: ru/datasphere/operations/deploy/alias-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить алиас

@@ -1,6 +1,10 @@
 ---
 title: Pulling a Helm chart from a {{ container-registry-name }} repository
 description: Follow this guide to pull a Helm chart from a {{ container-registry-name }} repository.
+alternate:
+  - href: en/container-registry/operations/helm-chart/helm-chart-pull.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

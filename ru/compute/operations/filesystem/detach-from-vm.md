@@ -1,6 +1,10 @@
 ---
 title: Как отключить файловое хранилище от виртуальной машины в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете отключить файловое хранилище от виртуальной машины.
+alternate:
+  - href: ru/compute/operations/filesystem/detach-from-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отключить файловое хранилище от виртуальной машины

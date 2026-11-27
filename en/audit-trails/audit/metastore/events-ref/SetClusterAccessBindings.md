@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/metastore/events-ref/SetClusterAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Hive Metastore™ Audit Trails Events: SetClusterAccessBindings

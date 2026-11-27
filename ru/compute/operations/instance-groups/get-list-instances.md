@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/instance-groups/get-list-instances.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получить список виртуальных машин в группе
 
 После создания группы виртуальных машин вы можете получить список машин в группе.

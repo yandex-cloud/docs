@@ -84,6 +84,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: ru/monium/api-ref/LogGroup/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, REST: LogGroup.SetAccessBindings

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление доступом в {{ serverless-containers-name }}
 
 Для управления правами доступа в {{ serverless-containers-name }} используются [роли](../../iam/concepts/access-control/roles.md).

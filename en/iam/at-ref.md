@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iam/at-ref.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ at-full-name }} event reference
 
 {{ at-name }} supports tracking of [management (control plane) events](../audit-trails/concepts/format.md) and [data (data plane) events](../audit-trails/concepts/format-data-plane.md) for {{ iam-full-name }}.

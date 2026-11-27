@@ -785,6 +785,10 @@ apiPlayground:
         oneOf:
           - required:
               - containerSolution
+alternate:
+  - href: ru/compute/api-ref/Instance/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Instance.Create

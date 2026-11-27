@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/transactGetItems.md
+alternate:
+  - href: en/ydb/docapi/api-ref/actions/transactGetItems.md
+    type: text/markdown
+    title: Markdown version
 ---
 # TransactGetItems method
 

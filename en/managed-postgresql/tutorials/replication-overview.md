@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/mpg-replication-overview'
+alternate:
+  - href: en/managed-postgresql/tutorials/replication-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [replication-overview](../../_tutorials/dataplatform/replication-overview.md) %}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/ai-studio/configure.md
+    type: text/markdown
+    title: Markdown version
+---
 # Activate {{ ai-studio-name }}
 
 To use [{{ ai-studio-name }}](../../concepts/components/ai-studio.md), enable {{ objstorage-name }}, {{ model-gallery-name }}, and {{ agent-atelier-name }}.

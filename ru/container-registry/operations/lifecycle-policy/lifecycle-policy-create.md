@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/container-registry/operations/lifecycle-policy/lifecycle-policy-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать политику удаления
 
 Задать [политику удаления](../../concepts/lifecycle-policy.md) можно только для [репозитория](../../concepts/repository.md). Чтобы узнать имя репозитория, получите [список репозиториев в реестре](../repository/repository-list.md#repository-get).

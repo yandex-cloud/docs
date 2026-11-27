@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/security-deck/api-ref/Alert/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck Alerts API, REST: Alert

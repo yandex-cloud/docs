@@ -1444,6 +1444,10 @@ apiPlayground:
               - folderId
           - required:
               - logGroupId
+alternate:
+  - href: en/managed-greenplum/api-ref/Cluster/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.Create

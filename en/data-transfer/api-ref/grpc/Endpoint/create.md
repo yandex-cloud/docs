@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/data-transfer/api-ref/grpc/Endpoint/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer API, gRPC: EndpointService.Create

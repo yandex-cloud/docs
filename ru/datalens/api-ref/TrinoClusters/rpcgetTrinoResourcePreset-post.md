@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/TrinoClusters/rpcgetTrinoResourcePreset-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Get Trino resource preset

@@ -1,6 +1,10 @@
 ---
 canonical: '{{ link-docs }}/architecture/mlops-in-managed-gitlab'
 noIndex: true
+alternate:
+  - href: ru/managed-gitlab/tutorials/mlops-ml-registry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [mlops](../../architecture/mlops-in-managed-gitlab.md) %}

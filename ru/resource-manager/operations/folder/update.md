@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/resource-manager/operations/folder/update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменение каталога
 
 Чтобы изменить имя и описание [каталога](../../concepts/resources-hierarchy.md#folder), используйте консоль управления, CLI, API или {{ TF }}.

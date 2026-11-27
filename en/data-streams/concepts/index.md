@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ yds-name }} overview
 
 Applications generate data that needs to be saved for further analysis or processing. Some of the data needs to be stored for a long time in <q>cold</q> storage that is rarely accessed, while other data should be stored in analytical databases for hot data processing.

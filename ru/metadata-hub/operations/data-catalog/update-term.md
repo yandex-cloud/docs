@@ -1,6 +1,10 @@
 ---
 title: Изменение термина в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы измените термин в глоссарии {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/update-term.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение термина

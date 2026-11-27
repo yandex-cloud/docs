@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ sd-full-name }}
 description: На странице представлены вопросы и ответы про {{ sd-name }}.
+alternate:
+  - href: ru/security-deck/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ sd-name }}

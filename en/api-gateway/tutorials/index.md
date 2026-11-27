@@ -1,6 +1,10 @@
 ---
 title: '{{ api-gw-full-name }} use cases'
 description: Use cases for {{ api-gw-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/api-gateway/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ api-gw-name }} tutorials

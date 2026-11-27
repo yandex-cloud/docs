@@ -1,6 +1,10 @@
 ---
 title: Просмотр списка пространств имен
 description: Следуя данной инструкции, вы сможете просматривать пространства имен.
+alternate:
+  - href: ru/metadata-hub/operations/list-name-space.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотр списка пространств имен

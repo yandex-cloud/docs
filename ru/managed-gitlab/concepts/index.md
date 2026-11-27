@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-gitlab/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Взаимосвязь ресурсов в {{ mgl-name }}
 
 [{{ GL }}](https://about.gitlab.com/) — это веб-инструмент жизненного цикла [DevOps](/blog/posts/2022/03/what-is-devops) с открытым исходным кодом. Он представляет собой систему управления репозиториями кода для [Git](https://git-scm.com/) с системой отслеживания ошибок, [CI/CD](/blog/posts/2022/10/ci-cd) пайплайном, собственной Wiki и другими функциями.

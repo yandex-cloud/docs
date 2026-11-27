@@ -1,6 +1,10 @@
 ---
 title: Настроить Connections в {{ AF }}
 description: Как создать и изменить подключения к внешним системам в веб-интерфейсе {{ AF }}
+alternate:
+  - href: ru/stackland/operations/airflow/manage-connections.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить Connections в {{ AF }}

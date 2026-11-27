@@ -1,6 +1,10 @@
 ---
 title: Adding a new rule to a {{ vpc-full-name }} security group
 description: You can add rules using the management console, CLI, and {{ vpc-name }} API. You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources associated with a group at the same time.
+alternate:
+  - href: en/vpc/operations/security-group-add-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a new rule to a security group

@@ -1,6 +1,10 @@
 ---
 title: Authentication in {{ ytsaurus-name }}
 description: You can access {{ ytsaurus-name }} resources through the web interface (for users) or with an API key (for service accounts).
+alternate:
+  - href: en/managed-ytsaurus/concepts/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authentication in {{ ytsaurus-name }}

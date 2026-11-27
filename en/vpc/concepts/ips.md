@@ -1,6 +1,10 @@
 ---
 title: Public IP address ranges in {{ yandex-cloud }}
 description: Ranges of public IPv4 addresses of {{ yandex-cloud }} resources connected to {{ vpc-name }}.
+alternate:
+  - href: en/vpc/concepts/ips.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public IP address ranges

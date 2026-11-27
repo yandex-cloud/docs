@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/rest-catalog/delete-catalog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить каталог
 
 Вы можете удалить каталог [{{ rest-catalog-name }}](../../concepts/components/rest-catalog.md) из пространства имен проекта.

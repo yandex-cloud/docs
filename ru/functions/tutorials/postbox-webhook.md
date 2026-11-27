@@ -3,6 +3,10 @@ title: Как интегрировать {{ postbox-full-name }} с внешни
 description: В этом руководстве вы настроите передачу событий {{ postbox-full-name }} в {{ yds-full-name }} и вызов вебхуков во внешних системах при помощи функции {{ sf-full-name }}.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/postbox-webhook'
+alternate:
+  - href: ru/functions/tutorials/postbox-webhook.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [postbox-webhook](../../_tutorials/serverless/postbox-webhook.md) %}

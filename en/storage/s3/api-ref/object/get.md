@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/object/get.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: GetObject
 
 Returns an object from {{ objstorage-name }}.

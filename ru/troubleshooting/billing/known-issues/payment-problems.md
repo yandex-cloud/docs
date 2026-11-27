@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/payment-problems.md
+    type: text/markdown
+    title: Markdown version
+---
 # Устранение проблем с оплатой
 
 

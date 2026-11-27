@@ -1,5 +1,9 @@
 ---
 subcategory: Serverless Cloud Functions
+alternate:
+  - href: en/terraform/data-sources/function_scaling_policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_function_scaling_policy (DataSource)

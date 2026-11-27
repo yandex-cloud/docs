@@ -1,5 +1,9 @@
 ---
 subcategory: Smart Captcha
+alternate:
+  - href: en/terraform/data-sources/smartcaptcha_captcha.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_smartcaptcha_captcha (DataSource)

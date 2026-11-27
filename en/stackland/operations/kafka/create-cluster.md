@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/kafka/create-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a {{ KF }} cluster
 
 If you have `../projects/create-project.md`, you can create an [{{ KF }}](../../concepts/components/kafka.md) cluster in it.

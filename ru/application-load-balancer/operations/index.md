@@ -1,6 +1,10 @@
 ---
 title: Как работать с {{ alb-full-name }}. Пошаговые инструкции
 description: Пошаговые инструкции по работе с {{ alb-full-name }} в {{ yandex-cloud }}. Из статьи вы узнаете, как создать L7-балансировщик и управлять им, как работать с HTTP-роутерами и целевыми группами.
+alternate:
+  - href: ru/application-load-balancer/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ alb-name }}

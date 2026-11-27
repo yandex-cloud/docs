@@ -1,6 +1,10 @@
 ---
 title: Python artifact in {{ cloud-registry-full-name }}
 description: Python artifact is a package containing code, metadata, dependencies, and other resources. PyPI packages are used to distribute libraries, tools, and components you can add to your Python projects.
+alternate:
+  - href: en/cloud-registry/concepts/artifacts/python.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Python artifact

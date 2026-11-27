@@ -2,6 +2,10 @@
 title: Deploying Nextcloud from a {{ coi }}
 description: In this tutorial, you will deploy Nextcloud on a {{ compute-full-name }} VM from a {{ coi }}, integrated with {{ objstorage-full-name }}.
 canonical: '{{ link-docs }}/tutorials/archive/integrate-nextcloud/coi-based'
+alternate:
+  - href: en/storage/tutorials/integrate-nextcloud/coi-based.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deploying Nextcloud on a {{ compute-full-name }} VM from a {{ coi }}, integrated with {{ objstorage-name }}

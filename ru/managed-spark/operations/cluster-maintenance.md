@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание кластера {{ SPRK }}
 description: Следуя данной инструкции, вы сможете просмотреть информацию о планируемых и проведенных технических обслуживаниях кластера {{ SPRK }}, а также выбрать время для проведения обслуживания.
+alternate:
+  - href: ru/managed-spark/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание кластера {{ SPRK }}

@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в API {{ mspqr-name }}
 description: Для выполнения операций через API в сервисе управления базами данных {{ SPQR }} – {{ mspqr-name }}, необходимо получить IAM-токен для своего аккаунта.
+alternate:
+  - href: ru/managed-spqr/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в API {{ mspqr-name }}

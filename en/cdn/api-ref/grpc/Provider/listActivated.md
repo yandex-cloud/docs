@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/cdn/api-ref/grpc/Provider/listActivated.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, gRPC: ProviderService.ListActivated

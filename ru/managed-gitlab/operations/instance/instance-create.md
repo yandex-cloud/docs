@@ -1,6 +1,10 @@
 ---
 title: Как создать инстанс {{ mgl-full-name }}
 description: Из статьи вы узнаете, как создать инстанс {{ mgl-name }}.
+alternate:
+  - href: ru/managed-gitlab/operations/instance/instance-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание и активация инстанса {{ mgl-full-name }}

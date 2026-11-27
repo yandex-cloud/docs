@@ -1,6 +1,10 @@
 ---
 title: Интеграция с {{ marketplace-short-name }} {{ license-manager }} SaaS API
 description: Вы научитесь взаимодействовать с API {{ license-manager }} SaaS для интеграции вашего SaaS приложения с {{ marketplace-full-name }}.
+alternate:
+  - href: ru/marketplace/license-manager/saas/api-ref/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ marketplace-short-name }} {{ license-manager }} SaaS API

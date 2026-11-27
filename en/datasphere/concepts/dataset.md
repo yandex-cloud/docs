@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/dataset.md
+    type: text/markdown
+    title: Markdown version
+---
 # Datasets in {{ ml-platform-name }}
 
 {% include [stop-create-dataset](../../_includes/datasphere/stop-create-datasets.md) %}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/organization/operations/revoke-role.md
+    type: text/markdown
+    title: Markdown version
+---
 # Отозвать роль у пользователя
 
 Если вы хотите запретить пользователю доступ к ресурсу, отзовите у него соответствующие роли на этот ресурс и на ресурсы, от которых наследуются права доступа. Подробнее об управлении доступом в {{ yandex-cloud }} читайте в документации [{{ iam-full-name }}](../../iam/concepts/access-control/index.md).

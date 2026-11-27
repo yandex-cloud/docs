@@ -1,6 +1,10 @@
 ---
 title: Как настроить брендирование {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете настроить внешний вид страниц аутентификации и форму входа во внешние приложения из {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/manage-branding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить брендирование

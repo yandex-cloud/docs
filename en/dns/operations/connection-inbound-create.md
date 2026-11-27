@@ -1,6 +1,10 @@
 ---
 title: How to create an inbound DNS connection in {{ dns-full-name }}
 description: Follow this guide to create an inbound DNS connection.
+alternate:
+  - href: en/dns/operations/connection-inbound-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an inbound DNS connection

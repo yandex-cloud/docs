@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/MSUM.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # MSUM (оконная)

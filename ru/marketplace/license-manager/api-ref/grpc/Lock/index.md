@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/marketplace/license-manager/api-ref/grpc/Lock/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace License Manager, gRPC: LockService

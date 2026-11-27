@@ -2,6 +2,10 @@
 title: Configuring Fluent Bit to work with {{ cloud-logging-full-name }}
 description: To transfer {{ managed-k8s-name }} logs to {{ cloud-logging-name }}, use the Fluent Bit plugin module for {{ cloud-logging-full-name }}.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/k8s-fluent-bit-logging'
+alternate:
+  - href: en/marketplace/tutorials/fluent-bit-logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring Fluent Bit for {{ cloud-logging-full-name }}

@@ -4,6 +4,10 @@ description: DHCP settings allow you to assign a domain name or DNS suffix, whic
 keywords:
   - dhcp
   - dhcp settings
+alternate:
+  - href: en/vpc/concepts/dhcp-options.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DHCP settings

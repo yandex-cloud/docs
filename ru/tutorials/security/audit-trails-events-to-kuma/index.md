@@ -1,6 +1,10 @@
 ---
 title: Загрузка аудитных логов {{ at-full-name }} в SIEM KUMA
 description: Следуя данной инструкции, вы сможете настроить инфраструктуру для экспорта аудитных логов {{ at-short-name }} в SIEM-систему KUMA.
+alternate:
+  - href: ru/tutorials/security/audit-trails-events-to-kuma/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [audit-trails-events-to-kuma](../../../_tutorials/security/audit-trails-events-to-kuma.md) %}

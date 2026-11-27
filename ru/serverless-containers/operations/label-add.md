@@ -1,6 +1,10 @@
 ---
 title: Добавить метку контейнеру
 description: Следуя данной инструкции, вы сможете добавить метку контейнеру.
+alternate:
+  - href: ru/serverless-containers/operations/label-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить метку контейнеру

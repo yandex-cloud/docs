@@ -5,6 +5,10 @@ keywords:
   - tls protocol
   - tls
   - transport layer security
+alternate:
+  - href: en/storage/concepts/tls.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # TLS protocol

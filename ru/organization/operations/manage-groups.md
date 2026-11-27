@@ -1,6 +1,10 @@
 ---
 title: Как управлять группами пользователей в {{ org-full-name }}
 description: Из этой статьи вы узнаете, как управлять группами пользователей в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/manage-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление группами пользователей

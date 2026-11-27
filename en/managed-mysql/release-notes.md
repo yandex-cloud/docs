@@ -1,6 +1,10 @@
 ---
 title: '{{ mmy-full-name }} release notes'
 description: This section contains the {{ mmy-name }} release notes.
+alternate:
+  - href: en/managed-mysql/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mmy-full-name }} release notes

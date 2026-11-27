@@ -1,6 +1,10 @@
 ---
 title: Information about clusters in {{ myt-name }}
 description: You can request detailed information for each {{ ytsaurus-name }} cluster you have created. To get a list of clusters in a folder, go to the folder dashboard and select {{ myt-name }}.
+alternate:
+  - href: en/managed-ytsaurus/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Information about existing clusters

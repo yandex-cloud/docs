@@ -1,6 +1,10 @@
 ---
 title: Как создать плейлист в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете создать плейлист в сервисе {{ video-name }}.
+alternate:
+  - href: ru/video/operations/playlists/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать плейлист

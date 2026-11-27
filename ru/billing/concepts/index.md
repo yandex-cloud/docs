@@ -1,6 +1,10 @@
 ---
 title: Основные понятия сервиса Billing
 description: В Billing {{ yandex-cloud }} используются следующие основные понятия - грант, договор, порог оплаты, лицевой счет, платежный аккаунт, промокод, резервируемое потребление (CVoS)
+alternate:
+  - href: ru/billing/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все понятия

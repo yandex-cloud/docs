@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/vm-control/vm-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить виртуальную машину
 
 После создания ВМ вы можете изменить ее имя, описание, метки, платформу или метаданные.

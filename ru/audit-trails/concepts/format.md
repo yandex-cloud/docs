@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/audit-trails/concepts/format.md
+    type: text/markdown
+    title: Markdown version
+---
 # Аудитный лог событий уровня конфигурации
 
 Аудитный лог [событий уровня конфигурации](events.md) — это запись о событиях, которые произошли с ресурсами {{ yandex-cloud }}, в форме JSON-объекта.

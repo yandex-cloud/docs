@@ -3,6 +3,10 @@ title: Масштабирование группы виртуальных маш
 description: В этом руководстве вы создадите группу ВМ {{ compute-full-name }} и настройте для нее масштабирование по расписанию, используя функции и таймер {{ sf-full-name }} с помощью консоли управления, CLI и API.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-scale-scheduled/'
+alternate:
+  - href: ru/tutorials/serverless/vm-scale-scheduled/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [vm-scale-scheduled](../../../_tutorials/infrastructure/vm-scale-scheduled.md) %}

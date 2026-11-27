@@ -1,6 +1,10 @@
 ---
 title: Как решить проблемы с {{ yandex-cloud }}
 description: Из статьи вы узнаете, какими материалами можно воспользоваться для решения проблем с платформой {{ yandex-cloud }}.
+alternate:
+  - href: ru/overview/qa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение проблем

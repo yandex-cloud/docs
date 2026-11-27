@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/object/getobjecttagging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: GetObjectTagging
 
 Возвращает [метки](../../../concepts/tags.md) объекта в бакете.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/application-load-balancer/operations/application-load-balancer-manage-alerts.md
+    type: text/markdown
+    title: Markdown version
+---
 # Setting up alerts
 
 [Alerting](../../monitoring/concepts/alerting/alert.md) allows you to monitor changes in metrics and notifies you when they hit critical levels using periodic queries known as _alerts_. When metrics reach threshold values, the system sends a notification via the specified communication channel, e.g., by email or messenger.

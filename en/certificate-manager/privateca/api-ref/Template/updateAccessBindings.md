@@ -174,6 +174,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/certificate-manager/privateca/api-ref/Template/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, REST: Template.UpdateAccessBindings

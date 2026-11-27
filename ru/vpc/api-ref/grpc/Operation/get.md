@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/vpc/api-ref/grpc/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, gRPC: OperationService.Get

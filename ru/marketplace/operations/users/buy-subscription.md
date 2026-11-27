@@ -1,6 +1,10 @@
 ---
 title: Как купить подписку в {{ marketplace-full-name }}
 description: Из этой инструкции вы узнаете несколько способов покупки подписки в сервисе {{ marketplace-full-name }}.
+alternate:
+  - href: ru/marketplace/operations/users/buy-subscription.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Покупка подписки

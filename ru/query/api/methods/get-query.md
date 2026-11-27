@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/api/methods/get-query.md
+    type: text/markdown
+    title: Markdown version
+---
 # get-query
 
 Метод возвращает информацию о запросе, включая метаинформацию о запросе, статус его выполнения и объем результатов.

@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/cloud-router/scenarios/static-priority-via-vpn-gw.md
+    type: text/markdown
+    title: Markdown version
+---
 # Приоритет статического маршрута VPC перед маршрутами из On-Prem
 
 

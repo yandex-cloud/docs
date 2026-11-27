@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/dns/concepts/dns-zone.md
+    type: text/markdown
+    title: Markdown version
+---
 # DNS zones
 
 A DNS zone is a logical space that combines the domain names of your resources and stores the necessary [resource records](resource-record.md). There are two types of DNS zones: [public](#public-zones) and [private](#private-zones). Regardless of the type, they have a hierarchy: a zone may have one or more subzones. There is a separate hierarchy of [reverse zones](#reverse-zone).

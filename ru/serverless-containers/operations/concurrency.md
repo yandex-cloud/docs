@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/operations/concurrency.md
+    type: text/markdown
+    title: Markdown version
+---
 # Задать количество одновременных вызовов экземпляра контейнера
 
 Количество одновременных вызовов экземпляра контейнера (`concurrency`) не может превышать [квоты](../concepts/limits.md#serverless-containers-quotas).

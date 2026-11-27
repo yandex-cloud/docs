@@ -1,6 +1,10 @@
 ---
 title: Интеграция с {{ marketplace-short-name }} {{ license-manager }} API
 description: Вы научитесь взаимодействовать с API {{ license-manager }} для интеграции вашего приложения с {{ marketplace-full-name }}.
+alternate:
+  - href: ru/marketplace/license-manager/api-ref/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ marketplace-short-name }} {{ license-manager }} API

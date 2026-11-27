@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/crossplane.md
+    type: text/markdown
+    title: Markdown version
+---
 # Установка Crossplane с поддержкой {{ yandex-cloud }}
 
 [Crossplane](https://crossplane.io/) — свободно распространяемое дополнение к {{ k8s }}, позволяющее командам разработки платформы собрать инфраструктуру для нескольких вендоров и производить более высокоуровневые [API](../../../glossary/rest-api.md) сервисов для потребления командами разработки приложений.

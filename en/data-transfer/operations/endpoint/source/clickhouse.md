@@ -1,6 +1,10 @@
 ---
 title: How to set up a {{ CH }} source endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to create and configure an {{ CH }} source endpoint in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/operations/endpoint/source/clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring data from a {{ CH }} source endpoint

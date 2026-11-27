@@ -1,6 +1,10 @@
 ---
 title: Таблица соответствий типов баз данных и внутренних типов {{ datalens-full-name }}
 description: При создании датасета {{ datalens-full-name }} приводит данные из источника в свой тип для оптимизации. Это позволяет {{ datalens-short-name }} унифицировать работу с данными из разных источников.
+alternate:
+  - href: ru/datalens/dataset/types-lookup-table.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Таблица соответствий типов баз данных и внутренних типов {{ datalens-full-name }}

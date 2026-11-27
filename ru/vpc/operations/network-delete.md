@@ -1,6 +1,10 @@
 ---
 title: Как удалить облачную сеть
 description: Следуя данной инструкции, вы сможете удалить облачную сеть.
+alternate:
+  - href: ru/vpc/operations/network-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить облачную сеть

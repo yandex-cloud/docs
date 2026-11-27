@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/sdk/CloudVideoPlayerSDK/From.md
+    type: text/markdown
+    title: Markdown version
+---
 # From
 
 ```swift

@@ -1,6 +1,10 @@
 ---
 title: Публикация и встраивание в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы узнаете о публикации и встраивании дашбордов и чартов, а также как поделиться объектом в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/concepts/publishing-and-embedding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публикация и встраивание в {{ datalens-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/resource-manager/operations/cloud/delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a cloud
 
 To delete a [cloud](../../concepts/resources-hierarchy.md#cloud), you need the [resource-manager.editor](../../security/index.md#resource-manager-editor) role or higher for that cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).

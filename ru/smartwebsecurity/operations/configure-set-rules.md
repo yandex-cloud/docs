@@ -1,6 +1,10 @@
 ---
 title: Настроить наборы правил Cloud WAF
 description: Следуя данной инструкции, вы сможете настроить наборы правил для профиля WAF.
+alternate:
+  - href: ru/smartwebsecurity/operations/configure-set-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить наборы правил Cloud WAF

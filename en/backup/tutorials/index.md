@@ -1,6 +1,10 @@
 ---
 title: '{{ backup-full-name }} use cases'
 description: Various {{ backup-full-name }} use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/backup/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ backup-name }} tutorials

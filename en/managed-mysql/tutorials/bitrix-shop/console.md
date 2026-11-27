@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/internet-store/bitrix-shop/console'
+alternate:
+  - href: en/managed-mysql/tutorials/bitrix-shop/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an online store on 1C-Bitrix: Website Management using the management console

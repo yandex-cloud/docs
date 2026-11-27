@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/v0/registry/lifecycle-policy/update/
+alternate:
+  - href: ru/cli/cli-ref/cloud-registry/cli-ref/v0/registry/lifecycle-policy/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry v0 registry lifecycle-policy update

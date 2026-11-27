@@ -1,6 +1,10 @@
 ---
 title: Сервисные аккаунты
 description: "Сервисный аккаунт\_— аккаунт, от имени которого программы могут управлять ресурсами в {{ yandex-cloud }}."
+alternate:
+  - href: ru/iam/concepts/users/service-accounts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сервисные аккаунты

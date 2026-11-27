@@ -2,6 +2,10 @@
 title: Service plans {{ datalens-full-name }}
 description: This article compares the {{ datalens-name }} service plans.
 editable: false
+alternate:
+  - href: en/datalens/concepts/service-plans-comparison.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service plans {{ datalens-full-name }}

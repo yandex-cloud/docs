@@ -43,6 +43,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/video/api-ref/Channel/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Channel.ListAccessBindings

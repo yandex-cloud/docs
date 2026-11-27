@@ -1,6 +1,10 @@
 ---
 title: Setting up Maven
 description: Follow this guide to configure Maven.
+alternate:
+  - href: en/cloud-registry/operations/maven/installation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up Maven

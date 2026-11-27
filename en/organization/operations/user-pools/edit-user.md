@@ -1,6 +1,10 @@
 ---
 title: How to update user data in a {{ org-full-name }} pool
 description: Follow this guide to update user data in a {{ org-full-name }} pool.
+alternate:
+  - href: en/organization/operations/user-pools/edit-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating user data

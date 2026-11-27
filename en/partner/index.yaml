@@ -32,6 +32,10 @@ meta:
     - keyword: >-
         How to publish your products and sell them to {{ yandex-cloud }}
         customers
+  alternate:
+    - href: en/partner/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Partner program
     description: Accept customer payments and manage document flow on your own.

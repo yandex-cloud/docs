@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ai/realtime/events-ref/DeletePrompt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio Realtime API Audit Trails Events: DeletePrompt

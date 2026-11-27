@@ -1,5 +1,9 @@
 ---
 subcategory: Serverless Containers
+alternate:
+  - href: en/terraform/data-sources/serverless_container.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_serverless_container (DataSource)

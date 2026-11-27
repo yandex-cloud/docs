@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/CloudEnvironments/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # CloudEnvironments
 
 <!-- markdownlint-disable-file -->

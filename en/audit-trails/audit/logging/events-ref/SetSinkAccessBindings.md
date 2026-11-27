@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/logging/events-ref/SetSinkAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Audit Trails Events: SetSinkAccessBindings

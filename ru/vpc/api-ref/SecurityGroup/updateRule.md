@@ -54,6 +54,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/vpc/api-ref/SecurityGroup/updateRule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.UpdateRule

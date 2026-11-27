@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iot-core/operations/subscribe.md
+    type: text/markdown
+    title: Markdown version
+---
 # Subscribing to messages
 
 {% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}

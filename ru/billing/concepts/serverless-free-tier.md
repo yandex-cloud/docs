@@ -1,6 +1,10 @@
 ---
 title: Уровень нетарифицируемого использования (free tier)
 description: Из статьи вы узнаете, что такое free-tier и для каких сервисов он доступен.
+alternate:
+  - href: ru/billing/concepts/serverless-free-tier.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Уровень нетарифицируемого использования (free tier)

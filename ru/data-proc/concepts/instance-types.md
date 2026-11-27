@@ -1,6 +1,10 @@
 ---
 title: Классы хостов {{ dataproc-name }}
 description: Класс хостов определяет вычислительные мощности, которые выделяются для каждого хоста в кластере {{ dataproc-name }}. При изменении класса хостов для кластера меняются характеристики всех уже созданных в нем хостов. Доступный объем хранилища не зависит от класса хостов.
+alternate:
+  - href: ru/data-proc/concepts/instance-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Классы хостов {{ dataproc-name }}

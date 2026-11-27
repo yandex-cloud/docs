@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/user/get/
+alternate:
+  - href: ru/cli/cli-ref/organization-manager/cli-ref/idp/user/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager idp user get

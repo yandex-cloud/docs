@@ -1,6 +1,10 @@
 ---
 title: Просмотр схемы
 description: Следуя данной инструкции, вы сможете посмотреть схему.
+alternate:
+  - href: ru/metadata-hub/operations/view-schema.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотр схемы

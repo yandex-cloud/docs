@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/container-registry/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API: REST reference

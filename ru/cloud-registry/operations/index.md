@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ cloud-registry-full-name }}
 description: В этом разделе собраны пошаговые инструкции для {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ cloud-registry-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kafka/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Apache Kafka® settings
 
 For {{ mkf-name }} clusters, you can configure {{ KF }} settings. Some settings are configured at the [cluster level](#cluster-settings), while others, at the [topic level](#topic-settings).

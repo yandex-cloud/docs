@@ -1,6 +1,10 @@
 ---
 title: How to create a CAPTCHA in {{ captcha-full-name }}
 description: In this tutorial, you will learn how to create a CAPTCHA.
+alternate:
+  - href: en/smartcaptcha/operations/create-captcha.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a CAPTCHA

@@ -1,6 +1,10 @@
 ---
 title: Suspending services to customers
 description: In this article, you will learn how to suspend services to a customer.
+alternate:
+  - href: en/partner/operations/stop-client-services.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Suspending services to customers

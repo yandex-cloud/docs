@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/migration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как перенести работу в новую версию {{ ml-platform-name }}
 
 Вместе с интерфейсом в {{ ml-platform-name }} изменилась и [ресурсная модель](../concepts/resource-model.md). Чтобы продолжить работу над проектами, созданными в старой версии {{ ml-platform-name }}, перенесите их в новую версию [автоматически](#auto).

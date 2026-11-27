@@ -1,6 +1,10 @@
 ---
 title: Загрузить DAG-файлы в {{ AF }}
 description: Как загрузить, обновить и удалить DAG-файлы из Git или S3 в кластере {{ AF }}
+alternate:
+  - href: ru/stackland/operations/airflow/upload-dags.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузить DAG-файлы в {{ AF }}

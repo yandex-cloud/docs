@@ -1,6 +1,10 @@
 ---
 title: How to create a trail to upload audit logs
 description: Follow this tutorial to create {{ at-full-name }} to register and save audit logs.
+alternate:
+  - href: en/audit-trails/operations/create-trail.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a trail to upload audit logs

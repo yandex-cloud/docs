@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ managed-k8s-name }}
 description: Управление доступом в сервисе для работы с контейнеризованными приложениями {{ managed-k8s-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы сервисным аккаунтам кластера {{ managed-k8s-name }}, какие роли нужны для работы с {{ managed-k8s-name }} через консоль управления {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-kubernetes/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ managed-k8s-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/overview/architecture.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ yandex-cloud }} platform architecture
 
 The {{ yandex-cloud }} platform is a suite of reliable and secure services for all kinds of business scenarios. The platform's services use a single pool of unified hardware resources. This makes the platform readily scalable and allows to automatically ramp up infrastructure capacity as needed at minimal cost.

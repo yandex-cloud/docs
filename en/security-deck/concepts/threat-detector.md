@@ -1,6 +1,10 @@
 ---
 title: '{{ td-full-name }} ({{ td-name }}) in {{ sd-full-name }}'
 description: The {{ td-full-name }} ({{ td-name }}) module automatically detects suspicious activity in the cloud infrastructure.
+alternate:
+  - href: en/security-deck/concepts/threat-detector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ td-full-name }} ({{ td-name }})

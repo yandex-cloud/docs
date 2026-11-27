@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/symmetric-crypto/generate-data-key/
+alternate:
+  - href: ru/kms/cli-ref/symmetric-crypto/generate-data-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc kms symmetric-crypto generate-data-key

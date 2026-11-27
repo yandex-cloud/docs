@@ -1,6 +1,10 @@
 ---
 title: '{{ backup-full-name }} interaction with an antivirus'
 description: In this tutorial, you will learn how an antivirus can affect incremental backups in {{ backup-name }}.
+alternate:
+  - href: en/backup/concepts/av-interaction.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Interaction with an antivirus

@@ -1,6 +1,10 @@
 ---
 title: Резервные копии в {{ backup-full-name }}
 description: В статье содержится информация о резервных копиях в {{ backup-name }}.
+alternate:
+  - href: ru/backup/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Резервные копии

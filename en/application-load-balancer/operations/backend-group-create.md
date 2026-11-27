@@ -1,6 +1,10 @@
 ---
 title: How to create a backend group in {{ alb-full-name }}
 description: In this tutorial, you will learn how to create a backend group.
+alternate:
+  - href: en/application-load-balancer/operations/backend-group-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a backend group

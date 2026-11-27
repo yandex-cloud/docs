@@ -1,6 +1,10 @@
 ---
 title: Как переместить приватное соединение в другой каталог
 description: Следуя этой инструкции, вы сможете переместить приватное соединение в транковом подключении {{ interconnect-full-name }} в другой каталог.
+alternate:
+  - href: ru/interconnect/operations/priv-con-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переместить приватное соединение в другой каталог

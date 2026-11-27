@@ -1,6 +1,10 @@
 ---
 title: Скачать объект в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете скачать объект из бакета в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/objects/download.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Скачать объект

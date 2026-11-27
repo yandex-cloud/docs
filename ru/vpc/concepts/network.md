@@ -4,6 +4,10 @@ keywords:
   - облачная сеть
   - облако
   - сеть
+alternate:
+  - href: ru/vpc/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Облачные сети и подсети

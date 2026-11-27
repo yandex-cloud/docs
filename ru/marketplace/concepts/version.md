@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/marketplace/concepts/version.md
+    type: text/markdown
+    title: Markdown version
+---
 # Версия
 
 Версия — это вариант программного продукта и информация о нем.

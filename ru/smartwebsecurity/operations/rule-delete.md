@@ -1,6 +1,10 @@
 ---
 title: Как удалить правило из профиля безопасности {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете удалить правило из профиля безопасности {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/rule-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить правило из профиля безопасности

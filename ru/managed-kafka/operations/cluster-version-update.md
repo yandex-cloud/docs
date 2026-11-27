@@ -1,6 +1,10 @@
 ---
 title: Обновление версии {{ KF }}
 description: Следуя этой инструкции, вы сможете обновить кластер {{ mkf-name }}.
+alternate:
+  - href: ru/managed-kafka/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновление версии {{ KF }}

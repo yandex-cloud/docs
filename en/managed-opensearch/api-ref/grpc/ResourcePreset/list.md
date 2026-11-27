@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-opensearch/api-ref/grpc/ResourcePreset/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for OpenSearch API, gRPC: ResourcePresetService.List

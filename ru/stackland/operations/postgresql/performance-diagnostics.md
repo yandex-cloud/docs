@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/postgresql/performance-diagnostics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Диагностика производительности {{ PG }}
 
 Performance Diagnostics — это функция сбора и визуализации статистики производительности кластеров {{ PG }}. Она позволяет анализировать производительность SQL-запросов и активность сессий для выявления узких мест и оптимизации работы базы данных.

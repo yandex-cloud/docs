@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/data/filestores.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с файловыми хранилищами
 
 [Файловое хранилище](../../concepts/filestores.md) {{ ml-platform-name }} позволяет хранить большие объемы информации и получать к ним доступ из ноутбуков.

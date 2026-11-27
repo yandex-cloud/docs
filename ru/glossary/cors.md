@@ -1,6 +1,10 @@
 ---
 title: 'CORS (Cross-Origin Resource Sharing): структура и принципы работы'
 description: CORS — это стандарт, позволяющий предоставить веб-страницам доступ к сторонним интернет-ресурсам.
+alternate:
+  - href: ru/glossary/cors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # CORS и принцип одинакового источника

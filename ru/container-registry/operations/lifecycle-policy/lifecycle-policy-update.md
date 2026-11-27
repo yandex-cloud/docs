@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/container-registry/operations/lifecycle-policy/lifecycle-policy-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить политику удаления
 
 После создания [политики удаления](../../concepts/lifecycle-policy.md) вы можете изменить ее правила, а также статус, имя или описание.

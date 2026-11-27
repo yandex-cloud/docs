@@ -1,6 +1,10 @@
 ---
 title: Мониторинг состояния кластера {{ OS }} и хостов
 description: Следуя этой инструкции, вы сможете получить детальную информацию о состоянии кластера {{ mos-name }}.
+alternate:
+  - href: ru/managed-opensearch/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг состояния кластера {{ OS }} и хостов

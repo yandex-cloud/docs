@@ -1,6 +1,10 @@
 ---
 title: Как отключить и включить зоны доступности для сетевого балансировщика {{ network-load-balancer-full-name }}
 description: Следуя данной инструкции, вы сможете отключить и включить зоны доступности для сетевого балансировщика.
+alternate:
+  - href: ru/network-load-balancer/operations/manage-zone/disable-enable-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

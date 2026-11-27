@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ cns-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ cns-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/notifications/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ at-full-name }}

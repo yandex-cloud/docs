@@ -430,6 +430,10 @@ apiPlayground:
               - IMAGE_TEXT
               - SILHOUETTES
               - KALEIDOSCOPE
+alternate:
+  - href: en/smartcaptcha/api-ref/Captcha/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartCaptcha API, REST: Captcha.Update

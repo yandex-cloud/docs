@@ -5,6 +5,10 @@ keywords:
   - keyword: create {{ SPQR }} cluster
   - keyword: '{{ SPQR }} cluster'
   - keyword: '{{ SPQR }}'
+alternate:
+  - href: en/managed-spqr/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ SPQR }} cluster

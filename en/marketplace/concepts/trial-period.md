@@ -1,6 +1,10 @@
 ---
 title: Trial period for {{ marketplace-short-name }} products
 description: A trial period is the time within which a {{ marketplace-short-name }} product is available to the user free of charge.
+alternate:
+  - href: en/marketplace/concepts/trial-period.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Trial period

@@ -1,6 +1,10 @@
 ---
 title: Изменение кластера {{ MY }}
 description: На странице представлены вопросы и ответы про изменение кластера {{ MY }}.
+alternate:
+  - href: ru/managed-mysql/qa/updating.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение кластера {{ MY }}

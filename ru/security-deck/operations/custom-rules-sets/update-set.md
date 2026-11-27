@@ -1,6 +1,10 @@
 ---
 title: Изменение пользовательского набора правил в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в {{ sd-full-name }} изменить пользовательский набор правил.
+alternate:
+  - href: ru/security-deck/operations/custom-rules-sets/update-set.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить пользовательский набор правил

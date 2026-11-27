@@ -1,6 +1,10 @@
 ---
 title: Миграция базы данных из {{ mmy-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
 description: С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера-источника {{ mmy-name }} в {{ ydb-name }}.
+alternate:
+  - href: ru/tutorials/dataplatform/mmy-ydb-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция базы данных из {{ mmy-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}

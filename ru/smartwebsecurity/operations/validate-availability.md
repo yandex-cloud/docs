@@ -1,6 +1,10 @@
 ---
 title: Как проверить доступность ресурсов в домене {{ sws-name }}
 description: Следуя данной инструкции, вы сможете проверить статус и доступность ваших ресурсов из балансировщика прокси-сервера {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/validate-availability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Проверить доступность ресурсов

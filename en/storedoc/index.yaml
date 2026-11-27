@@ -49,6 +49,10 @@ meta:
     - keyword: '{{ SD }} in cloud'
     - keyword: NoSQL DBMS
     - keyword: Open source DBMS
+  alternate:
+    - href: en/storedoc/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first database cluster

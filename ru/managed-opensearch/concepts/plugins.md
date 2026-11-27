@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-opensearch/concepts/plugins.md
+    type: text/markdown
+    title: Markdown version
+---
 # Плагины {{ OS }}
 
 {{ mos-name }} содержит ряд [предустановленных плагинов]({{ os.docs }}/install-and-configure/plugins/#bundled-plugins). Также при создании или изменении кластера в {{ mos-short-name }} вы можете указать желаемый список [дополнительных плагинов](#opensearch), и они будут автоматически установлены в кластер.

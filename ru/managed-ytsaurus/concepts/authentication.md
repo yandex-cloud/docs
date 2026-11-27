@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в {{ ytsaurus-name }}
 description: Доступ к ресурсам {{ ytsaurus-name }} возможен через веб-интерфейс (для пользователей) или с помощью API-ключа (для сервисных аккаунтов).
+alternate:
+  - href: ru/managed-ytsaurus/concepts/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в {{ ytsaurus-name }}

@@ -1,6 +1,10 @@
 ---
 title: Дополнительные методы API
 description: Из статьи вы узнаете про дополнительные методы API {{ yandex-cloud }}, а также ознакомитесь с примером дополнительного метода.
+alternate:
+  - href: ru/api-design-guide/concepts/custom-methods.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Дополнительные методы

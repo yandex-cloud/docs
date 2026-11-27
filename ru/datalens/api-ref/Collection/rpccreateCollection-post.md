@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Collection/rpccreateCollection-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Create collection

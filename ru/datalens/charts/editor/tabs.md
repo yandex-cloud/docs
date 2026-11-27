@@ -1,6 +1,10 @@
 ---
 title: Вкладки Editor
 description: Из статьи вы узнаете, за что отвечают вкладки в Editor.
+alternate:
+  - href: ru/datalens/charts/editor/tabs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вкладки

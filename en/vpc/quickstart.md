@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/vpc/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ vpc-short-name }}
 
 Create a [cloud network and subnet](concepts/network.md) in an empty cloud and reserve a [static public IP address](concepts/address.md#public-addresses) for your VM using {{ vpc-name }}. Your cloud resources will be connected to the subnet and the static public IP address will remain reserved even if you stop or delete the VM it was associated with. You will be able to associate this address with another VM later.

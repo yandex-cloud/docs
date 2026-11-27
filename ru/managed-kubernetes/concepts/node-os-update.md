@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/concepts/node-os-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обновление операционной системы в группе узлов
 
 Начиная с {{ k8s }} версии 1.30 во всех [релизных каналах](../../managed-kubernetes/concepts/release-channels-and-updates.md) операционная система узлов кластера {{ managed-k8s-name }} изменилась с Ubuntu 20.04 на Ubuntu 22.04.

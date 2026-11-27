@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/ydb-mkf-replication'
+alternate:
+  - href: en/managed-kafka/tutorials/cdc/data-transfer-ydb.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering data from {{ ydb-full-name }} using {{ data-transfer-full-name }}

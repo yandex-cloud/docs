@@ -1,6 +1,10 @@
 ---
 title: Диагностика производительности в {{ mch-name }}
 description: Вы можете получать метрики производительности по запросам и группам запросов в {{ mch-full-name }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/performance-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика производительности в {{ mch-name }}

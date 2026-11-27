@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/certificate-manager/privateca/api-ref/grpc/Template/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, gRPC: TemplateService.Update

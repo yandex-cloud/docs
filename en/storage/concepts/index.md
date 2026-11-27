@@ -1,6 +1,10 @@
 ---
 title: '{{ objstorage-full-name }} concepts'
 description: This article explains the basic {{ objstorage-name }} concepts.
+alternate:
+  - href: en/storage/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ objstorage-name }} concepts

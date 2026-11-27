@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/trigger/cloud-logging-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a trigger for {{ cloud-logging-name }} that invokes {{ sf-name }}
 
 Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-logging-trigger.md) that invokes [{{ sf-name }}](../../concepts/function.md) whenever entries are added to the [log group](../../../logging/concepts/log-group.md).

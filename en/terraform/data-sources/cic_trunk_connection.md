@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Interconnect
+alternate:
+  - href: en/terraform/data-sources/cic_trunk_connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cic_trunk_connection (DataSource)

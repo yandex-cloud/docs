@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/create-platform-endpoint.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие CreatePlatformEndpoint
 
 Создает [эндпоинт для Push-уведомлений](../concepts/push.md#mobile-endpoints) (подписывает пользователя на Push-уведомления).

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/monium/api-ref/grpc/LogGroup/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, gRPC: LogGroupService.SetAccessBindings

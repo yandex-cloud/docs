@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-opensearch/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ OS }} version upgrade
 
 You can upgrade a {{ mos-name }} cluster to a newer {{ OS }} version.

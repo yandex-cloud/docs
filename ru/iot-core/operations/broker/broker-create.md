@@ -1,6 +1,10 @@
 ---
 title: Как создать брокер
 description: Следуя данной инструкции, вы сможете создать брокер.
+alternate:
+  - href: ru/iot-core/operations/broker/broker-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание брокера

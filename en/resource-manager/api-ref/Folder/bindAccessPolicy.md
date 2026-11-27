@@ -55,6 +55,10 @@ apiPlayground:
             maxProperties: 64
         required:
           - accessPolicyTemplateId
+alternate:
+  - href: en/resource-manager/api-ref/Folder/bindAccessPolicy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API, REST: Folder.BindAccessPolicy

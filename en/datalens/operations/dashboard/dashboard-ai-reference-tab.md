@@ -1,6 +1,10 @@
 ---
 title: How to set up a reference tab for AI on a dashboard in {{ datalens-full-name }}
 description: In this article, you will learn about the AI ​​reference tab on your dashboard in {{ datalens-full-name }} and how to configure it.
+alternate:
+  - href: en/datalens/operations/dashboard/dashboard-ai-reference-tab.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reference tab for AI on a dashboard in {{ datalens-full-name }}

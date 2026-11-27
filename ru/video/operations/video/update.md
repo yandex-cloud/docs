@@ -1,6 +1,10 @@
 ---
 title: Как изменить видео в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете изменить видео в сервисе {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/video/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить видео

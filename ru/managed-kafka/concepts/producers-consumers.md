@@ -1,6 +1,10 @@
 ---
 title: Производители и потребители
 description: Из статьи вы узнаете, что такое производители и потребители.
+alternate:
+  - href: ru/managed-kafka/concepts/producers-consumers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Производители и потребители

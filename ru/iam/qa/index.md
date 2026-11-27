@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ iam-full-name }}
 description: На странице представлены вопросы и ответы про {{ iam-name }}.
+alternate:
+  - href: ru/iam/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ iam-name }}

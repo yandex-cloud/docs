@@ -2,6 +2,10 @@
 title: Server-side encryption
 description: Follow this guide to configure server-side encryption.
 canonical: '{{ link-docs }}/tutorials/security/server-side-encryption'
+alternate:
+  - href: en/storage/tutorials/server-side-encryption.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Server-side encryption

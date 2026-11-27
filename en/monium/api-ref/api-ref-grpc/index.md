@@ -1,6 +1,10 @@
 ---
 title: '{{ monitoring-full-name }} gRPC API overview'
 description: '{{ monitoring-name }} gRPC API reference: description of services, methods, response and error processing.'
+alternate:
+  - href: en/monium/api-ref/api-ref-grpc/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Overview

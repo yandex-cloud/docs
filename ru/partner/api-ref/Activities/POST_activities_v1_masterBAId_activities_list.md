@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Activities/POST_activities_v1_masterBAId_activities_list.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # List activities

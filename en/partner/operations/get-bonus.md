@@ -1,6 +1,10 @@
 ---
 title: Getting commissions
 description: Follow this guide to get your commissions.
+alternate:
+  - href: en/partner/operations/get-bonus.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting commissions

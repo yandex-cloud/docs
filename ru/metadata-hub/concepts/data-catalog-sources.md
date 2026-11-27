@@ -1,6 +1,10 @@
 ---
 title: Источники данных в сервисе {{ data-catalog-name }}
 description: Источник данных — это то подключение к базе данных или сервису, через которое в каталог загружаются метаданные. Набор загружаемых метаданных зависит от типа источника.
+alternate:
+  - href: ru/metadata-hub/concepts/data-catalog-sources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

@@ -1,6 +1,10 @@
 ---
 title: Creating a {{ baremetal-name }} node group for {{ baremetal-extend-managed-k8s-name }}
 description: Follow this guide to create a {{ baremetal-name }} node group for {{ baremetal-extend-managed-k8s-name }}.
+alternate:
+  - href: en/baremetal/operations/extend/managed-kubernetes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ baremetal-name }} node group for {{ baremetal-extend-managed-k8s-name }}

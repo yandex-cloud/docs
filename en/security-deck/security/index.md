@@ -1,6 +1,10 @@
 ---
 title: Common {{ sd-full-name }} roles
 description: Managing access permissions in {{ sd-full-name }} information security management service. To allow a user access to {{ sd-name }} resources, assign them the roles from the list below.
+alternate:
+  - href: en/security-deck/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Common {{ sd-full-name }} roles

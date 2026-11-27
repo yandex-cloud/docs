@@ -1,6 +1,10 @@
 ---
 title: Получение FQDN хостов {{ mgp-name }}
 description: Следуя данной инструкции, вы сможете получить FQDN хостов для подключения к базе данных в кластере {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/connect/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FQDN хостов {{ mgp-name }}

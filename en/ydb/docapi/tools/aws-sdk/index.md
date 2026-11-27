@@ -2,6 +2,10 @@
 title: Working with the AWS SDK. Overview
 description: This section describes how to write simple programs using the AWS SDK to perform certain operations in YDB. Examples are given for several programming languages.
 sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
+alternate:
+  - href: en/ydb/docapi/tools/aws-sdk/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with the AWS SDK in {{ ydb-name }}. Overview

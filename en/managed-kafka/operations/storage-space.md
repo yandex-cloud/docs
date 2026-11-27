@@ -1,6 +1,10 @@
 ---
 title: Managing disk space in a {{ mkf-name }} cluster
 description: You can monitor storage usage and increase storage size either manually or automatically.
+alternate:
+  - href: en/managed-kafka/operations/storage-space.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing disk space in a {{ mkf-name }} cluster

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-transfer/concepts/sharded.md
+    type: text/markdown
+    title: Markdown version
+---
 # Parallel copy
 
 {{ data-transfer-name }} can simultaneously use multiple execution threads for a transfer. This significantly increases transfer throughput and allows using more resources for the transfer. Parallel copy is used for [all types of copy](transfer-lifecycle.md#copy) in _{{ dt-type-copy }}_ and _{{ dt-type-copy-repl }}_ transfers in the {{ dt-status-copy }} [status](transfer-lifecycle.md#statuses).

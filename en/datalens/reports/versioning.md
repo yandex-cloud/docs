@@ -1,6 +1,10 @@
 ---
 title: Report versioning
 description: In this article, you will learn about report versioning and version types.
+alternate:
+  - href: en/datalens/reports/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Versioning

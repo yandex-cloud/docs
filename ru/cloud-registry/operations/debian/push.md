@@ -1,6 +1,10 @@
 ---
 title: Загрузить Debian-пакет в реестр {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы загрузите Debian-пакет в реестр {{ cloud-registry-full-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/debian/push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузить Debian-пакет в реестр

@@ -1,6 +1,10 @@
 ---
 title: How to manage {{ CH }} cluster databases in {{ mch-full-name }}
 description: Follow this guide to manage {{ CH }} cluster databases.
+alternate:
+  - href: en/managed-clickhouse/operations/databases.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing databases in {{ mch-name }}

@@ -1,6 +1,10 @@
 ---
 title: '{{ iot-full-name }} quotas and limits'
 description: '{{ iot-full-name }} has limits and quotas for the maximum size per message, the frequency of sending messages per device, the maximum subtopic name length, and the maximum number of aliases per device. For more information about the service restrictions, read this article.'
+alternate:
+  - href: en/iot-core/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ iot-name }} quotas and limits

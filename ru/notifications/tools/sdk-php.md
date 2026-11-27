@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с AWS SDK для PHP в {{ cns-full-name }}
 description: Следуя данной инструкции, вы научитесь работать с AWS SDK для PHP в {{ cns-full-name }}.
+alternate:
+  - href: ru/notifications/tools/sdk-php.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с AWS SDK для PHP в {{ cns-full-name }}

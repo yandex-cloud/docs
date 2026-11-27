@@ -1,6 +1,10 @@
 ---
 title: Environment — SDK видеоплеера {{ video-full-name }} для iOS
 description: Создание плееров, настройка окружения и сетевых запросов в SDK видеоплеера {{ video-name }} для iOS.
+alternate:
+  - href: ru/video/sdk/CloudVideoPlayerSDK/Environment.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Environment

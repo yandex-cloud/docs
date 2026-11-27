@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance/add-metadata/
+alternate:
+  - href: en/cli/cli-ref/compute/cli-ref/instance/add-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute instance add-metadata

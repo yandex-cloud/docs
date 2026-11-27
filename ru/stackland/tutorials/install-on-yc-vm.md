@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/tutorials/install-on-yc-vm.md
+    type: text/markdown
+    title: Markdown version
+---
 # Установка {{ stackland-name }} на виртуальные машины в {{ yandex-cloud }}
 
 В этом руководстве описана установка {{ stackland-full-name }} на виртуальные машины в {{ yandex-cloud }} из пользовательского загрузочного образа.

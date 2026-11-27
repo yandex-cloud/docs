@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for Gitlab
+alternate:
+  - href: ru/terraform/resources/gitlab_instance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_gitlab_instance (Resource)

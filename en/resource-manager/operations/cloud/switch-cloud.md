@@ -1,6 +1,10 @@
 ---
 title: How to switch over to a different cloud in {{ resmgr-full-name }}
 description: In this tutorial, you will learn how to switch over to another cloud in {{ resmgr-full-name }}.
+alternate:
+  - href: en/resource-manager/operations/cloud/switch-cloud.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Switch clouds

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/interconnect/api-ref/TrunkConnection/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Interconnect API, REST: TrunkConnection

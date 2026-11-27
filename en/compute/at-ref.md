@@ -1,6 +1,10 @@
 ---
 title: '{{ compute-full-name }} event reference in {{ at-full-name }}'
 description: This page is a reference for {{ compute-name }} management and data events tracked by {{ at-name }}.
+alternate:
+  - href: en/compute/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

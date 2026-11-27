@@ -2,6 +2,10 @@
 title: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets
 description: Example of secure acquisition of a {{ lockbox-name }} secret and storing it in a {{ GL }} CI internal variable.
 canonical: '{{ link-docs }}/tutorials/security/gitlab-lockbox-integration'
+alternate:
+  - href: en/lockbox/tutorials/gitlab-lockbox-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets

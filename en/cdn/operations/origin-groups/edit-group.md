@@ -1,6 +1,10 @@
 ---
 title: How to update an origin group in {{ cdn-full-name }}
 description: In this tutorial, you will learn how to update a {{ cdn-name }} origin group.
+alternate:
+  - href: en/cdn/operations/origin-groups/edit-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating an origin group

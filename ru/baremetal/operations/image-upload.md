@@ -1,6 +1,10 @@
 ---
 title: Как создать загрузочный образ в {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете создать собственный загрузочный ISO-образ в {{ baremetal-name }}, чтобы запустить с него сервер.
+alternate:
+  - href: ru/baremetal/operations/image-upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать загрузочный образ

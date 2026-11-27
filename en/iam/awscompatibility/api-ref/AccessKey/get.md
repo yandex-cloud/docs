@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/iam/awscompatibility/api-ref/AccessKey/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access Key, REST: AccessKey.Get

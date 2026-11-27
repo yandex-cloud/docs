@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/lockbox/api-ref/Secret/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox API, REST: Secret

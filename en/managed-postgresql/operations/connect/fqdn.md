@@ -1,6 +1,10 @@
 ---
 title: FQDNs of {{ mpg-full-name }} hosts
 description: Follow this guide to get an FQDN of a {{ mpg-full-name }} host.
+alternate:
+  - href: en/managed-postgresql/operations/connect/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FQDNs of {{ PG }} hosts

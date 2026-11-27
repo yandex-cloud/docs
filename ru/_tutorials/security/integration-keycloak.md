@@ -22,7 +22,13 @@
 
     {% list tabs %}
 
-    - Keycloak 20 в режиме разработчика
+    - Keycloak 24 или новее в режиме разработчика
+
+      ```bash
+      docker run -p 8080:8080 -e KC_BOOTSTRAP_ADMIN_USERNAME=admin -e KC_BOOTSTRAP_ADMIN_PASSWORD=Pa55w0rd quay.io/keycloak/keycloak:latest start-dev
+      ```
+
+    - Keycloak 20–23 в режиме разработчика
 
       ```bash
       docker run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=Pa55w0rd quay.io/keycloak/keycloak:latest start-dev
@@ -41,6 +47,12 @@
     {% note info %}
 
     Чтобы сотрудники в корпоративной сети или интернете могли использовать Keycloak для аутентификации в вашем приложении, разверните IdP-сервер Keycloak в сети и настройте публичный адрес. Подробнее читайте в [документации Keycloak](https://www.keycloak.org/server/hostname).
+
+    {% endnote %}
+
+    {% note info %}
+
+    В этом руководстве используется служебный realm `master`. Для продакшн-среды [создайте отдельный realm](https://www.keycloak.org/docs/latest/server_admin/#_configuring-realms) и замените `master` на его имя во всех URL.
 
     {% endnote %}
 
@@ -226,12 +238,12 @@
 
         * `--organization-id` — [идентификатор](../../organization/operations/organization-get-id.md) организации.
 
-        * `--auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере.
+        * `--auto-create-account-on-login` — параметр, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере.
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [публичной группе](../../iam/concepts/access-control/public-group.md) `All users` или `All authenticated users`.
 
           Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
 
-        * `--encrypted-assertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}.
+        * `--encrypted-assertions` — параметр, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}. Необязательный параметр.
 
         * `--cookie-max-age` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
 
@@ -339,7 +351,7 @@
 
         * `organizationId` — [идентификатор](../../organization/operations/organization-get-id.md) организации. 
 
-        * `autoCreateAccountOnLogin` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере.
+        * `autoCreateAccountOnLogin` — параметр, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере.
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [публичной группе](../../iam/concepts/access-control/public-group.md) `All users` или `All authenticated users`.
 
           Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
@@ -402,7 +414,7 @@
 
           {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
 
-        * `encryptedAssertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}.
+        * `encryptedAssertions` — параметр, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}. Необязательный параметр.
 
         * {% include [forceauthn-api-enable](../../_includes/organization/forceauth-api-enable.md) %}
 
@@ -422,13 +434,13 @@
 
           ```hcl
           resource "yandex_organizationmanager_saml_federation" federation {
-          name            = "my-federation"
-          organization_id = "<идентификатор_организации>"
-          auto_create_account_on_login = "true"
-          issuer          = "http://<хост>:8080/realms/master"
-          sso_url         = "http://<хост>:8080/realms/master/protocol/saml"
-          sso_binding     = "POST"
-          security_settings {
+            name            = "my-federation"
+            organization_id = "<идентификатор_организации>"
+            auto_create_account_on_login = "true"
+            issuer          = "http://<хост>:8080/realms/master"
+            sso_url         = "http://<хост>:8080/realms/master/protocol/saml"
+            sso_binding     = "POST"
+            security_settings {
               encrypted_assertions = "true"
               force_authn          = "true"
             }
@@ -439,13 +451,13 @@
 
           ```hcl
           resource "yandex_organizationmanager_saml_federation" federation {
-          name            = "my-federation"
-          organization_id = "<идентификатор_организации>"
-          auto_create_account_on_login = "true"
-          issuer          = "http://<хост>:8080/auth/realms/master"
-          sso_url         = "http://<хост>:8080/auth/realms/master/protocol/saml"
-          sso_binding     = "POST"
-          security_settings {
+            name            = "my-federation"
+            organization_id = "<идентификатор_организации>"
+            auto_create_account_on_login = "true"
+            issuer          = "http://<хост>:8080/auth/realms/master"
+            sso_url         = "http://<хост>:8080/auth/realms/master/protocol/saml"
+            sso_binding     = "POST"
+            security_settings {
               encrypted_assertions = "true"
               force_authn          = "true"
             }
@@ -455,10 +467,8 @@
       Где:
 
       * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-      * `description` — описание федерации.
       * `organization_id` — [идентификатор](../../organization/operations/organization-get-id.md) организации.
-      * `labels` — набор пар меток ключ/значение, которые присвоены федерации. Необязательный параметр.
-      * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация: 
+      * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация:
 
         - Keycloak 17 или новее
 
@@ -518,7 +528,7 @@
         {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
 
       * `cookie_max_age` — время в секундах, в течение которого браузер не должен требовать у пользователя повторной аутентификации. Значение по умолчанию `8 часов`. 
-      * `auto_create_account_on_login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
+      * `auto_create_account_on_login` — параметр, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [публичной группе](../../iam/concepts/access-control/public-group.md) `All users` или `All authenticated users`.
 
         Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
@@ -583,7 +593,7 @@
 
      ```bash
      yc organization-manager federation saml certificate create \
-       --federation-id <ID_федерации> \
+       --federation-id <идентификатор_федерации> \
        --name "my-certificate" \
        --certificate-file certificate.cer
      ```
@@ -595,7 +605,7 @@
 
      ```json
      {
-       "federationId": "<ID_федерации>",
+       "federationId": "<идентификатор_федерации>",
        "name": "my-certificate",
        "data": "-----BEGIN CERTIFICATE..."
      }
@@ -808,7 +818,7 @@
   1. Добавьте пользователей, перечислив их Name ID через запятую:
 
      ```bash
-     yc organization-manager federation saml add-user-accounts --id <ID_федерации> \
+     yc organization-manager federation saml add-user-accounts --id <идентификатор_федерации> \
        --name-ids=alice@example.com,bob@example.com,charlie@example.com
      ```
 
@@ -841,7 +851,7 @@
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer <IAM-токен>" \
         --data '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID_федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<идентификатор_федерации>:addUserAccounts
       ```
 
 {% endlist %}
@@ -949,7 +959,7 @@
 1. Перейдите по URL для входа в консоль:
 
    ```
-   {{ link-console-main }}/federations/<ID_федерации>
+   {{ link-console-main }}/federations/<идентификатор_федерации>
    ```
 
    {% cut "Как получить ID федерации" %}

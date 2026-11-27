@@ -1,6 +1,10 @@
 ---
 title: Типы дисков в {{ mgp-full-name }}
 description: Из статьи вы узнаете о типах дисков в {{ mgp-name }} и особенностях хранилища на локальных SSD-дисках.
+alternate:
+  - href: ru/managed-greenplum/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Типы дисков в {{ mgp-name }}

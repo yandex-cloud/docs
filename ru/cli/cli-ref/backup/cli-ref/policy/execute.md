@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/policy/execute/
+alternate:
+  - href: ru/cli/cli-ref/backup/cli-ref/policy/execute.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc backup policy execute

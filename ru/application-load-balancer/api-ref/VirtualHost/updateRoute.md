@@ -757,6 +757,10 @@ apiPlayground:
               Value must match the regular expression ` (?i:ssl-client-subject-dn|client-cert-subject|x-ssl-client-subject-dn|) `.
             pattern: (?i:ssl-client-subject-dn|client-cert-subject|x-ssl-client-subject-dn|)
             type: string
+alternate:
+  - href: ru/application-load-balancer/api-ref/VirtualHost/updateRoute.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: VirtualHost.UpdateRoute

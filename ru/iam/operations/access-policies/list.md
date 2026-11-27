@@ -1,6 +1,10 @@
 ---
 title: Получить список доступных шаблонов политик авторизации
 description: Из статьи вы узнаете, как получить список шаблонов политик авторизации {{ iam-full-name }}, которые доступны вам для назначения на ресурсы {{ yandex-cloud }}.
+alternate:
+  - href: ru/iam/operations/access-policies/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка поддерживаемых шаблонов политик авторизации

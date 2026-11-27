@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/concepts/networking.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сетевое взаимодействие в {{ sf-name }}
 
 По умолчанию функция запускается в изолированной IPv4-сети с включенным [NAT-шлюзом](../../vpc/concepts/gateways.md). Поэтому из функции доступны только публичные IPv4-адреса.

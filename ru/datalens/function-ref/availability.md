@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/availability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поддержка функций

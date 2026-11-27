@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/MMAX.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # MMAX (window)

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cli/concepts/core-properties.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ yandex-cloud }} CLI configuration
 
 You can [set the parameters](../operations/profile/manage-properties.md) in the profile to quickly switch the command execution context. Use global parameters for a single run of a command with a specific parameter value.

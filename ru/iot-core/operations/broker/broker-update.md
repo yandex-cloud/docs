@@ -1,6 +1,10 @@
 ---
 title: Как изменить брокер
 description: Следуя данной инструкции, вы сможете изменить брокер.
+alternate:
+  - href: ru/iot-core/operations/broker/broker-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение брокера

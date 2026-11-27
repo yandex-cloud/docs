@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/RANK_PERCENTILE.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # RANK_PERCENTILE (оконная)

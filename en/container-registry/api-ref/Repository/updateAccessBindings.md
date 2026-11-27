@@ -105,6 +105,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/container-registry/api-ref/Repository/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: Repository.UpdateAccessBindings

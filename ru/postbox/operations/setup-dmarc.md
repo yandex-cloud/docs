@@ -1,6 +1,10 @@
 ---
 title: Настройка DMARC-политики
 description: Следуя данной инструкции, вы настроите DMARC-политику.
+alternate:
+  - href: ru/postbox/operations/setup-dmarc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка DMARC-политики

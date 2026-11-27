@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/stopping-pausing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Stopping and pausing an instance group
 
 You can completely or partially stop an instance group.

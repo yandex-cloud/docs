@@ -1,6 +1,10 @@
 ---
 title: Как создать бота в Telegram с помощью Serverless в консоли управления
 description: В этом сценарии вы узнаете, как с помощью serverless-технологий создать бота в Telegram, который будет отвечать на сообщения в чате.
+alternate:
+  - href: ru/tutorials/serverless/telegram-bot-serverless/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как создать бота в Telegram с помощью Serverless в консоли управления

@@ -1,6 +1,10 @@
 ---
 title: Как восстановить диск с помощью снимка в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете восстановить диск с помощью снимка.
+alternate:
+  - href: ru/compute/operations/disk-create/from-snapshot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановить диск с помощью снимка

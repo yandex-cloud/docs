@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию об сервисном подключении в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о сервисном подключении (Private Endpoint) в {{ vpc-name }}.
+alternate:
+  - href: ru/vpc/operations/private-endpoint-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о сервисном подключении

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ SD }} settings
 
 When [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-mongod-config) a {{ mmg-name }} cluster, you can specify settings that pertain to {{ SD }}.

@@ -1,6 +1,10 @@
 ---
 title: Подготовка бэкенда для источников данных
 description: Следуя данной инструкции, вы сможете настроить бэкенд для источников метаданных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/settings-backend-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подготовка бэкенда для источников данных

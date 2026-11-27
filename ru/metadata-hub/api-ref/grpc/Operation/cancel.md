@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/metadata-hub/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Hive Metastore™ API, gRPC: OperationService.Cancel

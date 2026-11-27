@@ -1,6 +1,10 @@
 ---
 title: '{{ serverless-containers-name }} tutorials'
 description: This page features a list of {{ serverless-containers-name }} tutorials.
+alternate:
+  - href: en/serverless-containers/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ serverless-containers-name }} tutorials

@@ -1,6 +1,10 @@
 ---
 title: '{{ postbox-full-name }} quotas and limits'
 description: There are quotas and limits on sending emails in {{ postbox-full-name }}. For more information about the service limitations, read this article.
+alternate:
+  - href: en/postbox/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ postbox-name }} quotas and limits

@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание кластера {{ SPQR }}
 description: Следуя данной инструкции, вы сможете просмотреть информацию о планируемых и проведенных технических обслуживаниях кластера {{ SPQR }}, а также выбрать время для проведения обслуживания.
+alternate:
+  - href: ru/managed-spqr/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание кластера {{ SPQR }}

@@ -1,6 +1,10 @@
 ---
 title: Рекомендации по настройке проверок состояния {{ alb-full-name }}
 description: На странице представлены рекомендации по настройке проверок состояния {{ alb-name }}.
+alternate:
+  - href: ru/application-load-balancer/concepts/best-practices.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Рекомендации по настройке проверок состояния {{ alb-full-name }}

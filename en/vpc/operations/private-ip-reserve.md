@@ -1,6 +1,10 @@
 ---
 title: Reserving an internal IP address
 description: Follow this guide to reserve an internal IP address.
+alternate:
+  - href: en/vpc/operations/private-ip-reserve.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reserving an internal IP address

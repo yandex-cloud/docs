@@ -1,6 +1,10 @@
 ---
 title: Начало работы для физических лиц в {{ yandex-cloud }}
 description: 'Из этих статей вы узнаете, как физическому лицу начать работать в {{ yandex-cloud }}. Отвечаем на частые вопросы: платежный аккаунт и платное потребление; стартовый грант; документы.'
+alternate:
+  - href: ru/getting-started/individuals/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы для физических лиц

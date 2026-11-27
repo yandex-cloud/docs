@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть информацию о домене в пуле пользователей или федерации {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете посмотреть информацию о домене в пуле пользователей или федерации {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/get-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть информацию о домене

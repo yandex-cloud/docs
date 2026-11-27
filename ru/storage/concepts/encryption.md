@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/concepts/encryption.md
+    type: text/markdown
+    title: Markdown version
+---
 # Шифрование в {{ objstorage-name }}
 
 При использовании сервиса [{{ objstorage-full-name }}](../../storage/) критичные данные должны быть зашифрованы.

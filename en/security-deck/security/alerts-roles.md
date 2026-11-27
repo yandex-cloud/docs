@@ -1,6 +1,10 @@
 ---
 title: '{{ alerts-name }} service roles in {{ sd-full-name }}'
 description: This page lists the service roles required to control access to the {{ alerts-name }} module in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/security/alerts-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service roles for {{ alerts-name }}

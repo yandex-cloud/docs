@@ -44,6 +44,10 @@ meta:
     - keyword: SSL termination in {{ yandex-cloud }}
     - keyword: '{{ alb-name }} in {{ yandex-cloud }}'
     - keyword: alb in {{ yandex-cloud }}
+  alternate:
+    - href: en/application-load-balancer/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first application load balancer

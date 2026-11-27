@@ -1,5 +1,9 @@
 ---
 subcategory: Compute Cloud
+alternate:
+  - href: en/terraform/resources/compute_disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_compute_disk (Resource)

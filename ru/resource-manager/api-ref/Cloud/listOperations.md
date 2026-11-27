@@ -40,6 +40,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/resource-manager/api-ref/Cloud/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API, REST: Cloud.ListOperations

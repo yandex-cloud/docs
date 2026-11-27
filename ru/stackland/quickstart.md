@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Руководство по установке
 
 На этой странице описан общий процесс развертывания кластера {{ stackland-full-name }} на заранее подготовленной инфраструктуре. Его можно использовать для разных окружений, например для серверов {{ baremetal-full-name }} или виртуальных машин в {{ compute-name }}.

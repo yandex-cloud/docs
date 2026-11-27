@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/recover-access-to-billing-account-via-lite-account.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to restore access to a billing account created through the Yandex ID simplified sign-up
 
 

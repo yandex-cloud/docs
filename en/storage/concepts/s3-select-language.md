@@ -1,6 +1,10 @@
 ---
 title: S3 Select query language syntax
 description: This article describes the syntax of the S3 Select query language.
+alternate:
+  - href: en/storage/concepts/s3-select-language.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # S3 Select query language syntax

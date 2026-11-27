@@ -1,6 +1,10 @@
 ---
 title: Строковые функции
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/string-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Строковые функции

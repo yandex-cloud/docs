@@ -2,6 +2,10 @@
 title: '{{ compute-full-name }} pricing policy'
 description: This article covers the {{ compute-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/compute/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

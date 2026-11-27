@@ -87,6 +87,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: en/organization/idp/api-ref/Userpool/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: Userpool.SetAccessBindings

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_config_show.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli config show
 
 Show current configuration

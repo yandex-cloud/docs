@@ -1,6 +1,10 @@
 ---
 title: Encrypting a snapshot in {{ compute-full-name }}
 description: Follow this guide to encrypt a disk snapshot in {{ compute-short-name }}.
+alternate:
+  - href: en/compute/operations/snapshot-control/snapshot-encrypt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Encrypting an image

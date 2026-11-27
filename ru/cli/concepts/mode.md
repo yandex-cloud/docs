@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cli/concepts/mode.md
+    type: text/markdown
+    title: Markdown version
+---
 # Синхронный и асинхронный режимы выполнения команд {{ yandex-cloud }} CLI
 
 В [CLI](../../glossary/cli.md) доступны два режима выполнения команд: синхронный и асинхронный.

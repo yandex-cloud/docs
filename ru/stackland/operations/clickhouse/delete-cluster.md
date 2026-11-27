@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/clickhouse/delete-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить кластер {{ mch-name }}
 
 Если у вас есть кластер [{{ CH }}](../../concepts/components/clickhouse.md) в [проекте](../projects/create-project.md), вы можете удалить его.

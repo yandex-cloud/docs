@@ -1,6 +1,10 @@
 ---
 title: Editor tabs
 description: In this article, you will learn about the Editor tabs.
+alternate:
+  - href: en/datalens/charts/editor/tabs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Tabs

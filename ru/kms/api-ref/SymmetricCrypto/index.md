@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/kms/api-ref/SymmetricCrypto/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: SymmetricCrypto

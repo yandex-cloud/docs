@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Interconnect
+alternate:
+  - href: en/terraform/resources/cic_private_connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cic_private_connection (Resource)

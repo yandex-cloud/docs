@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iam/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как начать работать с {{ iam-short-name }}
 
 Чтобы начать работу с сервисом {{ iam-short-name }}, добавьте пользователя в организацию и выдайте ему доступ к ресурсу в одном из ваших облаков. [Подробнее об организациях, ресурсах и пользователях](../overview/roles-and-resources.md).

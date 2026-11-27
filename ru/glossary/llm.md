@@ -4,6 +4,10 @@ description: Большая языковая модель (LLM) — это не�
 keywords:
   - LLM
   - Большая языковая модель
+alternate:
+  - href: ru/glossary/llm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Большая языковая модель (LLM)

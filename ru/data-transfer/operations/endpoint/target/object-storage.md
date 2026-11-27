@@ -1,6 +1,10 @@
 ---
 title: Передача данных в эндпоинт-приемник {{ objstorage-full-name }}
 description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ objstorage-name }}.
+alternate:
+  - href: ru/data-transfer/operations/endpoint/target/object-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передача данных в эндпоинт-приемник {{ objstorage-full-name }}

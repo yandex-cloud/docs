@@ -1,6 +1,10 @@
 ---
 title: Billing cycle for businesses and individual entrepreneurs
 description: In this article, you will learn about the billing cycle for businesses and individual entrepreneurs.
+alternate:
+  - href: en/billing/payment/billing-cycle-business.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing cycle for businesses and individual entrepreneurs

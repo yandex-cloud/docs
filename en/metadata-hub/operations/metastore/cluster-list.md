@@ -1,6 +1,10 @@
 ---
 title: Getting information about {{ metastore-full-name }} clusters
 description: Follow this guide to request detailed information about existing {{ metastore-full-name }} clusters.
+alternate:
+  - href: en/metadata-hub/operations/metastore/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about {{ metastore-full-name }} clusters

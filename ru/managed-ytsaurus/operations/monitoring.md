@@ -1,6 +1,10 @@
 ---
 title: Мониторинг состояния кластера {{ myt-name }}
 description: Из статьи вы узнаете, как осуществлять мониторинг состояния кластера {{ myt-name }}.
+alternate:
+  - href: ru/managed-ytsaurus/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг состояния кластера {{ myt-name }}

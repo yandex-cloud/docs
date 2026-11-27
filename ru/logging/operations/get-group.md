@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о лог-группе {{ cloud-logging-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о лог-группе.
+alternate:
+  - href: ru/logging/operations/get-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о лог-группе

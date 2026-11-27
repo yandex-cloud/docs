@@ -1,6 +1,10 @@
 ---
 title: Переместить облачную сеть в другой каталог
 description: Следуя данной инструкции, вы сможете переместить облачную сеть в другой каталог.
+alternate:
+  - href: ru/vpc/operations/network-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переместить облачную сеть в другой каталог

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/yds-to-kafka'
+alternate:
+  - href: ru/managed-kafka/tutorials/yds-to-kafka.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поставка данных из очереди {{ yds-name }} в {{ mkf-name }} с помощью {{ data-transfer-full-name }}

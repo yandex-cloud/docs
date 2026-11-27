@@ -1,6 +1,10 @@
 ---
 title: Аутентификация и соединение с БД по Kafka API
 description: Следуя данной инструкции, вы сможете аутентифицироваться и установить соединение с БД по Kafka API.
+alternate:
+  - href: ru/data-streams/kafkaapi/auth.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация и соединение с БД по Kafka API

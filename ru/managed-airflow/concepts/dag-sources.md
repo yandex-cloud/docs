@@ -1,6 +1,10 @@
 ---
 title: Источники DAG-файлов в {{ maf-full-name }}
 description: Узнайте, как {{ maf-name }} загружает DAG-файлы из бакета {{ objstorage-name }} или Git-репозитория и какие способы аутентификации поддерживаются.
+alternate:
+  - href: ru/managed-airflow/concepts/dag-sources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Источники DAG-файлов

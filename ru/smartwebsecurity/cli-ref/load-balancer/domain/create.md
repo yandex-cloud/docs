@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/create/
+alternate:
+  - href: ru/smartwebsecurity/cli-ref/load-balancer/domain/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartwebsecurity load-balancer domain create

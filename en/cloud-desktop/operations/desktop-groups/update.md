@@ -1,6 +1,10 @@
 ---
 title: Updating a desktop group
 description: In this tutorial, we will update a desktop group.
+alternate:
+  - href: en/cloud-desktop/operations/desktop-groups/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a desktop group

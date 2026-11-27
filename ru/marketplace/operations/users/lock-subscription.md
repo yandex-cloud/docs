@@ -1,5 +1,9 @@
 ---
 title: Как привязать купленную в {{ marketplace-full-name }} подписку к ресурсу, приложению или сервису
+alternate:
+  - href: ru/marketplace/operations/users/lock-subscription.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Привязка подписки

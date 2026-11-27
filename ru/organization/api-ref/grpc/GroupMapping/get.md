@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/organization/api-ref/grpc/GroupMapping/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, gRPC: GroupMappingService.Get

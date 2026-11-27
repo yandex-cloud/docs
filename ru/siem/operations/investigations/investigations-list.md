@@ -1,6 +1,10 @@
 ---
 title: Работа со списком расследований в {{ yandex-siem-full-name }}
 description: Следуя данной инструкции, вы научитесь фильтровать, искать и сортировать расследования в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/operations/investigations/investigations-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа со списком расследований

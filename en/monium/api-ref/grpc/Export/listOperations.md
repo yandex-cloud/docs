@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/monium/api-ref/grpc/Export/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, gRPC: ExportService.ListOperations

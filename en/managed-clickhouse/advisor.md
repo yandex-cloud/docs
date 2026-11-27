@@ -1,6 +1,10 @@
 ---
 title: Recommendations for improving {{ mch-name }} cluster reliability, cost optimization, and performance
 description: In this section, you will learn how to work with the results of {{ mch-name }} cluster checks and diagnostics.
+alternate:
+  - href: en/managed-clickhouse/advisor.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Inspections and recommendations in {{ mch-name }} 

@@ -1,6 +1,10 @@
 ---
 title: Высокая доступность кластера {{ mos-full-name }}
 description: Высокая доступность — это способность системы продолжать работу при отказе одного или нескольких компонентов. Высокая доступность кластера {{ mos-name }} определяется конфигурацией хостов и другими параметрами кластера.
+alternate:
+  - href: ru/managed-opensearch/concepts/high-availability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Высокая доступность кластера {{ mos-name }}

@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ sws-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ sws-name }}.
 editable: false
+alternate:
+  - href: ru/smartwebsecurity/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ sws-full-name }}

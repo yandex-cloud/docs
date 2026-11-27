@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ mrd-full-name }}
 description: Follow this guide to create an {{ VLK }} cluster and connect to it.
+alternate:
+  - href: en/managed-valkey/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ mrd-name }}

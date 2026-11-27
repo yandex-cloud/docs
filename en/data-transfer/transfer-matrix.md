@@ -1,6 +1,10 @@
 ---
 title: Transfers available in {{ data-transfer-name }}
 description: This section describes possible source and target combinations.
+alternate:
+  - href: en/data-transfer/transfer-matrix.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transfers available in {{ data-transfer-name }}

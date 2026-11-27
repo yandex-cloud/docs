@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/monitoring/alerts-create-rule.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating an alert rule
 
 To create a new alert rule:

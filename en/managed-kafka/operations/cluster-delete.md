@@ -1,6 +1,10 @@
 ---
 title: Deleting {{ KF }} clusters
 description: You can delete an {{ KF }} cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder where you want to delete a cluster.
+alternate:
+  - href: en/managed-kafka/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an {{ KF }} cluster

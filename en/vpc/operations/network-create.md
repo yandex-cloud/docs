@@ -1,6 +1,10 @@
 ---
 title: How to create a cloud network in {{ vpc-full-name }}
 description: Follow this guide to create a cloud network.
+alternate:
+  - href: en/vpc/operations/network-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a cloud network

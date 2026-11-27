@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ myt-full-name }}
 description: Чтобы начать работать с {{ myt-full-name }}, создайте кластер сервиса и откройте веб-интерфейс {{ ytsaurus-name }}.
+alternate:
+  - href: ru/managed-ytsaurus/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ myt-full-name }}

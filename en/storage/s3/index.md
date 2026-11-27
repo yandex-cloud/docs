@@ -9,6 +9,10 @@ keywords:
   - s3 api object storage
   - object storage
   - api s3
+alternate:
+  - href: en/storage/s3/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to use the S3 API

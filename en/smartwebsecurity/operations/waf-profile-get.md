@@ -1,6 +1,10 @@
 ---
 title: How to get information about a Cloud WAF profile in {{ sws-full-name }}
 description: Follow this guide to get information about a WAF profile in {{ sws-full-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/waf-profile-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a Cloud WAF profile

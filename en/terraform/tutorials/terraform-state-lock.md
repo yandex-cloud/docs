@@ -2,6 +2,10 @@
 title: Locking {{ TF }} states
 description: When working with {{ TF }} in the cloud, you need to ensure that multiple users cannot modify the infrastructure at the same time. To this end, you can use {{ TF }} state locking.
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/terraform-state-locking'
+alternate:
+  - href: en/terraform/tutorials/terraform-state-lock.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [terraform-state-lock](../../_tutorials/infrastructure/terraform-state-lock.md) %}

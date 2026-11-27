@@ -1,6 +1,10 @@
 ---
 title: Как деактивировать и активировать секрет в {{ lockbox-full-name }}
 description: Из статьи вы узнаете, как деактивировать и активировать секрет в {{ lockbox-full-name }}.
+alternate:
+  - href: ru/lockbox/operations/secret-activation-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Деактивировать и активировать секрет

@@ -1,6 +1,10 @@
 ---
 title: Изменение глоссария
 description: Следуя данной инструкции, вы сможете изменить глоссарий в каталоге метаданных.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/update-glossary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение глоссария

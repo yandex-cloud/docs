@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_tasks_wait.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops tasks wait
 
 Wait for maintenance task to complete

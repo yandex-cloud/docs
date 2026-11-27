@@ -1,6 +1,10 @@
 ---
 title: Списки для создания правил фильтрации трафика
 description: Какие предустановленные и пользовательские списки доступны в {{ sws-name }} и как использовать их в условиях фильтрации трафика.
+alternate:
+  - href: ru/smartwebsecurity/concepts/lists.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Списки

@@ -1,6 +1,10 @@
 ---
 title: Viewing resource and application logs in {{ monium-name }}
 description: Follow this guide to view the logs of resources residing in {{ yandex-cloud }} or another infrastructure, as well as the logs of your applications loaded via the API.
+alternate:
+  - href: en/monium/logs/logs-explorer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Log search and analysis

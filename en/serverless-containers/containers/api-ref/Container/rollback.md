@@ -29,6 +29,10 @@ apiPlayground:
         - revisionId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/serverless-containers/containers/api-ref/Container/rollback.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Serverless Containers Service, REST: Container.Rollback

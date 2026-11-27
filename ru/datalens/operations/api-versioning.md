@@ -1,6 +1,10 @@
 ---
 title: Версионирование Public API в {{ datalens-full-name }}
 description: Версионирование Public API в {{ datalens-full-name }} поддерживает совместимость методов и схем объектов в API с методами и схемами объектов в интерфейсе.
+alternate:
+  - href: ru/datalens/operations/api-versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Версионирование Public API в {{ datalens-full-name }}
 

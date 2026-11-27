@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Посмотреть операции с кластером {{ managed-k8s-name }}
 
 Все действия с ресурсами сервиса {{ managed-k8s-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный [идентификатор](../../../api-design-guide/concepts/about-async.md).

@@ -1,6 +1,10 @@
 ---
 title: How to set up a {{ yds-full-name }} source endpoint in {{ data-transfer-full-name }}
 description: Follow this guide to configure an {{ yds-full-name }} source endpoint in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/operations/endpoint/source/data-streams.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring data from a {{ yds-full-name }} source endpoint

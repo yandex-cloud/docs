@@ -1,6 +1,10 @@
 ---
 title: Request handler for a function in Go
 description: In this article, you will learn about the request handler for functions in Go.
+alternate:
+  - href: en/functions/lang/golang/handler.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Request handler for a function in Go

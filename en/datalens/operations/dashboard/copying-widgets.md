@@ -1,6 +1,10 @@
 ---
 title: Copying widgets on a dashboard in {{ datalens-full-name }}
 description: Follow this guide to copy and paste widgets on a dashboard in {{ datalens-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/copying-widgets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Copying widgets on a dashboard in {{ datalens-full-name }}

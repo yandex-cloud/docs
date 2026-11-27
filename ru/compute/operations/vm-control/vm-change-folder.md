@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/vm-control/vm-change-folder.md
+    type: text/markdown
+    title: Markdown version
+---
 # Перенести виртуальную машину в другой каталог
 
 При создании виртуальной машины она размещается в текущем каталоге.

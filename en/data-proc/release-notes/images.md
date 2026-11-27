@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/release-notes/images.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ dataproc-full-name }} image release notes
 For a complete list of available and deprecated {{ dataproc-name }} images, see [{#T}](../concepts/environment.md).
 

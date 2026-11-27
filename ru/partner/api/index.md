@@ -1,6 +1,10 @@
 ---
 title: API в Партнерском портале
 description: Из статьи вы узнаете, какие команды API доступны пользователям партнерской программы.
+alternate:
+  - href: ru/partner/api/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Партнерского портала

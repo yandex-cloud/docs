@@ -1,6 +1,10 @@
 ---
 title: Как настроить федерацию сервисных аккаунтов в {{ iam-full-name }}
 description: С помощью этой инструкции вы научитесь настраивать федерации сервисных аккаунтов в {{ iam-name }}.
+alternate:
+  - href: ru/iam/operations/wlif/setup-wlif.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка федерации сервисных аккаунтов

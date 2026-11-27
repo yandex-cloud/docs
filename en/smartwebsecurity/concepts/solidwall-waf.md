@@ -1,6 +1,10 @@
 ---
 title: SolidWall WAF in {{ sws-full-name }}
 description: How a SolidWall WAF profile, application, and domain work together in {{ sws-name }}, how to configure protection, and how to get started.
+alternate:
+  - href: en/smartwebsecurity/concepts/solidwall-waf.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SolidWall WAF

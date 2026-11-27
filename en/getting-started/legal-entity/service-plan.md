@@ -1,6 +1,10 @@
 ---
 title: Configure a support plan for a business
 description: In this article, you will learn how to configure a support plan for a business.
+alternate:
+  - href: en/getting-started/legal-entity/service-plan.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring your support plan

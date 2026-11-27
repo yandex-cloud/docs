@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию об IP-адресе в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию об IP-адресе.
+alternate:
+  - href: ru/vpc/operations/address-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию об IP-адресе

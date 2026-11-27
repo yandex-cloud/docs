@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-gitlab/operations/instance/clean-up-disk-space.md
+    type: text/markdown
+    title: Markdown version
+---
 # Очистка переполненного дискового пространства инстанса
 
 У инстанса {{ GL }} может закончиться место на диске, на это указывает HTTP-код состояния `500 Internal Server Error`. В этом случае вы не сможете войти в инстанс {{ GL }}.

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/cluster/remove-labels/
+alternate:
+  - href: ru/cli/cli-ref/managed-clickhouse/cli-ref/cluster/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse cluster remove-labels

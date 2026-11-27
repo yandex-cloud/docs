@@ -1,6 +1,10 @@
 ---
 title: How to connect to a {{ VLK }} cluster in {{ mrd-full-name }}
 description: Follow this guide to connect to a {{ VLK }} cluster.
+alternate:
+  - href: en/managed-valkey/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ VLK }} cluster from applications

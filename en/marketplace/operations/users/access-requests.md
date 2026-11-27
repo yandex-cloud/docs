@@ -1,6 +1,10 @@
 ---
 title: How to send a product access request in {{ marketplace-full-name }}
 description: In this article, you will learn how to send a product access request in {{ marketplace-full-name }}.
+alternate:
+  - href: en/marketplace/operations/users/access-requests.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Requesting product access

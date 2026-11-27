@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/quickstart/batch-example.md
+    type: text/markdown
+    title: Markdown version
+---
 # Analytical processing of {{ objstorage-full-name }} data
 
 In this example, you will run [analytical processing](../concepts/batch-processing.md) on New York City taxi ride data. The data for this example has been pre-loaded in the [{{ objstorage-full-name }}](../../storage/index.yaml) bucket in [Parquet](https://parquet.apache.org/docs/file-format/) files.

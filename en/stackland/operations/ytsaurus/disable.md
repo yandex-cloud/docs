@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/ytsaurus/disable.md
+    type: text/markdown
+    title: Markdown version
+---
 # Disabling {{ yt-name }}
 
 To disable the [{{ yt-name }} component](../../concepts/components/ytsaurus.md), switch the `YTsaurusConfig` resource to `spec.enabled: false`.

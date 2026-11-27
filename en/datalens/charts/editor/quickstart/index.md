@@ -1,6 +1,10 @@
 ---
 title: Quick start in Editor
 description: Follow this guide to create your first charts in Editor.
+alternate:
+  - href: en/datalens/charts/editor/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quick start in Editor

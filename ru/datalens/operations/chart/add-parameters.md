@@ -1,6 +1,10 @@
 ---
 title: Как добавить параметры в настройках чарта на дашборде в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить параметры в настройках чарта на дашборде в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/chart/add-parameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление параметров в настройках чарта на дашборде в {{ datalens-full-name }}

@@ -2,6 +2,10 @@
 title: Quotas and limits in {{ mch-name }}
 description: '{{ mch-name }} has limits and quotas for the number of clusters, total number of processor cores for all database hosts, total amount of RAM for all database hosts, and total storage for all clusters per cloud. For more information about the service restrictions, read this article.'
 editable: false
+alternate:
+  - href: en/managed-clickhouse/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ mch-name }}

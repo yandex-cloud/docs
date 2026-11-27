@@ -2,6 +2,10 @@
 title: Маршрутизация через NAT-инстанс
 description: Из статьи вы узнаете, как настроить маршрутизацию через NAT-инстанс.
 canonical: '{{ link-docs }}/tutorials/routing/nat-instance/'
+alternate:
+  - href: ru/vpc/tutorials/nat-instance/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [nat-instance](../../../_tutorials/routing/nat-instance.md) %}

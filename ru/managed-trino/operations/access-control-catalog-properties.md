@@ -1,6 +1,10 @@
 ---
 title: Назначение правил доступа к свойствам сессии каталога в {{ mtr-name }}
 description: Правила определяют, могут ли пользователи устанавливать те или иные свойства сессии каталога.
+alternate:
+  - href: ru/managed-trino/operations/access-control-catalog-properties.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначение правил доступа к свойствам сессии каталога в {{ mtr-name }}

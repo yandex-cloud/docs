@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/container-registry/operations/roles/revoke.md
+    type: text/markdown
+    title: Markdown version
+---
 # Отозвать роль на ресурс
 
 Вы можете запретить [субъекту](../../../iam/concepts/access-control/index.md#subject) доступ к ресурсу, для этого необходимо отозвать у него соответствующие [роли](../../../iam/concepts/access-control/roles.md) на этот ресурс и на ресурсы, от которых наследуются права доступа. Подробнее читайте в разделе [{#T}](../../../iam/concepts/access-control/index.md).

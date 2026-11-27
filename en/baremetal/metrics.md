@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ baremetal-full-name }} metrics in {{ monitoring-full-name }}
 description: This page contains a reference for {{ baremetal-name }} metrics delivered to {{ monitoring-full-name }}.
+alternate:
+  - href: en/baremetal/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

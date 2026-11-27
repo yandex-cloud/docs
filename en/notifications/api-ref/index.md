@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ cns-full-name }} HTTP API overview
 
 The {{ cns-name }} HTTP API is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).

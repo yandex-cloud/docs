@@ -1,5 +1,9 @@
 ---
 subcategory: Yandex Query
+alternate:
+  - href: en/terraform/resources/yq_yds_connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_yq_yds_connection (Resource)

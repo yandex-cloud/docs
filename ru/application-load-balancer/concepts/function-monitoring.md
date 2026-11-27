@@ -1,6 +1,10 @@
 ---
 title: Графики мониторинга
 description: Графики мониторинга показывают состояние балансировщика и связанные метрики в реальном времени. Используйте их для обнаружения аномалий и анализа производительности.
+alternate:
+  - href: ru/application-load-balancer/concepts/function-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Графики мониторинга

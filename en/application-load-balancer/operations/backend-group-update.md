@@ -1,6 +1,10 @@
 ---
 title: How to edit a backend group in {{ alb-full-name }}
 description: Step-by-step guide for editing a backend group.
+alternate:
+  - href: en/application-load-balancer/operations/backend-group-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a backend group

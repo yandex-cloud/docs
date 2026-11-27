@@ -8665,6 +8665,10 @@ apiPlayground:
             format: int64
         required:
           - hostName
+alternate:
+  - href: en/managed-postgresql/api-ref/Cluster/updateHosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, REST: Cluster.UpdateHosts

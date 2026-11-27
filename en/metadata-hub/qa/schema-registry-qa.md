@@ -1,6 +1,10 @@
 ---
 title: '{{ schema-registry-full-name }}. Troubleshooting'
 description: How do I fix the error I get when working with a schema registry? Find the answer to this and other common questions below.
+alternate:
+  - href: en/metadata-hub/qa/schema-registry-qa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting in {{ schema-registry-full-name }}

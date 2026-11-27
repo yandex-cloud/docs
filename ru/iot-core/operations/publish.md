@@ -1,6 +1,10 @@
 ---
 title: Как отправлять сообщения ресурсам {{ iot-full-name }}
 description: Следуя данной инструкции, вы сможете отправлять сообщения ресурсам {{ iot-full-name }}.
+alternate:
+  - href: ru/iot-core/operations/publish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправка сообщения

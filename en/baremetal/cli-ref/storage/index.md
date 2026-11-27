@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/storage/
+alternate:
+  - href: en/baremetal/cli-ref/storage/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal storage

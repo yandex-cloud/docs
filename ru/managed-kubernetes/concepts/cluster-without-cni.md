@@ -1,6 +1,10 @@
 ---
 title: Кластеры без предустановленного CNI
 description: 'Кластеры без предустановленного CNI в {{ managed-k8s-name }}: самостоятельное управление сетевым плагином, примеры использования и разделение ответственности.'
+alternate:
+  - href: ru/managed-kubernetes/concepts/cluster-without-cni.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Кластеры без предустановленного CNI

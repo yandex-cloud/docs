@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/status-mapping.md
+    type: text/markdown
+    title: Markdown version
+---
 # x-yc-status-mapping extension
 
 The `x-yc-status-mapping` extension allows you to replace a response code in an integration. For example, if you get the response code 404 in an [integration with {{ objstorage-name }}](object-storage.md), you can replace it with code 200.

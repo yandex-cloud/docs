@@ -1,6 +1,10 @@
 ---
 title: Terminating TLS connections with {{ alb-full-name }} using {{ TF }}
 description: In this tutorial, you will configure a {{ alb-full-name }} load balancer to terminate TLS connections using a certificate from {{ certificate-manager-full-name }} and to redirect HTTP requests to HTTPS using {{ TF }}.
+alternate:
+  - href: en/tutorials/security/tls-termination/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Terminating TLS connections using {{ TF }}

@@ -38,6 +38,10 @@ meta:
     - keyword: перенос баз данных
     - keyword: миграция баз данных
     - keyword: трансфер данных
+  alternate:
+    - href: ru/data-transfer/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Доступные трансферы
     description: Список поддерживаемых типов трансферов

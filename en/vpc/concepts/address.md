@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/vpc/concepts/address.md
+    type: text/markdown
+    title: Markdown version
+---
 # Cloud resource addresses
 
 In cloud networks, addresses can be internal or public.

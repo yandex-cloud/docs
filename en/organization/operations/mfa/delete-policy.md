@@ -1,6 +1,10 @@
 ---
 title: Deleting an MFA policy in {{ org-full-name }}
 description: Follow this guide to delete an MFA policy in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/mfa/delete-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an MFA policy

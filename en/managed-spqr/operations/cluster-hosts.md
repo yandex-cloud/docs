@@ -1,6 +1,10 @@
 ---
 title: Managing {{ SPQR }} cluster hosts
 description: In this tutorial, you will learn how to manage {{ SPQR }} cluster hosts. You can add and remove cluster hosts, as well as manage their settings via the management console, CLI, {{ TF }}, and API.
+alternate:
+  - href: en/managed-spqr/operations/cluster-hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ SPQR }} cluster hosts

@@ -1,6 +1,10 @@
 ---
 title: Как зарезервировать потребление (CVoS)
 description: Следуя данной инструкции, вы сможете зарезервировать потребление (CVoS).
+alternate:
+  - href: ru/billing/operations/purchase-cvos.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Зарезервировать потребление (CVoS)

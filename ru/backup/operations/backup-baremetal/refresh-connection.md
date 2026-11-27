@@ -1,6 +1,10 @@
 ---
 title: Как обновить подключение сервера {{ baremetal-full-name }} к {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете обновить подключение сервера {{ baremetal-full-name }} к {{ backup-full-name }}.
+alternate:
+  - href: ru/backup/operations/backup-baremetal/refresh-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переподключить сервер {{ baremetal-full-name }} к {{ backup-name }}

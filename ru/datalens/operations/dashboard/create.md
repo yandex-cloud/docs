@@ -1,6 +1,10 @@
 ---
 title: Создание дашборда в {{ datalens-full-name }}
 description: Для создания дашборда в {{ datalens-full-name }} необходимо на главной странице сервиса нажать Создать дашборд. В открывшемся окне введите название дашборда. Дашборд появится в списке на странице навигации.
+alternate:
+  - href: ru/datalens/operations/dashboard/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание дашборда в {{ datalens-full-name }}

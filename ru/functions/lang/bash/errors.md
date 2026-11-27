@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/bash/errors.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обработка ошибок функции на Bash
 
 Поток стандартного вывода ошибок `stderr` скрипта на Bash отправляется в [централизованную систему журналирования](logging.md).

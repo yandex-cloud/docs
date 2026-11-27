@@ -1,6 +1,10 @@
 ---
 title: '{{ mrd-name }} quotas and limits'
 description: '{{ mrd-name }} has limits and quotas for the number of clusters, total number of processor cores for all database hosts, total amount of virtual memory for all database hosts, and total storage for all clusters per cloud. For more information about the service limitations, read this article.'
+alternate:
+  - href: en/managed-valkey/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mrd-name }} quotas and limits

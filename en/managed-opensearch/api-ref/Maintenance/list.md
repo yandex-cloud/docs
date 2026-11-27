@@ -69,6 +69,10 @@ apiPlayground:
             - resourceId
     body: null
     definitions: null
+alternate:
+  - href: en/managed-opensearch/api-ref/Maintenance/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for OpenSearch API, REST: Maintenance.List

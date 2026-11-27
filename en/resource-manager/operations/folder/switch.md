@@ -1,6 +1,10 @@
 ---
 title: Navigating to a {{ yandex-cloud }} folder
 description: Follow this guide to navigate to a {{ yandex-cloud }} folder of your choice.
+alternate:
+  - href: en/resource-manager/operations/folder/switch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Switching to a different folder

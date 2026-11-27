@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/audit-trails/cli-ref/trail/add-access-binding/
+alternate:
+  - href: en/audit-trails/cli-ref/trail/add-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc audit-trails trail add-access-binding

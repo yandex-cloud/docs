@@ -1,6 +1,10 @@
 ---
 title: How to provide {{ lockbox-name }} secrets to a function
 description: Follow this guide to provide {{ lockbox-name }} secrets to a function.
+alternate:
+  - href: en/functions/operations/function/lockbox-secret-transmit.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Providing {{ lockbox-name }} secrets to a function

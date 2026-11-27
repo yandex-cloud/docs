@@ -1,5 +1,9 @@
 ---
 subcategory: Container Registry
+alternate:
+  - href: en/terraform/resources/container_repository_iam_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_container_repository_iam_binding (Resource)

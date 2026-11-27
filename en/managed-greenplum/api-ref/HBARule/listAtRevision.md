@@ -29,6 +29,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/managed-greenplum/api-ref/HBARule/listAtRevision.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: HBARule.ListAtRevision

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/java/model/servlet-api.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using the HttpServlet class to set a Java handler
 
 You can set a Java handler by overriding selected methods of the [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html) class.

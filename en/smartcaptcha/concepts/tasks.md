@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/smartcaptcha/concepts/tasks.md
+    type: text/markdown
+    title: Markdown version
+---
 # Challenge types
 
 [User validation](./validation.md) consists of two steps. The first step includes a basic check where the user is asked to complete the [main challenge](#main-task). After completing the main challenge, the user's request is automatically sent to {{ captcha-name }}. If the service considers the request suspicious, it will prompt the user to solve an [additional challenge](#additional-task).

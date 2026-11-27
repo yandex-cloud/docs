@@ -1,6 +1,10 @@
 ---
 title: Как создать расписание, по которому будут создаваться снимки дисков {{ compute-full-name }}
 description: Из статьи вы узнаете, как создать расписание, по которому будут создаваться снимки дисков {{ compute-name }}.
+alternate:
+  - href: ru/compute/operations/snapshot-control/create-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать расписание, по которому будут создаваться снимки дисков

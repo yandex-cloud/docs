@@ -1,6 +1,10 @@
 ---
 title: Распределение виртуальных машин по зонам
 description: Из этой статьи вы узнаете, как происходит распределение виртуальных машин по зонам доступности.
+alternate:
+  - href: ru/compute/concepts/instance-groups/deploy/zones.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Распределение виртуальных машин по зонам

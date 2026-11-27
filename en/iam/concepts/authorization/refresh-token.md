@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iam/concepts/authorization/refresh-token.md
+    type: text/markdown
+    title: Markdown version
+---
 # Refresh token
 
 A _refresh token_ is a type of credential that allows an OAuth application to automatically obtain a new IAM token after the user's [IAM token](./iam-token.md) expires. A refresh token is issued for a user and sent to an OAuth application, which then authenticates the user in {{ yandex-cloud }}.

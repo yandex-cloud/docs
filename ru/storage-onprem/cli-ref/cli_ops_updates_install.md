@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_updates_install.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops updates install
 
 Install an update

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/format-schema/delete/
+alternate:
+  - href: ru/cli/cli-ref/managed-clickhouse/cli-ref/format-schema/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse format-schema delete

@@ -1,6 +1,10 @@
 ---
 title: Parameters in {{ datalens-full-name }}
 description: In {{ datalens-full-name }}, a parameter is a variable that can substitute constant values in calculated fields.
+alternate:
+  - href: en/datalens/concepts/parameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Parameters in {{ datalens-full-name }}

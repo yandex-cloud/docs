@@ -1,6 +1,10 @@
 ---
 title: Creating an alert
 description: Follow this guide to create an alert.
+alternate:
+  - href: en/monium/operations/alert/create-alert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an alert

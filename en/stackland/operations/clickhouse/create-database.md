@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/create-database.md
+    type: text/markdown
+    title: Markdown version
+---
 # Create database
 
 You can create a database in your existing [{{ CH }}](../../concepts/components/clickhouse.md) [cluster](create-cluster.md) using a custom `ClickhouseDatabase` resource.

@@ -1,5 +1,9 @@
 ---
 subcategory: Identity Hub
+alternate:
+  - href: ru/terraform/data-sources/organizationmanager_idp_application_saml_application.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_organizationmanager_idp_application_saml_application (DataSource)

@@ -1,6 +1,10 @@
 ---
 title: How to update {{ SD }} cluster settings in {{ mmg-full-name }}
 description: Follow this guide to update {{ SD }} cluster settings.
+alternate:
+  - href: en/storedoc/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating {{ SD }} cluster settings 

@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о подключении {{ metadata-hub-name }}. Пошаговые инструкции
 description: Пошаговые инструкции по работе с {{ connection-manager-name }} в {{ yandex-cloud }}. Из статьи вы узнаете, как просматривать подключения.
+alternate:
+  - href: ru/metadata-hub/operations/view-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотр информации о подключении

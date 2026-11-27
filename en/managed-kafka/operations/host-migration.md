@@ -1,6 +1,10 @@
 ---
 title: Migrating {{ KF }} cluster hosts to a different availability zone
 description: Follow this guide to migrate {{ KF }} cluster hosts to a different availability zone.
+alternate:
+  - href: en/managed-kafka/operations/host-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating {{ KF }} cluster hosts to a different availability zone

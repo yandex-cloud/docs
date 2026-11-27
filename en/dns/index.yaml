@@ -24,6 +24,10 @@ meta:
     - keyword: resource records
     - keyword: '{{ dns-name }} resource records'
     - keyword: '{{ dns-name }} resolver'
+  alternate:
+    - href: en/dns/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first DNS zone

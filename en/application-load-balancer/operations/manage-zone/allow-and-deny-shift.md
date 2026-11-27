@@ -1,6 +1,10 @@
 ---
 title: How to allow/deny auto-disabling an L7 load balancer's availability zone in {{ alb-full-name }}
 description: Follow this guide to allow or deny zonal shift between availability zones in an L7 load balancer.
+alternate:
+  - href: en/application-load-balancer/operations/manage-zone/allow-and-deny-shift.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Allowing and denying availability zone shutdown

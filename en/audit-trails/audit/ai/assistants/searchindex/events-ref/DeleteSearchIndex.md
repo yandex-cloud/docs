@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/ai/assistants/searchindex/events-ref/DeleteSearchIndex.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio Assistants Audit Trails Events: DeleteSearchIndex

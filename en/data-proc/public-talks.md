@@ -1,6 +1,10 @@
 ---
 title: Public materials about {{ dataproc-name }}
 description: '{{ dataproc-name }} conference and webinar recordings.'
+alternate:
+  - href: en/data-proc/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public materials about {{ dataproc-name }}

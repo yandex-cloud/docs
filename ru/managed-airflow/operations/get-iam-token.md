@@ -1,6 +1,10 @@
 ---
 title: Получение IAM-токена
 description: С помощью направленного ациклического графа (DAG) вы можете получить IAM-токен сервисного аккаунта, который привязан к кластеру {{ AF }}.
+alternate:
+  - href: ru/managed-airflow/operations/get-iam-token.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение IAM-токена

@@ -1,6 +1,10 @@
 ---
 title: Применить политику MFA к пользователям в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете добавить пользователей и группы в политику MFA в {{ org-full-name }} и удалить их из нее.
+alternate:
+  - href: ru/organization/operations/mfa/add-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Применить политику MFA к пользователям

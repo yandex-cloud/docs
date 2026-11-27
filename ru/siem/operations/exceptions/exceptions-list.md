@@ -1,6 +1,10 @@
 ---
 title: Работа со списком исключений в {{ yandex-siem-full-name }}
 description: Следуя данной инструкции, вы научитесь просматривать, фильтровать исключения и управлять их развертыванием в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/operations/exceptions/exceptions-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа со списком исключений

@@ -1,6 +1,10 @@
 ---
 title: Setting up NuGet
 description: Follow this guide to set up NuGet.
+alternate:
+  - href: en/cloud-registry/operations/nuget/installation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up NuGet

@@ -1,6 +1,10 @@
 ---
 title: Service map in traces
 description: Discover how to use the service map in {{ traces-name }} to analyze relationships between services, identify error sources, and examine distributed requests.
+alternate:
+  - href: en/monium/traces/operations/service-map.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service map in traces

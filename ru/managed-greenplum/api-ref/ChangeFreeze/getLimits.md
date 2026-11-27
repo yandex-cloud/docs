@@ -18,6 +18,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-greenplum/api-ref/ChangeFreeze/getLimits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: ChangeFreeze.GetLimits

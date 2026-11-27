@@ -1,6 +1,10 @@
 ---
 title: Delta Lake in {{ dataproc-full-name }}
 description: In this article, you will learn about Delta Lake in {{ dataproc-name }}, discover Delta Lake benefits, and review compatible Delta Lake and {{ dataproc-name }} versions.
+alternate:
+  - href: en/data-proc/concepts/deltalake.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delta Lake in {{ dataproc-name }}

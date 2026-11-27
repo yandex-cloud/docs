@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/tools/yc-cli.md
+    type: text/markdown
+    title: Markdown version
+---
 # Command line interface ({{ yandex-cloud }} CLI)
 
 The [{{ yandex-cloud }} CLI](../../cli/) is downloadable software you can use to manage your cloud resources via the command line.

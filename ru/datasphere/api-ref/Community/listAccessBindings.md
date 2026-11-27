@@ -43,6 +43,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/datasphere/api-ref/Community/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, REST: Community.ListAccessBindings

@@ -1,6 +1,10 @@
 ---
 title: Работа с датасетом в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы узнаете, как работать с датасетом в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/dataset/create-dataset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с датасетом в {{ datalens-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Managing a subscription in {{ cns-full-name }}
 description: Follow this guide to update or delete a subscription in {{ cns-name }}.
+alternate:
+  - href: en/notifications/operations/topics/subscription-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing a subscription

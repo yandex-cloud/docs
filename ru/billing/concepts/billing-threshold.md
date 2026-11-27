@@ -1,6 +1,10 @@
 ---
 title: Порог оплаты в {{ billing-name }}
 description: Порог оплаты — это отрицательный баланс лицевого счета. Порог оплаты представляет собой реализацию постоплатной модели использования {{ yandex-cloud }}.
+alternate:
+  - href: ru/billing/concepts/billing-threshold.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Порог оплаты

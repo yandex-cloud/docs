@@ -1,6 +1,10 @@
 ---
 title: Как изменить пользовательский сертификат в {{ certificate-manager-full-name }}
 description: Следуя этой инструкции, вы сможете изменить пользовательский сертификат.
+alternate:
+  - href: ru/certificate-manager/operations/import/cert-modify.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить пользовательский сертификат

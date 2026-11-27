@@ -1,6 +1,11 @@
 ---
 title: Как начать работать с синтезом речи  в {{ speechkit-full-name }}
 description: Из статьи вы узнаете, как начать работать с синтезом речи в сервисе {{ speechkit-name }}.
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/tts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Синтез речи

@@ -1,6 +1,10 @@
 ---
 title: Hardware generations in {{ compute-full-name }}
 description: In this article, you will learn about the distinctive features of different hardware generations you can deploy {{ compute-name }} VMs on.
+alternate:
+  - href: en/compute/concepts/hardware-generations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Hardware generations

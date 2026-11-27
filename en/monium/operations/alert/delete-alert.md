@@ -1,6 +1,10 @@
 ---
 title: How to delete an alert in {{ monium-name }}
 description: Follow this guide to delete an alert.
+alternate:
+  - href: en/monium/operations/alert/delete-alert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an alert

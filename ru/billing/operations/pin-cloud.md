@@ -1,6 +1,10 @@
 ---
 title: Как привязать облако к платежному аккаунту
 description: Следуя данной инструкции, вы сможете привязать облако к платежному аккаунту.
+alternate:
+  - href: ru/billing/operations/pin-cloud.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Привязать облако к платежному аккаунту

@@ -1,6 +1,10 @@
 ---
 title: Практические руководства для {{ monium-full-name }}
 description: На странице представлен список практических руководств для {{ monium-name }}.
+alternate:
+  - href: ru/monium/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства для {{ monium-full-name }}

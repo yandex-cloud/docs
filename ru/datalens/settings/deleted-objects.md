@@ -1,6 +1,10 @@
 ---
 title: Удаленные объекты в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как посмотреть список удаленных объектов и воркбуков в {{ datalens-full-name }} и как восстановить их.
+alternate:
+  - href: ru/datalens/settings/deleted-objects.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаленные объекты в {{ datalens-full-name }}

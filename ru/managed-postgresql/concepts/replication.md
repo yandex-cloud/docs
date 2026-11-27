@@ -1,6 +1,10 @@
 ---
 title: Репликация в {{ mpg-full-name }}
 description: Из статьи вы узнаете, как работает репликация хостов кластера в {{ mpg-full-name }}.
+alternate:
+  - href: ru/managed-postgresql/concepts/replication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Репликация в {{ mpg-name }}

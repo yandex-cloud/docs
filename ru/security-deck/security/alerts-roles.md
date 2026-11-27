@@ -1,6 +1,10 @@
 ---
 title: Сервисные роли модуля {{ alerts-name }} в {{ sd-full-name }}
 description: На данной странице приведен список сервисных ролей для управления доступом к модулю {{ alerts-name }} в сервисе {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/security/alerts-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сервисные роли для модуля {{ alerts-name }}

@@ -1,6 +1,10 @@
 ---
 title: Посмотреть графики мониторинга контейнера
 description: Следуя данной инструкции, вы сможете посмотреть графики мониторинга контейнера.
+alternate:
+  - href: ru/serverless-containers/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть графики мониторинга контейнера

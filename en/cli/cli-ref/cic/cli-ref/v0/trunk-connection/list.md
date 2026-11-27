@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v0/trunk-connection/list/
+alternate:
+  - href: en/cli/cli-ref/cic/cli-ref/v0/trunk-connection/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cic v0 trunk-connection list

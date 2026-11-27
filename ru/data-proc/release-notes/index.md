@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ dataproc-full-name }}
 description: В разделе представлена история изменений сервиса {{ dataproc-name }}.
+alternate:
+  - href: ru/data-proc/release-notes/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ dataproc-full-name }}

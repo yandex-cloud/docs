@@ -1,6 +1,10 @@
 ---
 title: Working with a list of exceptions in {{ yandex-siem-full-name }}
 description: Follow this guide to learn how to view exceptions, filter them, and manage their deployment in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/operations/exceptions/exceptions-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with a list of exceptions

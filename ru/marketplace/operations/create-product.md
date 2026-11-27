@@ -1,6 +1,10 @@
 ---
 title: Как создать продукт в кабинете партнера {{ marketplace-full-name }}
 description: Следуя данной инструкции, вы сможете создать продукт в кабинете партнера {{ marketplace-full-name }}.
+alternate:
+  - href: ru/marketplace/operations/create-product.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание продукта в кабинете партнера {{ marketplace-short-name }}

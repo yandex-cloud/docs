@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/connect/create-static-conf.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a static configuration file
 
 Static configuration files allow you to access a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) without using the CLI, e.g., from continuous integration systems.

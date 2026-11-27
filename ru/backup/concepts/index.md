@@ -1,6 +1,10 @@
 ---
 title: Обзор сервиса {{ backup-full-name }}
 description: '{{ backup-name }} — сервис для создания резервных копий и восстановления ресурсов {{ yandex-cloud }} и данных на них.'
+alternate:
+  - href: ru/backup/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор сервиса {{ backup-full-name }}

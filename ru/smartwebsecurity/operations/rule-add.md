@@ -1,6 +1,10 @@
 ---
 title: Как добавить правило в профиль безопасности {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете добавить правило в профиль безопасности {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/rule-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить правило в профиль безопасности

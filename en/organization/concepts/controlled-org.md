@@ -1,6 +1,10 @@
 ---
 title: Controlled organizations
 description: Create an additional organization in another region linked to the main organization.
+alternate:
+  - href: en/organization/concepts/controlled-org.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Controlled organizations

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/kafka.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ mkf-name }} {#kafka}
 
 {{ mkf-name }} is a message broker that allows you to implement an architecture using message queues. Using this component, you can create clusters and topics and manage user access by leveraging the following custom resources:

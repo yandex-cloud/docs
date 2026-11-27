@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_update_object_lock.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets update object_lock
 
 Update bucket object_lock

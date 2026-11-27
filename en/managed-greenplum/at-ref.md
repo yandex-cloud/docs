@@ -1,6 +1,10 @@
 ---
 title: '{{ mgp-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ mgp-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/managed-greenplum/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

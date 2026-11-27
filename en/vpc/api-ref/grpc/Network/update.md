@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/vpc/api-ref/grpc/Network/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, gRPC: NetworkService.Update

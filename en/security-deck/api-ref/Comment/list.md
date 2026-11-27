@@ -34,6 +34,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/security-deck/api-ref/Comment/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck Alerts API, REST: Comment.List

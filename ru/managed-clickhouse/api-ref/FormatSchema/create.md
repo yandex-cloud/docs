@@ -51,6 +51,10 @@ apiPlayground:
         - uri
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/managed-clickhouse/api-ref/FormatSchema/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: FormatSchema.Create

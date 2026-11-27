@@ -1,6 +1,10 @@
 ---
 title: Pausing or resuming an {{ AF }} cluster
 description: How to suspend and resume an {{ AF }} cluster's components.
+alternate:
+  - href: en/stackland/operations/airflow/pause-resume.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pausing or resuming an {{ AF }} cluster

@@ -1,6 +1,10 @@
 ---
 title: Нейроаналитик на дашборде в {{ datalens-full-name }}
 description: Из статьи вы узнаете, что такое Нейроаналитик на дашборде в {{ datalens-full-name }} и как им воспользоваться.
+alternate:
+  - href: ru/datalens/dashboard/insights.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Нейроаналитик на дашборде в {{ datalens-full-name }}

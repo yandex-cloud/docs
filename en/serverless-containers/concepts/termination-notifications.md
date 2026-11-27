@@ -1,6 +1,10 @@
 ---
 title: Notifications of container instance termination
 description: This page covers some aspects of notifications about upcoming forced termination of container instances, both inactive and engaged in call processing.
+alternate:
+  - href: en/serverless-containers/concepts/termination-notifications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container termination notifications

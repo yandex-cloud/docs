@@ -21,6 +21,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/backup/backup/api-ref/Policy/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Policy.List

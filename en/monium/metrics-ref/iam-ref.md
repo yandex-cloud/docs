@@ -2,6 +2,10 @@
 title: '{{ iam-full-name }} metrics'
 description: In this tutorial, you will learn about {{ iam-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/iam-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ iam-full-name }} metrics

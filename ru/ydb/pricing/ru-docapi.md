@@ -2,6 +2,10 @@
 title: Правила оценки стоимости запросов к {{ ydb-short-name }} через Document API
 description: В статье содержатся правила оценки стоимости запросов к {{ ydb-name }} через Document API.
 editable: false
+alternate:
+  - href: ru/ydb/pricing/ru-docapi.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила оценки стоимости запросов к {{ ydb-short-name }} через Document API

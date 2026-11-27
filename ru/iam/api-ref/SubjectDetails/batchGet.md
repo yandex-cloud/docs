@@ -59,6 +59,10 @@ apiPlayground:
         required:
           - id
           - type
+alternate:
+  - href: ru/iam/api-ref/SubjectDetails/batchGet.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: SubjectDetails.BatchGet

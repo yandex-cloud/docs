@@ -1,6 +1,10 @@
 ---
 title: How to view deal info
 description: Follow this guide to view information regarding a deal.
+alternate:
+  - href: en/partner/operations/deals/deal-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing deal info

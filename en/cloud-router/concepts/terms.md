@@ -1,6 +1,11 @@
 ---
 title: '{{ cr-full-name }} terminology'
 description: Learn the basic terms used in {{ cr-full-name }}.
+noIndex: true
+alternate:
+  - href: en/cloud-router/concepts/terms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Terminology

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/organization/operations/setup-federation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настроить федерацию удостоверений
 
 Вы можете настроить аутентификацию пользователей в облаке через [федерацию удостоверений](../concepts/add-federation.md). Федерации удостоверений совместимы с любыми поставщиками удостоверений (IdP), которые поддерживают стандарт [SAML 2.0](https://wiki.oasis-open.org/security/FrontPage).

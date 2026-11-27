@@ -1,6 +1,10 @@
 ---
 title: How to delete a {{ iot-full-name }} registry
 description: Follow this guide to delete a {{ iot-short-name }} registry.
+alternate:
+  - href: en/iot-core/operations/registry/registry-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a registry

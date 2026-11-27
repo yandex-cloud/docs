@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/terminate/
+alternate:
+  - href: en/cli/cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/terminate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-sharded-postgresql maintenance change-freeze terminate

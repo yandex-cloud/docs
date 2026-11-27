@@ -1,6 +1,10 @@
 ---
 title: Запуск рабочих нагрузок с GPU в {{ managed-k8s-full-name }}
 description: Следуя данному руководству, вы сможете запустить рабочие нагрузки с GPU в {{ managed-k8s-name }}.
+alternate:
+  - href: ru/tutorials/container-infrastructure/running-pod-gpu.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запуск рабочих нагрузок с GPU в {{ managed-k8s-full-name }}

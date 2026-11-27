@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cos/concepts/network.md
+    type: text/markdown
+    title: Markdown version
+---
 # Особенности работы с сетью
 
 В {{ coi }} [Docker-контейнеры](/blog/posts/2022/03/docker-containers) запускаются с использованием сетевого интерфейса хоста. Все порты, открытые в Docker-контейнере, будут открыты и на хосте.

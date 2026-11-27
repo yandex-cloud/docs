@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/
+alternate:
+  - href: en/metadata-hub/cli-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-metastore

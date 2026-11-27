@@ -2,6 +2,10 @@
 title: Migrating data from {{ ES }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 descriptiom: Follow this guide to configure data transfer from {{ ES }} indexes to {{ mos-name }} indexes using {{ data-transfer-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/elasticsearch-to-opensearch'
+alternate:
+  - href: en/data-transfer/tutorials/mes-to-mos.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating data from {{ ES }} to {{ mos-full-name }}

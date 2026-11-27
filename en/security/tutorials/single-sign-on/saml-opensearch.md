@@ -3,6 +3,10 @@ title: Creating a SAML app in {{ org-full-name }} for integration with {{ mos-na
 description: How to create a SAML application in {{ org-full-name }} and set up integration with {{ mos-name }} to implement SSO for organization users.
 canonical: '{{ link-docs }}/tutorials/security/single-sign-on/saml-opensearch'
 noIndex: true
+alternate:
+  - href: en/security/tutorials/single-sign-on/saml-opensearch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [opensearch](../../../_tutorials/security/single-sign-on/saml-opensearch.md) %}

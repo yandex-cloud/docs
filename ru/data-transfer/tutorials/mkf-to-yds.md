@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/mkf-yds-stream'
+alternate:
+  - href: ru/data-transfer/tutorials/mkf-to-yds.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поставка данных из очереди {{ KF }} в {{ DS }}

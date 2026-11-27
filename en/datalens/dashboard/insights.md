@@ -1,6 +1,10 @@
 ---
 title: Neuroanalyst on your dashboard in {{ datalens-full-name }}
 description: In this article, you will learn about Neuroanalyst on your dashboard in {{ datalens-full-name }} and how to use it.
+alternate:
+  - href: en/datalens/dashboard/insights.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Neuroanalyst on your dashboard in {{ datalens-full-name }}

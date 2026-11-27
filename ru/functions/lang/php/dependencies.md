@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/php/dependencies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление зависимостями функции на PHP
 
 Сервис {{ sf-name }} может автоматически устанавливать зависимости, необходимые для работы функции на PHP, во время создания новой [версии функции](../../operations/function/version-manage.md).

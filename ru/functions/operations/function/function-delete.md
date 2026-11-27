@@ -1,6 +1,10 @@
 ---
 title: Удалить функцию
 description: Следуя данной инструкции, вы сможете удалить функцию.
+alternate:
+  - href: ru/functions/operations/function/function-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить функцию

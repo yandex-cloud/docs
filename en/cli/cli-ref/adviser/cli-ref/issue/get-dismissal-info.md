@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/adviser/cli-ref/issue/get-dismissal-info/
+alternate:
+  - href: en/cli/cli-ref/adviser/cli-ref/issue/get-dismissal-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc adviser issue get-dismissal-info

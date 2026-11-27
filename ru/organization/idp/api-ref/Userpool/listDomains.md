@@ -40,6 +40,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/idp/api-ref/Userpool/listDomains.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: Userpool.ListDomains

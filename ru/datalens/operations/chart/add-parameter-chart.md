@@ -1,6 +1,10 @@
 ---
 title: Как добавить параметр в чарт {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить параметр в чарт {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/chart/add-parameter-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление параметра в чарт {{ datalens-full-name }}

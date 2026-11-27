@@ -1,6 +1,10 @@
 ---
 title: '{{ ddos-protection-full-name }} в {{ vpc-full-name }}'
 description: Из статьи вы узнаете, что такое {{ ddos-protection-name }} и расширенная защита.
+alternate:
+  - href: ru/vpc/ddos-protection/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ddos-protection-full-name }} в {{ vpc-name }}

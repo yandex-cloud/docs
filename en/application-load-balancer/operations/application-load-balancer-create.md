@@ -1,6 +1,10 @@
 ---
 title: How to create an L7 load balancer in {{ alb-full-name }}
 description: In this tutorial, you will learn how to create an L7 load balancer.
+alternate:
+  - href: en/application-load-balancer/operations/application-load-balancer-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an L7 load balancer

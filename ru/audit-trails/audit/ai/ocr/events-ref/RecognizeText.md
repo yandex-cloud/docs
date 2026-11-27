@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ai/ocr/events-ref/RecognizeText.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Vision OCR Audit Trails Events: RecognizeText

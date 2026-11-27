@@ -1,6 +1,10 @@
 ---
 title: Управление пользователями кластера {{ CH }} в {{ mch-full-name }}
 description: Из статьи вы узнаете, как управлять пользователями кластера {{ mch-name }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/cluster-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление пользователями {{ CH }}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/pxf-datasource/update/jdbc/
+alternate:
+  - href: en/cli/cli-ref/managed-greenplum/cli-ref/pxf-datasource/update/jdbc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-greenplum pxf-datasource update jdbc

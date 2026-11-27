@@ -36,4 +36,8 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
-meta: {}
+meta:
+  alternate:
+    - href: ru/stackland/index.yaml
+      type: application/yaml
+      title: Yaml version

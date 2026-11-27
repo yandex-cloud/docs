@@ -15,6 +15,10 @@ meta:
     - keyword: идентификация и контроль доступа
     - keyword: управление правами пользователей
     - keyword: управление доступами
+  alternate:
+    - href: ru/iam/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Identity and Access Management

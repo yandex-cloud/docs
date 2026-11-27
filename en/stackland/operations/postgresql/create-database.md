@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/postgresql/create-database.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a {{ PG }} database
 
 If you have a [{{ PG }} cluster](../../concepts/components/postgresql.md) in your [project](../projects/create-project.md), you can create a database in it. Use a `PostgresqlDatabase` resource to define the database. Set the database owner using the `spec.owner` field. It must match an existing {{ PG }} role. For details, see [{#T}](create-user.md).

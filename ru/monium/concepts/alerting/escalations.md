@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/concepts/alerting/escalations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Эскалации
 
 

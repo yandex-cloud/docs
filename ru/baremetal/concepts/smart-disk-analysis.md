@@ -1,6 +1,10 @@
 ---
 title: Анализ состояния дисков серверов {{ baremetal-full-name }}
 description: Если в процессе работы с сервером {{ baremetal-full-name }} вы столкнулись с ошибками чтения/записи данных на диски, отказом диска или RAID-массива, вы можете выполнить диагностику сервера, которая позволит определить источник проблемы и сформирует отчет для отправки в службу технической поддержки.
+alternate:
+  - href: ru/baremetal/concepts/smart-disk-analysis.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Анализ состояния дисков серверов {{ baremetal-full-name }}

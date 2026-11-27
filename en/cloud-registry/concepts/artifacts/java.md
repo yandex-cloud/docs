@@ -1,6 +1,10 @@
 ---
 title: Java artifacts in {{ cloud-registry-full-name }}
 description: A Java artifact is a file containing compiled Java code and relevant information. Artifacts are used to distribute libraries, frameworks, and other components you can add to Java projects.
+alternate:
+  - href: en/cloud-registry/concepts/artifacts/java.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Java artifact

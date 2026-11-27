@@ -1,6 +1,10 @@
 ---
 title: Удалить резервную копию
 description: Из статьи вы узнаете, как удалить резервную копию виртуальной машины или сервера в {{ backup-full-name }}.
+alternate:
+  - href: ru/backup/operations/backup-vm/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить резервную копию

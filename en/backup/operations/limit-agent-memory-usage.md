@@ -1,6 +1,10 @@
 ---
 title: How to limit RAM usage by the backup agent
 description: Follow this guide to configure the backup agent to limit the use of RAM of the resource to back up.
+alternate:
+  - href: en/backup/operations/limit-agent-memory-usage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Limiting resource RAM usage by the {{ backup-name }} agent

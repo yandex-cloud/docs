@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/smartwebsecurity/events-ref/DeleteCustomPage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Smart Web Security Audit Trails Events: DeleteCustomPage

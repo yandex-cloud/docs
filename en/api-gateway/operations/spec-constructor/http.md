@@ -1,6 +1,10 @@
 ---
 title: Adding the Access over HTTP extension
 description: Follow this guide to add the Access over HTTP extension using the specification constructor.
+alternate:
+  - href: en/api-gateway/operations/spec-constructor/http.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding the x-yc-apigateway-integration:http extension

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/getting-contract-originals.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как получить оригинал договора
 
 

@@ -1,6 +1,10 @@
 ---
 title: '{{ captcha-full-name }} use cases'
 description: Various use cases for {{ captcha-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/smartcaptcha/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ captcha-full-name }} tutorials

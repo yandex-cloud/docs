@@ -1,6 +1,10 @@
 ---
 title: How to create a public zone in {{ dns-full-name }}
 description: In this tutorial, you will learn how to create a public DNS zone.
+alternate:
+  - href: en/dns/operations/zone-create-public.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a public DNS zone

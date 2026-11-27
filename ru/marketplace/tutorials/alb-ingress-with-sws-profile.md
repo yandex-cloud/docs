@@ -1,6 +1,10 @@
 ---
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/security/alb-ingress-with-sws-profile'
+alternate:
+  - href: ru/marketplace/tutorials/alb-ingress-with-sws-profile.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание L7-балансировщика с профилем безопасности {{ sws-name }} через Ingress-контроллер {{ alb-name }}

@@ -54,6 +54,10 @@ apiPlayground:
           enabled:
             description: '**boolean**'
             type: boolean
+alternate:
+  - href: ru/organization/api-ref/OsLogin/updateSettings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: OsLogin.UpdateSettings

@@ -1,6 +1,10 @@
 ---
 title: How to set up an {{ OS }} source endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to create and configure an {{ OS }} source endpoint in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/operations/endpoint/source/opensearch.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Transferring data from an {{ OS }} source endpoint
 

@@ -1,6 +1,10 @@
 ---
 title: '{{ api-gw-name }} specification extensions. Overview'
 description: The x-yc-apigateway extension allows you to set top-level API gateway parameters whose values will be inherited by child extensions. The x-yc-apigateway-integration extension is the entry point for integrating the API gateway with other services.
+alternate:
+  - href: en/api-gateway/concepts/extensions/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ api-gw-name }} specification extensions. Overview

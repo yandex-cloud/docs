@@ -1,6 +1,10 @@
 ---
 title: Список рассылок в {{ datalens-full-name }}
 description: Эта статья рассказывает, как посмотреть список всех рассылок в {{ datalens-name }} и какие действия можно с ними совершить.
+alternate:
+  - href: ru/datalens/concepts/maillists-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Список рассылок в {{ datalens-full-name }}

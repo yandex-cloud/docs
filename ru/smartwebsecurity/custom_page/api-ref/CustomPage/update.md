@@ -206,6 +206,10 @@ apiPlayground:
           maxProperties: 10
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/smartwebsecurity/custom_page/api-ref/CustomPage/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity CustomPage API, REST: CustomPage.Update

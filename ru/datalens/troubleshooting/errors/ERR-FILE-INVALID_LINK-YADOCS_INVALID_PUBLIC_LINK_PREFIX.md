@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.FILE.INVALID_LINK.YADOCS_INVALID_PUBLIC_LINK_PREFIX
 description: На странице приведено описание ошибки {{ datalens-full-name }} Неверный формат ссылки на Яндекс Документы.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-FILE-INVALID_LINK-YADOCS_INVALID_PUBLIC_LINK_PREFIX.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Неверный формат ссылки на Яндекс Документы

@@ -1,6 +1,10 @@
 ---
 title: '{{ lockbox-full-name }} event reference in {{ at-full-name }}'
 description: This page gives a reference for {{ lockbox-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/lockbox/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

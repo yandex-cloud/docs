@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/organization/concepts/add-federation.md
+    type: text/markdown
+    title: Markdown version
+---
 # SAML-compatible identity federations
 
 {{ yandex-cloud }} supports [SAML 2.0](https://wiki.oasis-open.org/security)-based identity federations. This is a popular markup language to enable Single Sign-On (SSO), a technology that allows users to access multiple apps without having to enter their username and password every time.

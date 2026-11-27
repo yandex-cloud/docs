@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ mmy-full-name }}
 description: Различные сценарии использования {{ mmy-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-mysql/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ mmy-name }}

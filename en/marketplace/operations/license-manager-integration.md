@@ -1,6 +1,10 @@
 ---
 title: Integration with the {{ license-manager }} API
 description: Follow this guide to set up integration with the {{ license-manager }} API.
+alternate:
+  - href: en/marketplace/operations/license-manager-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Integration with the {{ license-manager }} API

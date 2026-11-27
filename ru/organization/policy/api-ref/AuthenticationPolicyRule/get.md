@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/policy/api-ref/AuthenticationPolicyRule/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organization Policy API, REST: AuthenticationPolicyRule.Get

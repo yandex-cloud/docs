@@ -1,6 +1,10 @@
 ---
 title: '{{ mgp-full-name }} cluster maintenance'
 description: How to view information about cluster maintenance, postpone scheduled maintenance, and configure a maintenance window in {{ mgp-full-name }}.
+alternate:
+  - href: en/managed-greenplum/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mgp-full-name }} cluster maintenance

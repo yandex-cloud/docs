@@ -1,6 +1,10 @@
 ---
 title: Что такое кластер?
 description: Кластер — это совокупность серверов, объединенных высокоскоростными каналами связи для совместного решения ресурсозатратных задач.
+alternate:
+  - href: ru/glossary/cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Кластер

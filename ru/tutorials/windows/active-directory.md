@@ -10,6 +10,10 @@ keywords:
   - планирование active directory
   - настройка ad
   - настройка active directory
+alternate:
+  - href: ru/tutorials/windows/active-directory.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [active-directory](../../_tutorials/windows/active-directory.md) %}

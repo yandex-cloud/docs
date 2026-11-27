@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/operations/node-group/node-group-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Информация об имеющихся группах узлов
 
 Чтобы узнать `ID` или `NAME` [группы узлов](../../concepts/index.md#node-group), получите [список групп узлов](#list) в [кластере {{ k8s }}](../../concepts/index.md#kubernetes-cluster) или [подробную информацию о группе узлов](#get).

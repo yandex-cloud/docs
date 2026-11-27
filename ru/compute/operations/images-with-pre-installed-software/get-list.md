@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о публичном образе в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о публичном образе в {{ compute-full-name }}.
+alternate:
+  - href: ru/compute/operations/images-with-pre-installed-software/get-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о публичном образе

@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ mpg-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ mpg-full-name }}.
+alternate:
+  - href: ru/managed-postgresql/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ mpg-full-name }}

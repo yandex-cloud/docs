@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/getItem.md
+alternate:
+  - href: ru/ydb/docapi/api-ref/actions/getItem.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Метод GetItem
 

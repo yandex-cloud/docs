@@ -2,6 +2,10 @@
 title: '{{ mos-full-name }} pricing policy'
 description: This article covers the {{ mos-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/managed-opensearch/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mos-name }} pricing policy

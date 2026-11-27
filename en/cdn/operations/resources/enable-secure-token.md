@@ -1,6 +1,10 @@
 ---
 title: Setting up access via a secure token
 description: Follow this guide to set up access to {{ cdn-name }} resource content based on time and IP address using a secure token.
+alternate:
+  - href: en/cdn/operations/resources/enable-secure-token.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up access via a secure token

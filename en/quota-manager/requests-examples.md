@@ -1,6 +1,10 @@
 ---
 title: Examples of requests to {{ quota-manager-full-name }}
 description: This article provides examples of {{ quota-manager-name }} API requests for quota management.
+alternate:
+  - href: en/quota-manager/requests-examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Examples of requests for quota management

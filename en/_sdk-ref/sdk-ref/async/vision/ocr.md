@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/async/vision/ocr.md
+    type: text/markdown
+    title: Markdown version
+---
 # Function
 
 ## *class* yandex\_ai\_studio\_sdk.\_vision.ocr.function.**AsyncOCRFunction**{#yandex_ai_studio_sdk._vision.ocr.function.AsyncOCRFunction}

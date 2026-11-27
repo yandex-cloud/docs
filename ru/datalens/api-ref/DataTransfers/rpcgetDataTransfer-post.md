@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/DataTransfers/rpcgetDataTransfer-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Get data transfer

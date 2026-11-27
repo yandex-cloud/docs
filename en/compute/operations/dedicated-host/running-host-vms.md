@@ -1,6 +1,10 @@
 ---
 title: Creating a VM on a dedicated host
 description: Use this guide to create a VM on a dedicated host.
+alternate:
+  - href: en/compute/operations/dedicated-host/running-host-vms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM on a dedicated host

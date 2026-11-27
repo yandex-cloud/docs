@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing operations with {{ compute-name }} resources
 
 The system logs all actions with {{ compute-name }} resources as a list of operations. Each operation gets its own unique ID.

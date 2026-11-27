@@ -1,6 +1,10 @@
 ---
 title: Resource records in {{ dns-full-name }}
 description: A resource record is the main unit of information in a DNS. Using resource records, you determine where to route queries that come to specific domain names.
+alternate:
+  - href: en/dns/concepts/resource-record.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource records

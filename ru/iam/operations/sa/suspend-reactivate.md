@@ -1,6 +1,10 @@
 ---
 title: Как заблокировать и разблокировать сервисный аккаунт
 description: Следуя данной инструкции, вы сможете заблокировать и разблокировать сервисный аккаунт.
+alternate:
+  - href: ru/iam/operations/sa/suspend-reactivate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Блокировка и разблокировка сервисного аккаунта

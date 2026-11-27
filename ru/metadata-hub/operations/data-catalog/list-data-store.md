@@ -1,6 +1,10 @@
 ---
 title: Получение списка хранилищ данных в {{ data-catalog-name }}
 description: Как получить список хранилищ данных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/list-data-store.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка хранилищ данных

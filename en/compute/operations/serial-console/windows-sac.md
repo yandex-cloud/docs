@@ -1,6 +1,10 @@
 ---
 title: Connecting to the serial console of a Windows VM instance
 description: Follow this guide to learn how to connect to the serial console of a Windows-based {{ compute-full-name }} VM instance using Windows SAC.
+alternate:
+  - href: en/compute/operations/serial-console/windows-sac.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to the serial console of a Windows VM instance

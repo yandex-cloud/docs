@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/network-load-balancer/concepts/target-resources.md
+    type: text/markdown
+    title: Markdown version
+---
 # Целевые группы и ресурсы
 
 *Целевая группа* — это набор ресурсов, которые получают трафик от обработчика. Фактически это список IP-адресов сетевых интерфейсов [виртуальных машин](../../compute/concepts/vm.md) в {{ yandex-cloud }}.

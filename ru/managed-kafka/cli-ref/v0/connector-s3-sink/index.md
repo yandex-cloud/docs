@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/v0/connector-s3-sink/
+alternate:
+  - href: ru/managed-kafka/cli-ref/v0/connector-s3-sink/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kafka v0 connector-s3-sink

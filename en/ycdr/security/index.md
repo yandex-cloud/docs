@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ ycdr-full-name }}
 description: Access management in {{ ycdr-full-name }}, a monitoring and incident response service. This section describes the resources for which you can assign a role and the roles existing in the service.
+alternate:
+  - href: en/ycdr/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ ycdr-name }}

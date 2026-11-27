@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/RestCatalogs/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # RestCatalogs
 
 <!-- markdownlint-disable-file -->

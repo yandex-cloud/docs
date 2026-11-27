@@ -1,6 +1,10 @@
 ---
 title: Как изменить расписание, по которому создаются снимки дисков {{ compute-full-name }}
 description: Из статьи вы узнаете, как изменить расписание, по которому создаются снимки дисков {{ compute-name }}.
+alternate:
+  - href: ru/compute/operations/snapshot-control/update-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить расписание, по которому создаются снимки дисков

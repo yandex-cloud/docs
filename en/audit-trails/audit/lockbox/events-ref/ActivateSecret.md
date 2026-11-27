@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/lockbox/events-ref/ActivateSecret.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox Audit Trails Events: ActivateSecret

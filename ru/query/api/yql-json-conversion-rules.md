@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/api/yql-json-conversion-rules.md
+    type: text/markdown
+    title: Markdown version
+---
 # Соответствие YQL и Json-типов
 
 Ниже приведены правила преобразования YQL-типов в Json-результаты.

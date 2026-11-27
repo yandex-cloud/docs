@@ -1,6 +1,10 @@
 ---
 title: Deleting an account from a {{ org-full-name }} organization
 description: In this tutorial, you will learn how to delete a user account from a {{ org-full-name }} organization.
+alternate:
+  - href: en/organization/operations/edit-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a user account

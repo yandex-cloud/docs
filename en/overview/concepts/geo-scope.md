@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/overview/concepts/geo-scope.md
+    type: text/markdown
+    title: Markdown version
+---
 # Availability zones
 
 An _availability zone_ is an infrastructure within a data center that hosts {{ yandex-cloud }}. {{ yandex-cloud }} resources are either _zonal_ (linked to an availability zone) or _global_ (not linked to any zone). For instance, [VMs](../../compute/concepts/vm.md) and [disks](../../compute/concepts/disk.md) are zonal resources. Examples of global resources: [cloud networks](../../vpc/concepts/network.md) and [buckets](../../storage/concepts/bucket.md).

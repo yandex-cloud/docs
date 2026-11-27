@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ mgp-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ mgp-name }}

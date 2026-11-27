@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ vpc-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ vpc-full-name }}.
+alternate:
+  - href: ru/vpc/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ vpc-full-name }}

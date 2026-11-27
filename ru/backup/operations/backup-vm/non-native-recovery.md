@@ -1,6 +1,10 @@
 ---
 title: Как восстановить ВМ {{ compute-name }} или сервер {{ baremetal-name }} из резервной копии другой ВМ или сервера в {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете восстановить виртуальную машину {{ compute-name }} или сервер {{ baremetal-name }} из резервной копии другой виртуальной машины или сервера в {{ backup-full-name }}.
+alternate:
+  - href: ru/backup/operations/backup-vm/non-native-recovery.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановить ВМ {{ compute-name }} или сервер {{ baremetal-name }} из резервной копии другой ВМ или сервера

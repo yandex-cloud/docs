@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/operations/scaling-settings-add.md
+    type: text/markdown
+    title: Markdown version
+---
 # Добавить настройки масштабирования контейнеру
 
 Вы можете задать:

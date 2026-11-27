@@ -1,6 +1,10 @@
 ---
 title: Как подтвердить домен в пуле пользователей или федерации {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете подтвердить домен в пуле пользователей или федерации {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/validate-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подтвердить домен

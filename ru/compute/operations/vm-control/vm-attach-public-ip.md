@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/vm-control/vm-attach-public-ip.md
+    type: text/markdown
+    title: Markdown version
+---
 # Привязать к виртуальной машине публичный IP-адрес
 
 Если вы создали [ВМ](../../concepts/vm.md) без [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses), вы можете привязать к ней адрес, [зарезервированный вами](../../../vpc/operations/get-static-ip.md) в [{{ vpc-full-name }}](../../../vpc/) или выбранный {{ compute-name }} автоматически из свободных адресов. Зарезервированный IP-адрес и ВМ должны находиться в одной [зоне доступности](../../../overview/concepts/geo-scope.md).

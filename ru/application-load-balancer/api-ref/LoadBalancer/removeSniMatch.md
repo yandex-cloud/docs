@@ -34,6 +34,10 @@ apiPlayground:
         - sniMatchName
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/application-load-balancer/api-ref/LoadBalancer/removeSniMatch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.RemoveSniMatch

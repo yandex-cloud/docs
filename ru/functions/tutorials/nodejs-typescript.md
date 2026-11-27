@@ -4,6 +4,10 @@ description: Следуя данному руководству, вы сможе
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/nodejs-typescript'
 author: vladd11
+alternate:
+  - href: ru/functions/tutorials/nodejs-typescript.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [nodejs-typescript](../../_tutorials/serverless/nodejs-typescript.md) %}

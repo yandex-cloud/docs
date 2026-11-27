@@ -1,5 +1,9 @@
 ---
 title: Как получить информацию об L7-балансировщике в {{ alb-full-name }}
+alternate:
+  - href: ru/application-load-balancer/operations/application-load-balancer-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию об L7-балансировщике

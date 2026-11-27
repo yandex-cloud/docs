@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Interconnect
+alternate:
+  - href: ru/terraform/data-sources/cic_partner.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cic_partner (DataSource)

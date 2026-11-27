@@ -1,6 +1,10 @@
 ---
 title: Подключить целевую группу к сетевому балансировщику
 description: Следуя данной инструкции, вы сможете подключить целевую группу к сетевому балансировщику.
+alternate:
+  - href: ru/network-load-balancer/operations/target-group-attach.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключить целевую группу к сетевому балансировщику

@@ -1,6 +1,10 @@
 ---
 title: Работа с базами данных {{ mpg-full-name }}
 description: Из статьи вы узнаете, как подключиться к базе данных {{ mpg-name }} и выполнять запросы к ней из {{ yq-full-name }}.
+alternate:
+  - href: ru/query/sources-and-sinks/postgresql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с базами данных {{ mpg-name }}

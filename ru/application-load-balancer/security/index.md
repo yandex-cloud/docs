@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ alb-full-name }}
 description: Управление доступом в сервисе для распределения запросов по бэкендам сетевых приложений и терминирования TLS-шифрования — {{ alb-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
+alternate:
+  - href: ru/application-load-balancer/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ alb-name }}

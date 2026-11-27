@@ -1,6 +1,10 @@
 ---
 title: Creating a metadata catalog
 description: Follow this guide to create a metadata catalog in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/create-catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a metadata catalog

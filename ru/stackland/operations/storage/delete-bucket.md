@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/storage/delete-bucket.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить бакет
 
 Если у вас есть [бакет](../../concepts/components/storage.md) и он пуст, вы можете его удалить.

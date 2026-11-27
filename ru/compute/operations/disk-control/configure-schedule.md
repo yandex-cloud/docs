@@ -1,6 +1,10 @@
 ---
 title: Как настроить создание снимков диска по расписаниям в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете настроить создание снимков диска по расписаниям.
+alternate:
+  - href: ru/compute/operations/disk-control/configure-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить создание снимков диска по расписаниям

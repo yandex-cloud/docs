@@ -1,5 +1,9 @@
 ---
 title: How to view the list of services and quotas
+alternate:
+  - href: en/quota-manager/operations/list-quotas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing the list of services and quotas

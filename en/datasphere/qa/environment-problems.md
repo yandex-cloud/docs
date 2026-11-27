@@ -1,6 +1,10 @@
 ---
 title: '{{ ml-platform-full-name }}. Troubleshooting issues with dependencies'
 description: How to install libraries and fix related {{ ml-platform-full-name }} errors? Find answers to this and other questions in this article.
+alternate:
+  - href: en/datasphere/qa/environment-problems.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting issues with dependencies in {{ ml-platform-full-name }}

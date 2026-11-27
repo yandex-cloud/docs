@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Yandex-360/POST_workseats_v1_subaccountId_organization360Id_workseatId.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Change tariff in organization 360

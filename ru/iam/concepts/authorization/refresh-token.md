@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iam/concepts/authorization/refresh-token.md
+    type: text/markdown
+    title: Markdown version
+---
 # Refresh-токен
 
 _Refresh-токен_ — это тип учетных данных, позволяющий OAuth-приложению по истечении срока действия [IAM-токена](./iam-token.md) пользователя автоматически получать новый IAM-токен. Refresh-токен выпускается для пользователя и передается в OAuth-приложение, которое выполняет аутентификацию пользователя в {{ yandex-cloud }}.

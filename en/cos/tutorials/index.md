@@ -1,6 +1,10 @@
 ---
 title: '{{ coi }} use cases in {{ cos-full-name }}'
 description: Various {{ coi }} use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/cos/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All tutorials

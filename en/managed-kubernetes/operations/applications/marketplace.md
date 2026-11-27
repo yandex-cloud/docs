@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ marketplace-full-name }}
 description: Follow this guide to learn how to use {{ marketplace-name }}.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/marketplace.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ marketplace-name }}

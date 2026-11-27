@@ -1,6 +1,10 @@
 ---
 title: How to create an {{ oslogin }} profile
 description: Follow this guide to create an {{ oslogin }} profile.
+alternate:
+  - href: en/organization/operations/os-login-profile-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an {{ oslogin }} profile

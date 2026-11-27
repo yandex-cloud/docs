@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ backup-full-name }}
 description: Access management in {{ backup-full-name }} – {{ yandex-cloud }}'s data backup solution. This section describes the resources you can assign a role for and the roles existing in the service.
+alternate:
+  - href: en/backup/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ backup-name }}

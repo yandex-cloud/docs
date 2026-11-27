@@ -1,6 +1,10 @@
 ---
 title: '{{ lockbox-full-name }} use cases'
 description: Various use cases for {{ lockbox-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/lockbox/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ lockbox-name }} tutorials

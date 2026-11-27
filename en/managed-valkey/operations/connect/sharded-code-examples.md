@@ -1,6 +1,10 @@
 ---
 title: Code examples for connecting to a sharded {{ VLK }} cluster in {{ mrd-full-name }}
 description: You can use these examples to connect your application to a database in a sharded {{ VLK }} cluster.
+alternate:
+  - href: en/managed-valkey/operations/connect/sharded-code-examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Code examples for connecting to a sharded {{ VLK }} cluster

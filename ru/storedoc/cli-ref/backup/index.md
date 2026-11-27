@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/backup/
+alternate:
+  - href: ru/storedoc/cli-ref/backup/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb backup

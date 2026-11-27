@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-gitlab/api-ref/grpc/Instance/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Gitlab API, gRPC: InstanceService.Update

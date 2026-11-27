@@ -1,6 +1,10 @@
 ---
 title: Инструкция по сбору и поставке данных {{ ydb-full-name }} с помощью AWS CLI
 description: Из статьи вы узнаете, как собирать и поставлять данные {{ ydb-full-name }} с помощью AWS CLI.
+alternate:
+  - href: ru/data-streams/quickstart/aws-cli.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AWS CLI

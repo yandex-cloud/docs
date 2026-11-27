@@ -5,6 +5,10 @@ keywords:
   - Natural Language Processing
   - NLP
   - Обработка естественного языка
+alternate:
+  - href: ru/glossary/nlp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обработка естественного языка (NLP)

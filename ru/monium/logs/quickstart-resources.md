@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/logs/quickstart-resources.md
+    type: text/markdown
+    title: Markdown version
+---
 # Начало работы с логами ресурсов {{ yandex-cloud }}
 
 {{ monium-name }} позволяет работать с логами сервисов {{ yandex-cloud }}, а также с любыми другими логами, загруженными в {{ monium-name }}. Например, из ваших приложений, вашей инфраструктуры или других облаков.

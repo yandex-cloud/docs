@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/troubleshooting/problem-solving-algorithms.md
+    type: text/markdown
+    title: Markdown version
+---
 # Алгоритмы решения проблем
 
 В этом разделе описаны алгоритмы диагностики и устранения типичных проблем, возникающих при работе с системой.

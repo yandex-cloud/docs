@@ -1,6 +1,10 @@
 ---
 title: Состояния плеера {{ video-player-name }} в SDK для JavaScript
 description: На странице описаны возможные состояния, которые может принимать видеоплеер {{ video-player-name }} в SDK для JavaScript.
+alternate:
+  - href: ru/video/sdk/javascript/player-state.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Состояние плеера

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/trino/delete-catalog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a {{ mtr-name }} catalog
 
 If you have a [catalog](../../concepts/components/trino.md#catalogs) in your [{{ TR }} cluster](../../concepts/components/trino.md), you can delete it. After you delete the catalog, the data source will no longer be available in cluster SQL queries.

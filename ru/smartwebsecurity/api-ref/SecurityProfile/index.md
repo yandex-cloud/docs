@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/smartwebsecurity/api-ref/SecurityProfile/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity API, REST: SecurityProfile

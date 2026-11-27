@@ -1,6 +1,10 @@
 ---
 title: Работа с AWS CLI. Обзор
 description: В разделе описано, как с использованием AWS CLI выполнить создание, добавление, чтение и обновление данных в таблице. Приведены примеры выполнения простых запросов.
+alternate:
+  - href: ru/ydb/docapi/tools/aws-cli/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с AWS CLI в {{ ydb-name }}. Обзор

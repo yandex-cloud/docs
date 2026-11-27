@@ -1,6 +1,10 @@
 ---
 title: How to publish a video in {{ video-full-name }}
 description: Follow this guide to publish a video uploaded to {{ video-full-name }} and check its availability.
+alternate:
+  - href: en/video/operations/video/publish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Publishing a video

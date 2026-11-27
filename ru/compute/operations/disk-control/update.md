@@ -1,6 +1,10 @@
 ---
 title: Как изменить диск в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете изменить диск.
+alternate:
+  - href: ru/compute/operations/disk-control/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить диск

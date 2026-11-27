@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/billing/cli-ref/consumption-core/get-billing-account-usage-report/
+alternate:
+  - href: en/cli/cli-ref/billing/cli-ref/consumption-core/get-billing-account-usage-report.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc billing consumption-core get-billing-account-usage-report

@@ -2,6 +2,10 @@
 title: '{{ datalens-full-name }} pricing policy'
 description: This article covers the {{ datalens-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/datalens/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} pricing policy

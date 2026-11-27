@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/ai-studio/install-images.md
+    type: text/markdown
+    title: Markdown version
+---
 # Uploading {{ ai-studio-name }} images
 
 {{ model-gallery-name }} and {{ agent-atelier-name }} images come in separate `model-gallery` and `agent-atelier` bundles and do not form part of the `full` package.

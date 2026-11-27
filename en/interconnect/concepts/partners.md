@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/interconnect/concepts/partners.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ interconnect-name }} partners
 
 

@@ -1,6 +1,10 @@
 ---
 title: How to add a member to {{ video-full-name }}
 description: Follow this guide to add a member to {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/add-member.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a member

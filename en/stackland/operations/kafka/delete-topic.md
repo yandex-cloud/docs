@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/kafka/delete-topic.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a topic
 
 If you have an [{{ KF }}](../../concepts/components/kafka.md) topic in your [project](../projects/create-project.md), you can delete it.

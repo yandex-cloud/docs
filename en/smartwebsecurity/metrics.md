@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ sws-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides a reference of {{ sws-name }} metrics exported to {{ monitoring-full-name }}.
+alternate:
+  - href: en/smartwebsecurity/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

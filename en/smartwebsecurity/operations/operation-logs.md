@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/smartwebsecurity/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing operations with profiles
 
 Brief information about actions with {{ sws-name }} objects (e.g., security profiles, WAF and ARL, address lists) is saved as a list of operations. Each operation gets an ID. Use this ID to get detailed information about an operation via the API.

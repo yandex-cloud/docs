@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/certificate-manager/cli-ref/v0/certificate/list-access-bindings/
+alternate:
+  - href: ru/certificate-manager/cli-ref/v0/certificate/list-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc certificate-manager v0 certificate list-access-bindings

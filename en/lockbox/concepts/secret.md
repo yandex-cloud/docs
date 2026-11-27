@@ -1,6 +1,10 @@
 ---
 title: What are {{ lockbox-full-name }} secrets
 description: In this tutorial, you will learn about {{ lockbox-full-name }} secrets and their components.
+alternate:
+  - href: en/lockbox/concepts/secret.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Secrets in {{ lockbox-full-name }}

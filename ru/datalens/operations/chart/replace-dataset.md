@@ -1,6 +1,10 @@
 ---
 title: Как заменить датасет в чарте {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете заменить датасет в чарте {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/chart/replace-dataset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Замена датасета в чарте {{ datalens-full-name }}

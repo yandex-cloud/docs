@@ -1,6 +1,10 @@
 ---
 title: High availability of a {{ mgp-name }} cluster
 description: The availability of a {{ mgp-name }} cluster depends on its configuration, client connection settings, available storage, and other parameters.
+alternate:
+  - href: en/managed-greenplum/concepts/high-availability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # High availability of a {{ mgp-name }} cluster

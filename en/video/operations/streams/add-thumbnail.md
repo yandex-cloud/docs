@@ -1,6 +1,10 @@
 ---
 title: How to add a thumbnail for a broadcast in {{ video-full-name }}
 description: Follow this guide to add a thumbnail for a broadcast in {{ video-name }}.
+alternate:
+  - href: en/video/operations/streams/add-thumbnail.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a thumbnail for a broadcast

@@ -1,6 +1,10 @@
 ---
 title: Инструкция о том, как получить список триггеров в {{ api-gw-full-name }}
 description: Из статьи вы узнаете, как получить список триггеров в {{ api-gw-full-name }}.
+alternate:
+  - href: ru/api-gateway/operations/trigger/trigger-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список триггеров в {{ api-gw-name }}

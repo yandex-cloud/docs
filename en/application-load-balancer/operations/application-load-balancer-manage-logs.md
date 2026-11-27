@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/application-load-balancer/operations/application-load-balancer-manage-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Setting up L7 load balancer logging
 
 You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs](../concepts/monitoring.md#logging) to [{{ cloud-logging-full-name }}](../../logging/).

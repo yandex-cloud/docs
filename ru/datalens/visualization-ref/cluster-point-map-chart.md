@@ -1,6 +1,10 @@
 ---
 title: Точечная карта с кластеризацией в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Точечная карта с кластеризацией.
+alternate:
+  - href: ru/datalens/visualization-ref/cluster-point-map-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Точечная карта с кластеризацией ![](../../_assets/datalens/heatmap.svg) {{ datalens-full-name }}

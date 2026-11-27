@@ -1,6 +1,10 @@
 ---
 title: How to use deals in the partner portal
 description: This page contains a list of guides on how to work with deals in the partner portal.
+alternate:
+  - href: en/partner/operations/deals/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deal management guides

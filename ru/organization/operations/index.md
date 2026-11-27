@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ org-full-name }}
 description: Из статьи вы узнаете, как работать с {{ org-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/organization/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Инструкции по работе с {{ org-full-name }}

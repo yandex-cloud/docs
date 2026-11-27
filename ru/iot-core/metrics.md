@@ -1,6 +1,10 @@
 ---
 title: Справочник метрик сервиса {{ iot-full-name }} в {{ monitoring-full-name }}
 description: На этой странице приведен справочник метрик сервиса {{ iot-name }}, поставляемых в {{ monitoring-full-name }}.
+alternate:
+  - href: ru/iot-core/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник метрик {{ monitoring-full-name }}

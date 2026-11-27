@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/trigger/v1/get/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/trigger/v1/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless trigger v1 get

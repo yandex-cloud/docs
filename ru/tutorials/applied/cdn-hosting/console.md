@@ -1,6 +1,10 @@
 ---
 title: Хостинг статического сайта в {{ objstorage-full-name }} с доступом через {{ cdn-full-name }} с помощью консоли управления, CLI или API
 description: В этом руководстве вы создадите статический сайт в бакете {{ objstorage-name }} и настроите доступ к нему с помощью {{ cdn-name }}, используя консоль управления, CLI или API.
+alternate:
+  - href: ru/tutorials/applied/cdn-hosting/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка хостинга статического сайта в бакете {{ objstorage-full-name }} с доступом через {{ cdn-full-name }}

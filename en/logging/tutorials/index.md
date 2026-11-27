@@ -1,6 +1,10 @@
 ---
 title: '{{ cloud-logging-full-name }} use cases'
 description: Various use cases for {{ cloud-logging-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/logging/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cloud-logging-name }} tutorials

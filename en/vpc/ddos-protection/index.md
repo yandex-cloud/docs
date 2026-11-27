@@ -1,6 +1,10 @@
 ---
 title: '{{ ddos-protection-full-name }} in {{ vpc-full-name }}'
 description: In this article, you will learn about {{ ddos-protection-name }} and extended protection.
+alternate:
+  - href: en/vpc/ddos-protection/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ddos-protection-full-name }} in {{ vpc-name }}

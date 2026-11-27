@@ -1,6 +1,10 @@
 ---
 title: Лог-группа в {{ cloud-logging-full-name }}
 description: Лог-группа — это способ группировки логов сервисов и пользовательских сообщений.
+alternate:
+  - href: ru/logging/concepts/log-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Лог-группа в {{ cloud-logging-name }}

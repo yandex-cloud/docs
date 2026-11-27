@@ -1,6 +1,10 @@
 ---
 title: How to add a rule to a security profile in {{ sws-full-name }}
 description: Follow this guide to add a rule to a security profile in {{ sws-full-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/rule-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a rule to a security profile

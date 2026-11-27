@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }} referral program'
 description: Learn how the referral program enables {{ yandex-cloud }} partners to acquire new customers and get rewards.
+alternate:
+  - href: en/partner/program/referral.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Referral program

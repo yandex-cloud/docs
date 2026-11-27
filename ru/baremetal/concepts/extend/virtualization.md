@@ -1,6 +1,10 @@
 ---
 title: '{{ baremetal-extend-virtualization-name }}'
 description: Из статьи вы узнаете о продукте {{ baremetal-extend-virtualization-name }}.
+alternate:
+  - href: ru/baremetal/concepts/extend/virtualization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ baremetal-extend-virtualization-name }}

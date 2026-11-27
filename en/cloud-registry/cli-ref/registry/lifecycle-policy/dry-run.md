@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/dry-run/
+alternate:
+  - href: en/cloud-registry/cli-ref/registry/lifecycle-policy/dry-run.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry registry lifecycle-policy dry-run

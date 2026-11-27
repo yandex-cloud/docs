@@ -1,6 +1,10 @@
 ---
 title: Как создать виртуальную машину из пользовательского образа
 description: Следуя данной инструкции, вы сможете создать виртуальную машину из пользовательского образа.
+alternate:
+  - href: ru/compute/operations/vm-create/create-from-user-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать виртуальную машину из пользовательского образа

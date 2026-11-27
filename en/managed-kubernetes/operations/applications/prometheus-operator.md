@@ -1,6 +1,10 @@
 ---
 title: Installing Prometheus Operator with {{ monitoring-full-name }} support
 description: Follow this guide to install Prometheus Operator with {{ monitoring-name }} support.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/prometheus-operator.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing Prometheus Operator with {{ monitoring-full-name }} support

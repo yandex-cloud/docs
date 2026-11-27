@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/create-platform-application.md
+    type: text/markdown
+    title: Markdown version
+---
 # CreatePlatformApplication
 
 Creates a [mobile push notification channel](../concepts/push.md).

@@ -1,6 +1,10 @@
 ---
 title: Запуск нового {{ k8s }}-проекта в {{ yandex-cloud }}
 description: Из руководства вы узнаете, как создать новый {{ k8s }}-проект в {{ yandex-cloud }}.
+alternate:
+  - href: ru/tutorials/container-infrastructure/new-kubernetes-project.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание нового {{ k8s }}-проекта в {{ managed-k8s-full-name }}

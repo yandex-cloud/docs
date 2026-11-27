@@ -9,6 +9,10 @@ keywords:
   - '{{ CH }} backups'
   - '{{ CH }} backup'
   - '{{ CH }}'
+alternate:
+  - href: en/managed-clickhouse/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backups in {{ mch-name }}

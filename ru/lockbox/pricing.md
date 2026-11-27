@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ lockbox-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ lockbox-name }}.
 editable: false
+alternate:
+  - href: ru/lockbox/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ lockbox-name }}

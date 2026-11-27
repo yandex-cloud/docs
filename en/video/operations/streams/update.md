@@ -1,6 +1,10 @@
 ---
 title: How to edit a broadcast in {{ video-full-name }}
 description: Follow this guide to edit a {{ video-full-name }} broadcast.
+alternate:
+  - href: en/video/operations/streams/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a broadcast

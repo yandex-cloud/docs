@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/api/methods/get-query-results.md
+    type: text/markdown
+    title: Markdown version
+---
 # get-query-results
 
 Метод возвращает результат выполнения запроса. Если в запросе указано несколько конструкций `SELECT`, образуется несколько результатов выполнения запроса. Тогда результаты нужно получать по их индексу.

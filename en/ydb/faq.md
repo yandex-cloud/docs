@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/ydb/faq.md
+    type: text/markdown
+    title: Markdown version
+---
 # FAQ about {{ ydb-name }}
 
 This page provides answers to common questions about {{ ydb-name }}. For frequently asked questions about {{ ydb-short-name }}, see [this article]({{ ydb.docs }}/faq/).

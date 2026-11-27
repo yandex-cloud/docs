@@ -1,6 +1,10 @@
 ---
 title: Как создать шаблон ответа
 description: Следуя данной инструкции, вы сможете создать собственный шаблон для ответа на запрос клиента.
+alternate:
+  - href: ru/smartwebsecurity/operations/template-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать шаблон страницы ответа

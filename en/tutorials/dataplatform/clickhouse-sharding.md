@@ -1,6 +1,10 @@
 ---
 title: Sharding {{ mch-name }} tables
 description: In this tutorial, you will learn how to shard {{ mch-full-name }} tables.
+alternate:
+  - href: en/tutorials/dataplatform/clickhouse-sharding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sharding {{ mch-full-name }} tables

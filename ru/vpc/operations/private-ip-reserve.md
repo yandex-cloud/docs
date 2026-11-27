@@ -1,6 +1,10 @@
 ---
 title: Зарезервировать внутренний IP-адрес
 description: Следуя данной инструкции, вы сможете зарезервировать внутренний IP-адрес.
+alternate:
+  - href: ru/vpc/operations/private-ip-reserve.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Зарезервировать внутренний IP-адрес

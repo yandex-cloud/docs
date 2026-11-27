@@ -1,6 +1,10 @@
 ---
 title: Как получить список зон DNS
 description: Следуя данной инструкции, вы сможете получить список зон DNS.
+alternate:
+  - href: ru/dns/operations/zone-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список зон DNS

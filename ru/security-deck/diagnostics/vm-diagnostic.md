@@ -1,6 +1,10 @@
 ---
 title: Какие ошибки возникают при работе с модулем {{ vuln-man-name }} ({{ vuln-man-short-name }}) в {{ sd-full-name }}
 description: Из статьи вы узнаете, какие бывают ошибки в работе модуля {{ vuln-man-name }} ({{ vuln-man-short-name }}).
+alternate:
+  - href: ru/security-deck/diagnostics/vm-diagnostic.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика ошибок в работе модуля {{ vuln-man-name }} ({{ vuln-man-short-name }})

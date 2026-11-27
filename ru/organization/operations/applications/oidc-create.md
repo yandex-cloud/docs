@@ -1,6 +1,10 @@
 ---
 title: Как создать OIDC-приложение в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете создать OIDC-приложение в {{ org-full-name }} для аутентификации пользователей вашей организации во внешних приложениях с помощью технологии единого входа по стандарту OpenID Connect.
+alternate:
+  - href: ru/organization/operations/applications/oidc-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать OIDC-приложение в {{ org-full-name }}

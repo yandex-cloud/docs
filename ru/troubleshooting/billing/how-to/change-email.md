@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/change-email.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как изменить адрес электронной почты
 
 

@@ -1,6 +1,10 @@
 ---
 title: '{{ mpg-full-name }} release notes'
 description: This section contains the {{ mpg-name }} release notes.
+alternate:
+  - href: en/managed-postgresql/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 <!-- Changelog begin -->

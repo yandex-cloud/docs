@@ -1,6 +1,11 @@
 ---
 title: Finding and fixing errors when creating a demo stand
 description: Follow this guide to find and fix errors when creating a demo stand.
+noIndex: true
+alternate:
+  - href: en/speechkit-hybrid/quickstart-debugging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Finding and fixing errors when creating a demo stand

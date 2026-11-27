@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kafka/concepts/brokers.md
+    type: text/markdown
+    title: Markdown version
+---
 # Brokers
 
 Brokers are hosts in a {{ mkf-name }} cluster where [{{ KF }} topics and partitions](topics.md) reside.

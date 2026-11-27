@@ -1,6 +1,10 @@
 ---
 title: Deleting a function label
 description: Follow this guide to delete a function label.
+alternate:
+  - href: en/functions/operations/function/label-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a function label

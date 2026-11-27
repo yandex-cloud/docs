@@ -1,6 +1,10 @@
 ---
 title: How to add a {{ captcha-full-name }} widget
 description: In this tutorial, you will learn how to add a {{ captcha-name }} widget using the advanced method or on an as-needed basis.
+alternate:
+  - href: en/smartcaptcha/operations/advanced-method.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding the {{ captcha-name }} widget

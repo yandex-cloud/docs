@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ dns-full-name }}
 description: Access management in {{ dns-full-name }}, a service for managing DNS zones and domain names of your resources. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+alternate:
+  - href: en/dns/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ dns-name }}

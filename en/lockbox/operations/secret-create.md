@@ -1,6 +1,10 @@
 ---
 title: How to create a secret
 description: Follow this guide to create a secret.
+alternate:
+  - href: en/lockbox/operations/secret-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating secrets

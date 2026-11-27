@@ -52,6 +52,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/audit-trails/api-ref/Trail/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Audit Trails API, REST: Trail.List

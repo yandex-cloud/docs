@@ -1,6 +1,10 @@
 ---
 title: Проверка прав на домен в {{ certificate-manager-name }}
 description: 'Способы проверки прав на домен при выпуске сертификатов Let''s Encrypt в {{ certificate-manager-name }}: HTTP и DNS. Статусы проверок и условия автоматической проверки.'
+alternate:
+  - href: ru/certificate-manager/concepts/challenges.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Проверка прав на домен

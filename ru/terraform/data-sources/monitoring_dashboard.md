@@ -1,5 +1,9 @@
 ---
 subcategory: Monitoring
+alternate:
+  - href: ru/terraform/data-sources/monitoring_dashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_monitoring_dashboard (DataSource)

@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ captcha-full-name }}
 description: В разделе представлена история изменений сервиса {{ captcha-name }}.
+alternate:
+  - href: ru/smartcaptcha/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ captcha-full-name }}

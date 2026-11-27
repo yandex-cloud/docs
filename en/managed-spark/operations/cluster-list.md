@@ -1,6 +1,10 @@
 ---
 title: Information about clusters in {{ msp-full-name }}
 description: You can request detailed information for each {{ SPRK }} cluster you have created. To get a list of clusters in a folder, go to the folder dashboard and select {{ msp-full-name }}.
+alternate:
+  - href: en/managed-spark/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Information about existing clusters

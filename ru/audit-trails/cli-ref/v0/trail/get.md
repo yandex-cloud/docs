@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/audit-trails/cli-ref/v0/trail/get/
+alternate:
+  - href: ru/audit-trails/cli-ref/v0/trail/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc audit-trails v0 trail get

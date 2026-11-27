@@ -1,6 +1,10 @@
 ---
 title: Как восстановить диск с помощью образа в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете восстановить диск с помощью образа.
+alternate:
+  - href: ru/compute/operations/disk-create/from-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановить диск с помощью образа

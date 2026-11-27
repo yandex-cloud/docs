@@ -1,6 +1,10 @@
 ---
 title: Deleting a bucket in {{ objstorage-full-name }}
 description: Follow this guide to delete a bucket in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/buckets/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a bucket

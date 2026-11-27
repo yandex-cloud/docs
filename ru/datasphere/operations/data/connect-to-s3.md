@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/data/connect-to-s3.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение к S3 с помощью библиотеки boto3
 
 В этой инструкции описано, как подключиться к объектному хранилищу [S3](../../../glossary/s3.md) в {{ jlab }} Notebook с помощью библиотеки `boto3`. Для подключения к объектному хранилищу вы также можете использовать [коннектор S3](s3-connectors.md).

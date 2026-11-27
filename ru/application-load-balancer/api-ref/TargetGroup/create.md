@@ -103,6 +103,10 @@ apiPlayground:
         oneOf:
           - required:
               - ipAddress
+alternate:
+  - href: ru/application-load-balancer/api-ref/TargetGroup/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: TargetGroup.Create

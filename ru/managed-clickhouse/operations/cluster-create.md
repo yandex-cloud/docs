@@ -1,6 +1,10 @@
 ---
 title: Как создать кластер {{ CH }}
 description: Следуя данной инструкции, вы сможете создать кластер {{ CH }} с одним или несколькими хостами базы данных.
+alternate:
+  - href: ru/managed-clickhouse/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ CH }}

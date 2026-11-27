@@ -1,6 +1,10 @@
 ---
 title: How to use the uuid-cb extension in {{ mgp-full-name }}
 description: Follow this guide to use the uuid-cb extension in {{ mgp-name }}.
+alternate:
+  - href: en/managed-greenplum/operations/extensions/uuid-cb.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using uuid-cb in {{ mgp-name }}

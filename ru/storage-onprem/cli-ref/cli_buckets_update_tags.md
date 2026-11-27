@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_update_tags.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets update tags
 
 Update bucket tags

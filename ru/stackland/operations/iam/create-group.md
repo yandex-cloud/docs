@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/iam/create-group.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать группу пользователей
 
 Вы можете создать группу пользователей в {{ iam-name }} для упрощения управления правами доступа.

@@ -1,6 +1,10 @@
 ---
 title: Getting information about catalogs in a {{ mtr-name }} cluster
 description: Follow this guide to get a list of catalogs in a {{ mtr-name }} cluster and detailed information about each of them.
+alternate:
+  - href: en/managed-trino/operations/catalog-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about catalogs in a {{ mtr-name }} cluster

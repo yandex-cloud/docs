@@ -1,6 +1,10 @@
 ---
 title: Создание группы выделенных хостов
 description: Следуя данной инструкции, вы сможете создать группу выделенных хостов.
+alternate:
+  - href: ru/compute/operations/dedicated-host/create-host-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание группы выделенных хостов

@@ -1,6 +1,10 @@
 ---
 title: Разработка на R в {{ sf-full-name }}. Обзор
 description: С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на R. Сервис предоставляет среду выполнения с версией языка 4.3.1 и операционной системой Ubuntu 22.04 LTS.
+alternate:
+  - href: ru/functions/lang/r/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разработка на R. Обзор

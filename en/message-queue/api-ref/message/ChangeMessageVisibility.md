@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/message/ChangeMessageVisibility.md
+    type: text/markdown
+    title: Markdown version
+---
 # ChangeMessageVisibility
 
 Method for setting the visibility timeout for a message that is being processed. The total timeout of a message cannot exceed 12 hours.

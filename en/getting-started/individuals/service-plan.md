@@ -1,6 +1,10 @@
 ---
 title: Configure a support plan as an individual
 description: In this article, you will learn how to configure a support plan as an individual.
+alternate:
+  - href: en/getting-started/individuals/service-plan.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring your support plan

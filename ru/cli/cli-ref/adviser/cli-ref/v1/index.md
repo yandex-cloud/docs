@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/adviser/cli-ref/v1/
+alternate:
+  - href: ru/cli/cli-ref/adviser/cli-ref/v1/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc adviser v1

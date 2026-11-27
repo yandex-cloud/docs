@@ -1,6 +1,10 @@
 ---
 title: How to embed {{ video-player-name }} in an iOS app
 description: Follow this guide to integrate {{ video-player-name }} into your mobile app for iOS.
+alternate:
+  - href: en/video/sdk/ios-sdk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video player SDK for iOS

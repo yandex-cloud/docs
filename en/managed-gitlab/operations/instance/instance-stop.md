@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-gitlab/operations/instance/instance-stop.md
+    type: text/markdown
+    title: Markdown version
+---
 # Stopping and starting a {{ GL }} instance
 
 You can stop and restart a [{{ GL }} instance](../../concepts/index.md#instance) as needed. When stopped, an instance retains all its data.

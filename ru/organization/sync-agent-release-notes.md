@@ -1,6 +1,10 @@
 ---
 title: Список релизов {{ ad-sync-agent }}
 description: На странице представлены релизы агента синхронизации, а также изменения в каждом из них.
+alternate:
+  - href: ru/organization/sync-agent-release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Релизы {{ ad-sync-agent }}

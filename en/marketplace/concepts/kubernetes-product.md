@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/marketplace/concepts/kubernetes-product.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a product for {{ managed-k8s-name }}
 
 To add a software product for {{ managed-k8s-name }} in {{ marketplace-short-name }}, upload its packages to the {{ yandex-cloud }} [registry](../../container-registry/concepts/registry.md). This section will help you prepare your {{ marketplace-short-name }} product for {{ managed-k8s-full-name }}.

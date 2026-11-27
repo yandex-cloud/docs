@@ -2,6 +2,10 @@
 title: Настройка {{ KFC }} для работы с кластером {{ mkf-name }}
 description: Инструмент {{ KFC }} предназначен для перемещения данных между {{ KF }} и другими хранилищами данных. По этому руководству вы можете настроить {{ KFC }} для взаимодействия с кластером {{ mkf-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/kafka-connect'
+alternate:
+  - href: ru/managed-kafka/tutorials/kafka-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка {{ KFC }} для работы с кластером {{ mkf-name }}

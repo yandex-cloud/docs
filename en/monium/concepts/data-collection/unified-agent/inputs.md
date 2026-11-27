@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/concepts/data-collection/unified-agent/inputs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Inputs
 
 You can specify an input in the `routes`:`input` section. The common input description format is:

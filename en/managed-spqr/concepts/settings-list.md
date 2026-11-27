@@ -3,6 +3,10 @@ title: '{{ SPQR }} settings'
 description: '{{ SPQR }} is a system for horizontal {{ PG }} scaling. {{ SPQR }} settings can be configured at the {{ mspqr-name }} cluster level.'
 keywords:
   - keyword: SPQR settings
+alternate:
+  - href: en/managed-spqr/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 # {{ SPQR }} settings
 

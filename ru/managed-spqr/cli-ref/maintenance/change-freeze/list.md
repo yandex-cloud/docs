@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/list/
+alternate:
+  - href: ru/managed-spqr/cli-ref/maintenance/change-freeze/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-sharded-postgresql maintenance change-freeze list

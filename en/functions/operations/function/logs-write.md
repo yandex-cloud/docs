@@ -1,6 +1,10 @@
 ---
 title: Writing to the execution log in {{ sf-full-name }}
 description: Follow this guide to configure function logging.
+alternate:
+  - href: en/functions/operations/function/logs-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Writing to the function execution log

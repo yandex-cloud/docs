@@ -1,6 +1,10 @@
 ---
 title: Creating {{ alb-full-name }} infrastructure through a wizard
 description: In this tutorial, you will create an {{ alb-name }} infrastructure through a wizard.
+alternate:
+  - href: en/application-load-balancer/quickstart-wizard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating {{ alb-name }} infrastructure through a wizard

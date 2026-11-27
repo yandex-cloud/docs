@@ -1,6 +1,10 @@
 ---
 title: R function invocation context in {{ sf-full-name }}
 description: In this article, you will learn about the R function invocation context.
+alternate:
+  - href: en/functions/lang/r/context.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # R function invocation context

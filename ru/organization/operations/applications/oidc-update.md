@@ -1,6 +1,10 @@
 ---
 title: Как изменить OIDC-приложение в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете изменить OIDC-приложение в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/applications/oidc-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить OIDC-приложение в {{ org-full-name }}

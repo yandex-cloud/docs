@@ -1,5 +1,9 @@
 ---
 title: How to link a subscription purchased on {{ marketplace-full-name }} to a resource, app, or service
+alternate:
+  - href: en/marketplace/operations/users/lock-subscription.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Linking a subscription

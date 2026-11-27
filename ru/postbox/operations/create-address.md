@@ -1,6 +1,10 @@
 ---
 title: Создание адреса
 description: Следуя данной инструкции, вы создадите адрес.
+alternate:
+  - href: ru/postbox/operations/create-address.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание адреса

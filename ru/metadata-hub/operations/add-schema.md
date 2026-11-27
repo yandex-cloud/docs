@@ -1,6 +1,10 @@
 ---
 title: Добавление схемы в существующий субъект
 description: Следуя данной инструкции, вы сможете добавить схему в субъект.
+alternate:
+  - href: ru/metadata-hub/operations/add-schema.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление схемы в существующий субъект

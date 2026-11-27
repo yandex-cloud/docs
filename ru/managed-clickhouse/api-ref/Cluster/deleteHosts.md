@@ -30,6 +30,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/managed-clickhouse/api-ref/Cluster/deleteHosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.DeleteHosts

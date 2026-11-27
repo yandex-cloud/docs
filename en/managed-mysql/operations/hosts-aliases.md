@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-mysql/operations/hosts-aliases.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing host aliases
 
 You can assign each {{ mmy-name }} cluster host an _alias_, which is a custom network name. An alias is mapped to a specific DNS record which always points to the host associated with the alias. This allows you to access the cluster using a human-readable name without the host’s internal FQDN. An alias must be unique within a folder. You can assign only one alias per host.

@@ -1,6 +1,10 @@
 ---
 title: Managing correlation rules in {{ yandex-siem-full-name }}
 description: Follow this guide to learn how to create, edit, disable, and delete correlation rules in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/operations/correlation-rules/manage-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing correlation rules

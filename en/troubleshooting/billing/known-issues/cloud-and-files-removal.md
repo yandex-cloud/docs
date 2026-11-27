@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/cloud-and-files-removal.md
+    type: text/markdown
+    title: Markdown version
+---
 # Can resources be deleted in case of non-payment?
 
 

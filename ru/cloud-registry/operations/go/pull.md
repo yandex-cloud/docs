@@ -1,6 +1,10 @@
 ---
 title: Скачать Go-модуль из реестра {{ cloud-registry-name }}
 description: Следуя данной инструкции, вы скачаете Go-модуль из реестра {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/go/pull.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Скачать Go-модуль из реестра {{ cloud-registry-name }}

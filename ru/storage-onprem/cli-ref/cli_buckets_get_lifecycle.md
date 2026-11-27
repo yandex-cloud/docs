@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_get_lifecycle.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets get lifecycle
 
 Get bucket lifecycle

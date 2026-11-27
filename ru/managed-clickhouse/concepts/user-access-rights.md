@@ -1,6 +1,10 @@
 ---
 title: Управление пользователями и правами доступа в {{ mch-name }}
 description: 'В {{ mch-full-name }} возможности управления правами доступа зависят от выбранного способа управления пользователями: через интерфейсы {{ yandex-cloud }} или через SQL.'
+alternate:
+  - href: ru/managed-clickhouse/concepts/user-access-rights.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

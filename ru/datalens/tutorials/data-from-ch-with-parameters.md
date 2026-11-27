@@ -2,6 +2,10 @@
 title: Использование параметров
 description: В этом руководстве вы научитесь управлять визуализацией с помощью параметров.
 canonical: '{{ link-docs }}/tutorials/datalens/data-from-ch-with-parameters'
+alternate:
+  - href: ru/datalens/tutorials/data-from-ch-with-parameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [data-from-ch-with-parameters](../../_tutorials/datalens/data-from-ch-with-parameters.md) %}

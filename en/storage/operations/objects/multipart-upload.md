@@ -1,6 +1,10 @@
 ---
 title: Uploading an object via multipart upload to a bucket in {{ objstorage-full-name }}
 description: Follow this guide to upload an object to an {{ objstorage-name }} bucket in parts and set the conditional writes for the upload.
+alternate:
+  - href: en/storage/operations/objects/multipart-upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Uploading an object via multipart upload

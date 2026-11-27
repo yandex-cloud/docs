@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Spark
+alternate:
+  - href: en/terraform/resources/spark_cluster_change_freeze.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_spark_cluster_change_freeze (Resource)

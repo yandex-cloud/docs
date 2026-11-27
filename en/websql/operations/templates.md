@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/websql/operations/templates.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with saved queries
 
 You can [save](../concepts/index.md#saved-queries) any query to use it later and create a template out of it. In the ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries** section, you can:

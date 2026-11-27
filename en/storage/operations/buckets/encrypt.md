@@ -1,6 +1,10 @@
 ---
 title: Configuring and disabling default encryption in a {{ objstorage-full-name }} bucket
 description: Follow this guide to configure and disable default encryption for new objects within a bucket.
+alternate:
+  - href: en/storage/operations/buckets/encrypt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring and disabling default encryption in a bucket

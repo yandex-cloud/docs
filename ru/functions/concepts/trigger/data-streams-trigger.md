@@ -1,6 +1,10 @@
 ---
 title: Триггер для {{ yds-full-name }}, который вызывает функцию {{ sf-full-name }}
 description: Из статьи вы узнаете, что такое триггер для {{ yds-name }}, который вызывает функцию {{ sf-name }}, необходимых ролях для работы триггера и формате отправляемых сообщений.
+alternate:
+  - href: ru/functions/concepts/trigger/data-streams-trigger.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Триггер для {{ yds-name }}, который вызывает функцию {{ sf-name }}

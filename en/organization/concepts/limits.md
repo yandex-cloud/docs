@@ -2,6 +2,10 @@
 title: '{{ org-full-name }} quotas and limits'
 description: '{{ org-full-name }} has usage quotas. Organizations, subjects, federations, groups, invitations, and certificates utilize your cloud quotas for all services. For more information about the service limitations, read this article.'
 editable: false
+alternate:
+  - href: en/organization/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ org-full-name }}

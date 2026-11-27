@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/concepts/budget.md
+    type: text/markdown
+    title: Markdown version
+---
 # Budget
 
 A [_budget_](../operations/budgets.md#create-budget) is a way to control how much you spend on resources in {{ yandex-cloud }}.

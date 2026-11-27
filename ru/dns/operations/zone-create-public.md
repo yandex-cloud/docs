@@ -1,6 +1,10 @@
 ---
 title: Как создать публичную зону DNS в {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете создать публичную зону DNS.
+alternate:
+  - href: ru/dns/operations/zone-create-public.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать публичную зону DNS

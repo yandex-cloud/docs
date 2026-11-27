@@ -5,6 +5,10 @@ keywords:
   - Managing OpenSearch host groups
   - OpenSearch host groups
   - OpenSearch
+alternate:
+  - href: en/managed-opensearch/operations/host-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ OS }} host groups

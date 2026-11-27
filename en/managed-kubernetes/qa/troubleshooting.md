@@ -1,6 +1,10 @@
 ---
 title: Troubleshooting in {{ managed-k8s-name }}
 description: This article provides solutions for typical issues with {{ managed-k8s-name }}.
+alternate:
+  - href: en/managed-kubernetes/qa/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting in {{ managed-k8s-name }}

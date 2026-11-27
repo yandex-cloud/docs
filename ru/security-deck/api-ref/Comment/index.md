@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/security-deck/api-ref/Comment/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck Alerts API, REST: Comment

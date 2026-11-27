@@ -1,6 +1,10 @@
 ---
 title: Классы хостов {{ msp-full-name }}
 description: Класс хостов определяет вычислительные мощности, которые выделяются для каждого хоста в кластере {{ msp-full-name }}.
+alternate:
+  - href: ru/managed-spark/concepts/instance-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Классы хостов {{ msp-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/retry.md
+    type: text/markdown
+    title: Markdown version
+---
 # Request retries
 
 Some general info about how retries works

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/list-sms-sandbox-phone-numbers.md
+    type: text/markdown
+    title: Markdown version
+---
 # ListSMSSandboxPhoneNumbers
 
 Gets a list of test phone numbers for the SMS notification channel in the [sandbox](../concepts/sms.md#sandbox).

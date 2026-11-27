@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/sdk/CloudVideoPlayerSDK/ClientUserId.md
+    type: text/markdown
+    title: Markdown version
+---
 # ClientUserId
 
 ```swift

@@ -1,6 +1,10 @@
 ---
 title: Квоты и лимиты в {{ cloud-registry-full-name }}
 description: В сервисе {{ cloud-registry-full-name }} действуют лимиты и квоты на количество политик жизненного цикла для одного реестра, а также количество правил в политике жизненного цикла. Более подробно об ограничениях в сервисах вы узнаете из этой статьи.
+alternate:
+  - href: ru/cloud-registry/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ cloud-registry-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ mpg-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ mpg-name }}.
+alternate:
+  - href: ru/managed-postgresql/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ mpg-name }}

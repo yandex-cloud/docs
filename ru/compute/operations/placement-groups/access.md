@@ -1,6 +1,10 @@
 ---
 title: Настроить права доступа к группе размещения ВМ {{ compute-name }}
 description: Следуя данной инструкции, вы настроите права доступа к группе размещения ВМ {{ compute-name }}.
+alternate:
+  - href: ru/compute/operations/placement-groups/access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к группе размещения ВМ

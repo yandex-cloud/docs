@@ -1,6 +1,10 @@
 ---
 title: Создание снимков дисков по расписаниям
 description: Из статьи вы узнаете про создание снимков дисков по расписаниям.
+alternate:
+  - href: ru/compute/concepts/snapshot-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание снимков дисков по расписаниям

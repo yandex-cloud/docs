@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/video/concepts/presets.md
+    type: text/markdown
+    title: Markdown version
+---
 # Шаблоны плеера
 
 {% include [player-presets](../../_includes/video/player-presets.md) %}

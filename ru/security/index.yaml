@@ -18,6 +18,10 @@ meta:
     - keyword: '{{ yandex-cloud }} security'
     - keyword: облачная безопасность
     - keyword: защищенное облако
+  alternate:
+    - href: ru/security/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Разделение ответственности за обеспечение безопасности
     description: ''

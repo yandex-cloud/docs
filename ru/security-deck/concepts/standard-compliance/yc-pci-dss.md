@@ -1,6 +1,10 @@
 ---
 title: Требования стандарта PCI DSS
 description: В этом разделе приведен набор правил, который помогает автоматизировать соответствие требованиям стандарта безопасности данных индустрии платежных карт (PCI DSS).
+alternate:
+  - href: ru/security-deck/concepts/standard-compliance/yc-pci-dss.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Требования стандарта PCI DSS

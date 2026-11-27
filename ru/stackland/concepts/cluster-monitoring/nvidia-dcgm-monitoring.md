@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/cluster-monitoring/nvidia-dcgm-monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метрики дашборда NVIDIA DCGM
 
 Дашборд NVIDIA DCGM в {{ grafana-name }} предоставляет комплексный мониторинг графических ускорителей NVIDIA в кластере {{ stackland-name }}. Дашборд содержит метрики температуры, энергопотребления, загрузки GPU, использования памяти и других важных параметров работы графических ускорителей.

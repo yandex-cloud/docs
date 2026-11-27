@@ -1,5 +1,9 @@
 ---
 title: How to get information about a disk snapshot schedule in {{ compute-full-name }}
+alternate:
+  - href: en/compute/operations/snapshot-control/get-snapshot-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting disk snapshot schedule info

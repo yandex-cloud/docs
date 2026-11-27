@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.COMMIT_OR_ROLLBACK_FAILED
 description: На странице приведено описание ошибки {{ datalens-full-name }} Failed to COMMIT or ROLLBACK.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-COMMIT_OR_ROLLBACK_FAILED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Failed to COMMIT or ROLLBACK

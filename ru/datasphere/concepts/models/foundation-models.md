@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/models/foundation-models.md
+    type: text/markdown
+    title: Markdown version
+---
 # Фундаментальные модели в {{ ml-platform-name }}
 
 {{ ml-platform-full-name }} предоставляет возможность работать с [фундаментальными моделями](../../../glossary/ml-models.md#foundation), чтобы вы могли использовать их для решения своих задач.

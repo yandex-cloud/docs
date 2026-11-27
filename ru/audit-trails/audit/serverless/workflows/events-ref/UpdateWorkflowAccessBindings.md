@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/serverless/workflows/events-ref/UpdateWorkflowAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Serverless Workflows Audit Trails Events: UpdateWorkflowAccessBindings

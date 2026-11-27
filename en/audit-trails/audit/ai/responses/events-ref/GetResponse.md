@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/ai/responses/events-ref/GetResponse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio Audit Trails Events: GetResponse

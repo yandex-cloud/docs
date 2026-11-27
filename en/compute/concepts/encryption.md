@@ -1,6 +1,10 @@
 ---
 title: Encryption in {{ compute-full-name }}
 description: In this article, you will learn about {{ compute-name }} encryption options and the use of {{ kms-short-name }} user keys.
+alternate:
+  - href: en/compute/concepts/encryption.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Encryption in {{ compute-name }}

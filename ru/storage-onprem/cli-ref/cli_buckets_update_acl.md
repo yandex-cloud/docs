@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_update_acl.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets update acl
 
 Update bucket acl

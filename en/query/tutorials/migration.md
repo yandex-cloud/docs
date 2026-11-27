@@ -1,6 +1,10 @@
 ---
 title: Migrating from {{ yq-full-name }}
 description: This tutorial describes how to migrate from {{ yq-full-name }} to {{ ydb-full-name }} or how to work directly with {{ objstorage-name }}.
+alternate:
+  - href: en/query/tutorials/migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating from {{ yq-full-name }}

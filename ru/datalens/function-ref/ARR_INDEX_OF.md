@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/ARR_INDEX_OF.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # ARR_INDEX_OF

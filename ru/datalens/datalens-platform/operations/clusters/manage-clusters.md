@@ -1,6 +1,10 @@
 ---
 title: Управление кластерами в {{ datalens-platform-full-name }}
 description: Создайте и настройте кластеры {{ TR }} и {{ SPRK }} в {{ datalens-platform-short-name }}, просматривайте сведения об их состоянии и вычислительных ресурсах.
+alternate:
+  - href: ru/datalens/datalens-platform/operations/clusters/manage-clusters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление кластерами

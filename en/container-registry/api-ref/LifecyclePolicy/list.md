@@ -64,6 +64,10 @@ apiPlayground:
             - repositoryId
     body: null
     definitions: null
+alternate:
+  - href: en/container-registry/api-ref/LifecyclePolicy/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: LifecyclePolicy.List

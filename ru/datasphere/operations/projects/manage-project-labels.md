@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/projects/manage-project-labels.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление метками проекта
 
 Вы можете добавить или удалить [метку](../../../resource-manager/concepts/labels.md#services) для проекта. Ресурсы проекта наследуют его метки.

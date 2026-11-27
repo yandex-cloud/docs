@@ -1,6 +1,10 @@
 ---
 title: Индексы в {{ PG }}
 description: Что такое индексы в {{ PG }}, почему они могут разрастаться и как pg_repack помогает решить эту проблему.
+alternate:
+  - href: ru/managed-postgresql/concepts/indexes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Индексы в {{ PG }}

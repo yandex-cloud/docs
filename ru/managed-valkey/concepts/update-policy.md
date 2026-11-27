@@ -1,6 +1,10 @@
 ---
 title: Политика поддержки версий {{ VLK }}
 description: Из статьи вы узнаете о политике поддержки версий {{ VLK }} в сервисе {{ mrd-full-name }}.
+alternate:
+  - href: ru/managed-valkey/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политика поддержки версий {{ VLK }}

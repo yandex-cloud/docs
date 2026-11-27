@@ -3,6 +3,10 @@ title: Сокращатель ссылок
 description: В этом руководстве вы развернете сервис для сокращения ссылок, используя API-шлюз {{ api-gw-full-name }} и функцию {{ sf-full-name }}.
 canonical: '{{ link-docs }}/tutorials/serverless/serverless-url-shortener/'
 noIndex: true
+alternate:
+  - href: ru/ydb/tutorials/serverless-url-shortener/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [serverless-url-shortener](../../../_tutorials/serverless/serverless-url-shortener.md) %}

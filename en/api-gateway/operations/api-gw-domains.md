@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/operations/api-gw-domains.md
+    type: text/markdown
+    title: Markdown version
+---
 # Adding a domain
 
 You can add your own domain to access the API gateway. You can add a wildcard domain, e.g., `*.example.com`, to the API gateway for it to handle requests for all `example.com` subdomains. You can also add multiple domains. The domain will be identified by the `Host` header.

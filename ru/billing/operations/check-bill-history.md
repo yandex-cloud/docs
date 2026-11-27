@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/operations/check-bill-history.md
+    type: text/markdown
+    title: Markdown version
+---
 # Посмотреть историю платежей
 
 Всю историю зачислений на [лицевой счет](../concepts/personal-account.md#balance) вы можете отслеживать на странице **{{ ui-key.yacloud_billing.billing.account.switch_history }}** либо в сервисе [Яндекс Баланс](https://yandex.ru/support/balance/operations/find-bill.html). Способ отслеживания зависит от вашего юридического статуса ([типа платежного аккаунта](../concepts/billing-account.md#ba-types)).

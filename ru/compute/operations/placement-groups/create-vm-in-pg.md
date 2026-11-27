@@ -1,6 +1,10 @@
 ---
 title: Создать виртуальную машину в группе размещения
 description: Следуя данной инструкции, вы сможете создать виртуальную машину в группе размещения.
+alternate:
+  - href: ru/compute/operations/placement-groups/create-vm-in-pg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать виртуальную машину в группе размещения

@@ -1,6 +1,10 @@
 ---
 title: Переместить публичный IP-адрес в другой каталог
 description: Следуя данной инструкции, вы сможете переместить публичный IP-адрес в другой каталог.
+alternate:
+  - href: ru/vpc/operations/address-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переместить публичный IP-адрес в другой каталог

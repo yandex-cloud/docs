@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/idp/api-ref/grpc/SynchronizationSession/listSessions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, gRPC: SynchronizationSessionService.ListSessions

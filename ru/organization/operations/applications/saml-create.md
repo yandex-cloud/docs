@@ -1,6 +1,10 @@
 ---
 title: Как создать SAML-приложение в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете создать SAML-приложение в {{ org-full-name }} для аутентификации пользователей вашей организации во внешних приложениях с помощью технологии единого входа по стандарту SAML.
+alternate:
+  - href: ru/organization/operations/applications/saml-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать SAML-приложение в {{ org-full-name }}

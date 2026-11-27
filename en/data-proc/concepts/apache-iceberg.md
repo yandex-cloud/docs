@@ -1,6 +1,10 @@
 ---
 title: '{{ IBRG }} in {{ dataproc-full-name }}'
 description: Below is the information about {{ IBRG }} and the compatibility table for different {{ IBRG }} and {{ dataproc-full-name }} versions.
+alternate:
+  - href: en/data-proc/concepts/apache-iceberg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ IBRG }} in {{ dataproc-name }}

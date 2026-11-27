@@ -1,6 +1,10 @@
 ---
 title: Обновление цепочки TLS-сертификатов для доступа к кластерам {{ mspqr-full-name }}
 description: В этом разделе вы узнаете об особенностях обновления цепочки TLS-сертификатов в сервисах платформы данных {{ yandex-cloud }} и о действиях, которые могут потребоваться для сохранения возможности подключаться к хостам кластеров {{ mspqr-full-name }} с публичным доступом.
+alternate:
+  - href: ru/managed-spqr/operations/update-tls-certificates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновление цепочки TLS-сертификатов в сервисах платформы данных

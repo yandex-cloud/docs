@@ -99,6 +99,10 @@ apiPlayground:
               Prefix to use for saved log object names
               The maximum string length in characters is 1024.
             type: string
+alternate:
+  - href: ru/monium/api-ref/Sink/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, REST: Sink.Create

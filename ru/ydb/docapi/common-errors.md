@@ -2,6 +2,10 @@
 title: Общие ошибки при работе с Document API в {{ ydb-full-name }}
 description: На странице представлен список ошибок, которые являются общими для всех методов Document API.
 sourcePath: overlay/docapi/api-ref/common-errors.md
+alternate:
+  - href: ru/ydb/docapi/common-errors.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Общие ошибки при работе с Document API
 

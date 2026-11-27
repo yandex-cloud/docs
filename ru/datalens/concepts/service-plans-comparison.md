@@ -2,6 +2,10 @@
 title: Тарифные планы {{ datalens-full-name }}
 description: В статье содержится сравнение тарифных планов сервиса {{ datalens-name }}.
 editable: false
+alternate:
+  - href: ru/datalens/concepts/service-plans-comparison.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Тарифные планы {{ datalens-full-name }}

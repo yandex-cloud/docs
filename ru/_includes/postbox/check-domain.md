@@ -22,7 +22,9 @@
 
     **Пример создания ресурсных записей в {{ dns-full-name }}**
 
-        Если у вас еще нет [публичной зоны](../../dns/concepts/dns-zone.md#public-zones) DNS, [создайте](../../dns/operations/zone-create-public.md) ее.
+    Если у вас еще нет [публичной зоны](../../dns/concepts/dns-zone.md#public-zones) DNS, [создайте](../../dns/operations/zone-create-public.md) ее.
+
+
     1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
     1. Выберите вашу доменную зону.
     1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.

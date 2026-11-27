@@ -1,6 +1,10 @@
 ---
 title: How to set up a canary release for an API gateway
 description: Follow this guide to set up a canary release for an API gateway.
+alternate:
+  - href: en/api-gateway/operations/api-gw-canary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up a canary release

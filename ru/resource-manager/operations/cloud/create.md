@@ -1,6 +1,10 @@
 ---
 title: Создание нового облака
 description: Следуя данной инструкции, вы сможете создать новое облако.
+alternate:
+  - href: ru/resource-manager/operations/cloud/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание нового облака

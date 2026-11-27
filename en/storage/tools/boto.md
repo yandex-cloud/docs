@@ -1,6 +1,10 @@
 ---
 title: boto3 and boto
 description: In this article, you will learn about boto3 and boto, how to install and configure them, and will see some examples of operations.
+alternate:
+  - href: en/storage/tools/boto.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # boto3 and boto

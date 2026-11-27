@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_users_add.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli users add
 
 Add a user

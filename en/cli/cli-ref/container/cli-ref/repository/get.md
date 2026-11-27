@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/repository/get/
+alternate:
+  - href: en/cli/cli-ref/container/cli-ref/repository/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container repository get

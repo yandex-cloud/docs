@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.DB.MEMORY_LIMIT_EXCEEDED'
 description: This page describes the Memory limit has been exceeded during query execution {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Memory limit has been exceeded during query execution

@@ -1,6 +1,10 @@
 ---
 title: Adding a Cloud WAF exclusion rule
 description: Follow this guide to create a WAF exclusion rule.
+alternate:
+  - href: en/smartwebsecurity/operations/exclusion-rule-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a Cloud WAF exclusion rule

@@ -1,6 +1,10 @@
 ---
 title: Multi-factor authentication (MFA) in {{ org-full-name }}
 description: In {{ org-full-name }}, you can configure MFA for federated and local users to enhance the protection level of their accounts.
+alternate:
+  - href: en/organization/concepts/mfa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Multi-factor authentication in {{ org-full-name }}

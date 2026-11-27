@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/trigger/update/container-registry/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/trigger/update/container-registry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless trigger update container-registry

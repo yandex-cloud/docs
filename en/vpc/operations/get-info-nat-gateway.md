@@ -1,6 +1,10 @@
 ---
 title: How to get information about a NAT gateway in {{ vpc-full-name }}
 description: Follow this guide to get information about a NAT gateway.
+alternate:
+  - href: en/vpc/operations/get-info-nat-gateway.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting NAT gateway info

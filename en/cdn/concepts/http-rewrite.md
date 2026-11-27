@@ -1,6 +1,10 @@
 ---
 title: Redirecting content requests
 description: This section describes the CDN resource option which allows you to modify the paths of requests from the CDN resource to an origin using _rewrite_ rules.
+alternate:
+  - href: en/cdn/concepts/http-rewrite.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Request redirection

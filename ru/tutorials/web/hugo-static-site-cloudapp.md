@@ -7,6 +7,10 @@ keywords:
   - cloud apps
   - установка hugo
 noIndex: true
+alternate:
+  - href: ru/tutorials/web/hugo-static-site-cloudapp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [gatsby-static-website](../../_tutorials/applied/hugo-static-site-cloudapp.md) %}

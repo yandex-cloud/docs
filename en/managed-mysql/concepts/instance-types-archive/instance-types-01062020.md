@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-mysql/concepts/instance-types-archive/instance-types-01062020.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ MY }} host classes prior to June 1, 2020
 
 A host class in {{ mmy-name }} determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change accordingly.

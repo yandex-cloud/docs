@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/data-center-placement-bgp.md
+    type: text/markdown
+    title: Markdown version
+---
 # Размещение в дата-центрах с BGP-балансировкой
 
 Ключевые свойства BGP-балансировки:

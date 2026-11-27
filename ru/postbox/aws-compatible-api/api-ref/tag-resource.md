@@ -1,6 +1,10 @@
 ---
 title: Метод TagResource в API Amazon для {{ postbox-full-name }}
 description: Из статьи вы узнаете, как с помощью метода TagResource добавить метки пулу выделенных IP-адресов в {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/tag-resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метод TagResource

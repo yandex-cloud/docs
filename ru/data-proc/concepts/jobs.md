@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/concepts/jobs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Задания в {{ dataproc-name }}
 
 В кластере {{ dataproc-name }} можно создавать и выполнять задания (jobs). Это позволяет, например, на регулярной основе загружать набор данных из [бакета {{ objstorage-name }}](../../storage/concepts/bucket.md), использовать их в расчетах и формировать [аналитику](../../glossary/data-analytics.md).

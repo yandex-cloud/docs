@@ -1,6 +1,10 @@
 ---
 title: Загрузка схемы в новый субъект
 description: Следуя данной инструкции, вы сможете загрузить схему и создать субъект.
+alternate:
+  - href: ru/metadata-hub/operations/upload-schema-to-subject.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузка схемы в новый субъект

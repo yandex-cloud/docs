@@ -16,6 +16,10 @@ keywords:
   - keyword: веб-интерфейс {{ AF }}
   - keyword: открыть веб-интерфейс {{ AF }}
   - keyword: открыть веб-интерфейс airflow
+alternate:
+  - href: ru/managed-airflow/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ maf-name }}

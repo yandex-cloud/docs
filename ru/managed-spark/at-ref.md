@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ msp-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ msp-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/managed-spark/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/vpc/privatelink/api-ref/grpc/PrivateEndpoint/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, gRPC: PrivateEndpointService.Create

@@ -1,6 +1,10 @@
 ---
 title: How to view user groups
 description: Follow this guide to view user groups.
+alternate:
+  - href: en/organization/operations/get-users-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing user groups

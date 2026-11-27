@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ compute-full-name }}
 description: Различные сценарии использования {{ compute-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/compute/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ compute-name }}

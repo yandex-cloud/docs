@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/iam/workload/workload-identity/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Workload Identity, gRPC: OperationService.Cancel

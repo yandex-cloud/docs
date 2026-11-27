@@ -1,6 +1,10 @@
 ---
 title: How to update HTTP router settings in {{ alb-full-name }}
 description: In this tutorial, you will learn how to update HTTP router settings.
+alternate:
+  - href: en/application-load-balancer/operations/http-router-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating HTTP router settings

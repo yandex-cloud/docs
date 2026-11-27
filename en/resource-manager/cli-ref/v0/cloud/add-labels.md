@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/v0/cloud/add-labels/
+alternate:
+  - href: en/resource-manager/cli-ref/v0/cloud/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc resource-manager v0 cloud add-labels

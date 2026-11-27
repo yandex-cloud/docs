@@ -1,6 +1,10 @@
 ---
 title: Классы хостов {{ mtr-name }}
 description: Класс хостов определяет вычислительные мощности, выделяемые для каждого хоста в кластере {{ mtr-name }}.
+alternate:
+  - href: ru/managed-trino/concepts/instance-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Классы хостов {{ mtr-name }}

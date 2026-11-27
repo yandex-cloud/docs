@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/index.md
+    type: text/markdown
+    title: Markdown version
+---
 ## Solutions for known {{ billing-name }} issues {#known-issues-resolving}
 
 * [Billing account usage details started showing {{ cloud-logging-name }} consumption](cloud-logging-unexpectedly-charges-in-billing-account-details.md)

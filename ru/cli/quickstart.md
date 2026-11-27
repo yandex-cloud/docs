@@ -1,6 +1,10 @@
 ---
 title: Начало работы с интерфейсом командной строки
 description: Следуя данной инструкции, вы научитесь работать с интерфейсом командной строки.
+alternate:
+  - href: ru/cli/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с интерфейсом командной строки {{ yandex-cloud }} CLI

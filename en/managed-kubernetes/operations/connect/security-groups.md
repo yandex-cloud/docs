@@ -1,6 +1,10 @@
 ---
 title: How to configure {{ k8s }} cluster security groups in {{ managed-k8s-full-name }}
 description: Follow this guide to set up security groups.
+alternate:
+  - href: en/managed-kubernetes/operations/connect/security-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring security groups

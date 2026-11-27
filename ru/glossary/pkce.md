@@ -4,6 +4,10 @@ description: Proof Key for Code Exchange (PKCE) — это дополнител�
 keywords:
   - PKCE
   - Proof Key for Code Exchange
+alternate:
+  - href: ru/glossary/pkce.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Proof Key for Code Exchange (PKCE)

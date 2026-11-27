@@ -1,6 +1,10 @@
 ---
 title: Какие методы S3 API доступны для управления {{ objstorage-full-name }}
 description: Из статьи вы узнаете, какие методы S3 API доступны для управления {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/s3/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все сервисы и методы

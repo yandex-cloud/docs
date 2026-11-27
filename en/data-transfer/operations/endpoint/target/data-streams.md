@@ -1,6 +1,10 @@
 ---
 title: How to set up a {{ yds-full-name }} target endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to set up a {{ yds-full-name }} target endpoint in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/operations/endpoint/target/data-streams.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Transferring data to a {{ yds-full-name }} target endpoint
 

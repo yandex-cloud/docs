@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_src-coc-ref/coc-ref/webhook.md
+    type: text/markdown
+    title: Markdown version
+---
 # Webhooks configuration
 
 Path in repository: `.sourcecraft/webhooks.yaml`.

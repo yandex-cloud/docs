@@ -1,6 +1,10 @@
 ---
 title: Как установить Ingress-контроллер {{ alb-name }} для {{ managed-k8s-name }}
 description: Следуя данной инструкции, вы сможете установить Ingress-контроллер {{ alb-name }} для {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/alb-ingress-controller.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка Ingress-контроллера {{ alb-name }}

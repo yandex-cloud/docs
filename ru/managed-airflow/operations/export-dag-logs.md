@@ -1,6 +1,10 @@
 ---
 title: Получение логов выполнения DAG
 description: Используйте направленный ациклический граф (DAG), чтобы получить логи выполнения DAG.
+alternate:
+  - href: ru/managed-airflow/operations/export-dag-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение логов выполнения DAG

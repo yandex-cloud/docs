@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/smartcaptcha/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartCaptcha API, gRPC: OperationService.Cancel

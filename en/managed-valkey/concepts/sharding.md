@@ -1,6 +1,10 @@
 ---
 title: Sharding in {{ VLK }}
 description: In {{ mrd-name }}, sharding is implemented based on {{ VLK }} Cluster. {{ VLK }} Cluster allows you to create a {{ VLK }} installation with automatic data sharding between the hosts. Sharding allows you to distribute loads across database hosts, which helps bypass the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs.
+alternate:
+  - href: en/managed-valkey/concepts/sharding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sharding in {{ mrd-name }}

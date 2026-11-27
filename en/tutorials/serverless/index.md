@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/tutorials/serverless/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Tutorials on the use of serverless technologies in {{ yandex-cloud }}
 
 ## Serverless backend {#backend}

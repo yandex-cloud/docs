@@ -13,6 +13,10 @@ meta:
   description: >-
     {{ ycdr-full-name }} collects the infrastructure settings data of your {{
     yandex-cloud }} services.
+  alternate:
+    - href: en/ycdr/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first investigation and run a KQL query

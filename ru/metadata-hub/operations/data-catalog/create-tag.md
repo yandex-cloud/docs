@@ -1,6 +1,10 @@
 ---
 title: Создание тега
 description: Следуя данной инструкции, вы сможете создать тег для метаданных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/create-tag.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание тега

@@ -3,6 +3,10 @@ title: Создать OIDC-приложение в {{ org-full-name }} для и
 description: Как создать OIDC-приложение в {{ org-full-name }} и настроить интеграцию с Grafana Cloud для единого входа пользователей организации.
 canonical: '{{ link-docs }}/tutorials/security/single-sign-on/grafana/oidc-grafana'
 noIndex: true
+alternate:
+  - href: ru/security/tutorials/single-sign-on/oidc-grafana.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [oidc-grafana](../../../_tutorials/security/single-sign-on/oidc-grafana.md) %}

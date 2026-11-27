@@ -1,6 +1,10 @@
 ---
 title: Getting information about a route table in {{ vpc-full-name }}
 description: Follow this guide to get information about a route table in {{ vpc-full-name }}.
+alternate:
+  - href: en/vpc/operations/route-table-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting route table info

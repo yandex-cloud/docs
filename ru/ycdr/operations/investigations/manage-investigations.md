@@ -1,6 +1,10 @@
 ---
 title: Управление расследованиями в {{ ycdr-full-name }}
 description: Следуя данной инструкции, вы научитесь создавать, изменять, копировать и удалять расследования в {{ ycdr-name }}.
+alternate:
+  - href: ru/ycdr/operations/investigations/manage-investigations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление расследованиями

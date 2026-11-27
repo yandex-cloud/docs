@@ -1,6 +1,10 @@
 ---
 title: Как создать под с динамически подготовленным томом в {{ managed-k8s-full-name }}
 description: Следуя данной инструкции, вы сможете создать под с динамически подготовленным томом.
+alternate:
+  - href: ru/managed-kubernetes/operations/volumes/dynamic-create-pv.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Динамическая подготовка тома

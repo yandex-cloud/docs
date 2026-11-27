@@ -1,6 +1,10 @@
 ---
 title: Signing requests to {{ postbox-full-name }}
 description: Many requests to {{ postbox-name }} are authenticated on the service side; therefore, they must be signed when sending.
+alternate:
+  - href: en/postbox/aws-compatible-api/signing-requests.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Signing requests

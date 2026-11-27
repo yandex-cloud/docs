@@ -1,6 +1,10 @@
 ---
 title: Configuring access to a secret
 description: Follow this guide to configure access to a secret.
+alternate:
+  - href: en/lockbox/operations/secret-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring access to a secret

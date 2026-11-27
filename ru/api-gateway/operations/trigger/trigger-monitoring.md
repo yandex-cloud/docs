@@ -1,6 +1,10 @@
 ---
 title: Просмотр графиков мониторинга триггеров в {{ api-gw-full-name }}
 description: Вы можете посмотреть график мониторинга в {{ api-gw-full-name }} с помощью консоли управления, для этого выберите сервис {{ api-gw-full-name }}, нажмите на триггер, графики мониторинга которого вы хотите посмотреть.
+alternate:
+  - href: ru/api-gateway/operations/trigger/trigger-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть графики мониторинга триггера в {{ api-gw-full-name }}

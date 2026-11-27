@@ -1,6 +1,10 @@
 ---
 title: How to deactivate or delete an OIDC application in {{ org-full-name }}
 description: Follow this guide to deactivate, reactivate, and delete an OIDC application in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/applications/oidc-deactivate-remove.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deactivating and deleting an OIDC application in {{ org-full-name }}

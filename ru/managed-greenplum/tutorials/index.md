@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ mgp-full-name }}
 description: Различные сценарии использования {{ mgp-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-greenplum/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ mgp-name }}

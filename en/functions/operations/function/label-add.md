@@ -1,6 +1,10 @@
 ---
 title: Adding a function label
 description: Follow this guide to add a function label.
+alternate:
+  - href: en/functions/operations/function/label-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a function label

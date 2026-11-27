@@ -1,5 +1,9 @@
 ---
 noIndex: true
+alternate:
+  - href: en/managed-kubernetes/alb-ref/yc-certificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [certificate](../../_includes/managed-kubernetes/alb-ref/yc-certificate.md) %}

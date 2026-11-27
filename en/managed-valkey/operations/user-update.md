@@ -1,6 +1,10 @@
 ---
 title: Updating {{ VLK }} user settings in {{ mrd-full-name }}
 description: You can update {{ VLK }} user settings in {{ mrd-name }}.
+alternate:
+  - href: en/managed-valkey/operations/user-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating user settings

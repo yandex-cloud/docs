@@ -1,6 +1,10 @@
 ---
 title: User authentication in {{ mgp-full-name }}
 description: In this article, you will learn about user authentication in {{ mgp-name }} and how to configure authentication rules.
+alternate:
+  - href: en/managed-greenplum/concepts/user-authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # User authentication

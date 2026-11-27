@@ -1,6 +1,10 @@
 ---
 title: Нормированная линейчатая диаграмма в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Нормированная линейчатая диаграмма.
+alternate:
+  - href: ru/datalens/visualization-ref/normalized-bar-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Нормированная линейчатая диаграмма ![](../../_assets/datalens/normalized-horizontal-bar.svg) в {{ datalens-full-name }}

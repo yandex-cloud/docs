@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/repository/remove-access-binding/
+alternate:
+  - href: ru/cli/cli-ref/container/cli-ref/repository/remove-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container repository remove-access-binding

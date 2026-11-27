@@ -1,6 +1,10 @@
 ---
 title: Recommended master configurations {{ k8s }}
 description: This article provides recommended master configurations for {{ managed-k8s-name }}.
+alternate:
+  - href: en/managed-kubernetes/concepts/master-configuration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recommended master configurations

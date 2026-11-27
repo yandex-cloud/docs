@@ -1,6 +1,10 @@
 ---
 title: Кластеры {{ metastore-full-name }}
 description: В сервисе {{ metadata-hub-full-name }} вы можете создавать кластеры {{ metastore-full-name }}.
+alternate:
+  - href: ru/metadata-hub/concepts/metastore.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Кластеры {{ metastore-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to get an IAM token for a local user account
 description: Follow this guide to get an IAM token for a local user account.
+alternate:
+  - href: en/iam/operations/iam-token/create-for-local.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting an IAM token for a local user account

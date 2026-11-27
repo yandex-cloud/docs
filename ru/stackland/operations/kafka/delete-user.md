@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/kafka/delete-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить пользователя
 
 Если у вас есть пользователь [{{ KF }}](../../concepts/components/kafka.md) в [проекте](../projects/create-project.md)), вы можете удалить его.

@@ -1,6 +1,10 @@
 ---
 title: Creating an instance group connected to a file storage
 description: Follow this guide to create an instance group connected to a file storage.
+alternate:
+  - href: en/compute/operations/instance-groups/create-with-filesystem.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an instance group connected to a file storage

@@ -494,6 +494,10 @@ apiPlayground:
                   - passwordPlainText
               - required:
                   - passwordLockboxSecret
+alternate:
+  - href: ru/baremetal/api-ref/Server/batchCreate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Server.BatchCreate

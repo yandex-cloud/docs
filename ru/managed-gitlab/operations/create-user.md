@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-gitlab/operations/create-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание и добавление пользователей в проект
 
 Вы можете создать пользователей в инстансе {{ GL }} и пригласить их в проект. Так вы предоставите команде доступ к репозиторию.

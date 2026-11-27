@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ yq-full-name }}
 description: На этой странице приведен справочник ресурсов провайдера {{ TF }}, которые поддерживаются для сервиса {{ yq-name }}.
+alternate:
+  - href: ru/query/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ yq-full-name }}

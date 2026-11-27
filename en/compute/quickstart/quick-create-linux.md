@@ -8,6 +8,10 @@ keywords:
   - linux virtual machine
   - virtual machine
   - vm
+alternate:
+  - href: en/compute/quickstart/quick-create-linux.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a Linux VM

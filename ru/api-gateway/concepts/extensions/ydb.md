@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/ydb.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение x-yc-apigateway-integration:cloud_ydb
 
 Расширение `x-yc-apigateway-integration:cloud_ydb` позволяет выполнять операции с [документными таблицами](../../../ydb/concepts/dynamodb-tables.md) в базе данных {{ ydb-full-name }}. Чтобы взаимодействовать с {{ ydb-short-name }}, используется [Document API](../../../ydb/docapi/api-ref/index.md), который совместим с Amazon DynamoDB.

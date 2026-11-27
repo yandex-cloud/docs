@@ -1,6 +1,10 @@
 ---
 title: '{{ objstorage-full-name }} log reference'
 description: This section describes fields of logs delivered by a bucket and bucket request methods.
+alternate:
+  - href: en/storage/logs-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ objstorage-name }} log reference

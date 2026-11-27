@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/instance-groups/resume-processes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Resuming instance group processes
 
 On resume, previously stopped [update](../../concepts/instance-groups/deploy/), [automatic recovery](../../concepts/instance-groups/autohealing.md), and [scaling](../../concepts/instance-groups/policies/scale-policy.md) processes will be restarted, and significant group changes associated with the paused processes, such as changes to group size or instance configuration, will be applied.

@@ -4,6 +4,10 @@ description: JWT — интернет-стандарт для безопасно
 keywords:
   - JWT
   - JSON Web Token
+alternate:
+  - href: ru/glossary/jwt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # JSON Web Token (JWT)

@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for a {{ compute-name }} disk snapshot
 description: Follow this guide to configure disk snapshot access permissions.
+alternate:
+  - href: en/compute/operations/snapshot-control/snapshot-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring disk snapshot access permissions

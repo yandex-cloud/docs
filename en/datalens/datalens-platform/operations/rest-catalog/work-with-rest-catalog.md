@@ -1,6 +1,10 @@
 ---
 title: Working with a REST catalog in {{ datalens-platform-full-name }}
 description: Follow this guide to edit the settings for REST catalogs and namespaces, as well as manage access to them.
+alternate:
+  - href: en/datalens/datalens-platform/operations/rest-catalog/work-with-rest-catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing a REST catalog

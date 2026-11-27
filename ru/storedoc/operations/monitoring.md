@@ -1,6 +1,10 @@
 ---
 title: Мониторинг состояния кластера, хостов и шардов в {{ mmg-name }}
 description: Следуя данной инструкции, вы сможете посмотреть детальную информацию о состоянии кластера {{ mmg-name }}.
+alternate:
+  - href: ru/storedoc/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг состояния кластера, хостов и шардов в {{ mmg-name }}

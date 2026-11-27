@@ -1,6 +1,10 @@
 ---
 title: Как управлять версиями секрета в {{ lockbox-full-name }}
 description: Следуя данной инструкции, вы сможете управлять версиями секрета.
+alternate:
+  - href: ru/lockbox/operations/secret-version-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление версиями секрета

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/trial-expired-issue.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trial period has ended
 
 

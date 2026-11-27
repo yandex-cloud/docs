@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Information about existing {{ dataproc-name }} clusters
 
 You can get details about each {{ dataproc-name }} cluster.

@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ connection-manager-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для {{ connection-manager-name }} в сервисе {{ metadata-hub-full-name }}.
+alternate:
+  - href: ru/metadata-hub/connman-tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ connection-manager-name }}

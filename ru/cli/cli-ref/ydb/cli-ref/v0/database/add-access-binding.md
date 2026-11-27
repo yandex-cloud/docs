@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/database/add-access-binding/
+alternate:
+  - href: ru/cli/cli-ref/ydb/cli-ref/v0/database/add-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc ydb v0 database add-access-binding

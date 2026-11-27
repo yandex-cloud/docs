@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/queue/GetQueueAttributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # GetQueueAttributes
 
 Метод для получения атрибутов указанной очереди.

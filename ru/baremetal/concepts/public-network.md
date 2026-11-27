@@ -1,6 +1,10 @@
 ---
 title: Публичная сеть в {{ baremetal-full-name }}
 description: Из статьи вы узнаете про публичные сети и подсети в {{ baremetal-full-name }}.
+alternate:
+  - href: ru/baremetal/concepts/public-network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичная сеть {#public-network}

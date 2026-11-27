@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/cookbooks/dev-team-onboarding/02-project-and-namespaces.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подготовка проекта и пространств имен команды
 
 Этот рецепт покажет, как создать проект `team-alpha`, а внутри него два пространства имен: `team-alpha-dev` — для разработки и `team-alpha-prod` — для промышленной эксплуатации. Также вы узнаете об ограничениях, которые определяют, как именовать и размещать ресурсы команды.

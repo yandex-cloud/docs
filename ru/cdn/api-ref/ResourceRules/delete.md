@@ -28,6 +28,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/cdn/api-ref/ResourceRules/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: ResourceRules.Delete

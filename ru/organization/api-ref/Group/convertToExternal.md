@@ -46,6 +46,10 @@ apiPlayground:
         - externalId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/organization/api-ref/Group/convertToExternal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: Group.ConvertToExternal

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/cluster/list-backups/
+alternate:
+  - href: ru/cli/cli-ref/managed-sharded-postgresql/cli-ref/cluster/list-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-sharded-postgresql cluster list-backups

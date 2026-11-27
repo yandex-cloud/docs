@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ mgl-full-name }}
 description: This page covers questions and answers about {{ mgl-name }}.
+alternate:
+  - href: en/managed-gitlab/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ mgl-name }}

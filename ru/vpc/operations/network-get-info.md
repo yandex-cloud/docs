@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию об облачной сети в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию об облачной сети.
+alternate:
+  - href: ru/vpc/operations/network-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию об облачной сети

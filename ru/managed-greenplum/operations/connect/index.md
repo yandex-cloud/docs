@@ -1,6 +1,10 @@
 ---
 title: Предварительная настройка подключения к кластеру {{ mgp-full-name }}
 description: Следуя данной инструкции, вы сможете подготовиться к подключению к базе данных в кластере {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Предварительная настройка для подключения к кластеру {{ mgp-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как создать VRF в {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете создать виртуальный сегмент сети (VRF) в {{ baremetal-full-name }}.
+alternate:
+  - href: ru/baremetal/operations/network-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать VRF

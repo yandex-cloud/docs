@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/v0/node-group/remove-metadata/
+alternate:
+  - href: en/cli/cli-ref/managed-kubernetes/cli-ref/v0/node-group/remove-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kubernetes v0 node-group remove-metadata

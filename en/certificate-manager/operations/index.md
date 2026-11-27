@@ -1,6 +1,10 @@
 ---
 title: Guides on using {{ certificate-manager-full-name }} (TLS certificates)
 description: In this article, you will learn how to work with {{ certificate-manager-full-name }} in {{ yandex-cloud }}. Find out about managing certificates issued by your certificate authority and by Let's Encrypt. Learn how to create your domain and bind TLS certificates to it.
+alternate:
+  - href: en/certificate-manager/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ certificate-manager-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-trino/concepts/impersonation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Имперсонация в {{ mtr-name }}
 
 _Имперсонацией_ в {{ mtr-name }} называется выполнение кластером {{ TR }} действий с пользовательскими ресурсами от имени сервисного аккаунта.

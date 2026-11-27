@@ -1,6 +1,10 @@
 ---
 title: How to add an alert for a certificate in {{ certificate-manager-full-name }}
 description: Follow this guide to add an alert about an invalid certificate or upcoming certificate expiration.
+alternate:
+  - href: en/certificate-manager/operations/alert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding an alert for a certificate

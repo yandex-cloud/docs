@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/payment/payment-methods-card-business.md
+    type: text/markdown
+    title: Markdown version
+---
 # Оплата банковской картой для юридических лиц
 
 Организации и ИП могут пополнять лицевой счет и оплачивать потребленные ресурсы с помощью:

@@ -1,6 +1,10 @@
 ---
 title: Deleting a test phone number in {{ cns-full-name }}
 description: Follow this guide to delete a test phone number.
+alternate:
+  - href: en/notifications/operations/sms/test-number-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a test phone number

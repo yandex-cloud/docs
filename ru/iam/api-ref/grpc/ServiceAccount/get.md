@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/iam/api-ref/grpc/ServiceAccount/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, gRPC: ServiceAccountService.Get

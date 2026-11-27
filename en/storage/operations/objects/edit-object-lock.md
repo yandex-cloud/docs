@@ -1,6 +1,10 @@
 ---
 title: 'Enabling object locks in a {{ objstorage-full-name }} bucket '
 description: Follow this guide to configure object locks in a bucket in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/objects/edit-object-lock.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object lock

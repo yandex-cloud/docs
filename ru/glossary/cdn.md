@@ -1,6 +1,10 @@
 ---
 title: Как работает CDN — обзор технологии
 description: Сеть распространения контента, которая позволяет снизить нагрузку на веб-серверы и ускорить доставку контента на браузер пользователя
+alternate:
+  - href: ru/glossary/cdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Content Delivery Network (сеть распространения контента)

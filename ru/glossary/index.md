@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/glossary/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Облачная терминология
 
 Здесь мы собрали некоторые термины, которые помогут вам погрузиться в облачные технологии.

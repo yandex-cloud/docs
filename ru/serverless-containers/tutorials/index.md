@@ -1,6 +1,10 @@
 ---
 title: Практические руководства {{ serverless-containers-name }}
 description: На странице представлен список практических руководств {{ serverless-containers-name }}.
+alternate:
+  - href: ru/serverless-containers/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ serverless-containers-name }}

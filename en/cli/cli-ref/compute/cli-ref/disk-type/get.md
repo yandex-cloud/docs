@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/disk-type/get/
+alternate:
+  - href: en/cli/cli-ref/compute/cli-ref/disk-type/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute disk-type get

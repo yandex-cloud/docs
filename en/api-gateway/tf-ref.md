@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ api-gw-full-name }}'
 description: This guide provides information about {{ TF }} resources and data sources supported by {{ api-gw-name }}.
+alternate:
+  - href: en/api-gateway/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ api-gw-full-name }}

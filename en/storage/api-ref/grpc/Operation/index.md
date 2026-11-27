@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/storage/api-ref/grpc/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, gRPC: OperationService

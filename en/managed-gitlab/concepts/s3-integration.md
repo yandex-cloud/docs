@@ -1,6 +1,10 @@
 ---
 title: Integration with {{ objstorage-full-name }} in {{ mgl-full-name }}
 description: In this article, you will learn about integration with an S3-compatible {{ objstorage-full-name }} in {{ mgl-full-name }}.
+alternate:
+  - href: en/managed-gitlab/concepts/s3-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Integration with {{ objstorage-full-name }}

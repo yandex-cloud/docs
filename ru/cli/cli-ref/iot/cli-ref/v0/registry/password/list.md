@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/registry/password/list/
+alternate:
+  - href: ru/cli/cli-ref/iot/cli-ref/v0/registry/password/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot v0 registry password list

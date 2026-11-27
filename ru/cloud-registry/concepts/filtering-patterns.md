@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cloud-registry/concepts/filtering-patterns.md
+    type: text/markdown
+    title: Markdown version
+---
 # Паттерны фильтрации
 
 Паттерны фильтрации — это шаблоны в формате [Ant Style](https://docs.spring.io/spring-framework/docs/5.3.15/javadoc-api/org/springframework/util/AntPathMatcher.html), которые позволяют по пути к артефакту ограничить, какие артефакты в реестре доступны пользователям. Есть два вида шаблонов:

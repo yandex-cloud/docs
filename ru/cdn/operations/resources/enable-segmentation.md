@@ -1,6 +1,10 @@
 ---
 title: Как включить сегментацию файлов в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете включить сегментацию файлов.
+alternate:
+  - href: ru/cdn/operations/resources/enable-segmentation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включение сегментации файлов

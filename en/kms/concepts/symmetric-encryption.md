@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/kms/concepts/symmetric-encryption.md
+    type: text/markdown
+    title: Markdown version
+---
 # Symmetric encryption in {{ kms-short-name }}
 
 One of the available encryption modes in {{ kms-short-name }} is _symmetric encryption_. It uses the same (symmetric) key for encryption and decryption. {{ kms-short-name }} supports several symmetric algorithms:

@@ -1,6 +1,10 @@
 ---
 title: Updating a trigger in {{ serverless-containers-name }}
 description: Follow this guide to update any trigger settings in {{ serverless-containers-name }} except for the trigger type and target resource.
+alternate:
+  - href: en/serverless-containers/operations/trigger-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a trigger in {{ serverless-containers-name }}

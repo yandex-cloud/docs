@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/resource-manager/operations/folder/delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a folder
 
 To delete a [folder](../../concepts/resources-hierarchy.md#folder), you need the [resource-manager.editor](../../security/index.md#resource-manager-editor) role or higher for that folder. If you cannot perform this operation, contact the cloud [administrator](../../../iam/roles-reference.md#admin) or [owner](../../concepts/resources-hierarchy.md#owner).

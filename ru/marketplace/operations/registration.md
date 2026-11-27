@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/marketplace/operations/registration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Регистрация
 
 Для доступа к [кабинету партнера Marketplace]({{ link-cloud-partners }}) необходим пользовательский аккаунт. Это может быть Яндекс ID или аккаунт Яндекс 360. Пользовательский аккаунт должен иметь [платежный аккаунт](../../billing/concepts/billing-account.md#ba-types) юридического лица — резидента Российской Федерации или Республики Казахстан. {{ marketplace-name }} не сотрудничает с физическими лицами и нерезидентами Российской Федерации или Республики Казахстан. 

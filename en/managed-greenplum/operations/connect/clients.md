@@ -1,6 +1,10 @@
 ---
 title: Connecting to a {{ mgp-full-name }} cluster
 description: Follow this guide to connect to a {{ mgp-name }} cluster database with the help of command line tools, graphical IDEs, {{ pgadmin }}, or a Docker container.
+alternate:
+  - href: en/managed-greenplum/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ mgp-name }} cluster from applications

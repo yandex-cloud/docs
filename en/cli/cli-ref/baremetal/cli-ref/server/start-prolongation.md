@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/server/start-prolongation/
+alternate:
+  - href: en/cli/cli-ref/baremetal/cli-ref/server/start-prolongation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal server start-prolongation

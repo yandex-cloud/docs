@@ -1,6 +1,10 @@
 ---
 title: Moving a VM to a different cloud
 description: Follow this guide to move a VM to a different cloud.
+alternate:
+  - href: en/compute/operations/vm-control/vm-change-cloud.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving a VM to a different cloud

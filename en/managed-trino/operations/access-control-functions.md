@@ -1,6 +1,10 @@
 ---
 title: Assigning access rules for functions in {{ mtr-name }}
 description: Rules define the actions users can perform with custom functions.
+alternate:
+  - href: en/managed-trino/operations/access-control-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning access rules for functions in {{ mtr-name }}

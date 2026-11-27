@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/api-gateway/apigateway/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Gateway Service, REST: Operation

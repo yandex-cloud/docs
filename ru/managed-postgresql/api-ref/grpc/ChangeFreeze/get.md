@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-postgresql/api-ref/grpc/ChangeFreeze/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, gRPC: ChangeFreezeService.Get

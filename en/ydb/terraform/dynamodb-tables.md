@@ -1,6 +1,10 @@
 ---
 title: Creating document tables in a {{ ydb-full-name }} database using {{ TF }}
 description: Follow this tutorial to create document tables in a serverless {{ ydb-full-name }} database using the AWS {{ TF }} provider.
+alternate:
+  - href: en/ydb/terraform/dynamodb-tables.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating document tables in a database

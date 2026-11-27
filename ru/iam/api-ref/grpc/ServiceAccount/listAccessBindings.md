@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/iam/api-ref/grpc/ServiceAccount/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, gRPC: ServiceAccountService.ListAccessBindings

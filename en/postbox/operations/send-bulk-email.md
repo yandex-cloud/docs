@@ -1,6 +1,10 @@
 ---
 title: Bulk email sending in {{ postbox-full-name }}
 description: Follow this guide to send multiple template emails in one request in {{ postbox-name }}.
+alternate:
+  - href: en/postbox/operations/send-bulk-email.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Bulk email sending

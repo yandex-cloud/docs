@@ -1,6 +1,10 @@
 ---
 title: Which terms and definitions are used in {{ yq-full-name }}
 description: In this tutorial, you will learn about the terms and definitions used in {{ yq-name }}.
+alternate:
+  - href: en/query/concepts/glossary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yq-name }} terms and definitions

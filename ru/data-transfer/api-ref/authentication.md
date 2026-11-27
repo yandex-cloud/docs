@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в API {{ data-transfer-full-name }}
 description: Для выполнения операций через API в сервисе {{ data-transfer-name }}, необходимо получить IAM-токен для своего аккаунта.
+alternate:
+  - href: ru/data-transfer/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в API {{ data-transfer-name }}

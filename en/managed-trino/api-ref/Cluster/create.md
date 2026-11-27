@@ -2346,6 +2346,10 @@ apiPlayground:
               - anytime
           - required:
               - weeklyMaintenanceSchedule
+alternate:
+  - href: en/managed-trino/api-ref/Cluster/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Trino API, REST: Cluster.Create

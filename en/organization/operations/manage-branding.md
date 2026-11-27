@@ -1,6 +1,10 @@
 ---
 title: How to configure {{ org-full-name }} branding
 description: Follow this guide to customize the appearance of authentication pages and the login form for access to external applications from {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/manage-branding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring branding

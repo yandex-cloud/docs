@@ -1,6 +1,10 @@
 ---
 title: Uploading an object to a bucket in {{ objstorage-full-name }}
 description: Follow this guide to upload an object to an {{ objstorage-name }} bucket and set up conditional writes for the upload.
+alternate:
+  - href: en/storage/operations/objects/upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Uploading an object

@@ -2,6 +2,10 @@
 title: Setting up NodeLocal DNS
 description: Follow this tutorial to set up NodeLocal DNS.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/node-local-dns'
+alternate:
+  - href: en/managed-kubernetes/tutorials/node-local-dns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up NodeLocal DNS

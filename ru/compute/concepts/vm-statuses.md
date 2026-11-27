@@ -1,6 +1,10 @@
 ---
 title: Какие статусы есть у виртуальной машины {{ compute-full-name }}
 description: Из статьи вы узнаете, какие статусы есть у виртуальной машины {{ compute-name }}.
+alternate:
+  - href: ru/compute/concepts/vm-statuses.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Статусы виртуальной машины

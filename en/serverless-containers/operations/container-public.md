@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/container-public.md
+    type: text/markdown
+    title: Markdown version
+---
 # Making a container public
 
 To allow any user to invoke a container without providing an authorization header, make the container public.

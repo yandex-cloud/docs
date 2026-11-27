@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/symmetric-key/list/
+alternate:
+  - href: en/kms/cli-ref/symmetric-key/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc kms symmetric-key list

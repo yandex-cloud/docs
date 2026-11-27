@@ -97,6 +97,10 @@ apiPlayground:
                 - TRIGGER
                 - UPDATE
                 - REFERENCES
+alternate:
+  - href: ru/managed-mysql/api-ref/User/grantPermission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, REST: User.GrantPermission

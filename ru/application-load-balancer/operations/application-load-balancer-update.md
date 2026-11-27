@@ -1,6 +1,10 @@
 ---
 title: Как изменить L7-балансировщик в {{ alb-full-name }}
 description: Следуя данной инструкции, вы сможете изменить L7-балансировщик.
+alternate:
+  - href: ru/application-load-balancer/operations/application-load-balancer-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить L7-балансировщик

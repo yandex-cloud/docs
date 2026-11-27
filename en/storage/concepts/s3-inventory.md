@@ -1,6 +1,10 @@
 ---
 title: Object metadata export (S3 Inventory)
 description: In {{ objstorage-name }}, you can export metadata of bucket objects for further analysis and cataloging. Data is exported to a different bucket in CSV format and includes object size, creation date, MD5 checksum, storage class, versioning data, object ACLs, and more.
+alternate:
+  - href: en/storage/concepts/s3-inventory.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object metadata export (S3 Inventory)

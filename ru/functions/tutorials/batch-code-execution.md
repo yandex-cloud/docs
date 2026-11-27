@@ -3,6 +3,10 @@ title: Руководство по запуску вычислений в {{ ml-
 description: Следуя данному руководству, вы сможете запустить вычисления в {{ ml-platform-full-name }} с помощью API.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/ml-ai/batch-code-execution'
+alternate:
+  - href: ru/functions/tutorials/batch-code-execution.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запуск вычислений в {{ ml-platform-full-name }} с помощью API

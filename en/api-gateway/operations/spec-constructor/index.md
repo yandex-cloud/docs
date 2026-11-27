@@ -1,6 +1,10 @@
 ---
 title: '{{ api-gw-full-name }} specification constructor guide'
 description: In this article, you will learn how to work with the {{ api-gw-full-name }} specification constructor in {{ yandex-cloud }}. You will learn how to add extensions to a specification using the constructor.
+alternate:
+  - href: en/api-gateway/operations/spec-constructor/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Specification constructor overview

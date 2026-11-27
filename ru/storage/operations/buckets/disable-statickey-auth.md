@@ -1,6 +1,10 @@
 ---
 title: Запретить доступ в бакет {{ objstorage-full-name }} с помощью статических ключей
 description: Следуя данной инструкции, вы сможете запретить доступ к бакету {{ objstorage-name }} с помощью статических ключей доступа.
+alternate:
+  - href: ru/storage/operations/buckets/disable-statickey-auth.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запретить доступ в бакет с помощью статических ключей

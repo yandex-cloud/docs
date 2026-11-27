@@ -3,6 +3,10 @@ title: Connecting to a {{ SPRK }} cluster
 description: Follow this guide to connect to a {{ SPRK }} cluster.
 keywords:
   - Connecting to a {{ SPRK }} cluster
+alternate:
+  - href: en/managed-spark/operations/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a cluster {{ SPRK }}

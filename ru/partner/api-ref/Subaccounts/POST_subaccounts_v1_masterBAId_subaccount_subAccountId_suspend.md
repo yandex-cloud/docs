@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Subaccounts/POST_subaccounts_v1_masterBAId_subaccount_subAccountId_suspend.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Suspend subaccount

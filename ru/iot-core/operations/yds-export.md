@@ -1,6 +1,10 @@
 ---
 title: Экспорт сообщений в {{ yds-name }}
 description: Следуя данной инструкции, вы сможете экспортировать сообщения в {{ yds-name }}.
+alternate:
+  - href: ru/iot-core/operations/yds-export.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Экспорт сообщений в {{ yds-name }}

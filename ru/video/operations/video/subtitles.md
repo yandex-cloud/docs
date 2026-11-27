@@ -1,6 +1,10 @@
 ---
 title: Как управлять субтитрами в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете управлять субтитрами в сервисе {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/video/subtitles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять субтитрами

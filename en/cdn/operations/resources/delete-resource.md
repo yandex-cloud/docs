@@ -1,6 +1,10 @@
 ---
 title: Deleting a resource
 description: Follow this guide to delete a resource.
+alternate:
+  - href: en/cdn/operations/resources/delete-resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a resource

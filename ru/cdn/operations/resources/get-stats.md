@@ -1,6 +1,10 @@
 ---
 title: Посмотреть статистику CDN-ресурса
 description: Следуя данной инструкции, вы сможете посмотреть статистику CDN-ресурса.
+alternate:
+  - href: ru/cdn/operations/resources/get-stats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотр статистики CDN-ресурса

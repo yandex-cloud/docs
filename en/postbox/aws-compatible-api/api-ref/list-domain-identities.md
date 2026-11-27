@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/list-domain-identities.md
+    type: text/markdown
+    title: Markdown version
+---
 # ListDomainIdentities method
 
 Returns a list of [addresses](../../concepts/glossary.md#address) in a folder. The folder is selected based on the service account the request originates from.

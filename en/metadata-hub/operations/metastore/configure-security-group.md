@@ -1,6 +1,10 @@
 ---
 title: Configuring {{ metastore-full-name }} cluster security groups
 description: Follow this guide to configure security groups for a {{ metastore-name }} cluster.
+alternate:
+  - href: en/metadata-hub/operations/metastore/configure-security-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring {{ metastore-name }} cluster security groups

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/database/add-labels/
+alternate:
+  - href: en/ydb/cli-ref/v0/database/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc ydb v0 database add-labels

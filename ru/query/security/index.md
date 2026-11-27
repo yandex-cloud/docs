@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление доступом в {{ yq-name }}
 
 {% include [sunset](../../_includes/query/sunset.md) %}

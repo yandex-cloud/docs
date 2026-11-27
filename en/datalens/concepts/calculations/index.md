@@ -1,6 +1,10 @@
 ---
 title: Calculated fields in {{ datalens-full-name }}
 description: In {{ datalens-full-name }}, a calculated field is an additional data field whose values are calculated using a formula.
+alternate:
+  - href: en/datalens/concepts/calculations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Calculated fields in {{ datalens-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to add chart info in {{ datalens-full-name }}
 description: Follow this guide to add chart info in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/chart/add-description.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding chart info in {{ datalens-full-name }}

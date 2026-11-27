@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ postbox-full-name }}
 description: В разделе представлена история изменений сервиса {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ postbox-full-name }}

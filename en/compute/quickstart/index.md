@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ compute-full-name }}
 description: Follow this guide to create and configure a VM instance or an instance group.
+alternate:
+  - href: en/compute/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ compute-name }}

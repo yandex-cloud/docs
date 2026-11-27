@@ -2,6 +2,10 @@
 title: Настройка продукта Fluent Bit для работы с {{ cloud-logging-full-name }}
 description: Для передачи логов кластера {{ managed-k8s-name }} в сервис {{ cloud-logging-name }} используется модуль Fluent Bit plugin for {{ cloud-logging-full-name }}.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/k8s-fluent-bit-logging'
+alternate:
+  - href: ru/marketplace/tutorials/fluent-bit-logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка Fluent Bit для работы с {{ cloud-logging-full-name }}

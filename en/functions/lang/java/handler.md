@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/java/handler.md
+    type: text/markdown
+    title: Markdown version
+---
 # Request handler for a function in Java
 
 A _request handler_ is a method used to process each Java function call.

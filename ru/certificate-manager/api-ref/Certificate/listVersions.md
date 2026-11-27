@@ -36,6 +36,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/certificate-manager/api-ref/Certificate/listVersions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager API, REST: Certificate.ListVersions

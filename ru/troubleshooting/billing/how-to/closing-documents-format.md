@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/closing-documents-format.md
+    type: text/markdown
+    title: Markdown version
+---
 # Какой формат закрывающих документов в ЭДО
 
 

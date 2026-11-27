@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ytsaurus/events-ref/StopCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ytsaurus Audit Trails Events: StopCluster

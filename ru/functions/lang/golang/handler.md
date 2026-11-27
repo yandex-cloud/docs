@@ -1,6 +1,10 @@
 ---
 title: Обработчик запросов функции на Go
 description: Из статьи вы узнаете про обработчик запросов функции на Go.
+alternate:
+  - href: ru/functions/lang/golang/handler.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обработчик запросов функции на Go

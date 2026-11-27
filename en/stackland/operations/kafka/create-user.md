@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/kafka/create-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a user
 
 If you have `../projects/create-project.md`, you can create an [{{ KF }}](../../concepts/components/kafka.md) user in it.

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/video/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Operation

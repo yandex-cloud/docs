@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/certificate-manager/events-ref/CreateCaUsageRestriction.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Audit Trails Events: CreateCaUsageRestriction

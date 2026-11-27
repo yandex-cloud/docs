@@ -157,6 +157,10 @@ apiPlayground:
               The number of units that can be spent on the one execution.
             type: string
             format: int64
+alternate:
+  - href: ru/datasphere/api-ref/Project/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, REST: Project.Update

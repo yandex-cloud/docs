@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Collection/rpcgetCollectionsByIds-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get collections list by ids

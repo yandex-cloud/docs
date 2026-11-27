@@ -1,6 +1,10 @@
 ---
 title: Как подготовить и использовать виртуальные окружения Python в {{ dataproc-full-name }}
 description: Следуя данной инструкции, вы сможете подготовить и использовать виртуальные окружения Python.
+alternate:
+  - href: ru/data-proc/operations/python-env.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подготовка и использование виртуальных окружений Python

@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к кластеру {{ dataproc-full-name }}
 description: Следуя данной инструкции, вы настроите права доступа к кластеру {{ dataproc-name }}.
+alternate:
+  - href: ru/data-proc/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к кластеру {{ dataproc-name }}

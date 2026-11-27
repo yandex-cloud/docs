@@ -108,6 +108,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/storedoc/api-ref/Cluster/listLogs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.ListLogs

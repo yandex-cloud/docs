@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/network-load-balancer/operations/load-balancer-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Information about current network load balancers
 
 You can request detailed information about each network load balancer you created.

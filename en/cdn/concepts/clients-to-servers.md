@@ -1,6 +1,10 @@
 ---
 title: Client–CDN data exchange settings in {{ cdn-full-name }}
 description: 'Settings for connections between clients and {{ cdn-name }}: protocols, certificates, HTTP headers and methods, CORS, and content compression. Request body restrictions for GET, HEAD, and OPTIONS.'
+alternate:
+  - href: en/cdn/concepts/clients-to-servers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Client–CDN data exchange settings

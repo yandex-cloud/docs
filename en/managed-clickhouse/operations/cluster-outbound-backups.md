@@ -2,6 +2,10 @@
 title: '[Restoring data from a {{ mch-full-name }} cluster''s `ch-backup`](../managed-spqr/operations/cluster-backups.md#restore)'
 description: Follow this guide to restore data from a {{ mch-name }} cluster's `ch-backup` on your server.
 noIndex: true
+alternate:
+  - href: en/managed-clickhouse/operations/cluster-outbound-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Restoring data from a `ch-backup`

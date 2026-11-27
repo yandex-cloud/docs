@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/ATAN2.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # ATAN2

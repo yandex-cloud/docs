@@ -1,6 +1,10 @@
 ---
 title: Как работать с Docker-образами. Пошаговые инструкции
 description: Пошаговые инструкции по работе с Docker-образами в {{ yandex-cloud }}. Из статьи вы узнаете, как управлять Docker-образом, реестром, репозиторием и автоматическими политиками. Подробно рассказываем о создании, удалении, загрузке и скачиванию Docker-образов.
+alternate:
+  - href: ru/container-registry/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ container-registry-name }}

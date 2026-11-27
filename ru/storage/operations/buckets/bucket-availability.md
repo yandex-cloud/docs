@@ -1,6 +1,10 @@
 ---
 title: Открыть и закрыть публичный доступ к бакету в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить публичный доступ к бакету в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/bucket-availability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Открыть и закрыть публичный доступ к бакету

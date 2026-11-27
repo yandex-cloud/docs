@@ -1,6 +1,10 @@
 ---
 title: Как использовать вспомогательные утилиты в {{ mgp-full-name }}
 description: Следуя данной инструкции, вы сможете использовать вспомогательные утилиты.
+alternate:
+  - href: ru/managed-greenplum/operations/greenplum-db.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вспомогательные утилиты

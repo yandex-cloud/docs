@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/idp/application/saml/api-ref/grpc/SignatureCertificate/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, gRPC: SignatureCertificateService.Get

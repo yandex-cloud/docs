@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/device/delete/
+alternate:
+  - href: ru/iot-core/cli-ref/device/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot device delete

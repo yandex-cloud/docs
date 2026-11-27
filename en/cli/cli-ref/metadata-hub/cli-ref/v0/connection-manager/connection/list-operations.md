@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/metadata-hub/cli-ref/v0/connection-manager/connection/list-operations/
+alternate:
+  - href: en/cli/cli-ref/metadata-hub/cli-ref/v0/connection-manager/connection/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc metadata-hub v0 connection-manager connection list-operations

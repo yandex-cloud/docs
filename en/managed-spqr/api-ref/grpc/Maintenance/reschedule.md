@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-spqr/api-ref/grpc/Maintenance/reschedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR API, gRPC: MaintenanceService.Reschedule

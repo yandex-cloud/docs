@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/logging/loki-recovery.md
+    type: text/markdown
+    title: Markdown version
+---
 # Recovering Loki in standalone mode if PVC is full
 
 In `standalone` mode, Loki stores data on a single PVC. If the PVC is full, the Loki pod may go `CrashLoopBackOff`, and logs will trow errors like `no space left on device`.

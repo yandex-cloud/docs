@@ -1,6 +1,10 @@
 ---
 title: How to provide{{ lockbox-full-name }} secrets to a container
 description: Follow this guide to provide {{ lockbox-full-name }} secrets to a container.
+alternate:
+  - href: en/serverless-containers/operations/lockbox-secret-transmit.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Providing {{ lockbox-full-name }} secrets to a container

@@ -1,6 +1,10 @@
 ---
 title: Права доступа к объектам
 description: Из статьи вы узнаете, как регулируется доступ к объектам в {{ datalens-short-name }}.
+alternate:
+  - href: ru/datalens/security/manage-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Права доступа к объектам

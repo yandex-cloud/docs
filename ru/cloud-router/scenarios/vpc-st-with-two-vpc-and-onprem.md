@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/cloud-router/scenarios/vpc-st-with-two-vpc-and-onprem.md
+    type: text/markdown
+    title: Markdown version
+---
 # Организация сетевой связности между двумя и более облачными сетями и On-Prem ресурсами (VPC Stitching)
 
 

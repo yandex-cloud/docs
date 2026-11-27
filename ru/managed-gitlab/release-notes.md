@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ mgl-full-name }}
 description: В разделе представлена история изменений сервиса {{ mgl-name }}.
+alternate:
+  - href: ru/managed-gitlab/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ mgl-full-name }}

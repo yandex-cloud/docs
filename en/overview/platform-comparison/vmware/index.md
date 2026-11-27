@@ -1,6 +1,10 @@
 ---
 title: Comparison with VMware
 description: This article establishes the equivalence between {{ yandex-cloud }} services and VMware services.
+alternate:
+  - href: en/overview/platform-comparison/vmware/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Comparison with VMware

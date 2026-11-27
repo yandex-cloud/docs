@@ -1,6 +1,10 @@
 ---
 title: Настроить окружение для развертывания самостоятельного сервиса
 description: Следуя данной инструкции, вы сможете настроить окружение для развертывания самостоятельного сервиса.
+alternate:
+  - href: ru/datasphere/operations/deploy/node-customization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить окружение для развертывания самостоятельного сервиса

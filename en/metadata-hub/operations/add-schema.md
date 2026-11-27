@@ -1,6 +1,10 @@
 ---
 title: Adding a schema to an existing subject
 description: Follow this guide to add a schema to a subject.
+alternate:
+  - href: en/metadata-hub/operations/add-schema.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a schema to an existing subject

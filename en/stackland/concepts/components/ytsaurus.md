@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/ytsaurus.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ yt-name }}
 
 {{ yt-name }} is a distributed platform for storing and processing big data. Within {{ stackland-name }}, {{ yt-name }} deploys a single shared {{ YT }} cluster to the platform. The cluster includes a MapReduce engine, dynamic tables, the YQL query engine, a web UI, and {{ iam-name }} integration.

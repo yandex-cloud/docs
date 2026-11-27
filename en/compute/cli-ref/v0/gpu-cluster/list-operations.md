@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/gpu-cluster/list-operations/
+alternate:
+  - href: en/compute/cli-ref/v0/gpu-cluster/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute v0 gpu-cluster list-operations

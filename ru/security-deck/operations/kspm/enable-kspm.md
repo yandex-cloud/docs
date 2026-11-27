@@ -1,6 +1,10 @@
 ---
 title: Активировать модуль Контроль {{ k8s }}® ({{ kspm-name }}) в {{ sd-full-name }}
 description: Инструкция по активации и настройке модуля Контроль {{ k8s }}® ({{ kspm-name }}) в {{ sd-name }}.
+alternate:
+  - href: ru/security-deck/operations/kspm/enable-kspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Активировать модуль {{ kspm-name }}

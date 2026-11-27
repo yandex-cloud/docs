@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/getting-reconcillation-report.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to get a reconciliation report
 
 

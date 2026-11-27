@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Installation guide
 
 This page outlines the general process of deploying a {{ stackland-full-name }} cluster on a pre-configured infrastructure. You can use it across different environments, e.g., {{ baremetal-full-name }} servers or {{ compute-name }} virtual machines.

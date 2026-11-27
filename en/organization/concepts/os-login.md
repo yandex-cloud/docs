@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/organization/concepts/os-login.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ oslogin }}
 
 {{ oslogin }} facilitates SSH connections to _virtual machines_ in {{ yandex-cloud }}. Here and below, virtual machines (or VMs) will refer both to actual [{{ compute-full-name }} VMs](../../compute/concepts/vm.md#project), [{{ dataproc-full-name }} subcluster](../../data-proc/concepts/index.md#resources) hosts, and [individual nodes in node groups](../../managed-kubernetes/concepts/index.md#node-group) within [{{ managed-k8s-full-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) used to run user containers.

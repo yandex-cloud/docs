@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/java/dependencies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Building and managing Java function dependencies
 
 {{ sf-name }} supports two methods of managing Java function dependencies: automatic installation from the source code using Maven and adding dependencies manually to a project archive. However, you cannot configure dependencies using both methods at the same time.

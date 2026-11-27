@@ -1,6 +1,10 @@
 ---
 title: '{{ baremetal-full-name }} management console'
 description: In this section, you will learn about the capabilities you get from the {{ yandex-cloud }} management console to work with {{ baremetal-full-name }} servers.
+alternate:
+  - href: en/baremetal/concepts/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ baremetal-name }} management console

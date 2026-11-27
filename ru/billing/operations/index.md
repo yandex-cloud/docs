@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с сервисом Billing
 description: Из статьи вы узнаете, как работать с сервисом {{ billing-name }} в {{ yandex-cloud }}, как активировать платную версию, зарезервировать потребление (CVoS), активировать промокод, пополнить лицевой счет, и многое другое.
+alternate:
+  - href: ru/billing/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все инструкции для сервиса {{ billing-name }}

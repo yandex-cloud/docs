@@ -1,6 +1,10 @@
 ---
 title: RAID arrays in {{ baremetal-full-name }} servers
 description: In this section, you will learn about the types and levels of RAID arrays that can increase performance and fault tolerance of your disk subsystem in {{ baremetal-full-name }} servers.
+alternate:
+  - href: en/baremetal/concepts/disks/raid.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # RAID arrays in {{ baremetal-full-name }} servers

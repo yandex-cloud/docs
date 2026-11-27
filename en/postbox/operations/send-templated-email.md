@@ -1,6 +1,10 @@
 ---
 title: Templating an email in {{ postbox-full-name }}
 description: Follow this guide to send an email from {{ postbox-name }} using a template.
+alternate:
+  - href: en/postbox/operations/send-templated-email.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Templating an email

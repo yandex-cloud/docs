@@ -1,6 +1,10 @@
 ---
 title: Точки присутствия в {{ cdn-full-name }}
 description: Точка присутствия {{ cdn-name }} — это физическое расположение CDN-серверов.
+alternate:
+  - href: ru/cdn/concepts/points-of-presence.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Точки присутствия

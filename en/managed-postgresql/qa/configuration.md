@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/qa/configuration.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ PG }} cluster parameter settings
 
 {% include [configuration-minitoc](../../_qa/managed-postgresql/minitoc/configuration.md) %}

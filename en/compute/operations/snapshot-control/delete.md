@@ -1,6 +1,10 @@
 ---
 title: How to delete a disk snapshot
 description: Follow this guide to delete a disk snapshot.
+alternate:
+  - href: en/compute/operations/snapshot-control/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a disk snapshot

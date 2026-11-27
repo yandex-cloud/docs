@@ -1,6 +1,10 @@
 ---
 title: Справочник метрик сервиса {{ alb-full-name }} в {{ metrics-name }}
 description: На этой странице приведен справочник метрик сервиса {{ alb-name }}, поставляемых в {{ metrics-name }}.
+alternate:
+  - href: ru/application-load-balancer/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ alb-name }}

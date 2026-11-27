@@ -1,6 +1,10 @@
 ---
 title: '{{ KF }} cluster maintenance'
 description: Follow this guide to view the {{ KF }} cluster’s scheduled and completed maintenance jobs and schedule a maintenance window.
+alternate:
+  - href: en/managed-kafka/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ KF }} cluster maintenance

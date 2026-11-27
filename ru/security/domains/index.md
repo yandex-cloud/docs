@@ -1,6 +1,10 @@
 ---
 title: Все рекомендации по безопасности {{ yandex-cloud }}
 description: Из статьи вы узнаете, какие рекомендации по безопасности применяются на платформе {{ yandex-cloud }}.
+alternate:
+  - href: ru/security/domains/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все рекомендации

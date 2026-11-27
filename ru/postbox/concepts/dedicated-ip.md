@@ -1,6 +1,10 @@
 ---
 title: Выделенные IP-адреса в {{ postbox-full-name }}
 description: Из этой статьи вы узнаете, что такое выделенные IP-адреса и пулы выделенных IP-адресов в {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/concepts/dedicated-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выделенные IP-адреса

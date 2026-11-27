@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/symmetric-key/schedule-version-destruction/
+alternate:
+  - href: en/kms/cli-ref/symmetric-key/schedule-version-destruction.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc kms symmetric-key schedule-version-destruction

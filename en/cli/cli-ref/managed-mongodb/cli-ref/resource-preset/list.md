@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/resource-preset/list/
+alternate:
+  - href: en/cli/cli-ref/managed-mongodb/cli-ref/resource-preset/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb resource-preset list

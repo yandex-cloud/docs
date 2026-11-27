@@ -1,6 +1,10 @@
 ---
 title: Работа с шаблонами запросов в {{ ycdr-full-name }}
 description: Следуя данной инструкции, вы научитесь работать с шаблонами запросов в {{ ycdr-name }}.
+alternate:
+  - href: ru/ycdr/operations/queries/work-with-templates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с шаблонами запросов

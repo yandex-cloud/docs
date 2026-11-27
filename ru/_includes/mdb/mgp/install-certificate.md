@@ -14,10 +14,10 @@
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path }}
+   mkdir $HOME\AppData\Roaming\.postgresql; curl.exe -o $HOME\AppData\Roaming\.postgresql\root.crt {{ crt-web-path }}
    ```
 
-   Сертификат будет сохранен в файле `$HOME\.postgresql\root.crt`.
+   Сертификат будет сохранен в файле `$HOME\AppData\Roaming\.postgresql\root.crt`.
 
    Корпоративные политики и антивирус могут блокировать скачивание сертификата. Подробнее в разделе [Вопросы и ответы](../../../managed-greenplum/qa/connection.md#get-ssl-error).
 

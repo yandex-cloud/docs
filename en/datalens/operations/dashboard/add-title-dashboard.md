@@ -1,6 +1,10 @@
 ---
 title: How to set up dashboard header display in {{ datalens-full-name }}
 description: Follow this guide to set up dashboard header display in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/add-title-dashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up dashboard header display in {{ datalens-full-name }}

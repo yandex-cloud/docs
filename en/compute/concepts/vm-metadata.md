@@ -1,6 +1,10 @@
 ---
 title: '{{ compute-name }} VM instance metadata'
 description: In this article, you will learn about metadata available in the {{ compute-full-name }} VM instance metadata service.
+alternate:
+  - href: en/compute/concepts/vm-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # VM metadata

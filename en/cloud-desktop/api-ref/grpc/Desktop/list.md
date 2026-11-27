@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/cloud-desktop/api-ref/grpc/Desktop/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop API, gRPC: DesktopService.List

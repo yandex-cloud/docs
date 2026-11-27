@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/nodejs/errors.md
+    type: text/markdown
+    title: Markdown version
+---
 # Node.js function error handling
 
 If a [handler](handler.md) reports a Node.js function execution or loading error, the [runtime](../../concepts/runtime/index.md) automatically catches the error and returns a JSON document with details of the error type, text, and location. For more information about the JSON document format, see [Invoking a function](../../concepts/function-invoke.md#error).

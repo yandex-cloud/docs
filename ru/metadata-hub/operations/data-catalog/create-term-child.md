@@ -1,6 +1,10 @@
 ---
 title: Создание дочернего термина в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы создадите дочерний термин в глоссарии {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/create-term-child.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание дочернего термина

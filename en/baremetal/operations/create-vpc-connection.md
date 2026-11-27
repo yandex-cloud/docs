@@ -1,6 +1,10 @@
 ---
 title: How to create a private cloud network connection
 description: In this tutorial, you will learn how to create a private connection between {{ baremetal-full-name }} VRF segments and {{ vpc-full-name }} cloud networks.
+alternate:
+  - href: en/baremetal/operations/create-vpc-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a private connection to cloud networks

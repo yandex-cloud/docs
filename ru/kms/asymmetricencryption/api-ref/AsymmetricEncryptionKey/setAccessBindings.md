@@ -87,6 +87,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: ru/kms/asymmetricencryption/api-ref/AsymmetricEncryptionKey/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: AsymmetricEncryptionKey.SetAccessBindings

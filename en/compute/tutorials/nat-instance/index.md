@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/routing/nat-instance'
+alternate:
+  - href: en/compute/tutorials/nat-instance/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [nat-instance](../../../_tutorials/routing/nat-instance.md) %}

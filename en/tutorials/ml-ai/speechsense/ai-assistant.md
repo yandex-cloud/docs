@@ -1,6 +1,10 @@
 ---
 title: Working with an AI assistant in {{ speechsense-name }}
 description: Follow this tutorial to create a {{ speechsense-name }} AI assistant, upload chat data, and extract information from the dialog using the AI ​​assistant.
+alternate:
+  - href: en/tutorials/ml-ai/speechsense/ai-assistant.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with an AI assistant in {{ speechsense-name }}

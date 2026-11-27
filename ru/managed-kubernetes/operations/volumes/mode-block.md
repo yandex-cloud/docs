@@ -1,6 +1,10 @@
 ---
 title: Подключение тома в блочном режиме
 description: Следуя данной инструкции, вы сможете подключить том в блочном режиме.
+alternate:
+  - href: ru/managed-kubernetes/operations/volumes/mode-block.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение тома в блочном режиме

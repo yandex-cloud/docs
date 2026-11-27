@@ -41,6 +41,10 @@ apiPlayground:
         - sessionType
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/organization/idp/api-ref/SynchronizationSession/openSession.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: SynchronizationSession.OpenSession

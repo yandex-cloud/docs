@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/overview/release-notes.md
+    type: text/markdown
+    title: Markdown version
+---
 # История изменений сервисов {{ yandex-cloud }}
 
 Историю изменений в сервисах и инструментах {{ yandex-cloud }} вы можете посмотреть в документации по ссылкам ниже.

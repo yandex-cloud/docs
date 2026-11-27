@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/ml-ai/s3-to-datasphere'
+alternate:
+  - href: ru/datasphere/tutorials/s3-to-datasphere.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование данных из {{ objstorage-full-name }} для обучения модели в {{ ml-platform-name }}

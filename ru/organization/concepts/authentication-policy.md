@@ -1,6 +1,10 @@
 ---
 title: Политики аутентификации в {{ org-full-name }}
 description: Политики аутентификации позволяют гибко настраивать доступ пользователей {{ org-full-name }} к приложениям.
+alternate:
+  - href: ru/organization/concepts/authentication-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политики аутентификации в {{ org-full-name }}

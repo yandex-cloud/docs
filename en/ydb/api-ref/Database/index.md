@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/ydb/api-ref/Database/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for YDB API, REST: Database

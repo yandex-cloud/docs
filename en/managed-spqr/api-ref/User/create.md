@@ -95,6 +95,10 @@ apiPlayground:
         required:
           - name
           - password
+alternate:
+  - href: en/managed-spqr/api-ref/User/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR API, REST: User.Create

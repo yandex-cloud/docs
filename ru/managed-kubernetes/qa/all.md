@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ managed-k8s-full-name }}
 description: На странице представлены вопросы и ответы про {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ managed-k8s-name }}

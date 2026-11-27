@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/trigger/update/internet-of-things/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/trigger/update/internet-of-things.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless trigger update internet-of-things

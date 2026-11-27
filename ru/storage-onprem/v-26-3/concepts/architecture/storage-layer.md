@@ -1,6 +1,10 @@
 ---
 title: Слой хранения MDS2 в {{ objstorage-onprem-name }}
 description: Организация данных и работа Angel, Visor и Gosper в {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/storage-layer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Слой хранения MDS2

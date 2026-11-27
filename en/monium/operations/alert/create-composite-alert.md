@@ -1,6 +1,10 @@
 ---
 title: Creating a composite alert
 description: Follow this guide to create a composite alert.
+alternate:
+  - href: en/monium/operations/alert/create-composite-alert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a composite alert

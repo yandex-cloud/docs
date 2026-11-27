@@ -1,6 +1,10 @@
 ---
 title: Создание и запуск триггера в {{ sf-full-name }}
 description: Из статьи вы узнаете, как создать и запустить триггер в {{ sf-name }}.
+alternate:
+  - href: ru/functions/quickstart/create-trigger/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание и запуск триггера в {{ sf-name }}

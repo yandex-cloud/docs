@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение к Google Sheets
 description: Следуя данной инструкции, вы сможете создать подключение к Google Sheets.
+alternate:
+  - href: ru/datalens/operations/connection/create-google-sheets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к Google Sheets

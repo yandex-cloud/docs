@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kafka/concepts/connectors.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connectors
 
 Connectors are {{ KFC }} components [built into {{ mkf-name }}](#supported-connectors) for streaming data between {{ KF }} and other data systems. You can use a connector for continuous data migration to and from {{ mkf-name }} clusters. Data in connectors is handled through separate {{ KFC }} *worker threads*. Learn more about {{ KFC }} in [this {{ KF }} guide](https://kafka.apache.org/42/kafka-connect/overview/).

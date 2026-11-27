@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/tutorials/install-on-yc-bms.md
+    type: text/markdown
+    title: Markdown version
+---
 # Installing {{ stackland-name }} on {{ baremetal-full-name }}
 
 [{{ baremetal-full-name }}](https://yandex.cloud/ru/services/baremetal) allows you to rent dedicated physical servers, with all their resources only used for your needs. {{ stackland-full-name }} supports {{ baremetal-full-name }} as one of its target environments for deployment.

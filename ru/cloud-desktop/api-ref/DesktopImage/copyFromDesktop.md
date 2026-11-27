@@ -52,6 +52,10 @@ apiPlayground:
         - desktopId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/cloud-desktop/api-ref/DesktopImage/copyFromDesktop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop API, REST: DesktopImage.CopyFromDesktop

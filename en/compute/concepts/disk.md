@@ -7,6 +7,10 @@ keywords:
   - hdd
   - vm disk
   - virtual machine disk
+alternate:
+  - href: en/compute/concepts/disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Disks

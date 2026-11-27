@@ -1,6 +1,10 @@
 ---
 title: Резервное копирование в {{ serverless-containers-full-name }}
 description: Из статьи вы узнаете про резервное копирование в {{ serverless-containers-full-name }} и какую информацию вы можете получить.
+alternate:
+  - href: ru/serverless-containers/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Резервное копирование в {{ serverless-containers-name }}

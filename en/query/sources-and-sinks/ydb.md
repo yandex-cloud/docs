@@ -1,6 +1,10 @@
 ---
 title: Working with {{ ydb-full-name }} databases
 description: In this tutorial, you will learn how to connect to a {{ ydb-name }} database and run queries against it from {{ yq-full-name }}.
+alternate:
+  - href: en/query/sources-and-sinks/ydb.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with {{ ydb-name }} databases

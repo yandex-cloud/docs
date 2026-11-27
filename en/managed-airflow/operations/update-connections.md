@@ -1,6 +1,10 @@
 ---
 title: Connecting to a {{ maf-full-name }} database
 description: You can connect to a {{ maf-name }} database using software and update connection data using a directed acyclic graph (DAG).
+alternate:
+  - href: en/managed-airflow/operations/update-connections.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ maf-full-name }} database

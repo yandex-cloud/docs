@@ -1,6 +1,10 @@
 ---
 title: Триггер для {{ yds-full-name }}, который отправляет сообщения в WebSocket-соединения
 description: Из статьи вы узнаете о триггере для {{ yds-name }}, формате отправляемых сообщений и необходимых ролях для работы с триггером.
+alternate:
+  - href: ru/api-gateway/concepts/trigger/data-streams-trigger.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Триггер для {{ yds-name }}, который отправляет сообщения в WebSocket-соединения

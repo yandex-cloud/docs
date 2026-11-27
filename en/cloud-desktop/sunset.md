@@ -1,6 +1,10 @@
 ---
 title: '{{ cloud-desktop-full-name }} shutdown'
 description: How to recover your data after the {{ cloud-desktop-name }} shutdown and choose a migration option.
+alternate:
+  - href: en/cloud-desktop/sunset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cloud-desktop-full-name }} shutdown

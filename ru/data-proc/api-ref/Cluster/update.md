@@ -333,6 +333,10 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/UpdateSubclusterConfigSpec'
+alternate:
+  - href: ru/data-proc/api-ref/Cluster/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Data Processing API, REST: Cluster.Update

@@ -1,6 +1,10 @@
 ---
 title: How to manage queue labels in {{ message-queue-full-name }}
 description: Follow this tutorial to add or delete queue labels.
+alternate:
+  - href: en/message-queue/operations/message-queue-tags.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing queue labels

@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ alb-full-name }}
 description: Access management in {{ alb-full-name }}, a service for distributing requests across network application backends and for terminating TLS encryption. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+alternate:
+  - href: en/application-load-balancer/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ alb-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как создать сетевой балансировщик
 description: Следуя данной инструкции, вы сможете создать сетевой балансировщик.
+alternate:
+  - href: ru/network-load-balancer/operations/load-balancer-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать сетевой балансировщик

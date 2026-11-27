@@ -1,6 +1,10 @@
 ---
 title: x-yc-apigateway-integration:swagger extension
 description: In this article, you will learn about the `x-yc-apigateway-integration:swagger` extension use cases, supported parameters, and specification.
+alternate:
+  - href: en/api-gateway/concepts/extensions/swagger.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # x-yc-apigateway-integration:swagger extension

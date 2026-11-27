@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/get-dedicated-ip.md
+    type: text/markdown
+    title: Markdown version
+---
 # GetDedicatedIp method
 
 Returns information about a [dedicated IP address](../../concepts/glossary.md#dedicated-ip) in a folder. The folder is selected based on the service account the request originates from.

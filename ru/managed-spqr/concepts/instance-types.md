@@ -6,6 +6,10 @@ keywords:
   - keyword: шардирование в PostgreSQL
   - keyword: шардированный PostgreSQL
   - keyword: шард PostgreSQL
+alternate:
+  - href: ru/managed-spqr/concepts/instance-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Классы хостов {{ mspqr-full-name }}

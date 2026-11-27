@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/storedoc/api-ref/Maintenance/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: Maintenance

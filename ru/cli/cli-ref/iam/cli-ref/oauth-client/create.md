@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/oauth-client/create/
+alternate:
+  - href: ru/cli/cli-ref/iam/cli-ref/oauth-client/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam oauth-client create

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/SharedEntry/rpclistSharedEntryAccessBindings-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # List common object access bindings

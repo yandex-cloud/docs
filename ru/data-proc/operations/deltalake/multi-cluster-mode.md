@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/operations/deltalake/multi-cluster-mode.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка Delta Lake в мультикластерном режиме
 
 При работе в мультикластерном режиме {{ dataproc-name }} использует базу данных [{{ ydb-full-name }}](../../../ydb/index.yaml) для координации доступа к таблицам Delta Lake из разных кластеров и заданий {{ SPRK }}.

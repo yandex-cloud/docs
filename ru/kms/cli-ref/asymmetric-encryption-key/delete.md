@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/asymmetric-encryption-key/delete/
+alternate:
+  - href: ru/kms/cli-ref/asymmetric-encryption-key/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc kms asymmetric-encryption-key delete

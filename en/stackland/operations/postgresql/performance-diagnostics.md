@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/postgresql/performance-diagnostics.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ PG }} performance diagnostics
 
 Performance diagnostics is a feature for collecting and visualizing performance statistics for {{ PG }} clusters. It enables analyzing SQL query performance and session activity to identify bottlenecks and streamline database operations.

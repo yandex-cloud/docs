@@ -1,6 +1,10 @@
 ---
 title: Создать группу виртуальных машин фиксированного размера с L7-балансировщиком
 description: Следуя данной инструкции, вы сможете создать группу виртуальных машин фиксированного размера с L7-балансировщиком.
+alternate:
+  - href: ru/compute/operations/instance-groups/create-with-load-balancer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать группу виртуальных машин фиксированного размера с L7-балансировщиком

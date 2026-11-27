@@ -1,6 +1,10 @@
 ---
 title: REST catalog in {{ datalens-platform-full-name }}
 description: In this article, you will learn what a REST catalog in {{ datalens-platform-full-name }} is and how the storage for tables in {{ IBRG }} format is organized.
+alternate:
+  - href: en/datalens/datalens-platform/concepts/rest-catalog/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # REST catalog in {{ datalens-platform-full-name }}

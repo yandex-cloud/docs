@@ -1,6 +1,10 @@
 ---
 title: Начало работы с помощью AWS CLI
 description: Следуя данной инструкции, вы сможете создать бакета и загрузить в него объект с помощью AWS CLI.
+alternate:
+  - href: ru/storage/quickstart/quickstart-aws-cli.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с AWS CLI в {{ objstorage-full-name }}

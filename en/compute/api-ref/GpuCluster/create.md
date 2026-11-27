@@ -55,6 +55,10 @@ apiPlayground:
           format: int64
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/compute/api-ref/GpuCluster/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: GpuCluster.Create

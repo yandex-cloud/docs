@@ -1,6 +1,10 @@
 ---
 title: Включение и выключение сервисов {{ yandex-cloud }}
 description: С помощью этой инструкции вы научитесь включать и выключать сервисы, чтобы управлять их доступом к ресурсам пользователя в облаке {{ yandex-cloud }}.
+alternate:
+  - href: ru/iam/operations/service-control/enable-disable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включение и выключение сервиса

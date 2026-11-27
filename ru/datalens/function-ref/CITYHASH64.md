@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/CITYHASH64.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # CITYHASH64

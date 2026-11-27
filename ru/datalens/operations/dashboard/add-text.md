@@ -1,6 +1,10 @@
 ---
 title: Как добавить текст на дашборд в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить текст на дашборд в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-text.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление текста на дашборд в {{ datalens-full-name }}

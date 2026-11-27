@@ -84,6 +84,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: ru/cloud-desktop/api-ref/DesktopGroup/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop API, REST: DesktopGroup.SetAccessBindings

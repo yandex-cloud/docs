@@ -1,6 +1,10 @@
 ---
 title: Правила корреляции и исключения в {{ yandex-siem-full-name }}
 description: Правила корреляции в {{ yandex-siem-full-name }} позволяют автоматически обнаруживать угрозы безопасности на основе KQL-запросов. Исключения позволяют исключить из анализа заведомо безопасные события.
+alternate:
+  - href: ru/siem/concepts/correlation-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила корреляции и исключения

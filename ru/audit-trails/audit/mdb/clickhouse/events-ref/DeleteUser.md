@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/mdb/clickhouse/events-ref/DeleteUser.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse Audit Trails Events: DeleteUser

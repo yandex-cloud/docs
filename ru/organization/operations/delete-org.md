@@ -1,6 +1,10 @@
 ---
 title: Удалить организацию в {{ org-full-name }}
 description: Из этой статьи вы узнаете, как удалить организацию в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/delete-org.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить организацию

@@ -1,6 +1,10 @@
 ---
 title: How to manage broker passwords in {{ iot-full-name }}
 description: In this guide, you will learn how to get a list of broker passwords and add or delete a broker password in {{ iot-full-name }}.
+alternate:
+  - href: en/iot-core/operations/password/broker-password.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing broker passwords

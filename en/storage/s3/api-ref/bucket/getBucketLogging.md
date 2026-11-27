@@ -1,6 +1,10 @@
 ---
 title: getBucketLogging method
 description: In this article, you will learn what the getBucketLogging method is, and what its request and response look like.
+alternate:
+  - href: en/storage/s3/api-ref/bucket/getBucketLogging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, Amazon S3-compatible REST: GetBucketLogging

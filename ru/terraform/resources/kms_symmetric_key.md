@@ -1,5 +1,9 @@
 ---
 subcategory: Key Management Service
+alternate:
+  - href: ru/terraform/resources/kms_symmetric_key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_kms_symmetric_key (Resource)

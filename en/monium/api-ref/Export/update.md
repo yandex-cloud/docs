@@ -141,6 +141,10 @@ apiPlayground:
               **string**
               The maximum string length in characters is 1000.
             type: string
+alternate:
+  - href: en/monium/api-ref/Export/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, REST: Export.Update

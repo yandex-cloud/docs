@@ -1,6 +1,10 @@
 ---
 title: Deleting a network interface from a VM
 description: Follow this guide to delete a network interface from a virtual machine.
+alternate:
+  - href: en/compute/operations/vm-control/detach-network-interface.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a network interface from a VM

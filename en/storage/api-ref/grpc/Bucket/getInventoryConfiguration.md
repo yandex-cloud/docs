@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/storage/api-ref/grpc/Bucket/getInventoryConfiguration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, gRPC: BucketService.GetInventoryConfiguration

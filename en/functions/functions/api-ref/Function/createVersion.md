@@ -502,6 +502,10 @@ apiPlayground:
               - METADATA_OPTION_UNSPECIFIED
               - ENABLED
               - DISABLED
+alternate:
+  - href: en/functions/functions/api-ref/Function/createVersion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, REST: Function.CreateVersion

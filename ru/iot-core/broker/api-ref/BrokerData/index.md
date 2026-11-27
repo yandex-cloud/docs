@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/iot-core/broker/api-ref/BrokerData/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Broker Service, REST: BrokerData

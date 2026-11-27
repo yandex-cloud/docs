@@ -1,6 +1,10 @@
 ---
 title: How to install dependencies
 description: Follow this guide to install additional packages in {{ ds-nb }}.
+alternate:
+  - href: en/datasphere/operations/projects/install-dependencies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing dependencies

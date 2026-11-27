@@ -1,6 +1,10 @@
 ---
 title: Создание кластера {{ dataproc-full-name }} с автомасштабированием в сети другого каталога
 description: Следуя данной инструкции, вы сможете создать и настроить кластер {{ dataproc-name }} с автомасштабированием в сети другого каталога.
+alternate:
+  - href: ru/data-proc/operations/cluster-create-autoscale.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ dataproc-name }} с автомасштабированием в сети другого каталога

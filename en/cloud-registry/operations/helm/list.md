@@ -1,6 +1,10 @@
 ---
 title: Getting information about existing Helm charts in {{ cloud-registry-name }}
 description: Follow this guide to get a list of Helm charts in {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/helm/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about existing Helm charts

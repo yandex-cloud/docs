@@ -1,6 +1,10 @@
 ---
 title: Воронка в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Воронка.
+alternate:
+  - href: ru/datalens/visualization-ref/funnel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Воронка ![](../../_assets/datalens/funnel.svg) в {{ datalens-full-name }}

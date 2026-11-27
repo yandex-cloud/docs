@@ -1,6 +1,10 @@
 ---
 title: Справочник KQL в {{ ycdr-full-name }}
 description: Справочник функций и операторов KQL в {{ ycdr-name }}.
+alternate:
+  - href: ru/ycdr/kql-reference.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник KQL

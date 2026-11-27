@@ -1,6 +1,10 @@
 ---
 title: Как собирать и управлять зависимостями функции на R в {{ sf-full-name }}
 description: Из статьи вы узнаете, как собирать и управлять зависимостями функции на R в {{ sf-name }}.
+alternate:
+  - href: ru/functions/lang/r/dependencies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сборка и управление зависимостями функции на R

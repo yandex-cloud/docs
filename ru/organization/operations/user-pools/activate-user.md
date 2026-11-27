@@ -1,6 +1,10 @@
 ---
 title: Как активировать пользователя в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете активировать пользователя в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/activate-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Активировать пользователя

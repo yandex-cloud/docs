@@ -5,6 +5,10 @@ keywords:
   - ydb
   - serverless
   - dedicated
+alternate:
+  - href: en/ydb/concepts/serverless-and-dedicated.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Serverless and dedicated operation modes

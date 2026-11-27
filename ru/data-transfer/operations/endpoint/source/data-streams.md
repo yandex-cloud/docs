@@ -1,6 +1,10 @@
 ---
 title: Как настроить эндпоинт-источник {{ yds-full-name }} в {{ data-transfer-full-name }}
 description: Следуя данной инструкции, вы сможете настроить эндпоинт-источник {{ yds-full-name }} в {{ data-transfer-full-name }}.
+alternate:
+  - href: ru/data-transfer/operations/endpoint/source/data-streams.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передача данных из эндпоинта-источника {{ yds-full-name }}

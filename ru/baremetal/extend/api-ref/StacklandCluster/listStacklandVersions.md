@@ -27,6 +27,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/baremetal/extend/api-ref/StacklandCluster/listStacklandVersions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Extend API, REST: StacklandCluster.ListStacklandVersions

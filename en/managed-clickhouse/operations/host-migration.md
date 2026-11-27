@@ -1,6 +1,10 @@
 ---
 title: Migrating {{ CH }} cluster hosts to a different availability zone
 description: Follow this guide to migrate {{ CH }} cluster hosts to a different availability zone.
+alternate:
+  - href: en/managed-clickhouse/operations/host-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating {{ CH }} cluster hosts to a different availability zone

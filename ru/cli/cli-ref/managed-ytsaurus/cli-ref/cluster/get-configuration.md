@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-ytsaurus/cli-ref/cluster/get-configuration/
+alternate:
+  - href: ru/cli/cli-ref/managed-ytsaurus/cli-ref/cluster/get-configuration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-ytsaurus cluster get-configuration

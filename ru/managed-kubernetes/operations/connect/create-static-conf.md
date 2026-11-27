@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/operations/connect/create-static-conf.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание статического файла конфигурации
 
 Статические файлы конфигурации позволяют получить доступ к [кластеру {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) без использования [CLI](../../../glossary/cli.md), например из систем непрерывной интеграции.

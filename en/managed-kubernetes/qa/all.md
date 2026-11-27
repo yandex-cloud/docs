@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ managed-k8s-full-name }}
 description: This page covers FAQ about {{ managed-k8s-name }}.
+alternate:
+  - href: en/managed-kubernetes/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ managed-k8s-name }}

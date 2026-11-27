@@ -1,6 +1,10 @@
 ---
 title: How to clear notebook cell outputs in {{ ml-platform-full-name }}
 description: Follow this guide to clear notebook cell outputs.
+alternate:
+  - href: en/datasphere/operations/projects/clear-outputs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Clearing notebook cell outputs

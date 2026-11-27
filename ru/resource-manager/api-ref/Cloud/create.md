@@ -49,6 +49,10 @@ apiPlayground:
         - organizationId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/resource-manager/api-ref/Cloud/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API, REST: Cloud.Create

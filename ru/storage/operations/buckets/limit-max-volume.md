@@ -1,6 +1,10 @@
 ---
 title: Ограничить максимальный размер бакета в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить максимальный размер бакета в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/limit-max-volume.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ограничить максимальный размер бакета

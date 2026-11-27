@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/cluster/set-access-bindings/
+alternate:
+  - href: ru/cli/cli-ref/managed-kafka/cli-ref/cluster/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kafka cluster set-access-bindings

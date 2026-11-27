@@ -1,6 +1,10 @@
 ---
 title: Решение проблем CLI
 description: В этой статье описаны решения типичных проблем, которые могут возникать при работе с CLI.
+alternate:
+  - href: ru/cli/error.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение проблем с {{ yandex-cloud }} CLI

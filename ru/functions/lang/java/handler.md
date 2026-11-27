@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/java/handler.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обработчик запросов функции на Java
 
 _Обработчик запросов_ — это метод, который используется для обработки каждого вызова функции на Java.

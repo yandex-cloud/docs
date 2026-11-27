@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_service-accounts.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli service-accounts
 
 Manage service accounts

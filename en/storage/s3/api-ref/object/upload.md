@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/object/upload.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: PutObject
 
 Uploads an object and its metadata to {{ objstorage-full-name }}.

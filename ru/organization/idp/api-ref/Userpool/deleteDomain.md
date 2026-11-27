@@ -25,6 +25,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/idp/api-ref/Userpool/deleteDomain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: Userpool.DeleteDomain

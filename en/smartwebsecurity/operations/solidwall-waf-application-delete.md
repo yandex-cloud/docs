@@ -1,6 +1,10 @@
 ---
 title: Deleting a SolidWall WAF application in {{ sws-full-name }}
 description: Disable domains and delete applications from a SolidWall WAF profile in {{ sws-full-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/solidwall-waf-application-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a SolidWall WAF application

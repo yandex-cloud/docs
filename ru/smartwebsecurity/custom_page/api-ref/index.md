@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/smartwebsecurity/custom_page/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity CustomPage API: REST reference

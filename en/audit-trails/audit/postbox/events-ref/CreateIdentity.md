@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/postbox/events-ref/CreateIdentity.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Postbox Audit Trails Events: CreateIdentity

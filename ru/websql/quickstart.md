@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/websql/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как начать работать с {{ websql-full-name }}
 
 

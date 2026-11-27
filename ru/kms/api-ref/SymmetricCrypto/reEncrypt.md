@@ -60,6 +60,10 @@ apiPlayground:
         - ciphertext
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/kms/api-ref/SymmetricCrypto/reEncrypt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: SymmetricCrypto.ReEncrypt

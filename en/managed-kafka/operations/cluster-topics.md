@@ -1,6 +1,10 @@
 ---
 title: How to manage topics and {{ KF }} cluster partitions in {{ mkf-full-name }}
 description: Follow this guide to manage topics and partitions so you can create a topic, update topic settings, get a list of topics in a cluster, get detailed information about a topic, import a topic to {{ TF }}, and delete a topic.
+alternate:
+  - href: en/managed-kafka/operations/cluster-topics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ KF }} topics

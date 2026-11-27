@@ -1,6 +1,10 @@
 ---
 title: Создание L7-балансировщика с защитой от DDoS
 description: В этом руководстве вы развернете инфраструктуру для защиты от DDoS. Для этого вы создадите облачную сеть, настроите группы безопасности {{ vpc-full-name }}, создадите группу ВМ {{ compute-full-name }}, свяжете с ней группу бэкендов, создадите HTTP-роутер и L7-балансировщик {{ alb-full-name }}.
+alternate:
+  - href: ru/tutorials/security/alb-with-ddos-protection/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [alb-with-ddos-protection](../../../_tutorials/security/alb-with-ddos-protection.md) %}

@@ -1,6 +1,10 @@
 ---
 title: Как установить и обновить {{ unified-agent-full-name }}
 description: Из статьи вы узнаете, как установить и обновить {{ unified-agent-full-name }}.
+alternate:
+  - href: ru/monitoring/concepts/data-collection/unified-agent/installation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка и обновление {{ unified-agent-full-name }}

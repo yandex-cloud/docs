@@ -1,6 +1,10 @@
 ---
 title: Как изменить группу узлов {{ managed-k8s-name }}
 description: Следуя данной инструкции, вы сможете изменить группу узлов {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/node-group/node-group-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение группы узлов {{ managed-k8s-name }}

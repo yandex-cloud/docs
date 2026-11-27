@@ -1,5 +1,9 @@
 ---
 subcategory: Virtual Private Cloud
+alternate:
+  - href: en/terraform/resources/vpc_address.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_vpc_address (Resource)

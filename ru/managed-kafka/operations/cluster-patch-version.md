@@ -1,6 +1,10 @@
 ---
 title: Как получить патч-версию {{ KF }} в {{ mkf-full-name }}
 description: Следуя данной инструкции, вы сможете узнать патч-версию {{ KF }}, установленную в кластере {{ mkf-full-name }}.
+alternate:
+  - href: ru/managed-kafka/operations/cluster-patch-version.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение патч-версии {{ KF }}

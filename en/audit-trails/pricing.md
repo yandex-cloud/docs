@@ -2,6 +2,10 @@
 title: '{{ at-full-name }} pricing policy'
 description: This article covers the {{ at-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/audit-trails/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} pricing policy

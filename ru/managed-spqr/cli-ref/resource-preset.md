@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/resource-preset/
+alternate:
+  - href: ru/managed-spqr/cli-ref/resource-preset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-sharded-postgresql resource-preset

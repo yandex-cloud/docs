@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/securitydeck/alerts/events-ref/DeleteAlertSink.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck Alerts Audit Trails Events: DeleteAlertSink

@@ -1,6 +1,10 @@
 ---
 title: Управление цветовой палитрой в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете создать, изменить, удалить цветовую палитру и настроить цветовую палитру по умолчанию в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/chart/create-palette.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление цветовой палитрой в {{ datalens-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Настройка резервирования сетевого подключения в {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете настроить группу агрегирования на сервере {{ baremetal-full-name }} с возможностью резервирования сетевого подключения с использованием технологии MC-LAG.
+alternate:
+  - href: ru/baremetal/operations/servers/set-up-mc-lag.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить группу агрегирования MC-LAG

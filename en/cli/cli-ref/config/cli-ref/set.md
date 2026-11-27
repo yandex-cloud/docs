@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/config/cli-ref/set/
+alternate:
+  - href: en/cli/cli-ref/config/cli-ref/set.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc config set

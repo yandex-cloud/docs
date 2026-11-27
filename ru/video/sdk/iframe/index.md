@@ -1,6 +1,10 @@
 ---
 title: Начало работы с IFrame SDK для {{ video-player-name }}
 description: На странице приведены основные элементы управления видеоплеером {{ video-player-name }} с помощью SDK для IFrame.
+alternate:
+  - href: ru/video/sdk/iframe/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с SDK видеоплеера для IFrame

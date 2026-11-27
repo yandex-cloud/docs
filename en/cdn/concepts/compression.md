@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/concepts/compression.md
+    type: text/markdown
+    title: Markdown version
+---
 # Content compression
 
 You can transmit content from CDN servers to clients in a compressed format. You can enable compression in the resource settings.

@@ -1,6 +1,10 @@
 ---
 title: How to activate {{ backup-full-name }}
 description: Follow this guide to activate {{ backup-name }}.
+alternate:
+  - href: en/backup/operations/activate-service.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Activating the service

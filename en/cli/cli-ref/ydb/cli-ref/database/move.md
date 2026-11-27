@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/database/move/
+alternate:
+  - href: en/cli/cli-ref/ydb/cli-ref/database/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc ydb database move

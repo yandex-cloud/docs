@@ -1,6 +1,10 @@
 ---
 title: Особенности JOIN в {{ datalens-full-name }}
 description: Из статьи вы узнаете об особенностях использования оператора JOIN в {{ datalens-full-name }}, а также ознакомитесь с видами запросов с JOIN в {{ CH }}.
+alternate:
+  - href: ru/datalens/operations/connection/chyt/chyt-global-join.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Особенности JOIN в {{ datalens-full-name }}

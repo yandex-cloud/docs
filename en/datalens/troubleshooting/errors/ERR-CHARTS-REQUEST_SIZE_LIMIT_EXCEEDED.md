@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED'
 description: This page describes the Request size limit exceeded {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Request size limit exceeded

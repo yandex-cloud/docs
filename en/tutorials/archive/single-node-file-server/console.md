@@ -1,6 +1,10 @@
 ---
 title: Creating a single-node file server using the management console
 description: In this tutorial, you will create a single-node NFS file server using the Samba software suite and the {{ vpc-full-name }} network infrastructure via the {{ yandex-cloud }} management console.
+alternate:
+  - href: en/tutorials/archive/single-node-file-server/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a single-node file server using the management console

@@ -18,6 +18,10 @@ meta:
     - keyword: CAPTCHA in {{ yandex-cloud }}
     - keyword: '{{ captcha-name }} in {{ yandex-cloud }}'
     - keyword: human verification {{ yandex-cloud }}
+  alternate:
+    - href: en/smartcaptcha/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Set up your first widget and verify a user

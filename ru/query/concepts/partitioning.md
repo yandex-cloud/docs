@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/concepts/partitioning.md
+    type: text/markdown
+    title: Markdown version
+---
 # Партицирование данных
 
 {% include [sunset](../../_includes/query/sunset.md) %}

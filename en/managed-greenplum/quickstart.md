@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ mgp-full-name }}
 description: Follow this guide to create and start working with a {{ mgp-name }} cluster.
+alternate:
+  - href: en/managed-greenplum/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ mgp-name }}

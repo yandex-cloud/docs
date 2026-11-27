@@ -1,6 +1,10 @@
 ---
 title: Как настроить порядок отображения виджетов на мобильном устройстве в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете настроить порядок отображения виджетов на мобильном устройстве в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/display-modes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Порядок отображения виджетов на мобильном устройстве в {{ datalens-full-name }}

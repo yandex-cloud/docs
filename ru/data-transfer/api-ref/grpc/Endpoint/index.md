@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/data-transfer/api-ref/grpc/Endpoint/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer API, gRPC: EndpointService

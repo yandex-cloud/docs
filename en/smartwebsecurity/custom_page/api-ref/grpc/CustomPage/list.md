@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/smartwebsecurity/custom_page/api-ref/grpc/CustomPage/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity CustomPage API, gRPC: CustomPageService.List

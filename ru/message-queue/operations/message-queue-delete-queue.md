@@ -1,6 +1,10 @@
 ---
 title: Как удалить очередь сообщений в {{ message-queue-full-name }}
 description: Следуя данной инструкции, вы сможете удалить очередь сообщений.
+alternate:
+  - href: ru/message-queue/operations/message-queue-delete-queue.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление очереди сообщений

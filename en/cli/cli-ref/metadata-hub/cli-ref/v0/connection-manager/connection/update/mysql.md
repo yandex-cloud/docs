@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/metadata-hub/cli-ref/v0/connection-manager/connection/update/mysql/
+alternate:
+  - href: en/cli/cli-ref/metadata-hub/cli-ref/v0/connection-manager/connection/update/mysql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc metadata-hub v0 connection-manager connection update mysql

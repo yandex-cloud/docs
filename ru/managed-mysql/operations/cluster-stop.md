@@ -1,6 +1,10 @@
 ---
 title: Остановка и запуск кластера {{ MY }} в {{ mmy-name }}
 description: 'При необходимости вы можете остановить кластер {{ MY }} и запустить его заново. Время простоя кластера не тарифицируется: вы продолжаете платить только за размер хранилища и резервных копий.'
+alternate:
+  - href: ru/managed-mysql/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Остановка и запуск кластера {{ MY }}

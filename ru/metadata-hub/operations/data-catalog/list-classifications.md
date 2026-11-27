@@ -1,6 +1,10 @@
 ---
 title: Получение списка классификаций в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы получите список классификаций в {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/list-classifications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка классификаций

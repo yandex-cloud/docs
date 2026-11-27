@@ -1,6 +1,10 @@
 ---
 title: Assigning access rules for catalog objects in {{ mtr-name }}
 description: Rules define the top-level user access to catalog objects, such as schemas and tables, within a {{ mtr-name }} cluster.
+alternate:
+  - href: en/managed-trino/operations/access-control-catalogs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning access rules for catalog objects in {{ mtr-name }}

@@ -1,6 +1,10 @@
 ---
 title: Managing folder access policies
 description: In this tutorial, you will learn how to view {{ iam-full-name }} access policies created for a folder, as well as create and delete such policies.
+alternate:
+  - href: en/resource-manager/operations/folder/manage-access-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing folder access policies

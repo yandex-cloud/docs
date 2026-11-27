@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/sws.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение x-yc-apigateway:smartWebSecurity
 
 Расширение `x-yc-apigateway:smartWebSecurity` защищает [API-шлюз](../../concepts/index.md) на основе правил, заданных в [профиле безопасности {{ sws-full-name }}](../../../smartwebsecurity/concepts/profiles.md). Например, с помощью [базовых правил](../../../smartwebsecurity/concepts/rules.md#base-rules) можно блокировать нежелательный трафик, а используя [Advanced Rate Limiter](../../../smartwebsecurity/concepts/arl.md) — устанавливать ограничения на количество запросов.

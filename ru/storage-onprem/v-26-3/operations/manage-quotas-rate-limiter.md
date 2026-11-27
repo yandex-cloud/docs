@@ -1,6 +1,10 @@
 ---
 title: Управление квотами rate-лимитера в {{ objstorage-onprem-name }}
 description: Создание, просмотр, изменение и удаление квот YARL через консоль управления и CLI {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/operations/manage-quotas-rate-limiter.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление квотами для запросов и трафика

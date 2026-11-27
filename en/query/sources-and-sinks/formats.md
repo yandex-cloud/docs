@@ -1,6 +1,10 @@
 ---
 title: Data formats and compression algorithms
 description: This article describes the data formats and compression algorithms supported in {{ yq-full-name }}.
+alternate:
+  - href: en/query/sources-and-sinks/formats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data formats and compression algorithms

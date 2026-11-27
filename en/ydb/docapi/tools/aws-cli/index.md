@@ -1,6 +1,10 @@
 ---
 title: Working with the AWS CLI. Overview
 description: This section describes how to create, add, read, and update table data using the AWS CLI. We also provide examples of how to run simple queries.
+alternate:
+  - href: en/ydb/docapi/tools/aws-cli/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with the AWS CLI in {{ ydb-name }}. Overview

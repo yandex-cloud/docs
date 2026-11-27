@@ -1,6 +1,10 @@
 ---
 title: Authenticating as a federated user
 description: Follow this guide to authenticate in the CLI as a federated user.
+alternate:
+  - href: en/cli/operations/authentication/federated-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authenticating with the {{ yandex-cloud }} CLI as a federated user

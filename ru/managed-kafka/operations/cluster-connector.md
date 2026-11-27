@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kafka/operations/cluster-connector.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление коннекторами
 
 [Коннектор](../concepts/connectors.md) управляет процессом переноса топиков {{ KF }} в другой кластер или другую систему хранения данных.

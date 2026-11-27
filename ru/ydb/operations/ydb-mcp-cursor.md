@@ -1,6 +1,10 @@
 ---
 title: 'Как использовать LLM для работы с {{ ydb-full-name }} через MCP-сервер: пример на IDE Cursor'
 description: Вы можете подключиться к {{ ydb-short-name }} с помощью MCP-сервера и управлять базой через LLM. Возможности зависят от используемой модели.
+alternate:
+  - href: ru/ydb/operations/ydb-mcp-cursor.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как использовать LLM для работы с {{ ydb-full-name }} через MCP-сервер: пример на IDE Cursor

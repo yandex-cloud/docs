@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-spqr/api-ref/grpc/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR API: gRPC reference

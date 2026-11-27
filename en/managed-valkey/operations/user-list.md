@@ -1,6 +1,10 @@
 ---
 title: Getting {{ VLK }} user info in {{ mrd-full-name }}
 description: You can get information about {{ VLK }} users and their permissions in {{ mrd-name }}.
+alternate:
+  - href: en/managed-valkey/operations/user-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting user info

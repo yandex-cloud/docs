@@ -1,6 +1,10 @@
 ---
 title: Начало работы с реестрами устройств {{ iot-full-name }}
 description: Чтобы начать работать с {{ iot-name }}, создайте сертификат X.509, реестр и устройство. Затем настройте обмен сообщениями между реестром и устройством.
+alternate:
+  - href: ru/iot-core/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с реестрами устройств {{ iot-name }}

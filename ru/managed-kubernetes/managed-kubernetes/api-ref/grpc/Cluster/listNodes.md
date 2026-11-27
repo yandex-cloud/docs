@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-kubernetes/managed-kubernetes/api-ref/grpc/Cluster/listNodes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Services for Kubernetes API, gRPC: ClusterService.ListNodes

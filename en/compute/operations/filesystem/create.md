@@ -1,6 +1,10 @@
 ---
 title: How to create a file storage in {{ compute-full-name }}
 description: Follow this guide to create a file storage.
+alternate:
+  - href: en/compute/operations/filesystem/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a file storage

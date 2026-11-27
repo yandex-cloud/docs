@@ -1,6 +1,10 @@
 ---
 title: Как создать профиль {{ oslogin }}
 description: Следуя данной инструкции, вы сможете создать профиль {{ oslogin }}.
+alternate:
+  - href: ru/organization/operations/os-login-profile-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать профиль {{ oslogin }}

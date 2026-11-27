@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-airflow/concepts/network.md
+    type: text/markdown
+    title: Markdown version
+---
 # Networking in {{ maf-name }}
 
 When creating a cluster, you can specify the following network settings:

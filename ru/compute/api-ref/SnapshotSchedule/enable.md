@@ -16,6 +16,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/compute/api-ref/SnapshotSchedule/enable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: SnapshotSchedule.Enable

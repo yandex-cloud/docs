@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
+alternate:
+  - href: en/ydb/docapi/tools/aws-sdk/update-item.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Updating a record
 

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/balance-wrong-account-issue.md
+    type: text/markdown
+    title: Markdown version
+---
 # Устранение ошибки `balance.WRONG.ACCOUNT`
 
 

@@ -2,6 +2,10 @@
 title: Pricing policy for Dedicated mode in {{ ydb-full-name }}
 description: In this article, you will learn about the pricing policy for Dedicated mode in {{ ydb-full-name }}.
 editable: false
+alternate:
+  - href: en/ydb/pricing/dedicated.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pricing policy for Dedicated mode in {{ ydb-name }}

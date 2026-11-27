@@ -1,6 +1,10 @@
 ---
 title: How to set up a {{ objstorage-full-name }} source endpoint
 description: Follow this guide to configure an {{ objstorage-full-name }} source endpoint.
+alternate:
+  - href: en/data-transfer/operations/endpoint/source/object-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Transferring data from a {{ objstorage-full-name }} source endpoint
 

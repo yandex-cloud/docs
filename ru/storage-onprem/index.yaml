@@ -39,6 +39,10 @@ meta:
     - keyword: бакет {{ objstorage-onprem-name }}
     - keyword: бакеты
     - keyword: хранилище {{ objstorage-onprem-name }}
+  alternate:
+    - href: ru/storage-onprem/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Версия 26.3
     href: v-26-3/

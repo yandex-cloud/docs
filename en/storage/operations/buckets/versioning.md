@@ -1,6 +1,10 @@
 ---
 title: Enabling and pausing bucket versioning in {{ objstorage-full-name }}
 description: Follow this guide to enable and pause bucket versioning in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/buckets/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling and pausing bucket versioning

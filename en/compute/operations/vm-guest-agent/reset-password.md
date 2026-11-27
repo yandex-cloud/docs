@@ -1,6 +1,10 @@
 ---
 title: How to reset a Windows Server admin password
 description: This article describes how to reset a Windows Server VM admin password.
+alternate:
+  - href: en/compute/operations/vm-guest-agent/reset-password.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resetting a Windows Server admin password

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/smartwebsecurity/match_list/api-ref/grpc/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity MatchList API, gRPC: OperationService.Get

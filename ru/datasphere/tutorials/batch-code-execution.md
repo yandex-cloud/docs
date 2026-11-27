@@ -2,6 +2,10 @@
 title: Руководство по запуску вычислений в {{ ml-platform-name }} с помощью API
 description: Следуя данному руководству, вы сможете запустить вычисления в {{ ml-platform-name }} с помощью API.
 canonical: '{{ link-docs }}/tutorials/ml-ai/batch-code-execution'
+alternate:
+  - href: ru/datasphere/tutorials/batch-code-execution.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запуск вычислений в {{ ml-platform-name }} с помощью API

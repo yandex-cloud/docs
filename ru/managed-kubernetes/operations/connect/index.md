@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к кластеру {{ k8s }} в {{ managed-k8s-full-name }}
 description: Следуя данной инструкции, вы сможете подключиться к кластеру {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор способов подключения

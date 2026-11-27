@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ mkf-full-name }}
 description: В разделе представлена история изменений сервиса {{ mkf-name }}.
+alternate:
+  - href: ru/managed-kafka/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ mkf-full-name }}

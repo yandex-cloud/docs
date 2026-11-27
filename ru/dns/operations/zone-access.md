@@ -1,6 +1,10 @@
 ---
 title: Как настроить права доступа к зоне DNS в {{ dns-name }}
 description: Следуя данной инструкции, вы настроите права доступа к зоне DNS.
+alternate:
+  - href: ru/dns/operations/zone-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к зоне DNS

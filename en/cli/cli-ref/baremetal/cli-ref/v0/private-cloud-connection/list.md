@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v0/private-cloud-connection/list/
+alternate:
+  - href: en/cli/cli-ref/baremetal/cli-ref/v0/private-cloud-connection/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal v0 private-cloud-connection list

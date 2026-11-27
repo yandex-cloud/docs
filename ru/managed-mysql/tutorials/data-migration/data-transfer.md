@@ -3,6 +3,10 @@ title: Перенос данных из стороннего кластера {{
 description: В этом практическом руководстве мы расскажем, как перенести данные из стороннего кластера {{ MY }} в кластер {{ mmy-full-name }} с помощью сервиса {{ data-transfer-full-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/mysql-data-migration/data-transfer'
 noIndex: true
+alternate:
+  - href: ru/managed-mysql/tutorials/data-migration/data-transfer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Перенос данных из стороннего кластера {{ MY }} с использованием сервиса {{ data-transfer-name }}

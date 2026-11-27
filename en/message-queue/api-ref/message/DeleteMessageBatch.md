@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/message/DeleteMessageBatch.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteMessageBatch
 
 Method for deleting multiple messages from a queue. You can delete up to 10 messages at once.

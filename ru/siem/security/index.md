@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ yandex-siem-full-name }}
 description: Управление доступом в сервисе для мониторинга и реагирования на инциденты {{ yandex-siem-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе.
+alternate:
+  - href: ru/siem/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ yandex-siem-full-name }}

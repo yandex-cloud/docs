@@ -1,6 +1,10 @@
 ---
 title: Infrastructure map analysis in the {{ yandex-cloud }} management console
 description: Follow this guide to analyze the relationships between resources as well as between networks and subnets within the resource folder using the infrastructure map in the {{ yandex-cloud }} management console.
+alternate:
+  - href: en/console/operations/view-infrastructure-map.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Infrastructure map analysis

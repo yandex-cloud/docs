@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ iam-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ iam-full-name }}.
+alternate:
+  - href: ru/iam/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ iam-full-name }}

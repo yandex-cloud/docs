@@ -40,6 +40,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/organization/saml/api-ref/Certificate/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Federation API, REST: Certificate.ListOperations

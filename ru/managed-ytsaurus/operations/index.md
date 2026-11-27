@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ myt-full-name }}
 description: Из статьи вы узнаете, как работать с {{ myt-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-ytsaurus/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ myt-name }}

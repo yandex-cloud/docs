@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/logging/api-ref/grpc/LogIngestion/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, gRPC: LogIngestionService

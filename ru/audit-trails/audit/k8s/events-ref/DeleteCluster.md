@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/k8s/events-ref/DeleteCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Services for Kubernetes Audit Trails Events: DeleteCluster

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/cors/upload.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: PutBucketCors
 
 Uploads a CORS configuration for a bucket. It replaces any existing configuration.

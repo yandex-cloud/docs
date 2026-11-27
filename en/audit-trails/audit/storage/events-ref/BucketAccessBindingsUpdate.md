@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/storage/events-ref/BucketAccessBindingsUpdate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage Audit Trails Events: BucketAccessBindingsUpdate

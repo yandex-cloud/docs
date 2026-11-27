@@ -1,6 +1,10 @@
 ---
 title: Troubleshooting {{ coi }} issues in {{ cos-full-name }}
 description: This guide describes how you can fix {{ coi }} issues.
+alternate:
+  - href: en/cos/error/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting

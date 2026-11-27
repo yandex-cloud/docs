@@ -1,6 +1,10 @@
 ---
 title: How to delete a user pool in {{ org-full-name }}
 description: Follow this guide to delete a user pool in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/user-pools/delete-userpool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a user pool

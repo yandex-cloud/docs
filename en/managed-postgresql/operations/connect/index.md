@@ -1,6 +1,10 @@
 ---
 title: Pre-configuring a {{ PG }} cluster connection in {{ mpg-full-name }}
 description: Follow this guide to pre-configure a connection to hosts in an {{ PG }} cluster.
+alternate:
+  - href: en/managed-postgresql/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pre-configuring a {{ PG }} cluster connection

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance-group/create/
+alternate:
+  - href: ru/compute/cli-ref/instance-group/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute instance-group create

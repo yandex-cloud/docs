@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ dns-full-name }}
 description: На странице представлены вопросы и ответы про {{ dns-name }}.
+alternate:
+  - href: ru/dns/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие вопросы про {{ dns-name }}

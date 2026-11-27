@@ -3,6 +3,10 @@ title: Как создать SAML-приложение в {{ org-full-name }} д
 description: 'Настройте единый вход в МТС Линк через {{ org-full-name }} по SAML: создайте приложение, сопоставьте атрибуты пользователей, подтвердите домен и проверьте вход.'
 canonical: '{{ link-docs }}/tutorials/security/single-sign-on/saml-mts-link'
 noIndex: true
+alternate:
+  - href: ru/organization/tutorials/single-sign-on/saml-mts-link.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [saml-mts-link](../../../_tutorials/security/single-sign-on/saml-mts-link.md) %}

@@ -2,6 +2,10 @@
 title: '{{ datalens-full-name }} pricing policy before December 1, 2025'
 description: This article covers the {{ datalens-name }} pricing policy effective before December 1, 2025.
 editable: false
+alternate:
+  - href: en/datalens/pricing-old.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} pricing policy

@@ -1,6 +1,10 @@
 ---
 title: How to work with {{ cns-full-name }}
 description: Step-by-step guides on using push notifications and SMS in {{ cns-full-name }}.
+alternate:
+  - href: en/notifications/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ cns-name }}

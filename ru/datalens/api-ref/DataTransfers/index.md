@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/DataTransfers/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # DataTransfers
 
 <!-- markdownlint-disable-file -->

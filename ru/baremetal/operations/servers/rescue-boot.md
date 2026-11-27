@@ -1,6 +1,10 @@
 ---
 title: Как запустить сервер {{ baremetal-full-name }} с Rescue-CD
 description: Следуя данной инструкции, вы сможете воспользоваться инструментами диагностики и восстановления, доступными в штатном загрузочном CD-образе {{ baremetal-name }} Rescue-CD.
+alternate:
+  - href: ru/baremetal/operations/servers/rescue-boot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Воспользоваться диском восстановления и диагностики Rescue-CD

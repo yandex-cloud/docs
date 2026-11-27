@@ -1,6 +1,10 @@
 ---
 title: Квоты и лимиты в {{ metadata-hub-full-name }}
 description: В {{ metadata-hub-full-name }} действуют квоты на количество соединений, количество пространств имен в облаке и количество схем в облаке. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
+alternate:
+  - href: ru/metadata-hub/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты в {{ metadata-hub-full-name }}

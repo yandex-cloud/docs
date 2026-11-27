@@ -1,6 +1,10 @@
 ---
 title: '{{ cloud-logging-full-name }} release notes'
 description: This section contains {{ cloud-logging-name }} release notes.
+alternate:
+  - href: en/logging/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cloud-logging-full-name }} release notes

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/cookbooks/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сборник рецептов администратора {{ stackland-name }}
 
 {{ stackland-full-name }} — платформа контейнеризации на базе Kubernetes с интегрированными базовыми компонентами и PaaS-сервисами {{ yandex-cloud }}. Это готовое решение для централизованного управления микросервисными, аналитическими и AI-приложениями в on-premises.

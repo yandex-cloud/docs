@@ -1,6 +1,10 @@
 ---
 title: Блокноты
 description: Блокноты в {{ monium-name }} помогают собирать графики, логи, текстовые заметки и ссылки для анализа инцидентов.
+alternate:
+  - href: ru/monium/concepts/visualization/notebooks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Блокноты

@@ -18,6 +18,7 @@ default:
   alb-name: Application Load Balancer
   alerting-metrics-limit: 1 000
   alerts-name: Алерты
+  alice-ai: Alice AI LLM
   all-mdb:
     max-databases: 1000
   allowed-captcha-request: /tmgrdfrend.*
@@ -2393,6 +2394,7 @@ default:
       ram:
         v3|number: 0.369
   spark-service-address: 10.248.0.0/13
+  specialFqdn: c-e4j6*****************
   speechkit-full-name: Yandex SpeechKit
   speechkit-name: SpeechKit
   speechkit-short-name: SpeechKit
@@ -5899,6 +5901,13 @@ default:
             form_disable_traffic_3z2cs: Блокировка
         CloudActions:
           button_action-delete-cloud_3simi: Удалить облако
+        EntityAdviser:
+          DismissIssueDialog:
+            button_hide: Скрыть
+            value_reason-accepted: Планирую применить рекомендации
+            value_reason-incorrect: Некорректная рекомендация
+            value_reason-other: Другое
+            value_reason-wont-fix: Не планирую применять рекомендации
         FolderActions:
           button_action-delete-folder_mu24C: Удалить каталог
         Terraform:
@@ -7154,6 +7163,9 @@ default:
         button_create-topic: Создать топик
         button_delete-topic: Удалить топик
         button_edit-connector: Изменить коннектор
+        cluster:
+          field_fqdn: FQDN
+          section_cluster-endpoint: Эндпоинт кластера
         field_connector-access-key-id: Идентификатор ключа доступа
         field_connector-alias: Псевдоним
         field_connector-bootstrap-servers: Бутстрап-серверы
@@ -7804,6 +7816,9 @@ default:
             field_disk-size-limit_bK9Ng: Максимальный размер хранилища
           DiskEncryptionFieldWithFieldWrap:
             label_disk-encryption_bkdrg: Зашифрованный диск
+        ServiceRecommendations:
+          action_dismiss_b4mN9: Скрыть для всех
+          filter_option_hidden_b6dQ2: Скрытые
         shard-groups:
           button_add-external-shard: Добавить внешний шард
           button_add-external-shard-replica: Добавить реплику

@@ -1,6 +1,10 @@
 ---
 title: Как управлять тарификацией {{ org-full-name }}
 description: Из статьи вы узнаете, как управлять тарификацией подключения пользователей {{ org-full-name }} к внешним приложениям через интерфейс {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/manage-billing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять тарификацией {{ org-full-name }}

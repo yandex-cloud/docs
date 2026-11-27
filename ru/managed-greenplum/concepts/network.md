@@ -1,6 +1,10 @@
 ---
 title: Сеть и кластеры БД в {{ mgp-full-name }}
 description: Из статьи вы узнаете об основных настройках сетевого интерфейса кластера {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сеть и кластеры БД в {{ mgp-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-trino/concepts/retry-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Fault-tolerant query execution in a {{ mtr-name }} cluster
 
 {{ mtr-name }} clusters support the [fault-tolerant execution](https://trino.io/docs/current/admin/fault-tolerant-execution.html) mechanism. By default, when resources are insufficient or a query fails with an error, the [worker](index.md#workers) will stop processing the query and you will need to run it again manually. With fault-tolerant execution enabled, the query or its component task will be retried in the event of failure.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/kms/concepts/consistency.md
+    type: text/markdown
+    title: Markdown version
+---
 # Консистентность ключей
 
 Некоторые операции являются [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency). Изменения, которые они производят, проявляются с задержкой **до трех часов**. К таким операциям относятся:

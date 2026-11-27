@@ -1,6 +1,10 @@
 ---
 title: Updating a container label
 description: Follow this guide to update a container label.
+alternate:
+  - href: en/serverless-containers/operations/label-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a container label

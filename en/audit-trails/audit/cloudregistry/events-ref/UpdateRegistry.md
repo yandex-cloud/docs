@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/cloudregistry/events-ref/UpdateRegistry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry Audit Trails Events: UpdateRegistry

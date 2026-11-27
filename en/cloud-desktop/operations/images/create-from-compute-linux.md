@@ -1,6 +1,10 @@
 ---
 title: How to create an image from a {{ compute-full-name }} Linux instance in {{ cloud-desktop-full-name }}
 description: Follow this guide to create an image from a Linux instance.
+alternate:
+  - href: en/cloud-desktop/operations/images/create-from-compute-linux.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an image from a {{ compute-name }} Linux instance

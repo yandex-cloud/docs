@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iam/quickstart-sa.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with service accounts
 
 In {{ iam-short-name }}, you can create [_service accounts_](concepts/users/service-accounts.md). These are auxiliary accounts that your programs can use to perform operations in {{ yandex-cloud }}. Service accounts are free of charge and enable flexible access management for your programs. For details, see [{#T}](concepts/users/service-accounts.md).

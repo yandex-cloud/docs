@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/organization/remove-labels/
+alternate:
+  - href: en/cli/cli-ref/organization-manager/cli-ref/v0/organization/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager v0 organization remove-labels

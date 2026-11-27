@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kafka/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Практические руководства {{ mkf-name }}
 
 {{ mkf-name }} можно использовать для передачи данных между базами данных. Источником или приемником может быть кластер {{ mkf-name }}, сторонний кластер {{ KF }} или управляемая база данных {{ yandex-cloud }}.

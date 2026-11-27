@@ -1,6 +1,10 @@
 ---
 title: Рекомендации по использованию сервиса {{ network-load-balancer-full-name }}
 description: На странице представлены рекомендации по использованию сервиса {{ network-load-balancer-name }}.
+alternate:
+  - href: ru/network-load-balancer/concepts/best-practices.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Рекомендации по применению

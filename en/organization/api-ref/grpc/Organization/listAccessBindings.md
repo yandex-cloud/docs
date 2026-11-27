@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/api-ref/grpc/Organization/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, gRPC: OrganizationService.ListAccessBindings

@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.AUTH_API.UNEXPECTED_RESPONSE'
 description: This page describes the Got an unexpected response from an external API {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-AUTH_API-UNEXPECTED_RESPONSE.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Got an unexpected response from an external API

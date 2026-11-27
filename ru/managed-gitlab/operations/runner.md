@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-gitlab/operations/runner.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с управляемым раннером
 
 {% include [gl-runners-intro](../../_includes/managed-gitlab/gl-runners-intro.md) %}

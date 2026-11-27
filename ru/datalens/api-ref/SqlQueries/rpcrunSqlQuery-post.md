@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/SqlQueries/rpcrunSqlQuery-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Run SQL query

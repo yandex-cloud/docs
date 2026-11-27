@@ -1,6 +1,10 @@
 ---
 title: Saving browser-server interactions to a HAR file
 description: This article explains how to save browser-server interactions to a HAR file.
+alternate:
+  - href: en/support/create-har.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Saving browser-server interactions to a HAR file

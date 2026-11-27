@@ -1,6 +1,10 @@
 ---
 title: Getting started with the command line interface
 description: Follow this guide to learn how to use the command line interface.
+alternate:
+  - href: en/cli/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with the {{ yandex-cloud }} command line interface (CLI)

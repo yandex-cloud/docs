@@ -1,6 +1,10 @@
 ---
 title: Анализ связей между метаданными
 description: Следуя данной инструкции, вы сможете анализировать связи между таблицами из всех источников выбранного каталога метаданных.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/analysis-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Анализ связей между метаданными

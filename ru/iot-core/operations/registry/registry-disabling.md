@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iot-core/operations/registry/registry-disabling.md
+    type: text/markdown
+    title: Markdown version
+---
 # Отключение и включение реестра
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}

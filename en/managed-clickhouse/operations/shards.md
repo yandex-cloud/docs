@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/operations/shards.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing shards in a {{ CH }} cluster
 
 You can enable sharding for a cluster, as well as add and configure individual shards.

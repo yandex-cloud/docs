@@ -1,6 +1,10 @@
 ---
 title: How to resolve issues with {{ yandex-cloud }}
 description: This article lists materials you can use to resolve issues with {{ yandex-cloud }}.
+alternate:
+  - href: en/overview/qa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting

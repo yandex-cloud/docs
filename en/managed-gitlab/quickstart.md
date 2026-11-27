@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ mgl-full-name }}
 description: In this guide, you will learn how to create and configure a {{ GL }} cluster.
+alternate:
+  - href: en/managed-gitlab/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ mgl-name }}

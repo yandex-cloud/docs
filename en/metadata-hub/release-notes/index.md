@@ -1,6 +1,10 @@
 ---
 title: '{{ metadata-hub-full-name }} release notes'
 description: This section contains the {{ metadata-hub-name }} release notes.
+alternate:
+  - href: en/metadata-hub/release-notes/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 <!-- Changelog begin -->

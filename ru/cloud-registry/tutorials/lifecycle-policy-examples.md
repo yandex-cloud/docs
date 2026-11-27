@@ -1,6 +1,10 @@
 ---
 title: Настройка политик жизненного цикла в {{ cloud-registry-full-name }}
 description: В этом руководстве приведены примеры настройки политик жизненного цикла для автоматического управления артефактами в реестре.
+alternate:
+  - href: ru/cloud-registry/tutorials/lifecycle-policy-examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка политик жизненного цикла

@@ -2,6 +2,10 @@
 title: Hosting a static website in {{ objstorage-full-name }} with access via {{ cdn-full-name }} using the management console, CLI, or API
 description: In this tutorial, you will create a static website in an {{ objstorage-name }} bucket and set up {{ cdn-name }} access to it using the management console, CLI, or API.
 canonical: '{{ link-docs }}/tutorials/applied/cdn-hosting/console'
+alternate:
+  - href: en/storage/tutorials/cdn-hosting/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up static website hosting in a {{ objstorage-full-name }} bucket with {{ cdn-full-name }} access

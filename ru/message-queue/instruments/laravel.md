@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/instruments/laravel.md
+    type: text/markdown
+    title: Markdown version
+---
 # Пример использования {{ message-queue-full-name }} на Laravel
 
 Для работы с очередями PHP-фреймворк [Laravel](https://laravel.com/) предоставляет примитив [Queue](https://laravel.com/docs/6.x/queues). В качестве брокера сообщений можно использовать {{ message-queue-name }}. 

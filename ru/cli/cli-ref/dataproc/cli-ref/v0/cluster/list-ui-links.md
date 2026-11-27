@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/v0/cluster/list-ui-links/
+alternate:
+  - href: ru/cli/cli-ref/dataproc/cli-ref/v0/cluster/list-ui-links.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dataproc v0 cluster list-ui-links

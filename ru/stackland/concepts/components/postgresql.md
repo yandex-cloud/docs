@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/postgresql.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managed PostgreSQL
 
 Managed PostgreSQL — это управляемый сервис для работы с открытой объектно-реляционной системой управления базами данных (СУБД) PostgreSQL. Сервис упрощает развертывание и обновление кластера баз данных, обеспечивает отказоустойчивость, а также предоставляет инструменты для резервного копирования и мониторинга.

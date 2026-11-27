@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Permissions/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Permissions
 
 <!-- markdownlint-disable-file -->

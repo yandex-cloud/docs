@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/create-sms-sandbox-phone-number.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие CreateSMSSandboxPhoneNumber
 
 Добавляет тестовый телефонный номер для канала SMS-уведомлений в [песочнице](../concepts/sms.md#sandbox) и отправляет на него код подтверждения.

@@ -1,6 +1,10 @@
 ---
 title: Authentication policies in {{ org-full-name }}
 description: With authentication policies, you can flexibly configure access to applications for {{ org-full-name }} users.
+alternate:
+  - href: en/organization/concepts/authentication-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authentication policies in {{ org-full-name }}

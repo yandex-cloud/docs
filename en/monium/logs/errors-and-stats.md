@@ -1,6 +1,10 @@
 ---
 title: Working with errors and statistics in {{ monium-logs-name }}
 description: This guide will help you study log records with error messages and explore log volume and distribution statistics in {{ monium-logs-name }}.
+alternate:
+  - href: en/monium/logs/errors-and-stats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with errors and statistics

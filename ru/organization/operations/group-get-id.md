@@ -1,6 +1,10 @@
 ---
 title: Получить идентификатор группы {{ yandex-cloud }}
 description: С помощью этой инструкции вы узнаете, как получить идентификатор группы {{ yandex-cloud }}.
+alternate:
+  - href: ru/organization/operations/group-get-id.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить идентификатор группы

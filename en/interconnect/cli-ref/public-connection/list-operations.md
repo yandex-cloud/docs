@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/public-connection/list-operations/
+alternate:
+  - href: en/interconnect/cli-ref/public-connection/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cic public-connection list-operations

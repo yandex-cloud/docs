@@ -1,6 +1,10 @@
 ---
 title: Sharing an object within an organization in {{ datalens-full-name }}
 description: In this article, you will learn how to share an object with users within your organization in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/concepts/datalens-sharing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sharing an object within an organization

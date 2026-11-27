@@ -2,6 +2,10 @@
 title: Как создать OIDC-приложение в {{ org-full-name }} для интеграции с «1С:Предприятие»
 description: Следуя данной инструкции, вы сможете создать OIDC-приложение в {{ org-full-name }} для аутентификации пользователей вашей организации в «1С:Предприятие» с помощью технологии единого входа по стандарту OIDC.
 canonical: '{{ link-docs }}/tutorials/security/single-sign-on/oidc-1c-enterprise'
+alternate:
+  - href: ru/organization/tutorials/single-sign-on/oidc-1c-enterprise.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [oidc-1c-enterprise](../../../_tutorials/security/single-sign-on/oidc-1c-enterprise.md) %}

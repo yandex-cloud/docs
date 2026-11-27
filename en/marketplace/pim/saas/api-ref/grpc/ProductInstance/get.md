@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/marketplace/pim/saas/api-ref/grpc/ProductInstance/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace Product Instance Management API, gRPC: ProductInstanceService.Get

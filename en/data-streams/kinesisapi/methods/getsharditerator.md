@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/kinesisapi/methods/getsharditerator.md
+    type: text/markdown
+    title: Markdown version
+---
 # GetShardIterator
 
 Returns a [shard](../../concepts/glossary.md#shard) iterator for the stream.

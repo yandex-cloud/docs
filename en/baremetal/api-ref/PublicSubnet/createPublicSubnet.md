@@ -263,6 +263,10 @@ apiPlayground:
               - autoAllocation
           - required:
               - manualAllocation
+alternate:
+  - href: en/baremetal/api-ref/PublicSubnet/createPublicSubnet.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PublicSubnet.CreatePublicSubnet

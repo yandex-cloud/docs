@@ -1,6 +1,10 @@
 ---
 title: Pre-configuring a {{ SD }} cluster connection in {{ mmg-full-name }}
 description: In this tutorial, you will learn how to pre-configure a database connection in a {{ SD }} cluster.
+alternate:
+  - href: en/storedoc/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pre-configuring a {{ SD }} cluster connection

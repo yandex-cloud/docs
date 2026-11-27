@@ -1,6 +1,10 @@
 ---
 title: How to send data from {{ ydb-full-name }} to a stream in the AWS CLI
 description: In this article, you will learn how to send data from {{ ydb-full-name }} to a stream in the AWS CLI.
+alternate:
+  - href: en/data-streams/operations/aws-cli/send.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sending data to a stream in the AWS CLI

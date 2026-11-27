@@ -3,6 +3,10 @@ title: Настройка CI/CD между {{ sf-full-name }} и GitHub
 description: Как настроить CI/CD между {{ sf-full-name }} и GitHub.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/ci-cd-github-functions'
+alternate:
+  - href: ru/functions/tutorials/ci-cd-github-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка CI/CD с GitHub

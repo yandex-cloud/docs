@@ -1,6 +1,11 @@
 ---
 title: Как начать работать с распознаванием речи в {{ speechkit-full-name }}
 description: Из статьи вы узнаете, как начать работать с распознаванием речи в сервисе {{ speechkit-name }}.
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/stt/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Распознавание речи

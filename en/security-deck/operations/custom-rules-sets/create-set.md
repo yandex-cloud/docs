@@ -1,6 +1,10 @@
 ---
 title: Creating a custom rule set in {{ sd-full-name }}
 description: In this section, you will learn how to create custom rule sets in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/custom-rules-sets/create-set.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a custom rule set

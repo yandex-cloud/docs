@@ -1,6 +1,10 @@
 ---
 title: Managing organizations in {{ org-full-name }}
 description: This section contains step-by-step guides on managing organizations in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/organizations-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing organizations in {{ org-full-name }}

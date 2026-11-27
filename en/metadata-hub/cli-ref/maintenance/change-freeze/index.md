@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/maintenance/change-freeze/
+alternate:
+  - href: en/metadata-hub/cli-ref/maintenance/change-freeze/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-metastore maintenance change-freeze

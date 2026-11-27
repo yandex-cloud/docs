@@ -1,6 +1,10 @@
 ---
 title: Сравнение схем в субъекте
 description: Следуя данной инструкции, вы сможете сравнить две схемы из разных версий субъекта.
+alternate:
+  - href: ru/metadata-hub/operations/compare-schemas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сравнение схем в субъекте

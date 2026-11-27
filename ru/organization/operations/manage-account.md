@@ -1,6 +1,10 @@
 ---
 title: Как управлять аккаунтом на портале Мой аккаунт
 description: Следуя данной инструкции, вы сможете управлять аккаунтом пользователя на портале Мой аккаунт {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/manage-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление аккаунтом на портале «Мой аккаунт»

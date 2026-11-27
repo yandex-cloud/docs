@@ -45,6 +45,10 @@ apiPlayground:
               **string**
               Name of the database that the permission grants access to.
             type: string
+alternate:
+  - href: ru/managed-clickhouse/api-ref/User/grantPermission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: User.GrantPermission

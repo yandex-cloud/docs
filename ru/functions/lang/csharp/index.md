@@ -1,6 +1,10 @@
 ---
 title: Разработка на .NET Core в {{ sf-full-name }}. Обзор
 description: С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на C# (CSharp), для платформы .NET Core. Сервис предоставляет среду выполнения .NET Core 3.1.417 с версией языка С# 8.0 и операционной системой Ubuntu 18.04.
+alternate:
+  - href: ru/functions/lang/csharp/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разработка на .NET Core. Обзор

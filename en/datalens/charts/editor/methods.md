@@ -1,6 +1,10 @@
 ---
 title: Methods available in Editor
 description: In this article, you will learn about methods available in Editor.
+alternate:
+  - href: en/datalens/charts/editor/methods.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Methods available in Editor

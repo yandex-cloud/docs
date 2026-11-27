@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/ytsaurus.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ yt-name }}
 
 {{ yt-name }} — это распределенная платформа для хранения и обработки больших данных. В составе {{ stackland-name }} компонент разворачивает один общий кластер {{ YT }} на платформу. Кластер включает MapReduce-движок, динамические таблицы, движок запросов YQL, веб-интерфейс и интеграцию с {{ iam-name }}.

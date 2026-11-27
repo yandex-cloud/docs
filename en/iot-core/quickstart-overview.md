@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ iot-name }}
 description: Get started with {{ iot-name }} device registries or message brokers.
+alternate:
+  - href: en/iot-core/quickstart-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ iot-name }}

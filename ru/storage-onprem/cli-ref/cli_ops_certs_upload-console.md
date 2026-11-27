@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_certs_upload-console.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops certs upload-console
 
 Upload Console certificate

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/oslogin/profile/list/
+alternate:
+  - href: en/organization/cli-ref/v0/oslogin/profile/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager v0 oslogin profile list

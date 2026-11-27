@@ -53,6 +53,10 @@ apiPlayground:
             type: string
         required:
           - bucketName
+alternate:
+  - href: en/cdn/api-ref/RawLogs/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: RawLogs.Update

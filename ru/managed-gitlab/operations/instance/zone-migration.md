@@ -1,6 +1,10 @@
 ---
 title: Миграция инстанса {{ mgl-full-name }} в другую зону доступности
 description: Из статьи вы узнаете, как перенести инстанс {{ mgl-name }} в другую зону доступности.
+alternate:
+  - href: ru/managed-gitlab/operations/instance/zone-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция инстанса в другую зону доступности

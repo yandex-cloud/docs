@@ -1,5 +1,9 @@
 ---
 noIndex: true
+alternate:
+  - href: en/tutorials/dataplatform/object-storage-to-postgresql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating data from {{ objstorage-full-name }} to {{ mpg-full-name }} using {{ data-transfer-full-name }}

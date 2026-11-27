@@ -1,6 +1,10 @@
 ---
 title: Developing in Java in {{ sf-full-name }}. Overview
 description: With {{ sf-name }}, you can run applications written in Java. This service provides the runtime with Java 11 and Ubuntu 18.04.
+alternate:
+  - href: en/functions/lang/java/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Developing in Java. Overview

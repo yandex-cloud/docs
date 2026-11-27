@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/concepts/lifecycles.md
+    type: text/markdown
+    title: Markdown version
+---
 # Жизненные циклы объектов в бакете
 
 С помощью _жизненных циклов_ вы можете [настроить](../operations/buckets/lifecycles.md) действия, которые автоматически будут выполняться с отдельными объектами или группами объектов в бакете в заданные моменты времени. 

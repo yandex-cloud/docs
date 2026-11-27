@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/partner/specializations/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ yandex-cloud }} partner statuses
 
 ## Partner statuses {#statuses}

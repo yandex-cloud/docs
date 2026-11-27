@@ -1,6 +1,10 @@
 ---
 title: How to check password reset agent operation on a Windows Server VM
 description: This article describes how to check password reset agent operation on a Windows Server VM.
+alternate:
+  - href: en/compute/operations/vm-guest-agent/check.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Checking password reset agent operation on a Windows Server VM

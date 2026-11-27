@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/disk-control/disk-change-folder.md
+    type: text/markdown
+    title: Markdown version
+---
 # Перенести диск в другой каталог
 
 При создании диска он размещается в текущем каталоге.

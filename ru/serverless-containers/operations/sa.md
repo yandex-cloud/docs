@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/operations/sa.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получение IAM-токена сервисного аккаунта с помощью контейнера
 
 Если ревизия контейнера создана с сервисным аккаунтом, вы можете получить [IAM-токен](../../iam/concepts/authorization/iam-token.md) из сервиса метаданных в формате [Google Compute Engine](../../compute/operations/vm-info/get-info.md#inside-instance) с помощью API.

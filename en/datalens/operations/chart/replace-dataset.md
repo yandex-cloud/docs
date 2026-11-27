@@ -1,6 +1,10 @@
 ---
 title: How to replace a dataset in a {{ datalens-full-name }} chart
 description: Follow this guide to replace a dataset in a {{ datalens-full-name }} chart.
+alternate:
+  - href: en/datalens/operations/chart/replace-dataset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Replacing a dataset in a {{ datalens-full-name }} chart

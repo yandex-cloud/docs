@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.ROW_COUNT_LIMIT
 description: На странице приведено описание ошибки {{ datalens-full-name }} Received too many result data rows.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Received too many result data rows

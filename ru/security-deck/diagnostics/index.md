@@ -1,6 +1,10 @@
 ---
 title: Какие возникают ошибки при работе с {{ sd-full-name }}
 description: Из статьи вы узнаете, какие бывают ошибки в работе сервиса {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/diagnostics/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика ошибок в {{ sd-full-name }}

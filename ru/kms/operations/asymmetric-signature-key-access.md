@@ -1,6 +1,10 @@
 ---
 title: Настройка прав доступа к ключевой паре электронной подписи
 description: Следуя данной инструкции, вы сможете назначить роли на асимметричную ключевую пару электронной подписи.
+alternate:
+  - href: ru/kms/operations/asymmetric-signature-key-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка прав доступа к ключевой паре электронной подписи

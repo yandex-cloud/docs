@@ -1,6 +1,10 @@
 ---
 title: Deleting a reserved internal IP address
 description: Follow this guide to release a reserved internal IP address.
+alternate:
+  - href: en/vpc/operations/private-ip-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an internal IP address

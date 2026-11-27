@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/change-payer-info-or-requisites.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to change the billing account properties
 
 

@@ -35,6 +35,10 @@ meta:
     - keyword: MySQL
     - keyword: кластеры серверов MySQL
     - keyword: Кластер MySQL
+  alternate:
+    - href: ru/managed-mysql/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

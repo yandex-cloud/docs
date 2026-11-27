@@ -1,6 +1,10 @@
 ---
 title: Удаление загрузки данных в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы удалите загрузку данных в {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/delete-ingestion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление загрузки

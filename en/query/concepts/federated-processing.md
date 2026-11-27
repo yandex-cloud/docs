@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/concepts/federated-processing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Federated queries
 
 Federated queries provide a way to process data from multiple data sources with a single query. Currently, federated queries can work with {{ CH }} and {{ PG }} databases and {{ objstorage-full-name }} data storages.

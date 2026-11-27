@@ -1,6 +1,10 @@
 ---
 title: 'Kanban-доска: основные понятия и принципы использования'
 description: Канбан-доска — инструмент, который позволяет отслеживать статусы проектов и контролировать незавершенные работы.
+alternate:
+  - href: ru/glossary/kanban.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Что такое Kanban-доска

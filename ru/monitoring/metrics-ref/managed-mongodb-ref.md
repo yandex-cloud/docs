@@ -2,6 +2,10 @@
 title: Метрики {{ mmg-full-name }}
 description: Из статьи вы узнаете про метрики {{ mmg-name }}.
 editable: false
+alternate:
+  - href: ru/monitoring/metrics-ref/managed-mongodb-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ mmg-full-name }}

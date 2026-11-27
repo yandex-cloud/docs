@@ -1,6 +1,10 @@
 ---
 title: How to delete a service account
 description: Follow this guide to delete a service account.
+alternate:
+  - href: en/iam/operations/sa/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a service account

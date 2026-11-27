@@ -1,6 +1,10 @@
 ---
 title: Создать эндпоинт для уведомлений в браузере
 description: Следуя этой инструкции, вы сможете создать эндпоинт для Push-уведомлений в браузере.
+alternate:
+  - href: ru/notifications/operations/browser/endpoint-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать эндпоинт

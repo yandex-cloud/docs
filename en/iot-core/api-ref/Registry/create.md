@@ -131,6 +131,10 @@ apiPlayground:
               - logGroupId
           - required:
               - folderId
+alternate:
+  - href: en/iot-core/api-ref/Registry/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Registry.Create

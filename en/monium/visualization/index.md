@@ -1,6 +1,10 @@
 ---
 title: '{{ monium-name }}. Visualization'
 description: '{{ monium-name }} allows you to visualize telemetry data as dashboard charts.'
+alternate:
+  - href: en/monium/visualization/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Visualizing telemetry data

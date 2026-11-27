@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ maf-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ maf-name }}.
+alternate:
+  - href: ru/managed-airflow/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ maf-full-name }}

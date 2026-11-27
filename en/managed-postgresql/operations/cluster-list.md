@@ -1,6 +1,10 @@
 ---
 title: Information about clusters in {{ mpg-short-name }}
 description: You can request detailed information for each {{ mpg-short-name }} cluster you have created. To get a list of database clusters in a folder, navigate to the folder dashboard and go to {{ mpg-name }}.
+alternate:
+  - href: en/managed-postgresql/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about existing {{ PG }} clusters

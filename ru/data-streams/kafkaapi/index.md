@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-streams/kafkaapi/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Kafka API
 
 {{ yds-name }} в ограниченном режиме поддерживает работу с потоками данных по протоколу [Apache Kafka®](https://kafka.apache.org/) (поддерживается Kafka API до версии [3.4.0](https://kafka.apache.org/34/apis/) включительно). 

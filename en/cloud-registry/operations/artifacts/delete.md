@@ -1,6 +1,10 @@
 ---
 title: Deleting an artifact from {{ cloud-registry-name }}
 description: Follow this guide to delete an artifact from a registry in {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/artifacts/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an artifact from a registry

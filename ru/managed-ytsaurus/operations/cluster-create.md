@@ -5,6 +5,10 @@ keywords:
   - создание кластера {{ ytsaurus-name }}
   - кластер {{ ytsaurus-name }}
   - '{{ ytsaurus-name }}'
+alternate:
+  - href: ru/managed-ytsaurus/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ ytsaurus-name }}

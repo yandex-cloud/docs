@@ -1,6 +1,10 @@
 ---
 title: '{{ sf-full-name }}. FAQ'
 description: How do I get my activity logs in {{ sf-full-name }}? Find answers to this and other questions in this article.
+alternate:
+  - href: en/functions/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ sf-name }}

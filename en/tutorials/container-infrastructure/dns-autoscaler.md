@@ -1,6 +1,10 @@
 ---
 title: How to configure DNS autoscaling based on the {{ managed-k8s-full-name }} cluster size
 description: Follow this tutorial to configure DNS autoscaling based on the {{ managed-k8s-full-name }} cluster size.
+alternate:
+  - href: en/tutorials/container-infrastructure/dns-autoscaler.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DNS autoscaling based on the {{ managed-k8s-full-name }} cluster size

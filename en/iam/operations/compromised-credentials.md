@@ -1,6 +1,10 @@
 ---
 title: Processing secrets that have become publicly available in {{ yandex-cloud }}
 description: In this guide, you will learn what you should do if your secrets leaked to the public.
+alternate:
+  - href: en/iam/operations/compromised-credentials.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Processing secrets that have become publicly available

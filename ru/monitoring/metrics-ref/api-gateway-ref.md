@@ -2,6 +2,10 @@
 title: Метрики {{ api-gw-full-name }}
 description: Из статьи вы узнаете про метрики {{ api-gw-name }}.
 editable: false
+alternate:
+  - href: ru/monitoring/metrics-ref/api-gateway-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ api-gw-full-name }}

@@ -7,6 +7,10 @@ keywords:
   - backup
   - резервное копирование
   - резервное копирование данных
+alternate:
+  - href: ru/compute/concepts/backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Резервное копирование в {{ compute-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to manage format schemas in {{ mch-name }}
 description: Follow this guide to learn how to manage format schemas in {{ mch-name }}.
+alternate:
+  - href: en/managed-clickhouse/operations/format-schemas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing format schemas in {{ mch-name }}

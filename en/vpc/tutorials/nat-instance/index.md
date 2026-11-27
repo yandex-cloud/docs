@@ -2,6 +2,10 @@
 title: Routing through a NAT instance
 description: In this tutorial, you will learn how to set up routing through a NAT instance.
 canonical: '{{ link-docs }}/tutorials/routing/nat-instance/'
+alternate:
+  - href: en/vpc/tutorials/nat-instance/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [nat-instance](../../../_tutorials/routing/nat-instance.md) %}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/concepts/node-group/deploy-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Node group deployment policy in {{ managed-k8s-name }}
 
 When [modifying](../../operations/node-group/node-group-update.md) a node group (including during a [{{ k8s }} version update](../../operations/update-kubernetes.md#node-group-upgrade)), you may need to stop, reboot, or delete the group's nodes. As soon as you do it, the group will enter the `Reconciling` status, and the nodes will become unavailable.

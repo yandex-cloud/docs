@@ -1,6 +1,10 @@
 ---
 title: Как загрузить видео в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете загрузить видео в сервис {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/video/upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузить видео

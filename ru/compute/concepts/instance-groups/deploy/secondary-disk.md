@@ -1,6 +1,10 @@
 ---
 title: Изменение дополнительных дисков в шаблоне виртуальной машины
 description: В данной статье описаны особенности изменения дополнительных дисков в шаблоне виртуальной машины.
+alternate:
+  - href: ru/compute/concepts/instance-groups/deploy/secondary-disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение дополнительных дисков в шаблоне виртуальной машины

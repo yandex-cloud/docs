@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/WorkbookExport/rpcgetWorkbookExportStatus-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get workbook export status

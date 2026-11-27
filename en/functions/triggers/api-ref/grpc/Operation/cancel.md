@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/functions/triggers/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Triggers Service, gRPC: OperationService.Cancel

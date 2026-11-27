@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/video/api-ref/Channel/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Channel.UpdateAccessBindings

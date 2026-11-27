@@ -23,6 +23,10 @@ meta:
     - keyword: content delivery network
     - keyword: content delivery network
     - keyword: content delivery
+  alternate:
+    - href: en/cdn/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Cloud CDN

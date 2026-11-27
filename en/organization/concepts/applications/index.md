@@ -1,6 +1,10 @@
 ---
 title: Applications in {{ org-full-name }}
 description: In {{ org-full-name }}, you can authenticate {{ yandex-cloud }} users in external applications using SAML and OIDC applications with single sign-on technology.
+alternate:
+  - href: en/organization/concepts/applications/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Applications in {{ org-full-name }}

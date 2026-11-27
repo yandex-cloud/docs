@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/concepts/supported-clients.md
+    type: text/markdown
+    title: Markdown version
+---
 # Recommended {{ mch-name }} clients
 
 To connect to {{ mch-short-name }}, consider using the following clients:

@@ -1,6 +1,10 @@
 ---
 title: How to view backup statistics in {{ backup-full-name }}
 description: Follow this guide to view backup statistics in {{ backup-full-name }}.
+alternate:
+  - href: en/backup/operations/get-stats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing backup statistics

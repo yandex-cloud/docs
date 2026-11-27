@@ -30,6 +30,10 @@ meta:
     - keyword: Попробовать {{ yandex-cloud }}
     - keyword: Регистрация в {{ yandex-cloud }}
     - keyword: Оплата в {{ yandex-cloud }}
+  alternate:
+    - href: ru/getting-started/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы для физических лиц
     description: >-

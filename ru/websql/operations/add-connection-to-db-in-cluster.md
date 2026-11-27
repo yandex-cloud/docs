@@ -1,6 +1,10 @@
 ---
 title: Добавление подключения к БД в кластере в {{ websql-full-name }}
 description: Следуя данной инструкции, вы сможете создавать подключения к кластерам управляемых БД.
+alternate:
+  - href: ru/websql/operations/add-connection-to-db-in-cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление подключения к БД в кластере

@@ -2,6 +2,10 @@
 title: Метрики {{ cloud-logging-full-name }}
 description: Из статьи вы узнаете про метрики {{ cloud-logging-name }}.
 editable: false
+alternate:
+  - href: ru/monium/metrics-ref/logging-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ cloud-logging-full-name }}

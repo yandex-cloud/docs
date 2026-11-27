@@ -1,6 +1,10 @@
 ---
 title: How to create a disk snapshot schedule in {{ compute-full-name }}
 description: Follow this guide to create a disk snapshot schedule in {{ compute-name }}.
+alternate:
+  - href: en/compute/operations/snapshot-control/create-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a disk snapshot schedule

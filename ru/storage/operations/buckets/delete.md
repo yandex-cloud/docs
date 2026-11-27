@@ -1,6 +1,10 @@
 ---
 title: Удалить бакет в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете удалить бакет в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить бакет

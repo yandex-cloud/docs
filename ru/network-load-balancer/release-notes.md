@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ network-load-balancer-full-name }}
 description: В разделе представлена история изменений сервиса {{ network-load-balancer-name }}.
+alternate:
+  - href: ru/network-load-balancer/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ network-load-balancer-full-name }}

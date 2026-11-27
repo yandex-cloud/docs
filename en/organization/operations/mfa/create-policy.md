@@ -1,6 +1,10 @@
 ---
 title: Creating an MFA policy in {{ org-full-name }}
 description: Follow this guide to create and set up an MFA policy in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/mfa/create-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an MFA policy

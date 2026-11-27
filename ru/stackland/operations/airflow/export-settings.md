@@ -1,6 +1,10 @@
 ---
 title: Сохранить и восстановить Connections и Variables в {{ AF }}
 description: Как экспортировать настройки из базы метаданных {{ AF }} и импортировать их в другой кластер
+alternate:
+  - href: ru/stackland/operations/airflow/export-settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сохранить и восстановить Connections и Variables в {{ AF }}

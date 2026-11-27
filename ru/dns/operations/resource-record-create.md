@@ -1,6 +1,10 @@
 ---
 title: Как создать ресурсную запись в {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете создать ресурсную запись.
+alternate:
+  - href: ru/dns/operations/resource-record-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать ресурсную запись

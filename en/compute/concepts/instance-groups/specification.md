@@ -1,6 +1,10 @@
 ---
 title: Specification of a {{ compute-full-name }} instance group in YAML format
 description: This tutorial describes an instance group specification in YAML format.
+alternate:
+  - href: en/compute/concepts/instance-groups/specification.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Specification of an instance group in YAML format

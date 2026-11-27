@@ -1,6 +1,10 @@
 ---
 title: '{{ mspqr-full-name }} event reference in {{ at-full-name }}'
 description: This page is a reference for {{ mspqr-name }} management and data events tracked by {{ at-name }}.
+alternate:
+  - href: en/managed-spqr/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

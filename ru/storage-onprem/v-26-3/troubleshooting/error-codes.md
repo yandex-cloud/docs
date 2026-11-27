@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/troubleshooting/error-codes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Коды ошибок
 
 ## Retryable Errors {#retryable-errors}

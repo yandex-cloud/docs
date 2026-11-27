@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/concepts/streams.md
+    type: text/markdown
+    title: Markdown version
+---
 # Broadcasts in {{ video-name }}
 
 With {{ video-name }}, you can stream [live broadcasts](#streams) in the integrated [video player](./player.md). Each broadcast is a separate [episode](#episodes).

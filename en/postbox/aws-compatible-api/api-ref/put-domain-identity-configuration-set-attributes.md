@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/put-domain-identity-configuration-set-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # PutDomainIdentityConfigurationSetAttributes method
 
 Associates an [address](../../concepts/glossary.md#address) with a [configuration](../../concepts/glossary.md#configuration) residing in the same folder. The folder is selected based on the service account the request originates from.

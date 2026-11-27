@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cdn/operations/origin-groups/bind-group-to-resource.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение группы источников к ресурсу
 
 Чтобы подключить [группу источников](../../concepts/origins.md#groups) к [ресурсу](../../concepts/resource.md), при [создании](../resources/create-resource.md) или [изменении настроек ресурса](../resources/configure-basics.md) в блоке **{{ ui-key.yacloud.cdn.label_section-content }}** выберите **Группу источников**.

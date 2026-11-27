@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/operations/performance-diagnostics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Performance diagnostics in {{ mmg-name }}
 
 {{ mmg-name }} provides a built-in tool for diagnosing your database cluster performance. You can use it to analyze [{{ SD }} profiling](#get-profiling) and [index](#get-indexes) metrics.

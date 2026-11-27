@@ -1,6 +1,10 @@
 ---
 title: Взаимосвязь ресурсов сервиса {{ maf-full-name }}
 description: '{{ AF }} — это платформа с открытым исходным кодом для создания, планирования и мониторинга пакетно ориентированных воркфлоу. Сервис {{ maf-full-name }} помогает разворачивать и поддерживать кластеры серверов {{ AF }} в инфраструктуре {{ yandex-cloud }}.'
+alternate:
+  - href: ru/managed-airflow/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Взаимосвязь ресурсов в {{ maf-name }}

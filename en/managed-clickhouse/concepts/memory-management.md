@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/concepts/memory-management.md
+    type: text/markdown
+    title: Markdown version
+---
 # Memory management in {{ mch-name }}
 
 The [Max server memory usage]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max_server_memory_usage) setting determines the amount of RAM {{ CH }} can use.

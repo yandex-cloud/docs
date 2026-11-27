@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/smartcaptcha/concepts/react.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение капчи в React
 
 Для подключения {{ captcha-name }} в React можно использовать npm-пакет `@yandex/smart-captcha`.

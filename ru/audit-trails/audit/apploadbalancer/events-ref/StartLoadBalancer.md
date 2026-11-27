@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/apploadbalancer/events-ref/StartLoadBalancer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer Audit Trails Events: StartLoadBalancer

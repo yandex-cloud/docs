@@ -1,6 +1,10 @@
 ---
 title: How to move a private connection to another folder
 description: Follow this guide to move a private connection in a {{ interconnect-name }} trunk to another folder.
+alternate:
+  - href: en/interconnect/operations/priv-con-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving a private connection to another folder

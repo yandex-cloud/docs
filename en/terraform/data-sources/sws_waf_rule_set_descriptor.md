@@ -1,5 +1,9 @@
 ---
 subcategory: Smart Web Security
+alternate:
+  - href: en/terraform/data-sources/sws_waf_rule_set_descriptor.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_sws_waf_rule_set_descriptor (DataSource)

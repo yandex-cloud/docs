@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/access-management.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление доступом
 
 В {{ stackland-name }} управление доступом включает аутентификацию и авторизацию. Платформа поддерживает два механизма авторизации: Kubernetes RBAC и IAM AccessBinding.

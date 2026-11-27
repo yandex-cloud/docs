@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/datalens/install-images.md
+    type: text/markdown
+    title: Markdown version
+---
 # Uploading {{ datalens-name }} images
 
 The basic {{ stackland-name }} package does not include {{ datalens-name }} images. Make sure to upload the images to the cluster before activating the component.

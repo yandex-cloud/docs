@@ -1,6 +1,10 @@
 ---
 title: Отвязать публичный IP-адрес от виртуальной машины
 description: Если ранее вы привязали к сетевому интерфейсу виртуальной машины публичный IP-адрес, вы можете отвязать его.
+alternate:
+  - href: ru/compute/operations/vm-control/vm-detach-public-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отвязать публичный IP-адрес от виртуальной машины

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/concepts/spark-sql.md
+    type: text/markdown
+    title: Markdown version
+---
 # Задания Spark
 
 {{ dataproc-name }} поддерживает выполнение заданий [Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html) в рамках Spark-_приложений_ (applications). За распределение ресурсов при выполнении заданий отвечает [Apache Hadoop YARN](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html).

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/secrets.md
+    type: text/markdown
+    title: Markdown version
+---
 # Хранение приватных данных
 
 Чтобы безопасно хранить ключи, пароли и другую приватную информацию, {{ ml-platform-name }} предоставляет специальный тип ресурсов — _секреты_.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cloud-desktop/operations/desktops/update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обновить рабочий стол
 
 {% include [updating-group-disclaimer](../../../_includes/cloud-desktop/updating-group-disclaimer.md) %}

@@ -2,6 +2,10 @@
 title: '{{ captcha-full-name }} pricing policy'
 description: This article covers the {{ captcha-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/smartcaptcha/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ captcha-full-name }} pricing policy

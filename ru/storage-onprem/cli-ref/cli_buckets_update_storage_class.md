@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_update_storage_class.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets update storage_class
 
 Update bucket storage_class

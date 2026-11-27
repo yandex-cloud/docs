@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/data/filestores.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using file storages
 
 With {{ ml-platform-name }} [file storages](../../concepts/filestores.md), you can store large amounts of information and access it from your notebooks.

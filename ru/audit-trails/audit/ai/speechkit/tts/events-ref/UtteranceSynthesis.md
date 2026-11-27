@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ai/speechkit/tts/events-ref/UtteranceSynthesis.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SpeechKit Audit Trails Events: UtteranceSynthesis

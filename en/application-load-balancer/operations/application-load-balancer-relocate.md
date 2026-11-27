@@ -1,6 +1,10 @@
 ---
 title: How to move an L7 load balancer backend VM to a target group in a new availability zone
 description: In this tutorial, you will learn how to move an L7 load balancer backend VM to a target group in a new availability zone.
+alternate:
+  - href: en/application-load-balancer/operations/application-load-balancer-relocate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving a VM to a target group in a new availability zone

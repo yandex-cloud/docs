@@ -1,6 +1,10 @@
 ---
 title: Как работать с приватными реестрами Docker-образов в {{ managed-k8s-full-name }}
 description: Следуя данной инструкции, вы сможете настроить взаимодействие с приватными реестрами Docker-образов в {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/private-registries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с приватными реестрами Docker-образов

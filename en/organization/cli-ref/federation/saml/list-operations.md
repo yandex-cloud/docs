@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/federation/saml/list-operations/
+alternate:
+  - href: en/organization/cli-ref/federation/saml/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager federation saml list-operations

@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции
 description: Пошаговые инструкции по работе с {{ metadata-hub-full-name }} в {{ yandex-cloud }}. Из статьи вы узнаете, как работать с подключениями и реестром схем.
+alternate:
+  - href: ru/metadata-hub/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все пошаговые инструкции

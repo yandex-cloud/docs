@@ -1,6 +1,10 @@
 ---
 title: Как читать и записывать данные в {{ ydb-full-name }}
 description: Следуя данной инструкции, вы сможете читать и записывать данные.
+alternate:
+  - href: ru/ydb/operations/crud.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение и запись данных

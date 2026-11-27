@@ -1,6 +1,10 @@
 ---
 title: '{{ KF }} versioning policy'
 description: In this tutorial, you will learn about the {{ KF }} versioning policy in {{ mkf-full-name }}.
+alternate:
+  - href: en/managed-kafka/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ KF }} versioning policy

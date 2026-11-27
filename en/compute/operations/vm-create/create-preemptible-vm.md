@@ -1,6 +1,10 @@
 ---
 title: Making a VM preemptible
 description: Follow this guide to make a VM preemptible.
+alternate:
+  - href: en/compute/operations/vm-create/create-preemptible-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Making a VM preemptible

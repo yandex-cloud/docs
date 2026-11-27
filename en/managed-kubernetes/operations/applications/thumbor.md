@@ -1,6 +1,10 @@
 ---
 title: Installing Thumbor
 description: Follow this guide to install Thumbor.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/thumbor.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing Thumbor

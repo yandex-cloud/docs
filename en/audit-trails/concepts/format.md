@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/audit-trails/concepts/format.md
+    type: text/markdown
+    title: Markdown version
+---
 # Management event audit log
 
 A [management event](events.md) audit log is a JSON object with a record of events that occurred to {{ yandex-cloud }} resources.

@@ -1,6 +1,10 @@
 ---
 title: Как удалить подключение {{ metadata-hub-name }}. Пошаговые инструкции
 description: Пошаговые инструкции по работе с {{ connection-manager-name }} в {{ yandex-cloud }}. Из статьи вы узнаете, как удалять подключения.
+alternate:
+  - href: ru/metadata-hub/operations/delete-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление подключения

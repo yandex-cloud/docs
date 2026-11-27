@@ -1,6 +1,10 @@
 ---
 title: Интеграция {{ dns-full-name }} с {{ compute-full-name }}
 description: Из статьи вы узнаете, как {{ dns-full-name }} связан с ресурсами {{ compute-full-name }}.
+alternate:
+  - href: ru/dns/concepts/compute-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Интеграция с {{ compute-name }}

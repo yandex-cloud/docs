@@ -1,6 +1,10 @@
 ---
 title: Как изменить настройки кластера {{ mgp-full-name }}
 description: Следуя данной инструкции, вы сможете изменить настройки кластера {{ mgp-full-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек кластера {{ mgp-name }}

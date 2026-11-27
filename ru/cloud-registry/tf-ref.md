@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ cloud-registry-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ cloud-registry-full-name }}.
+alternate:
+  - href: ru/cloud-registry/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ cloud-registry-full-name }}

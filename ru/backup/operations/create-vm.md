@@ -1,6 +1,10 @@
 ---
 title: Как создать виртуальную машину {{ compute-full-name }} на Linux с подключением к {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете создать виртуальную машину {{ compute-full-name }} под управлением ОС Linux с подключением к {{ backup-full-name }}.
+alternate:
+  - href: ru/backup/operations/create-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать виртуальную машину на Linux с подключением к {{ backup-name }}

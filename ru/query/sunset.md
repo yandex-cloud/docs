@@ -1,6 +1,10 @@
 ---
 title: Закрытие сервиса {{ yq-full-name }}
 description: Сервис {{ yq-full-name }} будет отключен 1 декабря 2026 года и станет недоступен. Используйте рекомендации по миграции для перехода на другое решение.
+alternate:
+  - href: ru/query/sunset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Закрытие сервиса {{ yq-full-name }}

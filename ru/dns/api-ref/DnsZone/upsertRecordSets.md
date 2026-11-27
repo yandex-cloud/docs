@@ -80,6 +80,10 @@ apiPlayground:
               **string**
               Description of the record set.
             type: string
+alternate:
+  - href: ru/dns/api-ref/DnsZone/upsertRecordSets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, REST: DnsZone.UpsertRecordSets

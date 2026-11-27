@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-gitlab/cli-ref/v0/instance/update/
+alternate:
+  - href: en/managed-gitlab/cli-ref/v0/instance/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-gitlab v0 instance update

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/container-registry/api-ref/Image/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: Image

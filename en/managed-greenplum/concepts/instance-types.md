@@ -1,6 +1,10 @@
 ---
 title: '{{ mgp-name }} host classes'
 description: In this article, you will learn about host classes in {{ mgp-name }}.
+alternate:
+  - href: en/managed-greenplum/concepts/instance-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mgp-name }} host classes

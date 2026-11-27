@@ -1,6 +1,10 @@
 ---
 title: Reports in {{ datalens-full-name }}
 description: In this tutorial, you will learn about reports in {{ datalens-full-name }} and discover some features of report widgets.
+alternate:
+  - href: en/datalens/reports/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reports in {{ datalens-name }}

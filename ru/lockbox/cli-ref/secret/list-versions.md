@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/list-versions/
+alternate:
+  - href: ru/lockbox/cli-ref/secret/list-versions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc lockbox secret list-versions

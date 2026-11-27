@@ -35,6 +35,10 @@ apiPlayground:
               Prefix.
               It's an ip with format ipPrefix/length where address part of ipPrefix is 0.
             type: string
+alternate:
+  - href: en/interconnect/api-ref/PrivateConnection/removeStaticRoute.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Interconnect API, REST: PrivateConnection.RemoveStaticRoute

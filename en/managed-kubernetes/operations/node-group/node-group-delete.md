@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/node-group/node-group-delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a node group
 
 To delete a [node group](../../concepts/index.md#node-group), use its name or ID.

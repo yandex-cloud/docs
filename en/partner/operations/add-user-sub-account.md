@@ -1,6 +1,10 @@
 ---
 title: Adding a user to a subaccount
 description: Follow this guide to add a user to a partner's subaccount and assign roles.
+alternate:
+  - href: en/partner/operations/add-user-sub-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a user to a subaccount

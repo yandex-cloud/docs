@@ -132,6 +132,11 @@ apiPlayground:
             type: string
         required:
           - cicPrivateConnectionId
+noIndex: true
+alternate:
+  - href: en/cloud-router/api-ref/RoutingInstance/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Router API, REST: RoutingInstance.Create

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/operations/extensions/pgaudit.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using pgaudit in {{ mpg-name }}
 
 The [pgaudit](https://www.pgaudit.org/) extension provides additional logging tools and enhanced auditing capabilities.

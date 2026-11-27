@@ -1,6 +1,10 @@
 ---
 title: Управляемые организации
 description: Создайте дополнительную организацию в другом регионе, привязанную к вашей основной организации.
+alternate:
+  - href: ru/organization/concepts/controlled-org.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управляемые организации

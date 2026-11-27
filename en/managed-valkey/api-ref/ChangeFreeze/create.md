@@ -48,6 +48,10 @@ apiPlayground:
         - endAt
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/managed-valkey/api-ref/ChangeFreeze/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, REST: ChangeFreeze.Create

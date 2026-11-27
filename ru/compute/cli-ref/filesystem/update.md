@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/filesystem/update/
+alternate:
+  - href: ru/compute/cli-ref/filesystem/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute filesystem update

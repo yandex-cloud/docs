@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/lockbox/api-ref/grpc/Secret/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox API, gRPC: SecretService.Delete

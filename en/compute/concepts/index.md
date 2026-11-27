@@ -1,6 +1,10 @@
 ---
 title: Resource relationships in {{ compute-full-name }}
 description: This tutorial explains how {{ compute-short-name }} resources and resource types are related, as well as how they relate to other {{ yandex-cloud }} services.
+alternate:
+  - href: en/compute/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource relationships in {{ compute-full-name }}

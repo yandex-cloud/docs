@@ -26,6 +26,10 @@ apiPlayground:
         - channelId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/video/api-ref/Stream/batchGet.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Stream.BatchGet

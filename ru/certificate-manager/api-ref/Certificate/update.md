@@ -84,6 +84,10 @@ apiPlayground:
           type: boolean
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/certificate-manager/api-ref/Certificate/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager API, REST: Certificate.Update

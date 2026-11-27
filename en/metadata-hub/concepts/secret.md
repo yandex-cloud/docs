@@ -1,6 +1,10 @@
 ---
 title: Secrets in {{ metadata-hub-name }}
 description: A secret is a set of versions that store the connection's secure data. A version contains sets of keys and values.
+alternate:
+  - href: en/metadata-hub/concepts/secret.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Secret

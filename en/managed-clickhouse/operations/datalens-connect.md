@@ -1,6 +1,10 @@
 ---
 title: How to connect to a {{ CH }} cluster from {{ datalens-name }}
 description: Follow this guide to connect to a {{ CH }} cluster from {{ datalens-name }}.
+alternate:
+  - href: en/managed-clickhouse/operations/datalens-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ CH }} cluster from {{ datalens-name }}

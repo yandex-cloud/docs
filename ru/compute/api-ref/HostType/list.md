@@ -28,6 +28,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/compute/api-ref/HostType/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: HostType.List

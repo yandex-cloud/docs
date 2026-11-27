@@ -1,6 +1,10 @@
 ---
 title: Использование зашифрованных дисков для постоянных томов
 description: Следуя данной инструкции, вы сможете использовать зашифрованные диски для постоянных томов.
+alternate:
+  - href: ru/managed-kubernetes/operations/volumes/encrypted-disks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование зашифрованных дисков для постоянных томов

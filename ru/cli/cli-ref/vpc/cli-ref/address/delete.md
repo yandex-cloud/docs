@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/address/delete/
+alternate:
+  - href: ru/cli/cli-ref/vpc/cli-ref/address/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc address delete

@@ -1,6 +1,10 @@
 ---
 title: Как настроить HTTP-методы в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете настроить HTTP-методы.
+alternate:
+  - href: ru/cdn/operations/resources/configure-http.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка HTTP-методов

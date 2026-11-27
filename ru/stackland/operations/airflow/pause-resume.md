@@ -1,6 +1,10 @@
 ---
 title: Приостановить или возобновить кластер {{ AF }}
 description: Как временно остановить компоненты кластера {{ AF }} и запустить их снова
+alternate:
+  - href: ru/stackland/operations/airflow/pause-resume.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Приостановить или возобновить кластер {{ AF }}

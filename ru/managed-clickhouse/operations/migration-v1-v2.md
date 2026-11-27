@@ -1,6 +1,10 @@
 ---
 title: Миграция кластера {{ mch-full-name }} с v1 на v2
 description: Следуя данной инструкции, вы сможете перенести кластер {{ mch-name }} с ресурса v1 на ресурс v2 провайдера {{ TF }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/migration-v1-v2.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция кластера с v1 на v2

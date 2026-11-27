@@ -1,6 +1,10 @@
 ---
 title: Как указать облачную сеть, в которой будет исполняться функция
 description: Следуя данной инструкции, вы сможете указать облачную сеть, в которой будет исполняться функция.
+alternate:
+  - href: ru/functions/operations/function/network-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Указать облачную сеть, в которой будет исполняться функция

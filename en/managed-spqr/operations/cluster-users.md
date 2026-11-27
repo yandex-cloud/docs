@@ -1,6 +1,10 @@
 ---
 title: User management in {{ SPQR }}
 description: In this tutorial, you will learn how to add and remove users in {{ SPQR }}, as well as manage their individual settings.
+alternate:
+  - href: en/managed-spqr/operations/cluster-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # User management in {{ SPQR }}

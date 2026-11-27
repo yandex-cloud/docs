@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ backup-full-name }}'
 description: This page provides reference information on the {{ TF }} provider resources supported for {{ backup-name }}.
+alternate:
+  - href: en/backup/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ backup-full-name }}

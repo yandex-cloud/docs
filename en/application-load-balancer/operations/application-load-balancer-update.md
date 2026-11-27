@@ -1,6 +1,10 @@
 ---
 title: How to edit an L7 load balancer in {{ alb-full-name }}
 description: In this tutorial, you will learn how to edit an L7 load balancer.
+alternate:
+  - href: en/application-load-balancer/operations/application-load-balancer-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing an L7 load balancer

@@ -1,6 +1,10 @@
 ---
 title: Revoking roles assigned for a container
 description: Follow this guide to revoke roles assigned for a container.
+alternate:
+  - href: en/serverless-containers/operations/role-revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Revoking roles assigned for a container

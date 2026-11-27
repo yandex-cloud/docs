@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ serverless-containers-full-name }}'
 description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ serverless-containers-name }}.
+alternate:
+  - href: en/serverless-containers/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ serverless-containers-full-name }}

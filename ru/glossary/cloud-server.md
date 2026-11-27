@@ -1,6 +1,10 @@
 ---
 title: 'Облачный сервер: модели облачных услуг'
 description: Облачный сервер — это удаленный сервер или совокупность серверов, ресурсы которых предоставляются пользователям через интернет.
+alternate:
+  - href: ru/glossary/cloud-server.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Облачный сервер

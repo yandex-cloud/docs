@@ -1,6 +1,10 @@
 ---
 title: Сборка Docker-контейнеров в {{ k8s }} с помощью {{ GL }}
 description: В этом сценарии вы узнаете, как с помощью {{ GL }} осуществить сборку приложения в Docker-контейнере, а также развернуть приложение из контейнера в кластере {{ k8s }} с помощью инструментов {{ yandex-cloud }}.
+alternate:
+  - href: ru/tutorials/infrastructure-management/gitlab-containers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Непрерывное развертывание контейнеризованных приложений с помощью {{ GL }}

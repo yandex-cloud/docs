@@ -1,6 +1,10 @@
 ---
 title: Private network in {{ baremetal-full-name }}
 description: In this tutorial, you will learn about private networks and subnets in {{ baremetal-full-name }}.
+alternate:
+  - href: en/baremetal/concepts/private-network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Private network {#private-network}

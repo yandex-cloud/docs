@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/websql/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ websql-full-name }}
 
 

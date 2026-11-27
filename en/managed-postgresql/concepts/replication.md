@@ -1,6 +1,10 @@
 ---
 title: Replication in {{ mpg-full-name }}
 description: In this article, you will learn about cluster host replication in {{ mpg-full-name }}.
+alternate:
+  - href: en/managed-postgresql/concepts/replication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Replication in {{ mpg-name }}

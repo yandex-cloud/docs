@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ mgp-name }} cluster
 description: Follow this guide to create a {{ mgp-full-name }} cluster.
+alternate:
+  - href: en/managed-greenplum/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a cluster {{ mgp-name }}

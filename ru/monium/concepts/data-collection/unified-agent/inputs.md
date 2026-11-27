@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/concepts/data-collection/unified-agent/inputs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Входы
 
 Вход задается в секции `routes`:`input`. Общий формат описания входа:

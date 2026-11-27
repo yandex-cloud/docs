@@ -1,6 +1,10 @@
 ---
 title: Как создать файловое хранилище в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете создать файловое хранилище.
+alternate:
+  - href: ru/compute/operations/filesystem/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать файловое хранилище

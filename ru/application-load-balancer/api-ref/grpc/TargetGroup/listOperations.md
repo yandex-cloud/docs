@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/application-load-balancer/api-ref/grpc/TargetGroup/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, gRPC: TargetGroupService.ListOperations

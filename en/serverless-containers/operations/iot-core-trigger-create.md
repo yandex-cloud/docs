@@ -1,6 +1,10 @@
 ---
 title: Creating a trigger that will send messages to a container in {{ serverless-containers-name }} from a {{ iot-full-name }} registry or device topic
 description: Create a trigger for a {{ iot-name }} device or registry topic to process message copies in {{ serverless-containers-name }}.
+alternate:
+  - href: en/serverless-containers/operations/iot-core-trigger-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a trigger that will send messages to a container in {{ serverless-containers-name }} from a {{ iot-full-name }} registry or device topic

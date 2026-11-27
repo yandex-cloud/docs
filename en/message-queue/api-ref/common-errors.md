@@ -1,6 +1,10 @@
 ---
 title: Potential errors when using the {{ message-queue-full-name }} API
 description: In this tutorial, you will learn about the potential errors when using the {{ message-queue-name }} API.
+alternate:
+  - href: en/message-queue/api-ref/common-errors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Common errors

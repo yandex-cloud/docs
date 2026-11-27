@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/api-gateway/apigateway/api-ref/grpc/ApiGateway/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Gateway Service, gRPC: ApiGatewayService.Create

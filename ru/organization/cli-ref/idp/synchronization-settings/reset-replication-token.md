@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/synchronization-settings/reset-replication-token/
+alternate:
+  - href: ru/organization/cli-ref/idp/synchronization-settings/reset-replication-token.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager idp synchronization-settings reset-replication-token

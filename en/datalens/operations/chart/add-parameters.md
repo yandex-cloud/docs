@@ -1,6 +1,10 @@
 ---
 title: How to add parameters in the dashboard chart settings in {{ datalens-full-name }}
 description: Follow this guide to add parameters in the dashboard chart settings in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/chart/add-parameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding parameters in the dashboard chart settings in {{ datalens-full-name }}

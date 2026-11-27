@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/mdb/mongodb/events-ref/UserAuthentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB Audit Trails Events: UserAuthentication

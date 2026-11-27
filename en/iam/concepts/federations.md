@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iam/concepts/federations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Identity federations
 
 Using [{{ org-full-name }}](../../organization/), you can configure Single Sign-On authentication in {{ yandex-cloud }} through your Identity Provider, such as Active Directory or Google Workspace. 

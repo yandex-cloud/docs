@@ -1,6 +1,10 @@
 ---
 title: Trace archiving
 description: Automatic archiving of viewed traces with extended retention period.
+alternate:
+  - href: en/monium/traces/operations/archiving.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Trace archiving

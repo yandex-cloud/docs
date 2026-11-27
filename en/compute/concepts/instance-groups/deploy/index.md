@@ -1,6 +1,10 @@
 ---
 title: Updating an instance group in {{ compute-full-name }}
 description: 'An instance group is updated in two steps: first, its instances are allocated across availability zones, and then the deployment algorithm starts.'
+alternate:
+  - href: en/compute/concepts/instance-groups/deploy/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating instance groups

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Subscriptions/rpccreateSubscription-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Add subscription

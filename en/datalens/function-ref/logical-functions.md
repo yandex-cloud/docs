@@ -1,6 +1,10 @@
 ---
 title: Logical functions
 editable: false
+alternate:
+  - href: en/datalens/function-ref/logical-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Logical functions

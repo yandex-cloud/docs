@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/logging/events-ref/UpdateRoutingRuleAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Audit Trails Events: UpdateRoutingRuleAccessBindings

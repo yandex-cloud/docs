@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/hba-rules/batch-update/
+alternate:
+  - href: ru/cli/cli-ref/managed-greenplum/cli-ref/hba-rules/batch-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-greenplum hba-rules batch-update

@@ -2,6 +2,10 @@
 title: Billing quotas and limits
 description: Billing has certain limits and quotas. For more information about the service limitations, read this article.
 editable: false
+alternate:
+  - href: en/billing/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ billing-name }}

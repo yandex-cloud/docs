@@ -1,6 +1,10 @@
 ---
 title: Настроить хостинг в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить хостинг статического сайта в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/hosting/setup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить хостинг

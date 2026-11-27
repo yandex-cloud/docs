@@ -1,6 +1,10 @@
 ---
 title: Networking in {{ mpg-name }}
 description: When creating a {{ PG }} cluster, you can set a network for the cluster itself and subnets for each cluster host. You can also request public access for connection to the cluster from outside {{ yandex-cloud }}.
+alternate:
+  - href: en/managed-postgresql/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Networking in {{ mpg-name }}

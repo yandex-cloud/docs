@@ -1,6 +1,10 @@
 ---
 title: Triggers in {{ sf-name }}. Overview
 description: A trigger is a condition which, when met, automatically starts a function. With triggers, you can automate your work with other {{ yandex-cloud }} services, e.g., Yandex Object Storage, Yandex Message Queue, and Yandex IoT Core.
+alternate:
+  - href: en/functions/concepts/trigger/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Triggers in {{ sf-name }}. Overview

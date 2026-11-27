@@ -1,6 +1,10 @@
 ---
 title: Creating a change data feed for a {{ ydb-full-name }} table in {{ TF }}
 description: Follow this guide to create or update a change data feed for a {{ ydb-short-name }} table.
+alternate:
+  - href: en/ydb/terraform/cdc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a change data feed for a table

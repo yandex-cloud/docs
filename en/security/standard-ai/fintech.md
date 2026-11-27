@@ -1,6 +1,10 @@
 ---
 title: AI security for fintech organizations
 description: This section contains a reference matrix that maps the standard's requirements against the Bank of Russia’s methodological recommendations for AI information security in the financial market.
+alternate:
+  - href: en/security/standard-ai/fintech.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI security for fintech organizations

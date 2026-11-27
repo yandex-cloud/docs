@@ -1,6 +1,10 @@
 ---
 title: Developing in .NET Core in {{ sf-full-name }}. Overview
 description: "With {{ sf-name }}, you can run applications written in C# (CSharp) for .NET Core. This service provides the .NET Core 3.1.417 runtime with C#\_8.0 and Ubuntu 18.04."
+alternate:
+  - href: en/functions/lang/csharp/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Developing in .NET Core. Overview

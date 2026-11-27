@@ -1,6 +1,10 @@
 ---
 title: Networking in {{ data-transfer-full-name }}
 description: In this article, you will learn about network in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Networking in {{ data-transfer-full-name }}

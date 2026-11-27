@@ -1,6 +1,10 @@
 ---
 title: '{{ data-transfer-full-name }} tutorials'
 description: Various use cases for {{ data-transfer-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/data-transfer/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ data-transfer-name }} tutorials

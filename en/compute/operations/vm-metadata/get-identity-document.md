@@ -1,6 +1,10 @@
 ---
 title: How to get a VM instance identity document
 description: Follow this guide to get a VM instance identity document.
+alternate:
+  - href: en/compute/operations/vm-metadata/get-identity-document.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a VM instance identity document

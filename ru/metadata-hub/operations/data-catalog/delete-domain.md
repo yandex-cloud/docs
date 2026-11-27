@@ -1,6 +1,10 @@
 ---
 title: Удаление домена в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы удалите домен в {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/delete-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление домена

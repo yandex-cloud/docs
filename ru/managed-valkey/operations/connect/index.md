@@ -1,6 +1,10 @@
 ---
 title: Предварительная настройка подключения к кластеру {{ VLK }} в {{ mrd-full-name }}
 description: Следуя данной инструкции, вы сможете подготовиться к подключению к базе данных в кластере {{ VLK }}.
+alternate:
+  - href: ru/managed-valkey/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Предварительная настройка для подключения к кластеру {{ VLK }}

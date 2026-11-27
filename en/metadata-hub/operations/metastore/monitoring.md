@@ -1,6 +1,10 @@
 ---
 title: '{{ metastore-name }} cluster state monitoring'
 description: In this tutorial, you will learn how to monitor the state of {{ metastore-name }} clusters.
+alternate:
+  - href: en/metadata-hub/operations/metastore/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cluster state monitoring {{ metastore-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/instruments/node.md
+    type: text/markdown
+    title: Markdown version
+---
 # Пример использования {{ message-queue-full-name }} на Node.js
 
 [Node.js](https://nodejs.org/en/) – среда для запуска JavaScript-приложений. С помощью AWS SDK для JavaScript в Node.js можно управлять очередями сообщений в {{ message-queue-name }}, отправлять и принимать сообщения.

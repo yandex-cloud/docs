@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/overview/concepts/region.md
+    type: text/markdown
+    title: Markdown version
+---
 # Regions
 
 A region is a geographic area that combines [availability zones](geo-scope.md). Each region has its own infrastructure and [services](services.md).

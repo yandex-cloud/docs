@@ -5,6 +5,10 @@ keywords:
   - creating a skill for Alice
   - Alice's skill
   - example of creating a skill for Alice
+alternate:
+  - href: en/tutorials/serverless/alice-skill/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a skill for Alice using {{ TF }}

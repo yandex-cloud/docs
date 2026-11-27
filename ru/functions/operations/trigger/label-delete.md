@@ -1,6 +1,10 @@
 ---
 title: Удалить метку триггера в {{ sf-name }}
 description: Следуя данной инструкции, вы сможете удалить метку триггера в {{ sf-name }}.
+alternate:
+  - href: ru/functions/operations/trigger/label-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить метку триггера в {{ sf-name }}

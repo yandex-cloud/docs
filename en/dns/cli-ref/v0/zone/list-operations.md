@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/zone/list-operations/
+alternate:
+  - href: en/dns/cli-ref/v0/zone/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns v0 zone list-operations

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/gwin-ref/ycstoragebucket.md
+    type: text/markdown
+    title: Markdown version
+---
 # YCStorageBucket
 
 YCStorageBucket is a Gwin custom resource for referencing S3 buckets from Yandex Object Storage. It allows you to use Object Storage buckets as backend targets in [HTTPRoute](./httproute.md), [IngressBackendGroup](./ingressbackendgroup.md), [Ingress](./ingress.md) resources for serving static content or as part of traffic routing strategies.

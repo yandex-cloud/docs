@@ -1,6 +1,10 @@
 ---
 title: Управление доступом сервисов к ресурсам в облаке пользователя
 description: Из этой статьи вы узнаете об управлении доступом сервисов к ресурсам пользователя в облаке {{ yandex-cloud }}.
+alternate:
+  - href: ru/iam/concepts/service-control.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Доступ сервисов к ресурсам пользователя

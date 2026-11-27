@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/backup/events-ref/CreateDirectory.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup Audit Trails Events: CreateDirectory

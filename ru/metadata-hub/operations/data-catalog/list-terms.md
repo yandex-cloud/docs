@@ -1,6 +1,10 @@
 ---
 title: Получение списка терминов в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы получите список терминов глоссария в {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/list-terms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка терминов

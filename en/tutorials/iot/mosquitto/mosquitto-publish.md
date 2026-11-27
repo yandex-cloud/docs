@@ -1,6 +1,10 @@
 ---
 title: How to send a message using Mosquitto in {{ iot-full-name }}
 description: Follow this guide to send a message to the MQTT server using Mosquitto.
+alternate:
+  - href: en/tutorials/iot/mosquitto/mosquitto-publish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [mosquitto-publish-intro](../../../_tutorials/applied/mosquitto-publish-intro.md) %}

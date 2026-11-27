@@ -1,6 +1,10 @@
 ---
 title: Логические функции
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/logical-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Логические функции

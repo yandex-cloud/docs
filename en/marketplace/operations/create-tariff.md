@@ -1,6 +1,10 @@
 ---
 title: Creating a service plan
 description: Follow this guide to create a service plan.
+alternate:
+  - href: en/marketplace/operations/create-tariff.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a service plan

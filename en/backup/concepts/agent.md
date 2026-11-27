@@ -1,6 +1,10 @@
 ---
 title: '{{ backup-full-name }} agent'
 description: The {{ backup-name }} agent interfaces the resources with {{ backup-name }} and the backup provider.
+alternate:
+  - href: en/backup/concepts/agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ backup-name }} agent

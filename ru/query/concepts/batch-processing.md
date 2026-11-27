@@ -1,6 +1,10 @@
 ---
 title: Аналитическая обработка данных в {{ yq-full-name }}
 description: Аналитическая обработка данных в {{ yq-name }}. Особенности работы с данными в {{ objstorage-full-name }} и примеры использования.
+alternate:
+  - href: ru/query/concepts/batch-processing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аналитическая обработка данных

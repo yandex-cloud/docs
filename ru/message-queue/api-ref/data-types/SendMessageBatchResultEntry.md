@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/data-types/SendMessageBatchResultEntry.md
+    type: text/markdown
+    title: Markdown version
+---
 # SendMessageBatchResultEntry
 
 Параметр `MessageId` для отправленного в очередь сообщения из группы в методе [SendMessageBatch](../message/SendMessageBatch.md).

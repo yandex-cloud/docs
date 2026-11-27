@@ -1,6 +1,10 @@
 ---
 title: Service settings in {{ datalens-full-name }}
 description: '{{ datalens-full-name }} service settings allow you to configure the service plan, manage users and seats, customize UI appearance, do security setup, etc.'
+alternate:
+  - href: en/datalens/settings/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service settings in {{ datalens-full-name }}

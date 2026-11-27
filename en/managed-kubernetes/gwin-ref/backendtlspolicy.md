@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/gwin-ref/backendtlspolicy.md
+    type: text/markdown
+    title: Markdown version
+---
 # BackendTLSPolicy
 
 BackendTLSPolicy configures TLS encryption for connections between the load balancer and backend services. It allows you to specify the CA certificate used to verify the backend's TLS certificate and the SNI hostname sent during the TLS handshake.

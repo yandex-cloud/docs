@@ -1,6 +1,10 @@
 ---
 title: How to set up a {{ MY }} source endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to create and configure a {{ MY }} source endpoint in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/operations/endpoint/source/mysql.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Transferring data from a {{ MY }} source endpoint
 

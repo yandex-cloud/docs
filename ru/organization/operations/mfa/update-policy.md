@@ -1,6 +1,10 @@
 ---
 title: Изменение политики MFA в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете изменить политику MFA в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/mfa/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить политику MFA

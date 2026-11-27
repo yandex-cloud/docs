@@ -1,6 +1,10 @@
 ---
 title: '{{ sws-full-name }} event reference in {{ at-full-name }}'
 description: This page gives a reference for {{ sws-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/smartwebsecurity/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

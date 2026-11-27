@@ -1,6 +1,10 @@
 ---
 title: '{{ connection-manager-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ connection-manager-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/metadata-hub/connman-at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ connection-manager-full-name }} event reference

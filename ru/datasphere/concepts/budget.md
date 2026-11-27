@@ -1,6 +1,10 @@
 ---
 title: Как управлять расходами на вычисления в {{ ml-platform-full-name }}
 description: Из статьи вы узнаете, какие способы контроля расходов и пороги потребления есть в сервисе {{ ml-platform-name }}.
+alternate:
+  - href: ru/datasphere/concepts/budget.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление расходами

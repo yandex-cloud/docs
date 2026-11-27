@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-streams/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление доступом в {{ yds-name }}
 
 Для управления правами доступа в {{ yds-name }} используются [роли](../../iam/concepts/access-control/roles.md).

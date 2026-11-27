@@ -1,6 +1,10 @@
 ---
 title: Инструкция по получению идентификатора каталога в {{ yandex-cloud }}
 description: Из статьи вы узнаете, как получить идентификатор каталога в {{ yandex-cloud }}.
+alternate:
+  - href: ru/resource-manager/operations/folder/get-id.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение идентификатора каталога

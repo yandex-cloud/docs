@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/instruments/golang.md
+    type: text/markdown
+    title: Markdown version
+---
 # Example of using {{ message-queue-full-name }} in Golang
 
 With the [AWS SDK for Golang](https://aws.amazon.com/sdk-for-go/), you can manage {{ message-queue-name }} message queues and send/receive messages.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/cookbooks/dev-team-onboarding/03-iam-permissions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка прав в IAM
 
 Этот рецепт поможет вам настроить права доступа для команды разработки в проекте `team-alpha`. Вы узнаете, как создавать локальных пользователей и группы и назначать им права.

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/v0/cluster/remove-labels/
+alternate:
+  - href: ru/managed-spqr/cli-ref/v0/cluster/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-sharded-postgresql v0 cluster remove-labels

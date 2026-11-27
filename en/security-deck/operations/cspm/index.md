@@ -1,6 +1,10 @@
 ---
 title: '{{ cspm-full-name }} ({{ cspm-name }})'
 description: This section contains a step-by-step guide on how to use {{ cspm-name }} in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/cspm/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cspm-full-name }} ({{ cspm-name }})

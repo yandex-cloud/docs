@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/metrics-pull.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing metrics in {{ monitoring-full-name }}
 
 To download metric data, use the [read](../../monitoring/api-ref/MetricsData/read.md) method.

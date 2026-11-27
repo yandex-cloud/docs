@@ -6,6 +6,10 @@ keywords:
   - HTTPS
   - SSL
   - TLS
+alternate:
+  - href: ru/glossary/ssl-certificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # HTTP и HTTPS: в чем разница и зачем нужен SSL-сертификат

@@ -1,6 +1,10 @@
 ---
 title: Подключение к серийной консоли ВМ с операционной системой Linux
 description: Следуя данной инструкции, вы научитесь подключаться к серийной консоли виртуальной машины {{ compute-full-name }} под управлением операционной системы Linux.
+alternate:
+  - href: ru/compute/operations/serial-console/connect-ssh.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключиться к серийной консоли виртуальной машины с ОС Linux

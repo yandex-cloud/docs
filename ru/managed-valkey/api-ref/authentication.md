@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в API {{ mrd-full-name }}
 description: Для выполнения операций через API в сервисе управления базами данных Valkey™ – {{ mrd-full-name }}, необходимо получить IAM-токен для своего аккаунта.
+alternate:
+  - href: ru/managed-valkey/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в API {{ mrd-name }}

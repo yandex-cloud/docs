@@ -1,6 +1,10 @@
 ---
 title: Создание REST-каталога в {{ datalens-platform-full-name }}
 description: Следуя данной инструкции, вы сможете создать новый REST-каталог в {{ datalens-platform-full-name }}.
+alternate:
+  - href: ru/datalens/datalens-platform/operations/rest-catalog/create-rest-catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание REST-каталога

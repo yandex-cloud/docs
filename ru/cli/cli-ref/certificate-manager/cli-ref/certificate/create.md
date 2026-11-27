@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/certificate-manager/cli-ref/certificate/create/
+alternate:
+  - href: ru/cli/cli-ref/certificate-manager/cli-ref/certificate/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc certificate-manager certificate create

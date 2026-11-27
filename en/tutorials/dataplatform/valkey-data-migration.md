@@ -1,6 +1,10 @@
 ---
 title: Migrating a database from a third-party {{ VLK }} cluster to {{ mrd-full-name }}
 description: For data migration, {{ VLK }} uses a logical dump. A _logical dump_ is a file with a sequence of commands that restore the database state. There are several ways to create a dump. The following example will use redis-dump-go.
+alternate:
+  - href: en/tutorials/dataplatform/valkey-data-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating a database from a third-party {{ VLK }} cluster to {{ mrd-full-name }}

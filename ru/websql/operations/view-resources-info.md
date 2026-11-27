@@ -1,6 +1,10 @@
 ---
 title: Просмотр информации о ресурсах в подключении
 description: Следуя данной инструкции, вы сможете просмотреть информацию о ресурсах в подключении.
+alternate:
+  - href: ru/websql/operations/view-resources-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотр информации о ресурсах

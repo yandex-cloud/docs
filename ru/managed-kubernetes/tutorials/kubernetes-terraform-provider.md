@@ -1,6 +1,10 @@
 ---
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/kubernetes-terraform-provider'
+alternate:
+  - href: ru/managed-kubernetes/tutorials/kubernetes-terraform-provider.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление ресурсами {{ k8s }} в кластере {{ managed-k8s-name }} с помощью провайдера {{ TF }}

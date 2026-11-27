@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iot-core/api-ref/grpc/Registry/enable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, gRPC: RegistryService.Enable

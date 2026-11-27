@@ -1,6 +1,10 @@
 ---
 title: How to install a {{ prometheus-name }} metric collection agent
 description: In this guide, you will learn how to install a {{ prometheus-name }} metric collection agent when creating a VM and how to view the collected metrics.
+alternate:
+  - href: en/monium/operations/prometheus/ingestion/prometheus-agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ prometheus-name }} metric collection agent

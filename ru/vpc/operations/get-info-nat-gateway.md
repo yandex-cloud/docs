@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о NAT-шлюзе в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о NAT-шлюзе.
+alternate:
+  - href: ru/vpc/operations/get-info-nat-gateway.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о NAT-шлюзе

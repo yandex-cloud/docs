@@ -1,6 +1,10 @@
 ---
 title: Агент {{ backup-full-name }}
 description: Агент {{ backup-name }} обеспечивает взаимодействие защищаемых ресурсов с сервисом и провайдером резервного копирования.
+alternate:
+  - href: ru/backup/concepts/agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Агент {{ backup-name }}

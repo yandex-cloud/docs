@@ -1,5 +1,9 @@
 ---
 subcategory: Ytsaurus
+alternate:
+  - href: ru/terraform/resources/ytsaurus_cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_ytsaurus_cluster (Resource)

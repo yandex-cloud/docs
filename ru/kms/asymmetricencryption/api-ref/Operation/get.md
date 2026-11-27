@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/kms/asymmetricencryption/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: Operation.Get

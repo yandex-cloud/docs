@@ -1,6 +1,10 @@
 ---
 title: Удалить метку API-шлюза
 description: Следуя данной инструкции, вы сможете удалить метку API-шлюза.
+alternate:
+  - href: ru/api-gateway/operations/label-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить метку API-шлюза

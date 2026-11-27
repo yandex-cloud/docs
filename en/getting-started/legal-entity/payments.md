@@ -1,6 +1,10 @@
 ---
 title: Expenditure control instructions for businesses
 description: In this tutorial, you will learn how to top up your account and set up payments for your organization's resources as a business.
+alternate:
+  - href: en/getting-started/legal-entity/payments.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Account top-up and spending control

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/catalog/delete/
+alternate:
+  - href: ru/managed-trino/cli-ref/catalog/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-trino catalog delete

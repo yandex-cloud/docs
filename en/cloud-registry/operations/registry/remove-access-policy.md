@@ -1,6 +1,10 @@
 ---
 title: How to delete a {{ cloud-registry-full-name }} access policy
 description: Follow this guide to delete a registry access policy.
+alternate:
+  - href: en/cloud-registry/operations/registry/remove-access-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a registry access policy

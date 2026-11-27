@@ -1,6 +1,10 @@
 ---
 title: Как проанализировать состояние сервера {{ baremetal-name }}
 description: Следуя данной инструкции, вы сможете использовать утилиту HWCheck, чтобы сформировать отчет о состоянии сервера, его дисков и периферийных устройств.
+alternate:
+  - href: ru/baremetal/operations/servers/use-hwatcher.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Проанализировать состояние сервера {{ baremetal-name }} с помощью утилиты HWCheck

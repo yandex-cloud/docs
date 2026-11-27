@@ -252,6 +252,10 @@ apiPlayground:
               - NAME
               - ID
               - EXTERNAL_ID
+alternate:
+  - href: ru/organization/idp/application/saml/api-ref/Application/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: Application.Create

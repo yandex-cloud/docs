@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/operations/extensions/pg_anon.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using postgresql_anonymizer in {{ mpg-name }}
 
 The `postgresql_anonymizer` extension allows you to mask or replace personal data or commercial secrets in a {{ PG }} database.

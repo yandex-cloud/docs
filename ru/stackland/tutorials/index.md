@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Практические руководства
 
 * [Установка {{ stackland-name }} на {{ baremetal-full-name }}](install-on-yc-bms.md)

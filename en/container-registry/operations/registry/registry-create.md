@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/container-registry/operations/registry/registry-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a registry
 
 A new [registry](../../../resource-manager/concepts/resources-hierarchy.md#folder) can be used by all users and [service accounts](../../concepts/registry.md) with access permissions for the [folder](../../../iam/concepts/users/service-accounts.md). 

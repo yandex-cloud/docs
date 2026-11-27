@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/projects/project-roles.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring project roles
 
 Use project roles to manage user and group access to all namespaces within a project. A role assigned at the project level automatically applies to all nested namespaces.

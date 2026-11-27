@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/containerregistry/events-ref/CreateLifecyclePolicy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry Audit Trails Events: CreateLifecyclePolicy

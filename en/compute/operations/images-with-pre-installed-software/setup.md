@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/images-with-pre-installed-software/setup.md
+    type: text/markdown
+    title: Markdown version
+---
 # Software setup
 
 [VMs](../../concepts/vm.md) with [LAMP](/marketplace/products/yc/lamp), [LEMP](/marketplace/products/yc/lemp), and [Node.js](/marketplace/products/yc/nodejs) come pre-configured and ready to use.

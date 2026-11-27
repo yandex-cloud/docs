@@ -3,6 +3,10 @@ title: Deleting an {{ SPRK }} cluster
 description: You can delete an {{ SPRK }} cluster if you no longer need it.
 keywords:
   - deleting an {{ SPRK }} cluster
+alternate:
+  - href: en/managed-spark/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an {{ SPRK }} cluster

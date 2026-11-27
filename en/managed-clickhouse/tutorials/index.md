@@ -1,6 +1,10 @@
 ---
 title: '{{ mch-full-name }} use cases'
 description: Various use cases for {{ mch-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/managed-clickhouse/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mch-name }} tutorials

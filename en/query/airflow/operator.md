@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/airflow/operator.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ AF }}
 
 To operate under the [{{ AF }}](https://airflow.apache.org) management, {{ yq-full-name }} provides the [apache-airflow-providers-yandex](https://pypi.org/project/apache-airflow-providers-yandex/) package. [{{ AF }} jobs](https://airflow.apache.org/docs/apache-airflow/stable/index.html) are Python applications consisting of [{{ AF }} operators](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/operators.html) and their [dependencies](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html), which decide the order of execution. To make queries to {{ yq-full-name }}, the package contains the [`YQExecuteQueryOperator`](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/_api/airflow/providers/yandex/operators/yq/index.html) {{ AF }} operator.

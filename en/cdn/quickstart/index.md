@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ cdn-full-name }}
 description: Follow this guide to create and set up a CDN resource using {{ cdn-full-name }}.
+alternate:
+  - href: en/cdn/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ cdn-name }}

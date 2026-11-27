@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/lockbox/events-ref/GetPayloadEx.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox Audit Trails Events: GetPayloadEx

@@ -1,6 +1,10 @@
 ---
 title: Триггеры в {{ api-gw-full-name }}. Обзор
 description: Триггер — условие, при выполнении которого автоматически рассылается сообщение в соединения по протоколу WebSocket. Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например Yandex Object Storage, Yandex Message Queue и Yandex IoT Core.
+alternate:
+  - href: ru/api-gateway/concepts/trigger/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Триггеры в {{ api-gw-full-name }}. Обзор

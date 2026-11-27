@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/v0/resource-groups/update/
+alternate:
+  - href: ru/managed-greenplum/cli-ref/v0/resource-groups/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-greenplum v0 resource-groups update

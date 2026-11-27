@@ -1,6 +1,10 @@
 ---
 title: Как изменить SAML-приложение в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете изменить SAML-приложение в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/applications/saml-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить SAML-приложение в {{ org-full-name }}

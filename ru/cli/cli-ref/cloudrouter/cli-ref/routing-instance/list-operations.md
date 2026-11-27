@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/routing-instance/list-operations/
+alternate:
+  - href: ru/cli/cli-ref/cloudrouter/cli-ref/routing-instance/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloudrouter routing-instance list-operations

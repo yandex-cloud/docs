@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_completion.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli completion
 
 Generate the autocompletion script for the specified shell

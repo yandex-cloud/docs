@@ -1,6 +1,10 @@
 ---
 title: Recommendations for improving {{ mrd-name }} cluster reliability, cost optimization, and performance
 description: In this section, you will learn how to work with the results of {{ mrd-name }} cluster checks and diagnostics.
+alternate:
+  - href: en/managed-valkey/advisor.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Inspections and recommendations in {{ mrd-name }} 

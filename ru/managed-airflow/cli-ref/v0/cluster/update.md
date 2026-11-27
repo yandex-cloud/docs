@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-airflow/cli-ref/v0/cluster/update/
+alternate:
+  - href: ru/managed-airflow/cli-ref/v0/cluster/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-airflow v0 cluster update

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/api/methods/get-query-results.md
+    type: text/markdown
+    title: Markdown version
+---
 # get-query-results
 
 This method returns query results. A query containing multiple `SELECT` statements returns multiple query results. If this is the case, you can access results by their index.

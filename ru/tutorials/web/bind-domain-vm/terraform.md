@@ -1,6 +1,10 @@
 ---
 title: Как привязать собственный домен к виртуальной машине с веб-сервером с помощью {{ TF }}
 description: Следуя данной инструкции, вы сможете привязать собственный домен к веб-серверу на виртуальной машине {{ compute-full-name }} с помощью {{ TF }}.
+alternate:
+  - href: ru/tutorials/web/bind-domain-vm/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Привязка доменного имени к ВМ с веб-сервером с помощью {{ TF }}

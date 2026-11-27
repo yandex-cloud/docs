@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/kinesisapi/methods/updateshardcount.md
+    type: text/markdown
+    title: Markdown version
+---
 # UpdateShardCount
 
 Updates the number of [shards](../../concepts/glossary.md#shard) in the specified [stream](../../concepts/glossary.md#stream-concepts). Only shard count increases are allowed.

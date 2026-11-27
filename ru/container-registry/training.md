@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ container-registry-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ container-registry-full-name }}.
+alternate:
+  - href: ru/container-registry/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ container-registry-name }}

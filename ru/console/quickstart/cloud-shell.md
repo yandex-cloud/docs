@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ cloud-shell-full-name }}
 description: С помощью {{ cloud-shell-name }} вы можете пользоваться CLI {{ yandex-cloud }} и другими терминальными инструментами без предварительной настройки прямо в браузере.
+alternate:
+  - href: ru/console/quickstart/cloud-shell.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ cloud-shell-full-name }}

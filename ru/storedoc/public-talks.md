@@ -1,6 +1,10 @@
 ---
 title: Публичные материалы о {{ mmg-full-name }}
 description: Видеозаписи конференций и вебинаров, посвященных {{ mmg-full-name }}.
+alternate:
+  - href: ru/storedoc/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные материалы о {{ mmg-full-name }}

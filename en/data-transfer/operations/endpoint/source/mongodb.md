@@ -1,6 +1,10 @@
 ---
 title: How to set up a {{ MG }} source endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to create and configure a {{ MG }} source endpoint in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/operations/endpoint/source/mongodb.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Transferring data from a {{ MG }}/{{ SD }} (Managed Service for MongoDB) source endpoint
 

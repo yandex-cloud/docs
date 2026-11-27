@@ -1,6 +1,10 @@
 ---
 title: Контроль конфигурации ({{ cspm-name }}) в {{ sd-full-name }}
 description: Контроль конфигурации ({{ cspm-name }}) контролирует соответствие облачной инфраструктуры и приложений, развернутых на платформе {{ yandex-cloud }}, комплексным требованиям и лучшим практикам в сфере безопасности.
+alternate:
+  - href: ru/security-deck/concepts/cspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Контроль конфигурации ({{ cspm-name }})

@@ -1,6 +1,10 @@
 ---
 title: How to add connection info in {{ datalens-full-name }}
 description: Follow this guide to add connection info in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/add-description.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding connection info in {{ datalens-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Персональные предложения в {{ marketplace-name }}
 description: Из статьи вы узнаете, как принять персональное предложение в {{ marketplace-name }}.
+alternate:
+  - href: ru/marketplace/operations/users/private-offers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Принятие персонального предложения

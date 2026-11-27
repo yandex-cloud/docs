@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ sd-full-name }}
 description: Из статьи вы узнаете, как работать с {{ sd-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/security-deck/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Инструкции по работе с {{ sd-full-name }}

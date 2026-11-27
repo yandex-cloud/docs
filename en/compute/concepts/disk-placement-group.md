@@ -1,6 +1,10 @@
 ---
 title: Non-replicated disk placement groups
 description: In this article, you will learn about non-replicated disk placement groups and strategies.
+alternate:
+  - href: en/compute/concepts/disk-placement-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Non-replicated disk placement groups

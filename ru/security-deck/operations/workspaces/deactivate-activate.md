@@ -1,6 +1,10 @@
 ---
 title: Деактивировать и активировать окружение {{ sd-full-name }}
 description: Следуя данной инструкции, вы сможете деактивировать и активировать окружение в {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/operations/workspaces/deactivate-activate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Деактивировать и активировать окружение

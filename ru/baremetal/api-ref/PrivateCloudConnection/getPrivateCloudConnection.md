@@ -30,6 +30,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/baremetal/api-ref/PrivateCloudConnection/getPrivateCloudConnection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PrivateCloudConnection.GetPrivateCloudConnection

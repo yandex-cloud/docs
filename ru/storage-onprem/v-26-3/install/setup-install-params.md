@@ -1,6 +1,10 @@
 ---
 title: Настройка параметров установки {{ objstorage-onprem-name }}
 description: Настройка inventory и конфигурации стенда {{ objstorage-onprem-name }} для установки через Ansible.
+alternate:
+  - href: ru/storage-onprem/v-26-3/install/setup-install-params.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка параметров инсталляции

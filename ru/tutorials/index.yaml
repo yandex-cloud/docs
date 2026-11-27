@@ -8,6 +8,10 @@ meta:
   description: >-
     Практические руководства, которые помогут вам решать различные задачи с
     помощью сервисов {{ yandex-cloud }}.
+  alternate:
+    - href: ru/tutorials/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     colSizes:

@@ -1,6 +1,10 @@
 ---
 title: Creating a push notification channel in {{ cns-full-name }}
 description: Follow this guide to create a push notification channel.
+alternate:
+  - href: en/notifications/operations/push/channel-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a push notification channel

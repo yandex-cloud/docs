@@ -1,6 +1,10 @@
 ---
 title: Pie chart in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the pie chart visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/pie-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pie chart ![](../../_assets/datalens/pie.svg) in {{ datalens-full-name }}

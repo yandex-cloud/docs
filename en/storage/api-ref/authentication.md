@@ -1,6 +1,10 @@
 ---
 title: Authentication with the {{ objstorage-full-name }} API
 description: To perform operations through the API in {{ objstorage-full-name }}, a scalable data storage, get an IAM token for your account.
+alternate:
+  - href: en/storage/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authentication with the {{ objstorage-name }} API

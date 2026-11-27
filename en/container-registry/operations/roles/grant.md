@@ -1,6 +1,10 @@
 ---
 title: How to assign roles for a resource in {{ container-registry-full-name }}
 description: Follow this guide to assign roles for a resource.
+alternate:
+  - href: en/container-registry/operations/roles/grant.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning a role for a resource

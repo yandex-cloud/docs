@@ -1,6 +1,10 @@
 ---
 title: How to create an empty disk with a large block
 description: Follow this guide to create an empty disk with a large block.
+alternate:
+  - href: en/compute/operations/disk-create/empty-disk-blocksize.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an empty disk with a large block

@@ -1,6 +1,10 @@
 ---
 title: DNS-резолверы в сетях {{ yandex-cloud }}
 description: DNS-резолвер отвечает за обработку DNS-запросов от ресурсов, подключенных к подсетям в облачных сетях {{ vpc-full-name }}.
+alternate:
+  - href: ru/dns/concepts/dns-resolver.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DNS-резолвер

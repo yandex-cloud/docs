@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/organization/idp/application/saml/api-ref/SignatureCertificate/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: SignatureCertificate

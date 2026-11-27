@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/cluster/create/
+alternate:
+  - href: ru/container-registry/cli-ref/cluster/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container cluster create

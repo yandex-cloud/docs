@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/baremetal/extend/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Extend API: REST reference

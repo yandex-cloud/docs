@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/concepts/function.md
+    type: text/markdown
+    title: Markdown version
+---
 # Функция
 
 _Функция_ позволяет вам размещать код в {{ yandex-cloud }}, который можно запускать по запросу или триггеру.

@@ -1,5 +1,9 @@
 ---
 subcategory: Serverless API Gateway
+alternate:
+  - href: en/terraform/resources/api_gateway_iam_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_api_gateway_iam_binding (Resource)

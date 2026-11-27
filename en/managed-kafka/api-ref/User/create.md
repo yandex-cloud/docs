@@ -100,6 +100,10 @@ apiPlayground:
         required:
           - name
           - password
+alternate:
+  - href: en/managed-kafka/api-ref/User/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, REST: User.Create

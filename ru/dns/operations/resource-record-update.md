@@ -1,6 +1,10 @@
 ---
 title: Как изменить ресурсную запись в {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете изменить ресурсную запись.
+alternate:
+  - href: ru/dns/operations/resource-record-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить ресурсную запись

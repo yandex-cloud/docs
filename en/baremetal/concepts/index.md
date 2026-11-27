@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/baremetal/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ baremetal-full-name }} overview
 
 In {{ baremetal-full-name }}, you can [rent](../operations/servers/server-lease.md) a physical server with all its hardware resources provisioned for your individual use. 

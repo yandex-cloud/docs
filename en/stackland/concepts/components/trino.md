@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/trino.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ mtr-name }}
 
 {{ mch-name }} is a managed service for working with {{ TR }}, a distributed SQL engine. The service streamlines deployment and updates of {{ TR }} clusters and provides declarative management of data source catalogs along with {{ iam-name }} integration.

@@ -52,6 +52,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/container-registry/api-ref/LifecyclePolicy/listDryRunResults.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: LifecyclePolicy.ListDryRunResults

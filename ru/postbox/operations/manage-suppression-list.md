@@ -1,6 +1,10 @@
 ---
 title: Управление пользовательским стоп-листом в {{ postbox-full-name }}
 description: Следуя данной инструкции, вы сможете добавить адрес в пользовательский стоп-лист, посмотреть список адресов и удалить адрес из него.
+alternate:
+  - href: ru/postbox/operations/manage-suppression-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление пользовательским стоп-листом

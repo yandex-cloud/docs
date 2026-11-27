@@ -87,6 +87,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: en/resource-manager/api-ref/Folder/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API, REST: Folder.SetAccessBindings

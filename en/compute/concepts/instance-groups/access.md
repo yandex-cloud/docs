@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/access.md
+    type: text/markdown
+    title: Markdown version
+---
 # Access
 
 By default, all operations in {{ ig-name }} are performed under a [service account](../../../iam/concepts/users/service-accounts.md).

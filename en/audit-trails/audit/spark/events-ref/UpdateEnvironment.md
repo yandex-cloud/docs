@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/spark/events-ref/UpdateEnvironment.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Spark Audit Trails Events: UpdateEnvironment

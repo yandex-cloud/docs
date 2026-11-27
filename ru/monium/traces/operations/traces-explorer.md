@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/traces/operations/traces-explorer.md
+    type: text/markdown
+    title: Markdown version
+---
 # Поиск трейсов и спанов
 
 Интерфейс {{ traces-name }} позволяет находить трейсы и спаны по заданным критериям, открывать трейс по идентификатору и просматривать агрегирующие графики по атрибутам спанов.

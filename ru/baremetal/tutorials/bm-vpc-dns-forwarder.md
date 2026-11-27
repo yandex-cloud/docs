@@ -2,6 +2,10 @@
 title: Настройка разрешения DNS-имен из приватной сети {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы настроите разрешение DNS-имен облачных ресурсов на сервере {{ baremetal-name }} с помощью входящего DNS-подключения.
 canonical: '{{ link-docs }}/tutorials/routing/bm-vpc-dns-forwarder'
+alternate:
+  - href: ru/baremetal/tutorials/bm-vpc-dns-forwarder.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка разрешения DNS-имен из приватной сети {{ baremetal-full-name }}

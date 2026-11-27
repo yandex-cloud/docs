@@ -1,6 +1,10 @@
 ---
 title: Как управлять авторизованными ключами в {{ iam-full-name }}
 description: Из статьи вы узнаете, как создавать и удалять авторизованные ключи в {{ iam-full-name }} через консоль управления, CLI и API сервиса.
+alternate:
+  - href: ru/iam/operations/authentication/manage-authorized-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление авторизованными ключами

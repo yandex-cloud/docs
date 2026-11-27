@@ -1,5 +1,9 @@
 ---
 subcategory: Serverless Containers
+alternate:
+  - href: en/terraform/resources/serverless_container_iam_member.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_serverless_container_iam_member (Resource)

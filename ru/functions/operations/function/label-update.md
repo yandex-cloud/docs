@@ -1,6 +1,10 @@
 ---
 title: Изменить метку функции
 description: Следуя данной инструкции, вы сможете изменить метку функции.
+alternate:
+  - href: ru/functions/operations/function/label-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить метку функции

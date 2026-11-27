@@ -1,6 +1,10 @@
 ---
 title: Static access keys compatible with the AWS API
 description: In this article, you will learn about the purpose of a static access key, its format, and about the services supporting this authentication method.
+alternate:
+  - href: en/iam/concepts/authorization/access-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Static access keys compatible with the AWS API

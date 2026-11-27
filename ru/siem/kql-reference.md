@@ -1,6 +1,10 @@
 ---
 title: Справочник KQL в {{ yandex-siem-full-name }}
 description: Справочник функций и операторов KQL в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/kql-reference.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник KQL

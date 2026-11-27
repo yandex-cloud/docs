@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/datasphere/api-ref/Project/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, REST: Project.Get

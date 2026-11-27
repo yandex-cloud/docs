@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
+alternate:
+  - href: ru/ydb/docapi/tools/aws-sdk/create-item.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Добавление записи
 

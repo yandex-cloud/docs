@@ -1,6 +1,10 @@
 ---
 title: Creating or updating {{ alb-full-name }} resources using {{ managed-k8s-full-name }} configuration
 description: In this tutorial, you will learn how to create or update {{ alb-name }} resources using a {{ managed-k8s-name }} configuration.
+alternate:
+  - href: en/managed-kubernetes/alb-ref/k8s-ingress-controller-apply.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating or updating {{ alb-name }} resources using {{ managed-k8s-name }} configuration

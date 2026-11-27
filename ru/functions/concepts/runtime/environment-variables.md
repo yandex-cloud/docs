@@ -1,6 +1,10 @@
 ---
 title: Из чего состоит окружение функции в {{ sf-full-name }}
 description: Из статьи вы узнаете, из чего состоит окружение функции в {{ sf-name }}.
+alternate:
+  - href: ru/functions/concepts/runtime/environment-variables.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Окружение

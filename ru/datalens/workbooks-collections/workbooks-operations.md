@@ -1,6 +1,10 @@
 ---
 title: Работа с воркбуком {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете создать, отредактировать, переместить, скопировать, экспортировать, удалить воркбук {{ datalens-full-name }} и настроить к нему доступ.
+alternate:
+  - href: ru/datalens/workbooks-collections/workbooks-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с воркбуком {{ datalens-full-name }}

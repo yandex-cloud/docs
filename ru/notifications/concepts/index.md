@@ -1,6 +1,10 @@
 ---
 title: Обзор {{ cns-full-name }}
 description: '{{ cns-name }} ({{ cns-short-name }}) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с Amazon SNS API.'
+alternate:
+  - href: ru/notifications/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор {{ cns-full-name }}

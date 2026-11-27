@@ -1,6 +1,10 @@
 ---
 title: Настройка сбора телеметрии Nginx
 description: Инструкция по установке веб-сервера Nginx в кластере {{ k8s }} и передаче телеметрии в {{ monium-name }}.
+alternate:
+  - href: ru/monium/collector/otel-k8s-nginx.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка сбора телеметрии Nginx в {{ k8s }}

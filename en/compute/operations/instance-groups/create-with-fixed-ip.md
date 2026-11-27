@@ -1,6 +1,10 @@
 ---
 title: Creating a group of instances with fixed IP addresses
 description: Follow this guide to create a group of instances with fixed IP addresses.
+alternate:
+  - href: en/compute/operations/instance-groups/create-with-fixed-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a group of instances with fixed IP addresses

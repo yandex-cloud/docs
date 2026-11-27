@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/delete-endpoint.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteEndpoint
 
 Deletes an [endpoint for push notifications](../concepts/push.md#mobile-endpoints).

@@ -1,6 +1,10 @@
 ---
 title: Asynchronous function invocation in {{ sf-full-name }}
 description: When creating a function version in {{ sf-full-name }}, you can set up asynchronous invocation to invoke the function without waiting for it to complete.
+alternate:
+  - href: en/functions/concepts/function-invoke-async.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Asynchronous function invocation

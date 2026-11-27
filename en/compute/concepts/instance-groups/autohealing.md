@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/autohealing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Health checks and autohealing of group instances
 
 {{ ig-name }} regularly runs health checks for instances in your instance group. If an instance stopped or an app is taking too long to respond, {{ ig-name }} tries to heal the instance by either restarting it or creating a new one, depending on the [recovery policy](policies/healing-policy.md). The instances will be [auto-healed](#healthcheck-cases) based on the [deployment policy](policies/deploy-policy.md).

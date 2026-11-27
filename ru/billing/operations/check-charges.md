@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть детализацию использования сервисов в {{ billing-name }}
 description: Следуя данной инструкции, вы сможете посмотреть детализацию использования сервисов.
+alternate:
+  - href: ru/billing/operations/check-charges.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть детализацию использования сервисов

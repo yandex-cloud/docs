@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/smartcaptcha/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartCaptcha API: REST reference

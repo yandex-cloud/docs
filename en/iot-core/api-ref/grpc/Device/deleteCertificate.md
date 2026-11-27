@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iot-core/api-ref/grpc/Device/deleteCertificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, gRPC: DeviceService.DeleteCertificate

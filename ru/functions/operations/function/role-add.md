@@ -1,6 +1,10 @@
 ---
 title: Назначить роли на функцию
 description: Следуя данной инструкции, вы сможете назначить роли на функцию.
+alternate:
+  - href: ru/functions/operations/function/role-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначить роли на функцию

@@ -1,6 +1,10 @@
 ---
 title: Развертывание Nextcloud из образа {{ coi }}
 description: С помощью данного руководства вы развернете решение Nextcloud на виртуальной машине {{ compute-full-name }} из образа {{ coi }} в интеграции с объектным хранилищем {{ objstorage-full-name }}.
+alternate:
+  - href: ru/tutorials/archive/integrate-nextcloud/coi-based.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Развертывание Nextcloud на виртуальной машине {{ compute-full-name }} из образа {{ coi }} в интеграции с {{ objstorage-full-name }}

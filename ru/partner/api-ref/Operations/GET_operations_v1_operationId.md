@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Operations/GET_operations_v1_operationId.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Request operation data

@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть информацию об активности
 description: Следуя данной инструкции, вы сможете посмотреть информацию об активности по сделке
+alternate:
+  - href: ru/partner/operations/activity-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть информацию об активности

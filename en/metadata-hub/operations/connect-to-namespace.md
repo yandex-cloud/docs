@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/metadata-hub/operations/connect-to-namespace.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to a namespace
 
 

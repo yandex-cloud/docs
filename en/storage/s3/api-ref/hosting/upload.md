@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/hosting/upload.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: PutBucketWebsite
 
 Uploads a static website hosting configuration for a bucket.

@@ -64,6 +64,10 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/logging/api-ref/LogGroup/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, REST: LogGroup.Create

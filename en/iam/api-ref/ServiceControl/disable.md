@@ -47,6 +47,10 @@ apiPlayground:
         required:
           - id
           - type
+alternate:
+  - href: en/iam/api-ref/ServiceControl/disable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: ServiceControl.Disable

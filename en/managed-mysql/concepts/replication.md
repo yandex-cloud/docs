@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-mysql/concepts/replication.md
+    type: text/markdown
+    title: Markdown version
+---
 # Replication in {{ mmy-name }}
 
 {{ mmy-name }} clusters use [semi-sync replication](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html): by default, the master waits for a transaction to be completed in at least one replica.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/datalens/disable.md
+    type: text/markdown
+    title: Markdown version
+---
 # Отключить {{ datalens-name }}
 
 ## Отключить компонент {#disable}
@@ -25,8 +31,10 @@
 
    Список подов должен быть пустым.
 
+Удаление ресурса `DataLensConfig/main` также удаляет установку. Ресурс остаётся в состоянии удаления, пока не будут удалены все ресурсы компонента и пространство имён `stackland-datalens`.
+
 {% note warning %}
 
-При отключении {{ datalens-name }} все созданные компонентом данные будут удалены.
+При отключении {{ datalens-name }} или удалении `DataLensConfig/main` все созданные компонентом данные будут удалены.
 
 {% endnote %}

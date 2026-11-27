@@ -1,6 +1,10 @@
 ---
 title: '{{ network-load-balancer-full-name }} tool reference for {{ managed-k8s-full-name }}'
 description: This page provides a {{ network-load-balancer-name }} tool reference for {{ managed-k8s-name }}.
+alternate:
+  - href: en/network-load-balancer/k8s-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource reference for {{ managed-k8s-name }}

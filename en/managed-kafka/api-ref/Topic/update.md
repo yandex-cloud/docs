@@ -463,6 +463,10 @@ apiPlayground:
               - topicConfig_3
           - required:
               - topicConfig_4
+alternate:
+  - href: en/managed-kafka/api-ref/Topic/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, REST: Topic.Update

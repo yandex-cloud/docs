@@ -1,6 +1,10 @@
 ---
 title: Зашифровать снимок в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете зашифровать снимок диска в {{ compute-short-name }}.
+alternate:
+  - href: ru/compute/operations/snapshot-control/snapshot-encrypt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Зашифровать снимок

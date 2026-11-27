@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/operations/extensions/pg_anon.md
+    type: text/markdown
+    title: Markdown version
+---
 # Использование postgresql_anonymizer в {{ mpg-name }}
 
 Расширение `postgresql_anonymizer` позволяет замаскировать или заменить в базе данных {{ PG }} персональные данные или информацию, составляющую коммерческую тайну.

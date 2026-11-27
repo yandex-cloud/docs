@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ monium-full-name }}
 description: How access management works in {{ monium-full-name }}, a service for collecting and storing metrics and using them to build charts on dashboards. To allow a user access to {{ monium-name }} resources, assign them the roles from the list below.
+alternate:
+  - href: en/monium/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ monium-name }}

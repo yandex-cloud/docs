@@ -1,6 +1,10 @@
 ---
 title: Adding the {{ sw-full-name }} extension
 description: Follow this guide to add the {{ sw-full-name }} extension using the specification constructor.
+alternate:
+  - href: en/api-gateway/operations/spec-constructor/workflows.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding the x-yc-apigateway-integration:http extension for integration with {{ sw-full-name }}

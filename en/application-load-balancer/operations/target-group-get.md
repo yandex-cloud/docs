@@ -1,5 +1,9 @@
 ---
 title: How to get information about a target group in {{ alb-full-name }}
+alternate:
+  - href: en/application-load-balancer/operations/target-group-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a target group

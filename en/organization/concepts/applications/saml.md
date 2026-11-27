@@ -1,6 +1,10 @@
 ---
 title: SAML applications in {{ org-full-name }}
 description: In {{ org-full-name }}, you can authenticate {{ yandex-cloud }} users in external applications using SAML applications with single sign-on technology.
+alternate:
+  - href: en/organization/concepts/applications/saml.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML apps

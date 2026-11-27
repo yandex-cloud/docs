@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/v0/tools/debian/
+alternate:
+  - href: en/cloud-registry/cli-ref/v0/tools/debian/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry v0 tools debian

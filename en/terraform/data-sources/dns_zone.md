@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud DNS
+alternate:
+  - href: en/terraform/data-sources/dns_zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_dns_zone (DataSource)

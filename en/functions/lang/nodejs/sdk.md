@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/nodejs/sdk.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using the SDK for a function in Node.js
 
 To use the [SDK (Software Development Kit)](https://en.wikipedia.org/wiki/Software_development_kit), you need to add the `@yandex-cloud/nodejs-sdk` [dependency](dependencies.md) to the Node.js app. The library source code is available on [GitHub](https://github.com/yandex-cloud/nodejs-sdk).

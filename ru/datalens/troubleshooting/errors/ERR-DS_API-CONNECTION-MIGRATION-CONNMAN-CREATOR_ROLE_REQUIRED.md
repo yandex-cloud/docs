@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.CONNECTION.MIGRATION.CONNMAN.CREATOR_ROLE_REQUIRED
 description: На странице приведено описание ошибки {{ datalens-full-name }} Недостаточно прав для создания подключения.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-CONNMAN-CREATOR_ROLE_REQUIRED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Недостаточно прав для создания подключения

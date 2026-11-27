@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-airflow/concepts/impersonation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Имперсонация в {{ maf-name }}
 
 _Имперсонацией_ в {{ maf-short-name }} называется выполнение кластером {{ AF }} действий с пользовательскими ресурсами от имени сервисного аккаунта.

@@ -1,6 +1,10 @@
 ---
 title: How to get information about a security group in {{ vpc-full-name }}
 description: Follow this guide to get information about a security group.
+alternate:
+  - href: en/vpc/operations/security-group-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting security group info

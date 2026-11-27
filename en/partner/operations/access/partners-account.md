@@ -1,6 +1,10 @@
 ---
 title: How to grant access to a partner account
 description: In this guide, you will learn how to grant access to a partner account
+alternate:
+  - href: en/partner/operations/access/partners-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Granting access to a partner account

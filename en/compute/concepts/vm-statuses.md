@@ -1,6 +1,10 @@
 ---
 title: VM statuses in {{ compute-full-name }}
 description: In this tutorial, you will learn about the VM statuses in {{ compute-name }}.
+alternate:
+  - href: en/compute/concepts/vm-statuses.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # VM statuses

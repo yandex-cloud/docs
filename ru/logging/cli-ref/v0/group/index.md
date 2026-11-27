@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/v0/group/
+alternate:
+  - href: ru/logging/cli-ref/v0/group/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc logging v0 group

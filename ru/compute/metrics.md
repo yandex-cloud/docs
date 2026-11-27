@@ -1,6 +1,10 @@
 ---
 title: Справочник метрик сервиса {{ compute-full-name }} в {{ metrics-name }}
 description: На этой странице приведен справочник метрик сервиса {{ compute-name }}, поставляемых в {{ metrics-name }}.
+alternate:
+  - href: ru/compute/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник метрик {{ metrics-name }}

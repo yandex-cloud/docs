@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/qa/general.md
+    type: text/markdown
+    title: Markdown version
+---
 # Общие вопросы про {{ mgp-name }}
 
 {% include [general-minitoc](../../_qa/managed-greenplum/minitoc/general.md) %}

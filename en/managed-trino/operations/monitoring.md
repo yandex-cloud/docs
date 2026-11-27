@@ -1,6 +1,10 @@
 ---
 title: '{{ mtr-name }} cluster state monitoring'
 description: In this tutorial, you will learn how to monitor the state of {{ mtr-name }} clusters.
+alternate:
+  - href: en/managed-trino/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mtr-name }} cluster state monitoring

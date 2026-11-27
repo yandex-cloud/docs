@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
+---
 # Diagnostics and troubleshooting
 
 {{ stackland-name }} comes with a specialized tool, `sladm diag`, for collecting diagnostic information on cluster state. This is a command line utility designed for Ubuntu 22.04 or a similar Linux distribution. Generally, `sladm diag` runs on the same host that was used to deploy the {{ stackland-name }} cluster.

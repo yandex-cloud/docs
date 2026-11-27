@@ -1,6 +1,10 @@
 ---
 title: How to join the {{ yandex-cloud }} partner program
 description: Follow this guide to join the {{ yandex-cloud }} partner program.
+alternate:
+  - href: en/partner/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to join the partner program

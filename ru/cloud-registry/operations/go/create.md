@@ -1,6 +1,10 @@
 ---
 title: Создать Go-модуль
 description: Следуя данной инструкции, вы создадите Go-модуль для загрузки в {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/go/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать Go-модуль

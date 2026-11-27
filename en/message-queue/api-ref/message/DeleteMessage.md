@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/message/DeleteMessage.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteMessage
 
 Method for deleting messages from a queue. To select the message to delete, use the `ReceiptHandle` parameter. A message can be deleted even if it is received and being processed by another consumer. Message Queue automatically deletes messages if the value specified for the `RetentionPeriod` parameter is reached.

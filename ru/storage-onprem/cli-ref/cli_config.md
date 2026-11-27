@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_config.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli config
 
 Configuration actions

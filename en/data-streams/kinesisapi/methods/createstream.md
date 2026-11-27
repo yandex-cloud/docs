@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/kinesisapi/methods/createstream.md
+    type: text/markdown
+    title: Markdown version
+---
 # CreateStream
 
 Creates a [data stream](../../concepts/glossary.md#stream-concepts).

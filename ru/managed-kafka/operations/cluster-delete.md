@@ -1,6 +1,10 @@
 ---
 title: Удаление кластера Apache Kafka
 description: Вы можете удалить кластер Apache Kafka®, если он вам больше не нужен. Все данные в кластере будут удалены. В консоли управления выберите каталог, из которого нужно удалить кластер.
+alternate:
+  - href: ru/managed-kafka/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление кластера {{ KF }}

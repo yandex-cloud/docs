@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/rest-catalog/delete-principal.md
+    type: text/markdown
+    title: Markdown version
+---
 # Revoking permissions for a folder
 
 To revoke permissions for [{{ rest-catalog-name }}](../../concepts/components/rest-catalog.md), delete the relevant `StacklandRestCatalogAccessBinding` resource.

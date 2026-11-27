@@ -1,6 +1,10 @@
 ---
 title: Creating a {{ alb-full-name }} target group
 description: To create a {{ alb-full-name }} target group, in the management console, select a folder where you want to store it. Navigate to {{ alb-name }}. In the left-hand menu, select **Target groups**. Click **Create target group**. Specify your target group name. Select a VM. Click **Create**.
+alternate:
+  - href: en/application-load-balancer/operations/target-group-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an {{ alb-name }} target group

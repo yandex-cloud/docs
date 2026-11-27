@@ -1,5 +1,9 @@
 ---
 subcategory: Serverless Event Router
+alternate:
+  - href: ru/terraform/data-sources/serverless_eventrouter_rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_serverless_eventrouter_rule (DataSource)

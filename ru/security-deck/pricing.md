@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ sd-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ sd-name }}.
 editable: false
+alternate:
+  - href: ru/security-deck/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации {{ sd-full-name }}

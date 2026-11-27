@@ -1,6 +1,10 @@
 ---
 title: Что такое QoS (Quality of Service)?
 description: QoS (Quality of Service, или «качество услуги») — набор технологических решений для оптимизации сетевого трафика с помощью назначаемых приоритетов передачи информации.
+alternate:
+  - href: ru/glossary/qos.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # QoS

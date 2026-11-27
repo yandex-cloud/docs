@@ -1,6 +1,10 @@
 ---
 title: Управление пространствами имен в {{ managed-k8s-full-name }}
 description: Из статьи вы узнаете, как в {{ yandex-cloud }} управлять пространствами имен в {{ k8s }} с помощью консоли управления без использования kubectl.
+alternate:
+  - href: ru/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление пространствами имен

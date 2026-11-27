@@ -1,6 +1,10 @@
 ---
 title: '{{ ydb-full-name }} overview'
 description: In this article, you will learn about the {{ ydb-short-name }} DBMS and service level agreement.
+alternate:
+  - href: en/ydb/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ydb-full-name }} overview

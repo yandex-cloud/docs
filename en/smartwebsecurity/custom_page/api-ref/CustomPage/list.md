@@ -42,6 +42,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/smartwebsecurity/custom_page/api-ref/CustomPage/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity CustomPage API, REST: CustomPage.List

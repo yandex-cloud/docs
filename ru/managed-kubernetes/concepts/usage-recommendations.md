@@ -1,6 +1,10 @@
 ---
 title: Рекомендации по использованию {{ managed-k8s-full-name }}
 description: Используйте эти рекомендации, если вашим приложениям требуется высокая доступность и отказоустойчивость, масштабирование нагрузки и изоляция ресурсов.
+alternate:
+  - href: ru/managed-kubernetes/concepts/usage-recommendations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Рекомендации по использованию {{ managed-k8s-name }}

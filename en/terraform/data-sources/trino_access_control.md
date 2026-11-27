@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for Trino
+alternate:
+  - href: en/terraform/data-sources/trino_access_control.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_trino_access_control (DataSource)

@@ -1,6 +1,10 @@
 ---
 title: Выделенный хост в {{ compute-full-name }}
 description: Из статьи вы узнаете, что такое выделенный хост, как конфигурация хоста зависит от его типа, как {{ compute-name }} проводит техническое обслуживание хостов, как решаются неисправности хостов и др.
+alternate:
+  - href: ru/compute/concepts/dedicated-host.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выделенный хост

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/compute/api-ref/grpc/ReservedInstancePool/listInstances.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, gRPC: ReservedInstancePoolService.ListInstances

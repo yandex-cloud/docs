@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ cloud-desktop-full-name }}
 description: This page provides a list of step-by-step guides for {{ cloud-desktop-name }}.
+alternate:
+  - href: en/cloud-desktop/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ cloud-desktop-name }}

@@ -1,6 +1,10 @@
 ---
 title: Resource relationships in {{ mch-full-name }}
 description: The main entity {{ mch-name }} operates is a database cluster. Each cluster consists of one or multiple database hosts, which are virtual machines with DBMS servers deployed. Cluster hosts may reside in different availability zones. A multi-host cluster is natively highly available because one of its replica hosts will assume the master role if the current master host fail.
+alternate:
+  - href: en/managed-clickhouse/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource relationships in {{ mch-name }}

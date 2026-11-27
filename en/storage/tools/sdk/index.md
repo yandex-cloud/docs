@@ -1,6 +1,10 @@
 ---
 title: Development tools
 description: In this article, you will learn which SDKs you can use to access the S3 API in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/tools/sdk/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Development tools

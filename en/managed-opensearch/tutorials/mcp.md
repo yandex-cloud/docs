@@ -3,6 +3,10 @@ title: Connecting an MCP client to an {{ OS }} cluster in {{ mos-short-name }}
 description: 'Follow this tutorial to set up an MCP connection to an {{ OS }} cluster in {{ mos-short-name }}: enable the built-in MCP server, register tools, and add the server to the client configuration.'
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/dataplatform/opensearch-mcp'
+alternate:
+  - href: en/managed-opensearch/tutorials/mcp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting an MCP client to an {{ OS }} cluster in {{ mos-short-name }}

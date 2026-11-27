@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/speechkit-hybrid/operations/logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Operations logging {{ sk-hybrid-name }}
 
 You can control which {{ sk-hybrid-name }} container actions will be written to logs. The logging level is determined by the `LOGGING_LEVEL` parameter.

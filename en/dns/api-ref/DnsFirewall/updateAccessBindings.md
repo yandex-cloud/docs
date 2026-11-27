@@ -105,6 +105,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/dns/api-ref/DnsFirewall/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, REST: DnsFirewall.UpdateAccessBindings

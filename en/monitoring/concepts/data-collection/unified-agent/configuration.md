@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monitoring/concepts/data-collection/unified-agent/configuration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuration
 
 The section describes how to configure {{ unified-agent-full-name }}. Before getting started, explore the [basic concepts](index.md) used in agent configuration.

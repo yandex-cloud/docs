@@ -1,6 +1,10 @@
 ---
 title: Создание инфраструктуры {{ alb-full-name }} с помощью визарда
 description: Следуя данной инструкции, вы сможете создать инфраструктуру {{ alb-name }} с помощью визарда.
+alternate:
+  - href: ru/application-load-balancer/quickstart-wizard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание инфраструктуры {{ alb-name }} с помощью визарда

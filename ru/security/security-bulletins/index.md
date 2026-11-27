@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/security/security-bulletins/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Бюллетени безопасности
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.

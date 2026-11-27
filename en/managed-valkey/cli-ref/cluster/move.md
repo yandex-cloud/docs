@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/cluster/move/
+alternate:
+  - href: en/managed-valkey/cli-ref/cluster/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-redis cluster move

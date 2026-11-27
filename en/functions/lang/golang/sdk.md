@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/golang/sdk.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using the SDK for a function in Go
 
 The runtime does not have a pre-installed library for accessing the [{{ yandex-cloud }} API](../../../api-design-guide/). To use it, add a [dependency](dependencies.md) to your Go application. The library source code is available on [GitHub](https://github.com/yandex-cloud/go-sdk).

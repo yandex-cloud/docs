@@ -1,6 +1,10 @@
 ---
 title: Поиск с помощью {{ OS }} в {{ mos-full-name }}
 description: '{{ OS }} выступает как инструмент для поиска и анализа данных с помощью структурированных, полнотекстовых и сложносоставных запросов.'
+alternate:
+  - href: ru/managed-opensearch/concepts/searching.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поиск с помощью {{ OS }}

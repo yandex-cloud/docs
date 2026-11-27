@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/concepts/deduplication.md
+    type: text/markdown
+    title: Markdown version
+---
 # Дедупликация
 
 Очереди FIFO реализуют механизм дедупликации сообщений с помощью набора параметров, обеспечивающих доставку и обработку сообщений только один раз и в порядке их отправки.

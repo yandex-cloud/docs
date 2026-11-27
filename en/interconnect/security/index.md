@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ interconnect-full-name }}
 description: Access management in {{ interconnect-name }}. To allow access to {{ interconnect-name }} resources, assign the necessary roles to the user from the list below. Currently, a role can only be assigned for a parent resource (folder or cloud).
+alternate:
+  - href: en/interconnect/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ interconnect-name }}

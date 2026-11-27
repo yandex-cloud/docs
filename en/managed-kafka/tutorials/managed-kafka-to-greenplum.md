@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/managed-kafka-to-greenplum'
+alternate:
+  - href: en/managed-kafka/tutorials/managed-kafka-to-greenplum.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering data to {{ mgp-full-name }} using {{ data-transfer-full-name }}

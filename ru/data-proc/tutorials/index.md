@@ -1,6 +1,10 @@
 ---
 title: Практические руководства {{ dataproc-full-name }}
 description: Различные сценарии использования {{ dataproc-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/data-proc/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ dataproc-name }}

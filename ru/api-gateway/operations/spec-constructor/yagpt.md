@@ -1,6 +1,10 @@
 ---
 title: Добавить расширение {{ ai-studio-full-name }}
 description: Следуя данной инструкции, вы сможете добавить расширение {{ ai-studio-full-name }} с помощью конструктора спецификации.
+alternate:
+  - href: ru/api-gateway/operations/spec-constructor/yagpt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить расширение x-yc-apigateway-integration:http для интеграции с API генерации текста {{ ai-studio-full-name }}

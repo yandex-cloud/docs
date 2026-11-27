@@ -60,6 +60,10 @@ apiPlayground:
         - csr
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/certificate-manager/privateca/api-ref/PrivateCaCertificate/issueCertificateByCsr.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, REST: PrivateCaCertificate.IssueCertificateByCsr

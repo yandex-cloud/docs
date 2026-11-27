@@ -1,6 +1,10 @@
 ---
 title: Изменение окружения {{ sd-full-name }}
 description: Из этой инструкции вы узнаете, как изменить окружение в {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/operations/workspaces/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить окружение {{ sd-name }} и его компоненты

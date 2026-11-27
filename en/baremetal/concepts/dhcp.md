@@ -1,6 +1,10 @@
 ---
 title: DHCP in a {{ baremetal-full-name }} network
 description: Learn how DHCP transmits IP addresses, routes, and DNS settings to the {{ baremetal-name }} servers in public and private subnets.
+alternate:
+  - href: en/baremetal/concepts/dhcp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DHCP in a {{ baremetal-full-name }} network

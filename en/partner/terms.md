@@ -1,6 +1,10 @@
 ---
 title: Terms and definitions
 description: In this article, you will learn about the terms and definitions of the {{ yandex-cloud }} partner program.
+alternate:
+  - href: en/partner/terms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Terms and definitions

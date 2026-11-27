@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/function/version/get-by-tag/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/function/version/get-by-tag.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless function version get-by-tag

@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение API Connector в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете создать подключение API Connector в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/create-api-connector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения API Connector

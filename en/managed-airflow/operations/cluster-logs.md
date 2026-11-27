@@ -1,6 +1,10 @@
 ---
 title: Viewing {{ maf-full-name }} cluster logs
 description: In this guide, you will learn how to view {{ maf-name }} cluster logs.
+alternate:
+  - href: en/managed-airflow/operations/cluster-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing {{ maf-name }} cluster logs

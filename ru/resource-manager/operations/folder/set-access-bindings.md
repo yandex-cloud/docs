@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/resource-manager/operations/folder/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка прав доступа к каталогу
 
 {% note warning %}

@@ -1,6 +1,10 @@
 ---
 title: Managing SMS templates in {{ cns-full-name }}
 description: Follow this guide to create and delete SMS notification templates in {{ cns-full-name }}.
+alternate:
+  - href: en/notifications/operations/sms/manage-templates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing SMS templates

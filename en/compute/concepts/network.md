@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/network.md
+    type: text/markdown
+    title: Markdown version
+---
 # VM network interfaces
 
 A virtual machine can have [one or more](./limits.md) network interfaces. When creating a VM, you need to configure at least one of its network interfaces by selecting the [subnet](../../vpc/concepts/network.md#subnet) to connect your VM to, configuring [internal](#internal-ip) and [public IP addresses](#public-ip), and adding the required [security groups](../../vpc/concepts/security-groups.md). This will allow the VM to connect to other services on the intranet and internet.

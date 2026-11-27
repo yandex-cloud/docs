@@ -1,6 +1,10 @@
 ---
 title: Инструкция о создании платежного аккаунта для юридических лиц в {{ yandex-cloud }}
 description: 'Из статьи вы узнаете, как создать платежный аккаунт юридическому лицу в {{ yandex-cloud }}. Отвечаем на частые вопросы: платежный аккаунт и платное потребление; стартовый грант; документы.'
+alternate:
+  - href: ru/getting-started/legal-entity/registration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание платежного аккаунта

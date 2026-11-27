@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/release-notes.md
+    type: text/markdown
+    title: Markdown version
+---
 # What's new in {{ stackland-name }} 26.3.0
 
 In {{ stackland-name }} 26.3.0, we added managed {{ AF }} clusters, scanning images for vulnerabilities, and {{ iam-name }} data backups. Expanded the {{ objstorage-name }} and {{ rest-catalog-name }} features, upgraded {{ ai-studio-name }} to _generic 2.0_.

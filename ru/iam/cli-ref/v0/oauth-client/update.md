@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/oauth-client/update/
+alternate:
+  - href: ru/iam/cli-ref/v0/oauth-client/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam v0 oauth-client update

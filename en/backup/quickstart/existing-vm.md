@@ -1,6 +1,10 @@
 ---
 title: How to get started with {{ backup-full-name }} on an existing VM
 description: Follow this guide to connect to {{ backup-name }} and get started with it on your existing VMs.
+alternate:
+  - href: en/backup/quickstart/existing-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to get started with {{ backup-full-name }} on an existing VM

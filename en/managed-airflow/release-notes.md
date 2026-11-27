@@ -1,6 +1,10 @@
 ---
 title: '{{ maf-full-name }} release notes'
 description: This section contains the {{ maf-name }} release notes.
+alternate:
+  - href: en/managed-airflow/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ maf-full-name }} release notes

@@ -1,6 +1,10 @@
 ---
 title: Как изменить канал в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете изменить канал {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/channels/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить канал

@@ -1,6 +1,10 @@
 ---
 title: Setting up a {{ mpg-full-name }} connection from {{ serverless-containers-name }}
 description: 'Follow this tutorial to connect to a {{ mpg-full-name }} cluster from {{ serverless-containers-name }}:'
+alternate:
+  - href: en/tutorials/container-infrastructure/container-pg-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up a {{ mpg-full-name }} connection from {{ serverless-containers-name }}

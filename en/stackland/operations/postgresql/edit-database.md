@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/postgresql/edit-database.md
+    type: text/markdown
+    title: Markdown version
+---
 # Editing a {{ PG }} database
 
 If you have a {{ PG }} database in your [cluster](../../concepts/components/postgresql.md), you can edit its settings.

@@ -1,6 +1,10 @@
 ---
 title: Managing {{ ZK }} hosts
 description: Follow this guide to manage {{ ZK }} hosts.
+alternate:
+  - href: en/managed-clickhouse/operations/zk-hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ ZK }} hosts

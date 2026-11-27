@@ -1,6 +1,10 @@
 ---
 title: How to move a NAT gateway to a different folder
 description: Follow this guide to move a NAT gateway to a different folder.
+alternate:
+  - href: en/vpc/operations/static-gateway-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving a NAT gateway to a different folder

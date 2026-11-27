@@ -1,6 +1,10 @@
 ---
 title: Setting up PyPI
 description: Follow this guide to set up PyPI.
+alternate:
+  - href: en/cloud-registry/operations/pypi/installation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up PyPI

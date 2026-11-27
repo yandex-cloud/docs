@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/apploadbalancer/events-ref/CreateTargetGroup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer Audit Trails Events: CreateTargetGroup

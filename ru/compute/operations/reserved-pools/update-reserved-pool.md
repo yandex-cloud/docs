@@ -1,6 +1,10 @@
 ---
 title: Изменить пул резервов ВМ
 description: Из статьи вы узнаете, как изменить пул резервов ВМ {{ compute-full-name }}.
+alternate:
+  - href: ru/compute/operations/reserved-pools/update-reserved-pool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение пула резервов виртуальных машин

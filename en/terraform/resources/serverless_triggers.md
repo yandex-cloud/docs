@@ -1,5 +1,9 @@
 ---
 subcategory: Serverless Triggers
+alternate:
+  - href: en/terraform/resources/serverless_triggers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_serverless_triggers (Resource)

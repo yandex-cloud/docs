@@ -48,6 +48,10 @@ apiPlayground:
       StopAction:
         type: object
         properties: {}
+alternate:
+  - href: en/video/api-ref/Stream/performAction.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Stream.PerformAction

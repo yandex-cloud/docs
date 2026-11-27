@@ -23,6 +23,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/idp/api-ref/Synchronization/listSupportedAttributes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: Synchronization.ListSupportedAttributes

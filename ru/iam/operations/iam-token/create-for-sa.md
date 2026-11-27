@@ -1,6 +1,10 @@
 ---
 title: Как получить IAM-токен для сервисного аккаунта в {{ iam-full-name }}
 description: Следуя данной инструкции, вы сможете получить IAM-токен для сервисного аккаунта.
+alternate:
+  - href: ru/iam/operations/iam-token/create-for-sa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение IAM-токена для сервисного аккаунта

@@ -1,6 +1,10 @@
 ---
 title: Создание таблицы на основе SQL-запроса
 description: Следуя данной инструкции, вы сможете построить таблицу на основе SQL-запроса к источнику данных в Editor.
+alternate:
+  - href: ru/datalens/charts/editor/quickstart/from-database.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание таблицы на основе SQL-запроса

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/concepts/origins.md
+    type: text/markdown
+    title: Markdown version
+---
 # Origins and origin groups
 
 CDN servers retrieve the content requested by clients from _origins_. 

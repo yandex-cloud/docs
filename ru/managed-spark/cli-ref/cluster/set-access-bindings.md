@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/cluster/set-access-bindings/
+alternate:
+  - href: ru/managed-spark/cli-ref/cluster/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-spark cluster set-access-bindings

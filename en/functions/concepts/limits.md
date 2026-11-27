@@ -1,6 +1,10 @@
 ---
 title: Quotas and limits in {{ sf-full-name }}
 description: '{{ sf-name }} has limits and quotas for the number of functions, the number of instances of a single function in each availability zone, and the number of concurrent function calls (for all functions in each availability zone). For more information about such restrictions, read this article.'
+alternate:
+  - href: en/functions/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ sf-name }}

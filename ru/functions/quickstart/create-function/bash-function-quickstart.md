@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/quickstart/create-function/bash-function-quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание функции на Bash
 
 Создайте и выполните [функцию](../../concepts/function.md) на Bash, которая приветствует пользователя.

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/lockbox/api-ref/grpc/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox API, gRPC: OperationService.Get

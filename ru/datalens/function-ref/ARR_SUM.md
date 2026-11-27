@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/ARR_SUM.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # ARR_SUM

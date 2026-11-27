@@ -1,6 +1,10 @@
 ---
 title: Язык запросов
 description: Справочник по языку запросов для поиска трейсов и спанов в {{ traces-name }}.
+alternate:
+  - href: ru/monium/traces/operations/query-language.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Язык запросов

@@ -1,6 +1,10 @@
 ---
 title: Partner program tools
 description: Read this article to learn everything you need about the partner program tools.
+alternate:
+  - href: en/partner/program/var-tools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Partner program tools

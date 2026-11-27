@@ -5,6 +5,10 @@ keywords:
   - протокол tls
   - tls
   - transport layer security
+alternate:
+  - href: ru/storage/concepts/tls.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Протокол TLS

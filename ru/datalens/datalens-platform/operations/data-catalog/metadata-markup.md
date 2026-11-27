@@ -1,6 +1,10 @@
 ---
 title: Разметка метаданных в {{ datalens-platform-full-name }}
 description: Следуя данной инструкции, вы узнаете, как создавать элементы разметки и размечать ими метаданные в {{ datalens-platform-full-name }}
+alternate:
+  - href: ru/datalens/datalens-platform/operations/data-catalog/metadata-markup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разметка метаданных

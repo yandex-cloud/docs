@@ -1,6 +1,10 @@
 ---
 title: Following request redirects
 description: This section describes a CDN resource feature that allows following request redirects received from content origins.
+alternate:
+  - href: en/cdn/concepts/follow-redirects.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Following request redirects

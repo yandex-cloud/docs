@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/video/api-ref/StreamLine/updateStreamKey.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: StreamLine.UpdateStreamKey

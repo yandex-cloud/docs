@@ -1,6 +1,10 @@
 ---
 title: Managing access to a {{ mmy-full-name }} cluster
 description: Follow this guide to configure {{ mmy-name }} cluster access permissions.
+alternate:
+  - href: en/managed-mysql/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to a {{ mmy-name }} cluster

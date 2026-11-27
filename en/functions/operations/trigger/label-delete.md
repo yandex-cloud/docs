@@ -1,6 +1,10 @@
 ---
 title: Deleting a trigger label in {{ sf-name }}
 description: Follow this guide to delete a trigger label in {{ sf-name }}.
+alternate:
+  - href: en/functions/operations/trigger/label-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a trigger label in {{ sf-name }}

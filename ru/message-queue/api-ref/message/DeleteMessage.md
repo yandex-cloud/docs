@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/message/DeleteMessage.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteMessage
 
 Метод для удаления сообщения из очереди. Чтобы указать, какое сообщение следует удалить, используйте параметр `ReceiptHandle`. Сообщение можно удалить, даже если сообщение получено и обрабатывается другим получателем. Message Queue автоматически удаляет сообщения, если период, указанный в параметре `RetentionPeriod` закончился.

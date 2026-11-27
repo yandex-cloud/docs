@@ -1,5 +1,9 @@
 ---
 subcategory: Resource Manager
+alternate:
+  - href: ru/terraform/resources/resource_manager_cloud_iam_policy_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_resource_manager_cloud_iam_policy_binding (Resource)

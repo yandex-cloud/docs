@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/policy/api-ref/grpc/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organization Policy API: gRPC reference

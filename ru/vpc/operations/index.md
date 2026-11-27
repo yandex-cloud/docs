@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ vpc-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ vpc-name }}.
+alternate:
+  - href: ru/vpc/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ vpc-name }}

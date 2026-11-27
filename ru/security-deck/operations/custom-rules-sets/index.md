@@ -1,6 +1,10 @@
 ---
 title: Пользовательские наборы правил
 description: В этом разделе собраны пошаговые инструкции по работе с пользовательскими наборами правил в {{ sd-name }}.
+alternate:
+  - href: ru/security-deck/operations/custom-rules-sets/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пользовательские наборы правил

@@ -1,6 +1,10 @@
 ---
 title: Chart debugging in Editor
 description: This page describes how to debug charts in Editor.
+alternate:
+  - href: en/datalens/charts/editor/debug.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Chart debugging in Editor

@@ -1,6 +1,10 @@
 ---
 title: How to delete a security group
 description: Follow this guide to delete a security group.
+alternate:
+  - href: en/vpc/operations/security-group-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a security group

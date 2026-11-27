@@ -1,6 +1,10 @@
 ---
 title: Как создать прокси-сервер в {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете создать прокси-сервер для обработки входящих запросов и защиты доменов в {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/proxy-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать прокси-сервер

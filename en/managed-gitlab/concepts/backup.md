@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-gitlab/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
+---
 # Backups in {{ mgl-full-name }}
 
 {% include [mgl-backup-intro](../../_includes/managed-gitlab/mgl-backup-intro.md) %}

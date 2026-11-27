@@ -1,6 +1,10 @@
 ---
 title: Публичные группы
 description: Из статьи вы узнаете, что такое публичные группы и каких типов они бывают.
+alternate:
+  - href: ru/iam/concepts/access-control/public-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные группы

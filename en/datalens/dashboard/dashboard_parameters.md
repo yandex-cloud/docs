@@ -1,6 +1,10 @@
 ---
 title: Dashboard parameters in {{ datalens-full-name }}
 description: In this article, you will learn what dashboard parameters are, take a look at the dashboard, chart, and special parameters, learn about the limitations in place and how to apply parameters in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/dashboard/dashboard_parameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Dashboard parameters in {{ datalens-full-name }}

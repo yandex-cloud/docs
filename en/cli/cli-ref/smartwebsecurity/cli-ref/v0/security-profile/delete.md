@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/v0/security-profile/delete/
+alternate:
+  - href: en/cli/cli-ref/smartwebsecurity/cli-ref/v0/security-profile/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartwebsecurity v0 security-profile delete

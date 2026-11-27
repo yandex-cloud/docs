@@ -1,6 +1,10 @@
 ---
 title: Node groups with GPUs
 description: In this article, you will learn about node groups with GPUs, their requirements, and pricing.
+alternate:
+  - href: en/managed-kubernetes/concepts/node-group/node-group-gpu.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Node groups with GPUs

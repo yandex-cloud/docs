@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/kms/events-ref/AsymmetricSign.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service Audit Trails Events: AsymmetricSign

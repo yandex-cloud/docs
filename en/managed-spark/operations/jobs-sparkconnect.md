@@ -1,6 +1,10 @@
 ---
 title: How to manage SparkConnect jobs in {{ msp-full-name }}
 description: You will learn how to manage SparkConnect jobs in {{ msp-full-name }}.
+alternate:
+  - href: en/managed-spark/operations/jobs-sparkconnect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing SparkConnect jobs

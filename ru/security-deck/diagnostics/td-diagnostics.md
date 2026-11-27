@@ -1,6 +1,10 @@
 ---
 title: Какие ошибки возникают при работе с модулем {{ td-full-name }} ({{ td-name }}) в {{ sd-full-name }}
 description: Из статьи вы узнаете, какие бывают ошибки в работе модуля {{ td-full-name }} ({{ td-name }}).
+alternate:
+  - href: ru/security-deck/diagnostics/td-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика ошибок в работе модуля {{ td-full-name }} ({{ td-name }})

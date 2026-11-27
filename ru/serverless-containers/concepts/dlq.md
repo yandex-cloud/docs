@@ -1,6 +1,10 @@
 ---
 title: Dead Letter Queue в Yandex Serverless Containers
 description: Dead Letter Queue (DLQ) — это очередь, куда перенаправляются сообщения, которые не смог обработать вызываемый триггером контейнер. Сообщение считается обработанным, если контейнер, который его получил, завершился без ошибок. Перенаправленные в DLQ сообщения хранятся в ней для дальнейшей диагностики.
+alternate:
+  - href: ru/serverless-containers/concepts/dlq.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Dead Letter Queue в {{ serverless-containers-name }}

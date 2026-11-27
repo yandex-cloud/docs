@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/put-suppressed-destination.md
+    type: text/markdown
+    title: Markdown version
+---
 # PutSuppressedDestination method
 
 Adds an address to the [custom suppression list](../../concepts/suppression-list.md#user). The cloud is determined based on the service account the request originates from.

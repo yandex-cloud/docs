@@ -1,6 +1,10 @@
 ---
 title: How to copy a dashboard in {{ monitoring-full-name }}
 description: Follow this guide to copy a dashboard.
+alternate:
+  - href: en/monitoring/operations/dashboard/copy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Copying a dashboard

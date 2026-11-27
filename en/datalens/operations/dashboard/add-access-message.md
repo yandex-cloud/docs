@@ -1,6 +1,10 @@
 ---
 title: How to add a dashboard access permission error message in {{ datalens-full-name }}
 description: Follow this guide to add a dashboard access permission error message in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/add-access-message.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding an access error message in {{ datalens-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/concepts/trigger/cloud-logging-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for {{ cloud-logging-name }} that invokes a {{ sf-name }} function
 
 A [trigger](../trigger/) for {{ cloud-logging-name }} runs a {{ sf-name }} [function](../function.md) when messages are received in a [log group](../../../logging/concepts/log-group.md).

@@ -1,6 +1,10 @@
 ---
 title: Viewing information about sent emails in {{ postbox-name }}
 description: Follow this guide to view information about emails and related events in {{ postbox-name }}.
+alternate:
+  - href: en/postbox/operations/messages.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

@@ -5,6 +5,10 @@ keywords:
   - OpenSearch backups
   - OpenSearch snapshots
   - OpenSearch
+alternate:
+  - href: en/managed-opensearch/operations/cluster-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing backups in {{ mos-name }}

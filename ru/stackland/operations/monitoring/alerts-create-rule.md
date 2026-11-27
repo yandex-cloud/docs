@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/monitoring/alerts-create-rule.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать правило алертинга
 
 Чтобы создать новое правило алертинга:

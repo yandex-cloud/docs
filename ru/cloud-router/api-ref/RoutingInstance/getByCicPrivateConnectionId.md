@@ -19,6 +19,11 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+noIndex: true
+alternate:
+  - href: ru/cloud-router/api-ref/RoutingInstance/getByCicPrivateConnectionId.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Router API, REST: RoutingInstance.GetByCicPrivateConnectionId

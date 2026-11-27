@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/wiki/events-ref/PageDelete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Wiki Audit Trails Events: PageDelete

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/internet-store/opencart/console'
+alternate:
+  - href: en/managed-mysql/tutorials/opencart/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an OpenCart online store using the management console

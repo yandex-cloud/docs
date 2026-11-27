@@ -1,6 +1,10 @@
 ---
 title: Managing procedure access in {{ mtr-name }}
 description: Rules define the actions users can perform with custom procedures.
+alternate:
+  - href: en/managed-trino/operations/access-control-procedures.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing procedure access in {{ mtr-name }}

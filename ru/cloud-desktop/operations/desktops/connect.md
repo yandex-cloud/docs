@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cloud-desktop/operations/desktops/connect.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключиться к рабочему столу
 
 Для подключения к [рабочему столу](../../concepts/desktops-and-groups.md) используется [Remote Desktop Protocol](https://ru.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).

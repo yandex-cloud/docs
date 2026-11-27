@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/ymq.md
+    type: text/markdown
+    title: Markdown version
+---
 # x-yc-apigateway-integration:cloud_ymq extension
 
 `x-yc-apigateway-integration:cloud_ymq` gives you access to {{ message-queue-full-name }} to handle [message queues](../../../message-queue/concepts/queue.md). Currently, only [common queues](../../../message-queue/concepts/queue.md#standard-queues) and the [SendMessage](../../../message-queue/api-ref/message/SendMessage.md) operation are supported.

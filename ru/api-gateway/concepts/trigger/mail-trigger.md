@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/trigger/mail-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для почты, который отправляет сообщения в веб-сокет WebSocket-соединения
 
 [Триггер](../trigger/) для почты отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md), когда на электронную почту приходит письмо. Адрес электронной почты генерируется сервисом автоматически во время создания триггера.

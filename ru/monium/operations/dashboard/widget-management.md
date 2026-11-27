@@ -1,6 +1,10 @@
 ---
 title: Как управлять элементами дашборда в {{ monitoring-full-name }}
 description: Из статьи вы узнаете, как управлять элементами дашборда в {{ monitoring-name }}.
+alternate:
+  - href: ru/monium/operations/dashboard/widget-management.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление виджетами

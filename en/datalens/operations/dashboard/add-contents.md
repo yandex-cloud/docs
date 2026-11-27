@@ -1,6 +1,10 @@
 ---
 title: How to add a table of contents to a dashboard in {{ datalens-full-name }}
 description: Follow this guide to add a table of contents to a dashboard in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/add-contents.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a table of contents to a dashboard in {{ datalens-full-name }}

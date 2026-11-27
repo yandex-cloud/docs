@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error: ERR.DS_API.CONNECTION.MIGRATION.NO_MATCHING_CONNECTION'
 description: This page describes the `No matching connection found in {{ connection-manager-name }}` {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-NO_MATCHING_CONNECTION.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] found no matching connection in {{ connection-manager-name }}

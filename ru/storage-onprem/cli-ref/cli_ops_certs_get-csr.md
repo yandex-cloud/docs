@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_certs_get-csr.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops certs get-csr
 
 Print PEM for a CSR by name

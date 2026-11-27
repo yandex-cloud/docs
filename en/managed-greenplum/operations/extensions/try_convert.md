@@ -1,6 +1,10 @@
 ---
 title: Using try_convert in {{ mgp-name }}
 description: How to use try_convert in {{ mgp-full-name }}.
+alternate:
+  - href: en/managed-greenplum/operations/extensions/try_convert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using try_convert in {{ mgp-name }}

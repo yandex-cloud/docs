@@ -1,6 +1,10 @@
 ---
 title: S3cmd
 description: In this article, you will learn about S3cmd, how to install and configure it, explore some of its features and examples of operations.
+alternate:
+  - href: en/storage/tools/s3cmd.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # S3cmd

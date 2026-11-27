@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ org-full-name }}
 description: В разделе представлена история изменений сервиса {{ org-full-name }}.
+alternate:
+  - href: ru/organization/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

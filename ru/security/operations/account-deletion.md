@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/security/operations/account-deletion.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удаление аккаунта на Яндексе из организации
 
 Данная инструкция описывает, как удалить привилегированный [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport) с ролью `organization-manager.organizations.owner` из [организации](../../organization/).

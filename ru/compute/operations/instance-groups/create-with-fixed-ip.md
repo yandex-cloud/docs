@@ -1,6 +1,10 @@
 ---
 title: Создать группу виртуальных машин с фиксированными IP-адресами
 description: Следуя данной инструкции, вы сможете создать группу виртуальных машин с фиксированными IP-адресами.
+alternate:
+  - href: ru/compute/operations/instance-groups/create-with-fixed-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать группу виртуальных машин с фиксированными IP-адресами

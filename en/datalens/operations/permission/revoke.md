@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/operations/permission/revoke.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting access permissions
 
 Only a user with the `Administration` access can delete permissions for an object or folder: either by revoking a permission directly or by denying a request.

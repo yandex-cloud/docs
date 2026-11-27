@@ -1,6 +1,10 @@
 ---
 title: Интеграция с хранилищем {{ objstorage-full-name }} в {{ mgl-full-name }}
 description: Из статьи вы узнаете об интеграции с S3-хранилищем {{ objstorage-full-name }} в {{ mgl-full-name }}.
+alternate:
+  - href: ru/managed-gitlab/concepts/s3-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Интеграция с хранилищем {{ objstorage-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Working with the Cloud Security Posture Management ({{ cspm-name }}) dashboard in {{ sd-full-name }}
 description: Guide on working with the Cloud Security Posture Management ({{ cspm-name }}) interface in {{ sd-name }}.
+alternate:
+  - href: en/security-deck/operations/cspm/use-cspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with the {{ cspm-name }} dashboard

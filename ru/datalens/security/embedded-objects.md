@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/security/embedded-objects.md
+    type: text/markdown
+    title: Markdown version
+---
 # Встраивание публичных объектов
 
 Вы можете встроить [опубликованные](../concepts/datalens-public.md) дашборды и чарты на сайт или в приложение с помощью элемента `iframe`.

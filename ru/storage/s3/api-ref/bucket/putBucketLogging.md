@@ -1,6 +1,10 @@
 ---
 title: Метод putBucketLogging
 description: Из статьи вы узнаете, что такое метод putBucketLogging, как выглядит его запрос и ответ.
+alternate:
+  - href: ru/storage/s3/api-ref/bucket/putBucketLogging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, REST совместимый с Amazon S3: PutBucketLogging

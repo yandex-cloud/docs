@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Logging
+alternate:
+  - href: ru/terraform/resources/function_trigger.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_function_trigger (Resource)

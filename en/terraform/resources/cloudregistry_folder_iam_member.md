@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Registry
+alternate:
+  - href: en/terraform/resources/cloudregistry_folder_iam_member.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cloudregistry_folder_iam_member (Resource)

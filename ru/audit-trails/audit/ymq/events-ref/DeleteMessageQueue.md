@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ymq/events-ref/DeleteMessageQueue.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Message Queue Audit Trails Events: DeleteMessageQueue

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_tenants_get.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli tenants get
 
 Get tenant

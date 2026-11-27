@@ -1,6 +1,10 @@
 ---
 title: Нейроаналитик в отчете
 description: Из статьи вы узнаете, что такое Нейроаналитик в отчете и как ею воспользоваться.
+alternate:
+  - href: ru/datalens/reports/insights.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Нейроаналитик в отчете

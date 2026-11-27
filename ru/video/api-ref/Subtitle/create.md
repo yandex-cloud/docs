@@ -49,6 +49,10 @@ apiPlayground:
             type: string
         required:
           - filename
+alternate:
+  - href: ru/video/api-ref/Subtitle/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Subtitle.Create

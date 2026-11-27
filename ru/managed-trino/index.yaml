@@ -14,6 +14,10 @@ meta:
     - keyword: Трино движок
     - keyword: SQL-движок
     - keyword: '{{ TR }} в облаке'
+  alternate:
+    - href: ru/managed-trino/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Managed Service for Trino

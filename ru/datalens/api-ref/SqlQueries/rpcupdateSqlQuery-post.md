@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/SqlQueries/rpcupdateSqlQuery-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Update SQL query

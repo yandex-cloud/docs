@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/api-gateway/apigateway/api-ref/ApiGateway/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Gateway Service, REST: ApiGateway.UpdateAccessBindings

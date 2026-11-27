@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/external-tables.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with PXF
 
 The [{{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/intro_pxf.html) (PXF) protocol is used to access data in external databases.

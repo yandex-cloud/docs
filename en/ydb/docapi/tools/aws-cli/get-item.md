@@ -1,6 +1,10 @@
 ---
 title: How to read data from a table in {{ ydb-full-name }}
 description: Follow this guide to read data from a table.
+alternate:
+  - href: en/ydb/docapi/tools/aws-cli/get-item.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reading data from a table

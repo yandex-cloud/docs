@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/resource-manager/api-ref/Cloud/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API, REST: Cloud.Get

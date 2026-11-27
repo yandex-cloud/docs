@@ -1,6 +1,10 @@
 ---
 title: Как настроить отображение пустых (null) значений в чарте {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете настроить отображение пустых (null) значений в чарте {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/chart/chart-null-settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка отображения пустых (null) значений в чарте {{ datalens-full-name }}

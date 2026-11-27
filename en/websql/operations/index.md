@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ websql-full-name }}
 description: This section contains step-by-step guides for {{ websql-name }}.
+alternate:
+  - href: en/websql/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ websql-full-name }}

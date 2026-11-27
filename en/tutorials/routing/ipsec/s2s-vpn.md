@@ -9,6 +9,10 @@ keywords:
   - site‑to‑site VPN
   - S2S VPN
   - strongSwan VPN
+alternate:
+  - href: en/tutorials/routing/ipsec/s2s-vpn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [s2s-vpn](../../../_tutorials/infrastructure/ipsec/s2s-vpn.md) %}

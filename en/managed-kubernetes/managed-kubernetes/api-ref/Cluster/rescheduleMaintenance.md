@@ -33,6 +33,10 @@ apiPlayground:
         - delayedUntil
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/managed-kubernetes/managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Services for Kubernetes API, REST: Cluster.RescheduleMaintenance

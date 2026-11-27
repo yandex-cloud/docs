@@ -1,6 +1,10 @@
 ---
 title: '{{ PG }} cluster maintenance'
 description: Follow this guide to view the {{ PG }} cluster’s scheduled and completed maintenance jobs and schedule a maintenance window.
+alternate:
+  - href: en/managed-postgresql/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ PG }} cluster maintenance

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/ymq-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a trigger for {{ message-queue-name }} that sends messages to a container in {{ serverless-containers-name }}
 
 Create a [trigger for a {{ message-queue-short-name }}](../concepts/trigger/ymq-trigger.md) and process messages using a [container](../concepts/container.md) in {{ serverless-containers-name }}.

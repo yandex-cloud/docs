@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ dataproc-full-name }}
 description: This page provides a list of step-by-step guides for {{ dataproc-name }}.
+alternate:
+  - href: en/data-proc/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ dataproc-name }}

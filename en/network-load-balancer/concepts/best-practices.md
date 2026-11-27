@@ -1,6 +1,10 @@
 ---
 title: Best practices for using {{ network-load-balancer-full-name }}
 description: This page describes best practices for using {{ network-load-balancer-name }}.
+alternate:
+  - href: en/network-load-balancer/concepts/best-practices.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Best practices

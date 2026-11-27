@@ -1,6 +1,10 @@
 ---
 title: Создать триггер, который передает сообщения в контейнер {{ serverless-containers-name }} из топика реестра или устройства {{ iot-full-name }}
 description: Создайте триггер для топика устройства или реестра {{ iot-name }} для обработки копии сообщений в контейнере {{ serverless-containers-name }}.
+alternate:
+  - href: ru/serverless-containers/operations/iot-core-trigger-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать триггер, который передает сообщения в контейнер {{ serverless-containers-name }} из топика реестра или устройства {{ iot-full-name }}

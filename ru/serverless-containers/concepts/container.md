@@ -1,6 +1,10 @@
 ---
 title: Контейнер в {{ serverless-containers-full-name }}
 description: Из статьи вы узнаете про контейнер, его ревизию и масштабирование.
+alternate:
+  - href: ru/serverless-containers/concepts/container.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Контейнер

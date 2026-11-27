@@ -1,6 +1,10 @@
 ---
 title: Управление резервными копиями в {{ mspqr-name }}
 description: Как создавать резервные копии и восстанавливать кластеры из существующих резервных копий в {{ mspqr-full-name }}.
+alternate:
+  - href: ru/managed-spqr/operations/cluster-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление резервными копиями в {{ mspqr-full-name }}

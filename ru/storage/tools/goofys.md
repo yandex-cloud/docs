@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/tools/goofys.md
+    type: text/markdown
+    title: Markdown version
+---
 # goofys
 
 [goofys](https://github.com/kahing/goofys) — программа для Linux и macOS, позволяющая монтировать бакеты {{ objstorage-name }} через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).

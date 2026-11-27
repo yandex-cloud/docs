@@ -1,6 +1,10 @@
 ---
 title: Резервное копирование Docker-образов
 description: Данные в {{ container-registry-name }} надежно хранятся и реплицируются в инфраструктуре {{ yandex-cloud }}, однако в любой момент вы можете сделать резервные копии Docker-образов. Чтобы выполнить резервное копирование Docker-образов, выполните инструкции описанные в данной статье.
+alternate:
+  - href: ru/container-registry/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Резервное копирование Docker-образов в {{ container-registry-name }}

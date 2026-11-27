@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.US.VALIDATION_FAILED
 description: 'На странице приведено описание ошибки {{ datalens-full-name }} Invalid input data: validation failed.'
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-US-VALIDATION_FAILED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Invalid input data: validation failed

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/smartwebsecurity/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ sws-full-name }}
 
 {% include [about-sws](../_includes/smartwebsecurity/about-sws.md) %}

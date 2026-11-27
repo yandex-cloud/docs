@@ -13,6 +13,10 @@ keywords:
   - postbox
   - cloud postbox
   - yandex cloud postbox
+alternate:
+  - href: en/postbox/aws-compatible-api/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to use the Amazon API to access {{ postbox-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/policy/get.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: GetBucketPolicy
 
 Returns the access policy for the specified bucket.

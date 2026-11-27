@@ -1,6 +1,10 @@
 ---
 title: Как настроить права доступа к дашборду в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете настроить права доступа к дашборду.
+alternate:
+  - href: ru/datalens/operations/dashboard/manage-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к дашборду

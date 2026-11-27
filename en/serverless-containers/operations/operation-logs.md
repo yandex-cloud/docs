@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing operations with {{ serverless-containers-name }} resources
 
 The system logs all actions with {{ serverless-containers-name }} resources as a list of operations. Each operation gets an ID.

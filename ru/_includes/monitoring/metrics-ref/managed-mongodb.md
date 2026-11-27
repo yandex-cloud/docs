@@ -2,7 +2,6 @@
 Метрики сервиса {{ mmg-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
 
 
-
 {% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
 Идентификатор кластера задается в метке `resource_id`.

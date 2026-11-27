@@ -1,6 +1,10 @@
 ---
 title: Секрет в {{ metadata-hub-name }}
 description: Секрет состоит из набора версий, в которых хранятся защищенные данные подключения. Версия содержит наборы ключей и значений.
+alternate:
+  - href: ru/metadata-hub/concepts/secret.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Секрет

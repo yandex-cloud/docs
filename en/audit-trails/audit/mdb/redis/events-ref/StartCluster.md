@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/mdb/redis/events-ref/StartCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ValKey Audit Trails Events: StartCluster

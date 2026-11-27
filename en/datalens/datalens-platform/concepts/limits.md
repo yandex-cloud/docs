@@ -2,6 +2,10 @@
 title: '{{ datalens-platform-full-name }} quotas and limits'
 description: Learn about the quotas and limits that apply to {{ TR }} and {{ SPRK }} clusters in {{ datalens-platform-short-name }}, how to check your current quotas, and how to request an increase.
 editable: false
+alternate:
+  - href: en/datalens/datalens-platform/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-platform-full-name }} quotas and limits

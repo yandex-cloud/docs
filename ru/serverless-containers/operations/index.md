@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ serverless-containers-full-name }}
 description: Из статьи вы узнаете, как работать с управляемым сервисом {{ serverless-containers-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/serverless-containers/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все инструкции для {{ serverless-containers-name }}

@@ -1,6 +1,10 @@
 ---
 title: Viewing function scaling settings
 description: Follow this guide to view function scaling settings.
+alternate:
+  - href: en/functions/operations/function/scaling-settings-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing function scaling settings

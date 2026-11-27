@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/object/getobjectmeta.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: HeadObject
 
 Returns object metadata.

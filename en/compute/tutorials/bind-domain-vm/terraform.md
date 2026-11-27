@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/bind-domain-vm/terraform'
+alternate:
+  - href: en/compute/tutorials/bind-domain-vm/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning a domain name to a web server VM with {{ TF }}

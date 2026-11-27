@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/ymq.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение x-yc-apigateway-integration:cloud_ymq
 
 Расширение `x-yc-apigateway-integration:cloud_ymq` позволяет обращаться к {{ message-queue-full-name }} для работы с [очередями сообщений](../../../message-queue/concepts/queue.md). На данный момент поддерживаются только [стандартные очереди](../../../message-queue/concepts/queue.md#standard-queues) и операция [SendMessage](../../../message-queue/api-ref/message/SendMessage.md).

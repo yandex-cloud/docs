@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ console-full-name }}
 description: Следуя данной инструкции, вы сможете настроить консоль управления.
+alternate:
+  - href: ru/console/quickstart/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ console-full-name }}

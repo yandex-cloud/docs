@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/job/create-hive/
+alternate:
+  - href: ru/data-proc/cli-ref/job/create-hive.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dataproc job create-hive

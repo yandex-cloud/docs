@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.CHYT.CLIQUE.INVALID_GUID
 description: На странице приведено описание ошибки {{ datalens-full-name }} Не удалось распарсить название клики.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-INVALID_GUID.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Не удалось распарсить название клики

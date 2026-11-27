@@ -1,6 +1,10 @@
 ---
 title: Как создать резервную копию виртуальной машины или сервера в {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете создать резервную копию виртуальной машины или сервера в {{ backup-full-name }}.
+alternate:
+  - href: ru/backup/operations/backup-vm/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать резервную копию защищаемого ресурса

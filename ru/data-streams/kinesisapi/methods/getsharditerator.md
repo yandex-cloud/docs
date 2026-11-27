@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-streams/kinesisapi/methods/getsharditerator.md
+    type: text/markdown
+    title: Markdown version
+---
 # GetShardIterator
 
 Возвращает итератор [сегмента](../../concepts/glossary.md#shard) потока.

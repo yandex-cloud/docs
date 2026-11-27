@@ -1,6 +1,10 @@
 ---
 title: 'VideoSurface: {{ video-full-name }} player SDK for iOS'
 description: Displaying video with VideoSurface in the {{ video-full-name }} player SDK for iOS.
+alternate:
+  - href: en/video/sdk/CloudVideoPlayerSDK/VideoSurface.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # VideoSurface

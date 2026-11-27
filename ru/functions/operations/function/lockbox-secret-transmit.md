@@ -1,6 +1,10 @@
 ---
 title: Как передать секреты {{ lockbox-name }} в функцию
 description: Следуя данной инструкции, вы сможете передать секреты {{ lockbox-name }} в функцию.
+alternate:
+  - href: ru/functions/operations/function/lockbox-secret-transmit.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передать секреты {{ lockbox-name }} в функцию

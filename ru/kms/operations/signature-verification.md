@@ -1,6 +1,10 @@
 ---
 title: Как создать электронную подпись
 description: Следуя данной инструкции, вы сможете создать электронную подпись.
+alternate:
+  - href: ru/kms/operations/signature-verification.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Электронная подпись и проверка подписи по хешу данных

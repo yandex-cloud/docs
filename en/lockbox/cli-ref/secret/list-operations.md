@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/list-operations/
+alternate:
+  - href: en/lockbox/cli-ref/secret/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc lockbox secret list-operations

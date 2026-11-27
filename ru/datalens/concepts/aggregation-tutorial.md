@@ -1,6 +1,10 @@
 ---
 title: Агрегации в {{ datalens-full-name }}
 description: В данной статье описано, как работают агрегация и группировка данных в {{ datalens-full-name }}, как правильно формулировать выражения с агрегациями.
+alternate:
+  - href: ru/datalens/concepts/aggregation-tutorial.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Агрегации в {{ datalens-full-name }}

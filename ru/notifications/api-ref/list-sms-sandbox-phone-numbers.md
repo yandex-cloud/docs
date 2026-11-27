@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/list-sms-sandbox-phone-numbers.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие ListSMSSandboxPhoneNumbers
 
 Получает список тестовый телефонных номеров для канала SMS-уведомлений в [песочнице](../concepts/sms.md#sandbox).

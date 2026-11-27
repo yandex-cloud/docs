@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/organization/api-ref/Group/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: Group

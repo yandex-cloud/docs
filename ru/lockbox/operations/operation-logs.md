@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/lockbox/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Посмотреть операции с секретом
 
 Все действия с ресурсами сервиса {{ lockbox-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.

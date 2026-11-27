@@ -100,6 +100,10 @@ apiPlayground:
             $ref: '#/definitions/MDBPostgreSQL'
         required:
           - type
+alternate:
+  - href: ru/managed-spqr/api-ref/Cluster/addHosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR API, REST: Cluster.AddHosts

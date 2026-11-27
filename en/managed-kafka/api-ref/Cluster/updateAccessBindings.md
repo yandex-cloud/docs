@@ -119,6 +119,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/managed-kafka/api-ref/Cluster/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, REST: Cluster.UpdateAccessBindings

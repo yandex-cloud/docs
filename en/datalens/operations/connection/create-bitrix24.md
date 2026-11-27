@@ -1,6 +1,10 @@
 ---
 title: How to create a Bitrix24 connection
 description: Follow this guide to create a Bitrix24 connection.
+alternate:
+  - href: en/datalens/operations/connection/create-bitrix24.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a Bitrix24 connection

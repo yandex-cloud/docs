@@ -1,6 +1,10 @@
 ---
 title: Deleting a rule from an ARL profile
 description: Follow this guide to delete a rule from an ARL profile.
+alternate:
+  - href: en/smartwebsecurity/operations/arl-rule-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a rule from an ARL profile

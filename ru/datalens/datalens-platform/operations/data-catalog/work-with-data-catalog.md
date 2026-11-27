@@ -1,6 +1,10 @@
 ---
 title: Работа с метаданными в {{ datalens-platform-full-name }}
 description: Следуя данной инструкции, вы сможете просмотреть метаданные, отсортировать их, посмотреть источник загрузки и связи с процессами обработки данных в {{ datalens-platform-full-name }}
+alternate:
+  - href: ru/datalens/datalens-platform/operations/data-catalog/work-with-data-catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотр метаданных

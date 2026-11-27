@@ -1,6 +1,10 @@
 ---
 title: Deleting a tag for metadata
 description: Follow this guide to delete a tag for metadata in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/delete-tag.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a tag

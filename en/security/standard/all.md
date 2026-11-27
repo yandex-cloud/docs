@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }} infrastructure security standard: All sections on one page'
 description: This document lists sections with recommendations on technical protection measures and helps you choose information security measures when deploying information systems in {{ yandex-cloud }}.
+alternate:
+  - href: en/security/standard/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [overview](../../_includes/security/standard/overview.md) %}

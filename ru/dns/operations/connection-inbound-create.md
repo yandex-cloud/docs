@@ -1,6 +1,10 @@
 ---
 title: Как создать входящее DNS-подключение в {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете создать входящее DNS-подключение.
+alternate:
+  - href: ru/dns/operations/connection-inbound-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать входящее DNS-подключение

@@ -1,6 +1,10 @@
 ---
 title: Асимметричное шифрование в {{ kms-short-name }}
 description: В данной статье описаны особенности асимметричного шифрования в {{ kms-short-name }}.
+alternate:
+  - href: ru/kms/concepts/asymmetric-encryption.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Асимметричное шифрование в {{ kms-short-name }}

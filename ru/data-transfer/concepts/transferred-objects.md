@@ -1,6 +1,10 @@
 ---
 title: Объекты, переносимые трансфером
 description: '{{ data-transfer-full-name }} позволяет легко переносить данные таблиц, различные объекты и представления. Список переносимых объектов зависит от типа трансфера и используемых эндпоинтов.'
+alternate:
+  - href: ru/data-transfer/concepts/transferred-objects.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Объекты, переносимые трансфером
 

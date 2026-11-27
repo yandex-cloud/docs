@@ -1,6 +1,10 @@
 ---
 title: Инструкция по изменению настроек кластера {{ MY }} в {{ mmy-full-name }}
 description: Из статьи вы узнаете, как изменить настройки кластера {{ MY }}.
+alternate:
+  - href: ru/managed-mysql/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек кластера {{ MY }}

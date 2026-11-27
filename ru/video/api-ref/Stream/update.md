@@ -131,6 +131,10 @@ apiPlayground:
         required:
           - startTime
           - finishTime
+alternate:
+  - href: ru/video/api-ref/Stream/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Stream.Update

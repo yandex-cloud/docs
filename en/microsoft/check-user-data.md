@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/microsoft/check-user-data.md
+    type: text/markdown
+    title: Markdown version
+---
 # Requirements for {{ yandex-cloud }} account
 
 One of the conditions of using Microsoft licensed products is providing additional user details. If they are incorrect or not given in your billing account, we'll have to discontinue access to all Microsoft services and licenses.

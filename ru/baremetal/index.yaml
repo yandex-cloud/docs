@@ -70,6 +70,10 @@ meta:
     - keyword: сервер под заказ
     - keyword: custom server
     - keyword: конфигуратор
+  alternate:
+    - href: ru/baremetal/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Арендуйте свой первый сервер

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/video/concepts/videos.md
+    type: text/markdown
+    title: Markdown version
+---
 # Видео в сервисе {{ video-name }}
 
 С помощью {{ video-name }} вы можете загружать на [канал](index.md#channels) _видео_ для дальнейшей публикации на внешних ресурсах.

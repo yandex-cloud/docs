@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/analysis/search-events-query'
+alternate:
+  - href: ru/query/tutorials/search-events-query.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поиск событий {{ yandex-cloud }} в {{ yq-name }}

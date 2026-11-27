@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/video/api-ref/grpc/Episode/download.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, gRPC: EpisodeService.Download

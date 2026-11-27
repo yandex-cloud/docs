@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_yarl_set_handler.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli yarl set handler
 
 Set a per-handler operation quota

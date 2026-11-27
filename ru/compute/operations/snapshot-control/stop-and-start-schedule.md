@@ -1,6 +1,10 @@
 ---
 title: Как остановить и запустить расписание, по которому создаются снимки дисков {{ compute-full-name }}
 description: Из статьи вы узнаете, как остановить и запустить расписание, по которому создаются снимки дисков {{ compute-name }}.
+alternate:
+  - href: ru/compute/operations/snapshot-control/stop-and-start-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Остановить и запустить расписание, по которому создаются снимки дисков

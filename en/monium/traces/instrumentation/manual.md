@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/traces/instrumentation/manual.md
+    type: text/markdown
+    title: Markdown version
+---
 # Manual instrumentation
 
 With manual instrumentation, you have full control over which operations to trace, and which attributes and events to record. You can use it to create spans in code sections not covered by [auto-instrumentation](auto.md): business logic, custom handlers, internal calls. Manual instrumentation uses the [OpenTelemetry SDK](https://opentelemetry.io/docs/languages/).

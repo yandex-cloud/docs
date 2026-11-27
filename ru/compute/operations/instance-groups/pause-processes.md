@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/instance-groups/pause-processes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Приостановка процессов в группе виртуальных машин
 
 Если вы временно хотите отключить процессы [обновления](../../concepts/instance-groups/deploy/), [автоматического восстановления](../../concepts/instance-groups/autohealing.md) и [масштабирования](../../concepts/instance-groups/policies/scale-policy.md) ВМ в группе, приостановите их. Сами ВМ при этом продолжат работу.

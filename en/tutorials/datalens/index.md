@@ -1,6 +1,10 @@
 ---
 title: Data analysis and visualization tutorials
 description: This page presents a list of tutorials on data analysis and visualization using {{ datalens-full-name }}.
+alternate:
+  - href: en/tutorials/datalens/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data analysis and visualization tutorials

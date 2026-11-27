@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/baremetal/api-ref/grpc/PrivateSubnet/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, gRPC: PrivateSubnetService.Update

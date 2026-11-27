@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/getting-invoices-when-paying-by-card.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как получать чеки при совершении платежа с банковской карты
 
 

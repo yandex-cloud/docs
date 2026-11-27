@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/placement-group/add-labels/
+alternate:
+  - href: ru/compute/cli-ref/placement-group/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute placement-group add-labels

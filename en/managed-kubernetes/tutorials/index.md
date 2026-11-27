@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ managed-k8s-name }} tutorials
 
 You can use {{ managed-k8s-name }} to deploy, scale, and manage your containerized applications in the {{ yandex-cloud }} infrastructure.

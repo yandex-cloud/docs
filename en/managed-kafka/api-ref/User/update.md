@@ -101,6 +101,10 @@ apiPlayground:
             type: array
             items:
               type: string
+alternate:
+  - href: en/managed-kafka/api-ref/User/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, REST: User.Update

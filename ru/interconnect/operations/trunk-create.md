@@ -1,6 +1,10 @@
 ---
 title: Как создать транковое подключение в {{ interconnect-name }}
 description: Следуя этой инструкции, вы сможете создать транковое подключение в {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/operations/trunk-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать транковое подключение

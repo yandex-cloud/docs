@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # О сервисе {{ ml-platform-name }}
 
 {{ ml-platform-full-name }} — среда для ML-разработки полного цикла. {{ ml-platform-full-name }} предоставляет широкие возможности для простого взаимодействия с сервисами {{ yandex-cloud }}.

@@ -1,6 +1,10 @@
 ---
 title: Docker image in {{ cloud-registry-full-name }}
 description: 'A Docker image is a template for creating Docker containers. It is an executable package that comes with everything you need to run an application: code, runtime environment, libraries, environment variables, and configuration files.'
+alternate:
+  - href: en/cloud-registry/concepts/artifacts/docker.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Docker image

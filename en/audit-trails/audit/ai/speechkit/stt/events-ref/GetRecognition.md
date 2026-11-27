@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/ai/speechkit/stt/events-ref/GetRecognition.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SpeechKit Audit Trails Events: GetRecognition

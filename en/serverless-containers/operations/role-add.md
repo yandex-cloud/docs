@@ -1,6 +1,10 @@
 ---
 title: Assigning roles for a container
 description: Follow this guide to assign roles for a container.
+alternate:
+  - href: en/serverless-containers/operations/role-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning roles for a container

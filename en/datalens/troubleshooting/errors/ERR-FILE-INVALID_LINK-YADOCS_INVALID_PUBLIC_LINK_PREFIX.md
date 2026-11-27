@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.FILE.INVALID_LINK.YADOCS_INVALID_PUBLIC_LINK_PREFIX'
 description: This page describes the Incorrect Yandex Documents link format {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-FILE-INVALID_LINK-YADOCS_INVALID_PUBLIC_LINK_PREFIX.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Incorrect Yandex Documents link format

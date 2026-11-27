@@ -1,6 +1,10 @@
 ---
 title: Как изменить плейлист в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете изменить плейлист в сервисе {{ video-name }}.
+alternate:
+  - href: ru/video/operations/playlists/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить плейлист

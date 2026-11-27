@@ -28,6 +28,10 @@ meta:
     - keyword: How to connect to a {{ yandex-cloud }} cluster
     - keyword: How to connect to a public database
     - keyword: Service for working with SQL commands
+  alternate:
+    - href: en/websql/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Connect to a database

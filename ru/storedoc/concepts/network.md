@@ -1,6 +1,10 @@
 ---
 title: Сеть в {{ mmg-full-name }}
 description: Из статьи вы узнаете об основных настройках сетевого интерфейса кластера {{ SD }}.
+alternate:
+  - href: ru/storedoc/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сеть в {{ mmg-name }}

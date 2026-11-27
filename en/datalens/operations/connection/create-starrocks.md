@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ SR }} connection in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to connect to {{ SR }} in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-starrocks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a connection to {{ SR }} from {{ datalens-full-name }}

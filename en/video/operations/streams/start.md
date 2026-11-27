@@ -1,6 +1,10 @@
 ---
 title: How to start a broadcast in {{ video-full-name }}
 description: Follow this guide to start a {{ video-full-name }} broadcast.
+alternate:
+  - href: en/video/operations/streams/start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Starting a broadcast

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/backup/delete/
+alternate:
+  - href: en/managed-greenplum/cli-ref/backup/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-greenplum backup delete

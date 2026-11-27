@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/kms/asymmetricsignature/api-ref/grpc/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, gRPC: OperationService

@@ -1,6 +1,10 @@
 ---
 title: How to cancel a server lease in {{ baremetal-full-name }}
 description: In this tutorial, you will learn how to cancel a server lease in {{ baremetal-full-name }}.
+alternate:
+  - href: en/baremetal/operations/servers/server-lease-cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Canceling a server rent

@@ -1,6 +1,10 @@
 ---
 title: Creating an {{ AF }} cluster
 description: How to create an {{ AF }} cluster with a Git or S3 source of DAG files.
+alternate:
+  - href: en/stackland/operations/airflow/create-cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an {{ AF }} cluster

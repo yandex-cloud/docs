@@ -1,5 +1,9 @@
 ---
 subcategory: Compute Cloud
+alternate:
+  - href: ru/terraform/resources/compute_filesystem_iam_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_compute_filesystem_iam_binding (Resource)

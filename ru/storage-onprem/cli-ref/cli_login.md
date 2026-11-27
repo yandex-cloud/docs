@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_login.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli login
 
 authentication actions

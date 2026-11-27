@@ -69,6 +69,10 @@ apiPlayground:
           maxProperties: 64
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/organization/api-ref/Organization/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: Organization.Update

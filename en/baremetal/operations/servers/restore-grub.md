@@ -1,6 +1,10 @@
 ---
 title: How to restore the OS bootloader on a {{ baremetal-full-name }} server
 description: In this tutorial, you will learn how to restore the Linux bootloader on a {{ baremetal-name }} legacy BIOS server using the Rescue CD.
+alternate:
+  - href: en/baremetal/operations/servers/restore-grub.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Restoring the OS bootloader

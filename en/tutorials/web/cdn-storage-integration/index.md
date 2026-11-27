@@ -1,6 +1,10 @@
 ---
 title: Integrating an L7 load balancer with {{ cdn-full-name }} and {{ objstorage-full-name }}
 description: In this tutorial, you will set up an L7 {{ alb-full-name }} that uses a {{ objstorage-full-name }} bucket as a backend and receives user requests via {{ cdn-full-name }} to reduce content delivery time.
+alternate:
+  - href: en/tutorials/web/cdn-storage-integration/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [cdn-storage-integration](../../../_tutorials/infrastructure/cdn-storage-integration.md) %}

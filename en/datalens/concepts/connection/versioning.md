@@ -1,6 +1,10 @@
 ---
 title: Connection versioning
 description: Connection versioning means storing the history of connection configuration changes through versions. A list of versions is available to users with the minimum {{ permission-write }} access permissions to the connection.
+alternate:
+  - href: en/datalens/concepts/connection/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Versioning

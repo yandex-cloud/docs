@@ -1,6 +1,10 @@
 ---
 title: Managing access to {{ datalens-full-name }}
 description: In this tutorial, you will learn about {{ datalens-full-name }} access management.
+alternate:
+  - href: en/datalens/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to {{ datalens-full-name }}

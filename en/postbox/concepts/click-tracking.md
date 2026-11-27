@@ -1,6 +1,10 @@
 ---
 title: Click tracking
 description: In {{ postbox-full-name }}, you can track clicks in emails. As soon as the recipient clicks a link in an email, {{ postbox-name }} notifies you accordingly.
+alternate:
+  - href: en/postbox/concepts/click-tracking.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Click tracking

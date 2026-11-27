@@ -1,6 +1,10 @@
 ---
 title: Подключение к {{ ycdr-full-name }}
 description: 'Следуя этой инструкции, вы подключитесь к {{ ycdr-full-name }}: создадите приемник алертов, передадите необходимые данные и настроите роли.'
+alternate:
+  - href: ru/ycdr/operations/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к {{ ycdr-full-name }}

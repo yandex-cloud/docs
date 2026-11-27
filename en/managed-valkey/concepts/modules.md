@@ -1,6 +1,10 @@
 ---
 title: '{{ VLK }} modules'
 description: 'In {{ mrd-name }}, you can use modules ({{ VLK }} kernel extensions). Modules provide features to solve modern tasks using high-loaded services and AI platforms: vector search, effective storage of JSON data structures, and scalable probabilistic filters. Read this article to learn more about modules and their features.'
+alternate:
+  - href: en/managed-valkey/concepts/modules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ VLK }} modules

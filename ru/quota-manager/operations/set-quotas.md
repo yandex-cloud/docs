@@ -1,6 +1,10 @@
 ---
 title: Как изменить квоты
 description: Следуя данной инструкции, вы сможете запросить изменение квоты, а также узнать статус запроса и отменить его.
+alternate:
+  - href: ru/quota-manager/operations/set-quotas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить квоты

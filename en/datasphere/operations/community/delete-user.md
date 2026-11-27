@@ -1,6 +1,10 @@
 ---
 title: How to remove a user from a community
 description: In this tutorial, you will learn how to remove a user from a community in {{ ml-platform-name }}.
+alternate:
+  - href: en/datasphere/operations/community/delete-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Removing a user from a community

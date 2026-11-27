@@ -1,6 +1,10 @@
 ---
 title: Getting information about {{ yandex-cloud }} service statuses
 description: In this guide, you will learn how to get information about {{ yandex-cloud }} service statuses.
+alternate:
+  - href: en/iam/operations/service-control/list-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting service statuses

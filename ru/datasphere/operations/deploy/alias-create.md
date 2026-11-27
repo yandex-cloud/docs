@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/deploy/alias-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать алиас
 
 Вы можете распределять нагрузку между [нодами](../../concepts/deploy/index.md#node) и обновлять развернутые сервисы во время работы, используя [алиасы](../../concepts/resource-model.md#resources).

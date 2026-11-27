@@ -1,6 +1,10 @@
 ---
 title: Create an account
 description: Follow this guide to create a customer account.
+alternate:
+  - href: en/partner/operations/create-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Create an account

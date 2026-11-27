@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/storage/create-bucket.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать бакет
 
 Если у вас есть [проект](../projects/create-project.md), вы можете создать в нем [бакет](../../concepts/components/storage.md).

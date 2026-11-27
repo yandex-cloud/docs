@@ -241,37 +241,37 @@ blocks:
 
 | Услуга                                                                                                          | Цена      | Ед. тарификации | Действует с    | Действует до |
 | --------------------------------------------------------------------------------------------------------------- | --------- | --------------- | -------------- | ------------ |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, 100% vCPU                    | 3,76 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, RAM                          | 1,13 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU                             | 1,93 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год              | 1,51 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 6 месяцев          | 1,64 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, RAM                                   | 0,807 ₽   | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 1 год                    | 0,6295 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 6 месяцев                | 0,6859 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU                    | 1,93 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год     | 1,28 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, 50% vCPU                     | 1,1244 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM                          | 0,807 ₽   | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 1 год           | 0,535 ₽   | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 6 месяцев       | 0,6859 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake. 100% vCPU, CVoS на 6 месяцев | 1,64 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), 100% vCPU    | 3,1 ₽     | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), RAM          | 0,93 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU                        | 1,93 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год         | 1,51 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев     | 1,64 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, 50% vCPU                         | 1,1244 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, RAM                              | 0,807 ₽   | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 1 год               | 0,6294 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев           | 0,6859 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Публичный IP-адрес                                                              | 0,2766 ₽  | IP-адрес × час  | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Резервные копии сверх размера хранилища                                         | 0,00307 ₽ | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)                          | 0,0365 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Хранилище на локальных SSD-дисках                                               | 0,0198 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Хранилище на нереплицируемых SSD-дисках                                         | 0,0147 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Хранилище на сетевых HDD-дисках                                                 | 0,0052 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for OpenSearch. Хранилище на сетевых SSD-дисках                                                 | 0,0218 ₽  | ГБ × час        | 30 апреля 2026 | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, 100% vCPU                    | 3,76 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, RAM                          | 1,13 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU                             | 1,93 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год              | 1,51 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 6 месяцев          | 1,64 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, RAM                                   | 0,807 ₽   | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 1 год                    | 0,6295 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 6 месяцев                | 0,6859 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU                    | 1,93 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год     | 1,28 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, 50% vCPU                     | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM                          | 0,807 ₽   | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 1 год           | 0,535 ₽   | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 6 месяцев       | 0,6859 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Cascade Lake. 100% vCPU, CVoS на 6 месяцев | 1,64 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), 100% vCPU    | 3,1 ₽     | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), RAM          | 0,93 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU                        | 1,93 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год         | 1,51 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев     | 1,64 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, 50% vCPU                         | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, RAM                              | 0,807 ₽   | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 1 год               | 0,6294 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев           | 0,6859 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Публичный IP-адрес                                                              | 0,2766 ₽  | IP-адрес × час  | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Резервные копии сверх размера хранилища                                         | 0,00307 ₽ | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)                          | 0,0365 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Хранилище на локальных SSD-дисках                                               | 0,0198 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Хранилище на нереплицируемых SSD-дисках                                         | 0,0147 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Хранилище на сетевых HDD-дисках                                                 | 0,0052 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for OpenSearch. Хранилище на сетевых SSD-дисках                                                 | 0,0218 ₽  | ГБ × час        | 1 мая 2026     | —            |
 
 
 
@@ -287,7 +287,7 @@ blocks:
 Минимальная единица тарификации — 1 байт.
 
 
-| Услуга                                                    | Цена              | Ед. тарификации | Действует с    | Действует до |
-| --------------------------------------------------------- | ----------------- | --------------- | -------------- | ------------ |
-| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 30 апреля 2026 | —            |
-| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 30 апреля 2026 | —            |
+| Услуга                                                    | Цена              | Ед. тарификации | Действует с | Действует до |
+| --------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
+| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
+| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 1 мая 2026  | —            |

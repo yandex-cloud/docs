@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/maintenance/change-freeze/get/
+alternate:
+  - href: en/managed-valkey/cli-ref/maintenance/change-freeze/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-redis maintenance change-freeze get

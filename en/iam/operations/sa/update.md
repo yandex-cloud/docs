@@ -1,6 +1,10 @@
 ---
 title: Updating a service account
 description: Follow this guide to update a service account.
+alternate:
+  - href: en/iam/operations/sa/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a service account

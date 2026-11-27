@@ -1,6 +1,10 @@
 ---
 title: Получение IAM-токена сервисного аккаунта с помощью функции
 description: Следуя данной инструкции, вы сможете получить IAM-токен сервисного аккаунта с помощью функции.
+alternate:
+  - href: ru/functions/operations/function-sa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение IAM-токена сервисного аккаунта с помощью функции

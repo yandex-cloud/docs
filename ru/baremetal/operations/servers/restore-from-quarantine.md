@@ -1,6 +1,10 @@
 ---
 title: Восстановить сервер из карантина в {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете восстановить сервер из карантина в {{ baremetal-full-name }}.
+alternate:
+  - href: ru/baremetal/operations/servers/restore-from-quarantine.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановить сервер из карантина

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/operations/extensions/pg_cron.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using pg_cron in {{ mpg-name }}
 
 The [pg_cron](https://github.com/citusdata/pg_cron) extension is a job scheduler allowing you to schedule database tasks and run SQL queries directly within a job.

@@ -1,6 +1,10 @@
 ---
 title: Connecting resources you need to back up to {{ backup-name }}
 description: In this article, you will learn what resources can be connected to {{ backup-name }}.
+alternate:
+  - href: en/backup/concepts/vm-connection/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting resources you need to back up to {{ backup-name }}

@@ -5,6 +5,10 @@ keywords:
   - создание кластера {{ SPRK }}
   - кластер {{ SPRK }}
   - '{{ SPRK }}'
+alternate:
+  - href: ru/managed-spark/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ SPRK }}

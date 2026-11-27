@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/unexpected-cheque-received-to-email.md
+    type: text/markdown
+    title: Markdown version
+---
 # Unexpected receipt for an amount missing from the payment history arrived at the email linked to the billing account
 
 

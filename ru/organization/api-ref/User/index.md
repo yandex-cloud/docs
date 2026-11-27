@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/organization/api-ref/User/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: User

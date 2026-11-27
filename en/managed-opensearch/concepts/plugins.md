@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-opensearch/concepts/plugins.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ OS }} plugins
 
 {{ mos-name }} has a number of [pre-installed plugins]({{ os.docs }}/install-and-configure/plugins/#bundled-plugins). When creating or updating a cluster in {{ mos-short-name }}, you can also specify a list of [additional plugins](#opensearch), which will be installed in the cluster automatically.

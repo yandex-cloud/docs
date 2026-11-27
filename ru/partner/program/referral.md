@@ -1,6 +1,10 @@
 ---
 title: Реферальная программа {{ yandex-cloud }}
 description: Реферальная программа позволяет партнерам {{ yandex-cloud }} привлекать новых клиентов и получать вознаграждение.
+alternate:
+  - href: ru/partner/program/referral.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Реферальная программа

@@ -1,6 +1,10 @@
 ---
 title: Expanding a {{ mgp-name }} cluster
 description: How does a cluster expand procedure work in {{ mgp-name }}.
+alternate:
+  - href: en/managed-greenplum/concepts/expand.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Expanding a {{ mgp-name }} cluster

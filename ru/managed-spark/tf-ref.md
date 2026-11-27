@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ msp-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ msp-name }}.
+alternate:
+  - href: ru/managed-spark/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ msp-full-name }}

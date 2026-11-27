@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/concepts/visualization/widget.md
+    type: text/markdown
+    title: Markdown version
+---
 # Widgets
 
 _Widgets_ are dashboard elements that display information as a chart or text.

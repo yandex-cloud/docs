@@ -1,6 +1,10 @@
 ---
 title: Как получить код вставки или ссылку на плейлист в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете получить код вставки или ссылку на плейлист в сервисе {{ video-name }}.
+alternate:
+  - href: ru/video/operations/playlists/get-link.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить код вставки или ссылку на плейлист

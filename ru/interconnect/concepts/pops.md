@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/interconnect/concepts/pops.md
+    type: text/markdown
+    title: Markdown version
+---
 # Точки присутствия
 
 

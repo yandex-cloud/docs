@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/connect/
+alternate:
+  - href: ru/cli/cli-ref/managed-mysql/cli-ref/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mysql connect

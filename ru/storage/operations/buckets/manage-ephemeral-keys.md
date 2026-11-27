@@ -1,6 +1,10 @@
 ---
 title: Получить доступ к бакету с помощью эфемерного ключа доступа {{ iam-full-name }}
 description: Из статьи вы узнаете, как получить доступ к бакету с помощью эфемерного ключа доступа {{ iam-name }} через CLI.
+alternate:
+  - href: ru/storage/operations/buckets/manage-ephemeral-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить доступ к бакету с помощью эфемерного ключа доступа

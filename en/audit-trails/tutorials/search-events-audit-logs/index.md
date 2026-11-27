@@ -1,6 +1,10 @@
 ---
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/security/search-events-audit-logs'
+alternate:
+  - href: en/audit-trails/tutorials/search-events-audit-logs/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Searching for events in audit logs

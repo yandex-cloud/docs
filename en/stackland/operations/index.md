@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Step-by-step guides
 
 ## {{ iam-name }} {#iam}

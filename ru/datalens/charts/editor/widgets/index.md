@@ -1,6 +1,10 @@
 ---
 title: Типы визуализаций в Editor
 description: Из статьи вы узнаете, какие типы визуализаций доступны в Editor.
+alternate:
+  - href: ru/datalens/charts/editor/widgets/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Типы визуализаций

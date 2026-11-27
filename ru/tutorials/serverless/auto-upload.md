@@ -3,6 +3,10 @@ title: Автоматическая загрузка данных в {{ speechse
 description: Настройка автоматической загрузки файлов с диалогами из {{ objstorage-name }} в {{ speechsense-name }} через {{ sw-name }}.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/ml-ai/speechsense/auto-upload'
+alternate:
+  - href: ru/tutorials/serverless/auto-upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Автоматическая загрузка данных в {{ speechsense-full-name }} с помощью {{ sw-full-name }}

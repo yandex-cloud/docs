@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/policies/scale-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Scaling policy
 
 When creating an instance group, you can choose how to increase and decrease the number of instances in the group.

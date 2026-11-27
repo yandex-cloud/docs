@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/data-processing-template.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ dataproc-name }} templates
 
 A {{ dataproc-name }} template is a special resource for rapid deployment of {{ dataproc-name }} clusters in {{ ml-platform-name }} projects. Templates define cluster configuration and can be used by {{ ml-platform-name }} to deploy the cluster multiple times.

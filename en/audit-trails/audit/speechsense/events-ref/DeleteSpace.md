@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/speechsense/events-ref/DeleteSpace.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Talk Analytics Audit Trails Events: DeleteSpace

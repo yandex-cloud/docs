@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/ytsaurus/disable.md
+    type: text/markdown
+    title: Markdown version
+---
 # Отключить {{ yt-name }}
 
 Чтобы отключить компонент [{{ yt-name }}](../../concepts/components/ytsaurus.md), переведите ресурс `YTsaurusConfig` в состояние `spec.enabled: false`.

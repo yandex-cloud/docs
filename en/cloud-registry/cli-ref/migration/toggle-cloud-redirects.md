@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/migration/toggle-cloud-redirects/
+alternate:
+  - href: en/cloud-registry/cli-ref/migration/toggle-cloud-redirects.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry migration toggle-cloud-redirects

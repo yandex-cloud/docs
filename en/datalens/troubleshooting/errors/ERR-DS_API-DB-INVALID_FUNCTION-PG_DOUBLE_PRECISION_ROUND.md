@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.DB.INVALID_FUNCTION.PG_DOUBLE_PRECISION_ROUND'
 description: This page describes the ROUND with precision parameter is not supported for double precision data type in {{ PG }} {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DB-INVALID_FUNCTION-PG_DOUBLE_PRECISION_ROUND.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] ROUND with precision parameter is not supported for double precision data type in {{ PG }}

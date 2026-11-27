@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ sf-full-name }}
 description: Follow this guide to create and set up a function or trigger.
+alternate:
+  - href: en/functions/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ sf-name }}

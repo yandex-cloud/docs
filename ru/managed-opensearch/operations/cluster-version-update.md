@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-opensearch/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обновление версии {{ OS }}
 
 Вы можете обновить кластер {{ mos-name }} до более новой версии {{ OS }}.

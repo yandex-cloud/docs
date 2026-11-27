@@ -1,6 +1,10 @@
 ---
 title: Deleting a stream in the AWS CLI
 description: Follow this guide to delete a stream in the AWS CLI.
+alternate:
+  - href: en/data-streams/operations/aws-cli/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a stream in the AWS CLI

@@ -1,6 +1,10 @@
 ---
 title: Queries against datasets with {{ websql-full-name }}
 description: You can use {{ websql-name }} to send SQL queries to databases in clusters that are data sources for {{ data-catalog-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/web-sql-query.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Queries against datasets with {{ websql-full-name }}

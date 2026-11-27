@@ -1,6 +1,10 @@
 ---
 title: Общие ошибки при запросах к API {{ yds-full-name }}
 description: Узнайте, какие ошибки возникают при запросах к API.
+alternate:
+  - href: ru/data-streams/kinesisapi/common-errors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие ошибки

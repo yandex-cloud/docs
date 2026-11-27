@@ -1,6 +1,10 @@
 ---
 title: AWS SDK for Java
 description: In this article, you will learn what the AWS SDK for Java is, how to install and configure it, and will also see some code examples.
+alternate:
+  - href: en/storage/tools/aws-sdk-java.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AWS SDK for Java

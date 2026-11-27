@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/compute/api-ref/grpc/ReservedInstancePool/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, gRPC: ReservedInstancePoolService.Update

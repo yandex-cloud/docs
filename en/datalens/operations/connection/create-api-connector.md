@@ -1,6 +1,10 @@
 ---
 title: How to create an API Connector connection in {{ datalens-full-name }}
 description: Follow this guide to create an API Connector in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-api-connector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an API Connector connection

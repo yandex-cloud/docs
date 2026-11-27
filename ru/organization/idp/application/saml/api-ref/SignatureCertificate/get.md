@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/idp/application/saml/api-ref/SignatureCertificate/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: SignatureCertificate.Get

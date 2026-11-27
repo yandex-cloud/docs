@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/trino/delete-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a cluster {{ mtr-name }}
 
 If you have an [{{ TR }} cluster](../../concepts/components/trino.md) in your [project](../projects/create-project.md), you can delete it.

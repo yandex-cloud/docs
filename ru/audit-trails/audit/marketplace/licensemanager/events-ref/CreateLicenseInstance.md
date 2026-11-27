@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/marketplace/licensemanager/events-ref/CreateLicenseInstance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace Audit Trails Events: CreateLicenseInstance

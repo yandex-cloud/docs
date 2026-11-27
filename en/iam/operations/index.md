@@ -1,6 +1,10 @@
 ---
 title: How to manage access permissions for {{ yandex-cloud }} resources. Step-by-step guides
 description: Step-by-step guides on how to manage access permissions for{{ yandex-cloud }} resources. In these guides, you will learn how to manage users, service accounts, and identity federations and assign roles to them. We will cover everything you need to know about IAM tokens, authorized keys, and API keys.
+alternate:
+  - href: en/iam/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ iam-name }}

@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} optimization best practices'
 description: This article describes how you can optimize operations with data in {{ datalens-full-name }} to speed up queries and rendering of the data you get.
+alternate:
+  - href: en/datalens/concepts/optimization_recommendations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} optimization best practices

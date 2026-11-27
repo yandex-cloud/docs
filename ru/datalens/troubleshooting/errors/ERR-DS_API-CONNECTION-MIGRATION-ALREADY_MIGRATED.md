@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.CONNECTION.MIGRATION.ALREADY_MIGRATED
 description: На странице приведено описание ошибки {{ datalens-full-name }} Подключение уже мигрировано.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-ALREADY_MIGRATED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Подключение уже мигрировано

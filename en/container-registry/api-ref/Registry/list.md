@@ -48,6 +48,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/container-registry/api-ref/Registry/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: Registry.List

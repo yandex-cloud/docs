@@ -1,6 +1,10 @@
 ---
 title: Получить учетные данные администратора {{ AF }}
 description: Как получить имя пользователя и пароль администратора кластера {{ AF }}
+alternate:
+  - href: ru/stackland/operations/airflow/get-admin-credentials.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить учетные данные администратора {{ AF }}

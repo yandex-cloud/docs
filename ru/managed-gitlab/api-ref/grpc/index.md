@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-gitlab/api-ref/grpc/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Gitlab API: gRPC reference

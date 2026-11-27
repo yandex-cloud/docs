@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/security/operations/outgoing-ddos.md
+    type: text/markdown
+    title: Markdown version
+---
 # What do I do if my infrastructure is being attacked from {{ yandex-cloud }} addresses?
 
 If you notice suspicious activity coming from [{{ yandex-cloud }} IP addresses](../../vpc/concepts/ips.md), notify us immediately.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/projects/publication.md
+    type: text/markdown
+    title: Markdown version
+---
 # Publishing a notebook
 
 You can export a notebook as an HTML report link. The report will include all calculation results and cell explanations so that you can send the link to customers or publish the results on your website.

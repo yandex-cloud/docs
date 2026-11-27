@@ -1,6 +1,10 @@
 ---
 title: Логирование в {{ sws-name }}
 description: Какие данные о запросах, правилах и вердиктах {{ sws-name }} доступны в логах и как использовать их для анализа трафика.
+alternate:
+  - href: ru/smartwebsecurity/concepts/logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Логирование

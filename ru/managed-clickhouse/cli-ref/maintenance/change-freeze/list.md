@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/maintenance/change-freeze/list/
+alternate:
+  - href: ru/managed-clickhouse/cli-ref/maintenance/change-freeze/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse maintenance change-freeze list

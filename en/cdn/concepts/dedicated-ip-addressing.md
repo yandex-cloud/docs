@@ -1,6 +1,10 @@
 ---
 title: Dedicated IP addressing of CDN resources
 description: This section describes dedicated IP addressing of CDN resources, which allows you to get a unique IP address exclusively for your resources.
+alternate:
+  - href: en/cdn/concepts/dedicated-ip-addressing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Dedicated IP addressing of CDN resources

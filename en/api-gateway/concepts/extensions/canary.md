@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/canary.md
+    type: text/markdown
+    title: Markdown version
+---
 # Canary release
 
 [Canary release](https://martinfowler.com/bliki/CanaryRelease.html) is a way to roll out and deploy a new software version for testing purposes. While testing, the current version remains active and the new one is only used in a certain percentage of cases.

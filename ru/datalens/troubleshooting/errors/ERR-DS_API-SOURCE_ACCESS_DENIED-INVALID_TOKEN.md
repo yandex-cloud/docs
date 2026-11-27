@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN
 description: На странице приведено описание ошибки {{ datalens-full-name }} Invalid user token.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Invalid user token

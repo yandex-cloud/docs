@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/SIPHASH64.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SIPHASH64

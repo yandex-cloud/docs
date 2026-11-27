@@ -1,6 +1,10 @@
 ---
 title: How to get a log group ID of an L7 load balancer in {{ alb-full-name }}
 description: In this tutorial, you will learn how to get a log group ID of an L7 balancer.
+alternate:
+  - href: en/application-load-balancer/operations/application-load-balancer-get-log-group-id.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a log group ID of an L7 load balancer

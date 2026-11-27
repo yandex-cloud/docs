@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/community/manage-community-labels.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление метками сообщества
 
 Вы можете добавить или удалить [метку](../../../resource-manager/concepts/labels.md#services) для сообщества. Если у проекта нет собственных меток, он наследует их от сообщества.

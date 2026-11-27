@@ -1,6 +1,10 @@
 ---
 title: Deleting a {{ VLK }} user in {{ mrd-full-name }}
 description: You can delete a {{ VLK }} user in {{ mrd-name }}.
+alternate:
+  - href: en/managed-valkey/operations/user-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a user

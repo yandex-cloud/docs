@@ -1,6 +1,10 @@
 ---
 title: Как создать кластер {{ metastore-full-name }}
 description: Следуя данной инструкции, вы сможете создать кластер {{ metastore-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/metastore/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ metastore-full-name }}
@@ -13,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) в подсети, к которой будет подключен кластер. Это необходимо, чтобы кластер мог взаимодействовать с сервисами {{ yandex-cloud }}.
 1. [Настройте группу безопасности](configure-security-group.md).
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
-1. [Назначьте сервисному аккаунту](../../../iam/operations/sa/assign-role-for-sa.md) роль `{{ roles.metastore.integrationProvider }}`. Она позволяет кластеру от имени сервисного аккаунта [взаимодействовать с сервисами](../../concepts/metastore-impersonation.md) {{ yandex-cloud }}, например с {{ cloud-logging-full-name }} и {{ monitoring-full-name }}.
+1. [Назначьте сервисному аккаунту](../../../iam/operations/sa/assign-role-for-sa.md) роль `{{ roles.metastore.integrationProvider }}`. Она позволяет кластеру от имени сервисного аккаунта [взаимодействовать с сервисами](../../concepts/metastore-impersonation.md) {{ yandex-cloud }}, например с {{ cloud-logging-full-name }} и {{ monium-full-name }}.
 
     Для использования {{ objstorage-name }} дополнительно назначьте сервисному аккаунту кластера [роль](../../../storage/security/index.md#storage-editor) `storage.editor`.
 

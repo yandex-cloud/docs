@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/functions/functions/api-ref/grpc/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, gRPC: OperationService

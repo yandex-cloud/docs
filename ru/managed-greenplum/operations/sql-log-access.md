@@ -9,6 +9,10 @@ keywords:
   - mdb_toolkit gp_log
   - просмотр логов Greenplum SQL
   - просмотр логов Cloudberry SQL
+alternate:
+  - href: ru/managed-greenplum/operations/sql-log-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение логов кластера через SQL

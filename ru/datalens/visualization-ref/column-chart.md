@@ -1,6 +1,10 @@
 ---
 title: Столбчатая диаграмма в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Столбчатая диаграмма.
+alternate:
+  - href: ru/datalens/visualization-ref/column-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Столбчатая диаграмма ![](../../_assets/datalens/column.svg) в {{ datalens-full-name }}

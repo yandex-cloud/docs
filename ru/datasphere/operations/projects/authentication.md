@@ -1,6 +1,10 @@
 ---
 title: Как аутентифицироваться в {{ ds-jobs }}
 description: В статье описаны способы аутентификации в {{ ds-jobs }}.
+alternate:
+  - href: ru/datasphere/operations/projects/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в {{ ds-jobs }}

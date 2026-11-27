@@ -1,6 +1,10 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/mpg-pg-clickhouse-extension'
 noIndex: true
+alternate:
+  - href: en/data-transfer/tutorials/mpg-pg-clickhouse-extension.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Executing analytical queries in {{ mpg-full-name }} with processing in {{ mch-full-name }} using pg_clickhouse and {{ data-transfer-full-name }}

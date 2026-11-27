@@ -1,6 +1,10 @@
 ---
 title: Запись логов в журнал выполнения в {{ sf-full-name }}
 description: Следуя данной инструкции, вы сможете настроить логирование функции.
+alternate:
+  - href: ru/functions/operations/function/logs-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Записать логи в журнал выполнения функции

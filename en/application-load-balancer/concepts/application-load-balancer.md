@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/application-load-balancer/concepts/application-load-balancer.md
+    type: text/markdown
+    title: Markdown version
+---
 # Load balancers
 
 A load balancer is used to receive incoming traffic and transmit it to the backend endpoints. Requests are routed based on the settings of load balancer [listeners](#listener). Settings for transmitting traffic to backends are configured in [backend groups](backend-group.md).

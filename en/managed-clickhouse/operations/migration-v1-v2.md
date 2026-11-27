@@ -1,6 +1,10 @@
 ---
 title: Migrating a {{ mch-full-name }} cluster from v1 to v2
 description: Follow this guide to migrate a {{ mch-name }} cluster from resource v1 to resource v2 of the {{ TF }} provider.
+alternate:
+  - href: en/managed-clickhouse/operations/migration-v1-v2.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating a cluster from v1 to v2

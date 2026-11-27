@@ -1,6 +1,10 @@
 ---
 title: Log group in {{ cloud-logging-full-name }}
 description: A log group is a way of grouping logs of services and custom messages.
+alternate:
+  - href: en/logging/concepts/log-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Log group in {{ cloud-logging-name }}

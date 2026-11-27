@@ -127,6 +127,10 @@ apiPlayground:
         required:
           - startTime
           - finishTime
+alternate:
+  - href: en/video/api-ref/Stream/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Stream.Create

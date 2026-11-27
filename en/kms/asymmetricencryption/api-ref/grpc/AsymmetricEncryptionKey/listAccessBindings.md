@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/kms/asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, gRPC: AsymmetricEncryptionKeyService.ListAccessBindings

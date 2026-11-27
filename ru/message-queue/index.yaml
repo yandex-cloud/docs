@@ -32,6 +32,10 @@ meta:
     - keyword: обмен сообщениями между приложениями в {{ yandex-cloud }}
     - keyword: очереди сообщений
     - keyword: обмен сообщениями между приложениями
+  alternate:
+    - href: ru/message-queue/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте и настройте первую очередь сообщений

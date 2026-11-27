@@ -1,6 +1,10 @@
 ---
 title: Как создать кластер {{ PG }}
 description: Следуя данной инструкции, вы сможете создать кластер {{ PG }} с одним или несколькими хостами базы данных.
+alternate:
+  - href: ru/managed-postgresql/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ PG }}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/components/cli-ref/v0/update/
+alternate:
+  - href: ru/cli/cli-ref/components/cli-ref/v0/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc components v0 update

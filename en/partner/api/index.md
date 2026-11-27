@@ -1,6 +1,10 @@
 ---
 title: Partner portal API
 description: In this article, you will learn what API commands are available to partner program users.
+alternate:
+  - href: en/partner/api/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Partner portal API

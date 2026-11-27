@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/concepts/trigger/telegram-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for Telegram that invokes a {{ serverless-containers-name }} container
 
 A Telegram [trigger](../trigger/) runs a {{ serverless-containers-name }} [container](../container.md) whenever the Telegram bot receives a new update: message, command, button callback, and other events. To receive updates, the trigger uses the Telegram bot's token.

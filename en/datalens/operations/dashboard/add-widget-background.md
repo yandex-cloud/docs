@@ -1,6 +1,10 @@
 ---
 title: How to set up background and transparency for dashboard widgets in {{ datalens-full-name }}
 description: Follow this guide to set up background and transparency for dashboard widgets in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/add-widget-background.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up background and transparency for dashboard widgets in {{ datalens-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Managing {{ PG }} backups
 description: You can create {{ PG }} backups and use the existing backups to restore clusters. Point-in-time recovery (PITR) allows you to restore your cluster’s state to any point in time, starting from when the backup was created.
+alternate:
+  - href: en/managed-postgresql/operations/cluster-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing backups in {{ mpg-name }}

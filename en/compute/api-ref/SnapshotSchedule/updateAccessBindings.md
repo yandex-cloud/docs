@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/compute/api-ref/SnapshotSchedule/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: SnapshotSchedule.UpdateAccessBindings

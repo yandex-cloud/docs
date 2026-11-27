@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/vpc/events-ref/CreateSecurityGroup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud Audit Trails Events: CreateSecurityGroup

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/siem/queries/siem/api-ref/grpc/Session/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM Queries API, gRPC: SessionService.List

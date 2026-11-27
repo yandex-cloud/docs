@@ -1,6 +1,10 @@
 ---
 title: Working with {{ baremetal-full-name }}. Step-by-step guides
 description: In this article, you will learn how to work with {{ baremetal-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/baremetal/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ baremetal-full-name }}

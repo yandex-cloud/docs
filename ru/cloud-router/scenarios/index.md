@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/cloud-router/scenarios/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сценарии использования {{ interconnect-name }} и {{ cr-name }}
 
 ## Сценарии с резервированием {#cr-ha}

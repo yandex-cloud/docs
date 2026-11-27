@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/function/tag-add.md
+    type: text/markdown
+    title: Markdown version
+---
 # Adding a function version tag
 
 A newly created version gets the `$latest` [tag](../../concepts/function.md#) by default.

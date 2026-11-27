@@ -1,6 +1,10 @@
 ---
 title: '{{ network-load-balancer-full-name }} use cases'
 description: Various use cases for {{ network-load-balancer-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/network-load-balancer/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ network-load-balancer-name }} tutorials

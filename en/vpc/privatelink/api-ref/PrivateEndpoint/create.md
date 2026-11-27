@@ -128,6 +128,10 @@ apiPlayground:
       ObjectStorage:
         type: object
         properties: {}
+alternate:
+  - href: en/vpc/privatelink/api-ref/PrivateEndpoint/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: PrivateEndpoint.Create

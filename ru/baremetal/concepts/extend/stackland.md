@@ -1,6 +1,10 @@
 ---
 title: '{{ baremetal-extend-stackland-name }}'
 description: Из статьи вы узнаете о продукте {{ baremetal-extend-stackland-name }}.
+alternate:
+  - href: ru/baremetal/concepts/extend/stackland.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ baremetal-extend-stackland-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
+---
 # Storage in {{ dataproc-name }}
 
 {{ dataproc-name }} enables you to use network storage drives to store subclusters. Network drives are based on network blocks, i.e., virtual drives in the {{ yandex-cloud }} infrastructure.

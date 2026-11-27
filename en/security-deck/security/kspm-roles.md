@@ -1,6 +1,10 @@
 ---
 title: '{{ kspm-full-name }} service roles in {{ sd-full-name }}'
 description: This page lists the service roles required to control access to {{ kspm-full-name }} ({{ kspm-name }}) in {{ sd-name }}.
+alternate:
+  - href: en/security-deck/security/kspm-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ kspm-full-name }} ({{ kspm-name }}) service roles

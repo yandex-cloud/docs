@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/marketplace/concepts/compute-product.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание образа продукта на базе Linux для загрузки в {{ marketplace-name }}
 
 Чтобы добавить в Marketplace продукт для {{ compute-full-name }}, нужно загрузить образ в {{ yandex-cloud }}. Продукты могут быть созданы на базе ОС Linux. Этот раздел поможет создать образ на базе ОС Linux.

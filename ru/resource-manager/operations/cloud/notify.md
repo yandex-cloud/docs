@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/resource-manager/operations/cloud/notify.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получение уведомлений сервисов в облаке
 
 По умолчанию уведомления в облаке получают его владельцы — все пользователи с ролью `resource-manager.clouds.owner`.

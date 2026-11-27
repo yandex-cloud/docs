@@ -1,6 +1,10 @@
 ---
 title: Создание виртуального реестра в {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы сможете создать виртуальный реестр в {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/registry/virtual.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать виртуальный реестр

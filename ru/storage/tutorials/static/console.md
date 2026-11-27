@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/static/console'
+alternate:
+  - href: ru/storage/tutorials/static/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Статический сайт в {{ objstorage-full-name }} с помощью консоли управления

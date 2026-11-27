@@ -1,6 +1,10 @@
 ---
 title: Архивация трейсов
 description: Автоматическое сохранение просмотренных трейсов в архив с расширенным сроком хранения.
+alternate:
+  - href: ru/monium/traces/operations/archiving.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Архивация трейсов

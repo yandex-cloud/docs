@@ -1,6 +1,10 @@
 ---
 title: Настроить права доступа к секрету
 description: Следуя данной инструкции, вы сможете настроить права доступа к секрету.
+alternate:
+  - href: ru/lockbox/operations/secret-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к секрету

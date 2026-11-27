@@ -1,6 +1,10 @@
 ---
 title: Хранение подключений {{ AF }} в {{ lockbox-full-name }}
 description: 'При работе с {{ maf-full-name }} вы можете использовать {{ lockbox-full-name }} для хранения артефактов, которые могут использоваться в DAG-файлах: подключений, переменных и конфигурационных данных. С помощью направленного ациклического графа (DAG) можно выполнить загрузку подключения из {{ lockbox-name }} и SQL-запрос к БД в кластере {{ mpg-full-name }}.'
+alternate:
+  - href: ru/managed-airflow/operations/lockbox-secrets-in-maf-cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Хранение подключений {{ AF }} в {{ lockbox-full-name }}

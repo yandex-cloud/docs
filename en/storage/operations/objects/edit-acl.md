@@ -1,6 +1,10 @@
 ---
 title: Editing an object ACL in a {{ objstorage-full-name }} bucket
 description: Follow this guide to edit an object ACL in an {{ objstorage-name }} bucket.
+alternate:
+  - href: en/storage/operations/objects/edit-acl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing an object ACL

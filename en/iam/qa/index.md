@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ iam-full-name }}
 description: This page covers questions and answers about {{ iam-name }}.
+alternate:
+  - href: en/iam/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ iam-name }}

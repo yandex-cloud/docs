@@ -1,6 +1,10 @@
 ---
 title: Table in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the table visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/table-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Table ![](../../_assets/datalens/table-chart.svg) in {{ datalens-full-name }}

@@ -2,6 +2,10 @@
 title: Creating an L7 load balancer in {{ alb-full-name }} with a {{ sws-full-name }} profile from the management console
 description: Follow this guide to use the management console to create a test web server, deploy an L7 {{ alb-name }}, and protect this new infrastructure with a {{ sws-name }} security profile.
 canonical: '{{ link-docs }}/tutorials/security/balancer-with-sws-profile/console'
+alternate:
+  - href: en/security/tutorials/app-security/balancer-with-sws-profile/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

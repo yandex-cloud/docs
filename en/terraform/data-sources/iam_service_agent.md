@@ -1,5 +1,9 @@
 ---
 subcategory: Identity and Access Management
+alternate:
+  - href: en/terraform/data-sources/iam_service_agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_iam_service_agent (DataSource)

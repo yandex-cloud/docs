@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/artifact/scanner/get-last-scan-result/
+alternate:
+  - href: ru/cli/cli-ref/cloud-registry/cli-ref/artifact/scanner/get-last-scan-result.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry artifact scanner get-last-scan-result

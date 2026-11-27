@@ -1,6 +1,10 @@
 ---
 title: How to get the cost breakdown via API in {{ billing-name }}
 description: Follow this guide to get the cost breakdown via the {{ billing-name }} public API.
+alternate:
+  - href: en/billing/operations/get-charges-via-api.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting the cost breakdown via API

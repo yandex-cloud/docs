@@ -2,6 +2,10 @@
 title: '{{ cloud-registry-full-name }} pricing policy'
 description: This article covers the {{ cloud-registry-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/cloud-registry/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cloud-registry-name }} pricing policy

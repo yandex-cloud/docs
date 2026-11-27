@@ -1,6 +1,10 @@
 ---
 title: How to create a message queue in {{ message-queue-full-name }}
 description: Follow this guide to create a message queue.
+alternate:
+  - href: en/message-queue/operations/message-queue-new-queue.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a new message queue

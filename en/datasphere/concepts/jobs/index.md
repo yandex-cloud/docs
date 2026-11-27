@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/jobs/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ ml-platform-name }} Jobs
 
 In {{ ml-platform-name }}, you can run jobs, i.e., computations on {{ ml-platform-name }} VMs outside {{ jlab }}Lab, remotely. These can be Python scripts and projects, Bash scripts, and executable binary files compiled for Linux x86_64.

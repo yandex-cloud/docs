@@ -1,6 +1,10 @@
 ---
 title: Creating a data source in {{ dspm-name }}
 description: Follow this guide to create data sources from {{ objstorage-full-name }} buckets and disks in {{ yandex-360 }} using the {{ sd-full-name }} {{ dspm-name }} module.
+alternate:
+  - href: en/security-deck/operations/dspm/create-data-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Preparing data for scanning in {{ dspm-name }}

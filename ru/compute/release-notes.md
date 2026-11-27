@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ compute-full-name }}
 description: В разделе представлена история изменений сервиса {{ compute-name }}.
+alternate:
+  - href: ru/compute/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ compute-full-name }}

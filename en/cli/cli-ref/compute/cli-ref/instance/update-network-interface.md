@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance/update-network-interface/
+alternate:
+  - href: en/cli/cli-ref/compute/cli-ref/instance/update-network-interface.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute instance update-network-interface

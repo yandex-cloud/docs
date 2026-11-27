@@ -1,6 +1,10 @@
 ---
 title: Adding a mailing list in {{ datalens-full-name }}
 description: This article explains what types of mailing lists you can add in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/concepts/maillists.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a mailing list in {{ datalens-full-name }}

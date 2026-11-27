@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/api-gateway/remove-domain/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/api-gateway/remove-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless api-gateway remove-domain

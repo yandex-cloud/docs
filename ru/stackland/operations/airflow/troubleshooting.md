@@ -1,6 +1,10 @@
 ---
 title: Устранение неполадок {{ AF }}
 description: Диагностика кластера {{ AF }}, ошибок импорта DAG, ожидания и выполнения задач
+alternate:
+  - href: ru/stackland/operations/airflow/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Устранение неполадок {{ AF }}

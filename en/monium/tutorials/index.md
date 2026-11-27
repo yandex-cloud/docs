@@ -1,6 +1,10 @@
 ---
 title: Tutorials for {{ monitoring-full-name }}
 description: This page presents a list of {{ monitoring-name }} tutorials.
+alternate:
+  - href: en/monium/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Tutorials for {{ monitoring-full-name }}

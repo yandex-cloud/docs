@@ -1,6 +1,10 @@
 ---
 title: Adding the Static Response extension
 description: Follow this guide to add the Static Response extension using the specification constructor.
+alternate:
+  - href: en/api-gateway/operations/spec-constructor/dummy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding the x-yc-apigateway-integration:dummy extension

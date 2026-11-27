@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ monium-name }}
 description: На странице представлен список пошаговых инструкций для {{ monium-name }}.
+alternate:
+  - href: ru/monium/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с метриками в {{ monium-name }}

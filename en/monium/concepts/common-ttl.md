@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/concepts/common-ttl.md
+    type: text/markdown
+    title: Markdown version
+---
 # Data retention period (TTL)
 
 ## Metrics retention period {#ttl-metrics}

@@ -1,6 +1,10 @@
 ---
 title: Go artifact in {{ cloud-registry-full-name }}
 description: A Go artifact is a module containing Go source code, metadata, and dependencies. These modules are used to distribute libraries and other components that can be integrated into Go projects.
+alternate:
+  - href: en/cloud-registry/concepts/artifacts/go.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Go artifact

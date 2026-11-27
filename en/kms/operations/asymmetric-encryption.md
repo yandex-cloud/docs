@@ -1,6 +1,10 @@
 ---
 title: How to encrypt and decrypt data in {{ kms-short-name }} using asymmetric encryption
 description: Follow this guide to encrypt and decrypt data using asymmetric encryption.
+alternate:
+  - href: en/kms/operations/asymmetric-encryption.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Asymmetric data encryption

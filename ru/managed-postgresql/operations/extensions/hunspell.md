@@ -6,6 +6,10 @@ keywords:
   - нормализация слов
   - лексемы
   - Hunspell
+alternate:
+  - href: ru/managed-postgresql/operations/extensions/hunspell.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Словари от Hunspell для полнотекстового поиска

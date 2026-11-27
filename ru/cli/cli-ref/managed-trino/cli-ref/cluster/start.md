@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/cluster/start/
+alternate:
+  - href: ru/cli/cli-ref/managed-trino/cli-ref/cluster/start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-trino cluster start

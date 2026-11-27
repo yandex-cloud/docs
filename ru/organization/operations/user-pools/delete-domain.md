@@ -1,6 +1,10 @@
 ---
 title: Как удалить домен из пула пользователей или федерации {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете удалить домен из пула пользователей или федерации {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/delete-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить домен

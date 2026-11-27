@@ -787,6 +787,10 @@ apiPlayground:
                   - postgresqlSourceV2
               - required:
                   - ytSourceV2
+alternate:
+  - href: ru/managed-clickhouse/api-ref/Cluster/updateExternalDictionary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.UpdateExternalDictionary

@@ -60,6 +60,10 @@ apiPlayground:
           format: date-time
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/iam/api-ref/ApiKey/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: ApiKey.Update

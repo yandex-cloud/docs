@@ -1,6 +1,10 @@
 ---
 title: 'Access management methods in {{ objstorage-full-name }}: Overview'
 description: Access management in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/security/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management methods in {{ objstorage-name }}: Overview

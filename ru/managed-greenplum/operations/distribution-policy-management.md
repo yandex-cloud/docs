@@ -1,6 +1,10 @@
 ---
 title: Работа с политиками распределения данных в {{ mgp-name }}
 description: Как задать политику распределения для новой таблицы, изменить политику и ключ распределения для существующей таблицы, а также перераспределить данные между сегментами вручную.
+alternate:
+  - href: ru/managed-greenplum/operations/distribution-policy-management.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

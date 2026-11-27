@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ managed-k8s-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ managed-k8s-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/managed-kubernetes/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ at-full-name }}

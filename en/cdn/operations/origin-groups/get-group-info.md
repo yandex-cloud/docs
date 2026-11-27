@@ -1,6 +1,10 @@
 ---
 title: How to get information about an origin in {{ cdn-full-name }}
 description: Follow this guide to get information about an individual origin or origin group.
+alternate:
+  - href: en/cdn/operations/origin-groups/get-group-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about origins

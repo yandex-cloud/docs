@@ -1,6 +1,10 @@
 ---
 title: How to update a {{ managed-k8s-name }} node group
 description: Follow this guide to update a {{ managed-k8s-name }} node group.
+alternate:
+  - href: en/managed-kubernetes/operations/node-group/node-group-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a {{ managed-k8s-name }} node group

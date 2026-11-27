@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/migration/
+alternate:
+  - href: ru/cli/cli-ref/cloud-registry/cli-ref/migration/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry migration

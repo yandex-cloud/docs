@@ -1,6 +1,10 @@
 ---
 title: '{{ iot-full-name }} release notes'
 description: This section contains the {{ iot-name }} release notes.
+alternate:
+  - href: en/iot-core/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ iot-full-name }} release notes

@@ -1,6 +1,10 @@
 ---
 title: Работа {{ data-transfer-full-name }} с источниками и приемниками
 description: '{{ data-transfer-full-name }} учитывает особенности источников и приемников при подготовке трансфера и во время передачи данных'
+alternate:
+  - href: ru/data-transfer/concepts/work-with-endpoints.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Особенности работы с эндпоинтами

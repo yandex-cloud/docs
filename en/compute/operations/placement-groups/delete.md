@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/placement-groups/delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a placement group
 
 Delete a [placement group](../../concepts/placement-groups.md).

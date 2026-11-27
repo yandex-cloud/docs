@@ -1,6 +1,10 @@
 ---
 title: HTML page versioning in {{ datalens-full-name }}
 description: In this article, you will learn about HTML page versioning and version types in {{ datalens-short-name }}.
+alternate:
+  - href: en/datalens/html-pages/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Versioning

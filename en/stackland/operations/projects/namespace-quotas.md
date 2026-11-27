@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/projects/namespace-quotas.md
+    type: text/markdown
+    title: Markdown version
+---
 # Setting quotas in namespaces
 
 Quotas limit the consumption of resources in your project’s namespaces. Quotas are set at the namespace level and allow you to control the use of CPU, memory, storage, and GPU.

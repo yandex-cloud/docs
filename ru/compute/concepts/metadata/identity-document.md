@@ -1,6 +1,10 @@
 ---
 title: Идентификационный документ в виртуальных машинах {{ compute-name }}
 description: Из этой статьи вы узнаете об идентификационном документе в сервисе метаданных виртуальной машины {{ compute-full-name }}.
+alternate:
+  - href: ru/compute/concepts/metadata/identity-document.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Идентификационный документ

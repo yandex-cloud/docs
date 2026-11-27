@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/operations/database-migration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Перенос базы данных
 
 В {{ objstorage-onprem-name }} четыре кластера {{ PG }}. В каждом кластере по три инстанса — один мастер и два слейва.

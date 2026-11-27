@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/iot/mosquitto/mosquitto-subscribe'
+alternate:
+  - href: ru/iot-core/tutorials/mosquitto/mosquitto-subscribe.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подписать устройство или реестр на получение сообщений с использованием Mosquitto

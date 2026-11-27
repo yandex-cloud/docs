@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-spark/api-ref/grpc/ChangeFreeze/getLimits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Spark API, gRPC: ChangeFreezeService.GetLimits

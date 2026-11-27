@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/SparkClusters/rpcstopSparkCluster-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Stop Spark cluster

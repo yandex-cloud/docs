@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/metadata-hub/datacatalog/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Datacatalog API, REST: Operation

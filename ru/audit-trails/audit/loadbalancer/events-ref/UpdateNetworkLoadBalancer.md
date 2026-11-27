@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/loadbalancer/events-ref/UpdateNetworkLoadBalancer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Load Balancer Audit Trails Events: UpdateNetworkLoadBalancer

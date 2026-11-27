@@ -1,6 +1,10 @@
 ---
 title: What is an ID token
 description: An ID token is a unique token issued to a service account and enabling it to authenticate with external systems that support OIDC authentication.
+alternate:
+  - href: en/iam/concepts/authorization/id-token.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service account ID token

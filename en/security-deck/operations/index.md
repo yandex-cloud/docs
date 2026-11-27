@@ -1,6 +1,10 @@
 ---
 title: How to work with {{ sd-full-name }}
 description: In this article, you will learn how to work with {{ sd-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/security-deck/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to work with {{ sd-full-name }}

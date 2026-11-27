@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/instruments/jms.md
+    type: text/markdown
+    title: Markdown version
+---
 # Example of using {{ message-queue-full-name }} on JMS
 
 [JMS](https://www.oracle.com/technetwork/java/jms/index.html) is an API for sending messages between application components. With the AWS SQS Java Messaging Library, you can use {{ message-queue-name }} to send and receive messages via JMS.

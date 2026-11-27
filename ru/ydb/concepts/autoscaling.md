@@ -1,6 +1,10 @@
 ---
 title: Автоматическое масштабирование в {{ ydb-name }}
 description: В Dedicated режиме работы базы данных {{ ydb-name }} вы можете использовать автоматическое масштабирование вычислительных ресурсов.
+alternate:
+  - href: ru/ydb/concepts/autoscaling.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Автоматическое масштабирование

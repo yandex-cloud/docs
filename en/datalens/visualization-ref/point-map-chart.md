@@ -1,6 +1,10 @@
 ---
 title: Point map in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the point map visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/point-map-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Point map ![](../../_assets/datalens/heatmap.svg) in {{ datalens-full-name }}

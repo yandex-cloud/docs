@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/mdb/spqr/events-ref/CreateDatabase.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR Audit Trails Events: CreateDatabase

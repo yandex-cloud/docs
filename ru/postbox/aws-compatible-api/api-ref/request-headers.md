@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/request-headers.md
+    type: text/markdown
+    title: Markdown version
+---
 # Заголовки запросов
 
 Большинство заголовков, которые доступны для запросов в API Amazon, — заголовки вида `X-Amz-*`. Они опциональны и содержат информацию об аутентификации. Используйте их, чтобы составить подписанные запросы.

@@ -1,6 +1,10 @@
 ---
 title: Starting and stopping a data ingestion in {{ data-catalog-full-name }}
 description: In this tutorial, you will learn how to start and stop a data ingestion in {{ data-catalog-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/start-ingestion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Starting and stopping an ingestion

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/waf/waf-profile/
+alternate:
+  - href: en/cli/cli-ref/smartwebsecurity/cli-ref/waf/waf-profile/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartwebsecurity waf waf-profile

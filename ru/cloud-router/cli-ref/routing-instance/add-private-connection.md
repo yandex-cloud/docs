@@ -1,6 +1,11 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/routing-instance/add-private-connection/
+noIndex: true
+alternate:
+  - href: ru/cloud-router/cli-ref/routing-instance/add-private-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloudrouter routing-instance add-private-connection

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/TOP_CONCAT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # TOP_CONCAT

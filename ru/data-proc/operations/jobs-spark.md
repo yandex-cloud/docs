@@ -1,6 +1,10 @@
 ---
 title: Как управлять заданиями Spark в {{ dataproc-full-name }}
 description: Из статьи вы узнаете, как управлять заданиями Spark в {{ dataproc-full-name }}.
+alternate:
+  - href: ru/data-proc/operations/jobs-spark.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление заданиями Spark

@@ -1,6 +1,10 @@
 ---
 title: Как отключить профиль безопасности {{ sws-full-name }} от виртуального хоста, домена, API-шлюза
 description: Следуя данной инструкции, вы сможете отключить профиль безопасности {{ sws-full-name }} от защищаемого ресурса.
+alternate:
+  - href: ru/smartwebsecurity/operations/host-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отключить профиль безопасности от ресурса

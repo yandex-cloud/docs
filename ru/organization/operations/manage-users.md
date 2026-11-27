@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/organization/operations/manage-users.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление аккаунтами пользователей
 
 С помощью {{ org-full-name }} вы можете централизованно управлять учетными записями пользователей и доступом к корпоративным приложениям по протоколам SAML и OpenID Connect (Identity Provider).

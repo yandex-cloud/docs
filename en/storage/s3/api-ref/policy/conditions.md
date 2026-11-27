@@ -1,6 +1,10 @@
 ---
 title: '{{ objstorage-full-name }} bucket access policy trigger conditions you can set in the S3 API'
 description: In this article, you will learn what {{ objstorage-full-name }} bucket access policy trigger conditions can be set in the S3 API.
+alternate:
+  - href: en/storage/s3/api-ref/policy/conditions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Conditions

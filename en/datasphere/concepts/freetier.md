@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/freetier.md
+    type: text/markdown
+    title: Markdown version
+---
 # Special terms for educational institutions
 
 {{ yandex-cloud }} offers a free tier for educational institutions and scientific projects. You can learn more about this program [here](/datasphere-education-program).

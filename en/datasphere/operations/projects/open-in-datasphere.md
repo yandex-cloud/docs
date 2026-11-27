@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/projects/open-in-datasphere.md
+    type: text/markdown
+    title: Markdown version
+---
 # Opening a notebook in {{ ml-platform-name }}
 
 You can publish the {{ jlab }}Lab notebook's source file on your website and enable users to run it in {{ ml-platform-name }}. After clicking the link, users will be prompted to sign in to {{ yandex-cloud }} and select a project.

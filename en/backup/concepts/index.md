@@ -1,6 +1,10 @@
 ---
 title: '{{ backup-full-name }} overview'
 description: '{{ backup-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data.'
+alternate:
+  - href: en/backup/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ backup-full-name }} overview

@@ -1,6 +1,10 @@
 ---
 title: Managing access to a {{ mmg-full-name }} cluster
 description: Follow this guide to configure {{ mmg-name }} cluster access permissions.
+alternate:
+  - href: en/storedoc/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to a {{ mmg-name }} cluster

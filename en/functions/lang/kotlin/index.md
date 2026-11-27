@@ -1,6 +1,10 @@
 ---
 title: Developing in Kotlin in {{ sf-full-name }}. Overview
 description: With {{ sf-name }}, you can run applications written in Kotlin. This service provides the runtime with Kotlin 2.0 and Ubuntu 22.04 LTS.
+alternate:
+  - href: en/functions/lang/kotlin/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Developing in Kotlin: Overview

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/ydb/concepts/dynamodb-tables.md
+    type: text/markdown
+    title: Markdown version
+---
 # Таблицы DynamoDB
 
 В [бессерверном режиме работы](serverless-and-dedicated.md#serverless) базы данных {{ ydb-name }} вы можете использовать _документные таблицы_.

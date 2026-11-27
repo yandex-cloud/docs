@@ -97,6 +97,10 @@ apiPlayground:
       PublicVisibility:
         type: object
         properties: {}
+alternate:
+  - href: ru/dns/api-ref/DnsZone/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, REST: DnsZone.Update

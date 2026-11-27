@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cdn/operations/resources/configure-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка выгрузки логов
 
 [Выгрузка логов](../../concepts/logs.md) — платная функция, о ее тарификации в разделе [{#T}](../../pricing.md).

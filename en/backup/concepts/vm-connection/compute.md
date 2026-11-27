@@ -1,6 +1,10 @@
 ---
 title: Connecting {{ compute-full-name }} VMs to {{ backup-full-name }}
 description: In this tutorial, you will learn how to connect {{ compute-full-name }} VMs to {{ backup-full-name }}.
+alternate:
+  - href: en/backup/concepts/vm-connection/compute.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting {{ compute-full-name }} VMs to {{ backup-name }}

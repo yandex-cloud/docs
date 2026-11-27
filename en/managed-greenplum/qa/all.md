@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ mgp-full-name }}
 description: This page covers FAQ about {{ mgp-short-name }}.
+alternate:
+  - href: en/managed-greenplum/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ mgp-short-name }}

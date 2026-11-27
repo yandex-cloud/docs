@@ -1,6 +1,10 @@
 ---
 title: Creating a {{ VLK }} user in {{ mrd-full-name }}
 description: You can create {{ VLK }} users and manage their permissions in {{ mrd-name }}.
+alternate:
+  - href: en/managed-valkey/operations/user-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a user

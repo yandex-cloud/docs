@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ connection-manager-name }}'
 description: This page presents reference information on the {{ TF }} provider resources and data sources supported for {{ connection-manager-name }} in {{ metadata-hub-full-name }}.
+alternate:
+  - href: en/metadata-hub/connman-tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ connection-manager-name }}

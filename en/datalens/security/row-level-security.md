@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/security/row-level-security.md
+    type: text/markdown
+    title: Markdown version
+---
 # Row-level security (RLS)
 
 RLS (_row-level security_) enables you to restrict data access for users or [user group]({{ link-docs }}/organization/concepts/groups) within a single dataset. For example, you can introduce data access control for different customers.

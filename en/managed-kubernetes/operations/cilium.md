@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/cilium.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring the Cilium network policy controller
 
 This tutorial shows the [implementation of L3/L4 and L7 network policies](https://docs.cilium.io/en/v1.10/gettingstarted/http/) that are managed by the [Cilium network policy controller](../concepts/network-policy.md#cilium).

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/quickstart/create-trigger/timer-quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a timer that invokes a function
 
 Create a [timer](../../concepts/trigger/timer.md) that invokes a [function](../../concepts/function.md) in {{ sf-name }} every minute.

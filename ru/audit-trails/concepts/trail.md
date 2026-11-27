@@ -1,6 +1,10 @@
 ---
 title: Трейл
 description: Из статьи вы узнаете, что такое трейл, какие у него есть настройки и доступные области сбора аудитных логов, объекты назначения.
+alternate:
+  - href: ru/audit-trails/concepts/trail.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Трейл

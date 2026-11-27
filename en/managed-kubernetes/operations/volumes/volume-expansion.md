@@ -1,6 +1,10 @@
 ---
 title: Expanding a volume for pods
 description: Follow this guide to expand a volume for pods.
+alternate:
+  - href: en/managed-kubernetes/operations/volumes/volume-expansion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Expanding a volume for pods

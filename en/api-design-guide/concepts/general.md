@@ -1,6 +1,10 @@
 ---
 title: Basic principles of the {{ yandex-cloud }} API
 description: In this article, you will learn about the basic principles of the {{ yandex-cloud }} API and resource oriented approach.
+alternate:
+  - href: en/api-design-guide/concepts/general.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Basic principles

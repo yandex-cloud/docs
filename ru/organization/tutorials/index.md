@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ org-full-name }}
 description: Различные сценарии использования {{ org-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/organization/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ org-full-name }}

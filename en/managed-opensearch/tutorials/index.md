@@ -1,6 +1,10 @@
 ---
 title: '{{ mos-full-name }} use cases'
 description: Various use cases for {{ mos-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/managed-opensearch/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mos-name }} tutorials

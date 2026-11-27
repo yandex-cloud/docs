@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ container-registry-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ container-registry-name }}.
 editable: false
+alternate:
+  - href: ru/container-registry/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ container-registry-name }}

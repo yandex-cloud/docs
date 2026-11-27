@@ -1,6 +1,10 @@
 ---
 title: Как включить веб-интерфейс {{ kafka-ui }} для работы с {{ KF }}
 description: Из статьи вы узнаете, как включить веб-интерфейс {{ kafka-ui }} для работы с {{ KF }}.
+alternate:
+  - href: ru/managed-kafka/operations/kafka-ui-enable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Веб-интерфейс {{ kafka-ui }} для работы с {{ KF }}

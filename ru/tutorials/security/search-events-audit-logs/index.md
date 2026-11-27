@@ -1,6 +1,10 @@
 ---
 title: Руководство по поиску событий в аудитных логах
 description: С помощью этого руководства вы ознакомитесь с инструментами для поиска событий в аудитных логах и сможете выполнить поиск на конкретном примере.
+alternate:
+  - href: ru/tutorials/security/search-events-audit-logs/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поиск событий в аудитных логах

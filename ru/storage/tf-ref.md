@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ objstorage-full-name }}
 description: На этой странице приведен справочник ресурсов провайдера {{ TF }}, которые поддерживаются для сервиса {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ objstorage-full-name }}

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/metadata-hub/datacatalog/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Datacatalog API, gRPC: OperationService.Cancel

@@ -1,6 +1,10 @@
 ---
 title: Поколения оборудования в {{ compute-full-name }}
 description: Из статьи вы узнаете об особенностях разных поколений оборудования, на котором могут быть развернуты виртуальные машины {{ compute-name }}.
+alternate:
+  - href: ru/compute/concepts/hardware-generations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поколения оборудования

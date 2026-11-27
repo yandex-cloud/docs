@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/nodejs/sdk.md
+    type: text/markdown
+    title: Markdown version
+---
 # Использование SDK для функции на Node.js
 
 Чтобы использовать [SDK (Software Development Kit)](https://ru.wikipedia.org/wiki/SDK), необходимо добавить [зависимость](dependencies.md) `@yandex-cloud/nodejs-sdk` в приложение на Node.js. Исходный код библиотеки находится на [GitHub](https://github.com/yandex-cloud/nodejs-sdk).

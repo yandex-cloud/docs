@@ -1,6 +1,10 @@
 ---
 title: Area chart in {{ datalens-full-name }}
 description: In this article, you will learn how to create and customize the area chart visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/area-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Area chart ![](../../_assets/datalens/area.svg) in {{ datalens-full-name }}

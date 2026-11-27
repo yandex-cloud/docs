@@ -1,6 +1,10 @@
 ---
 title: How to delete a backend group
 description: In this tutorial, you will learn how to delete a backend group.
+alternate:
+  - href: en/application-load-balancer/operations/backend-group-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a backend group

@@ -1,6 +1,10 @@
 ---
 title: Рекомендации по оптимизации в {{ datalens-full-name }}
 description: В данной статье описано, как в {{ datalens-full-name }} оптимизировать работу с данными, чтобы запросы и отрисовка полученных данных выполнялись быстрее.
+alternate:
+  - href: ru/datalens/concepts/optimization_recommendations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Рекомендации по оптимизации в {{ datalens-full-name }}

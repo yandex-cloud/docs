@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/monium/api-ref/grpc/Sink/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, gRPC: SinkService.List

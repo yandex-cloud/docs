@@ -1,5 +1,9 @@
 ---
 subcategory: Identity Hub
+alternate:
+  - href: en/terraform/data-sources/organizationmanager_idp_application_oauth_application.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_organizationmanager_idp_application_oauth_application (DataSource)

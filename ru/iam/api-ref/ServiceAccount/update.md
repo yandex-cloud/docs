@@ -77,6 +77,10 @@ apiPlayground:
         - name
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/iam/api-ref/ServiceAccount/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: ServiceAccount.Update

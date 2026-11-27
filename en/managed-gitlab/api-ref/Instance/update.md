@@ -101,6 +101,10 @@ apiPlayground:
           format: field-mask
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/managed-gitlab/api-ref/Instance/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Gitlab API, REST: Instance.Update

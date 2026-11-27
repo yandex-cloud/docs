@@ -1,6 +1,10 @@
 ---
 title: Триггер для {{ yds-full-name }}, который вызывает контейнер {{ serverless-containers-full-name }}
 description: Из статьи вы узнаете, что такое триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}, ознакомитесь с ролями, необходимыми для корректной работы триггера и форматом сообщений от триггера.
+alternate:
+  - href: ru/serverless-containers/concepts/trigger/data-streams-trigger.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}

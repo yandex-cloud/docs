@@ -1,6 +1,10 @@
 ---
 title: Инструкция о том, как создать приемник логов в {{ cloud-logging-name }}
 description: Из статьи вы узнаете, как создать приемник логов в {{ cloud-logging-name }}.
+alternate:
+  - href: ru/logging/operations/create-sink.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать приемник логов

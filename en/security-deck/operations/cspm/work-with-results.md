@@ -1,6 +1,10 @@
 ---
 title: Managing regular scan results in {{ cspm-name }}
 description: Follow this guide to learn about the operations you can perform with check results in {{ sd-full-name }}'s {{ cspm-name }} module.
+alternate:
+  - href: en/security-deck/operations/cspm/work-with-results.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing check results in {{ cspm-name }}

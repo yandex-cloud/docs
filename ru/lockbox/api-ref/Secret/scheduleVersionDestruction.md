@@ -37,6 +37,10 @@ apiPlayground:
         - versionId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/lockbox/api-ref/Secret/scheduleVersionDestruction.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox API, REST: Secret.ScheduleVersionDestruction

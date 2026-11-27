@@ -2,6 +2,10 @@
 title: Восстановление баз данных из резервной копии при отказе зоны доступности
 description: Порядок действий для восстановления кластеров управляемых баз данных из резервных копий при отказе зоны доступности.
 noIndex: true
+alternate:
+  - href: ru/architecture/mdb-outbound-backup-recovery.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановление кластеров БД из резервных копий во внешнее S3-хранилище

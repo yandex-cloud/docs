@@ -1,6 +1,10 @@
 ---
 title: Модель данных в {{ monium-name }}
 description: В сервисе {{ monium-name }} действует единая модель данных для работы с метриками, логами и трейсами.
+alternate:
+  - href: ru/monium/concepts/data-model.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Модель данных в {{ monium-name }}

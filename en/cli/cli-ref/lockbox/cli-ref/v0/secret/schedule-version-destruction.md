@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/v0/secret/schedule-version-destruction/
+alternate:
+  - href: en/cli/cli-ref/lockbox/cli-ref/v0/secret/schedule-version-destruction.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc lockbox v0 secret schedule-version-destruction

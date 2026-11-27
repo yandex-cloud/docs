@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/cloud-router/scenarios/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ interconnect-name }} and {{ cr-name }} use cases
 
 ## Use cases with reservation {#cr-ha}

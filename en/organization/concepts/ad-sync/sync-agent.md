@@ -1,6 +1,10 @@
 ---
 title: '{{ ad-sync-agent }} synchronization agent in {{ org-full-name }}'
 description: '{{ ad-sync-agent }} reads user and user group data in the selected organization units in the {{ microsoft-idp.ad-full }} directory and syncs it with user and user group data in the {{ org-full-name }} pool.'
+alternate:
+  - href: en/organization/concepts/ad-sync/sync-agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ad-sync-agent }}

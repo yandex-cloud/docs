@@ -1,6 +1,10 @@
 ---
 title: Ransomware attack prevention checklist
 description: This article introduces you to the content of the ransomware attack prevention checklist for your {{ yandex-cloud }} infrastructure.
+alternate:
+  - href: en/security/domains/ransomware-checklist.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ransomware attack prevention checklist

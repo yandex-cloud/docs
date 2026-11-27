@@ -1,6 +1,10 @@
 ---
 title: Временная ссылка в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как открыть публичный доступ к дашборду в воркбуке с помощью временной ссылки в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/concepts/datalens-temporary-link.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публикация по временной ссылке

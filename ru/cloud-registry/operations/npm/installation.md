@@ -1,6 +1,10 @@
 ---
 title: Настроить npm
 description: Следуя данной инструкции, вы настроите npm.
+alternate:
+  - href: ru/cloud-registry/operations/npm/installation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить npm

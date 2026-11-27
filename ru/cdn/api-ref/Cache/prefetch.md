@@ -28,6 +28,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/cdn/api-ref/Cache/prefetch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: Cache.Prefetch

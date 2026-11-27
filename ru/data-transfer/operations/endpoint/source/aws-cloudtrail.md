@@ -1,6 +1,10 @@
 ---
 title: Передача данных из эндпоинта-источника AWS CloudTrail
 description: Следуя данной инструкции, вы сможете настроить передачу данных из эндпоинта-источника AWS CloudTrail.
+alternate:
+  - href: ru/data-transfer/operations/endpoint/source/aws-cloudtrail.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передача данных из эндпоинта-источника AWS CloudTrail

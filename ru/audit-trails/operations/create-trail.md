@@ -1,6 +1,10 @@
 ---
 title: Как создать трейл для загрузки аудитных логов
 description: Следуя данной инструкции, вы сможете создать трейл {{ at-full-name }} для регистрации и сохранения аудитных логов.
+alternate:
+  - href: ru/audit-trails/operations/create-trail.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание трейла для загрузки аудитных логов

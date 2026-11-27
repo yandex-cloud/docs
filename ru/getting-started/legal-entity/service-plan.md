@@ -1,6 +1,10 @@
 ---
 title: Настройте тарифный план поддержки для юридического лица
 description: Из статьи вы узнаете про настройку тарифного плана поддержки для юридического лица.
+alternate:
+  - href: ru/getting-started/legal-entity/service-plan.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройте тарифный план поддержки

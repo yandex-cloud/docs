@@ -2,6 +2,10 @@
 title: '{{ certificate-manager-full-name }} metrics'
 description: In this tutorial, you will learn about {{ certificate-manager-name }} metrics.
 editable: false
+alternate:
+  - href: en/monitoring/metrics-ref/certificate-manager-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ certificate-manager-full-name }} metrics

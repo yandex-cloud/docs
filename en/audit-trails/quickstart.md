@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/audit-trails/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ at-name }}
 
 {{ at-name }} collects [audit logs](./concepts/format.md) of {{ yandex-cloud }} resources to monitor actions with resources and access events. You can upload logs to a {{ objstorage-full-name }} [bucket](../storage/concepts/bucket.md), {{ cloud-logging-full-name }} [log group](../logging/concepts/log-group.md), or {{ yds-full-name }} [data stream](../data-streams/concepts/glossary.md#stream-concepts).

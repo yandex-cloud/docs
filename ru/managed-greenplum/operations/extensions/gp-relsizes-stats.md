@@ -1,6 +1,10 @@
 ---
 title: Как использовать расширение gp_relsizes_stats в {{ mgp-full-name }}
 description: Следуя данной инструкции, вы сможете использовать расширение gp_relsizes_stats в {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/extensions/gp-relsizes-stats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование gp_relsizes_stats в {{ mgp-name }}

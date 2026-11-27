@@ -1,6 +1,10 @@
 ---
 title: Отслеживание связей метаданных в {{ datalens-platform-full-name }}
 description: Следуя данной инструкции, вы сможете проанализировать полный путь данных от подключения до визуализаций и отчетов в {{ datalens-platform-full-name }}
+alternate:
+  - href: ru/datalens/datalens-platform/operations/data-catalog/metadata-linage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Анализ связей метаданных

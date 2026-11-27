@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/mdb/mongodb/events-ref/GetDatabase.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB Audit Trails Events: GetDatabase

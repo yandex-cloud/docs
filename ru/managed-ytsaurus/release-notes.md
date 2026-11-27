@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ myt-full-name }}
 description: В разделе представлена история изменений сервиса {{ myt-name }}.
+alternate:
+  - href: ru/managed-ytsaurus/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ myt-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cos/concepts/network.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with the network
 
 In {{ coi }}, Docker containers run using a host network interface. All ports opened in a Docker container will also be opened on the host.

@@ -1,6 +1,10 @@
 ---
 title: Инструкция по использованию pgcrypto в {{ mpg-name }}
 description: Из статьи вы узнаете, как использовать pgcrypto в {{ mpg-name }}.
+alternate:
+  - href: ru/managed-postgresql/operations/extensions/pgcrypto.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование pgcrypto в {{ mpg-name }}

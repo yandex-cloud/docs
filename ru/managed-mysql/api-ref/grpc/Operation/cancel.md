@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-mysql/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, gRPC: OperationService.Cancel

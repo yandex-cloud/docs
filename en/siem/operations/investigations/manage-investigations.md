@@ -1,6 +1,10 @@
 ---
 title: Investigation management in {{ yandex-siem-full-name }}
 description: Follow this guide to learn how to create, update, copy, and delete investigations in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/operations/investigations/manage-investigations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Investigation management

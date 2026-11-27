@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-mysql/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройки {{ MY }}
 
 Для кластера {{ mmy-name }} можно задать настройки, которые относятся к {{ MY }}. Часть настроек задается [на уровне кластера](#dbms-cluster-settings), часть — [на уровне пользователя](#dbms-user-settings).

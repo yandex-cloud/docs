@@ -1,6 +1,10 @@
 ---
 title: Как остановить, запустить или перезагрузить сервер в {{ baremetal-full-name }}
 description: Узнайте, как остановить, запустить или перезагрузить сервер {{ baremetal-name }} и выбрать режим для следующей загрузки.
+alternate:
+  - href: ru/baremetal/operations/servers/server-stop-and-start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Остановить, запустить или перезагрузить сервер

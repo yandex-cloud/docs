@@ -1,6 +1,10 @@
 ---
 title: How to get player preset information in {{ video-full-name }}
 description: Follow this guide to get information about a player preset in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/style-presets/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting player preset information

@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ mmg-full-name }}
 description: In this guide, you will learn how to create and configure a {{ SD }} cluster.
+alternate:
+  - href: en/storedoc/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ mmg-name }}

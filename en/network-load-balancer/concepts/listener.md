@@ -1,6 +1,10 @@
 ---
 title: Listener
 description: In this tutorial, you will learn about the traffic listener.
+alternate:
+  - href: en/network-load-balancer/concepts/listener.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Listener

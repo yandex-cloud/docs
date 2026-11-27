@@ -1,6 +1,10 @@
 ---
 title: Поиск в консоли управления
 description: С помощью этой инструкции вы узнаете, как найти облачные ресурсы, разделы документации и получить справочную информацию.
+alternate:
+  - href: ru/console/operations/search.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поиск в консоли управления

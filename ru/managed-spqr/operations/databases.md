@@ -1,6 +1,10 @@
 ---
 title: Управление базами данных в {{ SPQR }}
 description: Из статьи вы узнаете, как добавлять, переименовывать и удалять базы данных в {{ SPQR }}, а также просматривать информацию о них.
+alternate:
+  - href: ru/managed-spqr/operations/databases.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление базами данных в {{ SPQR }}

@@ -1,6 +1,10 @@
 ---
 title: Recommendations on using {{ managed-k8s-full-name }}
 description: Follow these recommendations if your applications need high availability, fault tolerance, load scaling, and resource isolation.
+alternate:
+  - href: en/managed-kubernetes/concepts/usage-recommendations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recommendations on using {{ managed-k8s-name }}

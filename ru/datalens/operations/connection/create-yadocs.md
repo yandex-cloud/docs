@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение к Яндекс Документам
 description: Следуя данной инструкции, вы сможете создать подключение к Яндекс Документам.
+alternate:
+  - href: ru/datalens/operations/connection/create-yadocs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к Яндекс Документам

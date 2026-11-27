@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/verify-sms-sandbox-phone-number.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие VerifySMSSandboxPhoneNumber
 
 Подтверждает тестовый телефонный номер для канала SMS-уведомлений в [песочнице](../concepts/sms.md#sandbox) с помощью кода подтверждения.

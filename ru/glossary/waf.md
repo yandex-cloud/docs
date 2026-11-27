@@ -1,6 +1,10 @@
 ---
 title: 'Обзор WAF (файрвол веб-приложений): защита вашего сайта'
 description: Файрвол веб-приложений (WAF) — это совокупность технологий, направленных на выявление уязвимостей и защиту от сетевых атак на веб-приложения.
+alternate:
+  - href: ru/glossary/waf.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Введение в WAF (Web Application Firewall)

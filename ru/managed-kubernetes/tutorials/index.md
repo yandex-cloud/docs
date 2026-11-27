@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Практические руководства {{ managed-k8s-name }}
 
 C помощью {{ managed-k8s-name }} вы можете работать с [контейнеризованными приложениями](../../glossary/containerization.md) в инфраструктуре {{ yandex-cloud }}: разворачивать, масштабировать и управлять приложениями в контейнерах.

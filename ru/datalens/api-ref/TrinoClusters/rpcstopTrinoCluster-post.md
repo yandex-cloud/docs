@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/TrinoClusters/rpcstopTrinoCluster-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Stop Trino cluster

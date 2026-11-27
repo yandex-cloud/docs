@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-siem-full-name }}'
 description: '{{ yandex-siem-full-name }} is {{ yandex-cloud }}‘s proprietary SIEM system for monitoring and analysis of security events in the cloud infrastructure.'
+alternate:
+  - href: en/siem/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-siem-full-name }} overview

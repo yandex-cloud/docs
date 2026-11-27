@@ -1,6 +1,10 @@
 ---
 title: Updating a {{ sd-full-name }} workspace
 description: In this guide, you will learn how to update a workspace in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/workspaces/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a {{ sd-name }} workspace and its components

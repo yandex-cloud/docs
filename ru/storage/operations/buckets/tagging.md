@@ -1,6 +1,10 @@
 ---
 title: Управлять метками бакета в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете управлять метками бакета в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/tagging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять метками бакета

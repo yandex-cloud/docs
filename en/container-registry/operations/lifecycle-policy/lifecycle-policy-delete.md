@@ -1,6 +1,10 @@
 ---
 title: Deleting a lifecycle policy
 description: Follow this guide to delete a lifecycle policy.
+alternate:
+  - href: en/container-registry/operations/lifecycle-policy/lifecycle-policy-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a lifecycle policy

@@ -1,6 +1,10 @@
 ---
 title: '{{ postbox-full-name }}. Overview'
 description: '{{ postbox-full-name }} is a cloud service for simplified and cost-effective email sending.'
+alternate:
+  - href: en/postbox/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ postbox-full-name }} overview

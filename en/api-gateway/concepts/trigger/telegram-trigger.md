@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/trigger/telegram-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for Telegram that sends messages to WebSocket connections
 
 A Telegram [trigger](../trigger/) sends messages to [WebSocket connections](../extensions/websocket.md) whenever the Telegram bot receives an update: message, command, button callback, and other events. To receive updates, the trigger uses the Telegram bot's token.

@@ -1,6 +1,10 @@
 ---
 title: Создание политики жизненного цикла в {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы сможете создать политику жизненного цикла в {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/lifecycle-policy/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание политики жизненного цикла

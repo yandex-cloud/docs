@@ -1,6 +1,10 @@
 ---
 title: Членство в организации
 description: Члены организации — пользователи, которые состоят в организации и могут получать доступ к сервисам внутри организации.
+alternate:
+  - href: ru/organization/concepts/membership.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Членство в организации

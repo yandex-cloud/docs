@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ at-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides reference information on {{ at-name }} metrics delivered to {{ monitoring-full-name }}.
+alternate:
+  - href: en/audit-trails/concepts/user-metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

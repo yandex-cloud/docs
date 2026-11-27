@@ -1,6 +1,10 @@
 ---
 title: How to select a player preset in {{ video-full-name }}
 description: Follow this guide to select a player preset for a given video in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/style-presets/assign-to-video.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Selecting a player preset

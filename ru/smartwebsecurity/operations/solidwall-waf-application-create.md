@@ -1,6 +1,10 @@
 ---
 title: Как создать приложение SolidWall WAF и подключить к нему домен в {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете добавить приложение в профиль SolidWall WAF в {{ sws-name }} и подключить к нему домены своего сайта или API.
+alternate:
+  - href: ru/smartwebsecurity/operations/solidwall-waf-application-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать приложение SolidWall WAF и подключить к нему домен

@@ -1,6 +1,10 @@
 ---
 title: Выбрать данные из всех колонок в {{ yq-full-name }}
 description: Следуя данному руководству, вы сможете выбрать данные из всех колонок.
+alternate:
+  - href: ru/query/yql-tutorials/select-all-columns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выбрать данные из всех колонок

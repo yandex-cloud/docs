@@ -55,6 +55,10 @@ apiPlayground:
         required:
           - id
           - type
+alternate:
+  - href: en/quota-manager/api-ref/QuotaLimit/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quota Manager API, REST: QuotaLimit.List

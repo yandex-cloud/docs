@@ -1,6 +1,10 @@
 ---
 title: Переменные в шаблоне узла {{ managed-k8s-full-name }}
 description: Из статьи вы узнаете, как использовать переменные в шаблоне узла {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/concepts/node-group/variables-in-the-template.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переменные в шаблоне узла {{ managed-k8s-full-name }}

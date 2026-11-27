@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/interconnect/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обзор {{ interconnect-name }}
 
 {% include [cross-org-networking](../../_includes/interconnect/cross-org-networking.md) %}

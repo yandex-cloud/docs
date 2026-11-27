@@ -1,6 +1,10 @@
 ---
 title: Хостинг статического сайта в {{ objstorage-full-name }} с доступом через {{ cdn-full-name }} с помощью {{ TF }}
 description: В этом руководстве вы с помощью {{ TF }} создадите статический сайт в бакете {{ objstorage-name }} и настроите доступ к нему с помощью {{ cdn-name }}.
+alternate:
+  - href: ru/tutorials/applied/cdn-hosting/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка хостинга статического сайта в бакете {{ objstorage-full-name }} с доступом через {{ cdn-full-name }} с помощью {{ TF }}

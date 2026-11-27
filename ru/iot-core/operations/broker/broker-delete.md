@@ -1,6 +1,10 @@
 ---
 title: Инструкция о том, как удалить брокер в {{ iot-full-name }}
 description: Из статьи вы узнаете, как удалить брокер в {{ iot-full-name }}.
+alternate:
+  - href: ru/iot-core/operations/broker/broker-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление брокера

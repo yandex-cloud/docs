@@ -1,6 +1,10 @@
 ---
 title: How to configure content request redirection
 description: Follow this guide to configure redirection of requests from a CDN resource to an origin using a _rewrite_ rule.
+alternate:
+  - href: en/cdn/operations/resources/setup-http-rewrite.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up a request redirect

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_certs_generate-csr-console.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops certs generate-csr-console
 
 Generate CSR for Console certificate via cert-manager

@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ cdn-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ cdn-full-name }}.
 editable: false
+alternate:
+  - href: ru/cdn/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ cdn-full-name }}

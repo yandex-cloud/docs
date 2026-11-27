@@ -1,6 +1,10 @@
 ---
 title: Инструкция по созданию подключения к {{ SR }} в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как подключиться к {{ SR }} в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/create-starrocks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к {{ SR }} в {{ datalens-full-name }}

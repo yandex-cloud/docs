@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/cluster/list-hosts/
+alternate:
+  - href: ru/data-proc/cli-ref/cluster/list-hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dataproc cluster list-hosts

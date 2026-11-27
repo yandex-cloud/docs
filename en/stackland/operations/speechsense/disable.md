@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/speechsense/disable.md
+    type: text/markdown
+    title: Markdown version
+---
 # Disabling {{ speechsense-name }}
 
 You can disable the {{ speechsense-name }} component in a {{ stackland-name }} cluster. If you do so, the controller will automatically delete all the component's resources.

@@ -1,6 +1,10 @@
 ---
 title: Как привязать защищаемый ресурс к политике резервного копирования
 description: Из статьи вы узнаете, как привязать виртуальную машину или сервер к политике резервного копирования.
+alternate:
+  - href: ru/backup/operations/policy-vm/attach-and-detach-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Привязать защищаемый ресурс к политике резервного копирования

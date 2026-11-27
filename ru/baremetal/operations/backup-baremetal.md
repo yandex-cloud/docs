@@ -2,6 +2,10 @@
 title: Как подключить сервер {{ baremetal-name }} к {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете подключить сервер {{ baremetal-name }} к {{ backup-full-name }}.
 canonical: '{{ link-docs }}/tutorials/archive/backup-baremetal'
+alternate:
+  - href: ru/baremetal/operations/backup-baremetal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключить сервер {{ baremetal-name }} к {{ backup-full-name }}

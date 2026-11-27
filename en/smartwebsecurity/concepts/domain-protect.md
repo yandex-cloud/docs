@@ -1,6 +1,10 @@
 ---
 title: Protecting web applications in an external infrastructure
 description: Protecting web applications deployed outside {{ yandex-cloud }} using {{ sws-name }}
+alternate:
+  - href: en/smartwebsecurity/concepts/domain-protect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Protecting web applications in an external infrastructure

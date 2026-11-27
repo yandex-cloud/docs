@@ -1,6 +1,10 @@
 ---
 title: Как удалить алерт в {{ monitoring-full-name }}
 description: Следуя данной инструкции, вы сможете удалить алерт.
+alternate:
+  - href: ru/monitoring/operations/alert/delete-alert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление алерта

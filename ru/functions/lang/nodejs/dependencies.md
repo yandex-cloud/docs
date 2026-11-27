@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/nodejs/dependencies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление зависимостями функции на Node.js
 
 Сервис {{ sf-name }} может автоматически устанавливать зависимости, необходимые для работы функции на Node.js, во время создания новой [версии функции](../../operations/function/version-manage.md).

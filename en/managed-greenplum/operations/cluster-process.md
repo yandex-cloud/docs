@@ -1,6 +1,10 @@
 ---
 title: How to manage client processes and user sessions in {{ mgp-full-name }}
 description: 'Follow this guide to manage client processes and user sessions: get a list of processes, cancel a user session, terminate a process, close a database connection, and manage load.'
+alternate:
+  - href: en/managed-greenplum/operations/cluster-process.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing client processes and user sessions

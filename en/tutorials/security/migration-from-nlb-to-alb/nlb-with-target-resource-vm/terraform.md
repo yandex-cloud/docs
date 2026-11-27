@@ -1,6 +1,10 @@
 ---
 title: Migrating services from an NLB to an L7 ALB using {{ TF }}
 description: Follow this guide to migrate a service from a network load balancer with VM instances as targets to an L7 load balancer using {{ TF }}.
+alternate:
+  - href: en/tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating services from an NLB with VMs as targets to an L7 ALB using {{ TF }}

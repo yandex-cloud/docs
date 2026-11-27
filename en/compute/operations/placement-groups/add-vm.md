@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/placement-groups/add-vm.md
+    type: text/markdown
+    title: Markdown version
+---
 # Adding a VM to a placement group
 
 Add an existing [VM](../../concepts/vm.md) to a [placement group](../../concepts/placement-groups.md).

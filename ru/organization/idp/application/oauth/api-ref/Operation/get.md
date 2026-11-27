@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/idp/application/oauth/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OAUTH Application API, REST: Operation.Get

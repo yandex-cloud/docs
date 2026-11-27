@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/iam/api-ref/grpc/IamToken/revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, gRPC: IamTokenService.Revoke

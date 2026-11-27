@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/cluster/start-failover/
+alternate:
+  - href: ru/managed-valkey/cli-ref/cluster/start-failover.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-redis cluster start-failover

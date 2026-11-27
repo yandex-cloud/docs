@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/internet-store/bitrix-shop/terraform'
+alternate:
+  - href: en/managed-mysql/tutorials/bitrix-shop/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an online store on 1C-Bitrix: Website Management using {{ TF }}

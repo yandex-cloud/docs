@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/traces/operations/trace-view.md
+    type: text/markdown
+    title: Markdown version
+---
 # Просмотр и анализ трейса
 
 На странице просмотра трейса отображается полный путь выполнения запроса — от корневого спана до конечных операций. Откройте трейс из результатов [поиска](traces-explorer.md) или введите `trace_id` напрямую.

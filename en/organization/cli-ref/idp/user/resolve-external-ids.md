@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/user/resolve-external-ids/
+alternate:
+  - href: en/organization/cli-ref/idp/user/resolve-external-ids.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager idp user resolve-external-ids

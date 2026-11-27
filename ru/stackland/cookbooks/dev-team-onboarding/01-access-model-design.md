@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/cookbooks/dev-team-onboarding/01-access-model-design.md
+    type: text/markdown
+    title: Markdown version
+---
 # Проектирование модели доступов
 
 В этом рецепте вы разберетесь, как устроен IAM платформы, как он связан с Kubernetes RBAC, и составите матрицу доступов для команды разработки.

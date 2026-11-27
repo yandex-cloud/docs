@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/php/context.md
+    type: text/markdown
+    title: Markdown version
+---
 # PHP function invocation context
 
 _Invocation context_ is an object that is accepted by the [request handler](handler.md) of a function in PHP as the second argument.

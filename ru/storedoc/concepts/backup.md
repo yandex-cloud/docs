@@ -12,6 +12,10 @@ keywords:
   - backup MongoDB
   - MongoDB
   - Yandex StoreDoc
+alternate:
+  - href: ru/storedoc/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Резервные копии в {{ mmg-name }}
@@ -54,7 +58,7 @@ keywords:
 
     * Резервные копии, созданные вручную, хранятся бессрочно.
 
-* После удаления кластера все его резервные копии хранятся 7 дней.
+* После удаления кластера срок хранения резервных копий зависит от его настроек (по умолчанию — семь дней). Хранение в этот период не тарифицируется.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}

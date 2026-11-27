@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/pxf/create-hdfs-source.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating an external HDFS data source
 
 In {{ mgp-name }}, you can use HDFS as part of [{{ dataproc-full-name }}](../../../data-proc/index.yaml) or other third-party HDFS services as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the HDFS connection type.

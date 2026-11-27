@@ -1,6 +1,10 @@
 ---
 title: Trend and smoothing lines in {{ datalens-full-name }} charts
 description: Follow this guide to apply a smoothing or add a trend line to a chart on a {{ datalens-full-name }} dashboard.
+alternate:
+  - href: en/datalens/dashboard/trends-and-smoothing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Trend and smoothing lines in {{ datalens-full-name }} charts

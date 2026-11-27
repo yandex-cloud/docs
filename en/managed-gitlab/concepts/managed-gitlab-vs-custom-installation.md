@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-gitlab/concepts/managed-gitlab-vs-custom-installation.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ mgl-name }} advantages over a custom {{ GL }} Community Edition installation
 
 _Custom installation_ is a self-managed {{ GL }} installed on a server or local computer. Below we discuss the custom installation of [{{ GL }} Community Edition](https://about.gitlab.com/install/ce-or-ee/).

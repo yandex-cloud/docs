@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/container/delete/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/container/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless container delete

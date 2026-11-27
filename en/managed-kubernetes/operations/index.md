@@ -1,6 +1,10 @@
 ---
 title: How to work with {{ managed-k8s-full-name }}
 description: 'This section contains step-by-step guides on how to use {{ managed-k8s-name }}: connection to the cluster, working with persistent volumes, managing a node group and a {{ k8s }} cluster.'
+alternate:
+  - href: en/managed-kubernetes/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ managed-k8s-name }}

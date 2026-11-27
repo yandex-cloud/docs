@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/organizationmanager/events-ref/SetTwoFactorAuthenticationPassportRequired.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub Audit Trails Events: SetTwoFactorAuthenticationPassportRequired

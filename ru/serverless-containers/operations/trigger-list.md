@@ -1,6 +1,10 @@
 ---
 title: Инструкция о том, как получить список триггеров в {{ serverless-containers-full-name }}
 description: Из статьи вы узнаете, как получить список триггеров в {{ serverless-containers-full-name }}.
+alternate:
+  - href: ru/serverless-containers/operations/trigger-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список триггеров в {{ serverless-containers-name }}

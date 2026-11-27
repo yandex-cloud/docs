@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/ydb/operations/connection.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение к БД с помощью {{ ydb-short-name }} CLI
 
 {{ ydb-short-name }} CLI — инструмент для управления вашими данными в {{ ydb-full-name }} из командной строки. Вы можете использовать {{ ydb-short-name }} CLI для выполнения действий с БД на системах без графического интерфейса или для автоматизации задач с помощью скриптов.

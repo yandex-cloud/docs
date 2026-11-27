@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/operations/resources/configure-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring log export
 
 [Log export](../../concepts/logs.md) is a paid feature. See [{#T}](../../pricing.md) for billing details.

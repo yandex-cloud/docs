@@ -1,6 +1,10 @@
 ---
 title: Начало работы с JavaScript SDK для {{ video-player-name }}
 description: На странице приведены основные элементы управления видеоплеером {{ video-player-name }} с помощью SDK для JavaScript.
+alternate:
+  - href: ru/video/sdk/javascript/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с SDK видеоплеера для JavaScript

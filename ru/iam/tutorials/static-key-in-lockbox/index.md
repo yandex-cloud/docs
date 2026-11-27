@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/static-key-in-lockbox/'
+alternate:
+  - href: ru/iam/tutorials/static-key-in-lockbox/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование секрета {{ lockbox-full-name }} для хранения статического ключа доступа

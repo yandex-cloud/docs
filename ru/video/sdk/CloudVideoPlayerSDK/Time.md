@@ -1,6 +1,10 @@
 ---
 title: Time — SDK видеоплеера {{ video-full-name }} для iOS
 description: Работа со временем и позицией воспроизведения в SDK видеоплеера {{ video-name }} для iOS.
+alternate:
+  - href: ru/video/sdk/CloudVideoPlayerSDK/Time.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Time

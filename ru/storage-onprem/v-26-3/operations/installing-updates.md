@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/operations/installing-updates.md
+    type: text/markdown
+    title: Markdown version
+---
 # Установка обновлений
 
 Обновить {{ objstorage-onprem-name }} можно с помощью CLI. Перед началом получите архив обновления `yc-storage-<версия>.tar.gz`, [настройте CLI и аутентифицируйтесь](../quickstart.md#configure-cli) с учетной записью администратора.

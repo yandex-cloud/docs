@@ -1,6 +1,10 @@
 ---
 title: '{{ metadata-hub-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ metadata-hub-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/metadata-hub/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ metadata-hub-full-name }} event reference

@@ -1,6 +1,10 @@
 ---
 title: How to configure Postfix to send emails via {{ postbox-full-name }}
 description: In this tutorial, you will learn how to configure Postfix on a VM in {{ yandex-cloud }} to send emails via {{ postbox-name }}.
+alternate:
+  - href: en/tutorials/serverless/postfix-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring Postfix to send emails via {{ postbox-full-name }}

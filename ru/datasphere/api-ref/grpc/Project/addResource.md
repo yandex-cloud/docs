@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datasphere/api-ref/grpc/Project/addResource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, gRPC: ProjectService.AddResource

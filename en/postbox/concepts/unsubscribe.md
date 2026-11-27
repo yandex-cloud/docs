@@ -1,6 +1,10 @@
 ---
 title: Unsubscribe mechanism
 description: One-click unsubscribe mechanism in {{ postbox-full-name }} allows users to unsubscribe from newsletters in just one click.
+alternate:
+  - href: en/postbox/concepts/unsubscribe.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Unsubscribe mechanism

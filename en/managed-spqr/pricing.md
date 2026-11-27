@@ -6,6 +6,10 @@ keywords:
   - keyword: '{{ SPQR }}'
   - keyword: '{{ mspqr-full-name }}'
   - keyword: '{{ mspqr-name }}'
+alternate:
+  - href: en/managed-spqr/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mspqr-name }} pricing policy

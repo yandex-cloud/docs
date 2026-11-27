@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ datalens-full-name }} до 1 декабря 2025 года
 description: В статье содержатся правила тарификации сервиса {{ datalens-name }} до 1 декабря 2025 года.
 editable: false
+alternate:
+  - href: ru/datalens/pricing-old.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ datalens-full-name }}

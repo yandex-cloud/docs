@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_yarl.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli yarl
 
 Yarl rate-limit quotas

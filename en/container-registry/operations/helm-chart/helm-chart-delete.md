@@ -1,6 +1,10 @@
 ---
 title: Deleting a Helm chart from a {{ container-registry-name }} repository
 description: Follow this guide to delete a Helm chart from a {{ container-registry-name }} repository.
+alternate:
+  - href: en/container-registry/operations/helm-chart/helm-chart-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a Helm chart from a registry

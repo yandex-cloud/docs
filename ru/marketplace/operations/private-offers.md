@@ -1,6 +1,10 @@
 ---
 title: Создать приватный офер в {{ marketplace-name }}
 description: Из статьи вы узнаете, как создать и активировать приватный офер в кабинете партнера {{ marketplace-name }}.
+alternate:
+  - href: ru/marketplace/operations/private-offers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Приватные оферы

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/load-balancer/logging/
+alternate:
+  - href: en/application-load-balancer/cli-ref/v0/load-balancer/logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc application-load-balancer v0 load-balancer logging

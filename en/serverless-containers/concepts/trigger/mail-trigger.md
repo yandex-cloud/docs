@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/concepts/trigger/mail-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Email trigger that invokes a {{ serverless-containers-name }} container
 
 An email [trigger](../trigger/) launches a {{ serverless-containers-name }} [container](../container.md) when an email arrives. {{ sf-name }} will automatically generate an email address when creating the trigger.

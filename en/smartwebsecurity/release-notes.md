@@ -1,6 +1,10 @@
 ---
 title: '{{ sws-full-name }} release notes'
 description: This section contains the {{ sws-name }} release notes.
+alternate:
+  - href: en/smartwebsecurity/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sws-full-name }} release notes

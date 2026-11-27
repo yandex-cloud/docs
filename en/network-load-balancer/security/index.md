@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ network-load-balancer-full-name }}
 description: Access management in {{ network-load-balancer-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
+alternate:
+  - href: en/network-load-balancer/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ network-load-balancer-name }}

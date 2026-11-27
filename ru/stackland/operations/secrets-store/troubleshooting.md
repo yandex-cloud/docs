@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/secrets-store/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
+---
 # Диагностика Secrets Store
 
 В этом разделе описаны типичные проблемы при использовании Secrets Injector и способы их решения.

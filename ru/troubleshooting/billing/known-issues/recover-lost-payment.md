@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/recover-lost-payment.md
+    type: text/markdown
+    title: Markdown version
+---
 # Деньги долго не приходят на баланс после платежа переводом с расчетного счета для юридических лиц
 
 

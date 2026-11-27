@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/v0/endpoint/update/yds-source/
+alternate:
+  - href: en/data-transfer/cli-ref/v0/endpoint/update/yds-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc datatransfer v0 endpoint update yds-source

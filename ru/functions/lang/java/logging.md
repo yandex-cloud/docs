@@ -1,6 +1,10 @@
 ---
 title: Журналирование выполнения функции на Java
 description: Сервис {{ sf-name }} автоматически захватывает потоки стандартного вывода приложения на Java и отправляет их в централизованную систему журналирования в {{ yandex-cloud }}.
+alternate:
+  - href: ru/functions/lang/java/logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Журналирование выполнения функции на Java

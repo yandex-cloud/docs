@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/concepts/supported-clients.md
+    type: text/markdown
+    title: Markdown version
+---
 # Recommended {{ mmg-name }} clients
 
 To connect to {{ mmg-short-name }}, consider using the following clients:

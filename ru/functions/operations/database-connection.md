@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/operations/database-connection.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение к управляемым БД из функции
 
 {% note warning %}

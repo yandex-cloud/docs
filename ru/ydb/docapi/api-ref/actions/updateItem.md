@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/updateItem.md
+alternate:
+  - href: ru/ydb/docapi/api-ref/actions/updateItem.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Метод UpdateItem
 

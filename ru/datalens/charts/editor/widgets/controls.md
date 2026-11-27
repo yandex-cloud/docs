@@ -1,6 +1,10 @@
 ---
 title: Как работать с селектором на дашборде {{ datalens-full-name }}
 description: Из статьи вы узнаете, как работать с селектором на дашборде {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/charts/editor/widgets/controls.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Селектор

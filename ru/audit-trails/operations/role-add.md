@@ -1,6 +1,10 @@
 ---
 title: Назначить роли на трейл
 description: Следуя данной инструкции, вы сможете назначить роли на трейл.
+alternate:
+  - href: ru/audit-trails/operations/role-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначить роли на трейл

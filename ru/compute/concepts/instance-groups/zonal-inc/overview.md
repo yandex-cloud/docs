@@ -1,6 +1,10 @@
 ---
 title: Группы виртуальных машин при зональном инциденте
 description: Зональный инцидент — сбой инфраструктуры {{ yandex-cloud }}, который имеет воздействие в пределах одной зоны доступности.
+alternate:
+  - href: ru/compute/concepts/instance-groups/zonal-inc/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Группы виртуальных машин {{ compute-full-name }} при зональном инциденте

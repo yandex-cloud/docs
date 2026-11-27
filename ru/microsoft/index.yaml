@@ -15,6 +15,10 @@ meta:
     - keyword: офис microsoft в {{ yandex-cloud }}
     - keyword: Windows в {{ yandex-cloud }}
     - keyword: инструменты microsoft в облаке
+  alternate:
+    - href: ru/microsoft/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Практические руководства
     description: >-

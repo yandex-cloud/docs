@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание в {{ mkf-full-name }}
 description: Под техническим обслуживанием в {{ mkf-name }} понимается автоматическая установка обновлений и исправлений СУБД для хостов (в т. ч. для выключенных кластеров), изменение класса хостов и размера хранилища и другие сервисные работы.
+alternate:
+  - href: ru/managed-kafka/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание в {{ mkf-name }}

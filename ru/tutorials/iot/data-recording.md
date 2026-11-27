@@ -2,6 +2,10 @@
 title: Руководство по записи данных с устройства в базу данных
 description: В этом руководстве вы организуете запись информации с устройства в базу данных на примере {{ mpg-full-name }}.
 canonical: '{{ link-docs }}/tutorials/iot/data-recording'
+alternate:
+  - href: ru/tutorials/iot/data-recording.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запись данных с устройства в базу данных

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/postgresql/create-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать кластер PostgreSQL
 
 Если у вас есть [проект](../projects/create-project.md), создайте в нем кластер [PostgreSQL](../../concepts/components/postgresql.md).

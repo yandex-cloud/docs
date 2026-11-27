@@ -1,6 +1,10 @@
 ---
 title: Управление хостами кластера {{ SPQR }}
 description: Из статьи вы узнаете, как управлять хостами кластера {{ SPQR }}. Вы сможете добавлять и удалять хосты кластера, а также управлять настройками через консоль управления, CLI, {{ TF }} и API сервиса.
+alternate:
+  - href: ru/managed-spqr/operations/cluster-hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление хостами кластера {{ SPQR }}

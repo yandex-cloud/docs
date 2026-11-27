@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ PG }} cluster
 description: Follow this guide to create a {{ PG }} cluster with one or multiple database hosts.
+alternate:
+  - href: en/managed-postgresql/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ PG }} cluster

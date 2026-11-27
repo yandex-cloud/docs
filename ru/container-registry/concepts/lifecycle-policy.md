@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/container-registry/concepts/lifecycle-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Политика автоматического удаления Docker-образов
 
 Политика удаления [Docker-образов](docker-image.md) позволяет задать [правила](#lifecycle-rules), в соответствии с которыми Docker-образы будут удаляться автоматически.

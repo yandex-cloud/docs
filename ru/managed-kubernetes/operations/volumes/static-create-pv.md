@@ -1,6 +1,10 @@
 ---
 title: Как создать под со статически подготовленным томом в {{ managed-k8s-full-name }}
 description: Следуя данной инструкции, вы сможете создать под со статически подготовленным томом.
+alternate:
+  - href: ru/managed-kubernetes/operations/volumes/static-create-pv.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Статическая подготовка тома

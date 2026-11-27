@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/MAVG.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # MAVG (window)

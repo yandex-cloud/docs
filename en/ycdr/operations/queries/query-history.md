@@ -1,6 +1,10 @@
 ---
 title: Query history in {{ ycdr-full-name }}
 description: Follow this guide to learn how to use query history in {{ ycdr-name }}.
+alternate:
+  - href: en/ycdr/operations/queries/query-history.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # History

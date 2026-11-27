@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о приватном соединении {{ interconnect-name }}
 description: Следуя этой инструкции, вы сможете получить информацию о приватном соединении {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/operations/priv-con-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о приватном соединении

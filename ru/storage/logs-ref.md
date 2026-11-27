@@ -1,6 +1,10 @@
 ---
 title: Справочник логов {{ objstorage-full-name }}
 description: В данном разделе приведены описания поля логов, поставляемых бакетом, и методы запроса к бакету.
+alternate:
+  - href: ru/storage/logs-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник логов {{ objstorage-name }}

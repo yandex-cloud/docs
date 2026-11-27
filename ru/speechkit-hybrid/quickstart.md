@@ -1,6 +1,11 @@
 ---
 title: Как создать демонстрационный стенд {{ sk-hybrid-name }}
 description: По этой инструкции вы можете создать приложения для распознавания и синтеза речи, а также утилиты для нагрузочного тестирования.
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание демонстрационного стенда {{ sk-hybrid-name }}

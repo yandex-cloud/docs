@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/load-balancer/remove-sni/
+alternate:
+  - href: ru/application-load-balancer/cli-ref/load-balancer/remove-sni.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc application-load-balancer load-balancer remove-sni

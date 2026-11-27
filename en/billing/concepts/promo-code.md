@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/concepts/promo-code.md
+    type: text/markdown
+    title: Markdown version
+---
 # Promo codes
 
 A **promo code** is a password that allows you to get an additional discount on {{ yandex-cloud }} services.

@@ -1,6 +1,10 @@
 ---
 title: Как создавать, изменять и удалять ключевые пары электронной подписи
 description: Следуя данной инструкции, вы сможете создавать, изменять и удалять ключевые пары электронной подписи.
+alternate:
+  - href: ru/kms/operations/asymmetric-signature-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление ключевыми парами электронной подписи

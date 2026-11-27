@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/concepts/trigger/mail-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для почты, который вызывает контейнер {{ serverless-containers-name }}
 
 [Триггер](../trigger/) для почты запускает [контейнер](../container.md) {{ serverless-containers-name }}, когда на электронную почту приходит письмо. Адрес электронной почты генерируется сервисом автоматически во время создания триггера.

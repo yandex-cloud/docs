@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/ydb/concepts/oltp-and-olap.md
+    type: text/markdown
+    title: Markdown version
+---
 # OLTP or OLAP operating modes
 
 When working with databases, there are two main scenarios: On-line Transaction Processing (OLTP) and On-line Analytical Processing (OLAP).

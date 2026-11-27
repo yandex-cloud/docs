@@ -1,6 +1,10 @@
 ---
 title: How to delete a log group in {{ cloud-logging-name }}
 description: In this guide, you will learn how to delete a log group in {{ cloud-logging-name }}.
+alternate:
+  - href: en/logging/operations/delete-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a log group

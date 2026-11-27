@@ -1,6 +1,10 @@
 ---
 title: Имперсонация в {{ iam-full-name }}
 description: Из статьи вы узнаете, что такое имперсонация в {{ iam-full-name }} и как ее использовать при управлении ресурсами {{ yandex-cloud }}.
+alternate:
+  - href: ru/iam/concepts/access-control/impersonation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Имперсонация

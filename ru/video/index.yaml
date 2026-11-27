@@ -25,6 +25,10 @@ meta:
     - keyword: видеоплеер {{ video-name }}
     - keyword: '{{ video-name }} контент'
     - keyword: размещение в {{ video-name }}
+  alternate:
+    - href: ru/video/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Загрузите первое видео или создайте первую трансляцию

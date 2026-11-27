@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ dataproc-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ dataproc-full-name }}.
+alternate:
+  - href: ru/data-proc/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ dataproc-full-name }}

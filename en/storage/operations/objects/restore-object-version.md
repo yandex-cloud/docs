@@ -1,6 +1,10 @@
 ---
 title: Restoring an object version in a versioned bucket in {{ objstorage-full-name }}
 description: Follow this guide to restore an object version in a versioned bucket in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/objects/restore-object-version.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Restoring an object's version

@@ -1,6 +1,10 @@
 ---
 title: Monitoring in {{ sws-full-name }}
 description: Follow this guide to configure monitoring in {{ sws-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Monitoring in {{ sws-name }}

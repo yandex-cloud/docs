@@ -1,6 +1,10 @@
 ---
 title: Ресурсные группы в {{ mgp-full-name }}
 description: Из этой статьи вы узнаете, что такое ресурсные группы, их параметры, а также особенности распределения памяти между ними.
+alternate:
+  - href: ru/managed-greenplum/concepts/resource-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ресурсные группы

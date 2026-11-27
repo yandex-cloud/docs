@@ -1,6 +1,10 @@
 ---
 title: Developing in Go in {{ sf-full-name }}. Overview
 description: With {{ sf-name }}, you can run applications written in Go. This service provides the runtime with different versions.
+alternate:
+  - href: en/functions/lang/golang/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Developing in Go. Overview

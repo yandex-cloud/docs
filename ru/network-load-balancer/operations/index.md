@@ -1,6 +1,10 @@
 ---
 title: Как работать с сетевым балансировщиком. Пошаговые инструкции
 description: Пошаговые инструкции по работе с сетевым балансировщиком в {{ yandex-cloud }}. Из статьи вы узнаете, как создавать балансировщики, отслеживать состояние ресурсов, работать с целевыми группами.
+alternate:
+  - href: ru/network-load-balancer/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ network-load-balancer-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/operations/backup-retention-policies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление политиками резервного копирования в {{ mpg-name }}
 
 Политики [резервного копирования](../concepts/backup.md) позволяют гибко управлять созданием и хранением резервных копий кластера. Вы можете настроить расписание, по которому будут создаваться полные резервные копии, и задать срок их хранения.

@@ -1,6 +1,10 @@
 ---
 title: How to work with Git in {{ ml-platform-full-name }}
 description: In this article, you will learn how to work with Git in {{ ml-platform-name }}.
+alternate:
+  - href: en/datasphere/operations/projects/work-with-git.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with Git

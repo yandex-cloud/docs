@@ -1,6 +1,10 @@
 ---
 title: Как пополнить лицевой счет
 description: Следуя данной инструкции, вы сможете пополнить лицевой счет.
+alternate:
+  - href: ru/billing/operations/pay-the-bill.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пополнить лицевой счет

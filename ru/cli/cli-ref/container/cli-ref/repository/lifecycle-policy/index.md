@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/repository/lifecycle-policy/
+alternate:
+  - href: ru/cli/cli-ref/container/cli-ref/repository/lifecycle-policy/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container repository lifecycle-policy

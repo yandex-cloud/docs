@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-greenplum/api-ref/grpc/Maintenance/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, gRPC: MaintenanceService

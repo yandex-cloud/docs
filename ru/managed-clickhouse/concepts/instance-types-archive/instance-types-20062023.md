@@ -1,6 +1,10 @@
 ---
 title: Классы хостов {{ mch-name }} до 20 июня 2023 года
 description: Класс хостов определяет вычислительные мощности, которые выделяются для каждого хоста в кластере {{ CH }}. Классы хостов {{ mch-name }} до 20 июня 2023 года.
+alternate:
+  - href: ru/managed-clickhouse/concepts/instance-types-archive/instance-types-20062023.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Классы хостов в {{ mch-name }} до 20 июня 2023 года

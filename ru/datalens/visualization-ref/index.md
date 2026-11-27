@@ -1,6 +1,10 @@
 ---
 title: Справочник визуализаций в {{ datalens-full-name }}
 description: Из статьи вы узнаете, какие чарты доступны в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/visualization-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник визуализаций в {{ datalens-full-name }}

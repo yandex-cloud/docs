@@ -2,6 +2,10 @@ title: Документация Yandex Cloud
 meta:
   title: Yandex Cloud
   noIndex: true
+  alternate:
+    - href: ru/index.yaml
+      type: application/yaml
+      title: Yaml version
 description: []
 links:
   - title: API Yandex Cloud

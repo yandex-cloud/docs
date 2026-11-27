@@ -1,6 +1,10 @@
 ---
 title: Creating an API gateway
 description: Follow this guide to create an API gateway.
+alternate:
+  - href: en/api-gateway/operations/api-gw-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an API gateway

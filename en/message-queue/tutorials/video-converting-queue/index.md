@@ -1,6 +1,10 @@
 ---
 canonical: '{{ link-docs }}/tutorials/serverless/video-converting-queue/'
 noIndex: true
+alternate:
+  - href: en/message-queue/tutorials/video-converting-queue/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [video-converting-queue](../../../_tutorials/_tutorials_includes/video-converting-queue/index.md) %}

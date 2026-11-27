@@ -1,6 +1,10 @@
 ---
 title: Подключить {{ baremetal-extend-virtualization-name }}
 description: Следуя этой инструкции, вы сможете отправить заявку на подключение {{ baremetal-extend-virtualization-name }}.
+alternate:
+  - href: ru/baremetal/operations/extend/virtualization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключить {{ baremetal-extend-virtualization-name }}

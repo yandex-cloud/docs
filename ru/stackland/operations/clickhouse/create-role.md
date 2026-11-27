@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/clickhouse/create-role.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать роль
 
 Если у вас есть [кластер](create-cluster.md) [{{ CH }}](../../concepts/components/clickhouse.md), вы можете создать в нем роль с помощью кастомного ресурса `ClickhouseRole`.

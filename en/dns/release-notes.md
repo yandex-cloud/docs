@@ -1,6 +1,10 @@
 ---
 title: '{{ dns-full-name }} release notes'
 description: This section contains the {{ dns-name }} release notes.
+alternate:
+  - href: en/dns/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ dns-full-name }} release notes

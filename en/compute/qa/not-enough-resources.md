@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/qa/not-enough-resources.md
+    type: text/markdown
+    title: Markdown version
+---
 # _Not enough resources_ error
 
 Creating a VM may fail with the `Not enough resources` error if the availability zone lacks sufficient hardware resources.

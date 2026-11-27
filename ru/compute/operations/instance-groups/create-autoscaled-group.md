@@ -1,6 +1,10 @@
 ---
 title: Создать автоматически масштабируемую группу виртуальных машин
 description: Следуя данной инструкции, вы сможете создать автоматически масштабируемую группу виртуальных машин.
+alternate:
+  - href: ru/compute/operations/instance-groups/create-autoscaled-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать автоматически масштабируемую группу виртуальных машин

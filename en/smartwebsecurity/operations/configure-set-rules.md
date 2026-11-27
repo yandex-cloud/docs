@@ -1,6 +1,10 @@
 ---
 title: Configuring Cloud WAF rule sets
 description: Follow this guide to configure rule sets for a WAF profile.
+alternate:
+  - href: en/smartwebsecurity/operations/configure-set-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring Cloud WAF rule sets

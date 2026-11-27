@@ -1,6 +1,10 @@
 ---
 title: Public materials about {{ mmg-full-name }}
 description: Video recordings of conferences and webinars on {{ mmg-full-name }}.
+alternate:
+  - href: en/storedoc/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public materials about {{ mmg-full-name }}

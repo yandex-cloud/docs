@@ -1,6 +1,10 @@
 ---
 title: Передача логов кластера {{ metastore-full-name }} в {{ cloud-logging-full-name }}
 description: Следуя данной инструкции, вы сможете настроить передачу логов кластера {{ metastore-name }} в {{ cloud-logging-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/metastore/logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передача логов кластера {{ metastore-name }} в {{ cloud-logging-full-name }}

@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Interconnect
+alternate:
+  - href: en/terraform/data-sources/cic_point_of_presence.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cic_point_of_presence (DataSource)

@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ compute-full-name }}
 description: Access management in {{ compute-full-name }}, a service providing scalable computing capacities for creating and managing virtual machines. This section describes the resources you can assign a role for and the roles existing in the service.
+alternate:
+  - href: en/compute/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ compute-name }}

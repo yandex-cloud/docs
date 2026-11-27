@@ -1,6 +1,10 @@
 ---
 title: Справочник событий уровня сервисов {{ at-full-name }}
 description: В данном разделе приведены описания событий уровня сервисов, собираемых в сервисах {{ yandex-cloud }}.
+alternate:
+  - href: ru/audit-trails/concepts/events-data-plane.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник событий уровня сервисов

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/firewall/set-access-bindings/
+alternate:
+  - href: en/dns/cli-ref/firewall/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns firewall set-access-bindings

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/community/create-ssa.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать сервисного агента
 
 С помощью [сервисного агента](../../../iam/concepts/service-control.md#service-agent) вы сможете работать с другими сервисами, например обновлять токены для авторизации из ноутбуков {{ ml-platform-name }}.

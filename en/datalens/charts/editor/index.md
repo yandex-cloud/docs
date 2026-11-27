@@ -1,6 +1,10 @@
 ---
 title: Editor overview
 description: This page describes the Editor's chart-building features.
+alternate:
+  - href: en/datalens/charts/editor/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Charts in Editor

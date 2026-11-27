@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/cloud-functions.md
+    type: text/markdown
+    title: Markdown version
+---
 # x-yc-apigateway-integration:cloud_functions extension
 
 The `x-yc-apigateway-integration:cloud_functions` extension invokes the relevant function. As its input, the function accepts the HTTP request data and values of the properties listed in the specification. As the output, it returns the result of function execution to the client.

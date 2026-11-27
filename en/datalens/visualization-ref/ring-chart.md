@@ -1,6 +1,10 @@
 ---
 title: Donut chart in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the donut chart visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/ring-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Donut chart ![](../../_assets/datalens/ring.svg) in {{ datalens-full-name }}

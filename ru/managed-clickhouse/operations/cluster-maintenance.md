@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание кластера {{ CH }}
 description: Следуя данной инструкции, вы сможете просмотреть информацию о планируемых и проведенных технических обслуживаниях кластера {{ CH }}, а также выбрать время для проведения обслуживания.
+alternate:
+  - href: ru/managed-clickhouse/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание кластера {{ CH }}

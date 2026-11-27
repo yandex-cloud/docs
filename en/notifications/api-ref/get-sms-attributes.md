@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/get-sms-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # GetSMSAttributes
 
 Gets parameters for sending SMS messages in the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).

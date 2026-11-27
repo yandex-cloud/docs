@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/delete-suppressed-destination.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteSuppressedDestination method
 
 Deletes an address from the [custom suppression list](../../concepts/suppression-list.md#user). The cloud is determined based on the service account the request originates from.

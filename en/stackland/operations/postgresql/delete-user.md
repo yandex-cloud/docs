@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/postgresql/delete-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a {{ PG }} user
 
 If you have a {{ PG }} user in your [cluster](../../concepts/components/postgresql.md), you can delete it.

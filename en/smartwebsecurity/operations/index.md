@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ sws-full-name }}
 description: This page features step-by-step guides for {{ sws-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ sws-name }}

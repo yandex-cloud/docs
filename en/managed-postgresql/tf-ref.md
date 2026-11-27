@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ mpg-full-name }}'
 description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ mpg-name }}.
+alternate:
+  - href: en/managed-postgresql/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ mpg-full-name }}

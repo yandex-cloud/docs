@@ -1,6 +1,10 @@
 ---
 title: '{{ video-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ video-full-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/video/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

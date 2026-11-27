@@ -1,6 +1,10 @@
 ---
 title: Public groups
 description: In this tutorial, you will learn about public groups and their types.
+alternate:
+  - href: en/iam/concepts/access-control/public-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public groups

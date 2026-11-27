@@ -1,6 +1,10 @@
 ---
 title: How to connect to a Linux VM over SSH using {{ cloud-shell-full-name }}
 description: Follow this guide to connect to a Linux VM over SSH using {{ cloud-shell-name }}.
+alternate:
+  - href: en/compute/operations/vm-connect/cloud-shell.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a Linux VM over SSH using {{ cloud-shell-full-name }}

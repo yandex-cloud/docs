@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/compute/events-ref/UpdateHostGroup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Audit Trails Events: UpdateHostGroup

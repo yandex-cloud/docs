@@ -1,6 +1,10 @@
 ---
 title: How to manage API keys in {{ iam-full-name }}
 description: In this guide, you will learn how to create and delete API keys in {{ iam-full-name }} using the management console, CLI, and API.
+alternate:
+  - href: en/iam/operations/authentication/manage-api-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing API keys

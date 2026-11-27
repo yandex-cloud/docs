@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/concepts/trigger/ymq-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для {{ message-queue-short-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}
 
 [Триггер](../trigger/) для {{ message-queue-short-name }} предназначен для разгрузки [очереди сообщений](../../../message-queue/concepts/queue.md). Он принимает сообщения из очереди и передает их в [контейнер](../container.md) {{ serverless-containers-name }} для обработки. После успешной обработки триггер удаляет сообщения из очереди, а при ошибке — возвращает сообщения в очередь через [таймаут видимости](../../../message-queue/concepts/visibility-timeout.md). Если для очереди не настроена [Dead Letter Queue](../../../message-queue/concepts/dlq.md), сообщение будет повторно передаваться в контейнер, пока успешно не обработается или не закончится срок его хранения.

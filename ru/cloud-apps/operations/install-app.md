@@ -1,6 +1,10 @@
 ---
 title: Как установить приложение {{ cloud-apps-name }}
 description: Следуя данной инструкции, вы сможете развернуть приложение на базе {{ yandex-cloud }}.
+alternate:
+  - href: ru/cloud-apps/operations/install-app.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка приложения {{ cloud-apps-name }}

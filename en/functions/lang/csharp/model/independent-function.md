@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/csharp/model/independent-function.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using the Function interface to set a handler in C#
 
 You can set a handler in C# without inheriting from [SDK](https://github.com/yandex-cloud/dotnet-sdk) classes.

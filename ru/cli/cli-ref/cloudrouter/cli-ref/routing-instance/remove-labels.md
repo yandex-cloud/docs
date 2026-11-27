@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/routing-instance/remove-labels/
+alternate:
+  - href: ru/cli/cli-ref/cloudrouter/cli-ref/routing-instance/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloudrouter routing-instance remove-labels

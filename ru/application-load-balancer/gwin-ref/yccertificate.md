@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/application-load-balancer/gwin-ref/yccertificate.md
+    type: text/markdown
+    title: Markdown version
+---
 # YCCertificate
 
 YCCertificate is a Gwin custom resource for referencing TLS certificates from Yandex Certificate Manager. It allows you to use certificates managed by Yandex Cloud in your Gateway and Ingress resources for TLS termination.

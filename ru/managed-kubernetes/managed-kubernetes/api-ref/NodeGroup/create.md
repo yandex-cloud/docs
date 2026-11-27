@@ -732,6 +732,10 @@ apiPlayground:
               Variable value.
               The maximum string length in characters is 262144.
             type: string
+alternate:
+  - href: ru/managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Services for Kubernetes API, REST: NodeGroup.Create

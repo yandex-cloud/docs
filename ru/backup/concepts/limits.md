@@ -2,6 +2,10 @@
 title: Квоты в {{ backup-full-name }}
 description: В сервисе {{ backup-name }} действуют квоты на количество защищаемых ресурсов и суммарный размер резервных копий. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
 editable: false
+alternate:
+  - href: ru/backup/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты в {{ backup-name }}

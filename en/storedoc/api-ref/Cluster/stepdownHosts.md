@@ -35,6 +35,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/storedoc/api-ref/Cluster/stepdownHosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.StepdownHosts

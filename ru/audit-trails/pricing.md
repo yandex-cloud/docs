@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ at-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ at-name }}.
 editable: false
+alternate:
+  - href: ru/audit-trails/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ at-full-name }}

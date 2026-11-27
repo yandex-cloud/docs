@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/concepts/planning-cluster-topology.md
+    type: text/markdown
+    title: Markdown version
+---
 # Planning cluster topology
 
 When planning your cluster topology, you need to be aware of what can disrupt the cluster and how tolerant your application is of such disruptions.

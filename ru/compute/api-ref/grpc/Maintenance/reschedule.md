@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/compute/api-ref/grpc/Maintenance/reschedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, gRPC: MaintenanceService.Reschedule

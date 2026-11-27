@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/DataTransfers/rpcdeactivateDataTransfer-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Deactivate data transfer

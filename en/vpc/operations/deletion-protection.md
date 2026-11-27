@@ -1,6 +1,10 @@
 ---
 title: Configuring deletion protection in {{ vpc-full-name }}
 description: To prevent accidental deletion of a static public IP address, enable deletion protection for it.
+alternate:
+  - href: en/vpc/operations/deletion-protection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring deletion protection

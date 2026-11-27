@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ TR }} connection in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to connect to {{ TR }} in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-trino.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a connection to {{ TR }} in {{ datalens-full-name }}

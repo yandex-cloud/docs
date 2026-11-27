@@ -1,6 +1,10 @@
 ---
 title: Как создать рабочий стол
 description: Следуя данной инструкции, вы сможете создать рабочий стол.
+alternate:
+  - href: ru/cloud-desktop/operations/desktops/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать рабочий стол

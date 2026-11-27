@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/generating-invoice.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to generate a payment invoice
 
 

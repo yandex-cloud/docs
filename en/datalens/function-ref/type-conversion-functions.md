@@ -1,6 +1,10 @@
 ---
 title: Type conversion functions
 editable: false
+alternate:
+  - href: en/datalens/function-ref/type-conversion-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Type conversion functions

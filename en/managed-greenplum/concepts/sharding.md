@@ -1,6 +1,10 @@
 ---
 title: Data distribution in {{ mgp-name }}
 description: This guide provides an overview of data distribution policies and best practices for choosing a distribution policy and key in {{ mgp-full-name }}.
+alternate:
+  - href: en/managed-greenplum/concepts/sharding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data distribution in {{ mgp-name }}

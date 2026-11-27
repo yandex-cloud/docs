@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ cdn-full-name }}
 description: На странице представлены вопросы и ответы про {{ cdn-name }}.
+alternate:
+  - href: ru/cdn/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие вопросы про {{ cdn-full-name }}

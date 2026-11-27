@@ -1,6 +1,10 @@
 ---
 title: Pushing a Python package to a registry in {{ cloud-registry-name }}
 description: This guide describes how to push a Python package to a registry in {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/pypi/push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pushing a Python package to a local registry in {{ cloud-registry-name }}

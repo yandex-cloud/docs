@@ -1,6 +1,10 @@
 ---
 title: Миграция с {{ container-registry-name }} на {{ cloud-registry-name }}
 description: В практическом руководстве описано, как мигрировать с {{ container-registry-name }} на {{ cloud-registry-name }}.
+alternate:
+  - href: ru/container-registry/tutorials/container-registry-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция с {{ container-registry-name }} на {{ cloud-registry-name }}

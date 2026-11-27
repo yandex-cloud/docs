@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.SOURCE_CONFIG.TEMPLATE_INVALID
 description: На странице приведено описание ошибки {{ datalens-full-name }} Invalid template.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TEMPLATE_INVALID.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Invalid template

@@ -1,6 +1,10 @@
 ---
 title: Creating an endpoint in {{ cns-full-name }}
 description: Follow this guide to create an endpoint.
+alternate:
+  - href: en/notifications/operations/push/endpoint-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an endpoint

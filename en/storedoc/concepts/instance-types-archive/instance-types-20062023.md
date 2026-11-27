@@ -1,6 +1,10 @@
 ---
 title: '{{ mmg-name }} host classes before June 20, 2023'
 description: The host class determines the computing power allocated for each host in a {{ SD }} cluster. {{ mmg-name }} host classes before June 20, 2023.
+alternate:
+  - href: en/storedoc/concepts/instance-types-archive/instance-types-20062023.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ SD }} host classes before June 20, 2023

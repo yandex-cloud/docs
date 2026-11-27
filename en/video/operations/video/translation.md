@@ -1,6 +1,10 @@
 ---
 title: How to manage neural translation in {{ video-full-name }}
 description: Follow this guide to manage neural translation in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/video/translation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing neural machine translation

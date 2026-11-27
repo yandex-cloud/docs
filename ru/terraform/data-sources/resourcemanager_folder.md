@@ -1,5 +1,9 @@
 ---
 subcategory: Resource Manager
+alternate:
+  - href: ru/terraform/data-sources/resourcemanager_folder.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_resourcemanager_folder (DataSource)

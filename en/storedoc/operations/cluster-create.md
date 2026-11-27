@@ -1,6 +1,10 @@
 ---
 title: Creating a {{ SD }} cluster
 description: Follow this guide to create a {{ SD }} cluster.
+alternate:
+  - href: en/storedoc/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ SD }} cluster

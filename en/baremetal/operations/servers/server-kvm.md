@@ -1,6 +1,10 @@
 ---
 title: How to connect to the KVM console of a {{ baremetal-full-name }} server
 description: Follow this guide to connect to the KVM console of a {{ baremetal-name }} server.
+alternate:
+  - href: en/baremetal/operations/servers/server-kvm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to the KVM console

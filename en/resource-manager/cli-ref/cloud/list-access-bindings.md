@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/cloud/list-access-bindings/
+alternate:
+  - href: en/resource-manager/cli-ref/cloud/list-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc resource-manager cloud list-access-bindings

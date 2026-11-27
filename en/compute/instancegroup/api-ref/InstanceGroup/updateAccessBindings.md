@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/compute/instancegroup/api-ref/InstanceGroup/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud Instance Groups API, REST: InstanceGroup.UpdateAccessBindings

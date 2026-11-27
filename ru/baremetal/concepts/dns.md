@@ -1,6 +1,10 @@
 ---
 title: DNS в приватной сети {{ baremetal-full-name }}
 description: Узнайте, как передавать DNS-серверы и доменное имя серверам {{ baremetal-name }} по DHCP, использовать входящие DNS-подключения и учитывать ограничения.
+alternate:
+  - href: ru/baremetal/concepts/dns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DNS в приватной сети

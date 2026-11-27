@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/getting-refund.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to get a refund
 
 

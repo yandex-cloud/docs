@@ -1,6 +1,10 @@
 ---
 title: Deleting a Cloud WAF profile
 description: Follow this guide to delete a WAF profile.
+alternate:
+  - href: en/smartwebsecurity/operations/waf-profile-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a Cloud WAF profile

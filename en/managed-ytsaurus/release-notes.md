@@ -1,6 +1,10 @@
 ---
 title: '{{ myt-full-name }} release notes'
 description: This section contains the {{ myt-name }} release notes.
+alternate:
+  - href: en/managed-ytsaurus/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ myt-full-name }} release notes

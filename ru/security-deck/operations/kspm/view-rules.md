@@ -1,6 +1,10 @@
 ---
 title: Просмотр правил контроля {{ k8s }}
 description: В данном разделе вы узнаете, как можно посмотреть задействованные правила контроля {{ k8s }}.
+alternate:
+  - href: ru/security-deck/operations/kspm/view-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть правила контроля {{ k8s }}

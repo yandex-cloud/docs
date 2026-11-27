@@ -1,6 +1,10 @@
 ---
 title: Как удалить {{ yandex-cloud }} CLI
 description: Следуя данной инструкции, вы сможете удалить {{ yandex-cloud }} CLI.
+alternate:
+  - href: ru/cli/operations/remove-cli.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление {{ yandex-cloud }} CLI

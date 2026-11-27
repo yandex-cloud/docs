@@ -15,6 +15,10 @@ meta:
     - keyword: управление облачными ресурсами
     - keyword: управление облаком
     - keyword: ресурсная модель облака
+  alternate:
+    - href: ru/resource-manager/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: "Yandex\_Identity\_and\_Access\_Management"

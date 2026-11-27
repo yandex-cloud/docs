@@ -7,6 +7,10 @@ keywords:
   - function
   - call
 editable: false
+alternate:
+  - href: en/datalens/function-ref/native-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Native functions

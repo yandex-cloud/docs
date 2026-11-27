@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/websql/operations/history.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с историей запросов
 
 В сервисе {{ websql-full-name }} доступна [история запросов](../concepts/index.md#query-log). Вы можете:

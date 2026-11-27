@@ -114,6 +114,10 @@ apiPlayground:
               - website
           - required:
               - balancer
+alternate:
+  - href: ru/cdn/api-ref/Origin/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: Origin.Update

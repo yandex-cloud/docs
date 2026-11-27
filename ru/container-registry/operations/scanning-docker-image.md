@@ -1,6 +1,10 @@
 ---
 title: Как просканировать Docker-образ на наличие уязвимостей в {{ container-registry-full-name }}
 description: Следуя данной инструкции, вы сможете просканировать Docker-образ на наличие уязвимостей.
+alternate:
+  - href: ru/container-registry/operations/scanning-docker-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сканирование Docker-образа на наличие уязвимостей

@@ -1,6 +1,10 @@
 ---
 title: Как удалить версию функции
 description: Следуя данной инструкции, вы сможете удалить версию функции.
+alternate:
+  - href: ru/functions/operations/function/version-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить версию функции

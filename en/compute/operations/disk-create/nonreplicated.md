@@ -1,6 +1,10 @@
 ---
 title: How to create a non-replicated disk in {{ compute-full-name }}
 description: Follow this guide to create a non-replicated disk.
+alternate:
+  - href: en/compute/operations/disk-create/nonreplicated.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a non-replicated disk

@@ -2,6 +2,10 @@
 title: Запуск Docker-образа на виртуальной машине с помощью {{ cloud-registry-full-name }}
 description: В этом руководстве вы развернете Docker-образ из реестра {{ cloud-registry-name }} и запустите контейнер на виртуальной машине {{ compute-name }}.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/docker-cloud-registry'
+alternate:
+  - href: ru/cloud-registry/tutorials/docker-cloud-registry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запуск Docker-образа на виртуальной машине с помощью {{ cloud-registry-full-name }}

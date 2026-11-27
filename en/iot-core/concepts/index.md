@@ -1,6 +1,10 @@
 ---
 title: Resource relationships in {{ iot-full-name }}
 description: The main {{ iot-full-name }} elements are device, registry, and broker. These can exchange various data and commands using the MQTT server. Data is exchanged via MQTT version 3.1.1. This simplified network protocol for device communication is based on the publisher/subscriber pattern.
+alternate:
+  - href: en/iot-core/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource relationships in {{ iot-name }}

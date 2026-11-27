@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ certificate-manager-full-name }}'
 description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ certificate-manager-name }}.
+alternate:
+  - href: en/certificate-manager/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ certificate-manager-full-name }}

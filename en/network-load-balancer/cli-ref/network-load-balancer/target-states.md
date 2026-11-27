@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/load-balancer/cli-ref/network-load-balancer/target-states/
+alternate:
+  - href: en/network-load-balancer/cli-ref/network-load-balancer/target-states.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc load-balancer network-load-balancer target-states

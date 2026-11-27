@@ -1,6 +1,10 @@
 ---
 title: Как арендовать сервер в {{ baremetal-full-name }} в стандартной конфигурации
 description: Следуя данной инструкции, вы сможете арендовать сервер в {{ baremetal-full-name }} в одной из стандартных конфигураций.
+alternate:
+  - href: ru/baremetal/operations/servers/server-lease.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Арендовать сервер в готовой конфигурации

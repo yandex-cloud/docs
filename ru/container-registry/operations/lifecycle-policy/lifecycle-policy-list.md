@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о политиках удаления в {{ container-registry-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о политиках удаления.
+alternate:
+  - href: ru/container-registry/operations/lifecycle-policy/lifecycle-policy-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о политиках удаления

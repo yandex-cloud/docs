@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/cloud-functions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение x-yc-apigateway-integration:cloud_functions
 
 Расширение `x-yc-apigateway-integration:cloud_functions` вызывает указанную функцию. В качестве входных данных функция получает информацию о HTTP-запросе и значения параметров, указанных в спецификации, на выходе клиенту возвращается результат выполнения функции.

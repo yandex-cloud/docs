@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/trigger/budget-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for budgets that sends messages to WebSocket connections
 
 A [trigger](../trigger/) for [budgets](../../../billing/concepts/budget.md) sends messages to [WebSocket connections](../extensions/websocket.md) when threshold values are exceeded.

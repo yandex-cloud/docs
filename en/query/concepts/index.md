@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ yq-full-name }} overview
 
 {{ yq-full-name }} is a data service that can run federated queries against [{{ objstorage-full-name }}](../../storage/concepts/index.md) object storage, [{{ mch-name }}](https://yandex.cloud/en/services/managed-clickhouse), [{{ mgp-name }}](https://yandex.cloud/en/services/managed-greenplum), [{{ mmy-name }}](https://yandex.cloud/en/services/managed-mysql), [{{ mpg-name }}](https://yandex.cloud/en/services/managed-postgresql), and [{{ ydb-name }}](https://yandex.cloud/en/services/ydb) managed databases, and [{{ yds-full-name }}](../../data-streams/concepts/index.md) real-time streams. {{ yq-full-name }} uses YQL – a unified SQL dialect – to aggregate query results [across these systems](../concepts/federated-processing.md).

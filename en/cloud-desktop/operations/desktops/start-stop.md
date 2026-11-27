@@ -1,6 +1,10 @@
 ---
 title: How to start, stop, and restart a desktop in {{ cloud-desktop-full-name }}
 description: In this tutorial, you will learn how to start, stop, and restart a desktop in {{ cloud-desktop-name }}.
+alternate:
+  - href: en/cloud-desktop/operations/desktops/start-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Starting, stopping, and restarting a desktop

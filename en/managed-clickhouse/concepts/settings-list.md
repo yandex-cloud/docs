@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ CH }} settings
 
 For {{ mch-name }} clusters, you can specify these {{ CH }} settings:

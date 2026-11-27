@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/marketplace/tutorials/demo-cloud-apps.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание демонстрационного продукта {{ cloud-apps-name }}
 
 В этом руководстве вы создадите простой продукт {{ cloud-apps-name }}, состоящий из [кластера](../../managed-postgresql/concepts/index.md) {{ mpg-full-name }} и [виртуальной машины](../../compute/concepts/vm.md) {{ compute-full-name }} с доступом к кластеру, установите _приложение_ (экземпляр продукта) и протестируете его работу.

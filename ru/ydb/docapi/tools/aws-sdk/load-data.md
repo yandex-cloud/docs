@@ -2,6 +2,10 @@
 title: Как загрузить данные в таблицу в {{ ydb-full-name }}
 description: Следуя данной инструкции, вы сможете загрузить данные в таблицу.
 sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
+alternate:
+  - href: ru/ydb/docapi/tools/aws-sdk/load-data.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Загрузка данных в таблицу
 

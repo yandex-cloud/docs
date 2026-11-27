@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/cloud-router/concepts/aggregates.md
+    type: text/markdown
+    title: Markdown version
+---
 ### Aggregated prefixes (aggregates) {#agg-subnets}
 
 To automatically announce new subnets to {{ interconnect-name }}, you can use **aggregated subnet prefixes** (aggregates). With aggregates, you only need to set up prefix announcements once. From then on, you can add new subnets to your {{ vpc-short-name }} without contacting support.

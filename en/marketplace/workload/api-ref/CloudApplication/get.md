@@ -7,6 +7,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/marketplace/workload/api-ref/CloudApplication/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Apps Workload API, REST: CloudApplication.Get

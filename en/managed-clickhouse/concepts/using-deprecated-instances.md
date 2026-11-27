@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/concepts/using-deprecated-instances.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using deprecated host classes in {{ mch-name }}
 
 Starting January 1, 2024, the `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro`, and `b2.small` host classes are deprecated for {{ mch-name }}.

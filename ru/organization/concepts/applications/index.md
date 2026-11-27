@@ -1,6 +1,10 @@
 ---
 title: Приложения в {{ org-full-name }}
 description: В {{ org-full-name }} вы можете аутентифицировать пользователей {{ yandex-cloud }} во внешних приложениях с помощью SAML- и OIDC-приложений с использованием технологии единого входа.
+alternate:
+  - href: ru/organization/concepts/applications/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Приложения в {{ org-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Users and permissions
 description: This page presents FAQ about users and access permissions management.
+alternate:
+  - href: en/datalens/qa/permissions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Users and access management

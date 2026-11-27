@@ -1,6 +1,10 @@
 ---
 title: How to move a {{ interconnect-full-name }} trunk to another folder
 description: Follow this guide to move a {{ interconnect-full-name }} trunk to another folder.
+alternate:
+  - href: en/interconnect/operations/trunk-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving a trunk to another folder

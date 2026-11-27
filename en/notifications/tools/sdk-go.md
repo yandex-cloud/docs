@@ -1,6 +1,10 @@
 ---
 title: How to get started with the AWS SDK for Go in {{ cns-full-name }}
 description: Follow this guide to learn how to use the AWS SDK for Go in {{ cns-full-name }}.
+alternate:
+  - href: en/notifications/tools/sdk-go.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to get started with the AWS SDK for Go in {{ cns-full-name }}

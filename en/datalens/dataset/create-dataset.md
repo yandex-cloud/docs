@@ -1,6 +1,10 @@
 ---
 title: Working with a dataset in {{ datalens-full-name }}
 description: Follow this guide to learn how to work with a dataset in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/dataset/create-dataset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with a dataset in {{ datalens-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/postgresql/recover-copy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Recovering a cluster
 
 If you have lost a [{{ PG }}](../../concepts/components/postgresql.md) cluster in a [project](../projects/create-project.md), you can restore it from a backup.

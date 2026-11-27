@@ -1,6 +1,10 @@
 ---
 title: Обзорные видео обновлений {{ datalens-full-name }}
 description: Видео с обзором новых возможностей {{ datalens-name }} по кварталам.
+alternate:
+  - href: ru/datalens/release-notes/videos.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзорные видео обновлений {{ datalens-full-name }}

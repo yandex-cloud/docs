@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/cluster/remove-access-binding/
+alternate:
+  - href: ru/cli/cli-ref/managed-greenplum/cli-ref/cluster/remove-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-greenplum cluster remove-access-binding

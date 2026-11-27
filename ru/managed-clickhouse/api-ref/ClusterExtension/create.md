@@ -44,6 +44,10 @@ apiPlayground:
             type: string
         required:
           - name
+alternate:
+  - href: ru/managed-clickhouse/api-ref/ClusterExtension/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: ClusterExtension.Create

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/unable-to-pay-with-sber-card.md
+    type: text/markdown
+    title: Markdown version
+---
 # Fixing the `Webpage is temporarily unavailable` error when paying with a Sber card
 
 

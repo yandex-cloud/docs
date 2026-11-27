@@ -2,6 +2,10 @@
 title: '{{ cdn-full-name }} pricing policy'
 description: This article covers the {{ cdn-full-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/cdn/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cdn-full-name }} pricing policy

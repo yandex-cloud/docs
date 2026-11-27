@@ -47,6 +47,10 @@ apiPlayground:
         - uri
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/managed-clickhouse/api-ref/MlModel/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: MlModel.Create

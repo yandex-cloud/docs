@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ yq-full-name }} connection
 description: Follow this guide to create a connection to {{ yq-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-yandex-query.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ yq-full-name }} connection

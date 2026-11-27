@@ -8,6 +8,10 @@ keywords:
   - PTR-запись
   - Cloud DNS
   - DNS-запросы
+alternate:
+  - href: ru/glossary/dns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Domain Name System (DNS)

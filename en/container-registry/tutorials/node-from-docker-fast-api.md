@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/ml-ai/node-from-docker-fast-api'
+alternate:
+  - href: en/container-registry/tutorials/node-from-docker-fast-api.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deploying a service in {{ ml-platform-full-name }} from a Docker image with FastAPI

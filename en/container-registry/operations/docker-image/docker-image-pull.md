@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/container-registry/operations/docker-image/docker-image-pull.md
+    type: text/markdown
+    title: Markdown version
+---
 # Pulling a Docker image from a registry
 
 To pull a [Docker image](../../concepts/docker-image.md), you need the `container-registry.images.puller` [role](../../security/index.md#container-registry-images-puller) or higher. In addition, you need to know which [repository](../../concepts/repository.md) houses the Docker image, as well as its [tag or digest](../../concepts/docker-image.md#version).

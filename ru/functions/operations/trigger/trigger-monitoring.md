@@ -1,6 +1,10 @@
 ---
 title: Просмотр графиков мониторинга в {{ sf-full-name }}
 description: Вы можете посмотреть график мониторинга в {{ sf-full-name }} с помощью консоли управления, для этого выберите сервис {{ sf-name }}, нажмите на триггер, графики мониторинга которого вы хотите посмотреть.
+alternate:
+  - href: ru/functions/operations/trigger/trigger-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть графики мониторинга триггера в {{ sf-name }}

@@ -1,6 +1,10 @@
 ---
 title: Квоты и лимиты в {{ container-registry-full-name }}
 description: В {{ container-registry-full-name }} действуют лимиты и квоты на максимальное количество реестров, количество одновременных запусков сканирования образа в одном облаке. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
+alternate:
+  - href: ru/container-registry/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ container-registry-name }}

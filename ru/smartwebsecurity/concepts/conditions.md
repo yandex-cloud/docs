@@ -1,6 +1,10 @@
 ---
 title: Условия
 description: Какие условия можно использовать в правилах {{ sws-name }} для фильтрации HTTP-запросов по IP-адресам, заголовкам, URI, cookie и признакам ботов.
+alternate:
+  - href: ru/smartwebsecurity/concepts/conditions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Условия

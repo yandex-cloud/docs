@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/monitoring/api-ref/MetricsMeta/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # MetricsMeta

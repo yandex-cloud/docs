@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ stackland-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ stackland-name }}.
 editable: false
+alternate:
+  - href: ru/stackland/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации

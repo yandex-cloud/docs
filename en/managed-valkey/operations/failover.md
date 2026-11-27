@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-valkey/operations/failover.md
+    type: text/markdown
+    title: Markdown version
+---
 # Master failover
 
 In a fault-tolerant multi-host {{ mrd-name }} cluster, you can perform a manual failover from the current master host to a replica host. After the failover, the current master host becomes a replica for the new master.

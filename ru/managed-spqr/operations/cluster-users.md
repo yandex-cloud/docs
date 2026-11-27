@@ -1,6 +1,10 @@
 ---
 title: Управление пользователями в {{ SPQR }}
 description: Из статьи вы узнаете, как добавлять и удалять пользователей в {{ SPQR }}, а также управлять их индивидуальными настройками.
+alternate:
+  - href: ru/managed-spqr/operations/cluster-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление пользователями в {{ SPQR }}

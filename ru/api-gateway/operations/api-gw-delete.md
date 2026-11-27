@@ -1,6 +1,10 @@
 ---
 title: Удалить API-шлюз
 description: Следуя данной инструкции, вы сможете удалить API-шлюз.
+alternate:
+  - href: ru/api-gateway/operations/api-gw-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить API-шлюз

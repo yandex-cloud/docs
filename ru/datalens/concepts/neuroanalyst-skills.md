@@ -1,6 +1,10 @@
 ---
 title: Навыки Нейроаналитика в {{ datalens-full-name }}
 description: Из статьи вы узнаете, что такое навыки Нейроаналитика в {{ datalens-name }}, как их создавать и использовать.
+alternate:
+  - href: ru/datalens/concepts/neuroanalyst-skills.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Навыки Нейроаналитика в {{ datalens-full-name }}

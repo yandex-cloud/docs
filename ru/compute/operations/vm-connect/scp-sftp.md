@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/vm-connect/scp-sftp.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обмен файлами с виртуальной машиной Linux
 
 Для обмена файлами с виртуальной машиной Linux рекомендуется использовать протоколы [SCP](https://ru.wikipedia.org/wiki/SCP) и [SFTP](https://ru.wikipedia.org/wiki/SFTP).

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/datalens/install-images.md
+    type: text/markdown
+    title: Markdown version
+---
 # Загрузить образы {{ datalens-name }}
 
 Образы компонента {{ datalens-name }} не входят в базовую поставку {{ stackland-name }}. Перед активацией компонента загрузите образы в кластер.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/ydb/concepts/transfer.md
+    type: text/markdown
+    title: Markdown version
+---
 # Data transfer
 
 In YDB, a transfer is an asynchronous mechanism that moves data from a [topic]({{ ydb.docs }}/concepts/glossary#topic) to a [table]({{ ydb.docs }}/concepts/glossary#table). A transfer instance is [created]({{ ydb.docs }}/yql/reference/syntax/create-transfer), [edited]({{ ydb.docs }}/yql/reference/syntax/alter-transfer), and [deleted]({{ ydb.docs }}/yql/reference/syntax/drop-transfer) using YQL. A transfer runs inside the database in background mode. It serves the function of supplying data from a topic to a table.

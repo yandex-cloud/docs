@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
+---
 <!-- markdownlint-disable-file -->
 
 # Yandex B2B Tech Partner Portal Public API

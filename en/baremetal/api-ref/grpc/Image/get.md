@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/baremetal/api-ref/grpc/Image/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, gRPC: ImageService.Get

@@ -1,6 +1,10 @@
 ---
 title: 'QuasiEndpoint: {{ video-full-name }} player SDK for iOS'
 description: Configuring HTTP endpoints for sending telemetry to the {{ video-name }} player SDK for iOS.
+alternate:
+  - href: en/video/sdk/CloudVideoPlayerSDK/QuasiEndpoint.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # QuasiEndpoint

@@ -1,6 +1,10 @@
 ---
 title: Управление ресурсными группами в {{ mtr-name }}
 description: Вы можете получить информацию о конфигурации ресурсных групп, задать или удалить ее.
+alternate:
+  - href: ru/managed-trino/operations/manage-resource-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление ресурсными группами в {{ mtr-name }}

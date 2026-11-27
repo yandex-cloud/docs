@@ -1,6 +1,10 @@
 ---
 title: Creating a Docker image
 description: This guide describes how to create and build a Docker image based on a Dockerfile in {{ container-registry-name }}.
+alternate:
+  - href: en/container-registry/operations/docker-image/docker-image-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a Docker image

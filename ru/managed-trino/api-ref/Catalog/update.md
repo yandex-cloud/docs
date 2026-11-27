@@ -814,6 +814,10 @@ apiPlayground:
               maxLength: 63
               minLength: 1
             maxProperties: 64
+alternate:
+  - href: ru/managed-trino/api-ref/Catalog/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Trino API, REST: Catalog.Update

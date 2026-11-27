@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение {{ metadata-hub-name }}. Пошаговые инструкции
 description: Пошаговые инструкции по работе с {{ connection-manager-name }} в {{ yandex-cloud }}. Из статьи вы узнаете, как создавать подключения.
+alternate:
+  - href: ru/metadata-hub/operations/create-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения

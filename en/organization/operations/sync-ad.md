@@ -1,6 +1,10 @@
 ---
 title: Configuring synchronization with {{ microsoft-idp.ad-full }} in {{ org-full-name }}
 description: 'Configure synchronization of users and groups between {{ microsoft-idp.ad-short }} and {{ org-full-name }}: get your organization and domain controller ready, then configure and run the synchronization agent.'
+alternate:
+  - href: en/organization/operations/sync-ad.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Syncing users and groups with {{ microsoft-idp.ad-full }}

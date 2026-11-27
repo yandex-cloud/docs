@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/artifact/get-by-path/
+alternate:
+  - href: en/cloud-registry/cli-ref/artifact/get-by-path.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry artifact get-by-path

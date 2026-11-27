@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ai/speechkit/stt/events-ref/RecognizeSpeechStream.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SpeechKit Audit Trails Events: RecognizeSpeechStream

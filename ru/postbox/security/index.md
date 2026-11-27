@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ postbox-full-name }}
 description: Управление доступом в сервисе для отправки почтовых сообщений {{ postbox-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ postbox-full-name }}, назначьте пользователю нужные роли из приведенного списка.
+alternate:
+  - href: ru/postbox/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ postbox-full-name }}

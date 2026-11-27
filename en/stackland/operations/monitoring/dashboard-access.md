@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/monitoring/dashboard-access.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing access to dashboards
 
 You can limit dashboard access to individual users or user groups at the dashboard folder level or for individual dashboards. Individual dashboards inherit access permissions from their folder.

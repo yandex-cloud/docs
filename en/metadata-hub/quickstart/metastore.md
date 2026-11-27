@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ metastore-full-name }}
 description: In {{ metadata-hub-name }}, you can create {{ metastore-full-name }} clusters and use them to work with {{ dataproc-full-name }} clusters.
+alternate:
+  - href: en/metadata-hub/quickstart/metastore.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ metastore-full-name }}

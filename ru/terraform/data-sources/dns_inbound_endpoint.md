@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud DNS
+alternate:
+  - href: ru/terraform/data-sources/dns_inbound_endpoint.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_dns_inbound_endpoint (DataSource)

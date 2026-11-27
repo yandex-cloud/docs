@@ -1,6 +1,10 @@
 ---
 title: Clusters and environments in {{ datalens-platform-full-name }}
 description: In this article, you will learn why environments and clusters are used in {{ datalens-platform-full-name }}, how computation works in {{ TR }} and {{ SPRK }}, and how to manage cluster resources.
+alternate:
+  - href: en/datalens/datalens-platform/concepts/clusters/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Clusters and environments in {{ datalens-platform-full-name }}

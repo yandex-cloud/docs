@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ mch-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ mch-name }}.
 editable: false
+alternate:
+  - href: ru/managed-clickhouse/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

@@ -58,6 +58,10 @@ apiPlayground:
             type: string
         required:
           - quotaId
+alternate:
+  - href: ru/quota-manager/api-ref/QuotaRequest/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quota Manager API, REST: QuotaRequest.Create

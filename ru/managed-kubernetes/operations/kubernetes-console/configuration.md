@@ -1,6 +1,10 @@
 ---
 title: Управление ресурсами ConfigMap и Secret в {{ managed-k8s-full-name }}
 description: Из статьи вы узнаете, как в {{ yandex-cloud }} управлять ресурсами ConfigMap и Secret в {{ k8s }} с помощью консоли управления без использования kubectl.
+alternate:
+  - href: ru/managed-kubernetes/operations/kubernetes-console/configuration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление ресурсами ConfigMap и Secret

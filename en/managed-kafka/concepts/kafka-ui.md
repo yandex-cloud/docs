@@ -1,6 +1,10 @@
 ---
 title: '{{ kafka-ui }} for {{ mkf-name }}'
 description: In this tutorial, you will learn about the features of {{ kafka-ui }}, a web UI for {{ KF }}.
+alternate:
+  - href: en/managed-kafka/concepts/kafka-ui.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ kafka-ui }} for {{ KF }}

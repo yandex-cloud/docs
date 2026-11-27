@@ -1,6 +1,10 @@
 ---
 title: Как настроить правило для блокировки черных адресов в {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете настроить правило для блокировки черных адресов в {{ sws-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/black-list-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правило для блокировки черных адресов

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/bucket/getbucketencryption.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: GetBucketEncryption
 
 Returns information about bucket encryption. For more information about bucket encryption, see [{#T}](../../../concepts/encryption.md).

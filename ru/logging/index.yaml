@@ -28,6 +28,10 @@ meta:
     - keyword: лог-группа {{ cloud-logging-short-name }}
     - keyword: logging sink
     - keyword: логирование {{ yandex-cloud }}
+  alternate:
+    - href: ru/logging/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Добавьте записи в лог-группу и прочитайте их

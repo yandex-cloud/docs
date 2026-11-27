@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Access management in {{ cdn-name }}
 
 {{ cdn-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.

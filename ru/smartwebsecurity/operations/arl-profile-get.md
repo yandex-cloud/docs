@@ -1,6 +1,10 @@
 ---
 title: Получить информацию о профиле безопасности ARL {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о профиле безопасности ARL {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/arl-profile-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о профиле ARL

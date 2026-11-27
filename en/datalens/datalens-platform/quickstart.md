@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ datalens-platform-full-name }}
 description: Follow this guide to set up a {{ datalens-platform-short-name }} environment, ingest data from a source, explore it using SQL, and create a dashboard.
+alternate:
+  - href: en/datalens/datalens-platform/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ datalens-platform-full-name }}

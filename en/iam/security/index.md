@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ iam-full-name }} ({{ iam-short-name }})
 description: Access management in {{ iam-full-name }} ({{ iam-short-name }}), an identity and access management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
+alternate:
+  - href: en/iam/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ iam-name }}

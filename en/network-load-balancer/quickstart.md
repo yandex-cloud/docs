@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/network-load-balancer/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ network-load-balancer-short-name }}
 
 [Network load balancers](concepts/index.md) evenly distribute traffic evenly across cloud resources and monitor their health status. This enhances the availability and fault tolerance of your apps and cloud network infrastructure.

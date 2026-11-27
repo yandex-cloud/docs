@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/vm-info/get-serial-port-output.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting the serial port output
 
 You can get the output from a VM serial port and use it, e.g., for troubleshooting.

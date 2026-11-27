@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ resmgr-full-name }}
 description: Управление доступом в сервисе, позволяющим структурировать ресурсы {{ yandex-cloud }} с помощью каталогов - {{ resmgr-full-name }}. В разделе описано на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
+alternate:
+  - href: ru/resource-manager/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ resmgr-name }}

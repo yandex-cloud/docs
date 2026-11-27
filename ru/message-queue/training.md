@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ message-queue-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ message-queue-full-name }}.
+alternate:
+  - href: ru/message-queue/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ message-queue-full-name }}

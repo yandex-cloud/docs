@@ -1,6 +1,10 @@
 ---
 title: Exporting spending details for a partner account and subaccounts
 description: Follow this guide to get a CSV file with spending details for a partner account and subaccounts.
+alternate:
+  - href: en/partner/operations/get-partner-report.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Exporting spending details for a partner account and subaccounts

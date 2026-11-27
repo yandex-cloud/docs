@@ -1,6 +1,10 @@
 ---
 title: Мониторинг зон DNS
 description: Следуя данной инструкции, вы сможете посмотреть метрики зон и запросов.
+alternate:
+  - href: ru/dns/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг зон DNS

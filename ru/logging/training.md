@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ cloud-logging-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ cloud-logging-full-name }}.
+alternate:
+  - href: ru/logging/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ cloud-logging-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Managing exceptions from {{ kspm-full-name }} ({{ kspm-name }}) security control rules in {{ sd-full-name }}
 description: Guide on how to manage exceptions from {{ kspm-name }} security control rules.
+alternate:
+  - href: en/security-deck/operations/kspm/manage-exceptions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing exceptions from {{ kspm-name }} security control rules

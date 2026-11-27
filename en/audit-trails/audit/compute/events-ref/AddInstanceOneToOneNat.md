@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/compute/events-ref/AddInstanceOneToOneNat.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Audit Trails Events: AddInstanceOneToOneNat

@@ -1,6 +1,10 @@
 ---
 title: How to configure a custom server name for SNI in {{ cdn-full-name }}
 description: Follow this guide to configure a custom server name for SNI.
+alternate:
+  - href: en/cdn/operations/resources/configure-server-name.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring a custom server name for SNI

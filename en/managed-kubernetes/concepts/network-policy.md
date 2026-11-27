@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/concepts/network-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ k8s }} cluster network policies
 
 With {{ k8s }} network policies you can configure networking between groups of [pods](./index.md#pod) and network nodes. You can create network policies using the [{{ k8s }} Network Policy API](https://kubernetes.io/docs/concepts/services-networking/network-policies/) that sets rules for filtering traffic at the pod level. These rules determine which pods and services in a {{ k8s }} cluster can access each other.

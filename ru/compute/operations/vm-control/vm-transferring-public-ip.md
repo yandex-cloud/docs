@@ -1,6 +1,10 @@
 ---
 title: Перенести публичный IP-адрес от одной ВМ на другую
 description: Чтобы перенести публичный IP-адрес от одной ВМ на другую, сделайте IP-адрес статическим, отвяжите его от исходной ВМ и привяжите к новой.
+alternate:
+  - href: ru/compute/operations/vm-control/vm-transferring-public-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Перенести публичный IP-адрес от одной ВМ на другую

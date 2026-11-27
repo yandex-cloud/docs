@@ -35,6 +35,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/compute/api-ref/SnapshotSchedule/updateDisks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: SnapshotSchedule.UpdateDisks

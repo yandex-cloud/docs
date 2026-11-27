@@ -1,6 +1,10 @@
 ---
 title: Mounting file systems to a {{ sf-full-name }} function
 description: In this tutorial, you will learn how to mount file systems to a function in {{ sf-full-name }}.
+alternate:
+  - href: en/functions/concepts/mounting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Mounting external resources to a function file system

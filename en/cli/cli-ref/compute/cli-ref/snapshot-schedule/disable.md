@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/snapshot-schedule/disable/
+alternate:
+  - href: en/cli/cli-ref/compute/cli-ref/snapshot-schedule/disable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute snapshot-schedule disable

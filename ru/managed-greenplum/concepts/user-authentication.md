@@ -1,6 +1,10 @@
 ---
 title: Аутентификация пользователей {{ mgp-full-name }}
 description: Из статьи вы узнаете про аутентификацию пользователей в {{ mgp-name }} и особенности настройки правил аутентификации.
+alternate:
+  - href: ru/managed-greenplum/concepts/user-authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация пользователей

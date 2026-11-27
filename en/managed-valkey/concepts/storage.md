@@ -1,6 +1,10 @@
 ---
 title: Storage in {{ mrd-full-name }}
 description: In this article, you will learn about disk types in {{ mrd-name }} and discover how to select the right disk type when creating a cluster.
+alternate:
+  - href: en/managed-valkey/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Storage in {{ mrd-name }}

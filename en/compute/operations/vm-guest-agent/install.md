@@ -1,6 +1,10 @@
 ---
 title: Installing the password reset agent on a Windows Server VM
 description: Follow this guide to install the password reset agent on a Windows Server VM.
+alternate:
+  - href: en/compute/operations/vm-guest-agent/install.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing the password reset agent on a Windows Server VM

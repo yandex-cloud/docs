@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for YDB
+alternate:
+  - href: ru/terraform/resources/ydb_database_serverless.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_ydb_database_serverless (Resource)

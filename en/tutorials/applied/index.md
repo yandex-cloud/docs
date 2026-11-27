@@ -1,6 +1,10 @@
 ---
 title: Tutorials for application solutions in {{ yandex-cloud }}
 description: This page provides a list of tutorials on creating sites, using 1C and Internet of Things.
+alternate:
+  - href: en/tutorials/applied/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application solutions

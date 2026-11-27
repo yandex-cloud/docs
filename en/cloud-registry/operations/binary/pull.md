@@ -1,6 +1,10 @@
 ---
 title: Pulling a binary artifact from a {{ cloud-registry-full-name }}
 description: Follow this guide to pull a binary artifact from a {{ cloud-registry-full-name }}.
+alternate:
+  - href: en/cloud-registry/operations/binary/pull.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pulling a binary artifact from a registry

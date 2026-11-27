@@ -1,6 +1,10 @@
 ---
 title: Как удалить снимок диска
 description: Следуя данной инструкции, вы сможете удалить снимок диска.
+alternate:
+  - href: ru/compute/operations/snapshot-control/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить снимок диска

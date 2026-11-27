@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/v0/cluster/rebalance/
+alternate:
+  - href: en/managed-valkey/cli-ref/v0/cluster/rebalance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-redis v0 cluster rebalance

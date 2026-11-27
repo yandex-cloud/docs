@@ -1,6 +1,10 @@
 ---
 title: Как настроить пользовательское имя сервера для SNI в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете настроить пользовательское имя сервера для SNI.
+alternate:
+  - href: ru/cdn/operations/resources/configure-server-name.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка пользовательского имени сервера для SNI

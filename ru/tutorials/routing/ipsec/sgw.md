@@ -1,6 +1,10 @@
 ---
 title: Решение Security GateWay от команды архитекторов {{ yandex-cloud }}
 description: Узнайте, как развернуть защищенное соединение между ресурсами в {{ yandex-cloud }} и инфраструктурой клиента с помощью готового решения Security GateWay (SGW) от команды архитекторов.
+alternate:
+  - href: ru/tutorials/routing/ipsec/sgw.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение Security GateWay от команды архитекторов {{ yandex-cloud }}

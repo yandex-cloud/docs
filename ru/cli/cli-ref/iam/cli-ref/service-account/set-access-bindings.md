@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/service-account/set-access-bindings/
+alternate:
+  - href: ru/cli/cli-ref/iam/cli-ref/service-account/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam service-account set-access-bindings

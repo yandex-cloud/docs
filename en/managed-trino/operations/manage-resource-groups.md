@@ -1,6 +1,10 @@
 ---
 title: Managing resource groups in {{ mtr-name }}
 description: You can get information about a resource group configuration, set up or delete a configuration.
+alternate:
+  - href: en/managed-trino/operations/manage-resource-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing resource groups in {{ mtr-name }}

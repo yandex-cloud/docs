@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/cloud-desktop/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop API, REST: Operation.Get

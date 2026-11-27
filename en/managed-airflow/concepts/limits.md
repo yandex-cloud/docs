@@ -2,6 +2,10 @@
 title: '{{ maf-name }} quotas and limits'
 description: '{{ yandex-cloud }} has limits and quotas for the number of resources you can use. For more information about the limits, read this article.'
 editable: false
+alternate:
+  - href: en/managed-airflow/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ maf-name }}

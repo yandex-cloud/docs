@@ -18,6 +18,10 @@ meta:
     - keyword: OpenAPI specification in {{ yandex-cloud }}
     - keyword: api gateways
     - keyword: gateways
+  alternate:
+    - href: en/api-gateway/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first API gateway

@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию об источнике в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию об отдельном источнике и о группе источников.
+alternate:
+  - href: ru/cdn/operations/origin-groups/get-group-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации об источниках

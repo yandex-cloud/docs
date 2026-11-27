@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/transactWriteItems.md
+alternate:
+  - href: ru/ydb/docapi/api-ref/actions/transactWriteItems.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Метод TransactWriteItems
 

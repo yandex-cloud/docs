@@ -1,6 +1,10 @@
 ---
 title: How to create a VM from disks
 description: Follow this guide to create a VM from existing disks.
+alternate:
+  - href: en/compute/operations/vm-create/create-from-disks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM from disks

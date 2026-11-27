@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/placement-groups/delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить группу размещения
 
 Удалите [группу размещения](../../concepts/placement-groups.md).

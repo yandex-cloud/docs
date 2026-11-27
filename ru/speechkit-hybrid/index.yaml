@@ -25,6 +25,11 @@ meta:
     - keyword: сервис {{ sk-hybrid-name }}
     - keyword: технологии {{ speechkit-name }}
     - keyword: технология {{ sk-hybrid-name }}
+  noIndex: true
+  alternate:
+    - href: ru/speechkit-hybrid/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Узнайте как развернуть сервис на своем оборудовании

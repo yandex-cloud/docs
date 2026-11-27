@@ -1,6 +1,10 @@
 ---
 title: Code examples for connecting to a sharded {{ SD }} cluster in {{ mmg-full-name }}
 description: You can use these examples to connect your application to a database in a sharded {{ SD }} cluster.
+alternate:
+  - href: en/storedoc/operations/connect/sharded.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Code examples for connecting to a sharded {{ SD }} cluster

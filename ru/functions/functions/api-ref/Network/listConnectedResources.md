@@ -53,6 +53,10 @@ apiPlayground:
             - folderId
     body: null
     definitions: null
+alternate:
+  - href: ru/functions/functions/api-ref/Network/listConnectedResources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, REST: Network.ListConnectedResources

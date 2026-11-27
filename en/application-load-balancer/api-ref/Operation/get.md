@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/application-load-balancer/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: Operation.Get

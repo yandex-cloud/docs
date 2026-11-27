@@ -1,6 +1,10 @@
 ---
 title: Available {{ mrd-full-name }} commands
 description: This page provides a list of {{ VLK }} commands which you cannot run in a {{ VLK }} cluster.
+alternate:
+  - href: en/managed-valkey/concepts/supported-features.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Available {{ mrd-name }} commands

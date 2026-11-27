@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/v0/registry/lifecycle-policy/change-state/
+alternate:
+  - href: ru/cli/cli-ref/cloud-registry/cli-ref/v0/registry/lifecycle-policy/change-state.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry v0 registry lifecycle-policy change-state

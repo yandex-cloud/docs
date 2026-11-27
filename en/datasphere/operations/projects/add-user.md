@@ -1,6 +1,10 @@
 ---
 title: How to add a user to a project
 description: Follow this guide to add a user to a project.
+alternate:
+  - href: en/datasphere/operations/projects/add-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a user to a project

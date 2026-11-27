@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть операции с зонами DNS в {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете посмотреть список операций с зонами DNS.
+alternate:
+  - href: ru/dns/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть операции с зонами

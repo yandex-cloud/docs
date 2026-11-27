@@ -1,6 +1,10 @@
 ---
 title: Trace-to-log correlation
 description: 'Two-way integration of traces and logs: navigate from a log to a trace using trace_id/span_id, and from a trace to logs through the interface.'
+alternate:
+  - href: en/monium/traces/operations/traces-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Trace-to-log correlation

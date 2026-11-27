@@ -1,6 +1,10 @@
 ---
 title: Как подключить профиль безопасности {{ sws-full-name }} к виртуальному хосту, домену или API-шлюзу
 description: Следуя данной инструкции, вы сможете подключить профиль безопасности {{ sws-full-name }} к защищаемому ресурсу.
+alternate:
+  - href: ru/smartwebsecurity/operations/host-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключить профиль безопасности к ресурсу

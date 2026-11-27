@@ -29,6 +29,10 @@ apiPlayground:
         - versionId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/kms/api-ref/SymmetricKey/setPrimaryVersion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: SymmetricKey.SetPrimaryVersion

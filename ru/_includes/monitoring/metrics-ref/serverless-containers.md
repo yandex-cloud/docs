@@ -8,7 +8,7 @@
 ----|----
 container | Идентификатор контейнера
 revision | Идентификатор [ревизии контейнера](../../../serverless-containers/concepts/container.md#revision)
-service | Метка сервиса, значение всегда `serverless-containers`
+service | Идентификатор сервиса: `serverless-containers`
 
 Метрики сервиса:
 
@@ -33,7 +33,7 @@ service | Метка сервиса, значение всегда `serverless-c
 ----|----
 trigger | Идентификатор триггера
 type | Тип сущности
-service | Метка сервиса, значение всегда `serverless-functions`
+service | Идентификатор сервиса: `serverless-functions`
 
 Имя метрики<br/>Тип, единицы измерения | Тип сущности | Описание<br/>Метки
 --- | --- | ---

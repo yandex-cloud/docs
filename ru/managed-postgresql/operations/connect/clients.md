@@ -1,6 +1,10 @@
 ---
 title: Подключение к кластеру {{ PG }} в {{ mpg-full-name }}
 description: Следуя этой инструкции, вы сможете подключиться к хостам в кластере {{ PG }} с помощью инструментов командной строки, графических IDE, браузера, {{ pgadmin }}, {{ google-looker }} и Docker-контейнера.
+alternate:
+  - href: ru/managed-postgresql/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ PG }} из приложений
@@ -33,15 +37,13 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. Подключитесь к базе данных:
 
       ```bash
-      psql "host=<список_хостов_кластера> \
+      psql "host = <особый_FQDN>; \
             port=6432 \
             sslmode=disable \
             dbname=<имя_БД> \
             user=<имя_пользователя> \
             target_session_attrs=read-write"
       ```
-
-      {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -56,8 +58,6 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. Подключитесь к базе данных:
 
       {% include [default-connstring](../../../_includes/mdb/mpg/default-connstring.md) %}
-
-      {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -87,13 +87,11 @@ sudo apt update && sudo apt install --yes postgresql-client
 
      ```powershell
      & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-           --host=<список_хостов> `
+           --host=<особый_FQDN> `
            --port={{ port-mpg }} `
            --username=<имя_пользователя> `
            <имя_БД>
      ```
-
-     {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
      После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -115,13 +113,11 @@ sudo apt update && sudo apt install --yes postgresql-client
 
       ```powershell
       & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-        --host=<список_хостов> `
+        --host=<особый_FQDN> `
         --port={{ port-mpg }} `
         --username<имя_пользователя> `
         <имя_БД>
       ```
-
-      {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 

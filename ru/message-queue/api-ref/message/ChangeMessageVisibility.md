@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/message/ChangeMessageVisibility.md
+    type: text/markdown
+    title: Markdown version
+---
 # ChangeMessageVisibility
 
 Метод для установки таймаута видимости сообщению, находящемуся в обработке. Суммарная длительность таймаута не может быть более 12 часов.

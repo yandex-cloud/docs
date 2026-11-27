@@ -1,6 +1,10 @@
 ---
 title: Roles for {{ atr-name }} data analysis in {{ sd-full-name }}
 description: This page lists the roles required to analyze {{ atr-name }} data in {{ sd-name }}.
+alternate:
+  - href: en/security-deck/security/access-transparency-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Roles for {{ atr-name }} data analysis

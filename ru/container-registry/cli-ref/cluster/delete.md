@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/cluster/delete/
+alternate:
+  - href: ru/container-registry/cli-ref/cluster/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container cluster delete

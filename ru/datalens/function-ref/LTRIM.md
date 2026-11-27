@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/LTRIM.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # LTRIM

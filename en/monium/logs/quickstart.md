@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/logs/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with application logs
 
 {{ monium-logs-name }} is a distributed and highly available system for storing, searching, visualizing, and analyzing logs. The system forms part of the {{ monium-name }} platform and uses its basic components, such as access management, data model, and unified interface.

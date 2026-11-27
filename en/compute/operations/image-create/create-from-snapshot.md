@@ -1,6 +1,10 @@
 ---
 title: How to create an image from a disk snapshot in {{ compute-full-name }}
 description: Follow this guide to create an image from a disk snapshot.
+alternate:
+  - href: en/compute/operations/image-create/create-from-snapshot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an image from a disk snapshot

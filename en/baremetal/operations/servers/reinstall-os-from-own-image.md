@@ -1,6 +1,10 @@
 ---
 title: How to reinstall an OS on a {{ baremetal-name }} server using a custom ISO image
 description: Follow this guide to install and reinstall a {{ baremetal-full-name }} server OS using a custom ISO image.
+alternate:
+  - href: en/baremetal/operations/servers/reinstall-os-from-own-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reinstalling an OS from a custom ISO image

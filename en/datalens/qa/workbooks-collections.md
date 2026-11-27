@@ -1,6 +1,10 @@
 ---
 title: Workbooks and collections
 description: This section includes answers to frequently asked user questions about workbooks and collections.
+alternate:
+  - href: en/datalens/qa/workbooks-collections.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Workbooks and collections

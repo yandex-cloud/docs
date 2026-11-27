@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/kafka/delete-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a cluster {{ KF }}
 
 If you have an [{{ KF }}](../../concepts/components/kafka.md) cluster in your [project](../projects/create-project.md), you can delete it.

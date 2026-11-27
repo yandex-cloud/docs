@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Accounts/GET_accounts_v1_masterBAId_account_accountId.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Account data

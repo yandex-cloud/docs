@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/mdb/postgresql/events-ref/DatabaseUserSQLRequest.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL Audit Trails Events: DatabaseUserSQLRequest

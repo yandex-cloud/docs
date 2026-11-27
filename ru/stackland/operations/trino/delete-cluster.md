@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/trino/delete-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить кластер {{ mtr-name }}
 
 Если у вас есть кластер [{{ TR }}](../../concepts/components/trino.md) в [проекте](../projects/create-project.md), вы можете удалить его.

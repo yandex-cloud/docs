@@ -1,6 +1,10 @@
 ---
 title: Creating a stream in the AWS SDK
 description: Follow this guide to create a stream in the AWS SDK.
+alternate:
+  - href: en/data-streams/operations/aws-sdk/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a stream in the AWS SDK

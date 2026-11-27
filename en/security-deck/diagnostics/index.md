@@ -1,6 +1,10 @@
 ---
 title: Possible errors when using {{ sd-full-name }}
 description: In this tutorial, you will learn about possible errors related to {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/diagnostics/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting in {{ sd-full-name }}

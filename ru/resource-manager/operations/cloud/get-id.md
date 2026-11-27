@@ -1,6 +1,10 @@
 ---
 title: Инструкция по получению идентификатора облака в {{ yandex-cloud }}
 description: Из статьи вы узнаете, как получить идентификатор облака в {{ yandex-cloud }}.
+alternate:
+  - href: ru/resource-manager/operations/cloud/get-id.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение идентификатора облака

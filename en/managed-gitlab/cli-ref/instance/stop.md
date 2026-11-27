@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-gitlab/cli-ref/instance/stop/
+alternate:
+  - href: en/managed-gitlab/cli-ref/instance/stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-gitlab instance stop

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/websql/operations/templates.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с сохраненными запросами
 
 Любой запрос может быть [сохранен](../concepts/index.md#saved-queries) для дальнейшего использования и создания шаблона. В разделе ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы** вы можете:

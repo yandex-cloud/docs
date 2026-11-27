@@ -1,6 +1,10 @@
 ---
 title: How to customize tab display on a dashboard in {{ datalens-full-name }}
 description: Follow this guide to hide or show tabs on a dashboard in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/dashboard-hide-tabs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Customizing tab display on a dashboard in {{ datalens-full-name }}

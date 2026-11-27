@@ -1,6 +1,10 @@
 ---
 title: '{{ api-gw-full-name }} release notes'
 description: This section contains the {{ api-gw-name }} release notes.
+alternate:
+  - href: en/api-gateway/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ api-gw-full-name }} release notes

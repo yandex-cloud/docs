@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/edit-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating ClickHouse cluster settings
 
 If you have a [{{ CH }}](../../concepts/components/clickhouse.md) cluster in your [project](../projects/create-project.md), you can update its settings.

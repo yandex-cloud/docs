@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/cluster/add-access-binding/
+alternate:
+  - href: en/container-registry/cli-ref/cluster/add-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container cluster add-access-binding

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/instruments/node.md
+    type: text/markdown
+    title: Markdown version
+---
 # Example of using {{ message-queue-full-name }} on Node.js
 
 [Node.js](https://nodejs.org/en/) is a runtime environment for JavaScript applications. With the AWS SDK for JavaScript, you can manage {{ message-queue-name }} message queues and send and receive messages in Node.js.

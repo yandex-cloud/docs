@@ -1,6 +1,10 @@
 ---
 title: Серверы в {{ baremetal-full-name }}
 description: Узнайте об аренде, сетевых интерфейсах, статусах и карантине серверов {{ baremetal-name }}.
+alternate:
+  - href: ru/baremetal/concepts/servers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Серверы

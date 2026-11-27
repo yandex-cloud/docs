@@ -1,6 +1,11 @@
 ---
 title: Как получить информацию о виртуальном маршрутизаторе
 description: Следуя этой инструкции, вы сможете получить информацию о виртуальном маршрутизаторе в {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: ru/cloud-router/operations/ri-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о виртуальном маршрутизаторе

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/boot-image/create/
+alternate:
+  - href: ru/baremetal/cli-ref/boot-image/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal boot-image create

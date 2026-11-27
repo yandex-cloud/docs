@@ -1,6 +1,10 @@
 ---
 title: Как получить детализацию расходов через API в {{ billing-name }}
 description: Следуя данной инструкции, вы сможете получить детализацию расходов через публичный API {{ billing-name }}.
+alternate:
+  - href: ru/billing/operations/get-charges-via-api.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить детализацию расходов через API

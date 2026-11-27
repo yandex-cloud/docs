@@ -1,6 +1,10 @@
 ---
 title: GPU VM maintenance in {{ compute-full-name }}
 description: This article describes some aspects of GPU VM maintenance in {{ compute-full-name }} and how you can manage maintenance of such VMs.
+alternate:
+  - href: en/compute/concepts/gpus-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Maintenance of GPU VMs

@@ -2,6 +2,10 @@
 title: '{{ api-gw-full-name }} metrics'
 description: In this tutorial, you will learn about {{ api-gw-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/api-gateway-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ api-gw-full-name }} metrics

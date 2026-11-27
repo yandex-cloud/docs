@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о сервере {{ baremetal-full-name }}
 description: 'Следуя данной инструкции, вы сможете получить информацию о настройках сервера {{ baremetal-full-name }}: конфигурация сервера, сетевые настройки, операционная система и другие данные.'
+alternate:
+  - href: ru/baremetal/operations/servers/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о сервере

@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
+alternate:
+  - href: en/ydb/docapi/tools/aws-sdk/query-and-scan.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Searching and extracting data
 

@@ -1,6 +1,10 @@
 ---
 title: Как работать с {{ baremetal-full-name }}. Пошаговые инструкции
 description: Из статьи вы узнаете, как работать с {{ baremetal-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/baremetal/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для сервиса {{ baremetal-full-name }}

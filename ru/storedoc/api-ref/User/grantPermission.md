@@ -53,6 +53,10 @@ apiPlayground:
             type: array
             items:
               type: string
+alternate:
+  - href: ru/storedoc/api-ref/User/grantPermission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: User.GrantPermission

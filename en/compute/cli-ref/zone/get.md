@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/zone/get/
+alternate:
+  - href: en/compute/cli-ref/zone/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute zone get

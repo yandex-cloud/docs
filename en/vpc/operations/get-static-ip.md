@@ -1,6 +1,10 @@
 ---
 title: Reserving a static public IP address
 description: Follow this guide to reserve a static public IP address.
+alternate:
+  - href: en/vpc/operations/get-static-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reserving a static public IP address

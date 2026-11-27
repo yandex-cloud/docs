@@ -1,6 +1,10 @@
 ---
 title: Сеть в {{ data-transfer-full-name }}
 description: Из статьи вы узнаете про сеть в {{ data-transfer-full-name }}.
+alternate:
+  - href: ru/data-transfer/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сеть в {{ data-transfer-full-name }}

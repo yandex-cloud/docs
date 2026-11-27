@@ -1,6 +1,10 @@
 ---
 title: Инструкции для физических лиц по контролю расходов
 description: Из статьи вы узнаете, как пополнить счет и настроить оплату ресурсов вашей организации для физических лиц.
+alternate:
+  - href: ru/getting-started/individuals/payments.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пополнение счета и контроль расходов

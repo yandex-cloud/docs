@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/changing-billing-account-type.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как сменить тип платежного аккаунта
 
 

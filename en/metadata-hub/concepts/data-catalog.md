@@ -1,6 +1,10 @@
 ---
 title: Metadata catalog
 description: '{{ data-catalog-name }} allows you to collect, analyze, and mark up metadata drawn from various sources. You can upload structural metadata, e.g., list of tables in a managed database cluster, their schemas, and links between tables. The main entity in {{ data-catalog-name }} is a metadata catalog. A catalog servers both as a storage for metadata and workspace for its markup.'
+alternate:
+  - href: en/metadata-hub/concepts/data-catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Metadata catalog

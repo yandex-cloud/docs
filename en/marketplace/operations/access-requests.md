@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/marketplace/operations/access-requests.md
+    type: text/markdown
+    title: Markdown version
+---
 # Access requests
 
 ## Approving or rejecting a request {#approve-reject}

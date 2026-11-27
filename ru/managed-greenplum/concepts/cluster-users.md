@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/concepts/cluster-users.md
+    type: text/markdown
+    title: Markdown version
+---
 # Пользователи и роли в {{ mgp-name }}
 
 {{ mgp-name }} управляет правами доступа к базе данных с помощью ролей. Роли могут владеть объектами базы данных (например, таблицами) и иметь [атрибуты](#attributes) и [привилегии](#privileges). От имени одной роли можно назначать привилегии другим ролям.

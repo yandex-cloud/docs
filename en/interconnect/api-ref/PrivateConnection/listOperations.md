@@ -39,6 +39,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/interconnect/api-ref/PrivateConnection/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Interconnect API, REST: PrivateConnection.ListOperations

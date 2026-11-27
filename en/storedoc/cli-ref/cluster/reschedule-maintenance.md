@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/cluster/reschedule-maintenance/
+alternate:
+  - href: en/storedoc/cli-ref/cluster/reschedule-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb cluster reschedule-maintenance

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/backup/backup/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Operation

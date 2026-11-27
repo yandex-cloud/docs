@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/operations/extensions/pgaudit.md
+    type: text/markdown
+    title: Markdown version
+---
 # Использование pgaudit в {{ mpg-name }}
 
 Расширение [pgaudit](https://www.pgaudit.org/) предоставляет дополнительные инструменты для логирования и повышает возможности аудита.

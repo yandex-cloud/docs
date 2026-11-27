@@ -1,6 +1,10 @@
 ---
 title: Sending a test SMS notification in {{ cns-full-name }}
 description: Follow this guide to send a test SMS notification.
+alternate:
+  - href: en/notifications/operations/sms/send.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sending a test SMS notification

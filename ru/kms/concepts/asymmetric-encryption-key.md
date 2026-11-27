@@ -1,6 +1,10 @@
 ---
 title: Асимметричная ключевая пара шифрования в {{ kms-short-name }}
 description: В данной инструкции описаны особенности использования асимметричной ключевой пары шифрования в {{ kms-short-name }}.
+alternate:
+  - href: ru/kms/concepts/asymmetric-encryption-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Асимметричная ключевая пара шифрования в {{ kms-short-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_update_policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets update policy
 
 Update bucket policy

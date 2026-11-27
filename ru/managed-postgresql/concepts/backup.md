@@ -9,6 +9,10 @@ keywords:
   - резервное копирование PostgreSQL
   - backup PostgreSQL
   - PostgreSQL
+alternate:
+  - href: ru/managed-postgresql/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Резервные копии в {{ mpg-name }}

@@ -1,6 +1,10 @@
 ---
 title: Управление пайплайнами в {{ datalens-platform-full-name }}
 description: Создайте кластер {{ AF }}, добавьте пайплайны, настройте их запуск и просматривайте результаты выполнения в {{ datalens-platform-full-name }}.
+alternate:
+  - href: ru/datalens/datalens-platform/operations/airflow/manage-airflow.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление пайплайнами

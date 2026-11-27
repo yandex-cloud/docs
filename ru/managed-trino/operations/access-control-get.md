@@ -1,6 +1,10 @@
 ---
 title: Получение правил доступа в {{ mtr-name }}
 description: Вы можете узнать, какие правила доступа назначены для кластера {{ mtr-name }}.
+alternate:
+  - href: ru/managed-trino/operations/access-control-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение правил доступа в {{ mtr-name }}

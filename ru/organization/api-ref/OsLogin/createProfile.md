@@ -48,6 +48,10 @@ apiPlayground:
         - login
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/organization/api-ref/OsLogin/createProfile.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: OsLogin.CreateProfile

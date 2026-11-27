@@ -15,6 +15,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/managed-gitlab/api-ref/Instance/start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Gitlab API, REST: Instance.Start

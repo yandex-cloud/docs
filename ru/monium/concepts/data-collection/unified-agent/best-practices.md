@@ -1,6 +1,10 @@
 ---
 title: Рекомендации по использованию агента
 description: В статье вы ознакомитесь с рекомендациями по использованию агента.
+alternate:
+  - href: ru/monium/concepts/data-collection/unified-agent/best-practices.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Рекомендации по использованию агента

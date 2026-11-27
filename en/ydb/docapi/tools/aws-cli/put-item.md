@@ -1,6 +1,10 @@
 ---
 title: How to add data to a {{ ydb-full-name }} table
 description: Follow this guide to add data to a table.
+alternate:
+  - href: en/ydb/docapi/tools/aws-cli/put-item.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding data to a table

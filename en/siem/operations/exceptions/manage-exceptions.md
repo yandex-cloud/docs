@@ -1,6 +1,10 @@
 ---
 title: Managing exceptions in {{ yandex-siem-full-name }}
 description: Follow this guide to learn how to create, edit, disable, and delete exceptions in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/operations/exceptions/manage-exceptions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing exceptions

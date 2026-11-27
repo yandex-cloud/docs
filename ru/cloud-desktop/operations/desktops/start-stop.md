@@ -1,6 +1,10 @@
 ---
 title: Как запустить, перезапустить и остановить рабочий стол {{ cloud-desktop-full-name }}
 description: Из статьи вы узнаете, как запустить, перезапустить и остановить рабочий стол {{ cloud-desktop-name }}.
+alternate:
+  - href: ru/cloud-desktop/operations/desktops/start-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запустить, перезапустить и остановить рабочий стол

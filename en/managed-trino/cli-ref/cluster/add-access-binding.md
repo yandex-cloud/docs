@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/cluster/add-access-binding/
+alternate:
+  - href: en/managed-trino/cli-ref/cluster/add-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-trino cluster add-access-binding

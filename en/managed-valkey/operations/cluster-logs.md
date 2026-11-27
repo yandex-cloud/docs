@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-valkey/operations/cluster-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing {{ VLK }} cluster logs
 
 {{ mrd-name }} allows you to [get a cluster log snippet](#get-log) for the selected time period and [view logs in real time](#get-log-stream).

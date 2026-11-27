@@ -1,6 +1,10 @@
 ---
 title: Связь трейсов с логами
 description: 'Двусторонняя интеграция трейсов и логов: переход от лога к трейсу по trace_id/span_id и от трейса к логам через интерфейс.'
+alternate:
+  - href: ru/monium/traces/operations/traces-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Связь трейсов с логами

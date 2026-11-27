@@ -14,6 +14,10 @@ meta:
     - keyword: инстанс {{ GL }}
     - keyword: инстанс {{ mgl-name }}
     - keyword: '{{ GL }} в {{ yandex-cloud }}'
+  alternate:
+    - href: ru/managed-gitlab/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Managed Service for GitLab

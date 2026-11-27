@@ -1,6 +1,10 @@
 ---
 title: Using `vector` in {{ mpg-name }}
 description: How to install the `vector` extension, create HNSW and IVFFlat indexes, and run a vector search in {{ mpg-full-name }}.
+alternate:
+  - href: en/managed-postgresql/operations/extensions/vector.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Using `vector` in {{ mpg-full-name }}
 

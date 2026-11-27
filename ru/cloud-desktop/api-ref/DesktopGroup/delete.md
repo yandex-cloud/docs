@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/cloud-desktop/api-ref/DesktopGroup/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop API, REST: DesktopGroup.Delete

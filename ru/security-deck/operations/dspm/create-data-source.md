@@ -1,6 +1,10 @@
 ---
 title: Создание источника данных в {{ dspm-name }}
 description: Следуя данной инструкции, вы узнаете, как из бакетов {{ objstorage-full-name }} и дисков в {{ yandex-360 }} создавать источники данных в модуле {{ dspm-name }} сервиса {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/operations/dspm/create-data-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подготовить данные для сканирования в {{ dspm-name }}

@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ mmy-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ mmy-full-name }}.
+alternate:
+  - href: ru/managed-mysql/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ mmy-full-name }}

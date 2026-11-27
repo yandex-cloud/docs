@@ -1,6 +1,10 @@
 ---
 title: How to update {{ MY }} cluster settings in {{ mmy-full-name }}
 description: In this guide, you will learn how to update {{ MY }} cluster settings.
+alternate:
+  - href: en/managed-mysql/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating {{ MY }} cluster settings

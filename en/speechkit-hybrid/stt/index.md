@@ -1,6 +1,11 @@
 ---
 title: Getting started with speech recognition in {{ speechkit-full-name }}
 description: In this tutorial, you will learn how to get started with speech recognition in {{ speechkit-name }}.
+noIndex: true
+alternate:
+  - href: en/speechkit-hybrid/stt/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Speech recognition

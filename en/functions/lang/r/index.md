@@ -1,6 +1,10 @@
 ---
 title: Developing in R in {{ sf-full-name }}. Overview
 description: With {{ sf-name }}, you can run applications written in R. This service provides the runtime with R 4.3.1 and Ubuntu 22.04 LTS.
+alternate:
+  - href: en/functions/lang/r/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Developing in R. Overview

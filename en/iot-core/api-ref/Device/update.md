@@ -71,6 +71,10 @@ apiPlayground:
           maxProperties: 64
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/iot-core/api-ref/Device/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Device.Update

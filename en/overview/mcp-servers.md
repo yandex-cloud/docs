@@ -23,6 +23,10 @@ keywords:
   - Data Catalog MCP server
   - IAM token for MCP
   - Streamable HTTP MCP
+alternate:
+  - href: en/overview/mcp-servers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} MCP servers for AI agents and IDEs

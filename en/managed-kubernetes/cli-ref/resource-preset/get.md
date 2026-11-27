@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/resource-preset/get/
+alternate:
+  - href: en/managed-kubernetes/cli-ref/resource-preset/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kubernetes resource-preset get

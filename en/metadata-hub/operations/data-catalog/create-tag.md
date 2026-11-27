@@ -1,6 +1,10 @@
 ---
 title: Creating a tag
 description: Follow this guide to create a tag for metadata in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/create-tag.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a tag

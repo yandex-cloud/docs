@@ -1,6 +1,10 @@
 ---
 title: How to unpublish a video in {{ video-full-name }}
 description: Follow this guide to unpublish a video in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/video/unpublish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Unpublishing a video

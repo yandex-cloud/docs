@@ -1,6 +1,10 @@
 ---
 title: Добавить ссылку для сообщества"
 description: Следуя данной инструкции, вы сможете добавить ссылку для сообщества.
+alternate:
+  - href: ru/datasphere/operations/community/link-channel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить ссылку для сообщества

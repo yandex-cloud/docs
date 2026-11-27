@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/community/create-ssa.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a service agent
 
 With a [service agent](../../../iam/concepts/service-control.md#service-agent), you will be able to work with other services, e.g., refresh your authorization tokens for {{ ml-platform-name }} notebooks.

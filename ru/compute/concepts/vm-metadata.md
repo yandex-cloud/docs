@@ -1,6 +1,10 @@
 ---
 title: Метаданные виртуальной машины {{ compute-name }}
 description: Из этой статьи вы узнаете о метаинформации, доступной в сервисе метаданных виртуальных машин {{ compute-full-name }}.
+alternate:
+  - href: ru/compute/concepts/vm-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метаданные виртуальной машины

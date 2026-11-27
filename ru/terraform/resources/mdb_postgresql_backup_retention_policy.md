@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for PostgreSQL
+alternate:
+  - href: ru/terraform/resources/mdb_postgresql_backup_retention_policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_postgresql_backup_retention_policy (Resource)

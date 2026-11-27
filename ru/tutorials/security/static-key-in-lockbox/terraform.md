@@ -1,6 +1,10 @@
 ---
 title: Руководство по использованию секретов {{ lockbox-full-name }} для хранения статических ключей доступа с помощью {{ TF }}
 description: Следуя данному руководству, вы сможете настроить сервисы {{ yandex-cloud }} c AWS-совместимым API на использование статических ключей доступа сервисных аккаунтов, хранящихся в секретах {{ lockbox-full-name }}, с помощью {{ TF }}.
+alternate:
+  - href: ru/tutorials/security/static-key-in-lockbox/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование секрета {{ lockbox-full-name }} для хранения статического ключа доступа с помощью {{ TF }}

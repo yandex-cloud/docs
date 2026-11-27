@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/marketplace/operations/access-requests.md
+    type: text/markdown
+    title: Markdown version
+---
 # Заявки на доступ
 
 ## Одобрить или отклонить заявку {#approve-reject}

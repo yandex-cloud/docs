@@ -1,6 +1,10 @@
 ---
 title: Setting limits on the number of requests in {{ alb-full-name }}
 description: This page covers the concepts for setting limits in {{ alb-name }}.
+alternate:
+  - href: en/application-load-balancer/concepts/rate-limiter.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting limits on the number of requests using the Global RateLimit module

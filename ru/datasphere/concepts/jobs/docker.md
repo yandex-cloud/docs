@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/jobs/docker.md
+    type: text/markdown
+    title: Markdown version
+---
 # Docker-образы в заданиях
 
 По умолчанию [задания](./index.md) {{ ds-jobs }} используют публичный образ `nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04` с предустановленным менеджером пакетов conda, Python 3.10 и другими дополнительными пакетами. Этот образ хранится в кеше {{ ml-platform-name }}, поэтому запуск заданий в окружении по умолчанию будет самым быстрым.

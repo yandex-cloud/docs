@@ -1,6 +1,10 @@
 ---
 title: Как изменить зону DNS в {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете изменить зону DNS.
+alternate:
+  - href: ru/dns/operations/zone-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить зону DNS

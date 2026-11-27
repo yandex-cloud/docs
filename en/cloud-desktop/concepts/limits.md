@@ -2,6 +2,10 @@
 title: Quotas and limits in {{ cloud-desktop-name }}
 description: '{{ cloud-desktop-name }} has quotas for the maximum number of desktops per cloud and the maximum amount of computing resources for cloud desktops. For more information about the service restrictions, read this article.'
 editable: false
+alternate:
+  - href: en/cloud-desktop/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ cloud-desktop-name }}

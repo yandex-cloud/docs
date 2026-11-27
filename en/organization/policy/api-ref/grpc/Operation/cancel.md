@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/policy/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organization Policy API, gRPC: OperationService.Cancel

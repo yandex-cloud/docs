@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ data-catalog-full-name }} для управляющего метаданными
 description: Следуя данному руководству, вы начнете работу с {{ data-catalog-name }} в роли управляющего метаданными.
+alternate:
+  - href: ru/metadata-hub/quickstart/data-steward-quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы для управляющего метаданными

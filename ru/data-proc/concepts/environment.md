@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/concepts/environment.md
+    type: text/markdown
+    title: Markdown version
+---
 # Среда исполнения
 
 При создании кластера {{ dataproc-name }} вы можете выбрать версию образа (набор версий компонентов).

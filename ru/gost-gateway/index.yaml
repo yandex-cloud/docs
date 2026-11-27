@@ -10,6 +10,10 @@ meta:
   description: >-
     Сервис {{ gost-gateway-name }} позволяет использовать выделенный шлюз,
     защищенный согласно требованиям регуляторов.
+  alternate:
+    - href: ru/gost-gateway/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Концепции
     description: Узнайте про концепции и ресурсы сервиса

@@ -1,6 +1,10 @@
 ---
 title: Как создать сверхбыстрое сетевое хранилище с тремя репликами (SSD) в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете создать сверхбыстрое сетевое хранилище с тремя репликами (SSD).
+alternate:
+  - href: ru/compute/operations/disk-create/ssd-io.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать сверхбыстрое сетевое хранилище с тремя репликами (SSD)

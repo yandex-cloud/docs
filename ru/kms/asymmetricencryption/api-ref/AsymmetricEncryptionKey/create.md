@@ -63,6 +63,10 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/kms/asymmetricencryption/api-ref/AsymmetricEncryptionKey/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: AsymmetricEncryptionKey.Create

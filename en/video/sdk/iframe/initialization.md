@@ -1,6 +1,10 @@
 ---
 title: '{{ video-player-name }} initialization parameters in the IFrame SDK'
 description: This page describes the parameters you can use to initialize {{ video-player-name }} in the IFrame SDK.
+alternate:
+  - href: en/video/sdk/iframe/initialization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Player initialization parameters

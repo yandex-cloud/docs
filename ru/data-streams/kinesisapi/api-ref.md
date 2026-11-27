@@ -1,6 +1,10 @@
 ---
 title: Все методы {{ yds-full-name }} HTTP API
 description: Узнайте, какие методы есть в {{ yds-full-name }} HTTP API.
+alternate:
+  - href: ru/data-streams/kinesisapi/api-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все методы

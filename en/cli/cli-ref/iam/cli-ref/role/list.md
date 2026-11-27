@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/role/list/
+alternate:
+  - href: en/cli/cli-ref/iam/cli-ref/role/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam role list

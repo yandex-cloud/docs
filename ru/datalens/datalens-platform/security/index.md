@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к {{ datalens-platform-full-name }}
 description: Из статьи вы узнаете, как регулируется доступ к сервису {{ datalens-platform-full-name }}.
+alternate:
+  - href: ru/datalens/datalens-platform/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к {{ datalens-platform-full-name }}

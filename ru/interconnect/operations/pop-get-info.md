@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о точках присутствия {{ interconnect-name }}
 description: Следуя этой инструкции, вы сможете получить информацию о точках присутствия {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/operations/pop-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о точках присутствия

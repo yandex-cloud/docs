@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/route-table/move/
+alternate:
+  - href: ru/vpc/cli-ref/route-table/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc route-table move

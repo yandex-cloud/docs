@@ -1,6 +1,10 @@
 ---
 title: Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-full-name }} с помощью консоли управления
 description: В этом руководстве вы создадите отказоустойчивый сайт в инфраструктуре {{ yandex-cloud }}, используя балансировщик нагрузки {{ alb-full-name }} с помощью консоли управления.
+alternate:
+  - href: ru/tutorials/web/application-load-balancer-website/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-full-name }} с помощью консоли управления

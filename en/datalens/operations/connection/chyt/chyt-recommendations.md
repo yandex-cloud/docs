@@ -1,6 +1,10 @@
 ---
 title: Tips for creating a CHYT connection in {{ datalens-full-name }}
 description: In this article, you will learn how to streamline operations with CHYT connections in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/chyt/chyt-recommendations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

@@ -2,6 +2,10 @@
 title: '{{ mgl-full-name }} quotas and limits'
 description: '{{ mgl-full-name }} has quotas and limits. For more information about limitations in this service, read this article.'
 editable: false
+alternate:
+  - href: en/managed-gitlab/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mgl-name }} quotas and limits

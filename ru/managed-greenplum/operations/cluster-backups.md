@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/cluster-backups.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление резервными копиями в {{ mgp-name }}
 
 Вы можете просматривать имеющиеся [резервные копии](../concepts/backup.md) и восстанавливать из них кластеры.

@@ -1,6 +1,10 @@
 ---
 title: Getting started with the AWS SDK for Python (boto3) in {{ cns-full-name }}
 description: Follow this guide to learn how to use the AWS SDK for Python (boto3) in {{ cns-full-name }}.
+alternate:
+  - href: en/notifications/tools/sdk-python.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with the AWS SDK for Python (boto3) in {{ cns-full-name }}

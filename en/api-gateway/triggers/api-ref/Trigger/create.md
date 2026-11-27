@@ -1120,6 +1120,10 @@ apiPlayground:
               - dataStream
           - required:
               - mail
+alternate:
+  - href: en/api-gateway/triggers/api-ref/Trigger/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Triggers Service, REST: Trigger.Create

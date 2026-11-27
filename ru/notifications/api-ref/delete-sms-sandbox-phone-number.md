@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/delete-sms-sandbox-phone-number.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие DeleteSMSSandboxPhoneNumber
 
 Удаляет подтвержденный тестовый телефонный номер для канала SMS-уведомлений в [песочнице](../concepts/sms.md#sandbox).

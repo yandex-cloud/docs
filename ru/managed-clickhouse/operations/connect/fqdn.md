@@ -1,6 +1,10 @@
 ---
 title: FQDN хостов {{ CH }}
 description: Следуя данной инструкции, вы сможете получить FQDN хостов {{ CH }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/connect/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FQDN хостов {{ CH }}

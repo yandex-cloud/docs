@@ -1,6 +1,10 @@
 ---
 title: Как отвязать ВМ или сервер от политики резервного копирования
 description: Из статьи вы узнаете, как отвязать виртуальную машину или сервер от политики резервного копирования.
+alternate:
+  - href: ru/backup/operations/policy-vm/detach-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отвязать защищаемый ресурс от политики резервного копирования

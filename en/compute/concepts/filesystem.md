@@ -1,6 +1,10 @@
 ---
 title: File storages for {{ compute-full-name }} VM instances
 description: In this article, you will learn about the concept of file storages, their types, as well as related requirements and limitations.
+alternate:
+  - href: en/compute/concepts/filesystem.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # File storages

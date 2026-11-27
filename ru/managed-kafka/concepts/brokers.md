@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kafka/concepts/brokers.md
+    type: text/markdown
+    title: Markdown version
+---
 # Брокеры
 
 Брокеры — это хосты в кластере {{ mkf-name }}, на которых располагаются [топики и разделы {{ KF }}](topics.md).

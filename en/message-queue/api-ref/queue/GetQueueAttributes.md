@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/queue/GetQueueAttributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # GetQueueAttributes
 
 Method for getting attributes for the specified queue.

@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.FILE.CANNOT_UPDATE_DATA'
 description: This page describes the Cannot update data {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-FILE-CANNOT_UPDATE_DATA.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Cannot update data

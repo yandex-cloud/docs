@@ -1,6 +1,10 @@
 ---
 title: '{{ mgp-full-name }} use cases'
 description: Various {{ mgp-full-name }} use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/managed-greenplum/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mgp-name }} tutorials

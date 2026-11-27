@@ -1,5 +1,9 @@
 ---
 title: How to get information about a file storage in {{ compute-full-name }}
+alternate:
+  - href: en/compute/operations/filesystem/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting file storage info

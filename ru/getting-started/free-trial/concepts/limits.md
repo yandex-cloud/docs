@@ -2,6 +2,10 @@
 title: Ограничения пробного периода
 description: Из статьи вы узнаете, какие квоты и лимиты действуют для сервисов {{ yandex-cloud }} во время пробного периода.
 editable: false
+alternate:
+  - href: ru/getting-started/free-trial/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ограничения пробного периода

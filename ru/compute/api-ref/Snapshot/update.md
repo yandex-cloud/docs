@@ -58,6 +58,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/compute/api-ref/Snapshot/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Snapshot.Update

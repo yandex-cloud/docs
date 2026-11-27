@@ -1,6 +1,10 @@
 ---
 title: How to move a DNS zone to a different folder in {{ dns-full-name }}
 description: Follow this guide to move a DNS zone to a different folder.
+alternate:
+  - href: en/dns/operations/zone-move-folder.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving a DNS zone to a different folder

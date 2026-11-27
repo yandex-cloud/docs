@@ -1,6 +1,10 @@
 ---
 title: '{{ managed-k8s-full-name }} API authentication'
 description: To perform operations via the API in {{ managed-k8s-full-name }}, a service for managing containerized applications, get an IAM token for your account.
+alternate:
+  - href: en/managed-kubernetes/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ managed-k8s-name }} API authentication

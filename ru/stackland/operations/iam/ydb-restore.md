@@ -1,6 +1,10 @@
 ---
 title: Восстановить YDB из резервной копии
 description: Восстановление базы данных IAM в YDB из локального архива.
+alternate:
+  - href: ru/stackland/operations/iam/ydb-restore.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановить YDB из резервной копии

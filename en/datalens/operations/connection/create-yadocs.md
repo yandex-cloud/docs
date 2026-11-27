@@ -1,6 +1,10 @@
 ---
 title: How to create a connection to Yandex Documents
 description: Follow this guide to create a connection to Yandex Documents.
+alternate:
+  - href: en/datalens/operations/connection/create-yadocs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a connection to Yandex Documents

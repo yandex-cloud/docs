@@ -36,6 +36,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/kms/asymmetricencryption/api-ref/AsymmetricEncryptionKey/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: AsymmetricEncryptionKey.List

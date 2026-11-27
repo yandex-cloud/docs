@@ -3,6 +3,10 @@ title: Создание навыка Алисы
 description: 'В этом руководстве вы создадите навык Алисы на двух языках программирования: Python и Node.js.'
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/alice-skill'
+alternate:
+  - href: ru/functions/tutorials/alice-skill/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [alice-skill](../../../_tutorials/serverless/alice-skill/index.md) %}

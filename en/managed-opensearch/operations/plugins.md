@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-opensearch/operations/plugins.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing {{ OS }} plugins
 
 When creating a cluster in {{ mos-short-name }}, you can specify a list of required plugins and they will be installed in the cluster automatically. For a full list of available plugins, see [Additional plugins](../concepts/plugins.md#opensearch).

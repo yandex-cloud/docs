@@ -1,6 +1,10 @@
 ---
 title: Data model in {{ datalens-full-name }}
 description: This article describes the data model used in {{ datalens-full-name }}. One or more tables are used as the data source. If multiple tables are available in the data source, you can merge them using the JOIN operator. When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and the table to merge with.
+alternate:
+  - href: en/datalens/dataset/data-model.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data model in {{ datalens-full-name }}

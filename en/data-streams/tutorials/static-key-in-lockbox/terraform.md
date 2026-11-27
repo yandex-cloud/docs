@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/static-key-in-lockbox/terraform'
+alternate:
+  - href: en/data-streams/tutorials/static-key-in-lockbox/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using a {{ lockbox-full-name }} secret to store a static access key with {{ TF }}

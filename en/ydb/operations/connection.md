@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/ydb/operations/connection.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to a database using the {{ ydb-short-name }} CLI
 
 The {{ ydb-short-name }} CLI enables you to manage your data in {{ ydb-full-name }} from the command line. You can use it to operate your databases in systems without a GUI or to automate your tasks using scripts.

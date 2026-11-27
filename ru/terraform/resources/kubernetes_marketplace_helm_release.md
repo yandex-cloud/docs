@@ -1,5 +1,9 @@
 ---
 subcategory: Kubernetes Marketplace
+alternate:
+  - href: ru/terraform/resources/kubernetes_marketplace_helm_release.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_kubernetes_marketplace_helm_release (Resource)

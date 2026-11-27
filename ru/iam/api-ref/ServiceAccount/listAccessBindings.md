@@ -43,6 +43,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/iam/api-ref/ServiceAccount/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: ServiceAccount.ListAccessBindings

@@ -1,6 +1,10 @@
 ---
 title: Шардирование таблиц {{ mch-name }}
 description: В этом руководстве вы научитесь шардировать таблицы {{ mch-full-name }}.
+alternate:
+  - href: ru/tutorials/dataplatform/clickhouse-sharding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Шардирование таблиц {{ mch-full-name }}

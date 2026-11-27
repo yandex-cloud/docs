@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/websql/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # О сервисе {{ websql-full-name }}
 
 {{ websql-full-name }} — это сервис {{ yandex-cloud }}, который позволяет подключаться к публично доступным БД и кластерам управляемых БД.

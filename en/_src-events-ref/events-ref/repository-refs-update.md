@@ -2,6 +2,10 @@
 title: repository.refs_update
 description: RefsUpdate event - represents git refs update operation to a repository
 editable: false
+alternate:
+  - href: en/_src-events-ref/events-ref/repository-refs-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # repository.refs_update

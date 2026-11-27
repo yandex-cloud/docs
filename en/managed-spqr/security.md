@@ -5,6 +5,10 @@ keywords:
   - keyword: Roles for {{ mspqr-name }}
   - keyword: Sharded cluster for PostrgeSQL
   - keyword: SPQR
+alternate:
+  - href: en/managed-spqr/security.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ mspqr-name }}

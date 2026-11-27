@@ -1,6 +1,10 @@
 ---
 title: How to update a {{ metastore-full-name }} cluster
 description: Follow this guide to update a {{ metastore-full-name }} cluster.
+alternate:
+  - href: en/metadata-hub/operations/metastore/cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a {{ metastore-full-name }} cluster

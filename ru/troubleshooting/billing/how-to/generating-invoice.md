@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/generating-invoice.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как сформировать счет на оплату
 
 

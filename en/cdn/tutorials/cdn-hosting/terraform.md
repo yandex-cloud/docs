@@ -2,6 +2,10 @@
 title: Hosting a static website in {{ objstorage-full-name }} with access via {{ cdn-full-name }} using {{ TF }}
 description: In this tutorial, you will use {{ TF }} to create a static website in an {{ objstorage-name }} bucket and set up {{ cdn-name }} access for it.
 canonical: '{{ link-docs }}/tutorials/applied/cdn-hosting/terraform'
+alternate:
+  - href: en/cdn/tutorials/cdn-hosting/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up static website hosting in a {{ objstorage-full-name }} bucket with {{ cdn-full-name }} access using {{ TF }}

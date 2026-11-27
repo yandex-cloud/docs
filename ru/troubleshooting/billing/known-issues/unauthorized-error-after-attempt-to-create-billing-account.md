@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/unauthorized-error-after-attempt-to-create-billing-account.md
+    type: text/markdown
+    title: Markdown version
+---
 # Устранение ошибки `Unauthorized` при создании платежного аккаунта
 
 

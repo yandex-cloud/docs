@@ -1,6 +1,10 @@
 ---
 title: Как включить сжатие файлов в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете включить сжатие файлов.
+alternate:
+  - href: ru/cdn/operations/resources/enable-compression.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включение сжатия файлов

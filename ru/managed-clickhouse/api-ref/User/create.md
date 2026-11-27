@@ -1924,6 +1924,10 @@ apiPlayground:
               - DELETION_PROTECTION_MODE_INHERITED
         required:
           - name
+alternate:
+  - href: ru/managed-clickhouse/api-ref/User/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: User.Create

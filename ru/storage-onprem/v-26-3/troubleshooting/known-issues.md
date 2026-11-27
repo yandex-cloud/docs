@@ -1,6 +1,10 @@
 ---
 title: Типовые проблемы и их устранение в {{ objstorage-onprem-name }}
 description: Типовые проблемы {{ objstorage-onprem-name }} и способы их устранения.
+alternate:
+  - href: ru/storage-onprem/v-26-3/troubleshooting/known-issues.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Типовые проблемы и их устранение

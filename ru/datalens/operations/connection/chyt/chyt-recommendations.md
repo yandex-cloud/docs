@@ -1,6 +1,10 @@
 ---
 title: Рекомендации по созданию подключения к CHYT в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как оптимизировать работу с подключением к CHYT в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/chyt/chyt-recommendations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/notifications/events-ref/UpdateSMSChannel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Notification Service Audit Trails Events: UpdateSMSChannel

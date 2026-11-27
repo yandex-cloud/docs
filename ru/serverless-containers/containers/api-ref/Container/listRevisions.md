@@ -58,6 +58,10 @@ apiPlayground:
             - containerId
     body: null
     definitions: null
+alternate:
+  - href: ru/serverless-containers/containers/api-ref/Container/listRevisions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Serverless Containers Service, REST: Container.ListRevisions

@@ -1,6 +1,10 @@
 ---
 title: Pre-configuring a {{ mgp-full-name }} cluster connection
 description: In this tutorial, you will learn how to pre-configure a database connection in a {{ mgp-name }} cluster.
+alternate:
+  - href: en/managed-greenplum/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pre-configuring a {{ mgp-name }} cluster connection

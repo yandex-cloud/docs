@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/secrets-store.md
+    type: text/markdown
+    title: Markdown version
+---
 # Secrets Store
 
 {{ stackland-name }} использует для безопасного хранения секретов и их подстановки два основных инструмента:

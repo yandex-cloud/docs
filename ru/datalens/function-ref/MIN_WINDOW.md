@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/MIN_WINDOW.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # MIN (оконная)

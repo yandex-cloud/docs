@@ -1,6 +1,10 @@
 ---
 title: Creating a scan in {{ dspm-name }}
 description: Follow this tutorial to create scans in {{ sd-full-name }} {{ dspm-name }}.
+alternate:
+  - href: en/security-deck/operations/dspm/create-scan.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ dspm-name }} scan

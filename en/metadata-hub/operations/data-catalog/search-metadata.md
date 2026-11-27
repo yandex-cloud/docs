@@ -1,6 +1,10 @@
 ---
 title: Metadata search
 description: Follow this guide to search for metadata in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/search-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Metadata search

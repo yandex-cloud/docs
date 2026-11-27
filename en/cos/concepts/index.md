@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cos/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ coi }}
 
 A _{{ coi }}_ is a VM [image](../../compute/concepts/image.md) optimized for running Docker containers. The image includes: Ubuntu LTS, Docker, and a daemon for running Docker containers.

@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в сервисе {{ billing-name }}
 description: Доступ к платежному аккаунту предоставляется через сервис {{ billing-name }}. Операции, которые пользователь может выполнять над платежным аккаунтом, определяются назначенной ему ролью.
+alternate:
+  - href: ru/billing/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в сервисе {{ billing-name }}

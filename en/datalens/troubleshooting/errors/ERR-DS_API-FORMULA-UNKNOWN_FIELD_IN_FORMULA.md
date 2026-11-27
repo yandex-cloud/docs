@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.FORMULA.UNKNOWN_FIELD_IN_FORMULA'
 description: This page describes the Unknown field found in formula {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_FIELD_IN_FORMULA.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Unknown field found in formula

@@ -1,6 +1,10 @@
 ---
 title: Миграция с {{ cloud-logging-full-name }} на {{ monium-full-name }}
 description: 'Как перейти с {{ cloud-logging-name }} на {{ monium-name }}: посмотреть существующие логи, перенастроить агенты, изменить эндпоинт записи и проверить поступление данных. Настройка Unified Agent и Fluent Bit, особенности чтения логов через API.'
+alternate:
+  - href: ru/monium/logs/logging-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция с {{ cloud-logging-name }} на {{ monium-name }}

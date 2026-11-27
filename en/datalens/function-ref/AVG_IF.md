@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/AVG_IF.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AVG_IF

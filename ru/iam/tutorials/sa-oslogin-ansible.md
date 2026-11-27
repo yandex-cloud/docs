@@ -3,6 +3,10 @@ title: Использование сервисного аккаунта и {{ os
 description: Создайте отдельный профиль {{ oslogin }} для сервисного аккаунта, чтобы управлять виртуальными машинами с помощью Ansible.
 author: leitosama
 canonical: '{{ link-docs }}/tutorials/security/sa-oslogin-ansible'
+alternate:
+  - href: ru/iam/tutorials/sa-oslogin-ansible.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [sa-oslogin-ansible](../../_tutorials/security/sa-oslogin-ansible.md) %}

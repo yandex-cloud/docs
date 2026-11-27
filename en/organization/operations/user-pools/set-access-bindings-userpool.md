@@ -1,6 +1,10 @@
 ---
 title: How to grant access to a user pool in {{ org-full-name }}
 description: In this article, you will learn how to set up access to a user pool in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/user-pools/set-access-bindings-userpool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up access to a user pool

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/vm-control/vm-set-static-ip.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сделать публичный IP-адрес виртуальной машины статическим
 
 _Статический IP-адрес_ — постоянный IP-адрес, который не изменяется при остановке виртуальной машины.

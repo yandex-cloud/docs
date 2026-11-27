@@ -1,6 +1,10 @@
 ---
 title: Как изменить кластер {{ metastore-full-name }}
 description: Следуя данной инструкции, вы сможете изменить кластер {{ metastore-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/metastore/cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение кластера {{ metastore-full-name }}

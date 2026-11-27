@@ -1,6 +1,10 @@
 ---
 title: Создать триггер для {{ yds-full-name }}, который вызывает функцию {{ sf-full-name }}
 description: Следуя данной инструкции, вы сможете создать триггер для {{ yds-name }}, который вызывает функцию {{ sf-name }}.
+alternate:
+  - href: ru/functions/operations/trigger/data-streams-trigger-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать триггер для {{ yds-name }}, который вызывает функцию {{ sf-name }}

@@ -1,6 +1,10 @@
 ---
 title: Проверка доступности ресурсов
 description: Из статьи вы узнаете для чего нужна проверка доступности ресурсов, ознакомитесь с состояниями сетевого балансировщика и состояниями ресурсов в целевых группах.
+alternate:
+  - href: ru/network-load-balancer/concepts/health-check.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Проверка доступности ресурсов

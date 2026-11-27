@@ -1,6 +1,10 @@
 ---
 title: Интеграция с {{ license-manager }} API
 description: Следуя данной инструкции, вы сможете настроить интеграцию с {{ license-manager }} API.
+alternate:
+  - href: ru/marketplace/operations/license-manager-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Интеграция с {{ license-manager }} API

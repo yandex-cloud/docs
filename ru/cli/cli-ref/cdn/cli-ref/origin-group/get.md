@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/origin-group/get/
+alternate:
+  - href: ru/cli/cli-ref/cdn/cli-ref/origin-group/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cdn origin-group get

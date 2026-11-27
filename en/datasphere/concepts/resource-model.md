@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/resource-model.md
+    type: text/markdown
+    title: Markdown version
+---
 # Resource relationships in {{ ml-platform-name }}
 
 {{ ml-platform-name }} runs within [{{ yandex-cloud }} organizations](../../organization/). Any created {{ ml-platform-name }} entities are organization resources. You cannot exchange resources between organizations.

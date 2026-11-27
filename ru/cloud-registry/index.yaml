@@ -41,6 +41,10 @@ meta:
     - keyword: реестр приложений
     - keyword: облачный реестр
     - keyword: артефакты разработки
+  alternate:
+    - href: ru/cloud-registry/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первый реестр артефактов

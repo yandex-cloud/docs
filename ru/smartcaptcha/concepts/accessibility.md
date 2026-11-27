@@ -1,6 +1,10 @@
 ---
 title: Доступность капчи
 description: Из статьи вы узнаете, как {{ captcha-full-name }} влияет на конверсию сайта и обеспечивает простоту прохождения для человека, оставаясь надежной защитой от роботов.
+alternate:
+  - href: ru/smartcaptcha/concepts/accessibility.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Доступность капчи

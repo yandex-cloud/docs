@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ sws-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ sws-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ sws-name }}

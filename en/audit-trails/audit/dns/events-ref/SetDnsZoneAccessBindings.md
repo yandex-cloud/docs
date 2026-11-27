@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/dns/events-ref/SetDnsZoneAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS Audit Trails Events: SetDnsZoneAccessBindings

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/concepts/node-group/node-drain.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расселение подов с узла
 
 При обновлении группы узлов со старого узла поды расселяются — переносятся на новый узел. Для того чтобы расселение не сказывалось на доступности сервисов, обслуживаемых приложениями в кластере {{ k8s }}, сконфигурируйте объект API {{ k8s }} [PodDisruptionBudget](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/pod-disruption-budget-v1/) для подов приложения.

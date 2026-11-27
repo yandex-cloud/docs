@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/asymmetric-encryption-crypto/get-public-key/
+alternate:
+  - href: en/cli/cli-ref/kms/cli-ref/asymmetric-encryption-crypto/get-public-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc kms asymmetric-encryption-crypto get-public-key

@@ -632,6 +632,10 @@ apiPlayground:
           - retention
           - scheduling
           - cbt
+alternate:
+  - href: ru/backup/backup/api-ref/Policy/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Policy.Create

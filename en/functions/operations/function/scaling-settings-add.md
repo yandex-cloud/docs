@@ -1,6 +1,10 @@
 ---
 title: How to configure function scaling in {{ sf-full-name }}
 description: Follow this guide to configure function scaling.
+alternate:
+  - href: en/functions/operations/function/scaling-settings-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding function scaling settings

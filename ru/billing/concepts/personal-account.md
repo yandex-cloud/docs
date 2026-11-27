@@ -1,6 +1,10 @@
 ---
 title: Лицевой счет
 description: Из статьи вы узнаете, что такое лицевой счет, когда он создается, как найти его номер, а также как контролировать баланс лицевого счета, способах и сроках зачисления средств.
+alternate:
+  - href: ru/billing/concepts/personal-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Лицевой счет

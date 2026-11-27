@@ -1,6 +1,10 @@
 ---
 title: Начало работы с видеотрансляциями {{ video-full-name }}
 description: Чтобы запустить видеотрансляцию {{ video-name }}, создайте линию и настройте OBS.
+alternate:
+  - href: ru/video/streaming.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с видеотрансляцией в {{ video-full-name }}

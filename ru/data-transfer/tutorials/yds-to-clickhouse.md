@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/yds-to-clickhouse'
+alternate:
+  - href: ru/data-transfer/tutorials/yds-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поставка данных из очереди {{ DS }} в {{ CH }}

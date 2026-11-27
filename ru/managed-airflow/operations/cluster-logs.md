@@ -1,6 +1,10 @@
 ---
 title: Просмотр логов кластера {{ maf-full-name }}
 description: Из статьи вы узнаете, как посмотреть логи кластера {{ maf-name }}.
+alternate:
+  - href: ru/managed-airflow/operations/cluster-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотр логов кластера {{ maf-name }}

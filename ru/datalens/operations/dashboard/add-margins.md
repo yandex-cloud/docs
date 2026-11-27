@@ -1,6 +1,10 @@
 ---
 title: Как настроить отступы на дашборде в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете настроить отступы между виджетами на дашборде в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-margins.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить отступы на дашборде в {{ datalens-full-name }}

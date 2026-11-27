@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/operations/connect-interfaces.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение к интерфейсам компонентов
 
 Вы можете подключиться к интерфейсам компонентов {{ dataproc-name }} либо с помощью [UI Proxy](#ui-proxy), либо с помощью [промежуточной виртуальной машины](#routing). Подробнее в разделе [Интерфейсы и порты компонентов](../concepts/interfaces.md).

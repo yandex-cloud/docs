@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/disk-storage.md
+    type: text/markdown
+    title: Markdown version
+---
 # Disk subsystem
 
 {{ stackland-name }}'s disk subsystem ensures dynamic allocation of block storage for Kubernetes workloads.

@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/organization/idp/application/oauth/api-ref/Application/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OAUTH Application API, REST: Application.UpdateAccessBindings

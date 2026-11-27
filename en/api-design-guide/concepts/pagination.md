@@ -1,6 +1,10 @@
 ---
 title: Pagination in the API
 description: In this article, you will learn about the pagination property and see some examples of using it.
+alternate:
+  - href: en/api-design-guide/concepts/pagination.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pagination

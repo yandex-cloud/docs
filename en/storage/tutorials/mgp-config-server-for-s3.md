@@ -2,6 +2,10 @@
 title: Creating an external table in {{ mgp-full-name }} from a bucket table using a configuration file
 description: In this tutorial, you will create an external table in {{ mgp-name }} from a bucket table using a configuration file.
 canonical: '{{ link-docs }}/tutorials/dataplatform/mgp-config-server-for-s3'
+alternate:
+  - href: en/storage/tutorials/mgp-config-server-for-s3.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an external table from a bucket table using a configuration file

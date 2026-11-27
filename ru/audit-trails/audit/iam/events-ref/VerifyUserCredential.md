@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/iam/events-ref/VerifyUserCredential.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management Audit Trails Events: VerifyUserCredential

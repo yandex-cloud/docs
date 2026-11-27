@@ -1,6 +1,10 @@
 ---
 title: How to connect to a {{ k8s }} cluster in {{ managed-k8s-full-name }}
 description: Follow this guide to connect to a {{ managed-k8s-name }} cluster.
+alternate:
+  - href: en/managed-kubernetes/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connection method overview

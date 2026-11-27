@@ -1,6 +1,10 @@
 ---
 title: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью Debezium
 description: Вы можете отслеживать изменения данных в {{ mpg-name }} и отправлять их в {{ mkf-name }} с помощью технологии Change Data Capture (CDC).
+alternate:
+  - href: ru/tutorials/dataplatform/debezium-mpg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью Debezium

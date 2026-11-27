@@ -1,6 +1,10 @@
 ---
 title: Как отозвать refresh-токен
 description: Следуя данной инструкции, вы сможете отзывать refresh-токены.
+alternate:
+  - href: ru/iam/operations/refresh-token/revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отзыв refresh-токена

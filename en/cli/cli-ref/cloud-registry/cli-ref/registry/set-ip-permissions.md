@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/registry/set-ip-permissions/
+alternate:
+  - href: en/cli/cli-ref/cloud-registry/cli-ref/registry/set-ip-permissions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry registry set-ip-permissions

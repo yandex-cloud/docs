@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/concepts/instance-groups/deploy/instance.md
+    type: text/markdown
+    title: Markdown version
+---
 # Правила обновления группы виртуальных машин
 
 Обновление группы виртуальных машин выполняется с минимально возможными последствиями для машин, которыми группа управляет.

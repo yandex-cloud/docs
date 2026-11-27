@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/os-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a trigger for {{ objstorage-name }} that invokes a container from {{ serverless-containers-name }}
 
 Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) that invokes a [container](../concepts/container.md) from {{ serverless-containers-name }} when you create, move, or delete a bucket [object](../../storage/concepts/object.md).

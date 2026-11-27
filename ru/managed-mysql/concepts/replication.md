@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-mysql/concepts/replication.md
+    type: text/markdown
+    title: Markdown version
+---
 # Репликация в {{ mmy-name }}
 
 В кластерах {{ mmy-name }} используется [полусинхронная репликация](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html): по умолчанию мастер ожидает завершения транзакции хотя бы на одной реплике.

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v0/public-prefix-pool/list-operations/
+alternate:
+  - href: en/baremetal/cli-ref/v0/public-prefix-pool/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal v0 public-prefix-pool list-operations

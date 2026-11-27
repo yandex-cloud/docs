@@ -1,6 +1,10 @@
 ---
 title: Управление поставками в {{ datalens-platform-full-name }}
 description: Следуя данной инструкции, вы сможете просмотреть список поставок данных, посмотреть статистику по конкретной поставке, приостановить или удалить ее, а также изменить настройки поставки в {{ datalens-platform-full-name }}
+alternate:
+  - href: ru/datalens/datalens-platform/operations/data-transfer/manage-transfer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление поставками

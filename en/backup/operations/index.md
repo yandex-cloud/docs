@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ backup-full-name }}
 description: This page features step-by-step guides for {{ backup-name }}.
+alternate:
+  - href: en/backup/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ backup-name }}

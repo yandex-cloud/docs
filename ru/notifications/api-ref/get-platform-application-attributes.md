@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/get-platform-application-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие GetPlatformApplicationAttributes
 
 Получает параметры [канала мобильных Push-уведомлений](../concepts/push.md) или [Push-уведомлений в браузере](../concepts/browser.md).

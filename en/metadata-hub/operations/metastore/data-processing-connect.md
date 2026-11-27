@@ -1,6 +1,10 @@
 ---
 title: How to connect {{ dataproc-name }} to {{ metastore-name }}
 description: Follow this guide to connect {{ dataproc-name }} to {{ metastore-name }}.
+alternate:
+  - href: en/metadata-hub/operations/metastore/data-processing-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting {{ dataproc-name }} to {{ metastore-name }}

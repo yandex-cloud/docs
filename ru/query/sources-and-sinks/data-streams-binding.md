@@ -1,6 +1,10 @@
 ---
 title: Чтение данных с помощью привязок к данным
 description: Из статьи вы узнаете, как создать привязку к данным и читать данные из {{ yds-full-name }} с помощью {{ yq-full-name }}.
+alternate:
+  - href: ru/query/sources-and-sinks/data-streams-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение данных с помощью привязок к данным

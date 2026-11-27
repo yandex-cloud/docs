@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error: ERR.DS_API.DB.CHYT.MULTI_DYN_NOT_SUPPORTED'
 description: This page describes the `Reading multiple dynamic tables or dynamic table together with static table is not supported in CHYT` {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DB-CHYT-MULTI_DYN_NOT_SUPPORTED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Reading multiple dynamic tables or dynamic table together with static table is not supported in CHYT

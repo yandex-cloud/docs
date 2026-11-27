@@ -1,6 +1,10 @@
 ---
 title: How to add a Let's Encrypt® certificate in {{ certificate-manager-full-name }}
 description: Follow this guide to add a Let's Encrypt® certificate and view its issuance status.
+alternate:
+  - href: en/certificate-manager/operations/managed/cert-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a Let's Encrypt® certificate

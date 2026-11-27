@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ mtr-name }}
 description: This page covers questions and answers about {{ mtr-full-name }}.
+alternate:
+  - href: en/managed-trino/qa/general.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ mtr-name }}

@@ -1,6 +1,10 @@
 ---
 title: 'How to use LLMs to work with {{ ydb-full-name }} via an MCP server: Cursor IDE example'
 description: You can connect to {{ ydb-short-name }} via an MCP server and use LLMs to manage your database. The available features depend on the model you use.
+alternate:
+  - href: en/ydb/operations/ydb-mcp-cursor.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to use LLMs to work with {{ ydb-full-name }} via an MCP server: Cursor IDE example

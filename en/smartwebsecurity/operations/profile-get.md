@@ -1,6 +1,10 @@
 ---
 title: Getting information about a security profile in {{ sws-full-name }}
 description: Follow this guide to get information about a security profile in {{ sws-full-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/profile-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting security profile info

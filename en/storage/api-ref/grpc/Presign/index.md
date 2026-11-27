@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/storage/api-ref/grpc/Presign/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, gRPC: PresignService

@@ -1,6 +1,10 @@
 ---
 title: Создать резервную копию YDB
 description: Создание локальной резервной копии базы данных IAM в YDB.
+alternate:
+  - href: ru/stackland/operations/iam/ydb-backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать резервную копию YDB

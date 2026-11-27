@@ -1,6 +1,10 @@
 ---
 title: Tutorials for building a data platform based on {{ yandex-cloud }}
 description: This page provides a list of tutorials for building a data platform based on {{ yandex-cloud }} using various DBMS.
+alternate:
+  - href: en/tutorials/dataplatform/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

@@ -39,6 +39,10 @@ apiPlayground:
         - sessionName
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/iam/awscompatibility/api-ref/TemporaryAccessKey/createEphemeral.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access Key, REST: TemporaryAccessKey.CreateEphemeral

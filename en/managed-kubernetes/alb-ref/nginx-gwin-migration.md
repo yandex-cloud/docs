@@ -1,6 +1,10 @@
 ---
 title: Migrating applications from Ingress NGINX to Gwin in {{ managed-k8s-full-name }}
 description: This article maps Ingress NGINX custom annotations against Gwin custom annotations you will need to migrate applications to Gwin in {{ managed-k8s-name }}.
+alternate:
+  - href: en/managed-kubernetes/alb-ref/nginx-gwin-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating applications from NGINX Ingress to Gwin

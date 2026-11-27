@@ -564,6 +564,10 @@ apiPlayground:
             type: array
             items:
               type: string
+alternate:
+  - href: en/data-transfer/api-ref/Transfer/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer API, REST: Transfer.Update

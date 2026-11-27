@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/cloud-desktop/api-ref/grpc/DesktopGroup/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop API, gRPC: DesktopGroupService.Get

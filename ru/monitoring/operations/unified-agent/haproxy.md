@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monitoring/operations/unified-agent/haproxy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Поставка метрик HAProxy и других сторонних приложений
 
 {{ unified-agent-full-name }} поддерживает сбор метрик в формате {{ prometheus-name }} и конвертацию метрик в формат {{ monitoring-full-name }}. При помощи {{ unified-agent-short-name }} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.

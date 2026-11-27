@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/create/
+alternate:
+  - href: ru/cli/cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb maintenance change-freeze create

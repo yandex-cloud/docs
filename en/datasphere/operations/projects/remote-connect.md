@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/projects/remote-connect.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to a project {{ jlab }}Lab from a local IDE
 
 {{ ml-platform-name }} enables you to work with projects from any local IDE which supports the use of remote {{ jlab }} servers. This feature is disabled by default; however, the community admin can enable it in the [community settings](../community/manage-community-config.md).

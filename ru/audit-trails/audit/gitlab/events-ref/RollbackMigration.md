@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/gitlab/events-ref/RollbackMigration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for GitLab Audit Trails Events: RollbackMigration

@@ -1,6 +1,10 @@
 ---
 title: How to run automatic Docker image scans on push using {{ TF }}
 description: Follow this tutorial to run automatic Docker image scans on push to {{ container-registry-full-name }} using {{ TF }}.
+alternate:
+  - href: en/container-registry/tutorials/image-auto-scan/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Automatic Docker image scan on push using {{ TF }}

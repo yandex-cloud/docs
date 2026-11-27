@@ -2,6 +2,10 @@
 title: Квоты и лимиты в {{ cns-full-name }}
 description: В {{ cns-full-name }} действует ряд квот и лимитов. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
 editable: false
+alternate:
+  - href: ru/notifications/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты {{ cns-full-name }}

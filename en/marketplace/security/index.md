@@ -1,6 +1,10 @@
 ---
 title: User access management in {{ marketplace-full-name }}
 description: User access management in {{ marketplace-short-name }}. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+alternate:
+  - href: en/marketplace/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # User access management in {{ marketplace-short-name }}

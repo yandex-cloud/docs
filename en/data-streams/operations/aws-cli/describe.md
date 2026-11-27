@@ -1,6 +1,10 @@
 ---
 title: Getting stream information
 description: Follow this guide to get information about a stream.
+alternate:
+  - href: en/data-streams/operations/aws-cli/describe.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting stream information

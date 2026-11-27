@@ -1,6 +1,10 @@
 ---
 title: Большие кластеры в {{ managed-k8s-full-name }}
 description: 'Возможности {{ managed-k8s-name }} для кластеров от нескольких сотен до нескольких тысяч узлов: расширение адресного пространства подов, автоматическое масштабирование и целевые группы сетевых балансировщиков.'
+alternate:
+  - href: ru/managed-kubernetes/concepts/large-clusters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Большие кластеры

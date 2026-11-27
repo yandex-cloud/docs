@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/cloudregistry/events-ref/CreateLifecyclePolicy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry Audit Trails Events: CreateLifecyclePolicy

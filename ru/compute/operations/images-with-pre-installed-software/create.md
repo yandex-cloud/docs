@@ -1,6 +1,10 @@
 ---
 title: Как создать виртуальную машину из публичного образа в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете создать виртуальную машину из публичного образа.
+alternate:
+  - href: ru/compute/operations/images-with-pre-installed-software/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать виртуальную машину из публичного образа

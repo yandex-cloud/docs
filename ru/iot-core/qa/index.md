@@ -1,6 +1,10 @@
 ---
 title: '{{ iot-full-name }}. Ответы на вопросы'
 description: Как получить логи моей работы в сервисе {{ iot-full-name }}? Ответы на этот и другие вопросы в данной статье.
+alternate:
+  - href: ru/iot-core/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие вопросы про {{ iot-name }}

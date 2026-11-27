@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/HtmlPages/rpcgetHtmlPagePreviewUrl-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get HTML page preview URL

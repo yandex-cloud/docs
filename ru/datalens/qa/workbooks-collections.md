@@ -1,6 +1,10 @@
 ---
 title: Воркбуки и коллекции
 description: В данном разделе собраны ответы на частые вопросы о воркбуках и коллекциях.
+alternate:
+  - href: ru/datalens/qa/workbooks-collections.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Воркбуки и коллекции

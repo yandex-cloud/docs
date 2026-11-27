@@ -1,6 +1,10 @@
 ---
 title: Автоматическое масштабирование подкластеров
 description: Из статьи вы узнаете про автоматическое масштабирование подкластеров.
+alternate:
+  - href: ru/data-proc/concepts/autoscaling.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Автоматическое масштабирование подкластеров

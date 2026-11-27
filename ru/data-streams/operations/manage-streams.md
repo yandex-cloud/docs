@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-streams/operations/manage-streams.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление потоками данных
 
 Вы можете [посмотреть](#list-data-streams) список [потоков](../concepts/glossary.md#stream-concepts), [изменить](#edit-data-stream) их настройки, [создать](#create-data-stream) новый поток или [удалить](#delete-data-stream) существующий.

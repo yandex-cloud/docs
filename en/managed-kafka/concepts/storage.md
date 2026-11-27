@@ -1,6 +1,10 @@
 ---
 title: Storage in {{ mkf-full-name }}
 description: In this article, you will learn what a storage is in {{ mkf-name }}, its minimum size, and the maximum size of a log segment. You will also learn about the automatic storage size increase mechanism and some things you should consider when selecting disk type for your new cluster.
+alternate:
+  - href: en/managed-kafka/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Storage in {{ mkf-name }}

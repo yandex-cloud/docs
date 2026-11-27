@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_tasks_list.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops tasks list
 
 List maintenance tasks

@@ -1,6 +1,10 @@
 ---
 title: Managing {{ MY }} cluster aliases
 description: You can create a custom network name for your {{ MY }} cluster as well as move the name to another cluster in your folder.
+alternate:
+  - href: en/managed-mysql/operations/cluster-aliases.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ MY }} cluster aliases

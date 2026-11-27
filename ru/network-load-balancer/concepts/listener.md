@@ -1,6 +1,10 @@
 ---
 title: Обработчик трафика
 description: Из статьи вы узнаете, что такое обработчик трафика.
+alternate:
+  - href: ru/network-load-balancer/concepts/listener.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обработчик трафика

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Collection/rpcupdateCollectionAccessBindings-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Update collection access bindings

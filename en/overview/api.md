@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/overview/api.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ yandex-cloud }} service APIs
 
 {{ yandex-cloud }} services offer APIs that you can use to create automated systems, plugins, and other applications for managing cloud resources.

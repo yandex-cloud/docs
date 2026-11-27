@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/lockbox/events-ref/SetSecretAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox Audit Trails Events: SetSecretAccessBindings

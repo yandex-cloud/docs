@@ -1,6 +1,10 @@
 ---
 title: Разметка метаданных
 description: Следуя данной инструкции, вы сможете размечать метаданные в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/markup-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разметка метаданных

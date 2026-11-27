@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/gpfdist/connect.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение к внешнему файловому серверу
 
 [{{ GP }} Parallel File Server]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Она установлена на всех хостах-сегментах кластера {{ mgp-name }} и обеспечивает параллельную загрузку данных, распределяя их между сегментами равномерно или согласно заданному [ключу распределения](../../concepts/sharding.md#distribution-key). Это повышает производительность при работе с большими объемами внешних данных.

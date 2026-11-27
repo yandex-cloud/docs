@@ -15,6 +15,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/metadata-hub/datacatalog/api-ref/Catalog/deleteCatalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Datacatalog API, REST: Catalog.DeleteCatalog

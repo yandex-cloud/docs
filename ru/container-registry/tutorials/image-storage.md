@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/docker-images-in-ycr'
+alternate:
+  - href: ru/container-registry/tutorials/image-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Хранение Docker-образов из проектов {{ mgl-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Добавить метку функции
 description: Следуя данной инструкции, вы сможете добавить метку функции.
+alternate:
+  - href: ru/functions/operations/function/label-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить метку функции

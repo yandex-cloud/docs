@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/cloud-router/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обзор {{ cr-full-name }}
 
 {{ cr-full-name }} — это сервис для управления сетевыми топологиями гибридного облака в {{ yandex-cloud }}.

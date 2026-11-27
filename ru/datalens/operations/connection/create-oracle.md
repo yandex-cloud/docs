@@ -1,6 +1,10 @@
 ---
 title: Инструкция по созданию подключения к Oracle Database в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как подключиться к Oracle Database в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/create-oracle.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к Oracle Database в {{ datalens-full-name }}

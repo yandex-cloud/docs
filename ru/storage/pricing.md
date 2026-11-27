@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ objstorage-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ objstorage-name }}.
 editable: false
+alternate:
+  - href: ru/storage/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

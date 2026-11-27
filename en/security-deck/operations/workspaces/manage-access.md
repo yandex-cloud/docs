@@ -1,6 +1,10 @@
 ---
 title: Configuring workspace access permissions in {{ sd-full-name }}
 description: In this guide, you will learn how to configure workspace access permissions in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/workspaces/manage-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring the {{ sd-name }} workspace access permissions

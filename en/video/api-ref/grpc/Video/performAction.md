@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/video/api-ref/grpc/Video/performAction.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, gRPC: VideoService.PerformAction

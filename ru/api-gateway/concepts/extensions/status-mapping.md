@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/status-mapping.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение x-yc-status-mapping
 
 Расширение `x-yc-status-mapping` позволяет заменить код ответа в интеграции. Например, если в [интеграции с {{ objstorage-name }}](object-storage.md) вернулся код ответа 404, можно заменить его на 200.

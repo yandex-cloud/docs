@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.PREVIEW_SOURCE_MODIFICATION_NOT_ALLOWED'
 description: The page provides a description of the `Data source modification is not allowed` error in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-PREVIEW_SOURCE_MODIFICATION_NOT_ALLOWED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] error `Data source modification is not allowed`

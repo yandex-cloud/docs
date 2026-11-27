@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED
 description: 'На странице приведено описание ошибки {{ datalens-full-name }} Referenced connection <идентификатор_подключения> cannot be loaded: access denied.'
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Referenced connection <идентификатор_подключения> cannot be loaded: access denied

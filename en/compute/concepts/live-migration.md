@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/live-migration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Live migration
 
 {{ compute-name }} uses the live migration feature that allows you to move running [VMs](vm.md) across physical servers without stopping or restarting them. The downtime usually does not exceed 10 seconds.

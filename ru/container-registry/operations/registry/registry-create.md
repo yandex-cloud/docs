@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/container-registry/operations/registry/registry-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать реестр
 
 Использовать созданный [реестр](../../concepts/registry.md) могут все пользователи и [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md), у которых есть права на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder). 

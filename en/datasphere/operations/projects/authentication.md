@@ -1,6 +1,10 @@
 ---
 title: How to get authenticated in {{ ds-jobs }}
 description: This article describes {{ ds-jobs }} authentication methods.
+alternate:
+  - href: en/datasphere/operations/projects/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authentication in {{ ds-jobs }}

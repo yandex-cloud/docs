@@ -1,6 +1,10 @@
 ---
 title: '{{ alb-full-name }}. Обзор сервиса'
 description: '{{ alb-full-name }} (L7-балансировщик, балансировщик нагрузки уровня приложений) — это сервис для распределения нагрузки по сервисам и приложениям, развернутым в {{ yandex-cloud }}. {{ alb-name }} работает на 7-м уровне модели OSI и передает трафик по протоколам HTTP и HTTPS на бэкенды ваших приложений.'
+alternate:
+  - href: ru/application-load-balancer/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор {{ alb-full-name }}

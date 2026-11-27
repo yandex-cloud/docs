@@ -1,6 +1,10 @@
 ---
 title: How to manage authorized keys in {{ iam-full-name }}
 description: In this guide, you will learn how to create and delete authorized keys in {{ iam-full-name }} via the management console, CLI, and API.
+alternate:
+  - href: en/iam/operations/authentication/manage-authorized-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing authorized keys

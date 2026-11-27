@@ -1,6 +1,10 @@
 ---
 title: Committed volume of services
 description: In this article, you will learn what a committed volume of services (CVoS) is and which services support it.
+alternate:
+  - href: en/billing/concepts/cvos.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Committed volume of services

@@ -1,6 +1,10 @@
 ---
 title: Metadata folders in {{ compute-name }} VM instances
 description: In this article, you will learn about the folders available in the {{ compute-full-name }} VM instance metadata service and the keys they contain.
+alternate:
+  - href: en/compute/concepts/metadata/directories.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Metadata folders

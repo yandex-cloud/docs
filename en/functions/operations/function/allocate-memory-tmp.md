@@ -1,6 +1,10 @@
 ---
 title: Allocating memory for the /tmp directory
 description: In this guide, you will learn how to allocate a portion of memory in a function for the /tmp directory.
+alternate:
+  - href: en/functions/operations/function/allocate-memory-tmp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Allocating memory for the /tmp directory

@@ -1,6 +1,10 @@
 ---
 title: How to configure a navigator in {{ datalens-full-name }}
 description: Follow this guide to configure a navigator in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/chart/config-chart-navigator.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring a navigator in {{ datalens-full-name }}

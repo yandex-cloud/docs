@@ -1,6 +1,10 @@
 ---
 title: Метки ресурсов сервисов
 description: Из статьи вы узнаете, что такое метки, ознакомитесь с примерами использования меток и сервисами, в которых поддерживаются метки.
+alternate:
+  - href: ru/resource-manager/concepts/labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метки ресурсов сервисов

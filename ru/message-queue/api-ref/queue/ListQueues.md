@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/queue/ListQueues.md
+    type: text/markdown
+    title: Markdown version
+---
 # ListQueues
 
 Метод для получения списка очередей в каталоге. Максимальное количество очередей в ответе — 1000. Очереди можно отфильтровать с помощью параметра `QueueNamePrefix`.

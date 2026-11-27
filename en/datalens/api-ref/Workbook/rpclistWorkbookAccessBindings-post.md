@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Workbook/rpclistWorkbookAccessBindings-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # List workbook access bindings

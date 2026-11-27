@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/cluster/get-access-control/
+alternate:
+  - href: en/cli/cli-ref/managed-trino/cli-ref/cluster/get-access-control.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-trino cluster get-access-control

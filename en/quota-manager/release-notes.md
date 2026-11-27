@@ -1,6 +1,10 @@
 ---
 title: '{{ quota-manager-full-name }} release notes'
 description: This section contains {{ quota-manager-name }} release notes.
+alternate:
+  - href: en/quota-manager/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ quota-manager-full-name }} release notes

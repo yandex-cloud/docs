@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/baremetal/concepts/network-restrictions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Restrictions in {{ baremetal-name }} networks
 
 There is a number of restrictions in {{ baremetal-name }} networks.

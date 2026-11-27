@@ -15,6 +15,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/metadata-hub/connection-manager/api-ref/Connection/resolveCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connection Manager API, REST: Connection.ResolveCluster

@@ -1,6 +1,10 @@
 ---
 title: Изменить настройки кластера {{ AF }}
 description: Как изменить ресурсы, зависимости и другие параметры кластера {{ AF }}
+alternate:
+  - href: ru/stackland/operations/airflow/edit-cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить настройки кластера {{ AF }}

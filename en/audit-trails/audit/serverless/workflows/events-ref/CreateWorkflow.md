@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/serverless/workflows/events-ref/CreateWorkflow.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Serverless Workflows Audit Trails Events: CreateWorkflow

@@ -1,5 +1,9 @@
 ---
 subcategory: Compute Cloud
+alternate:
+  - href: ru/terraform/resources/compute_snapshot_schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_compute_snapshot_schedule (Resource)

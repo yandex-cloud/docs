@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/resourcemanager/events-ref/UnbindFolderAccessPolicy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager Audit Trails Events: UnbindFolderAccessPolicy

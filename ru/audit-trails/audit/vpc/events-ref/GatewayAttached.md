@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/vpc/events-ref/GatewayAttached.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud Audit Trails Events: GatewayAttached

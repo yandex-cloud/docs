@@ -1,6 +1,10 @@
 ---
 title: Симулятор доставки писем
 description: Симулятор доставки писем в {{ postbox-full-name }} позволяет проверить обработку успешной доставки и ошибок доставки без отправки письма реальному получателю.
+alternate:
+  - href: ru/postbox/concepts/mail-simulator.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Симулятор доставки писем

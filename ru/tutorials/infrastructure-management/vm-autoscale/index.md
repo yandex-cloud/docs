@@ -1,6 +1,10 @@
 ---
 title: Работа с группой виртуальных машин с автоматическим масштабированием при превышении допустимой нагрузки
 description: В этом руководстве вы развернете группу ВМ с политикой автоматического масштабирования при превышении допустимой нагрузки. Нагрузка на них будет регулироваться с помощью сетевого балансировщика.
+alternate:
+  - href: ru/tutorials/infrastructure-management/vm-autoscale/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [vm-autoscale](../../../_tutorials/infrastructure/vm-autoscale.md) %}

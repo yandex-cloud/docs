@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/rdbms-to-clickhouse'
+alternate:
+  - href: en/managed-clickhouse/tutorials/rdbms-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Asynchronously replicating data from {{ PG }} to {{ CH }}

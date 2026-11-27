@@ -382,6 +382,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/iam/api-ref/ServiceAccount/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: ServiceAccount.UpdateAccessBindings

@@ -1,6 +1,10 @@
 ---
 title: Configuring a country-based access policy
 description: "Follow this guide to set up country-based access to\_a CDN resource."
+alternate:
+  - href: en/cdn/operations/resources/configure-geo-acl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring a country-based access policy

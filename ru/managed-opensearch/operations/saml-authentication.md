@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-opensearch/operations/saml-authentication.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка SAML-аутентификации
 
 SAML (Security Assertion Markup Language) — это язык разметки для обмена данными аутентификации и авторизации между сторонами. SAML позволяет реализовать систему единого входа (Single Sign-On, SSO), с помощью которой можно переключаться между приложениями без повторной аутентификации.

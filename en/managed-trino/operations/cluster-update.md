@@ -5,6 +5,10 @@ keywords:
   - Updating an {{ TR }} cluster
   - '{{ TR }} cluster'
   - '{{ TR }}'
+alternate:
+  - href: en/managed-trino/operations/cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a {{ TR }} cluster

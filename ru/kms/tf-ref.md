@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ kms-full-name }}
 description: На этой странице приведен справочник ресурсов провайдера {{ TF }}, которые поддерживаются для сервиса {{ kms-name }}.
+alternate:
+  - href: ru/kms/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ kms-full-name }}

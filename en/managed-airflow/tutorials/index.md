@@ -1,6 +1,10 @@
 ---
 title: '{{ maf-full-name }} use cases'
 description: Different use cases for {{ maf-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/managed-airflow/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ maf-name }} tutorials

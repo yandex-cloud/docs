@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/application/oauth/application/remove-assignments/
+alternate:
+  - href: en/cli/cli-ref/organization-manager/cli-ref/idp/application/oauth/application/remove-assignments.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager idp application oauth application remove-assignments

@@ -1,6 +1,10 @@
 ---
 title: Markdown in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to use Markdown in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/dashboard/markdown.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Markdown in {{ datalens-full-name }}

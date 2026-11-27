@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_completion_powershell.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli completion powershell
 
 Generate the autocompletion script for powershell

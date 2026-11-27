@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ iot-full-name }} device registries
 description: To get started with {{ iot-name }}, create an X.509 certificate, registry, and device. Next, set up message exchange between the registry and the device.
+alternate:
+  - href: en/iot-core/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ iot-name }} device registries

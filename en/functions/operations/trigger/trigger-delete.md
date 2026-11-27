@@ -1,6 +1,10 @@
 ---
 title: How to delete a trigger in {{ sf-full-name }}
 description: In this guide, you will learn how to delete a trigger in {{ sf-full-name }}.
+alternate:
+  - href: en/functions/operations/trigger/trigger-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a trigger in {{ sf-name }}

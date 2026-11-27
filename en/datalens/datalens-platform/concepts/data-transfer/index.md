@@ -1,6 +1,10 @@
 ---
 title: Data transfers to {{ datalens-platform-full-name }}
 description: In this article, you will learn what types of data transfer are available in {{ datalens-platform-full-name }}.
+alternate:
+  - href: en/datalens/datalens-platform/concepts/data-transfer/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data transfers to {{ datalens-platform-full-name }}

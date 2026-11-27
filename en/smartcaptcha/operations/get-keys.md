@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/smartcaptcha/operations/get-keys.md
+    type: text/markdown
+    title: Markdown version
+---
 # Obtaining CAPTCHA keys 
 
 In this section, you will learn how to get [CAPTCHA keys](../concepts/keys.md). The client key allows you to [add](../quickstart.md#add-widget) a {{ captcha-name }} widget to your page. The server key is required for [user response verification](../quickstart.md#check-answer).

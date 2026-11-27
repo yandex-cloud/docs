@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Logging Stack
 
 {{ stackland-name }} собирает и хранит системные логи кластера с помощью опенсорс-инструментов:

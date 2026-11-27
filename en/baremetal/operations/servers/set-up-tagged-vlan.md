@@ -1,6 +1,10 @@
 ---
 title: Setting up a secondary private subnet on a {{ baremetal-full-name }} server
 description: Follow this guide to add to a {{ baremetal-full-name }} server and configure a secondary private subnet with a tagged VLAN.
+alternate:
+  - href: en/baremetal/operations/servers/set-up-tagged-vlan.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up a secondary private subnet with a tagged VLAN on a server

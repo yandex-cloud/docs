@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/video/events-ref/UpdateStream.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Video Audit Trails Events: UpdateStream

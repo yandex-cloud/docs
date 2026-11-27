@@ -56,6 +56,10 @@ apiPlayground:
         required:
           - id
           - type
+alternate:
+  - href: ru/iam/api-ref/ServiceControl/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: ServiceControl.List

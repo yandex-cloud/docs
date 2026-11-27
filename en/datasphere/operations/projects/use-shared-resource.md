@@ -1,5 +1,9 @@
 ---
 title: How to use shared resources in {{ ml-platform-full-name }}
+alternate:
+  - href: en/datasphere/operations/projects/use-shared-resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using a shared resource

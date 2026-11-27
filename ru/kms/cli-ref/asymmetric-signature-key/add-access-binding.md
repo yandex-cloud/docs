@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/asymmetric-signature-key/add-access-binding/
+alternate:
+  - href: ru/kms/cli-ref/asymmetric-signature-key/add-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc kms asymmetric-signature-key add-access-binding

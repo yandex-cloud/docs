@@ -1,6 +1,10 @@
 ---
 title: Как создать приватное соединение с облачными сетями
 description: Следуя данной инструкции, вы сможете создать приватное соединение между VRF {{ baremetal-full-name }} и облачными сетями {{ vpc-full-name }}.
+alternate:
+  - href: ru/baremetal/operations/create-vpc-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать приватное соединение с облачными сетями

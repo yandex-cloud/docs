@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть, какие роли назначены аккаунту в {{ iam-full-name }}
 description: Следуя данной инструкции, вы сможете посмотреть, какие роли назначены аккаунту.
+alternate:
+  - href: ru/iam/operations/roles/get-assigned-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотр назначенных ролей

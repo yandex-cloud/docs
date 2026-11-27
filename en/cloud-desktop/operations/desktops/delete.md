@@ -1,6 +1,10 @@
 ---
 title: How to delete a desktop in {{ cloud-desktop-full-name }}
 description: In this tutorial, you will learn how to delete a desktop in {{ cloud-desktop-full-name }}.
+alternate:
+  - href: en/cloud-desktop/operations/desktops/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a desktop

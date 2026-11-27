@@ -1,6 +1,10 @@
 ---
 title: Безопасная передача пароля в скрипт инициализации
 description: В этом сценарии вы узнаете, как безопасно передать пароль в скрипт инициализации.
+alternate:
+  - href: ru/tutorials/windows/secure-password-script/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [secure-password-script](../../../_tutorials/windows/secure-password-script-index.md) %}

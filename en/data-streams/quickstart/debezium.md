@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/quickstart/debezium.md
+    type: text/markdown
+    title: Markdown version
+---
 
 # Debezium Change Data Capture (CDC) stream processing
 

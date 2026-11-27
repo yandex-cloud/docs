@@ -4,6 +4,10 @@ description: 'Deep Learning (глубокое обучение) — направ
 keywords:
   - Deep learning
   - Глубокое обучение
+alternate:
+  - href: ru/glossary/deep-learning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Глубокое обучение (Deep Learning)

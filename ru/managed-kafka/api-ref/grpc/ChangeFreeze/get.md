@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-kafka/api-ref/grpc/ChangeFreeze/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, gRPC: ChangeFreezeService.Get

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/subnet/relocate/
+alternate:
+  - href: en/vpc/cli-ref/subnet/relocate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc subnet relocate

@@ -1,6 +1,10 @@
 ---
 title: Какие ошибки возникают при работе с модулем контроля конфигурации ({{ cspm-name }}) в {{ sd-full-name }}
 description: Из статьи вы узнаете, какие бывают ошибки в работе модуля контроля конфигурации ({{ cspm-name }}).
+alternate:
+  - href: ru/security-deck/diagnostics/cspm-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика ошибок в работе модуля контроля конфигурации ({{ cspm-name }})

@@ -1,6 +1,10 @@
 ---
 title: Как активировать сервис {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете активировать сервис {{ backup-name }}.
+alternate:
+  - href: ru/backup/operations/activate-service.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Активировать сервис

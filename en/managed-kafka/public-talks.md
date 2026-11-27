@@ -1,6 +1,10 @@
 ---
 title: Public materials about {{ mkf-full-name }}
 description: Video recordings of conferences and webinars on {{ mkf-full-name }}.
+alternate:
+  - href: en/managed-kafka/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public materials about {{ mkf-full-name }}

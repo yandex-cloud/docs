@@ -1,6 +1,10 @@
 ---
 title: Mounting a volume in block mode
 description: Follow this guide to mount a volume in block mode.
+alternate:
+  - href: en/managed-kubernetes/operations/volumes/mode-block.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Mounting a volume in block mode

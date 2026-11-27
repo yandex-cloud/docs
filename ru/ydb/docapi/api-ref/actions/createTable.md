@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/createTable.md
+alternate:
+  - href: ru/ydb/docapi/api-ref/actions/createTable.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Метод CreateTable
 

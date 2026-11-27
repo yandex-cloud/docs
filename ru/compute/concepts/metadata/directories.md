@@ -1,6 +1,10 @@
 ---
 title: Каталоги метаданных в виртуальных машинах {{ compute-name }}
 description: Из этой статьи вы узнаете о каталогах и содержащихся в них ключах, доступных в сервисе метаданных виртуальных машин {{ compute-full-name }}.
+alternate:
+  - href: ru/compute/concepts/metadata/directories.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Каталоги метаданных

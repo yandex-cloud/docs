@@ -1,6 +1,10 @@
 ---
 title: Подключение {{ maf-full-name }} к бакету {{ objstorage-full-name }} с политикой доступа
 description: В сервисе {{ maf-full-name }} вы можете работать с бакетом {{ objstorage-full-name }}, для которого настроены политики доступа.
+alternate:
+  - href: ru/managed-airflow/operations/s3-policy-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к бакету {{ objstorage-full-name }} с политикой доступа

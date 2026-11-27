@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/tools/cyberduck.md
+    type: text/markdown
+    title: Markdown version
+---
 # CyberDuck
 
 [CyberDuck](https://cyberduck.io/) is a GUI client that allows you to work with cloud storages, including those compatible with the Amazon S3 API. CyberDuck is available for macOS and Windows and as a [console client](https://duck.sh/) for Linux.

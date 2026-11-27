@@ -2,6 +2,10 @@
 title: Creating an L7 {{ alb-name }} with a {{ sws-full-name }} profile
 description: Follow this guide to create a test web server, deploy an L7 {{ alb-name }} for distributing traffic to the test web server, and protect this new infrastructure using a security profile in {{ sws-name }}.
 canonical: '{{ link-docs }}/tutorials/security/balancer-with-sws-profile'
+alternate:
+  - href: en/application-load-balancer/tutorials/balancer-with-sws-profile/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an L7 {{ alb-name }} with a {{ sws-full-name }} profile

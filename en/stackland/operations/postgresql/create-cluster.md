@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/postgresql/create-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a PostgreSQL cluster
 
 If you have a [project](../projects/create-project.md), you can create a [{{ PG }}](../../concepts/components/postgresql.md) cluster in it.

@@ -1,6 +1,10 @@
 ---
 title: '{{ mkf-full-name }} release notes'
 description: This section contains the {{ mkf-name }} release notes.
+alternate:
+  - href: en/managed-kafka/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mkf-full-name }} release notes

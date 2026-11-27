@@ -1,6 +1,10 @@
 ---
 title: '{{ baremetal-full-name }} release notes'
 description: This section contains the {{ baremetal-name }} release notes.
+alternate:
+  - href: en/baremetal/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ baremetal-full-name }} release notes

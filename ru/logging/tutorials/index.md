@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ cloud-logging-full-name }}
 description: Различные сценарии использования {{ cloud-logging-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/logging/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ cloud-logging-name }}

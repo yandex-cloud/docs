@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monitoring/concepts/visualization/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Визуализация
 
 {{ monitoring-full-name }} предоставляет инструменты визуализации:

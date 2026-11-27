@@ -1,6 +1,10 @@
 ---
 title: How to set or reset a local user password in {{ org-full-name }}
 description: Follow this guide to set or reset a local user password in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/user-pools/reset-user-password.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a local user password

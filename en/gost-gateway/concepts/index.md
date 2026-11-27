@@ -1,6 +1,10 @@
 ---
 title: '{{ gost-gateway-name }} overview'
 description: '{{ gost-gateway-name }} provides a secure dedicated gateway hosted in a proprietary data center.'
+alternate:
+  - href: en/gost-gateway/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ gost-gateway-name }} overview

@@ -1,6 +1,10 @@
 ---
 title: Инструменты программы прямого партнерства
 description: Из статьи вы узнаете про инструменты программы прямого партнерства.
+alternate:
+  - href: ru/partner/program/var-tools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Инструменты программы прямого партнерства

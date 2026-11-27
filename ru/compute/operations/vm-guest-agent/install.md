@@ -1,6 +1,10 @@
 ---
 title: Установить агент для сброса паролей на виртуальную машину Windows Server
 description: Следуя данной инструкции, вы сможете установить агент для сброса паролей на виртуальную машину Windows Server.
+alternate:
+  - href: ru/compute/operations/vm-guest-agent/install.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установить агент для сброса паролей на виртуальную машину Windows Server

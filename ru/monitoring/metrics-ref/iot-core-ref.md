@@ -2,6 +2,10 @@
 title: Метрики {{ iot-full-name }}
 description: Из статьи вы узнаете про метрики {{ iot-name }}.
 editable: false
+alternate:
+  - href: ru/monitoring/metrics-ref/iot-core-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ iot-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ network-load-balancer-full-name }}
 description: Различные сценарии использования {{ network-load-balancer-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/network-load-balancer/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ network-load-balancer-name }}

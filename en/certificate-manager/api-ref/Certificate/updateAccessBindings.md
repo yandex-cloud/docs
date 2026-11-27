@@ -174,6 +174,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/certificate-manager/api-ref/Certificate/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager API, REST: Certificate.UpdateAccessBindings

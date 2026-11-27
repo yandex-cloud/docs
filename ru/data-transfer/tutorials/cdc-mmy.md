@@ -2,6 +2,10 @@
 title: Руководство по настройке поставки данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
 description: Следуя данному руководству, вы сможете настроить поставку данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mmy'
+alternate:
+  - href: ru/data-transfer/tutorials/cdc-mmy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Захват изменений из {{ MY }} и поставка в {{ KF }}

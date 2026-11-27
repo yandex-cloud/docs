@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/tutorials/infrastructure-management/run-docker-on-vm/index.md
+    type: text/markdown
+    title: Markdown version
+---
 {% include [run-docker-on-vm](../../../_tutorials/infrastructure/run-docker-on-vm.md) %}
 
 * [Management console, CLI, and API](console.md): Use the {{ yandex-cloud }} management console, CLI, or API to create your infrastructure step-by-step.

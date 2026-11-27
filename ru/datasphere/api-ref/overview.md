@@ -1,6 +1,10 @@
 ---
 title: Обзор API {{ ml-platform-name }}
 description: Управление ресурсами {{ ml-platform-full-name }} с помощью API. Основные методы для создания проекта, загрузки файлов и работы с ноутбуками.
+alternate:
+  - href: ru/datasphere/api-ref/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор API {{ ml-platform-name }}

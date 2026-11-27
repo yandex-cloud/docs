@@ -1,6 +1,10 @@
 ---
 title: Сводная таблица в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Сводная таблица.
+alternate:
+  - href: ru/datalens/visualization-ref/pivot-table-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сводная таблица ![](../../_assets/datalens/pivot-table.svg) в {{ datalens-full-name }}

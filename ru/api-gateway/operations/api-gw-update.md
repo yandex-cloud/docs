@@ -1,6 +1,10 @@
 ---
 title: Изменить API-шлюз
 description: Следуя данной инструкции, вы сможете изменить API-шлюз.
+alternate:
+  - href: ru/api-gateway/operations/api-gw-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить API-шлюз

@@ -1,6 +1,10 @@
 ---
 title: Editing a Cloud WAF exclusion rule
 description: Follow this guide to edit a WAF exclusion rule.
+alternate:
+  - href: en/smartwebsecurity/operations/exclusion-rule-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a Cloud WAF exclusion rule

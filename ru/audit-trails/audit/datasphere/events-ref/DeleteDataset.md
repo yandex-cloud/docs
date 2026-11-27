@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/datasphere/events-ref/DeleteDataset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere Audit Trails Events: DeleteDataset

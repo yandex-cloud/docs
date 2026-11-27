@@ -52,6 +52,10 @@ apiPlayground:
         required:
           - action
           - subjectId
+alternate:
+  - href: en/organization/api-ref/MfaEnforcement/updateAudience.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: MfaEnforcement.UpdateAudience

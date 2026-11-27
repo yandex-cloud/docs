@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iam/api-ref/RefreshToken/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: RefreshToken

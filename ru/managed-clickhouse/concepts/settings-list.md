@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройки {{ CH }}
 
 {% include [note-deprecated-zookeeper](../../_includes/mdb/note-deprecated-zookeeper.md) %}

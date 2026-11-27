@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/cluster/upgrade-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Upgrading a cluster
 
 Upgrade your {{ stackland-name }} cluster version using the `TargetInstallationState` Kubernetes resource. Perform a rolling update with incremental load evacuation and node reboot.

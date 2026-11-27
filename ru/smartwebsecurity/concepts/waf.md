@@ -1,6 +1,10 @@
 ---
 title: Cloud WAF в {{ sws-full-name }}
 description: Как профили Web Application Firewall анализируют HTTP-запросы, используют наборы правил и исключения для защиты веб-приложений.
+alternate:
+  - href: ru/smartwebsecurity/concepts/waf.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud WAF

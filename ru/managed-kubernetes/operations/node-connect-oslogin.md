@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к узлу кластера {{ k8s }} через {{ oslogin }} в {{ managed-k8s-full-name }}
 description: Следуя данной инструкции, вы сможете подключиться к узлу через {{ oslogin }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/node-connect-oslogin.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к узлу через {{ oslogin }}

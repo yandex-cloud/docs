@@ -1,6 +1,10 @@
 ---
 title: Java function invocation context in {{ sf-full-name }}
 description: In this article, you will learn about the Java function invocation context.
+alternate:
+  - href: en/functions/lang/java/context.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Java function invocation context

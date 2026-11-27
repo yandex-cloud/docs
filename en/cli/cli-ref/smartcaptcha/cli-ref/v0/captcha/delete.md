@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartcaptcha/cli-ref/v0/captcha/delete/
+alternate:
+  - href: en/cli/cli-ref/smartcaptcha/cli-ref/v0/captcha/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartcaptcha v0 captcha delete

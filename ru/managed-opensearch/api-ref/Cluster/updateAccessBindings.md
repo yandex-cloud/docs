@@ -119,6 +119,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/managed-opensearch/api-ref/Cluster/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.UpdateAccessBindings

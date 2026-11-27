@@ -1,6 +1,10 @@
 ---
 title: Installing node-sitter
 description: Follow this guide to install node-sitter.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/node-sitter.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing node-sitter

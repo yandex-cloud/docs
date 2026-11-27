@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/s3api/delete-object-tagging/
+alternate:
+  - href: en/storage/cli-ref/s3api/delete-object-tagging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc storage s3api delete-object-tagging

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-mysql/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ MY }} settings
 
 For a {{ mmy-name }} cluster, you can set {{ MY }} settings. Some settings are configured [at the cluster level](#dbms-cluster-settings), while others, [at the user level](#dbms-user-settings).

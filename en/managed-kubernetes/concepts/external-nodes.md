@@ -1,6 +1,10 @@
 ---
 title: External cluster nodes
 description: This article describes the features of external cluster nodes.
+alternate:
+  - href: en/managed-kubernetes/concepts/external-nodes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # External cluster nodes

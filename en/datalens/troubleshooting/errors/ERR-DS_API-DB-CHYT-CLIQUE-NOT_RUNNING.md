@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error: ERR.DS_API.DB.CHYT.CLIQUE.NOT_RUNNING'
 description: This page describes the `Clique <click_name> is not running` {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-NOT_RUNNING.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Clique <clique_name> is not running

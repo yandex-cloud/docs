@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/get-platform-application-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # GetPlatformApplicationAttributes
 
 Gets the [mobile push notification channel](../concepts/push.md) or [in-browser push notification channel](../concepts/browser.md) parameters.

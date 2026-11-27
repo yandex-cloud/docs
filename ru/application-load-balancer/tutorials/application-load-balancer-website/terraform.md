@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/application-load-balancer-website/terraform'
+alternate:
+  - href: ru/application-load-balancer/tutorials/application-load-balancer-website/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-full-name }} с помощью {{ TF }}

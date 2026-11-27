@@ -1,6 +1,10 @@
 ---
 title: How to add a user SSH key
 description: Follow this guide to add SSH keys to a user profile to enable the user to connect to VMs, {{ k8s }} cluster nodes, and {{ baremetal-name }} servers.
+alternate:
+  - href: en/organization/operations/add-ssh.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding an SSH key

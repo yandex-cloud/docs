@@ -31,6 +31,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/cdn/api-ref/Cache/purge.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: Cache.Purge

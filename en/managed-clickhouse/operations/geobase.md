@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/operations/geobase.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing a custom geobase in {{ mch-name }}
 
 A {{ CH }} geobase consists of text files containing the names and hierarchy of regions. You can add several alternative geobases to {{ CH }} to reflect different points of view on what regions belong to what countries. For more information, see [this {{ CH }} guide](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/internal-dicts/).

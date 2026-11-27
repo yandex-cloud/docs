@@ -2,6 +2,10 @@
 title: Справочник правил {{ sd-full-name }}
 description: Правила безопасности {{ sd-name }}
 editable: false
+alternate:
+  - href: ru/security-deck/rules-reference/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник правил

@@ -1,6 +1,10 @@
 ---
 title: Посмотреть метрики бакета в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете посмотреть метрики бакета в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/get-stats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть метрики бакета

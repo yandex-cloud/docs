@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/mdbproxy/update/postgresql/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/mdbproxy/update/postgresql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless mdbproxy update postgresql

@@ -1,6 +1,10 @@
 ---
 title: Integration with the {{ marketplace-short-name }} {{ license-manager }} API
 description: You will learn how to work with the {{ license-manager }} API to integrate your application with {{ marketplace-full-name }}.
+alternate:
+  - href: en/marketplace/license-manager/api-ref/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with the {{ marketplace-short-name }} {{ license-manager }} API

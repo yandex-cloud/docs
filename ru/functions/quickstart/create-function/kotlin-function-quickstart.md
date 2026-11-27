@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/quickstart/create-function/kotlin-function-quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание функции на Kotlin
 
 Создайте и выполните [функцию](../../concepts/function.md) на Kotlin, которая приветствует пользователя.

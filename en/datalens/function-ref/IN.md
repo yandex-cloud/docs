@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/IN.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IN

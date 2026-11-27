@@ -2,6 +2,10 @@
 title: '{{ cns-full-name }} pricing policy'
 description: This article covers the {{ cns-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/notifications/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

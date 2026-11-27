@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/ydb/concepts/oltp-and-olap.md
+    type: text/markdown
+    title: Markdown version
+---
 # Режимы работы OLTP или OLAP
 
 При работе с базами данных выделяют два основных сценария: On-line Transaction Processing (Онлайн обработка транзакций, [OLTP](../../glossary/oltp.md)) и On-line Analytical Processing (Онлайн аналитическая обработка, [OLAP](../../glossary/olap.md)).

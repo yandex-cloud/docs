@@ -1,6 +1,10 @@
 ---
 title: Как удалить шаблон плеера в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете удалить шаблон плеера в сервисе {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/style-presets/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить шаблон плеера

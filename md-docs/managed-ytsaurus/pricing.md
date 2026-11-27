@@ -498,32 +498,32 @@ blocks:
 
 
 
-| Услуга                                                                                                                                               | Цена     | Ед. тарификации | Действует с    | Действует до |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- | -------------- | ------------ |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (AMD EPYC™ with NVIDIA® Ampere® A100), 1 GPU NVIDIA® Ampere® A100        | 489,75 ₽ | GPU × час       | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (AMD EPYC™ with NVIDIA® Ampere® A100), RAM                               | 0,3689 ₽ | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (AMD EPYC™ with NVIDIA® Ampere® A100), vCPU                              | 1,18 ₽   | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Cascade Lake with NVIDIA® Tesla® V100), 1 GPU NVIDIA® Tesla® V100 | 313,55 ₽ | GPU × час       | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Cascade Lake with NVIDIA® Tesla® V100), RAM                       | 0,3895 ₽ | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Cascade Lake with NVIDIA® Tesla® V100), vCPU                      | 1,4975 ₽ | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake with T4i), 1 GPU                                         | 189,73 ₽ | GPU × час       | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake with T4i), RAM                                           | 0,3689 ₽ | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake with T4i), vCPU                                          | 1,38 ₽   | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake), RAM                                                    | 0,369 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake), vCPU                                                   | 1,38 ₽   | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Master Node (Intel Ice Lake), RAM                                                  | 0,369 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Master Node (Intel Ice Lake), vCPU                                                 | 1,38 ₽   | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Proxy Node (Intel Ice Lake), RAM                                                   | 0,369 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Proxy Node (Intel Ice Lake), vCPU                                                  | 1,38 ₽   | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Storage Node (Intel Ice Lake), RAM                                                 | 0,369 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Storage Node (Intel Ice Lake), vCPU                                                | 1,38 ₽   | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, System Node (Intel Ice Lake), RAM                                                  | 0,369 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, System Node (Intel Ice Lake), vCPU                                                 | 1,38 ₽   | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Tablet Node (Intel Ice Lake), RAM                                                  | 0,369 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Tablet Node (Intel Ice Lake), vCPU                                                 | 1,38 ₽   | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Хранилище на нереплицируемых SSD-дисках                                                                                | 0,0161 ₽ | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Хранилище на сетевых HDD-дисках                                                                                        | 0,0053 ₽ | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for YTsaurus. Хранилище на сетевых SSD-дисках                                                                                        | 0,0217 ₽ | ГБ × час        | 30 апреля 2026 | —            |
+| Услуга                                                                                                                                               | Цена     | Ед. тарификации | Действует с | Действует до |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- | ----------- | ------------ |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (AMD EPYC™ with NVIDIA® Ampere® A100), 1 GPU NVIDIA® Ampere® A100        | 489,75 ₽ | GPU × час       | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (AMD EPYC™ with NVIDIA® Ampere® A100), RAM                               | 0,3689 ₽ | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (AMD EPYC™ with NVIDIA® Ampere® A100), vCPU                              | 1,18 ₽   | vCPU × час      | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Cascade Lake with NVIDIA® Tesla® V100), 1 GPU NVIDIA® Tesla® V100 | 313,55 ₽ | GPU × час       | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Cascade Lake with NVIDIA® Tesla® V100), RAM                       | 0,3895 ₽ | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Cascade Lake with NVIDIA® Tesla® V100), vCPU                      | 1,4975 ₽ | vCPU × час      | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake with T4i), 1 GPU                                         | 189,73 ₽ | GPU × час       | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake with T4i), RAM                                           | 0,3689 ₽ | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake with T4i), vCPU                                          | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake), RAM                                                    | 0,369 ₽  | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake), vCPU                                                   | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Master Node (Intel Ice Lake), RAM                                                  | 0,369 ₽  | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Master Node (Intel Ice Lake), vCPU                                                 | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Proxy Node (Intel Ice Lake), RAM                                                   | 0,369 ₽  | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Proxy Node (Intel Ice Lake), vCPU                                                  | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Storage Node (Intel Ice Lake), RAM                                                 | 0,369 ₽  | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Storage Node (Intel Ice Lake), vCPU                                                | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, System Node (Intel Ice Lake), RAM                                                  | 0,369 ₽  | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, System Node (Intel Ice Lake), vCPU                                                 | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Tablet Node (Intel Ice Lake), RAM                                                  | 0,369 ₽  | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Tablet Node (Intel Ice Lake), vCPU                                                 | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Хранилище на нереплицируемых SSD-дисках                                                                                | 0,0161 ₽ | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Хранилище на сетевых HDD-дисках                                                                                        | 0,0053 ₽ | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for YTsaurus. Хранилище на сетевых SSD-дисках                                                                                        | 0,0217 ₽ | ГБ × час        | 1 мая 2026  | —            |
 
 
 
@@ -536,7 +536,7 @@ blocks:
 Минимальная единица тарификации — 1 байт.
 
 
-| Услуга                                                    | Цена              | Ед. тарификации | Действует с    | Действует до |
-| --------------------------------------------------------- | ----------------- | --------------- | -------------- | ------------ |
-| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 30 апреля 2026 | —            |
-| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 30 апреля 2026 | —            |
+| Услуга                                                    | Цена              | Ед. тарификации | Действует с | Действует до |
+| --------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
+| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
+| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 1 мая 2026  | —            |

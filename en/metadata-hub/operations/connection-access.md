@@ -1,6 +1,10 @@
 ---
 title: Configuring connection access permissions
 description: Follow this guide to configure connection access permissions.
+alternate:
+  - href: en/metadata-hub/operations/connection-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring connection access permissions

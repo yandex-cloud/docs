@@ -1,6 +1,10 @@
 ---
 title: Пулы резервов виртуальных машин для групп узлов {{ managed-k8s-full-name }}
 description: Из статьи вы узнаете, как использовать пулы резервов виртуальных машин для групп узлов в {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/concepts/node-group/reserved-pools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пулы резервов виртуальных машин для групп узлов {{ managed-k8s-full-name }}

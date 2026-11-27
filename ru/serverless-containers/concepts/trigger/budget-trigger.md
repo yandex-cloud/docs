@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/concepts/trigger/budget-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для бюджетов, который вызывает контейнер {{ serverless-containers-name }}
 
 [Триггер](../trigger/) для [бюджетов](../../../billing/concepts/budget.md) запускает [контейнер](../container.md) {{ serverless-containers-name }} при превышении пороговых значений.

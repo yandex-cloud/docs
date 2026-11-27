@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ mtr-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ mtr-name }}.
 editable: false
+alternate:
+  - href: ru/managed-trino/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ mtr-name }}

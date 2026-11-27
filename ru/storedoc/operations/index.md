@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ mmg-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ mmg-name }}.
+alternate:
+  - href: ru/storedoc/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ mmg-name }}

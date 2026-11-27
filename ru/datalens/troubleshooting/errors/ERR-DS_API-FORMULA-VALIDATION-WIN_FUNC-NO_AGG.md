@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.NO_AGG
 description: На странице приведено описание ошибки {{ datalens-full-name }} Window function has no aggregated expressions among its arguments.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Window function has no aggregated expressions among its arguments

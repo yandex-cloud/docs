@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.SOURCE_CONFIG.TABLE_NAME_INVALID
 description: На странице приведено описание ошибки {{ datalens-full-name }} Internal Server Error.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NAME_INVALID.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Internal Server Error

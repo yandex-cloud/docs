@@ -1,6 +1,10 @@
 ---
 title: Политика поддержки версий {{ SD }}
 description: Из статьи вы узнаете о политике поддержки версий СУБД в сервисе {{ SD }}.
+alternate:
+  - href: ru/storedoc/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политика поддержки версий {{ SD }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/traces/instrumentation/exceptions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обработка ошибок
 
 Когда в операции возникает исключение, спан должен зафиксировать два факта: статус `ERROR` и событие `exception` с деталями ошибки. Спаны со статусом `ERROR` выделяются в интерфейсе {{ traces-name }} и доступны для фильтрации.

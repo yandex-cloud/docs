@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/cdn/api-ref/grpc/RawLogs/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, gRPC: RawLogsService.Get

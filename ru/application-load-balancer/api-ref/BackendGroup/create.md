@@ -818,6 +818,10 @@ apiPlayground:
               - header
           - required:
               - cookie
+alternate:
+  - href: ru/application-load-balancer/api-ref/BackendGroup/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: BackendGroup.Create

@@ -1,6 +1,10 @@
 ---
 title: Подключение к кластеру {{ MY }} в {{ mmy-full-name }}
 description: Следуя этой инструкции, вы сможете подключиться к базе данных в кластере {{ MY }} с помощью инструментов командной строки, из {{ websql-full-name }}, графических IDE и Docker-контейнера.
+alternate:
+  - href: ru/managed-mysql/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ MY }} из приложений
@@ -9,7 +13,7 @@ description: Следуя этой инструкции, вы сможете п�
 
 ## Инструменты командной строки {#command-line-tools}
 
-{% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
+Подключиться к кластеру возможно как с использованием обычных [FQDN](../../concepts/network.md#hostname) хостов (можно передавать список из нескольких таких FQDN, разделенных запятой), так и [особых FQDN](./fqdn.md#special-fqdns). В примерах используется особый FQDN текущего хоста-мастера. В примерах в консоли управления предлагаются варианты подключений для просмотра БД (RO) и для чтения и записи (RW).
 
 ### Linux (Bash)/macOS (Zsh) {#bash-zsh}
 
@@ -28,7 +32,7 @@ sudo apt update && sudo apt install --yes mysql-client
 - Подключение без SSL {#without-ssl}
 
   ```bash
-  mysql --host=<FQDN_любого_хоста_{{ MY }}> \
+  mysql --host=<особый_FQDN> \
         --port={{ port-mmy }} \
         --ssl-mode=DISABLED \
         --user=<имя_пользователя> \
@@ -37,8 +41,6 @@ sudo apt update && sudo apt install --yes mysql-client
   ```
 
 {% endlist %}
-
-{% include [see-fqdn](../../../_includes/mdb/mmy/fqdn-host.md) %}
 
 При выполнении любой из команд введите пароль пользователя БД.
 
@@ -55,7 +57,7 @@ sudo apt update && sudo apt install --yes mysql-client
 - Подключение с SSL {#with-ssl}
 
   ```powershell
-  mysqlsh --host=<FQDN_любого_хоста_{{ MY }}> `
+  mysqlsh --host=<особый_FQDN> `
           --port={{ port-mmy }} `
           --ssl-ca=<абсолютный_путь_к_файлу_сертификата> `
           --ssl-mode=VERIFY_IDENTITY `
@@ -68,7 +70,7 @@ sudo apt update && sudo apt install --yes mysql-client
 - Подключение без SSL {#without-ssl}
 
   ```powershell
-  mysqlsh --host=<FQDN_любого_хоста_{{ MY }}> `
+  mysqlsh --host=<особый_FQDN> `
           --port={{ port-mmy }} `
           --ssl-mode=DISABLED `
           --user=<имя_пользователя> `
@@ -77,8 +79,6 @@ sudo apt update && sudo apt install --yes mysql-client
   ```
 
 {% endlist %}
-
-{% include [see-fqdn](../../../_includes/mdb/mmy/fqdn-host.md) %}
 
 При выполнении любой из команд введите пароль пользователя БД.
 
@@ -163,7 +163,7 @@ sudo apt update && sudo apt install --yes mysql-client
      1. Выберите в меню **File** → **New** → **Data Source** → **{{ MY }}**.
      1. На вкладке **General**:
         1. Укажите параметры подключения:
-           * **Host** — [FQDN любого хоста {{ MY }}](./fqdn.md) или один из [особых FQDN](./fqdn.md#fqdn-master);
+           * **Host** — [особый FQDN](./fqdn.md#fqdn-master);
            * **Port** — `{{ port-mmy }}`;
            * **User**, **Password** — имя и пароль пользователя БД;
            * **Database** — имя БД для подключения.
@@ -181,7 +181,7 @@ sudo apt update && sudo apt install --yes mysql-client
      1. Выберите из списка БД **{{ MY }}**.
      1. Нажмите кнопку **Далее**.
      1. Укажите параметры подключения на вкладке **Главное**:
-        * **Сервер** — [FQDN любого хоста {{ MY }}](./fqdn.md#get-fqdn) или один из [особых FQDN](./fqdn.md#fqdn-master);
+        * **Сервер** — [особый FQDN](./fqdn.md#fqdn-master);
         * **Порт** — `{{ port-mmy }}`;
         * **База данных** — имя БД для подключения;
         * **Пользователь**, **Пароль** — имя и пароль пользователя БД.

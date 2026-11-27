@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-streams/kinesisapi/methods/putrecord.md
+    type: text/markdown
+    title: Markdown version
+---
 # PutRecord
 
 Отправляет одно [сообщение](../../concepts/glossary.md#message) в [поток данных](../../concepts/glossary.md#stream-concepts).

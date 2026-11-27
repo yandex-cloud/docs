@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cos/concepts/docker-image.md
+    type: text/markdown
+    title: Markdown version
+---
 # Docker-образ
 
 При создании виртуальной машины на базе {{ coi }} есть возможность указать [Docker-образ](../../container-registry/concepts/docker-image.md), на основе которого будет запущен [Docker-контейнер](/blog/posts/2022/03/docker-containers).

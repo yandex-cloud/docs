@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/broker/remove-labels/
+alternate:
+  - href: en/cli/cli-ref/iot/cli-ref/broker/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot broker remove-labels

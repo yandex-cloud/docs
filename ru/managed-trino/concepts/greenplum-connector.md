@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-trino/concepts/greenplum-connector.md
+    type: text/markdown
+    title: Markdown version
+---
 # Коннектор {{ GP }}/Cloudberry
 
 [Коннектор](index.md#connector) {{ GP }}/Cloudberry, разработанный Яндексом на основе [коннектора {{ PG }}]({{ tr.docs }}/connector/postgresql.html), позволяет {{ mtr-name }} читать и записывать данные в кластер {{ GP }}/Cloudberry.

@@ -1,6 +1,11 @@
 ---
 title: Поиск и устранение ошибок при создании демонстрационного стенда
 description: Следуя данной инструкции, вы сможете найти и устранить ошибки при создании демонстрационного стенда.
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/quickstart-debugging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поиск и устранение ошибок при создании демонстрационного стенда

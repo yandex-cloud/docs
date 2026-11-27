@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/operations/bind-configuration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Linking a configuration to an address
 
 Associate your pre-created [configuration](../concepts/configuration.md) with an address to apply it to all outgoing emails sent from this address.

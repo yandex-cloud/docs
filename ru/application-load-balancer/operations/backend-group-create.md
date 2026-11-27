@@ -1,6 +1,10 @@
 ---
 title: Как создать группу бэкендов в {{ alb-full-name }}
 description: Следуя данной инструкции, вы сможете создать группу бэкендов.
+alternate:
+  - href: ru/application-load-balancer/operations/backend-group-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать группу бэкендов

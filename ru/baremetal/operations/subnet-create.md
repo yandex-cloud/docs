@@ -1,6 +1,10 @@
 ---
 title: Как создать приватную подсеть в {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете создать приватную подсеть, к которой подключите ваши серверы в {{ baremetal-full-name }}.
+alternate:
+  - href: ru/baremetal/operations/subnet-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать приватную подсеть

@@ -1,6 +1,10 @@
 ---
 title: Управлять режимами работы правил контроля безопасности в модуле {{ kspm-name }}
 description: Инструкция по управлению режимами работы правил контроля безопасности в модуле Контроль {{ k8s }}® ({{ kspm-name }}) в {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/operations/kspm/manage-rule-modes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять режимами работы правил контроля безопасности модуля {{ kspm-name }}

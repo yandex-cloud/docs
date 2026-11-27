@@ -1,6 +1,10 @@
 ---
 title: Шаблонизация письма в {{ postbox-full-name }}
 description: Следуя данной инструкции, вы сможете при помощи шаблона отправить письмо из {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/operations/send-templated-email.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Шаблонизация письма

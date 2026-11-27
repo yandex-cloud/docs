@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/private-connection/delete/
+alternate:
+  - href: en/cli/cli-ref/cic/cli-ref/private-connection/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cic private-connection delete

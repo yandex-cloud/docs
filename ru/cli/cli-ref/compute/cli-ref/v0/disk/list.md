@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/disk/list/
+alternate:
+  - href: ru/cli/cli-ref/compute/cli-ref/v0/disk/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute v0 disk list

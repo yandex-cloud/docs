@@ -31,6 +31,10 @@ meta:
     - keyword: '{{ ydb-short-name }} cluster'
     - keyword: '{{ ydb-short-name }} in {{ yandex-cloud }}'
     - keyword: distributed fault-tolerant DBMS
+  alternate:
+    - href: en/ydb/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first database

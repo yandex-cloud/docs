@@ -51,6 +51,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/monium/api-ref/LogGroup/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, REST: LogGroup.ListOperations

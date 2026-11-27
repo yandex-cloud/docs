@@ -1,6 +1,10 @@
 ---
 title: Managing {{ CH }} cluster users in {{ mch-full-name }}
 description: In this guide, you will learn how to manage {{ mch-name }} cluster users.
+alternate:
+  - href: en/managed-clickhouse/operations/cluster-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # User management {{ CH }}

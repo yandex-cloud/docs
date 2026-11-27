@@ -1,6 +1,10 @@
 ---
 title: Calculated expressions in resource attribute values
 description: In this article, you will learn about calculated expressions in resource attribute values ​​that can be used to set up {{ cloud-apps-name }} product configurations.
+alternate:
+  - href: en/marketplace/concepts/expressions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Calculated expressions in a {{ cloud-apps-name }} product configuration

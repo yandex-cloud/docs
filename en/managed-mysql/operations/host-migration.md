@@ -1,6 +1,10 @@
 ---
 title: Migrating {{ MY }} cluster hosts to a different availability zone
 description: Follow this guide to migrate {{ MY }} cluster hosts to a different availability zone.
+alternate:
+  - href: en/managed-mysql/operations/host-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating {{ MY }} cluster hosts to a different availability zone

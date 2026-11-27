@@ -1,6 +1,10 @@
 ---
 title: Как добавить иерархию в чартах {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить иерархию в чартах {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/chart/add-hierarchy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление иерархии в чартах {{ datalens-full-name }}

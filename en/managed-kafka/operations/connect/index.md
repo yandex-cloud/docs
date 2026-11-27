@@ -1,6 +1,10 @@
 ---
 title: Pre-configuring an {{ KF }} cluster connection in {{ mkf-full-name }}
 description: Follow this guide to pre-configure a connection to hosts in an {{ KF }} cluster.
+alternate:
+  - href: en/managed-kafka/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pre-configuring an {{ KF }} cluster connection

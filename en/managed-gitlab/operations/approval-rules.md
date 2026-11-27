@@ -1,6 +1,10 @@
 ---
 title: How to set up approval rules
 description: Follow this guide to set up approval rules.
+alternate:
+  - href: en/managed-gitlab/operations/approval-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up approval rules in {{ mgl-full-name }}

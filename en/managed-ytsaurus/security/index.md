@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ myt-full-name }}
 description: Access management in {{ ytsaurus-name }}, a cluster creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+alternate:
+  - href: en/managed-ytsaurus/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ myt-name }}

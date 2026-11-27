@@ -1,6 +1,10 @@
 ---
 title: Как фильтровать список сущностей
 description: Следуя данной инструкции, вы сможете фильтровать список сущностей
+alternate:
+  - href: ru/partner/operations/filter.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Фильтровать список сущностей

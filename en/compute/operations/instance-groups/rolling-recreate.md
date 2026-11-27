@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/instance-groups/rolling-recreate.md
+    type: text/markdown
+    title: Markdown version
+---
 # Sequentially recreating instances in a group
 
 You can [sequentially recreate group instances](../../concepts/instance-groups/rolling-actions.md) based on the parameters specified in the [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md).

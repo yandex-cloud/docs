@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как начать работать с {{ monium-name }}
 
 {{ monium-name }} — платформа для сбора [метрик](./metrics/overview.md), [логов](./logs/quickstart.md) и [трейсов](./traces/index.md) из {{ yandex-cloud }}, других облаков или вашей инфраструктуры.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-opensearch/operations/plugins.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление плагинами {{ OS }}
 
 При создании кластера в {{ mos-short-name }} вы можете указать желаемый список плагинов, и они будут автоматически установлены в кластер. Полный список доступных плагинов приведен в разделе [Дополнительные плагины](../concepts/plugins.md#opensearch).

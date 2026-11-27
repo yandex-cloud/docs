@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ CH }} connection in {{ datalens-full-name }}
 description: Follow this guide to create a connection to {{ CH }} in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a connection to {{ CH }} from {{ datalens-full-name }}

@@ -45,6 +45,10 @@ apiPlayground:
             - folderId
     body: null
     definitions: null
+alternate:
+  - href: en/functions/functions/api-ref/Network/listUsed.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, REST: Network.ListUsed

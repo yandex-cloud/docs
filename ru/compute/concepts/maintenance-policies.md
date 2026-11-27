@@ -1,6 +1,10 @@
 ---
 title: Политики обслуживания виртуальных машин
 description: Из этой статьи вы узнаете про политики обслуживания виртуальных машин.
+alternate:
+  - href: ru/compute/concepts/maintenance-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политики обслуживания виртуальных машин

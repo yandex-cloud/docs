@@ -33,6 +33,10 @@ meta:
     - keyword: SMS in {{ yandex-cloud }}
     - keyword: '{{ cns-name }} in {{ yandex-cloud }}'
     - keyword: notifications in {{ yandex-cloud }}
+  alternate:
+    - href: en/notifications/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create the first notification channel

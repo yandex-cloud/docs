@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/job/create-spark-connect/
+alternate:
+  - href: ru/cli/cli-ref/managed-spark/cli-ref/job/create-spark-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-spark job create-spark-connect

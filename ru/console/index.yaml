@@ -21,6 +21,10 @@ meta:
     - keyword: Управление облаком
     - keyword: Облачная консоль
     - keyword: Как настроить оповещения в облаке
+  alternate:
+    - href: ru/console/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Войдите в консоль управления

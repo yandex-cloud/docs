@@ -1,6 +1,10 @@
 ---
 title: Инструкция по подключению к кластеру {{ MY }} из {{ datalens-name }}
 description: Из статьи вы узнаете, как подключиться к кластеру {{ MY }} из {{ datalens-name }}.
+alternate:
+  - href: ru/managed-mysql/operations/datalens-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ MY }} из {{ datalens-name }}

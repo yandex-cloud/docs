@@ -7,6 +7,11 @@ keywords:
   - chaos engineering
   - отказоустойчивость
   - нагрузочное тестирование
+noIndex: true
+alternate:
+  - href: ru/architecture/testing-zone-failure.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Тестирование отказоустойчивости в инфраструктуре {{ yandex-cloud }} на основе {{ network-load-balancer-full-name }}

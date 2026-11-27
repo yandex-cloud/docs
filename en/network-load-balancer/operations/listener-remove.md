@@ -1,6 +1,10 @@
 ---
 title: Deleting a listener
 description: Follow this guide to delete a listener.
+alternate:
+  - href: en/network-load-balancer/operations/listener-remove.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a listener

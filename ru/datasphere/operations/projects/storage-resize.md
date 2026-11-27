@@ -1,6 +1,10 @@
 ---
 title: Изменить размер хранилища проекта
 description: В этой статье вы узнаете, как изменить размер хранилища проекта.
+alternate:
+  - href: ru/datasphere/operations/projects/storage-resize.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить размер хранилища проекта

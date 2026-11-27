@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/smartcaptcha/concepts/react.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting a CAPTCHA in React
 
 To connect {{ captcha-name }} in React, you can use the `@yandex/smart-captcha` _npm_ package.

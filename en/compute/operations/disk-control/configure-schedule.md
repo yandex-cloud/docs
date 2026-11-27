@@ -1,6 +1,10 @@
 ---
 title: How to configure disk snapshot schedules in {{ compute-full-name }}
 description: Follow this guide to configure disk snapshot schedules.
+alternate:
+  - href: en/compute/operations/disk-control/configure-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring disk snapshot schedules

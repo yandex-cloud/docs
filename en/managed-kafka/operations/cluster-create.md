@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ KF }} cluster
 description: Follow this guide to create a {{ KF }} cluster.
+alternate:
+  - href: en/managed-kafka/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a cluster {{ KF }}

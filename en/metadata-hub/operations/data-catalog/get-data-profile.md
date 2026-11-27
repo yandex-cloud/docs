@@ -1,6 +1,10 @@
 ---
 title: Getting a data profile
 description: Follow this guide to get a data profile in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/get-data-profile.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a data profile

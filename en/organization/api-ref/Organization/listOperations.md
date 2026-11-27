@@ -40,6 +40,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/organization/api-ref/Organization/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: Organization.ListOperations

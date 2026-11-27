@@ -1,6 +1,10 @@
 ---
 title: Connecting {{ baremetal-extend-virtualization-name }}
 description: Follow this guide to submit a request for {{ baremetal-extend-virtualization-name }}.
+alternate:
+  - href: en/baremetal/operations/extend/virtualization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting {{ baremetal-extend-virtualization-name }}

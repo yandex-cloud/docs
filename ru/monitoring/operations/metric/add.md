@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monitoring/operations/metric/add.md
+    type: text/markdown
+    title: Markdown version
+---
 # Запись пользовательских метрик через API
 
 Чтобы начать записывать пользовательские метрики через API, воспользуйтесь методом [write](../../api-ref/MetricsData/write.md).

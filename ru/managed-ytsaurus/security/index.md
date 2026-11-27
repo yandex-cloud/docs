@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ myt-full-name }}
 description: Управление доступом в сервисе по созданию и управлению кластерами {{ ytsaurus-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
+alternate:
+  - href: ru/managed-ytsaurus/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ myt-name }}

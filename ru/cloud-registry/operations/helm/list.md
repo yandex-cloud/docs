@@ -1,6 +1,10 @@
 ---
 title: Получить информацию об имеющихся Helm-чартах в реестре {{ cloud-registry-name }}
 description: Следуя данной инструкции, вы можете получить список Helm-чартов в реестре {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/helm/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию об имеющихся Helm-чартах

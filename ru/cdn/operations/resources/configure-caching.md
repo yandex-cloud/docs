@@ -1,6 +1,10 @@
 ---
 title: Как настроить кеширование ресурса в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете настроить кеширование ресурса.
+alternate:
+  - href: ru/cdn/operations/resources/configure-caching.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка кеширования ресурса

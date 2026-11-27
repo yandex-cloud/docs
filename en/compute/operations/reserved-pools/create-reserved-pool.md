@@ -1,6 +1,10 @@
 ---
 title: Creating a reserved instance pool
 description: In this tutorial, you will learn how to create a properly configured {{ compute-full-name }} reserved instance pool in the availability zone of your choice.
+alternate:
+  - href: en/compute/operations/reserved-pools/create-reserved-pool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a reserved instance pool

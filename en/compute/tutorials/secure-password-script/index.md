@@ -3,6 +3,10 @@ title: Secure password transmission to an initialization script
 description: In this tutorial, you will learn how to securely provide a password to an initialization script.
 canonical: '{{ link-docs }}/tutorials/windows/secure-password-script/'
 noIndex: true
+alternate:
+  - href: en/compute/tutorials/secure-password-script/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [secure-password-script](../../../_tutorials/windows/secure-password-script-index.md) %}

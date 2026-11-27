@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/network/trigger-used-cleanup/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/network/trigger-used-cleanup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless network trigger-used-cleanup

@@ -36,6 +36,10 @@ meta:
     - keyword: internal load balancer
     - keyword: listener
     - keyword: traffic in {{ network-load-balancer-name }}
+  alternate:
+    - href: en/network-load-balancer/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Set up your first network load balancer

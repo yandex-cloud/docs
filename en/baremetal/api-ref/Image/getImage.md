@@ -23,6 +23,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/baremetal/api-ref/Image/getImage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Image.GetImage

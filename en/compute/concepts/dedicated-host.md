@@ -1,6 +1,10 @@
 ---
 title: Dedicated host in {{ compute-full-name }}
 description: In this article, you will learn about dedicated hosts, relationship between the host configuration and type, host maintenance in {{ compute-name }}, host troubleshooting, etc.
+alternate:
+  - href: en/compute/concepts/dedicated-host.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Dedicated host

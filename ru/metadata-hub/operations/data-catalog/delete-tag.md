@@ -1,6 +1,10 @@
 ---
 title: Удаление тега для метаданных
 description: Следуя данной инструкции, вы сможете удалить тег для метаданных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/delete-tag.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление тега

@@ -1,6 +1,10 @@
 ---
 title: Getting started with the JavaScript SDK for {{ video-player-name }}
 description: This page describes the basic controls for {{ video-player-name }} in the JavaScript SDK.
+alternate:
+  - href: en/video/sdk/javascript/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting Started with the video player SDK for JavaScript

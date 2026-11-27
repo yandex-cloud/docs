@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/cdn/events-ref/ResourceUpdate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN Audit Trails Events: ResourceUpdate

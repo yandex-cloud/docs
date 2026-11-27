@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/hardware-monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Мониторинг оборудования
 
 Некоторые ошибки системы могут быть связаны не с ошибками Kubernetes или других составляющих, а с отказом физического оборудования. Для мониторинга таких отказов {{ stackland-name }} предлагает готовое решение, которое собирает данные из различных источников: логов ядра, файловой системы sysfs, [SMART](https://github.com/Seagate/openSeaChest/wiki/Drive-Health-and-SMART)-данных дисков и других.

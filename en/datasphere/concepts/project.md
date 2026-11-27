@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/project.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ ml-platform-name }} projects
 
 A _project_ is a user's main workspace that serves as a single entry point for all {{ ml-platform-name }} features. A project allows you to perform computations on {{ yandex-cloud }} VMs with standard [configurations](configurations.md) and stores [{{ ml-platform-name }} user resources](resources.md).

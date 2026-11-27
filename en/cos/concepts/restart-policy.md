@@ -1,6 +1,10 @@
 ---
 title: Docker container restart policies
 description: 'You can specify three Docker container restart policies in its description: Always, Never, and OnFailure.'
+alternate:
+  - href: en/cos/concepts/restart-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Docker container restart policies

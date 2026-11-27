@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/kms/operations/key.md
+    type: text/markdown
+    title: Markdown version
+---
 # Key management
 
 You can use {{ kms-name }} to create, rotate, and delete symmetric encryption keys.

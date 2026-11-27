@@ -2,6 +2,10 @@
 title: Как настроить резервное копирование серверов {{ baremetal-name }} в {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете настроить резервное копирование серверов {{ baremetal-name }} в {{ backup-full-name }}.
 canonical: '{{ link-docs }}/tutorials/archive/backup-baremetal'
+alternate:
+  - href: ru/baremetal/tutorials/backup-baremetal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение сервера {{ baremetal-name }} к {{ backup-full-name }}

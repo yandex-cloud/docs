@@ -4,6 +4,10 @@ description: Вебхук (Webhook) — система push-уведомлени
 keywords:
   - Вебхук
   - Webhook
+alternate:
+  - href: ru/glossary/webhook.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вебхук

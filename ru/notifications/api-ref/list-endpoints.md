@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/list-endpoints.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие ListEndpointsByPlatformApplication
 
 Получает список [эндпоинтов для мобильных Push-уведомлений](../concepts/push.md#mobile-endpoints) или [Push-уведомлений в браузере](../concepts/browser.md).

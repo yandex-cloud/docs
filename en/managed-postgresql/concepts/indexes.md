@@ -1,6 +1,10 @@
 ---
 title: Indexes in {{ PG }}
 description: Learn about indexes in {{ PG }}, why they may get bloated, and how to trobleshoot this with pg_repack.
+alternate:
+  - href: en/managed-postgresql/concepts/indexes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Indexes in {{ PG }}

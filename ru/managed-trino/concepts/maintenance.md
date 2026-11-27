@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание в {{ mtr-full-name }}
 description: Под техническим обслуживанием в {{ mtr-name }} понимается автоматическая установка обновлений и исправлений для хостов (в т. ч. для выключенных кластеров), изменение класса хостов и другие сервисные работы.
+alternate:
+  - href: ru/managed-trino/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание в {{ mtr-name }}

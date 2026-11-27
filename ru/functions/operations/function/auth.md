@@ -1,6 +1,10 @@
 ---
 title: Как аутентифицироваться при вызове приватной функции через HTTPS в {{ sf-full-name }}
 description: Следуя данной инструкции, вы сможете аутентифицироваться при вызове приватной функции через HTTPS.
+alternate:
+  - href: ru/functions/operations/function/auth.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентифицироваться при вызове приватной функции через HTTPS

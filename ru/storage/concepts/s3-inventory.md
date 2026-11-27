@@ -1,6 +1,10 @@
 ---
 title: Выгрузка метаданных объектов (S3 Inventory)
 description: В {{ objstorage-name }} вы можете выгрузить метаданные объектов из бакетов для дальнейшего анализа и каталогизации. Данные выгружаются в другой бакет в формате CSV и включают размер, дату создания, MD5-сумму, класс хранения, данные версионирования, ACL объектов и другое.
+alternate:
+  - href: ru/storage/concepts/s3-inventory.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выгрузка метаданных объектов (S3 Inventory)

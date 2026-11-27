@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ sf-full-name }}
 description: В разделе представлена история изменений сервиса {{ sf-name }}.
+alternate:
+  - href: ru/functions/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ sf-full-name }}

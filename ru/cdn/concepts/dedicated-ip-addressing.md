@@ -1,6 +1,10 @@
 ---
 title: Выделенная IP-адресация CDN-ресурсов
 description: В данном разделе описана выделенная IP-адресация CDN-ресурсов, позволяющая получить уникальный IP-адрес, который будет использоваться исключительно для ваших ресурсов.
+alternate:
+  - href: ru/cdn/concepts/dedicated-ip-addressing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выделенная IP-адресация CDN-ресурсов

@@ -50,6 +50,10 @@ apiPlayground:
         - name
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/resource-manager/api-ref/Folder/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API, REST: Folder.Create

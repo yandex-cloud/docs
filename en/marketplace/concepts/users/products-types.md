@@ -1,6 +1,10 @@
 ---
 title: Product types in {{ marketplace-full-name }}
 description: In this article, you will learn about the types of products in {{ marketplace-name }} and see their description.
+alternate:
+  - href: en/marketplace/concepts/users/products-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Product types in {{ marketplace-name }}

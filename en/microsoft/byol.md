@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/microsoft/byol.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using personal licenses for Microsoft products
 
 {{ yandex-cloud }} allows you to use your own Microsoft product licenses on [dedicated hosts](../compute/concepts/dedicated-host.md). The licensing relationship exists solely between you as a client and Microsoft as a license vendor. You are fully responsible for complying with the Microsoft license [terms and conditions](https://www.microsoft.com/en-us/useterms). 

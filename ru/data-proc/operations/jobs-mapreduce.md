@@ -1,6 +1,10 @@
 ---
 title: Как управлять заданиями MapReduce в {{ dataproc-full-name }}
 description: Из статьи вы узнаете, как управлять заданиями MapReduce в {{ dataproc-full-name }}.
+alternate:
+  - href: ru/data-proc/operations/jobs-mapreduce.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление заданиями MapReduce

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/concepts/trigger/os-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для {{ objstorage-name }}, который вызывает функцию {{ sf-name }}
 
 [Триггер](../trigger/) для {{ objstorage-name }} запускает [функцию](../function.md) {{ sf-name }}, когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) {{ objstorage-name }}. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.

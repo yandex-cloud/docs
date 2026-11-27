@@ -1,6 +1,10 @@
 ---
 title: How to create and set up a NAT gateway in {{ vpc-full-name }}
 description: Follow this guide to create and set up a NAT gateway.
+alternate:
+  - href: en/vpc/operations/create-nat-gateway.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up a NAT gateway

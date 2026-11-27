@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/audit-trails/concepts/format-data-plane.md
+    type: text/markdown
+    title: Markdown version
+---
 # Data event audit log
 
 Keep track of [data events](events-data-plane.md) to make sure only authorized users can access and update your data. This will help you ensure your cloud infrastructure's compliance with legal regulations and industry standards. For example, you can keep track of your employees' access permissions to sensitive data stored in buckets.

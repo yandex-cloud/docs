@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/release-notes.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ ml-platform-full-name }} release notes
 
 This section shows what changed in {{ ml-platform-full-name }}.

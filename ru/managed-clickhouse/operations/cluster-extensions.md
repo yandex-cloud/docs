@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/operations/cluster-extensions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление расширениями в {{ mch-name }}
 
 В кластерах {{ mch-name }} доступны следующие расширения:

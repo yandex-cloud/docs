@@ -1,6 +1,10 @@
 ---
 title: Managing a color palette in {{ datalens-full-name }}
 description: Follow this guide to create, edit, or delete a color palette and configure the default palette in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/chart/create-palette.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing a color palette in {{ datalens-full-name }}

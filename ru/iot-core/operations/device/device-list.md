@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iot-core/operations/device/device-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получение информации об устройстве
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}

@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }} partner program terms and conditions.'
 description: Participation, partner bonus/discount, and procedure for exiting the program.
+alternate:
+  - href: en/partner/program/var.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Partner program

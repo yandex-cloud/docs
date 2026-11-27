@@ -1,6 +1,10 @@
 ---
 title: Диагностика медленной записи в {{ yds-full-name }}
 description: В этом руководстве описан пошаговый процесс поиска проблем с квотами на запись в {{ yds-full-name }} и их решения.
+alternate:
+  - href: ru/data-streams/tutorials/slow-writes-debug.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика медленной записи в {{ yds-full-name }}

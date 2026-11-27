@@ -1,5 +1,9 @@
 ---
 description: In this article, you will learn how to create a connection to get detailed statistics on dataset queries and dashboard views.
+alternate:
+  - href: en/datalens/operations/connection/create-usage-tracking.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

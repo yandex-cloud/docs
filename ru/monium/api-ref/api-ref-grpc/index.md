@@ -1,6 +1,10 @@
 ---
 title: Обзор gRPC API {{ monitoring-full-name }}
 description: 'Справочник gRPC API {{ monitoring-name }}: описание сервисов, методов и обработки ответов и ошибок.'
+alternate:
+  - href: ru/monium/api-ref/api-ref-grpc/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор

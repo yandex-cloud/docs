@@ -5,6 +5,10 @@ meta:
     - keyword: list of {{ yandex-cloud }} services
     - keyword: how to lease computing power
     - keyword: cloud computing
+  alternate:
+    - href: en/overview/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: content-layout-block
     textContent:

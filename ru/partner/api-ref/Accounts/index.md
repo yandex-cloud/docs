@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Accounts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Accounts
 
 <!-- markdownlint-disable-file -->

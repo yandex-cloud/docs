@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ iam-full-name }} ({{ iam-short-name }})
 description: Управление доступом в сервисе идентификации и контроля доступа {{ iam-full-name }} ({{ iam-short-name }}). В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
+alternate:
+  - href: ru/iam/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в сервисе {{ iam-name }}

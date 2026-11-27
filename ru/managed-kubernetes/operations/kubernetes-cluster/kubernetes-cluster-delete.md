@@ -1,6 +1,10 @@
 ---
 title: Как удалить кластер {{ k8s }}
 description: Следуя данной инструкции, вы сможете удалить кластер {{ k8s }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление кластера {{ k8s }}

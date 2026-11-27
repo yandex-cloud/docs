@@ -1,6 +1,10 @@
 ---
 title: How to authenticate when invoking a private function via HTTPS in {{ sf-full-name }}
 description: Follow this guide to get authenticated when invoking a private function via HTTPS.
+alternate:
+  - href: en/functions/operations/function/auth.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authenticating when invoking a private function via HTTPS

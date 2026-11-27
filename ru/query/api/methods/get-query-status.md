@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/api/methods/get-query-status.md
+    type: text/markdown
+    title: Markdown version
+---
 # get-query-status
 
 Метод возвращает информацию о статусе выполнения запроса. Используйте этот метод для отслеживания хода выполнения запроса, чтобы дождаться его завершения и [получить результаты](get-query-results.md).

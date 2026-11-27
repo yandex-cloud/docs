@@ -1,6 +1,10 @@
 ---
 title: Authentication and authorization security checklist
 description: This article provides a checklist of measures for authentication, authorization, and {{ yandex-cloud }} resource access control.
+alternate:
+  - href: en/security/domains/iam-checklist.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authentication and authorization security checklist

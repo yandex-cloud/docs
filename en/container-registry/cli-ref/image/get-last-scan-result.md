@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/image/get-last-scan-result/
+alternate:
+  - href: en/container-registry/cli-ref/image/get-last-scan-result.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container image get-last-scan-result

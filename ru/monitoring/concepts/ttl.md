@@ -1,6 +1,10 @@
 ---
 title: Удаление устаревших метрик (TTL)
 description: Из статьи вы узнаете про удаление устаревших метрик (TTL).
+alternate:
+  - href: ru/monitoring/concepts/ttl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление устаревших метрик (TTL)

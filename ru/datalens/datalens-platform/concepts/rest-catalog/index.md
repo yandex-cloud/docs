@@ -1,6 +1,10 @@
 ---
 title: REST-каталог в {{ datalens-platform-full-name }}
 description: Из статьи вы узнаете, что такое REST-каталог в {{ datalens-platform-full-name }} и как организовано хранилище для таблиц в формате {{ IBRG }}.
+alternate:
+  - href: ru/datalens/datalens-platform/concepts/rest-catalog/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # REST-каталог в {{ datalens-platform-full-name }}

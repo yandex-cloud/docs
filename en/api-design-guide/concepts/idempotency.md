@@ -1,6 +1,10 @@
 ---
 title: Idempotency in the API
 description: In this article, you will learn about the idempotency mechanism and see the examples of idempotent operations.
+alternate:
+  - href: en/api-design-guide/concepts/idempotency.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Idempotency

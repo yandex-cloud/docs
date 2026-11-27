@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/policy-manager/apply-mute.md
+    type: text/markdown
+    title: Markdown version
+---
 # Деактивировать политику
 
 {{ stackland-name }} позволяет выключать уведомления для выбранной политики на заданное время или навсегда с помощью ресурса `ClusterPolicyMute`. Список политик кластера можно получить с помощью команды: `kubectl get ClusterPolicy`.

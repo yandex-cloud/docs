@@ -1,6 +1,10 @@
 ---
 title: Как прочитать данные из таблицы в {{ ydb-full-name }}
 description: Следуя данной инструкции, вы сможете прочитать данные из таблицы.
+alternate:
+  - href: ru/ydb/docapi/tools/aws-cli/get-item.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение данных из таблицы

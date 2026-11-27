@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ captcha-full-name }}
 description: This page features step-by-step guides for {{ captcha-name }}.
+alternate:
+  - href: en/smartcaptcha/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ captcha-name }}

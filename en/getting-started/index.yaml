@@ -20,6 +20,10 @@ meta:
     - keyword: Give {{ yandex-cloud }} a try
     - keyword: Signing up to {{ yandex-cloud }}
     - keyword: Payments in {{ yandex-cloud }}
+  alternate:
+    - href: en/getting-started/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started for individuals
     description: >-

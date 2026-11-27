@@ -1,6 +1,10 @@
 ---
 title: Подписка для пользователей в {{ marketplace-full-name }}
 description: Из статьи вы узнаете, что такое подписка в {{ marketplace-name }}.
+alternate:
+  - href: ru/marketplace/concepts/users/subscription.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подписка

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/resource-preset/
+alternate:
+  - href: en/data-proc/cli-ref/resource-preset/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dataproc resource-preset

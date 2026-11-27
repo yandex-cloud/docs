@@ -1,6 +1,10 @@
 ---
 title: Как создать виртуальную машину с GPU
 description: Следуя данной инструкции, вы сможете создать виртуальную машину с GPU.
+alternate:
+  - href: ru/compute/operations/vm-create/create-vm-with-gpu.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание виртуальной машины с GPU

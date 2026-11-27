@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/resource-manager/operations/folder/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
+---
 # Setting up folder access permissions
 
 {% note warning %}

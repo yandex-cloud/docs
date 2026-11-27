@@ -1,6 +1,10 @@
 ---
 title: Delivering data from {{ mkf-full-name }} to {{ yds-full-name }} using {{ data-transfer-full-name }}
 description: A stream in {{ yds-name }} can ingest data from {{ KF }} topics in real time.
+alternate:
+  - href: en/tutorials/dataplatform/mkf-yds-stream.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering data from {{ mkf-full-name }} to {{ yds-full-name }} using {{ data-transfer-full-name }}

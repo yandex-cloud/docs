@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/v0/cluster/restore/
+alternate:
+  - href: en/managed-valkey/cli-ref/v0/cluster/restore.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-redis v0 cluster restore

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/iot-core/api-ref/grpc/Device/listPasswords.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, gRPC: DeviceService.ListPasswords

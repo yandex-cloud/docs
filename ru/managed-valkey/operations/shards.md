@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-valkey/operations/shards.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление шардами кластера
 
 Вы можете добавлять и удалять шарды кластера, запрашивать список шардов в выбранном кластере, а также выполнять ребалансировку кластера.

@@ -1,6 +1,10 @@
 ---
 title: How to delete a {{ k8s }} cluster
 description: Follow this guide to delete a {{ k8s }} cluster.
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a {{ k8s }} cluster

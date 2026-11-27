@@ -1,6 +1,10 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-processing-and-airflow'
 noIndex: true
+alternate:
+  - href: ru/metadata-hub/tutorials/airflow-automation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Автоматизация работы с помощью {{ maf-full-name }}

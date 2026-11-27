@@ -106,6 +106,10 @@ apiPlayground:
         - updateMask
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/kms/api-ref/SymmetricKey/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: SymmetricKey.Update

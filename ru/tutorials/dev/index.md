@@ -1,6 +1,10 @@
 ---
 title: Руководства по разработке и тестированию
 description: Различные сценарии использования по разработке и тестированию в {{ yandex-cloud }}.
+alternate:
+  - href: ru/tutorials/dev/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Руководства по разработке и тестированию

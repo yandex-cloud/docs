@@ -1,6 +1,10 @@
 ---
 title: Из видео в GIF. Как создать свой конвертер
 description: В этом руководстве вы создадите видеоконвертер с использованием утилиты FFmpeg и сервиса {{ message-queue-full-name }}. Руководство предназначено для пользователей Linux и macOS.
+alternate:
+  - href: ru/tutorials/serverless/video-converting-queue/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [video-converting-queue](../../../_tutorials/_tutorials_includes/video-converting-queue/index.md) %}

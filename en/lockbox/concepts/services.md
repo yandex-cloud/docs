@@ -1,6 +1,10 @@
 ---
 title: Integrating {{ lockbox-full-name }} with {{ yandex-cloud }} services
 description: In this tutorial, you will learn which {{ yandex-cloud }} services support {{ lockbox-name }} secrets.
+alternate:
+  - href: en/lockbox/concepts/services.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Integration with the {{ yandex-cloud }} services

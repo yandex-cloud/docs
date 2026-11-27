@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/terraform/authentication.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка аутентификации {{ TF }}-провайдера {{ yandex-cloud }}
 
 Для аутентификации и управления инфраструктурой {{ yandex-cloud }} вы можете использовать {{ TF }} от имени:

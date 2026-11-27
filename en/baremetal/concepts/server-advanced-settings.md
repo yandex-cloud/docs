@@ -1,6 +1,10 @@
 ---
 title: How to customize a {{ baremetal-full-name }} server
 description: Follow this guide to customize your {{ baremetal-full-name }} server's hardware for a specific OS and tasks.
+alternate:
+  - href: en/baremetal/concepts/server-advanced-settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Advanced server settings

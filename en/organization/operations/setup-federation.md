@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/organization/operations/setup-federation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring an identity federation
 
 You can use [identity federation](../concepts/add-federation.md) to set up user authentication in the cloud. Identity federations are compatible with any identity provider (IdP) that supports [SAML 2.0](https://wiki.oasis-open.org/security/FrontPage).

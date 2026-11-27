@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-transfer/concepts/transfer-lifecycle.md
+    type: text/markdown
+    title: Markdown version
+---
 # Transfer types and lifecycles
 
 A transfer lifecycle includes various statuses following one another in the order determined by the transfer type.

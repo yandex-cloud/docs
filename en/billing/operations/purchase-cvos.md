@@ -1,6 +1,10 @@
 ---
 title: How to purchase a committed volume of services (CVoS)
 description: Follow this guide to purchase a committed volume of services (CVoS).
+alternate:
+  - href: en/billing/operations/purchase-cvos.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Purchasing a committed volume of services (CVoS)

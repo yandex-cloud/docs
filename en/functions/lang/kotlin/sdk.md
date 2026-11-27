@@ -1,6 +1,10 @@
 ---
 title: 'Using the SDK for a Kotlin function in {{ sf-full-name }}: Overview'
 description: You can manage Kotlin functions in {{ sf-name }} using the SDK.
+alternate:
+  - href: en/functions/lang/kotlin/sdk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using the SDK for a function in Kotlin

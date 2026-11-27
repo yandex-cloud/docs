@@ -1,6 +1,10 @@
 ---
 title: Создание и настройка шарда в {{ monium-full-name }}
 description: Как создать и настроить шард в {{ monium-name }}, посмотреть его метрики, использование квот и кардинальность.
+alternate:
+  - href: ru/monium/collector/shard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание и настройка шарда

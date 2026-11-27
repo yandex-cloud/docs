@@ -1,6 +1,10 @@
 ---
 title: Обзор платформы {{ monium-name }}
 description: '{{ monium-name }} — платформа для наблюдения и анализа работы сервисов через метрики, логи и трейсы. Единая система для сбора телеметрии, визуализации на дашбордах и настройки алертов.'
+alternate:
+  - href: ru/monium/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # О платформе {{ monium-name }}

@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ mgl-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides a reference of {{ mgl-name }} metrics exported to {{ monitoring-full-name }}.
+alternate:
+  - href: en/managed-gitlab/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

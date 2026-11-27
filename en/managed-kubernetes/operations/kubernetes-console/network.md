@@ -1,6 +1,10 @@
 ---
 title: Managing Service and Ingress resources in {{ managed-k8s-full-name }}
 description: In this tutorial, you will learn how to manage {{ k8s }} Service and Ingress resources in {{ yandex-cloud }} using the management console without kubectl.
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-console/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing Service and Ingress resources

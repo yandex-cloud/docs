@@ -1,6 +1,10 @@
 ---
 title: Информация о кластерах в {{ mpg-short-name }}
 description: Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mpg-short-name }}. Чтобы получить список кластеров БД в каталоге, перейдите на страницу каталога и перейдите в сервис {{ mpg-name }}.
+alternate:
+  - href: ru/managed-postgresql/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации об имеющихся кластерах {{ PG }}

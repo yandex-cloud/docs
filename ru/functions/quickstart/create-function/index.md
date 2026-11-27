@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/quickstart/create-function/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание и выполнение функции
 
 Вы можете создать функцию для любой из поддерживаемых сред выполнения.

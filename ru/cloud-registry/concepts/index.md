@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cloud-registry/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обзор сервиса {{ cloud-registry-full-name }}
 
 {{ cloud-registry-name }} — сервис для хранения [артефактов](artifacts/index.md) разработки и управления ими.

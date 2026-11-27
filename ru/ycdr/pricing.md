@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ ycdr-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ ycdr-full-name }}.
 editable: false
+alternate:
+  - href: ru/ycdr/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ ycdr-name }}

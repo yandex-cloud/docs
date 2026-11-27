@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/canary.md
+    type: text/markdown
+    title: Markdown version
+---
 # Канареечный релиз
 
 [Канареечный релиз](https://martinfowler.com/bliki/CanaryRelease.html) — это один из способов выкатки или развертывания новой версии программного обеспечения с целью ее тестирования, при котором текущая версия остается работать, а новая используется только в некоторой доле случаев.

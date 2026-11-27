@@ -1,6 +1,10 @@
 ---
 title: How to work with tables in Editor
 description: In this tutorial, you will learn how to work with tables in Editor.
+alternate:
+  - href: en/datalens/charts/editor/widgets/table.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Table

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/concepts/notification.md
+    type: text/markdown
+    title: Markdown version
+---
 # Уведомления об операциях с письмами
 
 Чтобы получать уведомления об операциях с письмами, необходимо [создать конфигурацию](../operations/create-configuration.md) и [привязать ее к адресу](../operations/bind-configuration.md).

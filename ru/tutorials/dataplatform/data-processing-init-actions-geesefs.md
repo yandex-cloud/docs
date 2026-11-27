@@ -1,6 +1,10 @@
 ---
 title: Монтирование бакетов {{ objstorage-full-name }} к файловой системе хостов {{ dataproc-full-name }}
 description: Вы можете получить доступ к директориям бакетов из файловой системы хостов {{ dataproc-name }}. Для этого примонтируйте бакеты с помощью скриптов инициализации и программы GeeseFS.
+alternate:
+  - href: ru/tutorials/dataplatform/data-processing-init-actions-geesefs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Монтирование бакетов {{ objstorage-full-name }} к файловой системе хостов {{ dataproc-full-name }}

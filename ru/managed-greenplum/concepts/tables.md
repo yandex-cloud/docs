@@ -1,6 +1,10 @@
 ---
 title: Типы хранения данных в кластере {{ mgp-full-name }}
 description: '{{ mgp-name }} позволяет использовать два типа хранения данных в таблицах: без кластеризованных индексов и оптимизированное для добавления.'
+alternate:
+  - href: ru/managed-greenplum/concepts/tables.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Типы хранения данных в {{ mgp-name }}

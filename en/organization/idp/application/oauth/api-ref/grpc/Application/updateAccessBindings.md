@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/idp/application/oauth/api-ref/grpc/Application/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OAUTH Application API, gRPC: ApplicationService.UpdateAccessBindings

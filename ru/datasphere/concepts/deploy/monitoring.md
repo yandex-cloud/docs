@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/deploy/monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Проверки состояния и мониторинг
 
 Для [инстансов нод](index.md#node) можно включить проверки состояния — [балансировщик](../../../application-load-balancer/concepts/application-load-balancer.md) будет отправлять проверочные запросы к эндпоинтам через определенные промежутки времени и ожидать ответа в течение определенного периода.

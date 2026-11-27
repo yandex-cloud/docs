@@ -1,6 +1,10 @@
 ---
 title: Changing the security group name and description
 description: Follow this guide to change the name and description of a security group.
+alternate:
+  - href: en/vpc/operations/security-group-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing the name and description

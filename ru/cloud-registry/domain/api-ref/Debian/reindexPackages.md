@@ -15,6 +15,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/cloud-registry/domain/api-ref/Debian/reindexPackages.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry Domains API, REST: Debian.ReindexPackages

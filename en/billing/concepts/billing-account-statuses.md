@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/concepts/billing-account-statuses.md
+    type: text/markdown
+    title: Markdown version
+---
 # Billing account statuses
 
 The status of your billing account depends on whether you have any arrears of payment for resources consumed.

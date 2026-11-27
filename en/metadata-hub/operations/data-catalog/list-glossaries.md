@@ -1,6 +1,10 @@
 ---
 title: Getting a list of glossaries in a metadata catalog
 description: Follow this guide to get a list of glossaries in a metadata catalog.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/list-glossaries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of glossaries

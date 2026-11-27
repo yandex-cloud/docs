@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Logging
+alternate:
+  - href: ru/terraform/data-sources/api_gateway.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_api_gateway (DataSource)

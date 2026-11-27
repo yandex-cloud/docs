@@ -1,6 +1,10 @@
 ---
 title: 'Транскрибация: инструмент для преобразования аудио в текст'
 description: Транскрибация — это перевод речи из аудио в текст. Как работает транскрибация и ее преимущества для бизнеса.
+alternate:
+  - href: ru/glossary/transcribation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Транскрибация

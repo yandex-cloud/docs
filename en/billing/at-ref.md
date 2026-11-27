@@ -1,6 +1,10 @@
 ---
 title: '{{ billing-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ billing-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/billing/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

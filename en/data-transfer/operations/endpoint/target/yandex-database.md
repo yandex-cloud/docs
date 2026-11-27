@@ -1,6 +1,10 @@
 ---
 title: How to set up a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to set up a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/operations/endpoint/target/yandex-database.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Transferring data to a {{ ydb-name }} target endpoint
 

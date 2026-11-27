@@ -1,6 +1,10 @@
 ---
 title: How to delete a {{ cdn-full-name }} origin group
 description: In this tutorial, you will learn how to delete a {{ cdn-name }} origin group.
+alternate:
+  - href: en/cdn/operations/origin-groups/delete-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an origin group

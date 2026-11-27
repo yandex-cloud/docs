@@ -29,6 +29,10 @@ meta:
     - keyword: '{{ at-name }} trails'
     - keyword: trails in {{ yandex-cloud }}
     - keyword: security events
+  alternate:
+    - href: en/audit-trails/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Connect the service

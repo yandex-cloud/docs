@@ -1,6 +1,10 @@
 ---
 title: Deleting a SolidWall WAF profile
 description: Follow this guide to delete a SolidWall WAF profile.
+alternate:
+  - href: en/smartwebsecurity/operations/solidwall-waf-profile-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a SolidWall WAF profile

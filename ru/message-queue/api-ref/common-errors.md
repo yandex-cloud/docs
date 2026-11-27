@@ -1,6 +1,10 @@
 ---
 title: Какие ошибки могут возникнуть при работе с API {{ message-queue-full-name }}
 description: Из статьи вы узнаете, какие ошибки могут возникнуть при работе с API {{ message-queue-name }}.
+alternate:
+  - href: ru/message-queue/api-ref/common-errors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Стандартные ошибки

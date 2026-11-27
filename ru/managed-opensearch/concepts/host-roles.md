@@ -1,6 +1,10 @@
 ---
 title: Роли хостов в {{ mos-full-name }}
 description: Из статьи вы узнаете про роли хостов в {{ mos-name }}.
+alternate:
+  - href: ru/managed-opensearch/concepts/host-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Роли хостов в {{ mos-name }}

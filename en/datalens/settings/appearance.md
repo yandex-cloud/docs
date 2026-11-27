@@ -1,6 +1,10 @@
 ---
 title: Appearance settings in {{ datalens-full-name }}
 description: The {{ datalens-full-name }} appearance settings enable you to change how the interface looks.
+alternate:
+  - href: en/datalens/settings/appearance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

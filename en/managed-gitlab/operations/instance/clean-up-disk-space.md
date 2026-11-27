@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-gitlab/operations/instance/clean-up-disk-space.md
+    type: text/markdown
+    title: Markdown version
+---
 # Cleaning up full instance disk space
 
 A {{ GL }} instance can run out of disk space. This is indicated by the `500 Internal Server Error` HTTP status code. In this case, you will not be able to sign in to the {{ GL }} instance.

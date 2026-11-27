@@ -1,6 +1,10 @@
 ---
 title: Диаграмма с областями в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Диаграмма с областями.
+alternate:
+  - href: ru/datalens/visualization-ref/area-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диаграмма с областями ![](../../_assets/datalens/area.svg) в {{ datalens-full-name }}

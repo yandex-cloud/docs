@@ -1,6 +1,10 @@
 ---
 title: How to change the {{ datalens-full-name }} dashboard settings
 description: Follow this guide to change the {{ datalens-full-name }} dashboard settings.
+alternate:
+  - href: en/datalens/operations/dashboard/dash-settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing the {{ datalens-full-name }} dashboard settings

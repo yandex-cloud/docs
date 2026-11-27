@@ -1,6 +1,10 @@
 ---
 title: Настройки сервиса в {{ datalens-full-name }}
 description: Настройки сервиса в {{ datalens-full-name }} позволяют настроить тариф, управлять пользователями и рабочими местами, изменить внешний вид интерфейса, выполнить настройки безопасности и другие настройки сервиса.
+alternate:
+  - href: ru/datalens/settings/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройки сервиса в {{ datalens-full-name }}

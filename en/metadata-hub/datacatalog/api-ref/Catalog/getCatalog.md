@@ -15,6 +15,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/metadata-hub/datacatalog/api-ref/Catalog/getCatalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Datacatalog API, REST: Catalog.GetCatalog

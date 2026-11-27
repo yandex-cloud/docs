@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/cluster-scaling.md
+    type: text/markdown
+    title: Markdown version
+---
 # Scaling a cluster
 
 In {{ stackland-name }}, the cluster node composition can be changed post-installation: you can add new nodes and remove existing ones. Cluster scaling and updating are operations that cannot be performed simultaneously.

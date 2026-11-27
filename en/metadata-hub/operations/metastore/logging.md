@@ -1,6 +1,10 @@
 ---
 title: Transferring {{ metastore-full-name }} cluster logs to {{ cloud-logging-full-name }}
 description: Follow this guide to set up the transfer of {{ metastore-name }} cluster logs to {{ cloud-logging-name }}.
+alternate:
+  - href: en/metadata-hub/operations/metastore/logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring a {{ metastore-name }} cluster's logs to {{ cloud-logging-full-name }}

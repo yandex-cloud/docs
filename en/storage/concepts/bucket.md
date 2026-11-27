@@ -6,6 +6,10 @@ keywords:
   - bucket
   - data storage bucket
   - cloud bucket
+alternate:
+  - href: en/storage/concepts/bucket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Bucket in {{ objstorage-name }}

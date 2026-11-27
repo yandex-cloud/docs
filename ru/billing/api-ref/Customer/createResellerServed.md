@@ -86,6 +86,10 @@ apiPlayground:
               Optional. Tax identification number of the person.
               String length is not limited.
             type: string
+alternate:
+  - href: ru/billing/api-ref/Customer/createResellerServed.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, REST: Customer.CreateResellerServed

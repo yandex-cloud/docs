@@ -2,6 +2,10 @@
 title: Configuring NAT routing from the management console
 description: In this tutorial, we will set up NAT routing from the management console.
 canonical: '{{ link-docs }}/tutorials/routing/nat-instance/console'
+alternate:
+  - href: en/compute/tutorials/nat-instance/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Routing through a NAT instance using the management console

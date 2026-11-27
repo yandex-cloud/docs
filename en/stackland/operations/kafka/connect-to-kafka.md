@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/kafka/connect-to-kafka.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to an {{ KF }} cluster
 
 In this tutorial, we will analyze the [kcat](https://github.com/edenhill/kcat) commands for external and internal [connections to an {{ KF }} cluster](#how-to) and send a message from the producer to the consumer.

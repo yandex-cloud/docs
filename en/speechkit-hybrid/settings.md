@@ -1,6 +1,11 @@
 ---
 title: '{{ sk-hybrid-name }} settings'
 description: In this tutorial, you will learn how to set up {{ sk-hybrid-name }} components.
+noIndex: true
+alternate:
+  - href: en/speechkit-hybrid/settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sk-hybrid-name }} settings

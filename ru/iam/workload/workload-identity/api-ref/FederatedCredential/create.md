@@ -32,6 +32,10 @@ apiPlayground:
         - federationId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/iam/workload/workload-identity/api-ref/FederatedCredential/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Workload Identity, REST: FederatedCredential.Create

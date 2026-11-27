@@ -1,6 +1,10 @@
 ---
 title: Как удалить политику доступа к реестру {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы сможете удалить политику доступа к реестру.
+alternate:
+  - href: ru/cloud-registry/operations/registry/remove-access-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить политику доступа к реестру

@@ -36,6 +36,10 @@ apiPlayground:
         - topic
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/iot-core/broker/api-ref/BrokerData/publish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Broker Service, REST: BrokerData.Publish

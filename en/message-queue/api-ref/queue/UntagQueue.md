@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/queue/UntagQueue.md
+    type: text/markdown
+    title: Markdown version
+---
 # UntagQueue
 
 This is a method for deleting [queue labels](../../concepts/tags.md). Updating labels can take up to 60 seconds.

@@ -1,6 +1,10 @@
 ---
 title: Configuring security groups in {{ dataproc-full-name }}
 description: Follow this guide to configure security groups in {{ dataproc-name }}.
+alternate:
+  - href: en/data-proc/operations/security-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring security groups

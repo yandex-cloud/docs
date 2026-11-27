@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/function/runtime/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/function/runtime/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless function runtime

@@ -1,6 +1,10 @@
 ---
 title: How to get information about existing Docker images in {{ container-registry-full-name }}
 description: Follow this guide to get information about existing Docker images.
+alternate:
+  - href: en/container-registry/operations/docker-image/docker-image-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about existing Docker images

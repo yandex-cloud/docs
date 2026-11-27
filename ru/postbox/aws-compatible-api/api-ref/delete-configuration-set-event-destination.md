@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/delete-configuration-set-event-destination.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод DeleteConfigurationSetEventDestination
 
 Удаляет [подписку](../../concepts/glossary.md#subscription) для [конфигурации](../../concepts/glossary.md#configuration) в каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.

@@ -1,6 +1,10 @@
 ---
 title: Функции преобразования типов
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/type-conversion-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Функции преобразования типов

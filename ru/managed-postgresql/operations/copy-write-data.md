@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/operations/copy-write-data.md
+    type: text/markdown
+    title: Markdown version
+---
 # Копирование и заполнение таблицы с локальной машины
 
 Вы можете как [скопировать](#copy) данные из таблицы в локальный файл, так и [заполнить](#write) таблицу данными из локального файла с помощью интерактивного терминала [psql]({{ pg-docs }}/app-psql.html).

@@ -4,6 +4,10 @@ description: OpenAPI — это спецификация для описания
 keywords:
   - OpenAPI
   - Swagger
+alternate:
+  - href: ru/glossary/openapi.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OpenAPI

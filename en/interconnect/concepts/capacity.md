@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/interconnect/concepts/capacity.md
+    type: text/markdown
+    title: Markdown version
+---
 # Data size and connection capacity
 
 Data size is a {{ interconnect-name }} billing unit equal to the amount of traffic transmitted within a month.

@@ -1,6 +1,10 @@
 ---
 title: Embedding via JWT
 description: In this article, you will learn how to securely embed private charts and dashboards into a website or app.
+alternate:
+  - href: en/datalens/security/private-embedded-objects.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Embedding via JWT

@@ -10,6 +10,10 @@ keywords:
   - valkey
   - redis dbms
   - valkey dbms
+alternate:
+  - href: en/managed-valkey/concepts/supported-clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recommended {{ mrd-name }} clients

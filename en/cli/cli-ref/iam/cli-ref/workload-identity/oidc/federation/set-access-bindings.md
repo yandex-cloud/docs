@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/workload-identity/oidc/federation/set-access-bindings/
+alternate:
+  - href: en/cli/cli-ref/iam/cli-ref/workload-identity/oidc/federation/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam workload-identity oidc federation set-access-bindings

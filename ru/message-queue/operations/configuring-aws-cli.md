@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/operations/configuring-aws-cli.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка AWS CLI
 
 Для управления очередями и сообщениями в {{ message-queue-name }} можно использовать [AWS CLI](https://aws.amazon.com/ru/cli/).

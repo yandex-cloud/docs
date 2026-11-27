@@ -1,6 +1,10 @@
 ---
 title: Подключение к кластеру {{ MY }}
 description: На странице представлены вопросы и ответы про подключение к кластеру {{ MY }}.
+alternate:
+  - href: ru/managed-mysql/qa/connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ MY }}

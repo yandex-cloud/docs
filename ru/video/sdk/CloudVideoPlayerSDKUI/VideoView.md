@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/video/sdk/CloudVideoPlayerSDKUI/VideoView.md
+    type: text/markdown
+    title: Markdown version
+---
 # VideoView
 
 ```swift

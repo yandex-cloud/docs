@@ -1,6 +1,10 @@
 ---
 title: How to create a broadcast in {{ video-full-name }}
 description: Follow this guide to create a {{ video-full-name }} broadcast.
+alternate:
+  - href: en/video/operations/streams/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a broadcast

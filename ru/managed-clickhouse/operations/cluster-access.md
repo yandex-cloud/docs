@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к кластеру {{ mch-full-name }}
 description: Следуя данной инструкции, вы настроите права доступа к кластеру {{ mch-name }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к кластеру {{ mch-name }}

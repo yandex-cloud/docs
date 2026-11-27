@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/v0/policy/revoke/
+alternate:
+  - href: ru/backup/cli-ref/v0/policy/revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc backup v0 policy revoke

@@ -39,6 +39,10 @@ meta:
     - keyword: application registry
     - keyword: cloud registry
     - keyword: development artifacts
+  alternate:
+    - href: en/cloud-registry/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first artifact registry

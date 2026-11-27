@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/queue/GetQueueUrl.md
+    type: text/markdown
+    title: Markdown version
+---
 # GetQueueUrl method
 
 Returns the URL of the specified queue. Specify the queue name to get its URL.

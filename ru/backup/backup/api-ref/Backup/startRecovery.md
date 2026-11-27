@@ -28,6 +28,10 @@ apiPlayground:
         - computeInstanceId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/backup/backup/api-ref/Backup/startRecovery.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Backup.StartRecovery

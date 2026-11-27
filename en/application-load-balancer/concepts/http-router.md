@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/application-load-balancer/concepts/http-router.md
+    type: text/markdown
+    title: Markdown version
+---
 # HTTP routers
 
 An HTTP router defines the routing rules for HTTP requests to [backend groups](backend-group.md).

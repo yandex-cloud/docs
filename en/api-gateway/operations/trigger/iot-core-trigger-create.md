@@ -1,6 +1,10 @@
 ---
 title: Creating a trigger that sends messages to {{ api-gw-full-name }} WebSocket connections from a {{ iot-full-name }} registry or device topic
 description: Create a trigger for a {{ iot-name }} registry or device topic to send message copies to {{ api-gw-full-name }} WebSocket connections.
+alternate:
+  - href: en/api-gateway/operations/trigger/iot-core-trigger-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a trigger that sends messages to WebSocket connections from a {{ iot-full-name }} registry or device topic

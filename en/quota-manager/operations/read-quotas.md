@@ -1,5 +1,9 @@
 ---
 title: How to view quotas
+alternate:
+  - href: en/quota-manager/operations/read-quotas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing quota value

@@ -209,6 +209,10 @@ apiPlayground:
               - legacyFeatures
           - required:
               - generation2Features
+alternate:
+  - href: en/compute/api-ref/Image/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Image.Create

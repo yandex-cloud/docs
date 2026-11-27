@@ -2,6 +2,11 @@
 title: Правила тарификации для {{ sk-hybrid-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ sk-hybrid-name }}.
 editable: false
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ sk-hybrid-full-name }}

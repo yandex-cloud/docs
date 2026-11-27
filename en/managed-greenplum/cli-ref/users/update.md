@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/users/update/
+alternate:
+  - href: en/managed-greenplum/cli-ref/users/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-greenplum users update

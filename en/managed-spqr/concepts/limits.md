@@ -7,6 +7,10 @@ keywords:
   - keyword: Sharding in PostrgeSQL
   - keyword: Sharded PostrgeSQL
   - keyword: PostrgeSQL shard
+alternate:
+  - href: en/managed-spqr/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mspqr-name }} quotas and limits

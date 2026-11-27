@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ sf-full-name }}
 description: Из статьи вы узнаете, как работать с {{ sf-full-name }} в {{ yandex-cloud }}. Рассказываем, как управлять функцией (создание, изменение, вызов и удаление функции), как управлять триггером (создание таймера, создание триггера для {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }}).
+alternate:
+  - href: ru/functions/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ sf-name }}

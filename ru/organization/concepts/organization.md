@@ -1,6 +1,10 @@
 ---
 title: Организация в ресурсной модели {{ yandex-cloud }}
 description: Организация — это высший ресурс в ресурсной модели {{ yandex-cloud }}, который объединяет разные типы ресурсов {{ yandex-cloud }} и дает пользователям возможность работать с ними.
+alternate:
+  - href: ru/organization/concepts/organization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Организация

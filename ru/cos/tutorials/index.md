@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ coi }} в {{ cos-full-name }}
 description: Различные сценарии использования {{ coi }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/cos/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все руководства

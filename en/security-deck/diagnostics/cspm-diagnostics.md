@@ -1,6 +1,10 @@
 ---
 title: Possible errors when using Cloud Security Posture Management ({{ cspm-name }}) in {{ sd-full-name }}
 description: In this tutorial, you will learn about possible errors related to Cloud Security Posture Management ({{ cspm-name }}).
+alternate:
+  - href: en/security-deck/diagnostics/cspm-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting Cloud Security Posture Management ({{ cspm-name }})

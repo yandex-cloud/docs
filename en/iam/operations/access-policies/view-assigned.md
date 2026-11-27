@@ -1,6 +1,10 @@
 ---
 title: Viewing access policies created for a resource
 description: In this guide, you will learn how to view {{ iam-full-name }} access policies created for a folder, cloud, or organization.
+alternate:
+  - href: en/iam/operations/access-policies/view-assigned.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing access policies created for a resource

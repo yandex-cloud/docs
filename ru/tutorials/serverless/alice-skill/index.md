@@ -5,6 +5,10 @@ keywords:
   - создание навыка алисы
   - навык алисы
   - пример создания навыка алисы
+alternate:
+  - href: ru/tutorials/serverless/alice-skill/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [alice-skill](../../../_tutorials/serverless/alice-skill/index.md) %}

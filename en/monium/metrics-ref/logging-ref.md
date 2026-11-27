@@ -2,6 +2,10 @@
 title: '{{ cloud-logging-full-name }} metrics'
 description: In this tutorial, you will learn about {{ cloud-logging-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/logging-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cloud-logging-full-name }} metrics

@@ -1,6 +1,10 @@
 ---
 title: Инструкция по управлению сертификатами брокера в {{ iot-full-name }}
 description: Из статьи вы узнаете, как получить список сертификатов брокера, добавить или удалить сертификат брокера в {{ iot-full-name }}.
+alternate:
+  - href: ru/iot-core/operations/certificates/broker-certificates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление сертификатами брокера

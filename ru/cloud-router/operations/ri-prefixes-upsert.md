@@ -1,6 +1,11 @@
 ---
 title: Как управлять сетями и IP-префиксами в виртуальном маршрутизаторе {{ cr-name }}
 description: Следуя этой инструкции, вы сможете изменить список сетей и IP-префиксов в виртуальном маршрутизаторе в {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: ru/cloud-router/operations/ri-prefixes-upsert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять сетями и IP-префиксами в виртуальном маршрутизаторе

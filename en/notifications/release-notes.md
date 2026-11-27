@@ -1,6 +1,10 @@
 ---
 title: '{{ cns-full-name }} release notes'
 description: This section contains the {{ cns-name }} release notes.
+alternate:
+  - href: en/notifications/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cns-name }} release notes

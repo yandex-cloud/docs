@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/postgresql/recover-copy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Восстановить кластер
 
 Если вы утратили кластер [PostgreSQL](../../concepts/components/postgresql.md) в [проекте](../projects/create-project.md)), вы можете восстановить его из резервной копии.

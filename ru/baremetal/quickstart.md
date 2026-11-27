@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете арендовать и настроить свой первый физический сервер в {{ baremetal-full-name }}.
+alternate:
+  - href: ru/baremetal/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ baremetal-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to upload a custom image to {{ baremetal-full-name }}
 description: In this tutorial, you will learn how to provision a server from a custom image.
+alternate:
+  - href: en/baremetal/operations/image-upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Uploading a custom OS image

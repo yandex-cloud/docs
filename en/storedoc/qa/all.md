@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ mmg-full-name }}
 description: This page covers questions and answers about {{ mmg-short-name }}.
+alternate:
+  - href: en/storedoc/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ mmg-short-name }}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/network/move/
+alternate:
+  - href: en/vpc/cli-ref/network/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc network move

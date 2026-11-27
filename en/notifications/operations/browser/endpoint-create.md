@@ -1,6 +1,10 @@
 ---
 title: Creating an endpoint for in-browser notifications
 description: Follow this guide to create an endpoint for in-browser push notifications.
+alternate:
+  - href: en/notifications/operations/browser/endpoint-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an endpoint

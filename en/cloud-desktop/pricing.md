@@ -2,6 +2,10 @@
 title: '{{ cloud-desktop-full-name }} pricing policy'
 description: This article covers the {{ cloud-desktop-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/cloud-desktop/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cloud-desktop-full-name }} pricing policy

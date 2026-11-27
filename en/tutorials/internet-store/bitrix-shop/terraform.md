@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/tutorials/internet-store/bitrix-shop/terraform.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating an online store on 1C-Bitrix: Website Management using {{ TF }}
 
 To create an infrastructure for an [online store on 1C-Bitrix: Website Management](index.md) using {{ TF }}:

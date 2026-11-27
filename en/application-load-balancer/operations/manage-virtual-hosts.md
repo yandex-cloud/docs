@@ -1,6 +1,10 @@
 ---
 title: How to manage virtual hosts in {{ alb-full-name }}
 description: Follow this guide to create, update, or delete HTTP router's virtual hosts in {{ alb-full-name }}.
+alternate:
+  - href: en/application-load-balancer/operations/manage-virtual-hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing virtual hosts

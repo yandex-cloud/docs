@@ -115,6 +115,10 @@ apiPlayground:
             $ref: '#/definitions/UserSettingsConfig'
         required:
           - name
+alternate:
+  - href: ru/managed-greenplum/api-ref/User/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: User.Create

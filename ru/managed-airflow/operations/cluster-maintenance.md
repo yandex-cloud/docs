@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание кластера {{ maf-full-name }}
 description: Следуя этой инструкции, вы сможете просмотреть информацию о планируемых и проведенных технических обслуживаниях кластера {{ maf-name }}, а также выбрать время для проведения обслуживания.
+alternate:
+  - href: ru/managed-airflow/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание кластера {{ maf-full-name }}

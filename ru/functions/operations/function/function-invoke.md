@@ -1,6 +1,10 @@
 ---
 title: Инструкция о том, как вызвать функцию в {{ sf-full-name }}
 description: Из статьи вы узнаете, как вызвать функцию в {{ sf-full-name }}.
+alternate:
+  - href: ru/functions/operations/function/function-invoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вызвать функцию

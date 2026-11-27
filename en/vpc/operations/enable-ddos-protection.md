@@ -1,6 +1,10 @@
 ---
 title: How to enable DDoS protection in {{ vpc-full-name }}
 description: Follow this guide to enable DDoS protection.
+alternate:
+  - href: en/vpc/operations/enable-ddos-protection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling DDoS protection

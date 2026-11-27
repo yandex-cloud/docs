@@ -1,6 +1,10 @@
 ---
 title: How to update data in a table in {{ ydb-full-name }}
 description: Follow this guide to update data in a table.
+alternate:
+  - href: en/ydb/docapi/tools/aws-cli/update-item.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating data

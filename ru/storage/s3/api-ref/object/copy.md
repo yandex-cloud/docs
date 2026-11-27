@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/object/copy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: CopyObject
 
 Создает копию объекта, хранящегося в {{ objstorage-name }}. Объекты, размером до 5 ГБ можно скопировать одной операцией `copy`, если объект больше, чем 5 ГБ, то необходимо применять операцию [copyPart](../multipart/copypart.md).

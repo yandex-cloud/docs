@@ -1,6 +1,10 @@
 ---
 title: Adding a rule to an ARL profile
 description: Follow this guide to add a rule to an ARL profile.
+alternate:
+  - href: en/smartwebsecurity/operations/arl-rule-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a rule to an ARL profile

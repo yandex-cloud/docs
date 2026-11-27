@@ -1,6 +1,10 @@
 ---
 title: Managing chart access in {{ datalens-name }}
 description: Follow this guide to configure chart access permissions in {{ datalens-name }}.
+alternate:
+  - href: en/datalens/concepts/chart/access-management.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management

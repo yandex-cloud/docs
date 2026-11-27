@@ -1,6 +1,10 @@
 ---
 title: Группы безопасности в {{ vpc-full-name }}
 description: Группы безопасности позволяют контролировать сетевые взаимодействия облачных ресурсов.
+alternate:
+  - href: ru/vpc/concepts/security-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Группы безопасности

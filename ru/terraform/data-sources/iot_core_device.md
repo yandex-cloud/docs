@@ -1,5 +1,9 @@
 ---
 subcategory: IoT Core Devices
+alternate:
+  - href: ru/terraform/data-sources/iot_core_device.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_iot_core_device (DataSource)

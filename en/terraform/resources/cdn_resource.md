@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud CDN
+alternate:
+  - href: en/terraform/resources/cdn_resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cdn_resource (Resource)

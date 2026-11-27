@@ -1,6 +1,10 @@
 ---
 title: Как читать метрики через Remote API
 description: Следуя данной инструкции, вы сможете прочитать метрики через Remote API.
+alternate:
+  - href: ru/monium/operations/prometheus/querying/remote-read.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение метрик через Remote API

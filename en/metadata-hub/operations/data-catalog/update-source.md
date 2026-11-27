@@ -1,6 +1,10 @@
 ---
 title: Updating a metadata source
 description: Follow this guide to update a metadata source in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/update-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a source

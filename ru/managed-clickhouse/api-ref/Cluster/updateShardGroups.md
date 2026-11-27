@@ -142,6 +142,10 @@ apiPlayground:
             type: string
         required:
           - shardGroupName
+alternate:
+  - href: ru/managed-clickhouse/api-ref/Cluster/updateShardGroups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.UpdateShardGroups

@@ -1,6 +1,10 @@
 ---
 title: How to change the billing account organization
 description: Follow this guide to change your billing account organization.
+alternate:
+  - href: en/billing/operations/change-organization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing the billing account organization

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/cluster/remove-extension/
+alternate:
+  - href: en/managed-clickhouse/cli-ref/cluster/remove-extension.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse cluster remove-extension

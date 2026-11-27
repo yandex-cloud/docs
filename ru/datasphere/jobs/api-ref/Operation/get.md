@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/datasphere/jobs/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere Jobs API v2, REST: Operation.Get

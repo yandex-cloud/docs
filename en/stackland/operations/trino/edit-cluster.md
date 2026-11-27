@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/trino/edit-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating {{ mtr-name }} cluster settings
 
 If you have a [{{ TR }} cluster](../../concepts/components/trino.md) in your [project](../projects/create-project.md), you can update its settings.

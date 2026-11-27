@@ -1,6 +1,10 @@
 ---
 title: Как добавить Инсайт для чарта на дашборд в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить Инсайт для чарта на дашборд в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-ai.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление виджета с инсайтом на дашборд в {{ datalens-full-name }}

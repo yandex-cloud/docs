@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/cors/xml-config.md
+    type: text/markdown
+    title: Markdown version
+---
 # CORS configuration for buckets
 
 {{ objstorage-name }} allows you to manage bucket [CORS configurations](../../../concepts/cors.md). To upload a CORS configuration to {{ objstorage-name }}, you need to create an XML document as described in this section. You can get a document in this format by downloading an existing configuration.

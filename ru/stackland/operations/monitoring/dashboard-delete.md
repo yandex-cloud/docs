@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/monitoring/dashboard-delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить дашборд
 
 Чтобы удалить дашборд:

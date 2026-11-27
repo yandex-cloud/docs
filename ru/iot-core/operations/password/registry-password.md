@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iot-core/operations/password/registry-password.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление паролями реестра
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}

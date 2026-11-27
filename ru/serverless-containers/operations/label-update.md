@@ -1,6 +1,10 @@
 ---
 title: Изменить метку контейнера
 description: Следуя данной инструкции, вы сможете изменить метку контейнера.
+alternate:
+  - href: ru/serverless-containers/operations/label-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить метку контейнера

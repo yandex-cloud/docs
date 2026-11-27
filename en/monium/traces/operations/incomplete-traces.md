@@ -1,6 +1,10 @@
 ---
 title: Incomplete traces
 description: Find out why traces are incomplete and learn how to diagnose data delivery issues.
+alternate:
+  - href: en/monium/traces/operations/incomplete-traces.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Incomplete traces

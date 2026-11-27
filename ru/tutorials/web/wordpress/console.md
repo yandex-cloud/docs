@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/tutorials/web/wordpress/console.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание сайта на WordPress с помощью консоли управления
 
 Чтобы создать и настроить [сайт на WordPress](index.md) с помощью консоли управления {{ yandex-cloud }}:

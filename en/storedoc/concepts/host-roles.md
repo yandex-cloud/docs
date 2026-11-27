@@ -1,6 +1,10 @@
 ---
 title: Host types in {{ SD }}
 description: '{{ mmg-name }} cluster hosts come in four types. Each host type has a role and functions of its own.'
+alternate:
+  - href: en/storedoc/concepts/host-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Host types in {{ mmg-name }}

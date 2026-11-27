@@ -1,6 +1,10 @@
 ---
 title: История запросов в {{ ycdr-full-name }}
 description: Следуя данной инструкции, вы научитесь работать с историей выполнения запросов в {{ ycdr-name }}.
+alternate:
+  - href: ru/ycdr/operations/queries/query-history.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История запросов

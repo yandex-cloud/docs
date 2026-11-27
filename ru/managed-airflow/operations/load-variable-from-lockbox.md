@@ -1,6 +1,10 @@
 ---
 title: Загрузка переменной из {{ lockbox-name }}
 description: 'При работе с {{ maf-full-name }} вы можете использовать {{ lockbox-full-name }} для хранения артефактов, которые могут использоваться в DAG-файлах: подключений, переменных и конфигурационных данных. Загрузку переменной из {{ lockbox-name }} можно выполнить с помощью направленого ациклического графа (DAG).'
+alternate:
+  - href: ru/managed-airflow/operations/load-variable-from-lockbox.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузка переменной из {{ lockbox-name }}

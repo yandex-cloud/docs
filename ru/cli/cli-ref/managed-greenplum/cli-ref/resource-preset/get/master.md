@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/resource-preset/get/master/
+alternate:
+  - href: ru/cli/cli-ref/managed-greenplum/cli-ref/resource-preset/get/master.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-greenplum resource-preset get master

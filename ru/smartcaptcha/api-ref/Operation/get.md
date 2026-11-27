@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/smartcaptcha/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartCaptcha API, REST: Operation.Get

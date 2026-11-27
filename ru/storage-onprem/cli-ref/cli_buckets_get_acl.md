@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_get_acl.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets get acl
 
 Get bucket acl

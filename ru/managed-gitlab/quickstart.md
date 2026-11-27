@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ mgl-full-name }}
 description: Следуя данной инструкции, вы сможете создать и настроить кластер {{ GL }}.
+alternate:
+  - href: ru/managed-gitlab/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ mgl-name }}

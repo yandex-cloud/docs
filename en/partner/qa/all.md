@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }} partner program: FAQs'
 description: This page provides answers to questions about the {{ yandex-cloud }} partner program.
+alternate:
+  - href: en/partner/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} partner program: FAQs

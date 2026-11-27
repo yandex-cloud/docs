@@ -20,6 +20,10 @@ meta:
     - keyword: paying for {{ yandex-cloud }}
     - keyword: pay for {{ yandex-cloud }}
     - keyword: use of {{ yandex-cloud }} resources
+  alternate:
+    - href: en/billing/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Cloud Billing

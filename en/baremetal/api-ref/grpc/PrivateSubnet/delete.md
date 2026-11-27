@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/baremetal/api-ref/grpc/PrivateSubnet/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, gRPC: PrivateSubnetService.Delete

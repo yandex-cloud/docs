@@ -1,6 +1,10 @@
 ---
 title: Creating an Amazon RDS logical replica for {{ PG }} in {{ mpg-full-name }}
 description: In this tutorial, you will learn how to create an Amazon RDS logical replica for {{ PG }} in {{ mpg-name }}.
+alternate:
+  - href: en/managed-postgresql/tutorials/logical-replica-from-rds.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an Amazon RDS logical replica for {{ PG }} in {{ mpg-name }}

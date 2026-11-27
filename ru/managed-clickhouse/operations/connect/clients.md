@@ -1,6 +1,10 @@
 ---
 title: Подключение к кластеру {{ CH }} в {{ mch-full-name }}
 description: Следуя этой инструкции, вы сможете подключиться к базе данных в кластере {{ CH }} с помощью инструментов командной строки, из браузера, графических IDE и Docker-контейнера.
+alternate:
+  - href: ru/managed-clickhouse/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ CH }} из приложений

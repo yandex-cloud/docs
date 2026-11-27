@@ -5,6 +5,10 @@ keywords:
   - keyword: управлять шардами в {{ SPQR }}
   - keyword: создать шард в {{ SPQR }}
   - '{{ SPQR }}'
+alternate:
+  - href: ru/managed-spqr/operations/shards.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление шардами {{ SPQR }}

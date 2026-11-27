@@ -1,6 +1,10 @@
 ---
 title: Изменить имя и описание группы безопасности
 description: Следуя данной инструкции, вы сможете изменить имя и описание группы безопасности.
+alternate:
+  - href: ru/vpc/operations/security-group-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить имя и описание

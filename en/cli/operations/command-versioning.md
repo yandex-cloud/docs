@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cli/operations/command-versioning.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with {{ yandex-cloud }} CLI command versions
 
 {% include [command-ver-intro](../../_includes/cli/command-ver-intro.md) %}

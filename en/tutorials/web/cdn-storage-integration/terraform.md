@@ -1,6 +1,10 @@
 ---
 title: Integrating an L7 load balancer with {{ cdn-full-name }} and {{ objstorage-full-name }} using {{ TF }}
 description: In this tutorial, you will use {{ TF }} to set up an L7 {{ alb-full-name }} that uses a {{ objstorage-full-name }} bucket as a backend and receives user requests via {{ cdn-full-name }} to reduce content delivery time.
+alternate:
+  - href: en/tutorials/web/cdn-storage-integration/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Integrating an L7 load balancer with {{ cdn-short-name }} and {{ objstorage-short-name }} using {{ TF }}

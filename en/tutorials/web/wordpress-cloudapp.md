@@ -6,6 +6,10 @@ keywords:
   - cloudapp
   - setting up wordpress
   - wordpress cloudapp
+alternate:
+  - href: en/tutorials/web/wordpress-cloudapp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing WordPress using {{ cloud-apps-name }}

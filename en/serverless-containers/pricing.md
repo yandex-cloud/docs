@@ -2,6 +2,10 @@
 title: '{{ serverless-containers-full-name }} pricing policy'
 description: This article covers the {{ serverless-containers-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/serverless-containers/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ serverless-containers-name }} pricing policy

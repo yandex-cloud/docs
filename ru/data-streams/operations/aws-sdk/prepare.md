@@ -1,6 +1,10 @@
 ---
 title: Подготовка окружения в AWS SDK в {{ yds-full-name }}
 description: Следуя данной инструкции, вы сможете настроить окружение для вашего языка программирования.
+alternate:
+  - href: ru/data-streams/operations/aws-sdk/prepare.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подготовка окружения в AWS SDK

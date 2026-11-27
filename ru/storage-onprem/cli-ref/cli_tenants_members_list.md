@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_tenants_members_list.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli tenants members list
 
 list tenant members

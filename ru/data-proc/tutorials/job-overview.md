@@ -1,6 +1,10 @@
 ---
 title: Руководства по работе с заданиями в {{ dataproc-full-name }}
 description: На странице представлен список руководств по работе с заданиями в {{ dataproc-name }}.
+alternate:
+  - href: ru/data-proc/tutorials/job-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с заданиями

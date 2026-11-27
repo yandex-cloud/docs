@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/payment/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Paying for resources
 
 You pay for resources by crediting money to your individual personal account as per the agreement. In {{ yandex-cloud }}, you pay for resources based on the amount you consume. The currency depends on the [agreement and the payer's country of residence](currency.md). The crediting method and the billing cycle depend on your legal status (billing account type).

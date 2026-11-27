@@ -47,6 +47,11 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+noIndex: true
+alternate:
+  - href: ru/cloud-router/api-ref/RoutingInstance/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Router API, REST: RoutingInstance.List

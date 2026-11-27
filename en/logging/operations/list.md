@@ -1,6 +1,10 @@
 ---
 title: How to get a list of log groups in {{ cloud-logging-full-name }}
 description: Follow this guide to get a list of log groups.
+alternate:
+  - href: en/logging/operations/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of log groups

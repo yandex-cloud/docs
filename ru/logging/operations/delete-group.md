@@ -1,6 +1,10 @@
 ---
 title: Инструкция о том, как удалить лог-группу в {{ cloud-logging-name }}
 description: Из статьи вы узнаете, как удалить лог-группу в {{ cloud-logging-name }}.
+alternate:
+  - href: ru/logging/operations/delete-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить лог-группу

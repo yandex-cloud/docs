@@ -1,6 +1,10 @@
 ---
 title: Как смонтировать бакеты в контейнер {{ serverless-containers-full-name }}
 description: Следуя данной инструкции, вы сможете смонтировать бакеты в контейнер {{ serverless-containers-name }}.
+alternate:
+  - href: ru/serverless-containers/operations/mount-bucket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Смонтировать бакеты в контейнер

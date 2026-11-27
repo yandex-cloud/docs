@@ -2,6 +2,10 @@
 title: '{{ network-load-balancer-full-name }} metrics'
 description: In this tutorial, you will learn about {{ network-load-balancer-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/network-load-balancer-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ network-load-balancer-full-name }} metrics

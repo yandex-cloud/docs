@@ -1,6 +1,10 @@
 ---
 title: How to manage user groups in {{ org-full-name }}
 description: In this article, you will learn how to manage user groups in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/manage-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing user groups

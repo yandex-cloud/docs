@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/placement-group/update/
+alternate:
+  - href: en/cli/cli-ref/compute/cli-ref/placement-group/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute placement-group update

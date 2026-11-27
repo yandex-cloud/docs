@@ -1,6 +1,10 @@
 ---
 title: Контроль {{ k8s }}® ({{ kspm-name }})
 description: В этом разделе собраны пошаговые инструкции по работе с модулем Контроль {{ k8s }}® ({{ kspm-name }}) в {{ sd-name }}.
+alternate:
+  - href: ru/security-deck/operations/kspm/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Контроль {{ k8s }}® ({{ kspm-name }})

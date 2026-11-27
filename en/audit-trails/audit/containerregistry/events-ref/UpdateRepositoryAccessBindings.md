@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/containerregistry/events-ref/UpdateRepositoryAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry Audit Trails Events: UpdateRepositoryAccessBindings

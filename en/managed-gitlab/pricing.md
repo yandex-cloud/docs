@@ -2,6 +2,10 @@
 title: '{{ mgl-full-name }} pricing policy'
 description: This article covers the {{ mgl-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/managed-gitlab/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mgl-full-name }} pricing policy

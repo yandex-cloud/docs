@@ -1,6 +1,10 @@
 ---
 title: Как изменить группу бэкендов в {{ alb-full-name }}
 description: Пошаговая инструкция по изменению группы бэкендов.
+alternate:
+  - href: ru/application-load-balancer/operations/backend-group-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить группу бэкендов

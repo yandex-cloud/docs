@@ -87,6 +87,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: en/video/api-ref/Channel/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Channel.SetAccessBindings

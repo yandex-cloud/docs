@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/nodejs/dependencies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing Node.js function dependencies
 
 {{ sf-name }} can automatically install dependencies required for a Node.js function when creating a new [function version](../../operations/function/version-manage.md).

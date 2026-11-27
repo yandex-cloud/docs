@@ -1,6 +1,10 @@
 ---
 title: Управление алиасами кластера {{ MY }}
 description: Вы можете создать собственное сетевое имя для кластера {{ MY }}, а также перенести имя на другой кластер в вашем каталоге.
+alternate:
+  - href: ru/managed-mysql/operations/cluster-aliases.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление алиасами кластера {{ MY }}

@@ -5,6 +5,11 @@ keywords:
   - машинное обучение
   - Managed GitLab
   - MLOps
+noIndex: true
+alternate:
+  - href: ru/architecture/mlops-in-managed-gitlab.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление жизненным циклом MLOps с помощью ML Registry в {{ mgl-full-name }}

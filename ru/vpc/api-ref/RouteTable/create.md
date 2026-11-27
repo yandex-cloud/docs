@@ -94,6 +94,10 @@ apiPlayground:
                   - nextHopAddress
               - required:
                   - gatewayId
+alternate:
+  - href: ru/vpc/api-ref/RouteTable/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: RouteTable.Create

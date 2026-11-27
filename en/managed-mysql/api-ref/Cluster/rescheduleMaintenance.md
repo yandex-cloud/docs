@@ -50,6 +50,10 @@ apiPlayground:
         - rescheduleType
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/managed-mysql/api-ref/Cluster/rescheduleMaintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, REST: Cluster.RescheduleMaintenance

@@ -1,6 +1,10 @@
 ---
 title: '{{ SD }} cluster maintenance'
 description: Follow this guide to view the {{ SD }} cluster’s scheduled and completed maintenance jobs and schedule a maintenance window.
+alternate:
+  - href: en/storedoc/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ SD }} cluster maintenance

@@ -1,6 +1,10 @@
 ---
 title: Как назначить роли на реестр в {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы сможете назначить роли на реестр.
+alternate:
+  - href: ru/cloud-registry/operations/registry/add-role.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначить роль на реестр

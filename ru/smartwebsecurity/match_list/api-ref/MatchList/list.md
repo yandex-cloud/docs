@@ -17,6 +17,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/smartwebsecurity/match_list/api-ref/MatchList/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity MatchList API, REST: MatchList.List

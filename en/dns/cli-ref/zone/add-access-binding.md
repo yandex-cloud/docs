@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/add-access-binding/
+alternate:
+  - href: en/dns/cli-ref/zone/add-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns zone add-access-binding

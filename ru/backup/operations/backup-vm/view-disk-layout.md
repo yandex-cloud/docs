@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть параметры дисков и разделов в резервной копии {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете посмотреть параметры дисков и разделов в резервной копии {{ backup-full-name }}.
+alternate:
+  - href: ru/backup/operations/backup-vm/view-disk-layout.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть параметры дисков и разделов в резервной копии

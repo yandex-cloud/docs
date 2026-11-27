@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/object/getobjectlegalhold.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: GetObjectLegalHold
 
 Возвращает настройки бессрочной [блокировки](../../../concepts/object-lock.md), установленной на версию объекта.

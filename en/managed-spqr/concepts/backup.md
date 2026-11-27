@@ -9,6 +9,10 @@ keywords:
   - Sharded PostgreSQL backup
   - backup Sharded PostgreSQL
   - Yandex Sharded PostgreSQL
+alternate:
+  - href: en/managed-spqr/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backups in {{ mspqr-name }}

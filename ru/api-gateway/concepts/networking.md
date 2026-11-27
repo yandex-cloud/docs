@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/networking.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сетевое взаимодействие в {{ api-gw-name }}
 
 По умолчанию API-шлюз находится в изолированной IPv4-сети с включенным [NAT-шлюзом](../../vpc/concepts/gateways.md). Поэтому из него доступны только публичные IPv4-адреса.

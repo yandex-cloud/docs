@@ -1,6 +1,10 @@
 ---
 title: Топики реестра в {{ iot-full-name }}
 description: На странице представлены все доступные топики реестра в сервисе {{ iot-name }}.
+alternate:
+  - href: ru/iot-core/concepts/topic/registries-topic.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Топики реестра

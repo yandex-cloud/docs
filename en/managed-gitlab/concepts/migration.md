@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-gitlab/concepts/migration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Running migration from {{ GL }} to {{ mgl-name }}
 
 During migration from a custom {{ GL }} installation to {{ mgl-name }}, you can migrate such entities as projects, users, [user groups]({{ gl.docs }}/ee/user/group/), configured access permissions, and pipelines. You can also reconfigure your [custom domain name]({{ gl.docs }}/ee/user/project/pages/custom_domains_ssl_tls_certification/) for the new [{{ GL }} instance](index.md#instance). This allows you to move all the data and settings you need to the cloud.

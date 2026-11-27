@@ -1,6 +1,10 @@
 ---
 title: Какие политики работы с версиями есть в {{ mos-full-name }}
 description: Из статьи вы узнаете, какие политики работы с версиями есть в {{ mos-name }}.
+alternate:
+  - href: ru/managed-opensearch/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политика работы с версиями {{ OS }}

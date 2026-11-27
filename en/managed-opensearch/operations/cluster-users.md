@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-opensearch/operations/cluster-users.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing {{ OS }} users
 
 You can manage cluster users as `admin`. You can set a password for this user when [creating](cluster-create.md#create-cluster) or [updating](update.md) a cluster.

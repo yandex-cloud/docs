@@ -1,6 +1,10 @@
 ---
 title: Получить доступ в бакет с помощью {{ sts-full-name }}
 description: С помощью {{ sts-name }} вы можете получить временные ключи для ограниченного доступа в бакеты {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/create-sts-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить доступ в бакет с помощью {{ sts-name }}

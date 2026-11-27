@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/folder/unbind-access-policy/
+alternate:
+  - href: ru/cli/cli-ref/resource-manager/cli-ref/folder/unbind-access-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc resource-manager folder unbind-access-policy

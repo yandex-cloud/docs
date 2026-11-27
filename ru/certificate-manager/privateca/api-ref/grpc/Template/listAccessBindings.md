@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/certificate-manager/privateca/api-ref/grpc/Template/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, gRPC: TemplateService.ListAccessBindings

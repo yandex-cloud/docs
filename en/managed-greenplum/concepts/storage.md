@@ -1,6 +1,10 @@
 ---
 title: Disk types in {{ mgp-full-name }}
 description: In this article, you will learn about disk types in {{ mgp-name }} and some aspects of local SSD-based storage.
+alternate:
+  - href: en/managed-greenplum/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Disk types in {{ mgp-name }}

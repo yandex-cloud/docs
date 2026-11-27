@@ -1,6 +1,10 @@
 ---
 title: Временное отключение зоны доступности для группы ВМ {{ compute-full-name }}
 description: Вы можете временно отключить зону доступности для группы виртуальных машин.
+alternate:
+  - href: ru/compute/concepts/instance-groups/disable-enable-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Временное отключение зон доступности для групп ВМ {{ compute-full-name }}

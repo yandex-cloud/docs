@@ -1,6 +1,10 @@
 ---
 title: '{{ iot-full-name }}. FAQ'
 description: How do I get my activity logs in {{ iot-full-name }}? Find answers to this and other questions in this article.
+alternate:
+  - href: en/iot-core/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ iot-name }}

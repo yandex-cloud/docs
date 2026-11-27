@@ -1,6 +1,10 @@
 ---
 title: Управление хостами {{ CK }}
 description: Следуя данной инструкции, вы сможете управлять хостами {{ CK }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/ck-hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление хостами {{ CK }}

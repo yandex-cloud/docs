@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/projects/quotas.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a quota
 
 After creating a [project](../projects/create-project.md), the administrator can limit resources using the `ResourceQuota` [object](https://kubernetes.io/docs/concepts/policy/resource-quotas/).

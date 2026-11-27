@@ -1,6 +1,10 @@
 ---
 title: Статические ключи доступа, совместимые с AWS API
 description: Из статьи вы узнаете, зачем нужен статический ключ доступа, какой у него формат и какие сервисы поддерживают этот способ аутентификации.
+alternate:
+  - href: ru/iam/concepts/authorization/access-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Статические ключи доступа, совместимые с AWS API

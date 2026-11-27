@@ -1,6 +1,10 @@
 ---
 title: Getting container information
 description: Follow this guide to get information about a container.
+alternate:
+  - href: en/serverless-containers/operations/container-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting container information

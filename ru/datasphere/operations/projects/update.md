@@ -1,6 +1,10 @@
 ---
 title: Как изменить настройки проекта в {{ ml-platform-full-name }}
 description: Следуя данной инструкции, вы сможете изменить настройки проекта.
+alternate:
+  - href: ru/datasphere/operations/projects/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить настройки проекта

@@ -1,6 +1,10 @@
 ---
 title: Скачать binary-артефакт из реестра {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы скачаете binary-артефакт из реестра {{ cloud-registry-full-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/binary/pull.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Скачать binary-артефакт из реестра

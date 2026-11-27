@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/mpg-ydb-replication'
+alternate:
+  - href: en/ydb/tutorials/mpg-ydb-replication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering data from {{ mpg-full-name }} to {{ ydb-name }} using {{ data-transfer-full-name }}

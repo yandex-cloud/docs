@@ -1,5 +1,9 @@
 ---
 title: Как получить информацию о секрете в {{ lockbox-full-name }}
+alternate:
+  - href: ru/lockbox/operations/secret-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о секрете, его содержимом и правах доступа

@@ -1,6 +1,10 @@
 ---
 title: Using {{ postbox-full-name }} via the AWS CLI
 description: In this article, you will learn how to install and set up the AWS CLI for working with {{ postbox-name }}.
+alternate:
+  - href: en/postbox/tools/aws-cli.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AWS CLI

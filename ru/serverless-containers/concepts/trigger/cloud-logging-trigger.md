@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/concepts/trigger/cloud-logging-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для {{ cloud-logging-name }}, который вызывает контейнер {{ serverless-containers-name }}
 
 [Триггер](../trigger/) для {{ cloud-logging-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }}, когда в [лог-группу](../../../logging/concepts/log-group.md) добавляют записи.

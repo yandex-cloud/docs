@@ -29,6 +29,10 @@ apiPlayground:
         - text
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/security-deck/api-ref/Comment/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck Alerts API, REST: Comment.Create

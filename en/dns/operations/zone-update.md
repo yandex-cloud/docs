@@ -1,6 +1,10 @@
 ---
 title: How to update a DNS zone in {{ dns-full-name }}
 description: Follow this guide to update a DNS zone.
+alternate:
+  - href: en/dns/operations/zone-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a DNS zone

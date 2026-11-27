@@ -1,6 +1,10 @@
 ---
 title: Требования к системе для {{ objstorage-onprem-name }}
 description: Требования к серверам, дискам и сети для {{ objstorage-onprem-name }}. Расчет объема хранилища и метаданных.
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/system-requirements.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Требования к системе

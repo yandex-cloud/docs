@@ -1,6 +1,10 @@
 ---
 title: Снимки дисков
 description: Из статьи вы узнаете, что такое снимки дисков, как они хранятся, реплицируются и шифруются.
+alternate:
+  - href: ru/compute/concepts/snapshot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Снимки дисков

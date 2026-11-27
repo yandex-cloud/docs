@@ -1,6 +1,10 @@
 ---
 title: Delivering USB devices to a {{ baremetal-name }} server or {{ compute-name }} virtual machine
 description: Configure delivering USB devices to {{ baremetal-name }} virtual machines or servers via a VPN connection over a public internet segment with the help of USB over IP.
+alternate:
+  - href: en/tutorials/routing/usb-over-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering USB devices to a {{ baremetal-name }} server or {{ compute-name }} virtual machine

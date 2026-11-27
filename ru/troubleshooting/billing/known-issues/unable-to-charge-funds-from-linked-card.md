@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/unable-to-charge-funds-from-linked-card.md
+    type: text/markdown
+    title: Markdown version
+---
 # Устранение проблем со списанием средств с банковской карты
 
 

@@ -3,6 +3,10 @@ title: Удаление кластера {{ SPRK }}
 description: Вы можете удалить кластер {{ SPRK }}, если он вам больше не нужен.
 keywords:
   - удаление кластера {{ SPRK }}
+alternate:
+  - href: ru/managed-spark/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление кластера {{ SPRK }}

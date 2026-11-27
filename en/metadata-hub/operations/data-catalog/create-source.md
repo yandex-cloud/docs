@@ -1,6 +1,10 @@
 ---
 title: Creating a metadata source
 description: Follow this guide to create a metadata source in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/create-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a source

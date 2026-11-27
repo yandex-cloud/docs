@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ objstorage-full-name }} (S3)
 description: Из статьи вы узнаете, как работать с {{ objstorage-full-name }} (S3) в {{ yandex-cloud }}. Вы научитесь работать с бакетами (создавать, удалять и редактировать), объектами (загружать, скачивать, получать ссылки на скачивание, удалять объекты), размещать статические сайты (настраивать хостинг, собственный домен, настраивать https протокол).
+alternate:
+  - href: ru/storage/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ objstorage-name }}

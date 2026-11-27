@@ -1,6 +1,10 @@
 ---
 title: Управление конфигурацией топиков {{ ydb-short-name }}
 description: В инструкции описаны свойства ресурса yandex_ydb_topic для управления конфигурацией топиков {{ ydb-short-name }}.
+alternate:
+  - href: ru/ydb/terraform/topic.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление конфигурацией топиков {{ ydb-short-name }}

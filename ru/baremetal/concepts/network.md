@@ -1,6 +1,10 @@
 ---
 title: Сеть в {{ baremetal-full-name }}
 description: Из статьи вы узнаете про сетевую инфраструктуру {{ baremetal-full-name }}, включая публичные и приватные сети.
+alternate:
+  - href: ru/baremetal/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сеть

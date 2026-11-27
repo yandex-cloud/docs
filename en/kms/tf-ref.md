@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ kms-full-name }}'
 description: This page provides reference information on the {{ TF }} provider resources supported for {{ kms-name }}.
+alternate:
+  - href: en/kms/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ kms-full-name }}

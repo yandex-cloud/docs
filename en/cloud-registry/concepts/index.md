@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cloud-registry/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ cloud-registry-full-name }} overview
 
 {{ cloud-registry-name }} is a service for storing and managing development [artifacts](artifacts/index.md).

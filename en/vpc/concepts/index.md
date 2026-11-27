@@ -1,6 +1,10 @@
 ---
 title: '{{ vpc-full-name }} concept'
 description: '{{ vpc-full-name }} ({{ vpc-short-name }}) is a service for creating cloud networks that are used for transmitting information within your cloud and connecting cloud resources to the internet. With {{ vpc-short-name }}, you can create subnets and connect cloud resources to them, provide information transfer between cloud resources, connect cloud resources to the internet, build static routes, and manage traffic using security groups.'
+alternate:
+  - href: en/vpc/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ vpc-short-name }} concepts

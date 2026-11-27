@@ -1,6 +1,10 @@
 ---
 title: Встраивание через JWT
 description: Из статьи вы узнаете, как безопасно встроить непубличные чарты и дашборды на сайт или в приложение.
+alternate:
+  - href: ru/datalens/security/private-embedded-objects.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Встраивание через JWT

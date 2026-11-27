@@ -6,6 +6,10 @@ keywords:
   - кластер {{ AF }}
   - '{{ AF }}'
   - Airflow
+alternate:
+  - href: ru/managed-airflow/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ AF }}

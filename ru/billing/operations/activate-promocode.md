@@ -1,6 +1,10 @@
 ---
 title: Как активировать промокод в {{ billing-name }}
 description: Следуя данной инструкции, вы сможете активировать промокод.
+alternate:
+  - href: ru/billing/operations/activate-promocode.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Активировать промокод

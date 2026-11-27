@@ -1,6 +1,11 @@
 ---
 title: Как удалить приватное соединение из виртуального маршрутизатора в {{ cr-name }}
 description: Следуя этой инструкции, вы сможете удалить приватное соединение из виртуального маршрутизатора в {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: ru/cloud-router/operations/ri-priv-con-del.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить приватное соединение из виртуального маршрутизатора

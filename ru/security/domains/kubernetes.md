@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/security/domains/kubernetes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Безопасность {{ k8s }}
 
 Раздел содержит рекомендации пользователям {{ yandex-cloud }} по настройкам безопасности в [{{ managed-k8s-full-name }}](../../managed-kubernetes/).

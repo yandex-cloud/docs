@@ -1,6 +1,10 @@
 ---
 title: Удалить зарезервированный внутренний IP-адрес
 description: Следуя данной инструкции, вы сможете освободить зарезервированный внутренний IP-адрес.
+alternate:
+  - href: ru/vpc/operations/private-ip-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить внутренний IP-адрес

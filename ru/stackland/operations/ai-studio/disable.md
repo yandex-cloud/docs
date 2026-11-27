@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/ai-studio/disable.md
+    type: text/markdown
+    title: Markdown version
+---
 # Отключить {{ ai-studio-name }}
 
 Чтобы отключить {{ ai-studio-name }}, сначала отключите {{ agent-atelier-name }}, затем {{ model-gallery-name }}.

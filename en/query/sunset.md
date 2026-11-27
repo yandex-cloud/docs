@@ -1,6 +1,10 @@
 ---
 title: '{{ yq-full-name }} shutdown'
 description: We are sunsetting {{ yq-full-name }}. This page outlines the decommissioning timeline and procedure, and provides migration recommendations.
+alternate:
+  - href: en/query/sunset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yq-full-name }} shutdown

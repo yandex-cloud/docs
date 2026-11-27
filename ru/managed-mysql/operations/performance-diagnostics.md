@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-mysql/operations/performance-diagnostics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Диагностика производительности в {{ mmy-name }}
 
 В {{ mmy-name }} встроен инструмент для сбора статистики по сессиям и запросам. Эти метрики могут быть полезны при [анализе производительности и оптимизации настроек](../tutorials/profiling-mmy.md) кластера.

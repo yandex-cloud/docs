@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-gitlab/operations/instance/instance-stop.md
+    type: text/markdown
+    title: Markdown version
+---
 # Остановка и запуск инстанса {{ GL }}
 
 При необходимости вы можете остановить [инстанс {{ GL }}](../../concepts/index.md#instance) и запустить его заново. При остановке инстанса все данные в нем сохранятся.

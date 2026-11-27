@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/application-load-balancer/events-ref/CreateLoadBalancer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer Audit Trails Events: CreateLoadBalancer

@@ -40,6 +40,10 @@ apiPlayground:
         - databaseName
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/managed-postgresql/api-ref/User/revokePermission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, REST: User.RevokePermission

@@ -1,6 +1,10 @@
 ---
 title: Organizations in {{ datalens-full-name }}
 description: An organization is a {{ yandex-cloud }} service enabling employee list management, single sign-on across {{ yandex-cloud }} services, and roles. {{ datalens-full-name }} is now created at the organization level, which makes interfacing with other {{ yandex-cloud }} services easier.
+alternate:
+  - href: en/datalens/concepts/organizations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organizations in {{ datalens-full-name }}

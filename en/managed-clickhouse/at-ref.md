@@ -1,6 +1,10 @@
 ---
 title: '{{ mch-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ mch-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/managed-clickhouse/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

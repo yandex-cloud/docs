@@ -1,6 +1,10 @@
 ---
 title: '{{ kspm-full-name }} ({{ kspm-name }})'
 description: This section contains step-by-step guides on how to use the {{ kspm-full-name }} ({{ kspm-name }}) module in {{ sd-name }}.
+alternate:
+  - href: en/security-deck/operations/kspm/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ kspm-full-name }} ({{ kspm-name }})

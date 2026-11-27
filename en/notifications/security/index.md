@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ cns-full-name }}
 description: Access management in the {{ cns-full-name }} email service. To allow a user access to {{ cns-name }} resources, assign them the roles from the list below.
+alternate:
+  - href: en/notifications/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ cns-full-name }}

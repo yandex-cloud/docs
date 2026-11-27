@@ -1,6 +1,10 @@
 ---
 title: How to update a {{ compute-full-name }} VM connection to {{ backup-full-name }}
 description: Follow this guide to update a {{ compute-full-name }} VM connection to {{ backup-name }}.
+alternate:
+  - href: en/backup/operations/refresh-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reconnecting a VM to {{ backup-name }}

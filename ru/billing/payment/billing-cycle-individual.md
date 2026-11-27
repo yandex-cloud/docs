@@ -1,6 +1,10 @@
 ---
 title: Цикл оплаты для физических лиц
 description: В этой статье описан цикл списания средств с банковской карты физических лиц, а также приостановка и блокировка использования ресурсов.
+alternate:
+  - href: ru/billing/payment/billing-cycle-individual.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Цикл оплаты для физических лиц

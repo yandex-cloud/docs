@@ -2,6 +2,10 @@
 title: '{{ mch-full-name }} pricing policy'
 description: This article covers the {{ mch-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/managed-clickhouse/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

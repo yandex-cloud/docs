@@ -1,6 +1,10 @@
 ---
 title: '{{ data-transfer-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ data-transfer-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/data-transfer/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

@@ -1,6 +1,10 @@
 ---
 title: Viewing {{ vpc-full-name }} resource operations
 description: Follow this guide to view {{ vpc-name }} resource operations.
+alternate:
+  - href: en/vpc/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing {{ vpc-name }} resource operations

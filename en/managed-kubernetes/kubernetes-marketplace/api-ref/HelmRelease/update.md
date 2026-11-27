@@ -59,6 +59,10 @@ apiPlayground:
             $ref: '#/definitions/Value'
         required:
           - key
+alternate:
+  - href: en/managed-kubernetes/kubernetes-marketplace/api-ref/HelmRelease/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Kubernetes Marketplace, REST: HelmRelease.Update

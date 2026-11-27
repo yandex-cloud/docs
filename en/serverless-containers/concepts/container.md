@@ -1,6 +1,10 @@
 ---
 title: Containers in {{ serverless-containers-full-name }}
 description: In this article, you will learn about containers, their revision, and scaling.
+alternate:
+  - href: en/serverless-containers/concepts/container.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container

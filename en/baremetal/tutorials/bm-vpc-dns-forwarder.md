@@ -2,6 +2,10 @@
 title: Configuring DNS name resolution from a private {{ baremetal-full-name }} network
 description: In this tutorial, you will learn how to configure DNS name resolution of cloud resources on a {{ baremetal-name }} server using an inbound DNS connection.
 canonical: '{{ link-docs }}/tutorials/routing/bm-vpc-dns-forwarder'
+alternate:
+  - href: en/baremetal/tutorials/bm-vpc-dns-forwarder.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring DNS name resolution from a private {{ baremetal-full-name }} network

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/EntryLock/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # EntryLock
 
 <!-- markdownlint-disable-file -->

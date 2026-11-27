@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-gitlab/operations/instance/migration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Migrating from {{ GL }} to {{ mgl-name }}
 
 You can migrate your projects to {{ mgl-name }} using the following methods:

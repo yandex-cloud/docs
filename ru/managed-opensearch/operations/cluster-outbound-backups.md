@@ -2,6 +2,10 @@
 title: Восстановление OpenSearch из снапшота
 description: Следуя этой инструкции, вы сможете самостоятельно восстановить базу данных OpenSearch из снапшота.
 noIndex: true
+alternate:
+  - href: ru/managed-opensearch/operations/cluster-outbound-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановление базы данных из снапшота

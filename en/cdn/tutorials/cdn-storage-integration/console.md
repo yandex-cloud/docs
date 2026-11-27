@@ -2,6 +2,10 @@
 title: Integrating an L7 load balancer with {{ cdn-full-name }} and {{ objstorage-full-name }} using the management console
 description: In this tutorial, you will use the management console to set up an L7 {{ alb-full-name }} that uses a {{ objstorage-full-name }} bucket as a backend and receives user requests via {{ cdn-full-name }} to reduce content delivery time.
 canonical: '{{ link-docs }}/tutorials/web/cdn-storage-integration/console'
+alternate:
+  - href: en/cdn/tutorials/cdn-storage-integration/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Integrating an L7 load balancer with {{ cdn-short-name }} and {{ objstorage-short-name }} using the management console

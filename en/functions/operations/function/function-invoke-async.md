@@ -1,6 +1,10 @@
 ---
 title: Invoking a function asynchronously
 description: Follow this guide to configure and run an asynchronous function invocation.
+alternate:
+  - href: en/functions/operations/function/function-invoke-async.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Invoking a function asynchronously

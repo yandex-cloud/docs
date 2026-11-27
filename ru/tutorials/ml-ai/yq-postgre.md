@@ -1,6 +1,10 @@
 ---
 title: Руководство по работе с данными в {{ mpg-full-name }} c помощью {{ yq-full-name }}
 description: Следуя этому руководству, вы подключитесь к базе данных {{ mpg-full-name }} и выполните запросы к ней из ноутбука {{ jlab }}Lab с помощью {{ yq-full-name }}.
+alternate:
+  - href: ru/tutorials/ml-ai/yq-postgre.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с данными в {{ mpg-full-name }}

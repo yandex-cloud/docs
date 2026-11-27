@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/monitoring/dashboard-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать дашборд
 
 Чтобы создать новый дашборд и добавить на него метрики:

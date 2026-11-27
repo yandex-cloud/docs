@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/payment/currency.md
+    type: text/markdown
+    title: Markdown version
+---
 # Валюта выставления счетов и платежей
 
 Валюта расчетов зависит от договора и страны проживания: 

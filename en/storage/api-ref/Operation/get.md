@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/storage/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, REST: Operation.Get

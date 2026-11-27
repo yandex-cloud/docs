@@ -1,6 +1,10 @@
 ---
 title: Управление размещением подов на узлах в {{ managed-k8s-full-name }}
 description: Из статьи вы узнаете, как в {{ yandex-cloud }} управлять размещением подов на узлах в {{ k8s }} с помощью консоли управления без использования kubectl.
+alternate:
+  - href: ru/managed-kubernetes/operations/kubernetes-console/nodes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление размещением подов на узлах

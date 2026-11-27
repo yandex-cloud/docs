@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ mmy-full-name }}'
 description: This page lists the {{ TF }} provider resources and data sources supported by {{ mmy-name }}.
+alternate:
+  - href: en/managed-mysql/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ mmy-full-name }}

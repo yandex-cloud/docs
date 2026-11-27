@@ -39,6 +39,10 @@ meta:
     - keyword: виртуальные ресурсы {{ yandex-cloud }}
     - keyword: виртуальные машины
     - keyword: облачные ресурсы
+  alternate:
+    - href: ru/compute/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первую виртуальную машину или группу ВМ

@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ iot-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ iot-name }}.
 editable: false
+alternate:
+  - href: ru/iot-core/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ iot-name }}

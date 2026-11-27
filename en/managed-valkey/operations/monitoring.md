@@ -1,6 +1,10 @@
 ---
 title: Cluster, host, and shard state monitoring in {{ mrd-name }}
 description: You can monitor the state of a {{ mrd-name }} cluster and its hosts and shards using the monitoring tools in the management console. These tools display diagnostic information as charts.
+alternate:
+  - href: en/managed-valkey/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cluster, host, and shard state monitoring in {{ mrd-name }}

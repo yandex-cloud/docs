@@ -8,6 +8,11 @@ keywords:
   - Cloud CDN
   - Application Load Balancer
   - API Gateway
+noIndex: true
+alternate:
+  - href: ru/architecture/static-website-in-yc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Развертывание статического веб-сайта в отказоустойчивой конфигурации в {{ yandex-cloud }}

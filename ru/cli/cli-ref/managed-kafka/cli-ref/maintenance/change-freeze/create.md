@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/create/
+alternate:
+  - href: ru/cli/cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kafka maintenance change-freeze create

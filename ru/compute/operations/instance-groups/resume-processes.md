@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/instance-groups/resume-processes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Возобновление процессов в группе виртуальных машин
 
 При возобновлении будут запущены ранее остановленные процессы [обновления](../../concepts/instance-groups/deploy/), [автоматического восстановления](../../concepts/instance-groups/autohealing.md) и [масштабирования](../../concepts/instance-groups/policies/scale-policy.md) ВМ, а также применены существенные изменения группы, связанные с приостановленными процессами (например, изменение размера группы или конфигурации ВМ).

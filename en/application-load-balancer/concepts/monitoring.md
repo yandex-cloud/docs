@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/application-load-balancer/concepts/monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Monitoring and logging
 
 ## Statistics {#stats}

@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/network-load-balancer/api-ref/NetworkLoadBalancer/start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.Start

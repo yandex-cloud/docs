@@ -1,6 +1,10 @@
 ---
 title: Чтение файла из {{ objstorage-full-name }}
 description: Используйте направленный ациклический граф (DAG) для чтения файлов из {{ objstorage-full-name }} сервисного аккаунта, который привязан к кластеру {{ AF }}.
+alternate:
+  - href: ru/managed-airflow/operations/read-file-from-dags-bucket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение файла из {{ objstorage-full-name }}

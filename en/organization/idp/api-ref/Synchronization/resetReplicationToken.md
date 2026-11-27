@@ -18,6 +18,10 @@ apiPlayground:
         - subjectContainerId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/organization/idp/api-ref/Synchronization/resetReplicationToken.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: Synchronization.ResetReplicationToken

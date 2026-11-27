@@ -1,6 +1,10 @@
 ---
 title: Добавить расширение {{ sw-full-name }}
 description: Следуя данной инструкции, вы сможете добавить расширение {{ sw-full-name }} с помощью конструктора спецификации.
+alternate:
+  - href: ru/api-gateway/operations/spec-constructor/workflows.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить расширение x-yc-apigateway-integration:http для интеграции с {{ sw-full-name }}

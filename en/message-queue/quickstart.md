@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ message-queue-full-name }}
 description: In this tutorial, you will learn how to make basic actions with message queues in {{ message-queue-full-name }}. First of all, install the AWS CLI, a command line utility for working with {{ message-queue-name }}.
+alternate:
+  - href: en/message-queue/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ message-queue-name }}

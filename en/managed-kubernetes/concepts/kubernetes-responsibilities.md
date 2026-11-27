@@ -3,6 +3,10 @@ noIndex: true
 title: Control zones of {{ yandex-cloud }} and users of {{ managed-k8s-full-name }}
 description: In this article, you will learn about the zones of control between the {{ managed-k8s-full-name }} users and {{ yandex-cloud }}.
 canonical: '{{ link-docs }}/overview/concepts/kubernetes-responsibilities'
+alternate:
+  - href: en/managed-kubernetes/concepts/kubernetes-responsibilities.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Zones of control between the the {{ managed-k8s-full-name }} users and {{ yandex-cloud }}

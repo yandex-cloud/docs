@@ -5,6 +5,10 @@ keywords:
   - информация о хостах OpenSearch
   - хосты OpenSearch
   - OpenSearch
+alternate:
+  - href: ru/managed-opensearch/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Информация об имеющихся кластерах {{ OS }}

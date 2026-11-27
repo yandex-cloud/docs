@@ -1,6 +1,10 @@
 ---
 title: Доступные команды {{ mrd-full-name }}
 description: На странице представлен список команд {{ VLK }}, которые нельзя выполнить в кластере {{ VLK }}.
+alternate:
+  - href: ru/managed-valkey/concepts/supported-features.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Доступные команды {{ mrd-name }}

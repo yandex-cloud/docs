@@ -1,6 +1,10 @@
 ---
 title: How to connect an external resource to {{ backup-full-name }}
 description: Follow this guide to connect a VM or server located outside {{ yandex-cloud }} to {{ backup-full-name }}.
+alternate:
+  - href: en/backup/operations/external/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting a VM or server from outside {{ yandex-cloud }} to {{ backup-name }}

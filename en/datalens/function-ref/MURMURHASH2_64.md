@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/MURMURHASH2_64.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # MURMURHASH2_64

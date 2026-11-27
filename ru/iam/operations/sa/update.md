@@ -1,6 +1,10 @@
 ---
 title: Изменение сервисного аккаунта
 description: Следуя данной инструкции, вы сможете изменить сервисный аккаунт.
+alternate:
+  - href: ru/iam/operations/sa/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение сервисного аккаунта

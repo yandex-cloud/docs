@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/specializations/conditions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Условия получения партнерских статусов с технологической специализацией
 
 Включение и квалификация партнеров в статусную систему проходят 2 раза в год:

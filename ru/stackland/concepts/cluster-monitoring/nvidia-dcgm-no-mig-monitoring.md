@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/cluster-monitoring/nvidia-dcgm-no-mig-monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метрики дашборда NVIDIA DCGM без MIG
 
 Дашборд NVIDIA DCGM без MIG в {{ grafana-name }} предоставляет комплексный мониторинг графических ускорителей NVIDIA без поддержки Multi-Instance GPU (MIG) в кластере {{ k8s }}. Дашборд содержит метрики производительности, температуры, энергопотребления, загрузки GPU, использования памяти и расширенные метрики для анализа эффективности и здоровья GPU.

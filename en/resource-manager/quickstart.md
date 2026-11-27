@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/resource-manager/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ resmgr-full-name }}
 
 When a user registers with {{ yandex-cloud }}, a _cloud_ is created for the user. The cloud is a separate workspace with this user as the owner. In this cloud, the `default` folder and `default` network will be created.

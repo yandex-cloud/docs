@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/getting-refund.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как вернуть деньги
 
 

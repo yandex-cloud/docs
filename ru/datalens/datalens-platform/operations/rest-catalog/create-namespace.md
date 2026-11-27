@@ -1,6 +1,10 @@
 ---
 title: Создание пространства имен в REST-каталоге {{ datalens-platform-full-name }}
 description: Следуя данной инструкции, вы сможете создать пространства имен в REST-каталоге {{ datalens-platform-full-name }}
+alternate:
+  - href: ru/datalens/datalens-platform/operations/rest-catalog/create-namespace.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание пространства имен

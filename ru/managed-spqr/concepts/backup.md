@@ -9,6 +9,10 @@ keywords:
   - резервное копирование Sharded PostgreSQL
   - backup Sharded PostgreSQL
   - Yandex Sharded PostgreSQL
+alternate:
+  - href: ru/managed-spqr/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Резервные копии в {{ mspqr-name }}
@@ -46,7 +50,7 @@ keywords:
 
 * Резервные копии, созданные вручную, хранятся бессрочно.
 
-После удаления кластера все его резервные копии хранятся 7 дней.
+После удаления кластера срок хранения резервных копий зависит от его настроек (по умолчанию — семь дней). Хранение в этот период не тарифицируется.
 
 ## Восстановление из резервной копии {#restore}
 

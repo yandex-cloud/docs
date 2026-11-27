@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/certificate-manager/concepts/managed-certificate.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сертификат от Let's Encrypt
 
 С помощью {{ certificate-manager-name }} вы можете создавать TLS-сертификаты от Let's Encrypt. Вы запрашиваете выпуск сертификата и проходите процедуру проверки прав на домены, после этого {{ certificate-manager-name }} управляет этим сертификатом, взаимодействуя с Let's Encrypt вместо вас.

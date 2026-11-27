@@ -1,6 +1,10 @@
 ---
 title: Функции для работы с массивами
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/array-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Функции для работы с массивами

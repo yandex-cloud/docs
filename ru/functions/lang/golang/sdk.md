@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/golang/sdk.md
+    type: text/markdown
+    title: Markdown version
+---
 # Использование SDK для функции на Go
 
 Среда выполнения не содержит предустановленной библиотеки для работы с [API {{ yandex-cloud }}](../../../api-design-guide/). Для её использования требуется добавить [зависимость](dependencies.md) в приложение на Go. Исходный код библиотеки находится на [GitHub](https://github.com/yandex-cloud/go-sdk).

@@ -1,6 +1,10 @@
 ---
 title: Как создать группу размещения дисков в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете создать группу размещения дисков.
+alternate:
+  - href: ru/compute/operations/disk-placement-groups/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать группу размещения дисков

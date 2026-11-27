@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/compute/api-ref/grpc/Instance/getSerialPortOutput.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, gRPC: InstanceService.GetSerialPortOutput

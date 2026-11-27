@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/placement-groups/create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать группу размещения
 
 Создайте [группу размещения](../../concepts/placement-groups.md).

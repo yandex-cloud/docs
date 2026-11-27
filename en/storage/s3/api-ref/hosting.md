@@ -1,6 +1,10 @@
 ---
 title: What S3 API methods can be used to manage bucket configurations for static website hosting in {{ objstorage-full-name }}
 description: In this article, you will learn what S3 API methods can be used to manage bucket configurations for static website hosting.
+alternate:
+  - href: en/storage/s3/api-ref/hosting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All static website hosting methods

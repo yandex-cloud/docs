@@ -1,6 +1,10 @@
 ---
 title: SQL command limits in {{ mmy-full-name }}
 description: '{{ mmy-short-name }} has some limits on DB owner actions when using SQL commands.'
+alternate:
+  - href: en/managed-mysql/concepts/sql-limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SQL command limits

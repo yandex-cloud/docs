@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-gitlab/concepts/migration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Порядок предоставления услуги по миграции из {{ GL }} в {{ mgl-name }}
 
 В ходе миграции из пользовательской инсталляции {{ GL }} в сервис {{ mgl-name }} можно перенести такие сущности, как проекты, пользователи, [группы пользователей]({{ gl.docs }}/ee/user/group/), настроенные права доступа, пайплайны. Также можно перенастроить [кастомизированное доменное имя]({{ gl.docs }}/ee/user/project/pages/custom_domains_ssl_tls_certification/) на новый [инстанс {{ GL }}](index.md#instance). В результате вы перенесете все необходимые данные и настройки в облако.

@@ -1,6 +1,10 @@
 ---
 title: SolidWall WAF в {{ sws-full-name }}
 description: Как связаны профиль SolidWall WAF, приложение и домен в {{ sws-name }}, как настраивается защита и с чего начать подключение.
+alternate:
+  - href: ru/smartwebsecurity/concepts/solidwall-waf.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SolidWall WAF

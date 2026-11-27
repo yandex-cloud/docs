@@ -1,6 +1,10 @@
 ---
 title: Creating a subnet
 description: Follow this guide to create a subnet.
+alternate:
+  - href: en/vpc/operations/subnet-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a subnet

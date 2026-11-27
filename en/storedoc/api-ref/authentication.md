@@ -1,6 +1,10 @@
 ---
 title: '{{ mmg-full-name }} API authentication'
 description: To perform API operations in the {{ mmg-full-name }} {{ SD }} database management service, you need to obtain an IAM token for your account.
+alternate:
+  - href: en/storedoc/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mmg-name }} API authentication

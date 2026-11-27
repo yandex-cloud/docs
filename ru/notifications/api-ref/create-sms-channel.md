@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/create-sms-channel.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие CreateSMSChannel
 
 Создает [канал SMS-уведомлений](../concepts/sms.md).

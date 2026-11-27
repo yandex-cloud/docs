@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/operations/trigger/os-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a trigger for {{ objstorage-name }} that sends messages to WebSocket connections
 
 Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.md) to send messages to [WebSocket connections](../../concepts/extensions/websocket.md) when you create, move, or delete an [object](../../../storage/concepts/object.md) in a bucket.

@@ -1,6 +1,10 @@
 ---
 title: SQL Editor in {{ datalens-platform-full-name }}
 description: How to open a connection in SQL Editor and run SQL queries from the {{ datalens-platform-short-name }} UI.
+alternate:
+  - href: en/datalens/datalens-platform/concepts/sql/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SQL Editor in {{ datalens-platform-full-name }}

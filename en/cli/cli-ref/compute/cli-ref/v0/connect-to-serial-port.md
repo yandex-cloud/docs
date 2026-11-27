@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/connect-to-serial-port/
+alternate:
+  - href: en/cli/cli-ref/compute/cli-ref/v0/connect-to-serial-port.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute v0 connect-to-serial-port

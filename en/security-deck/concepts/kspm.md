@@ -1,6 +1,10 @@
 ---
 title: '{{ kspm-full-name }} ({{ kspm-name }}) in {{ sd-full-name }}'
 description: '{{ kspm-full-name }} ({{ kspm-name }}) ensures that containerized applications and images used in your {{ yandex-cloud }} infrastructure comply with comprehensive security requirements and best practices.'
+alternate:
+  - href: en/security-deck/concepts/kspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ kspm-full-name }} ({{ kspm-name }})

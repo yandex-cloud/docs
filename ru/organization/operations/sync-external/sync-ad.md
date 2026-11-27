@@ -1,6 +1,10 @@
 ---
 title: Как настроить синхронизацию с {{ microsoft-idp.ad-full }} в {{ org-full-name }}
 description: 'Настройте синхронизацию пользователей и групп между {{ microsoft-idp.ad-short }} и {{ org-full-name }}: подготовьте организацию и контроллер домена, настройте и запустите агент синхронизации.'
+alternate:
+  - href: ru/organization/operations/sync-external/sync-ad.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Синхронизировать пользователей и группы с {{ microsoft-idp.ad-full }}

@@ -2,6 +2,10 @@
 title: '{{ iot-full-name }} pricing policy'
 description: This article covers the {{ iot-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/iot-core/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ iot-name }} pricing policy

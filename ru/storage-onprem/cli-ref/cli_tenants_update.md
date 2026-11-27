@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_tenants_update.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli tenants update
 
 Update tenant

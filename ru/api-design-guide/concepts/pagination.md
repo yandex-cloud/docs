@@ -1,6 +1,10 @@
 ---
 title: Пагинация в API
 description: Из статьи вы узнаете про свойство пагинации, а также ознакомитесь с примерами использования.
+alternate:
+  - href: ru/api-design-guide/concepts/pagination.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пагинация

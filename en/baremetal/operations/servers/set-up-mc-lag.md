@@ -1,6 +1,10 @@
 ---
 title: Configuring network connection reservation in {{ baremetal-full-name }}
 description: Follow this guide to set up an aggregation group on a {{ baremetal-full-name }} server with an ability to reserve a network connection using MC-LAG.
+alternate:
+  - href: en/baremetal/operations/servers/set-up-mc-lag.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring the MC-LAG aggregation group

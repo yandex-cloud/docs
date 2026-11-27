@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-platform-full-name }}. Обзор сервиса'
 description: 'Узнайте, как устроена {{ datalens-platform-short-name }}: загрузка данных, Lakehouse, визуализация, инструменты разработки и сквозные возможности.'
+alternate:
+  - href: ru/datalens/datalens-platform/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # О {{ datalens-platform-full-name }}

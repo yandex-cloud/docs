@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/clickhouse/create-database.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать базу данных
 
 Если у вас есть [кластер](create-cluster.md) [{{ CH }}](../../concepts/components/clickhouse.md), вы можете создать в нем базу данных с помощью кастомного ресурса `ClickhouseDatabase`.

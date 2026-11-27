@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/data/models.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with models
 
 [Models](../../concepts/models/index.md) enable storing and exporting computation results within {{ ml-platform-name }} projects.

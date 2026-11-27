@@ -1,6 +1,10 @@
 ---
 title: How to connect a {{ sws-full-name }} profile to a virtual host, domain, or API gateway
 description: Follow this guide to connect a {{ sws-full-name }} profile to the protected resource.
+alternate:
+  - href: en/smartwebsecurity/operations/host-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting a security profile to a resource

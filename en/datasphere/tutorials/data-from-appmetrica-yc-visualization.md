@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/datalens/data-from-appmetrica-yc-visualization'
+alternate:
+  - href: en/datasphere/tutorials/data-from-appmetrica-yc-visualization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [data-from-metrica-yc-visualization](../../_tutorials/datalens/data-from-appmetrica-yc-visualization.md) %}

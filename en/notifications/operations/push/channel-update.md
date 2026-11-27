@@ -1,6 +1,10 @@
 ---
 title: Updating a push notification channel in {{ cns-full-name }}
 description: Follow this guide to update a push notification channel.
+alternate:
+  - href: en/notifications/operations/push/channel-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a push notification channel

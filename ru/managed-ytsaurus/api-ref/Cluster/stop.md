@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-ytsaurus/api-ref/Cluster/stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ytsaurus API, REST: Cluster.Stop

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/publish.md
+    type: text/markdown
+    title: Markdown version
+---
 # Publish
 
 Sends a [push notification](../concepts/push.md) to an [endpoint](../concepts/push.md#mobile-endpoints), or an [SMS](../concepts/sms.md) to a phone number.

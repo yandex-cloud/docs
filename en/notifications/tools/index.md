@@ -1,6 +1,10 @@
 ---
 title: Supported tools for working with {{ cns-name }}
 description: List of supported tools for working with {{ cns-name }}.
+alternate:
+  - href: en/notifications/tools/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Supported tools

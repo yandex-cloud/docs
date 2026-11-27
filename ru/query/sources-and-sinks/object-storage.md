@@ -1,6 +1,10 @@
 ---
 title: Чтение данных из {{ objstorage-full-name }} с помощью соединений с {{ yq-full-name }}
 description: Из статьи вы узнаете, как настроить соединение и читать данные из {{ objstorage-full-name }} с помощью {{ yq-full-name }}.
+alternate:
+  - href: ru/query/sources-and-sinks/object-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение данных из {{ objstorage-name }} с помощью соединений с {{ yq-name }}

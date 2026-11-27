@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/smartwebsecurity/advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Get

@@ -1,6 +1,10 @@
 ---
 title: Viewing your services' metrics in {{ monitoring-full-name }}
 description: Follow this guide to view detailed metric charts for your services.
+alternate:
+  - href: en/monitoring/operations/metric/metric-explorer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing metrics in {{ monitoring-full-name }}

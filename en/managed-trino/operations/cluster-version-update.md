@@ -1,6 +1,10 @@
 ---
 title: How to change a {{ TR }} cluster version in {{ mtr-name }}
 description: Follow this guide to change a {{ TR }} cluster version.
+alternate:
+  - href: en/managed-trino/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TR }} version update

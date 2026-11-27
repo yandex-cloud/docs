@@ -1,6 +1,10 @@
 ---
 title: Как получить список доменов в пуле пользователей или федерации {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете получить список доменов в пуле пользователей или федерации {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/list-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список доменов

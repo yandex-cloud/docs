@@ -1,6 +1,10 @@
 ---
 title: How to add a user to an organization in {{ org-full-name }}
 description: In this tutorial, you will learn how to add a user to an organization in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/add-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a user

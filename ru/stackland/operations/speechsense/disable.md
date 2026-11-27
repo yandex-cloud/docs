@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/speechsense/disable.md
+    type: text/markdown
+    title: Markdown version
+---
 # Отключить {{ speechsense-name }}
 
 Вы можете отключить компонент {{ speechsense-name }} в кластере {{ stackland-name }}. При отключении контроллер автоматически удалит все ресурсы компонента.

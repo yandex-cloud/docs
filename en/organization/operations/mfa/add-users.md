@@ -1,6 +1,10 @@
 ---
 title: Applying an MFA policy to users in {{ org-full-name }}
 description: Follow this guide to add and delete users and groups to and from an MFA policy in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/mfa/add-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Applying an MFA policy to users

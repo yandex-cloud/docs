@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v1alpha/zone/
+alternate:
+  - href: ru/baremetal/cli-ref/v1alpha/zone/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal v1alpha zone

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/origin-group/delete/
+alternate:
+  - href: ru/cdn/cli-ref/origin-group/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cdn origin-group delete

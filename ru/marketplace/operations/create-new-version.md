@@ -1,6 +1,10 @@
 ---
 title: Создание новой версии продукта в {{ marketplace-full-name }}
 description: Следуя данной инструкции, вы сможете создать новую версию продукта.
+alternate:
+  - href: ru/marketplace/operations/create-new-version.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание новой версии продукта

@@ -1,5 +1,9 @@
 ---
 subcategory: DataLens
+alternate:
+  - href: ru/terraform/data-sources/datalens_connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_datalens_connection (DataSource)

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Resource relationships in {{ dataproc-name }}
 
 {{ dataproc-name }} helps implement distributed data storage and processing using the [Apache Hadoop](http://hadoop.apache.org) service ecosystem.

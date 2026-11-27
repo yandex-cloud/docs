@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/kms/events-ref/UpdateAsymmetricEncryptionKeyAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service Audit Trails Events: UpdateAsymmetricEncryptionKeyAccessBindings

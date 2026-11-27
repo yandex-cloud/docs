@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Концепции {{ message-queue-full-name }}
 
 {{ message-queue-full-name }} — это сервис очередей сообщений, который позволяет распределенным приложениям и микросервисам взаимодействовать при помощи обмена сообщениями.

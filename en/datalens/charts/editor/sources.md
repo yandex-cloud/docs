@@ -1,6 +1,10 @@
 ---
 title: What types of data sources are used in {{ datalens-full-name }} Editor
 description: Overview of supported data source types, size limits, and loading timeouts in {{ datalens-name }} Editor.
+alternate:
+  - href: en/datalens/charts/editor/sources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data sources in {{ datalens-full-name }} Editor

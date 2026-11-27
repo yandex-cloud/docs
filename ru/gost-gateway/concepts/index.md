@@ -1,6 +1,10 @@
 ---
 title: Обзор {{ gost-gateway-name }}
 description: Сервис {{ gost-gateway-name }} предоставляет выделенный защищенный шлюз в собственном ЦОД.
+alternate:
+  - href: ru/gost-gateway/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор {{ gost-gateway-name }}

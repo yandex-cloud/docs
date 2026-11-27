@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ ycdr-full-name }}
 description: Follow this guide to learn how to create investigations, run KQL queries, and analyze security events in {{ ycdr-name }}.
+alternate:
+  - href: en/ycdr/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to get started with investigations

@@ -1,6 +1,10 @@
 ---
 title: Как изменить ноду в {{ ml-platform-full-name }}
 description: Следуя данной инструкции, вы сможете изменить ноду.
+alternate:
+  - href: ru/datasphere/operations/deploy/node-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить ноду

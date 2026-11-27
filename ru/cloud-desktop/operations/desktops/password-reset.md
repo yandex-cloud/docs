@@ -1,6 +1,10 @@
 ---
 title: Инструкция по сбросу пароля пользователя для рабочего стола в {{ cloud-desktop-full-name }}
 description: Из статьи вы узнаете, как сбросить пароль пользователя для рабочего стола в {{ cloud-desktop-full-name }}.
+alternate:
+  - href: ru/cloud-desktop/operations/desktops/password-reset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сбросить пароль пользователя для рабочего стола

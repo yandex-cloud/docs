@@ -4,6 +4,10 @@ description: In this article, you will learn what a storage is in {{ mspqr-name 
 keywords:
   - keyword: Storage in {{ mspqr-full-name }}
   - keyword: Disks in {{ mspqr-full-name }}
+alternate:
+  - href: en/managed-spqr/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Storage in {{ mspqr-full-name }}

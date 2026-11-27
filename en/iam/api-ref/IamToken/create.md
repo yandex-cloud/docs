@@ -31,6 +31,10 @@ apiPlayground:
         - required:
             - jwt
     definitions: null
+alternate:
+  - href: en/iam/api-ref/IamToken/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: IamToken.Create

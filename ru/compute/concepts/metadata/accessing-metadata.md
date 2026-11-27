@@ -1,6 +1,10 @@
 ---
 title: Получение метаданных виртуальных машин {{ compute-name }}
 description: Из этой статьи вы узнаете о способах получения метаданных виртуальных машин {{ compute-full-name }}.
+alternate:
+  - href: ru/compute/concepts/metadata/accessing-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Доступ к метаданным виртуальных машин

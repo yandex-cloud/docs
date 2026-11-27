@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/internet-store/bitrix-shop/terraform'
+alternate:
+  - href: ru/managed-mysql/tutorials/bitrix-shop/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание интернет-магазина на «1С-Битрикс: Управление сайтом» с помощью {{ TF }}

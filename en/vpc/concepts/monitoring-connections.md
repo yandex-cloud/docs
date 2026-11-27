@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/vpc/concepts/monitoring-connections.md
+    type: text/markdown
+    title: Markdown version
+---
 # Monitoring network connections
 
 To ensure the performance of the [network load balancer](../../network-load-balancer) and [security groups](./security-groups.md), {{ vpc-short-name }} monitors network connections.

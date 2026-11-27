@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/performance-diagnostics/list-raw-statements/
+alternate:
+  - href: ru/managed-postgresql/cli-ref/performance-diagnostics/list-raw-statements.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-postgresql performance-diagnostics list-raw-statements

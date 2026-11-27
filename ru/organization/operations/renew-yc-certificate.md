@@ -1,6 +1,10 @@
 ---
 title: Как обновить SAML-сертификат {{ yandex-cloud }} в федерации удостоверений {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете обновить сертификат {{ yandex-cloud }} в федерации удостоверений {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/renew-yc-certificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновить SAML-сертификат {{ yandex-cloud }} в федерации удостоверений

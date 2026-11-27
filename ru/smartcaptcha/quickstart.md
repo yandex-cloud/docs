@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ captcha-full-name }}
 description: Быстрая интеграция капчи на ваш сайт за 4 простых шага.
+alternate:
+  - href: ru/smartcaptcha/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ captcha-full-name }}

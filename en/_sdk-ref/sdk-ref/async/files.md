@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/async/files.md
+    type: text/markdown
+    title: Markdown version
+---
 # Files domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_files.domain.**AsyncFiles**{#yandex_ai_studio_sdk._files.domain.AsyncFiles}

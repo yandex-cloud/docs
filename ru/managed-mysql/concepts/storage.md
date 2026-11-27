@@ -1,6 +1,10 @@
 ---
 title: Типы дисков в {{ mmy-full-name }}
 description: Из статьи вы узнаете, какие типы дисков есть в {{ mmy-name }} и познакомитесь с особенностями выбора типа дисков при создании кластера.
+alternate:
+  - href: ru/managed-mysql/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Хранилище в {{ mmy-name }}

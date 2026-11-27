@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/connector-mirrormaker/create/
+alternate:
+  - href: en/cli/cli-ref/managed-kafka/cli-ref/connector-mirrormaker/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kafka connector-mirrormaker create

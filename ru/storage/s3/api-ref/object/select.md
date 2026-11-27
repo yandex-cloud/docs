@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/object/select.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: SelectObjectContent
 
 Фильтрует и возвращает содержимое объекта {{ objstorage-name }} на основе [запроса на языке S3 Select](../../../concepts/s3-select-language.md).

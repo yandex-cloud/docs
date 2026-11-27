@@ -1,6 +1,10 @@
 ---
 title: Создать Docker-образ
 description: В инструкции описано, как создать Docker-образ на основе Dockerfile в {{ container-registry-name }} и собрать его.
+alternate:
+  - href: ru/container-registry/operations/docker-image/docker-image-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать Docker-образ

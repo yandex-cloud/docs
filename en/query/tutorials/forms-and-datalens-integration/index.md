@@ -2,6 +2,10 @@
 title: Transferring data from {{ forms-full-name }} to {{ datalens-full-name }} via {{ sf-full-name }} and {{ yq-full-name }}
 description: In this tutorial, you will learn how to display aggregate data from {{ forms-full-name }} forms.
 canonical: '{{ link-docs }}/tutorials/serverless/forms-and-datalens-integration/'
+alternate:
+  - href: en/query/tutorials/forms-and-datalens-integration/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring {{ forms-full-name }} data to {{ datalens-full-name }} via {{ sf-full-name }} and {{ yq-full-name }}

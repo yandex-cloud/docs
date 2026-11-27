@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/organization/list/
+alternate:
+  - href: en/organization/cli-ref/organization/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager organization list

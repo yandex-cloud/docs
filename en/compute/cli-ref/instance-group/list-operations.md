@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance-group/list-operations/
+alternate:
+  - href: en/compute/cli-ref/instance-group/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute instance-group list-operations

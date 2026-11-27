@@ -1,6 +1,10 @@
 ---
 title: Self-service password reset in {{ org-full-name }}
 description: With MFA policy settings, you can enable self-service password reset for local users without administrator involvement.
+alternate:
+  - href: en/organization/concepts/sspr.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Self-service password reset in {{ org-full-name }}

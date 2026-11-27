@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/desc-failure-domains.md
+    type: text/markdown
+    title: Markdown version
+---
 # Описание доменов отказа
 
 ## Один линк {#single-link}

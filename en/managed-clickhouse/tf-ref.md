@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ mch-full-name }}'
 description: This page lists {{ TF }} provider resources and data sources supported by {{ mch-name }}.
+alternate:
+  - href: en/managed-clickhouse/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ mch-full-name }}

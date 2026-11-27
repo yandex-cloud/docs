@@ -1,6 +1,10 @@
 ---
 title: '{{ mpg-name }}. FAQ'
 description: What is {{ mpg-name }}? Not sure when to use {{ mpg-name }} or VMs with databases? Want to know the role of {{ mpg-name }} in database management and maintenance? Find answers to these and other questions in this article.
+alternate:
+  - href: en/managed-postgresql/qa/general.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ mpg-name }}

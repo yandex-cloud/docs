@@ -29,6 +29,11 @@ apiPlayground:
         - cicPrivateConnectionId
       additionalProperties: false
     definitions: null
+noIndex: true
+alternate:
+  - href: en/cloud-router/api-ref/RoutingInstance/addPrivateConnection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Router API, REST: RoutingInstance.AddPrivateConnection

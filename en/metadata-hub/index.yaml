@@ -13,6 +13,10 @@ meta:
     - keyword: data management in {{ yandex-cloud }}
     - keyword: managing database connections
     - keyword: metadata catalog in {{ yandex-cloud }}
+  alternate:
+    - href: en/metadata-hub/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex MetaData Hub

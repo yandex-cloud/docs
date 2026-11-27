@@ -1,6 +1,10 @@
 ---
 title: Практические руководства {{ data-transfer-full-name }}
 description: Различные сценарии использования {{ data-transfer-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/data-transfer/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ data-transfer-name }}

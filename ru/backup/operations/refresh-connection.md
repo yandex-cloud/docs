@@ -1,6 +1,10 @@
 ---
 title: Как обновить подключение виртуальной машины {{ compute-full-name }} к {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете обновить подключение виртуальной машины {{ compute-full-name }} к {{ backup-name }}.
+alternate:
+  - href: ru/backup/operations/refresh-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переподключить виртуальную машину к {{ backup-name }}

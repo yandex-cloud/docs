@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/concepts/billing-account-statuses.md
+    type: text/markdown
+    title: Markdown version
+---
 # Статусы платежного аккаунта
 
 Статус платежного аккаунта зависит от наличия или отсутствия задолженности по оплате потребленных ресурсов.

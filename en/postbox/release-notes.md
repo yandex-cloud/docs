@@ -1,6 +1,10 @@
 ---
 title: '{{ postbox-full-name }} release notes'
 description: This section contains the {{ postbox-name }} release notes.
+alternate:
+  - href: en/postbox/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ postbox-full-name }} release notes

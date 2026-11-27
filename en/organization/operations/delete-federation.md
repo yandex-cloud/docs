@@ -1,6 +1,10 @@
 ---
 title: Deleting an identity federation in {{ org-full-name }}
 description: In this tutorial, you will learn how to delete an identity federation in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/delete-federation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an identity federation

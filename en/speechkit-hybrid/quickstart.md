@@ -1,6 +1,11 @@
 ---
 title: How to create a {{ sk-hybrid-name }} demo stand
 description: Using this guide, you can create applications for speech recognition and synthesis, as well as load testing utilities.
+noIndex: true
+alternate:
+  - href: en/speechkit-hybrid/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ sk-hybrid-name }} demo stand

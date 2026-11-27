@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/csharp/model/yc-function.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using the YcFunction interface to set a handler in C#
 
 You can set a handler in C# by implementing the [YcFunction](https://github.com/yandex-cloud/dotnet-sdk/blob/master/Yandex.Cloud.SDK/Functions/YcFunction.cs) interface. To do this, add an [SDK](../sdk.md) to the [dependencies](../dependencies.md).

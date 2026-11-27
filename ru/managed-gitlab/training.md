@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ mgl-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ mgl-full-name }}.
+alternate:
+  - href: ru/managed-gitlab/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ mgl-name }}

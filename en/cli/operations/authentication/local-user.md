@@ -1,6 +1,10 @@
 ---
 title: Authenticating in the {{ yandex-cloud }} CLI as a local user
 description: Follow this guide to get authenticated in the {{ yandex-cloud }} CLI as a local user.
+alternate:
+  - href: en/cli/operations/authentication/local-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authenticating in the {{ yandex-cloud }} CLI as a local user

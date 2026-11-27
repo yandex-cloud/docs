@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/concepts/decommission.md
+    type: text/markdown
+    title: Markdown version
+---
 # Декомиссия подкластеров и хостов {{ dataproc-name }}
 
 Декомиссия — процедура уменьшения мощности кластера (числа хостов и их класса) без его остановки и прерывания рабочей нагрузки. Декомиссия поддерживается для кластеров {{ dataproc-name }} версии 1.2 и выше.

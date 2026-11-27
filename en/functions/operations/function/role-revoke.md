@@ -1,6 +1,10 @@
 ---
 title: Revoking roles assigned for a function
 description: Follow this guide to revoke roles assigned for a function.
+alternate:
+  - href: en/functions/operations/function/role-revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Revoking roles assigned for a function

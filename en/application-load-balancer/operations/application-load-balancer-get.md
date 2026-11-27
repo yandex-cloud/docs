@@ -1,5 +1,9 @@
 ---
 title: How to get information about an L7 load balancer in {{ alb-full-name }}
+alternate:
+  - href: en/application-load-balancer/operations/application-load-balancer-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about an L7 load balancer

@@ -1,6 +1,10 @@
 ---
 title: Metadata markup
 description: Follow this guide to mark up metadata in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/markup-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Metadata markup

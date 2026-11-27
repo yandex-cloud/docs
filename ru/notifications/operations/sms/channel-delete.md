@@ -1,6 +1,10 @@
 ---
 title: Удалить канал SMS-уведомлений в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете удалить канал SMS-уведомлений.
+alternate:
+  - href: ru/notifications/operations/sms/channel-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить канал SMS-уведомлений

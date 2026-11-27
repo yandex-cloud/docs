@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartcaptcha/cli-ref/captcha/list/
+alternate:
+  - href: ru/smartcaptcha/cli-ref/captcha/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartcaptcha captcha list

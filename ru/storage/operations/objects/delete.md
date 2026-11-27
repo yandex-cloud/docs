@@ -1,6 +1,10 @@
 ---
 title: Удалить объект в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете удалить объект в бакете в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/objects/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить объект

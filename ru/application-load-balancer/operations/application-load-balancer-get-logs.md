@@ -1,6 +1,10 @@
 ---
 title: Посмотреть логи L7-балансировщика {{ alb-full-name }}
 description: Как найти и просмотреть логи L7-балансировщика {{ alb-name }} в {{ monium-name }}.
+alternate:
+  - href: ru/application-load-balancer/operations/application-load-balancer-get-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть логи L7-балансировщика

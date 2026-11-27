@@ -1,6 +1,10 @@
 ---
 title: Удаление глоссария
 description: Следуя данной инструкции, вы сможете удалить глоссарий в каталоге метаданных.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/delete-glossary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление глоссария

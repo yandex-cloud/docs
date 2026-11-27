@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание в {{ metastore-full-name }}
 description: Техническое обслуживание в {{ metastore-full-name }} включает установку обновлений и исправлений компонента {{ metastore-name }}, а также другие сервисные работы.
+alternate:
+  - href: ru/metadata-hub/concepts/metastore-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

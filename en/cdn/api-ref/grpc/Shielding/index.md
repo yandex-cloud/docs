@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/cdn/api-ref/grpc/Shielding/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, gRPC: ShieldingService

@@ -1,5 +1,9 @@
 ---
 subcategory: Network Load Balancer
+alternate:
+  - href: ru/terraform/resources/lb_target_group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_lb_target_group (Resource)

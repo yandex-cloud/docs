@@ -67,6 +67,10 @@ apiPlayground:
               To get the list of all available certificates, make a [yandex.cloud.certificatemanager.v1.CertificateService.List](/docs/certificate-manager/api-ref/Certificate/list#List)
               request.
             type: string
+alternate:
+  - href: ru/storage/api-ref/Bucket/setHTTPSConfig.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, REST: Bucket.SetHTTPSConfig

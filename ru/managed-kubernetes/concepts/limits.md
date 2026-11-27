@@ -1,6 +1,10 @@
 ---
 title: Квоты и лимиты в {{ managed-k8s-name }}
 description: В {{ managed-k8s-name }} действуют лимиты и квоты на суммарное количество vCPU для всех узлов, суммарный объем RAM, суммарный объем дисков, максимальное количество кластеров {{ k8s }} в одном облаке. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
+alternate:
+  - href: ru/managed-kubernetes/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ managed-k8s-name }}

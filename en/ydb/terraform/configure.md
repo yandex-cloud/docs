@@ -1,6 +1,10 @@
 ---
 title: Creating configuration files and connecting to {{ ydb-short-name }}
 description: Follow this guide to create configuration files and connect to {{ ydb-short-name }}.
+alternate:
+  - href: en/ydb/terraform/configure.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating configuration files and connecting to {{ ydb-short-name }}

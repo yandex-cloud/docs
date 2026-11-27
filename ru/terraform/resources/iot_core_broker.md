@@ -1,5 +1,9 @@
 ---
 subcategory: IoT Core Broker
+alternate:
+  - href: ru/terraform/resources/iot_core_broker.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_iot_core_broker (Resource)

@@ -1,6 +1,10 @@
 ---
 title: Как настроить автообновление дашборда в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете настроить автообновление дашборда в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/auto-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Автообновление дашборда в {{ datalens-full-name }}

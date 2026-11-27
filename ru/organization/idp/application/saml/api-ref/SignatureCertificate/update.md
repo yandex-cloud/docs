@@ -46,6 +46,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/organization/idp/application/saml/api-ref/SignatureCertificate/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: SignatureCertificate.Update

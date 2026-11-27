@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/policies/deploy-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deployment policy
 
 When creating an instance group, you can choose how the instances will be deployed in the group.

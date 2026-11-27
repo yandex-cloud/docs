@@ -1,6 +1,10 @@
 ---
 title: Хранилище в {{ mch-full-name }}
 description: Из статьи вы узнаете, какие типы дисков есть в {{ mch-name }}, узнаете про особенности гибридного хранилища, а также ознакомитесь с особенностями выбора типа дисков при создании кластера.
+alternate:
+  - href: ru/managed-clickhouse/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Хранилище в {{ mch-name }}

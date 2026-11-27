@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/cluster/update/
+alternate:
+  - href: en/cli/cli-ref/managed-mysql/cli-ref/cluster/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mysql cluster update

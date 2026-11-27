@@ -70,6 +70,10 @@ apiPlayground:
         - privateKey
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/certificate-manager/api-ref/Certificate/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager API, REST: Certificate.Create

@@ -1,6 +1,10 @@
 ---
 title: Скачать Debian-пакет из реестра {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы скачаете Debian-пакет из реестра {{ cloud-registry-full-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/debian/pull.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Скачать Debian-пакет из реестра

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/schema-mapping.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение x-yc-schema-mapping
 
 Расширение `x-yc-schema-mapping` позволяет преобразовывать JSON-тело запроса к интеграции или ответа от нее.

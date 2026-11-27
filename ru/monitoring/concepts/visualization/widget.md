@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monitoring/concepts/visualization/widget.md
+    type: text/markdown
+    title: Markdown version
+---
 # Виджет
 
 _Виджет_ — это элемент дашборда, отображающий информацию в виде графика или текста.

@@ -1,6 +1,10 @@
 ---
 title: Настройка дополнительной приватной подсети на сервере {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете добавить на сервер {{ baremetal-full-name }} и настроить дополнительную приватную подсеть с тегированным VLAN.
+alternate:
+  - href: ru/baremetal/operations/servers/set-up-tagged-vlan.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить на сервере дополнительную приватную подсеть с тегированным VLAN

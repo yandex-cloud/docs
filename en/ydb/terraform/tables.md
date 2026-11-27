@@ -1,6 +1,10 @@
 ---
 title: Creating row-oriented and column-oriented tables in a {{ ydb-short-name }} database.
 description: This guide describes the properties of the yandex_ydb_table resource used to create row-oriented and column-oriented tables in {{ ydb-short-name }}.
+alternate:
+  - href: en/ydb/terraform/tables.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating row-oriented and column-oriented tables in a database

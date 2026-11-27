@@ -1,6 +1,10 @@
 ---
 title: Updating a {{ yandex-cloud }} SAML certificate in a {{ org-full-name }} identity federation
 description: Follow this guide to update a {{ yandex-cloud }} certificate in a {{ org-full-name }} identity federation.
+alternate:
+  - href: en/organization/operations/renew-yc-certificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a {{ yandex-cloud }} SAML certificate in an identity federation

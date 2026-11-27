@@ -1,6 +1,10 @@
 ---
 title: '{{ dspm-name }} service roles in {{ sd-full-name }}'
 description: This page lists the service roles required to control access to {{ dspm-full-name }} ({{ dspm-name }}) in {{ sd-name }}.
+alternate:
+  - href: en/security-deck/security/dspm-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ dspm-full-name }} ({{ dspm-name }}) service roles

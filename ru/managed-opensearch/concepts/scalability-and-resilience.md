@@ -1,6 +1,10 @@
 ---
 title: Шардирование и репликация в {{ mos-full-name }}
 description: В кластере {{ OS }} с помощью шардирования можно обеспечить возможность масштабирования при росте объема данных в индексах. С помощью репликации можно обеспечить высокую доступность кластера и сохранность данных в индексах.
+alternate:
+  - href: ru/managed-opensearch/concepts/scalability-and-resilience.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Шардирование и репликация в {{ mos-name }}

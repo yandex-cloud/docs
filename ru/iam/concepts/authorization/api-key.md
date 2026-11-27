@@ -1,6 +1,10 @@
 ---
 title: API-ключ
 description: Из статьи вы узнаете, что такое API-ключ, зачем он нужен, как использовать API-ключ и какие сервисы поддерживают этот способ аутентификации.
+alternate:
+  - href: ru/iam/concepts/authorization/api-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API-ключ

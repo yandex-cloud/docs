@@ -1,6 +1,10 @@
 ---
 title: Creating secondary indexes in {{ ydb-short-name }} row-oriented tables
 description: This tutorial describes the properties of the `yandex_ydb_table_index` resource for creating secondary indexes in {{ ydb-short-name }} row-oriented tables.
+alternate:
+  - href: en/ydb/terraform/row-tables-secondary-index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating secondary indexes in row-oriented tables

@@ -1,6 +1,10 @@
 ---
 title: Инструкция о том, как удалить триггер в {{ sf-full-name }}
 description: Из статьи вы узнаете, как удалить триггер в {{ sf-full-name }}.
+alternate:
+  - href: ru/functions/operations/trigger/trigger-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить триггер в {{ sf-name }}

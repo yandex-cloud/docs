@@ -1,6 +1,10 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/mysql-data-migration/'
 noIndex: true
+alternate:
+  - href: en/managed-mysql/tutorials/data-migration/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating a database from a third-party {{ MY }} cluster

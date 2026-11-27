@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/api-key/delete/
+alternate:
+  - href: en/iam/cli-ref/api-key/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam api-key delete

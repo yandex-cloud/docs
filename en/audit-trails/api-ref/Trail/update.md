@@ -528,6 +528,10 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/DataEventsFiltering'
+alternate:
+  - href: en/audit-trails/api-ref/Trail/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Audit Trails API, REST: Trail.Update

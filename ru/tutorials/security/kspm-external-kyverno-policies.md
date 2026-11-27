@@ -1,6 +1,10 @@
 ---
 title: Использование внешних политик Kyverno с {{ kspm-name }}
 description: Настройте внешние политики Kyverno в модуле Контроль {{ k8s }}® ({{ kspm-name }}) и организуйте сбор результатов их работы в {{ objstorage-full-name }} с помощью Policy Reporter.
+alternate:
+  - href: ru/tutorials/security/kspm-external-kyverno-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование внешних политик Kyverno с {{ kspm-name }}

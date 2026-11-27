@@ -1,6 +1,10 @@
 ---
 title: Какие заголовки ответов существуют в S3 API {{ objstorage-full-name }}
 description: Из статьи вы узнаете, какие заголовки ответов существуют в S3 API.
+alternate:
+  - href: ru/storage/s3/api-ref/common-response-headers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие заголовки ответов

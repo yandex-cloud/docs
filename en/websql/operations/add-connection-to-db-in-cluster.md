@@ -1,6 +1,10 @@
 ---
 title: Adding a connection to a DB in a cluster in {{ websql-full-name }}
 description: Follow this guide to create connections to managed database clusters.
+alternate:
+  - href: en/websql/operations/add-connection-to-db-in-cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a connection to a DB in a cluster

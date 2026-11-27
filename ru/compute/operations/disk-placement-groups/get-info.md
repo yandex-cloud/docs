@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о группе размещения дисков в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о группе размещения дисков.
+alternate:
+  - href: ru/compute/operations/disk-placement-groups/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о группе размещения дисков

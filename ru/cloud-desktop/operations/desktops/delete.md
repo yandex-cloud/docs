@@ -1,6 +1,10 @@
 ---
 title: Инструкция по удалению рабочего стола в {{ cloud-desktop-full-name }}
 description: Из статьи вы узнаете, как удалить рабочий стол в {{ cloud-desktop-full-name }}.
+alternate:
+  - href: ru/cloud-desktop/operations/desktops/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить рабочий стол

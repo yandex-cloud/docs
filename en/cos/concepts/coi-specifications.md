@@ -1,6 +1,10 @@
 ---
 title: Docker container specifications in {{ cos-full-name }}
 description: You can describe a Docker container run configuration using the COI or Docker Compose specification.
+alternate:
+  - href: en/cos/concepts/coi-specifications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Docker container specifications

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/host-group/remove-labels/
+alternate:
+  - href: en/compute/cli-ref/v0/host-group/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute v0 host-group remove-labels

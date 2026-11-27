@@ -1,6 +1,10 @@
 ---
 title: Работа со списком расследований в {{ ycdr-full-name }}
 description: Следуя данной инструкции, вы научитесь фильтровать, искать и сортировать расследования в {{ ycdr-name }}.
+alternate:
+  - href: ru/ycdr/operations/investigations/investigations-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа со списком расследований

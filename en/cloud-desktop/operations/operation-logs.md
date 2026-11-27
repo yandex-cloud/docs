@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cloud-desktop/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing {{ cloud-desktop-name }} resource operations
 
 The system logs all actions with {{ cloud-desktop-name }} resources as a list of operations. Each operation gets its own unique ID.

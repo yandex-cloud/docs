@@ -1,6 +1,10 @@
 ---
 title: Supported tools for working with {{ objstorage-name }}
 description: List of supported tools for working with {{ objstorage-name }}.
+alternate:
+  - href: en/storage/tools/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Supported tools

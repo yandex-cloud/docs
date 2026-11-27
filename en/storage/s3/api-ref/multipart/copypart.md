@@ -1,6 +1,10 @@
 ---
 title: copyPart method. {{ objstorage-name }} API (S3)
 description: The copyPart method in the {{ objstorage-name }} API (S3) copies a part of an object. This method works much the same as the uploadPart method, except that it copies data from an existing object rather than providing it in the request body.
+alternate:
+  - href: en/storage/s3/api-ref/multipart/copypart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, Amazon S3-compatible REST: UploadPartCopy

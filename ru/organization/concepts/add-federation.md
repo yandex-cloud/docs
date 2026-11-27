@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/organization/concepts/add-federation.md
+    type: text/markdown
+    title: Markdown version
+---
 # SAML-совместимые федерации удостоверений
 
 {{ yandex-cloud }} поддерживает идентификацию федераций удостоверений с помощью [SAML 2.0](https://wiki.oasis-open.org/security). Это популярный язык разметки для реализации системы единого входа (Single Sign-On, SSO) — технологии, с помощью которой пользователи могут получать доступ ко множеству приложений без необходимости каждый раз вводить свой логин и пароль.

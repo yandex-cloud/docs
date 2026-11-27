@@ -1,6 +1,10 @@
 ---
 title: Ключи приложений в {{ monium-full-name }}
 description: Как создать ключ приложения для записи метрик, логов и трейсов в {{ monium-name }}, отправлять телеметрию и ротировать ключи.
+alternate:
+  - href: ru/monium/security/application-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ключи приложений

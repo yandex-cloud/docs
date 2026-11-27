@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/networking.md
+    type: text/markdown
+    title: Markdown version
+---
 # Networking in {{ api-gw-name }}
 
 By default, an API gateway resides in an isolated IPv4 network with a [NAT gateway](../../vpc/concepts/gateways.md) enabled. For this reason, it can only access public IPv4 addresses.

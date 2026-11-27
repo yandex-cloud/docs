@@ -5,6 +5,10 @@ keywords:
   - Updating an {{ SPRK }} cluster
   - '{{ SPRK }} cluster'
   - '{{ SPRK }}'
+alternate:
+  - href: en/managed-spark/operations/cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating an {{ SPRK }} cluster

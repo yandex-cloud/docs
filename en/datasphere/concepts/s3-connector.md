@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/s3-connector.md
+    type: text/markdown
+    title: Markdown version
+---
 # S3 connector
 
 {{ ml-platform-name }} allows you to connect to an S3 object storage using a special type of resource, _S3 connector_.

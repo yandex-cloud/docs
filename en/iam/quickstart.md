@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iam/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ iam-short-name }}
 
 To get started with {{ iam-short-name }}, add a user to your organization and grant them access to a resource in one of your clouds. [Learn more about organizations, resources, and users](../overview/roles-and-resources.md).

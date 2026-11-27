@@ -1,6 +1,10 @@
 ---
 title: How to get information about {{ interconnect-name }} points of presence
 description: In this tutorial, we will get information about {{ interconnect-name }} points of presence.
+alternate:
+  - href: en/interconnect/operations/pop-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about points of presence

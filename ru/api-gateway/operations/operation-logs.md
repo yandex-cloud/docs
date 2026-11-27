@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Просмотр операций с ресурсами сервиса {{ api-gw-name }}
 
 Все действия с ресурсами сервиса {{ api-gw-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.

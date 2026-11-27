@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/resource-groups.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing resource groups
 
 You can manage cluster resource usage quotas via [resource groups](../concepts/resource-groups.md).

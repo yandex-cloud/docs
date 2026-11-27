@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_get_settings.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets get settings
 
 Get bucket settings

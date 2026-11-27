@@ -1,6 +1,10 @@
 ---
 title: How to manage subtitles in {{ video-full-name }}
 description: Follow this guide to manage subtitles in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/video/subtitles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing subtitles

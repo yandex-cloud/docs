@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ msp-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ msp-full-name }}.
 editable: false
+alternate:
+  - href: ru/managed-spark/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ msp-full-name }}

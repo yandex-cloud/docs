@@ -37,6 +37,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/managed-airflow/api-ref/Cluster/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Airflow™ API, REST: Cluster.ListOperations

@@ -1,6 +1,10 @@
 ---
 title: Как привязать собственный домен к виртуальной машине с веб-сервером
 description: Следуя данной инструкции, вы сможете привязать собственный домен к веб-серверу на виртуальной машине {{ compute-full-name }}.
+alternate:
+  - href: ru/tutorials/web/bind-domain-vm/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [bind-domain-vm](../../../_tutorials/applied/bind-domain-vm.md) %}

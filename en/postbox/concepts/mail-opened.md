@@ -1,6 +1,10 @@
 ---
 title: Tracking email openings
 description: In {{ postbox-full-name }}, you can track whether recipients open your emails. When the recipient opens the email in their email client, {{ postbox-name }} will send a notification.
+alternate:
+  - href: en/postbox/concepts/mail-opened.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Tracking email openings

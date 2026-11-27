@@ -119,6 +119,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/audit-trails/api-ref/Trail/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Audit Trails API, REST: Trail.UpdateAccessBindings

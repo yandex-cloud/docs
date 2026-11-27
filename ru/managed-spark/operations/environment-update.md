@@ -1,6 +1,10 @@
 ---
 title: Изменение окружения для кластера {{ SPRK }}
 description: Из статьи вы узнаете, как изменить параметры окружения для кластера {{ SPRK }}.
+alternate:
+  - href: ru/managed-spark/operations/environment-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменения окружения

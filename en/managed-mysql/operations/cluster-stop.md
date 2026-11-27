@@ -1,6 +1,10 @@
 ---
 title: Stopping and starting a {{ MY }} cluster in {{ mmy-name }}
 description: You can stop and restart an {{ MY }} cluster as needed. While your cluster is idle, you only pay for the size of your storage and backups.
+alternate:
+  - href: en/managed-mysql/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Stopping and starting a {{ MY }} cluster

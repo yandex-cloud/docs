@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ vpc-full-name }}
 description: В разделе представлена история изменений сервиса {{ vpc-name }}.
+alternate:
+  - href: ru/vpc/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ vpc-full-name }}

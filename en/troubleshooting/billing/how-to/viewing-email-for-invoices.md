@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/viewing-email-for-invoices.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to find out which email receives payment invoices
 
 

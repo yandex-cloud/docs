@@ -1,6 +1,10 @@
 ---
 title: Разметка хранилища данных в {{ data-catalog-name }}
 description: Как назначить домен, изменить описание, теги и термины для хранилища данных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/markup-data-store.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разметка хранилища данных

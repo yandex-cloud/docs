@@ -60,6 +60,10 @@ apiPlayground:
           type: boolean
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/kms/api-ref/SymmetricCrypto/generateDataKey.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: SymmetricCrypto.GenerateDataKey

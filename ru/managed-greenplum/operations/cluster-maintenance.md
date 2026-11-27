@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание кластера {{ mgp-full-name }}
 description: Как посмотреть информацию о техническом обслуживании кластера, перенести запланированное обслуживание и настроить окно обслуживания в {{ mgp-full-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание кластера {{ mgp-full-name }}

@@ -2,6 +2,10 @@
 title: '{{ api-gw-full-name }} pricing policy'
 description: This article covers the {{ api-gw-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/api-gateway/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ api-gw-full-name }} pricing policy

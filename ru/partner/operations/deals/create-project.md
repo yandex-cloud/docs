@@ -1,6 +1,10 @@
 ---
 title: Как создать проект
 description: Следуя данной инструкции, вы сможете создать проект
+alternate:
+  - href: ru/partner/operations/deals/create-project.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать проект

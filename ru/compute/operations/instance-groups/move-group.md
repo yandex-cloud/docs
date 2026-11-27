@@ -1,6 +1,10 @@
 ---
 title: Перенос группы виртуальных машин в другую зону доступности
 description: Из статьи вы узнаете, как можно перенести группу ВМ {{ compute-name }} из одной зоны доступности в другую.
+alternate:
+  - href: ru/compute/operations/instance-groups/move-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Перенести группу виртуальных машин в другую зону доступности

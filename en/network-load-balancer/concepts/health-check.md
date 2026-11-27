@@ -1,6 +1,10 @@
 ---
 title: Resource availability check
 description: In this article, you will learn about the purpose of resource availability checks and the different states of the network load balancer and target group resources.
+alternate:
+  - href: en/network-load-balancer/concepts/health-check.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource availability check

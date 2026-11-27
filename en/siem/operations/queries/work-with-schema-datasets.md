@@ -1,6 +1,10 @@
 ---
 title: Working with a database schema and datasets in {{ yandex-siem-full-name }}
 description: Follow this guide to learn how to work with a database schema and datasets in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/operations/queries/work-with-schema-datasets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with a database schema and datasets

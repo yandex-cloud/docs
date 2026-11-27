@@ -1,6 +1,10 @@
 ---
 title: Установка Kubernetes Node Remediation
 description: Следуя данной инструкции, вы сможете установить приложение Kubernetes Node Remediation.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/kubernetes-node-remediation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка Kubernetes Node Remediation

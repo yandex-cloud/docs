@@ -1,6 +1,10 @@
 ---
 title: Enabling MIG mode on a VM with a GPU
 description: Follow this guide to split your GPU into a number of isolated instances using the MIG technology.
+alternate:
+  - href: en/compute/operations/enable-mig.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling MIG mode on a VM with a GPU in {{ compute-name }}

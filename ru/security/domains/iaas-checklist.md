@@ -1,6 +1,10 @@
 ---
 title: Чеклист безопасности IaaS {{ yandex-cloud }}
 description: В этой статье вы ознакомитесь с содержимым чеклиста безопасности сети, ВМ и {{ objstorage-name }} на платформе {{ yandex-cloud }}.
+alternate:
+  - href: ru/security/domains/iaas-checklist.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чеклист безопасности IaaS

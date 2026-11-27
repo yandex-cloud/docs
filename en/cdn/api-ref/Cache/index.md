@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/cdn/api-ref/Cache/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: Cache

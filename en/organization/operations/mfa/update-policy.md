@@ -1,6 +1,10 @@
 ---
 title: Updating an MFA policy in {{ org-full-name }}
 description: Follow this guide to update an MFA policy in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/mfa/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating an MFA policy

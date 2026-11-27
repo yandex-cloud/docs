@@ -1,6 +1,10 @@
 ---
 title: Creating a table based on a dataset in Editor
 description: Follow this guide to build a table based on a dataset in Editor.
+alternate:
+  - href: en/datalens/charts/editor/quickstart/from-dataset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a table based on a dataset

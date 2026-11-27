@@ -2,6 +2,10 @@
 title: How to delete a record in {{ ydb-full-name }}
 description: Follow this guide to delete a record.
 sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
+alternate:
+  - href: en/ydb/docapi/tools/aws-sdk/delete-item.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Deleting a record
 

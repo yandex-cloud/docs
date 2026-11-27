@@ -666,6 +666,10 @@ apiPlayground:
               **[StaticResponseOption](#yandex.cloud.cdn.v1.ResourceOptions.StaticResponseOption)**
               Configuration for serving a static HTTP response instead of fetching from origin.
             $ref: '#/definitions/StaticResponseOption'
+alternate:
+  - href: ru/cdn/api-ref/ResourceRules/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: ResourceRules.Create

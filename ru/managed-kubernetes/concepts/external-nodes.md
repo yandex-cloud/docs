@@ -1,6 +1,10 @@
 ---
 title: Внешние узлы кластера
 description: В данной статье описаны особенности использования внешних узлов кластера.
+alternate:
+  - href: ru/managed-kubernetes/concepts/external-nodes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Внешние узлы кластера

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/postbox/events-ref/DeleteConfigurationSet.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Postbox Audit Trails Events: DeleteConfigurationSet

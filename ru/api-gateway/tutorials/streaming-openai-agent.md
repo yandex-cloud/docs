@@ -3,6 +3,10 @@ title: Как создать агента на OpenAI Agents SDK со стрим
 description: Следуя данной инструкции, вы сможете создать агента на OpenAI Agents SDK со стримингом ответа через веб-сокеты на {{ sf-name }} и {{ api-gw-name }}.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/streaming-openai-agent'
+alternate:
+  - href: ru/api-gateway/tutorials/streaming-openai-agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание агента на OpenAI Agents SDK со стримингом ответа через веб-сокеты на {{ sf-full-name }} и {{ api-gw-name }}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/update/
+alternate:
+  - href: ru/cli/cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartwebsecurity load-balancer domain update

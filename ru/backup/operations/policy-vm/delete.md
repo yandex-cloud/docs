@@ -1,6 +1,10 @@
 ---
 title: Удалить политику резервного копирования
 description: Из статьи вы узнаете, как удалить политику резервного копирования в {{ backup-full-name }}.
+alternate:
+  - href: ru/backup/operations/policy-vm/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить политику резервного копирования

@@ -1,6 +1,10 @@
 ---
 title: How to reset a {{ cloud-desktop-full-name }} desktop user password
 description: In this tutorial, you will learn how to reset a {{ cloud-desktop-full-name }} desktop user password.
+alternate:
+  - href: en/cloud-desktop/operations/desktops/password-reset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resetting a desktop user password

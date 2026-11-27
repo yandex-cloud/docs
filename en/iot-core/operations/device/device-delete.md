@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iot-core/operations/device/device-delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a device
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}

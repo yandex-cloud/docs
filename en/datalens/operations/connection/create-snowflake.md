@@ -1,6 +1,10 @@
 ---
 title: How to create a Snowflake connection in {{ datalens-full-name }}
 description: Follow this guide to create a Snowflake connection.
+alternate:
+  - href: en/datalens/operations/connection/create-snowflake.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a Snowflake connection

@@ -1,6 +1,10 @@
 ---
 title: How to get information about {{ mgl-full-name }} instances
 description: In this guide, you will learn how to get a list of {{ mgl-name }} instances and information about them.
+alternate:
+  - href: en/managed-gitlab/operations/instance/instance-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting {{ mgl-full-name }} instance info

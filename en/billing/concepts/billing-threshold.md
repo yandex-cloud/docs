@@ -1,6 +1,10 @@
 ---
 title: Billing threshold in {{ billing-name }}
 description: A billing threshold is a negative personal account balance. The billing threshold is how post-payment is implemented in {{ yandex-cloud }}.
+alternate:
+  - href: en/billing/concepts/billing-threshold.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing threshold

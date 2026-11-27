@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/policy-manager/delete-preset.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить пресеты политик
 
 Администраторы {{ stackland-name }} могут удалять пресеты Policy Manager.

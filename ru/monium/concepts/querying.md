@@ -1,6 +1,10 @@
 ---
 title: Язык запросов в {{ monium-name }}
 description: В сервисе {{ monium-name }} можно искать данные по метрикам, логам и трейсам с помощью единого языка запросов.
+alternate:
+  - href: ru/monium/concepts/querying.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Язык запросов в {{ monium-name }}

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/functions/triggers/api-ref/grpc/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Triggers Service, gRPC: OperationService.Get

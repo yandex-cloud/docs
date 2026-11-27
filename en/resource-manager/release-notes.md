@@ -1,6 +1,10 @@
 ---
 title: '{{ resmgr-full-name }} release notes'
 description: This section contains the {{ resmgr-name }} release notes.
+alternate:
+  - href: en/resource-manager/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ resmgr-full-name }} release notes

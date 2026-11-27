@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.AVATAR.NOT_FOUND.FIELD_REF
 description: На странице приведено описание ошибки {{ datalens-full-name }} Field references an unknown source avatar.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-AVATAR-NOT_FOUND-FIELD_REF.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Field references an unknown source avatar

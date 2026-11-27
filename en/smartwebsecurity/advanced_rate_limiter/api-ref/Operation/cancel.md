@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/smartwebsecurity/advanced_rate_limiter/api-ref/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity ARL API, REST: Operation.Cancel

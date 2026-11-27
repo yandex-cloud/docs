@@ -1,6 +1,10 @@
 ---
 title: Как настроить эндпоинт-приемник {{ MG }} в {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ MG }} в {{ data-transfer-full-name }}.
+alternate:
+  - href: ru/data-transfer/operations/endpoint/target/mongodb.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Передача данных в эндпоинт-приемник {{ MG }}/{{ SD }} (Managed Service for MongoDB)
 

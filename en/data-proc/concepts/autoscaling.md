@@ -1,6 +1,10 @@
 ---
 title: Autoscaling of subclusters
 description: In this article, you will learn about autoscaling of subclusters.
+alternate:
+  - href: en/data-proc/concepts/autoscaling.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Autoscaling of subclusters

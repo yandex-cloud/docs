@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/federation/group-mapping/update/
+alternate:
+  - href: ru/organization/cli-ref/federation/group-mapping/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager federation group-mapping update

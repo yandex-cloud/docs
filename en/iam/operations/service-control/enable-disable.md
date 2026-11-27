@@ -1,6 +1,10 @@
 ---
 title: Enabling and disabling {{ yandex-cloud }} services
 description: In this guide, you will learn how to enable and disable services to manage their access to user resources in {{ yandex-cloud }}.
+alternate:
+  - href: en/iam/operations/service-control/enable-disable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling and disabling a service

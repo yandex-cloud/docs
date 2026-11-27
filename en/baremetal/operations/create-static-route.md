@@ -1,6 +1,10 @@
 ---
 title: How to create a static route in a {{ baremetal-full-name }} VRF
 description: Follow this guide to set up a static route in a {{ baremetal-full-name }} VRF.
+alternate:
+  - href: en/baremetal/operations/create-static-route.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a static route

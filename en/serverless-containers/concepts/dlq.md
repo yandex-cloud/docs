@@ -1,6 +1,10 @@
 ---
 title: Dead Letter Queue in Yandex Serverless Containers
 description: The Dead Letter Queue (DLQ) is a queue for messages that could not be processed by a triggered container. A message is considered processed if the container that received it ended successfully. Messages moved to the DLQ are stored there for further analysis.
+alternate:
+  - href: en/serverless-containers/concepts/dlq.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Dead Letter Queue in {{ serverless-containers-name }}

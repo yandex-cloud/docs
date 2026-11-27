@@ -1,6 +1,10 @@
 ---
 title: Просмотр правил контроля безопасности модуля {{ cspm-name }} в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в модуле Контроль конфигурации ({{ cspm-name }}) {{ sd-full-name }} можно посмотреть действующие правила безопасности и узнать о нарушениях этих правил.
+alternate:
+  - href: ru/security-deck/operations/cspm/view-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть правила контроля безопасности модуля {{ cspm-name }} и их нарушения

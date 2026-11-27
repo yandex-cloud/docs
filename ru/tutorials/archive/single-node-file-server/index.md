@@ -1,6 +1,10 @@
 ---
 title: Однонодовый файловый сервер. Обзор.
 description: В этом руководстве вы создадите однонодовый файловый сервер NFS с помощью пакета программ Samba и сетевой инфраструктуры {{ vpc-full-name }}. Сервер разместится на виртуальной машине Ubuntu, а подключаться к нему можно будет с компьютеров на Linux, macOS и Windows.
+alternate:
+  - href: ru/tutorials/archive/single-node-file-server/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [single-node-file-server](../../../_tutorials/archive/single-node-file-server.md) %}

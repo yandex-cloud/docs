@@ -1,6 +1,10 @@
 ---
 title: Политики резервного копирования {{ backup-full-name }}
 description: Из этой статьи вы узнаете, как работают политики резервного копирования {{ backup-name }}.
+alternate:
+  - href: ru/backup/concepts/policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

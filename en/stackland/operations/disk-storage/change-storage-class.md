@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/disk-storage/change-storage-class.md
+    type: text/markdown
+    title: Markdown version
+---
 # Switching a component to a different storage class
 
 When deployed, {{ stackland-name }} assigns a default storage class, the one specified in `StacklandClusterConfig.spec.storage.defaultStorageClass`. This class is annotated with `storageclass.kubernetes.io/is-default-class: "true"` and used for all PVCs where the storage class is not explicitly specified.

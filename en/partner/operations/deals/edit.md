@@ -1,6 +1,10 @@
 ---
 title: How to edit a deal
 description: Follow this guide to edit a deal.
+alternate:
+  - href: en/partner/operations/deals/edit.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a deal

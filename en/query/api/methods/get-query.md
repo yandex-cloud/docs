@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/api/methods/get-query.md
+    type: text/markdown
+    title: Markdown version
+---
 # get-query
 
 This method returns query details, including its metadata, execution status, and result size.

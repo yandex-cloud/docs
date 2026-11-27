@@ -1,6 +1,10 @@
 ---
 title: How to read metrics
 description: Follow this guide to read metrics.
+alternate:
+  - href: en/monium/operations/prometheus/querying/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reading metrics

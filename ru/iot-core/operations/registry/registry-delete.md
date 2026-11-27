@@ -1,6 +1,10 @@
 ---
 title: Как удалить реестр {{ iot-full-name }}
 description: Следуя данной инструкции, вы сможете удалить реестр {{ iot-short-name }}.
+alternate:
+  - href: ru/iot-core/operations/registry/registry-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление реестра

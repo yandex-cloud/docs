@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/overdraft-while-transferring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Какой лимит отрицательного баланса при оплате банковским переводом
 
 

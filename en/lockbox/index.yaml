@@ -25,6 +25,10 @@ meta:
     - keyword: secret
     - keyword: yandex secret
     - keyword: '{{ lockbox-name }} secret'
+  alternate:
+    - href: en/lockbox/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first secret

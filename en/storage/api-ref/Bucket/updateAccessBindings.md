@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/storage/api-ref/Bucket/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, REST: Bucket.UpdateAccessBindings

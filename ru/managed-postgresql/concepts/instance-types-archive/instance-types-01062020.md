@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/concepts/instance-types-archive/instance-types-01062020.md
+    type: text/markdown
+    title: Markdown version
+---
 # Классы хостов {{ PG }} до 1 июня 2020 года
 
 Класс хостов в {{ mpg-name }} определяет вычислительные мощности, которые выделяются для каждого хоста в кластере. При изменении класса хостов для кластера меняются характеристики всех уже созданных в нем хостов.

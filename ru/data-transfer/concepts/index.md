@@ -1,6 +1,10 @@
 ---
 title: Взаимосвязь ресурсов сервиса {{ data-transfer-full-name }}
 description: '{{ data-transfer-full-name }} позволяет легко переносить данные между базами данных. Сервис позволяет сократить время на процесс миграции, минимизировать простой при переключении на новую базу данных или иметь постоянную реплику базы.'
+alternate:
+  - href: ru/data-transfer/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Взаимосвязь ресурсов в {{ data-transfer-name }}

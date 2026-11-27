@@ -1,5 +1,9 @@
 ---
 subcategory: Message Queue
+alternate:
+  - href: en/terraform/data-sources/message_queue.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_message_queue (DataSource)

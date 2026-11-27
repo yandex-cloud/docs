@@ -1,6 +1,10 @@
 ---
 title: Как создать домен в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы сможете создать домен в {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/create-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание домена

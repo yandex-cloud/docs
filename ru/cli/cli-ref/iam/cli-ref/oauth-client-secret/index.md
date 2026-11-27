@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/oauth-client-secret/
+alternate:
+  - href: ru/cli/cli-ref/iam/cli-ref/oauth-client-secret/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam oauth-client-secret

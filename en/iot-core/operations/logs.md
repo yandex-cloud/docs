@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iot-core/operations/logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing a connection log
 
 {% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}

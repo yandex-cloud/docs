@@ -29,6 +29,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/iam/api-ref/AccessPolicyTemplate/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: AccessPolicyTemplate.List

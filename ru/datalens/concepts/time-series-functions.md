@@ -1,6 +1,10 @@
 ---
 title: Функции для работы с временными рядами в {{ datalens-name }}
 description: В этом разделе описано, как использовать функции временных рядов на примере функции AGO. Эта функция позволяет получать значения показателя за прошедший или будущий период времени.
+alternate:
+  - href: ru/datalens/concepts/time-series-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Функции для работы с временными рядами

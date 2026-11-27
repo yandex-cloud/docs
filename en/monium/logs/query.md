@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/logs/query.md
+    type: text/markdown
+    title: Markdown version
+---
 # Query language
 
 This section describes the query language for log selection and filtering. The {{ monium-name }} interface and API use a unified query language to obtain data. This language allows applying filter expressions to every log line. Same as in SQL, you can use conditional expressions in the `WHERE` part.

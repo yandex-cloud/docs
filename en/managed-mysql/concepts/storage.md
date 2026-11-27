@@ -1,6 +1,10 @@
 ---
 title: Disk types in {{ mmy-full-name }}
 description: In this article, you will learn about disk types in {{ mmy-name }} and discover how to select the right disk type when creating a cluster.
+alternate:
+  - href: en/managed-mysql/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Storage in {{ mmy-name }}

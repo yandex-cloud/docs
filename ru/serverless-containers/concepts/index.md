@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обзор сервиса {{ serverless-containers-name }}
 
 {{ serverless-containers-name }} позволяет запускать контейнеризированные приложения в безопасном, отказоустойчивом и масштабируемом окружении без создания и обслуживания виртуальных машин. Сервис выделяет ресурсы, которые необходимы для выполнения приложения.

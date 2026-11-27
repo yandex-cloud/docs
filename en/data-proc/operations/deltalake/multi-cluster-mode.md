@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/operations/deltalake/multi-cluster-mode.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring Delta Lake in multi-cluster mode
 
 When in multi-cluster mode, {{ dataproc-name }} uses a [{{ ydb-full-name }}](../../../ydb/index.yaml) database to manage access to Delta Lake tables from different clusters and {{ SPRK }} jobs.

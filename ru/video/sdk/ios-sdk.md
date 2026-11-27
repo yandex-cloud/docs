@@ -1,6 +1,10 @@
 ---
 title: Как добавить {{ video-player-name }} в приложение iOS
 description: Следуя данной инструкции, вы сможете интегрировать {{ video-player-name }} в ваше мобильное приложение для iOS.
+alternate:
+  - href: ru/video/sdk/ios-sdk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SDK видеоплеера для iOS

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iam/operations/sa/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
+---
 # Setting up service account access permissions
 
 This section describes how to assign [roles](../../concepts/access-control/roles.md) for a [service account](../../concepts/users/service-accounts.md) as a resource. To grant the service account a role for another resource, follow the steps in [{#T}](assign-role-for-sa.md).

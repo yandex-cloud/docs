@@ -1,6 +1,10 @@
 ---
 title: Какие задачи решает сервис {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, какие задачи решает сервис {{ data-transfer-full-name }}.
+alternate:
+  - href: ru/data-transfer/concepts/use-cases.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Какие задачи решает сервис {{ data-transfer-full-name }}

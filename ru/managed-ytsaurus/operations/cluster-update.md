@@ -5,6 +5,10 @@ keywords:
   - изменение кластера {{ ytsaurus-name }}
   - кластер {{ ytsaurus-name }}
   - '{{ ytsaurus-name }}'
+alternate:
+  - href: ru/managed-ytsaurus/operations/cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение кластера {{ ytsaurus-name }}

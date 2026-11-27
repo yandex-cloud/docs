@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/lifecycles/get.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: GetBucketLifecycleConfiguration
 
 Возвращает конфигурацию жизненных циклов объектов в бакете из {{ objstorage-name }}.

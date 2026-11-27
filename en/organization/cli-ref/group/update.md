@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/group/update/
+alternate:
+  - href: en/organization/cli-ref/group/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager group update

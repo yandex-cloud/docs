@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/concepts/reporting-period.md
+    type: text/markdown
+    title: Markdown version
+---
 # Reporting period
 
 The reporting period is equal to one calendar month during which you are using {{ yandex-cloud }} resources.

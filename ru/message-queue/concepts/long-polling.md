@@ -1,6 +1,10 @@
 ---
 title: Что такое Long Polling?
 description: Long Polling – это технология, которая позволяет оптимизировать использование {{ message-queue-full-name }} за счет снижения количества отправляемых запросов ReceiveMessage к пустым очередям.
+alternate:
+  - href: ru/message-queue/concepts/long-polling.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Long Polling

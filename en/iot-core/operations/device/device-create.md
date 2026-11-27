@@ -1,6 +1,10 @@
 ---
 title: Creating a device
 description: Follow this guide to create a device.
+alternate:
+  - href: en/iot-core/operations/device/device-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a device

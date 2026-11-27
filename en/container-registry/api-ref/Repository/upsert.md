@@ -20,6 +20,10 @@ apiPlayground:
         - name
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/container-registry/api-ref/Repository/upsert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: Repository.Upsert

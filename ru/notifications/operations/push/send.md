@@ -1,6 +1,10 @@
 ---
 title: Отправка push-уведомления в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете отправить push-уведомление.
+alternate:
+  - href: ru/notifications/operations/push/send.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправить push-уведомление

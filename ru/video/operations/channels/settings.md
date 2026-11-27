@@ -1,6 +1,10 @@
 ---
 title: Как настроить канал в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете настроить канал {{ video-full-name }} и управлять монетизацией.
+alternate:
+  - href: ru/video/operations/channels/settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить канал и монетизацию

@@ -26,6 +26,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/iot-core/api-ref/Device/deleteCertificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Device.DeleteCertificate

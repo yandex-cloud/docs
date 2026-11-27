@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/device/password/
+alternate:
+  - href: en/cli/cli-ref/iot/cli-ref/device/password/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot device password

@@ -1,6 +1,10 @@
 ---
 title: How to manage secret versions in {{ lockbox-full-name }}
 description: Follow this guide to manage secret versions.
+alternate:
+  - href: en/lockbox/operations/secret-version-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Secret version management

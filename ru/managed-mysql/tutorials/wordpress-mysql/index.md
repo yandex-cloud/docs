@@ -3,6 +3,10 @@ title: Создание сайта на WordPress с кластером базы
 description: С помощью этой инструкции вы научитесь разворачивать сайт на базе CMS WordPress с кластером баз данных {{ MY }}.
 canonical: '{{ link-docs }}/tutorials/web/wordpress-mysql/'
 noIndex: true
+alternate:
+  - href: ru/managed-mysql/tutorials/wordpress-mysql/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [wordpress-mysql](../../../_tutorials/applied/wordpress-mysql.md) %}

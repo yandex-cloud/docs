@@ -1,6 +1,10 @@
 ---
 title: Избыточность данных в {{ objstorage-onprem-name }}
 description: Репликация и избыточное кодирование в слое хранения MDS2 в {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/data-redundancy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Избыточность данных

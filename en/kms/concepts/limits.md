@@ -1,6 +1,10 @@
 ---
 title: Quotas and limits in {{ kms-full-name }}
 description: '{{ kms-name }} has limits and quotas for the number of keys per cloud, the number of versions for a single key, and the maximum amount of data that can be encrypted with the encrypt operation. For more information about such restrictions, read this article.'
+alternate:
+  - href: en/kms/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ kms-name }}

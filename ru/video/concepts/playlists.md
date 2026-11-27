@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/video/concepts/playlists.md
+    type: text/markdown
+    title: Markdown version
+---
 # Плейлисты
 
 В сервисе {{ video-name }} вы можете [группировать](../operations/playlists/create.md) видео и завершенные трансляции в плейлисты в определенной последовательности, а также [изменять](../operations/playlists/update.md) такую последовательность.

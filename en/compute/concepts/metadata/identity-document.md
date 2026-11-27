@@ -1,6 +1,10 @@
 ---
 title: Identity document in {{ compute-name }} VMs
 description: In this article, you will learn about an identity document in the {{ compute-full-name }} VM metadata service.
+alternate:
+  - href: en/compute/concepts/metadata/identity-document.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity document

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/types/model_results.md
+    type: text/markdown
+    title: Markdown version
+---
 # Result types for models
 
 ## Completions

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/rest-catalog/delete-catalog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a folder
 
 You can delete a [{{ rest-catalog-name }} catalog](../../concepts/components/rest-catalog.md) from the project namespace.

@@ -7,6 +7,11 @@ keywords:
   - chaos engineering
   - fault tolerance
   - load testing
+noIndex: true
+alternate:
+  - href: en/architecture/testing-zone-failure-for-alb.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [testing-zone-failure-for-alb](../_tutorials/infrastructure/testing-zone-failure-for-alb.md) %}

@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/organization/idp/application/saml/api-ref/Application/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: Application.UpdateAccessBindings

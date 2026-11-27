@@ -1,6 +1,10 @@
 ---
 title: How to create an HTTP router for HTTP traffic in {{ alb-full-name }}
 description: In this tutorial, you will learn how to create an HTTP router for HTTP traffic.
+alternate:
+  - href: en/application-load-balancer/operations/http-router-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an HTTP router for HTTP traffic

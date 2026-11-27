@@ -1,6 +1,10 @@
 ---
 title: Downloading personal data linked to a billing account
 description: Follow this guide to download personal data linked to a billing account.
+alternate:
+  - href: en/billing/operations/get-data.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Downloading personal data linked to a billing account

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/metrics-pull.md
+    type: text/markdown
+    title: Markdown version
+---
 # Посмотреть метрики в {{ metrics-name }}
 
 Метрики сервиса {{ compute-name }} поставляются в [{{ metrics-name }}](../../monium/metrics/quickstart.md). Посмотреть их можно в интерфейсе {{ monium-name }} или выгрузить через API.

@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/iot-core/api-ref/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Operation.Cancel

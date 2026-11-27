@@ -1,6 +1,10 @@
 ---
 title: How to update the basic settings of a resource in {{ cdn-full-name }}
 description: Follow this guide to update the basic resource settings.
+alternate:
+  - href: en/cdn/operations/resources/configure-basics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating the basic settings of a resource

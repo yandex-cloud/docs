@@ -1,6 +1,10 @@
 ---
 title: How to get a list of refresh tokens
 description: Follow this guide to get a list of user refresh tokens and their metadata.
+alternate:
+  - href: en/iam/operations/refresh-token/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of refresh tokens

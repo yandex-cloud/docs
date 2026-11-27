@@ -1,6 +1,10 @@
 ---
 title: Troubleshooting {{ AF }}
 description: Diagnostics of statuses, dependencies, and connections for {{ AF }} clusters.
+alternate:
+  - href: en/stackland/operations/airflow/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting {{ AF }}

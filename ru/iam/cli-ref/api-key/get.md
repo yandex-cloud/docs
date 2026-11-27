@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/api-key/get/
+alternate:
+  - href: ru/iam/cli-ref/api-key/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam api-key get

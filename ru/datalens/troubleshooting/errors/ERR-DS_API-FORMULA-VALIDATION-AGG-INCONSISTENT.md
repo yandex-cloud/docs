@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT
 description: На странице приведено описание ошибки {{ datalens-full-name }} Inconsistent aggregation among operands.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Inconsistent aggregation among operands

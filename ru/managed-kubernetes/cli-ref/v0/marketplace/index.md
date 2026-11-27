@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/v0/marketplace/
+alternate:
+  - href: ru/managed-kubernetes/cli-ref/v0/marketplace/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kubernetes v0 marketplace

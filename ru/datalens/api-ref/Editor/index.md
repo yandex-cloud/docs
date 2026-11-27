@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Editor/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Editor
 
 <!-- markdownlint-disable-file -->

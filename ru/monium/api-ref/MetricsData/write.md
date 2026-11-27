@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/monium/api-ref/MetricsData/write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метод write

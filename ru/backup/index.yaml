@@ -14,6 +14,10 @@ meta:
     - keyword: резервное копирование в {{ yandex-cloud }}
     - keyword: резервные копии
     - keyword: резервное копирование
+  alternate:
+    - href: ru/backup/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Cloud Backup

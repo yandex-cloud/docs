@@ -1,6 +1,10 @@
 ---
 title: Рассылки в {{ datalens-full-name }}
 description: Эта статья рассказывает, какие рассылки можно настроить в {{ datalens-name }}.
+alternate:
+  - href: ru/datalens/concepts/maillists.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Рассылки в {{ datalens-full-name }}

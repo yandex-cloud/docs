@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/network/list-connections/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/v0/network/list-connections.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless v0 network list-connections

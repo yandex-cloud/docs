@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/kotlin/handler.md
+    type: text/markdown
+    title: Markdown version
+---
 # Request handler for a function in Kotlin
 
 A _request handler_ is a method used to process each Kotlin function call. Here is an example of a script with the `handle` method acting as a handler:

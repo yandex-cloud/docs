@@ -1,6 +1,10 @@
 ---
 title: '{{ dataproc-name }} host classes'
 description: The host class determines the computing power allocated for each host in a {{ dataproc-name }} cluster. When you change the host class for a cluster, all existing hosts change accordingly. The available storage size does not depend on the host class.
+alternate:
+  - href: en/data-proc/concepts/instance-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ dataproc-name }} host classes

@@ -1,6 +1,10 @@
 ---
 title: BareMetal Extend
 description: Из статьи вы узнаете о линейке продуктов BareMetal Extend на базе серверов {{ baremetal-full-name }}.
+alternate:
+  - href: ru/baremetal/concepts/extend.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal Extend

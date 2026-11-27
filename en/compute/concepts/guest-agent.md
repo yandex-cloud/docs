@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/guest-agent.md
+    type: text/markdown
+    title: Markdown version
+---
 # Password reset agent on Windows Server VMs
 
 To reset passwords on Windows Server VMs, {{ yandex-cloud }} provides a special software called an _agent_, which operates as a Windows Server service. An agent generates a new password for the VM user and securely provides it to the {{ yandex-cloud }} user who requested a password reset. See below for details. 

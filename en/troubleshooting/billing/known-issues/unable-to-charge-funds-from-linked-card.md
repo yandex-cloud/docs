@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/unable-to-charge-funds-from-linked-card.md
+    type: text/markdown
+    title: Markdown version
+---
 # Resolving issues with debiting funds from a credit/debit card
 
 

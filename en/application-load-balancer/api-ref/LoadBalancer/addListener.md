@@ -381,6 +381,10 @@ apiPlayground:
               - http
           - required:
               - tls
+alternate:
+  - href: en/application-load-balancer/api-ref/LoadBalancer/addListener.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.AddListener

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/interconnect/api-ref/grpc/TrunkConnection/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Interconnect API, gRPC: TrunkConnectionService.Update

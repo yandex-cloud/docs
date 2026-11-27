@@ -1,6 +1,10 @@
 ---
 title: Подключение к управляемым БД из контейнера {{ serverless-containers-name }} через пользовательскую сеть {{ vpc-short-name }}
 description: Следуя данному руководству, вы сможете развернуть в {{ serverless-containers-name }} HTTP-приложение, которое подключается к приватному кластеру {{ mpg-name }} или {{ mch-name }} через пользовательскую сеть {{ vpc-short-name }}.
+alternate:
+  - href: ru/serverless-containers/tutorials/database-connection-via-vpc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к управляемым БД из контейнера {{ serverless-containers-name }} через пользовательскую сеть {{ vpc-short-name }}

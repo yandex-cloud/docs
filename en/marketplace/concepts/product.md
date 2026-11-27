@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/marketplace/concepts/product.md
+    type: text/markdown
+    title: Markdown version
+---
 # Product
 
 A {{ marketplace-short-name }} product is a form that reflects the type of a software product and includes its [versions](version.md).

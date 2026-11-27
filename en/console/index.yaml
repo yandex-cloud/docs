@@ -20,6 +20,10 @@ meta:
     - keyword: Managing a cloud
     - keyword: Cloud console
     - keyword: How to configure notifications in a cloud
+  alternate:
+    - href: en/console/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Log in to the management console

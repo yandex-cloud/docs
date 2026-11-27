@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/api-ref/grpc/Trail/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Audit Trails API, gRPC: TrailService.Update

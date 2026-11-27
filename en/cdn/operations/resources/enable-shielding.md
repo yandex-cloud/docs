@@ -1,6 +1,10 @@
 ---
 title: How to enable or disable origin shielding in {{ cdn-full-name }}
 description: Follow this guide to enable or disable origin shielding.
+alternate:
+  - href: en/cdn/operations/resources/enable-shielding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling or disabling origin shielding

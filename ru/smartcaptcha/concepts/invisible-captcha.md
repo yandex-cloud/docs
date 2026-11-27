@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/smartcaptcha/concepts/invisible-captcha.md
+    type: text/markdown
+    title: Markdown version
+---
 # Невидимая капча
 
 Невидимая капча — это способ подключения виджета {{ captcha-name }}, при котором кнопка **Я не робот** отсутствует на странице. Окно с заданием увидят только те пользователи, запросы которых сервис {{ captcha-name }} посчитает подозрительными.

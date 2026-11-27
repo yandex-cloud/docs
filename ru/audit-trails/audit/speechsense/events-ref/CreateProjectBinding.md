@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/speechsense/events-ref/CreateProjectBinding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Talk Analytics Audit Trails Events: CreateProjectBinding

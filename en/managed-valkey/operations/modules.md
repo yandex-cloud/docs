@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-valkey/operations/modules.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with {{ VLK }} modules
 
 In {{ mrd-name }}, you can use [modules](../concepts/modules.md) ({{ VLK }} kernel extensions). Modules provide functionality to address modern-day needs through the use of high-load services and AI platforms: vector search, efficiently stored JSON data structures, and scalable probability filters.

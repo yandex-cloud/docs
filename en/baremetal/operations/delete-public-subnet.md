@@ -1,6 +1,10 @@
 ---
 title: How to delete a dedicated public subnet in {{ baremetal-full-name }}
 description: Follow this guide to delete a dedicated public subnet in {{ baremetal-full-name }}.
+alternate:
+  - href: en/baremetal/operations/delete-public-subnet.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a dedicated public subnet

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/data/connect-to-ya-disk.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to Yandex Disk
 
 You can connect to [Yandex Disk](https://disk.yandex.com) from within the {{ ml-platform-name }} interface. To upload a file or folder to {{ ml-platform-name }}, make it accessible via a link.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_update_cors.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets update cors
 
 Update bucket cors

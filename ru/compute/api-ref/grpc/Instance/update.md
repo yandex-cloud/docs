@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/compute/api-ref/grpc/Instance/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, gRPC: InstanceService.Update

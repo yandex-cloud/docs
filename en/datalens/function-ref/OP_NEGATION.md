@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/OP_NEGATION.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Negation (-)

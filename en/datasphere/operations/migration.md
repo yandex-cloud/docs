@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/migration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Migrating a workflow to a new {{ ml-platform-name }} version
 
 The update to the {{ ml-platform-name }} interface also brought changes to its [resource model](../concepts/resource-model.md). To keep working with your projects created in the old {{ ml-platform-name }} version, migrate them to the new version [automatically](#auto).

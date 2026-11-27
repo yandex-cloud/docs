@@ -1,6 +1,10 @@
 ---
 title: How to delete a broadcast in {{ video-full-name }}
 description: Follow this guide to delete a {{ video-full-name }} broadcast.
+alternate:
+  - href: en/video/operations/streams/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a broadcast

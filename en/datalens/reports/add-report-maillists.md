@@ -1,6 +1,10 @@
 ---
 title: Adding a mailing list for a report in {{ datalens-full-name }}
 description: Follow this guide to add a mailing list for a report in {{ datalens-name }}.
+alternate:
+  - href: en/datalens/reports/add-report-maillists.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Mailing lists for reports

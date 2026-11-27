@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/disk-storage/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
+---
 # Diagnosing a disk subsystem
 
 This page describes the typical issues of a {{ stackland-name }} disk subsystem and how to fix them.

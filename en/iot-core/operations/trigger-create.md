@@ -1,6 +1,10 @@
 ---
 title: Creating a trigger in {{ iot-full-name }} for a device or registry topic
 description: Create a {{ iot-full-name }} trigger for a {{ iot-full-name }} device or registry topic and process message copies using a function from {{ sf-name }}. The trigger must be in the same cloud as the registry or device whose topic it reads messages from.
+alternate:
+  - href: en/iot-core/operations/trigger-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a trigger for a registry or device topic

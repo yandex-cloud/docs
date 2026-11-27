@@ -1,6 +1,10 @@
 ---
 title: Контекст вызова функции на Java в {{ sf-full-name }}
 description: Из статьи вы узнаете, что такое контекст вызова функции на Java.
+alternate:
+  - href: ru/functions/lang/java/context.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Контекст вызова функции на Java

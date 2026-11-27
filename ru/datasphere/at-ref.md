@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ ml-platform-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ ml-platform-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/datasphere/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ at-full-name }}

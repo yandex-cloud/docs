@@ -1,6 +1,10 @@
 ---
 title: Изменить политику резервного копирования в {{ backup-full-name }}
 description: Из статьи вы узнаете, как изменить политику резервного копирования в {{ backup-full-name }}.
+alternate:
+  - href: ru/backup/operations/policy-vm/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить политику резервного копирования

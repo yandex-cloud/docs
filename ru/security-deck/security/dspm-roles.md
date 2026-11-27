@@ -1,6 +1,10 @@
 ---
 title: Сервисные роли {{ dspm-name }} в {{ sd-full-name }}
 description: На данной странице приведен список сервисных ролей для управления доступом к модулю контроля данных ({{ dspm-name }}) в сервисе {{ sd-name }}.
+alternate:
+  - href: ru/security-deck/security/dspm-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сервисные роли для контроля данных ({{ dspm-name }})

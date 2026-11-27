@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ dataproc-name }} cluster and host state monitoring
 
 You can monitor the health of a {{ dataproc-name }} cluster and the state of its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts.

@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ ycdr-full-name }}
 description: Из статьи вы узнаете, как работать с расследованиями и запросами в {{ ycdr-name }}.
+alternate:
+  - href: ru/ycdr/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Инструкции по работе с {{ ycdr-full-name }}

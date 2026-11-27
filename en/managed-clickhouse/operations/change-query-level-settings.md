@@ -1,6 +1,10 @@
 ---
 title: Changing {{ CH }} settings at the query level
 description: Follow this guide to change {{ CH }} settings at the query level.
+alternate:
+  - href: en/managed-clickhouse/operations/change-query-level-settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing {{ CH }} settings at the query level

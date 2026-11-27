@@ -1,6 +1,10 @@
 ---
 title: Change data capture in {{ data-transfer-full-name }}
 description: Change data capture (CDC) lets you track changes in databases and deliver them to end users in real time.
+alternate:
+  - href: en/data-transfer/concepts/cdc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Change data capture

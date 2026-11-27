@@ -275,6 +275,10 @@ apiPlayground:
           - accountEnabledValue
           - passwordAttribute
           - deltaSyncMode
+alternate:
+  - href: ru/organization/idp/api-ref/Synchronization/createSynchronizationSettings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: Synchronization.CreateSynchronizationSettings

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/bind-file/migrate-to-terraform/
+alternate:
+  - href: ru/cli/cli-ref/dns/cli-ref/v0/bind-file/migrate-to-terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns v0 bind-file migrate-to-terraform

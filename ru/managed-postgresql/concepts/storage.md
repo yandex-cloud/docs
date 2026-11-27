@@ -1,6 +1,10 @@
 ---
 title: Хранилище в {{ mpg-full-name }}
 description: Из статьи вы узнаете, что такое хранилище в {{ mpg-name }}, ознакомитесь с особенностями управления дисковым пространством и выбора типа дисков при создании кластера.
+alternate:
+  - href: ru/managed-postgresql/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Хранилище в {{ mpg-name }}

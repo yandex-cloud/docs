@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/async/search_indexes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Search indexes domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_indexes.domain.**AsyncSearchIndexes**{#yandex_ai_studio_sdk._search_indexes.domain.AsyncSearchIndexes}

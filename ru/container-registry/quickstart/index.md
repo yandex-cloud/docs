@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ container-registry-name }}
 description: В этой инструкции вы создадите свой первый реестр {{ container-registry-name }} и попробуете управлять Docker-образами.
+alternate:
+  - href: ru/container-registry/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ container-registry-name }}

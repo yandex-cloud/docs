@@ -40,6 +40,10 @@ meta:
     - keyword: '{{ k8s }} clusters'
     - keyword: '{{ k8s }} cluster in {{ yandex-cloud }}'
     - keyword: kubernetes in {{ yandex-cloud }}
+  alternate:
+    - href: en/managed-kubernetes/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first Kubernetes cluster

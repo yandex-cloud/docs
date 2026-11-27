@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/vm-connect/auth-inside-vm.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using {{ yandex-cloud }} from within a VM
 
 This section describes how to use {{ yandex-cloud }} from within a [VM](../../concepts/vm.md) via the API or CLI.

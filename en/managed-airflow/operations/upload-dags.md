@@ -1,6 +1,10 @@
 ---
 title: Uploading DAG files to a {{ maf-full-name }} cluster
 description: Upload the DAG files from your {{ objstorage-name }} bucket or Git repository to your {{ maf-name }} cluster, and make sure they appear in the web UI.
+alternate:
+  - href: en/managed-airflow/operations/upload-dags.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Uploading DAG files to a {{ maf-name }} cluster

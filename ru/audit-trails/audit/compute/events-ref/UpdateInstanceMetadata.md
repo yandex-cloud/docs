@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/compute/events-ref/UpdateInstanceMetadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Audit Trails Events: UpdateInstanceMetadata

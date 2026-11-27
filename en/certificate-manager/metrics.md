@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ certificate-manager-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides a reference of {{ certificate-manager-name }} metrics exported to {{ monitoring-full-name }}.
+alternate:
+  - href: en/certificate-manager/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

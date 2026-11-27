@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ monitoring-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ monitoring-name }}.
+alternate:
+  - href: ru/monitoring/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ monitoring-full-name }}

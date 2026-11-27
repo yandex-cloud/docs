@@ -2,6 +2,10 @@
 title: Работа с группой виртуальных машин с автоматическим масштабированием с помощью {{ TF }}
 description: Следуя данному руководству, вы сможете настроить группу виртуальных машин с политикой автоматического масштабирования с помощью {{ TF }}.
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/terraform'
+alternate:
+  - href: ru/compute/tutorials/vm-autoscale/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с группой виртуальных машин с автоматическим масштабированием с помощью {{ TF }}

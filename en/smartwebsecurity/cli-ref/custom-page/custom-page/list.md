@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/custom-page/custom-page/list/
+alternate:
+  - href: en/smartwebsecurity/cli-ref/custom-page/custom-page/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartwebsecurity custom-page custom-page list

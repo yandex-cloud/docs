@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ network-load-balancer-full-name }}'
 description: This page provides information about {{ TF }} resources and data sources supported by {{ network-load-balancer-name }}.
+alternate:
+  - href: en/network-load-balancer/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ network-load-balancer-full-name }}

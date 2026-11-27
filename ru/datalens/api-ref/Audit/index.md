@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Audit/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Audit
 
 <!-- markdownlint-disable-file -->

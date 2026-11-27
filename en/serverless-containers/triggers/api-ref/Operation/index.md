@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/serverless-containers/triggers/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Triggers Service, REST: Operation

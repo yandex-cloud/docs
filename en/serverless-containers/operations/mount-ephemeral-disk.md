@@ -1,6 +1,10 @@
 ---
 title: How to mount an ephemeral disk to {{ serverless-containers-full-name }}
 description: Follow this guide to mount an ephemeral disk to {{ serverless-containers-name }}.
+alternate:
+  - href: en/serverless-containers/operations/mount-ephemeral-disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Mounting an ephemeral disk to a container

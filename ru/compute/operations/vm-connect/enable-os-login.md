@@ -1,6 +1,10 @@
 ---
 title: Как настроить доступ по {{ oslogin }} на существующей ВМ
 description: Следуя данной инструкции, вы сможете настроить доступ к существующей виртуальной машине по {{ oslogin }}.
+alternate:
+  - href: ru/compute/operations/vm-connect/enable-os-login.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

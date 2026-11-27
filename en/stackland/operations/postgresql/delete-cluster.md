@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/postgresql/delete-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a PostgreSQL cluster
 
 If you have a [{{ PG }}](../../concepts/components/postgresql.md) cluster in your [project](../projects/create-project.md), you can delete it.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/delete-sms-channel.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteSMSChannel
 
 Deletes an [SMS notification channel](../concepts/sms.md).

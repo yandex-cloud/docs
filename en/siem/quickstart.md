@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ yandex-siem-full-name }}
 description: Follow this guide to learn how to create investigations, run KQL queries, and analyze security events in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ yandex-siem-full-name }}

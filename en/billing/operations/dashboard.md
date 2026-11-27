@@ -1,6 +1,10 @@
 ---
 title: View service usage details in {{ datalens-full-name }}
 description: Follow this guide to view {{ datalens-name }} service usage details.
+alternate:
+  - href: en/billing/operations/dashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # View service usage details in {{ datalens-full-name }}

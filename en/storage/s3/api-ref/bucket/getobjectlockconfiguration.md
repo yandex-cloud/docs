@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/bucket/getobjectlockconfiguration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: GetObjectLockConfiguration
 
 Returns the settings of [object locks](../../../concepts/object-lock.md) for a [versioned bucket](../../../concepts/versioning.md).

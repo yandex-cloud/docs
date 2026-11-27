@@ -1,6 +1,10 @@
 ---
 title: Data delivery guarantees
 description: In this article, you will learn about data delivery guarantees.
+alternate:
+  - href: en/data-transfer/concepts/delivery-configuration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data delivery guarantees

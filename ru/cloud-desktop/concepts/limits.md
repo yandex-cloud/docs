@@ -2,6 +2,10 @@
 title: Квоты и лимиты в {{ cloud-desktop-name }}
 description: В сервисе {{ cloud-desktop-name }} действуют квоты на максимальное количество рабочих мест в облаке, максимальный объем вычислительных ресурсов для рабочих мест в облаке. Более подробно об ограничениях в сервисе вы узнаете из этой статьи.
 editable: false
+alternate:
+  - href: ru/cloud-desktop/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ cloud-desktop-name }}

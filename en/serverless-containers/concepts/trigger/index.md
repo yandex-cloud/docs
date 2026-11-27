@@ -1,6 +1,10 @@
 ---
 title: Triggers in {{ serverless-containers-name }}. Overview
 description: A trigger is a condition which, when met, automatically starts a container. Triggers allow you to automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ iot-full-name }}.
+alternate:
+  - href: en/serverless-containers/concepts/trigger/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Triggers in {{ serverless-containers-name }}. Overview

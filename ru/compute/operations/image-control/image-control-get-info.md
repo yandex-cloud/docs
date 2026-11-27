@@ -1,5 +1,9 @@
 ---
 title: Как получить информацию об образе диска в {{ compute-full-name }}
+alternate:
+  - href: ru/compute/operations/image-control/image-control-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию об образе диска

@@ -1,6 +1,10 @@
 ---
 title: Удаление группы узлов на серверах {{ baremetal-name }}
 description: Удалите группу узлов на серверах {{ baremetal-name }} из кластера {{ managed-k8s-name }} через консоль управления.
+alternate:
+  - href: ru/managed-kubernetes/operations/baremetal-group/delete-baremetal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление группы узлов на серверах {{ baremetal-name }}

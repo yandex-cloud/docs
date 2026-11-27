@@ -47,6 +47,10 @@ apiPlayground:
         - data
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/organization/api-ref/UserSshKey/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: UserSshKey.Create

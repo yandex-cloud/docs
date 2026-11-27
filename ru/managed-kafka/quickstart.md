@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ mkf-full-name }}
 description: Следуя данной инструкции, вы сможете создать и настроить кластер {{ KF }}.
+alternate:
+  - href: ru/managed-kafka/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ mkf-name }}

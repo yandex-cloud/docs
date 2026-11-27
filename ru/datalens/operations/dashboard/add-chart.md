@@ -1,6 +1,10 @@
 ---
 title: Как добавить чарт на дашборд в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить чарт на дашборд в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление чарта на дашборд в {{ datalens-full-name }}

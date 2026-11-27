@@ -1,6 +1,10 @@
 ---
 title: Как настроить алерты {{ monium-full-name }} для ресурсов {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете настроить алерты {{ monium-name }} для ресурсов {{ backup-name }}.
+alternate:
+  - href: ru/backup/operations/configure-alerts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить алерты {{ monium-full-name }} для ресурсов {{ backup-full-name }}

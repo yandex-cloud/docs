@@ -1,6 +1,10 @@
 ---
 title: Networking in {{ mmg-full-name }}
 description: In this tutorial, you will learn about the basic network interface settings for a {{ SD }} cluster.
+alternate:
+  - href: en/storedoc/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Networking in {{ mmg-name }}

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/certificatemanager/events-ref/SetDomainPrimaryCertificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Audit Trails Events: SetDomainPrimaryCertificate

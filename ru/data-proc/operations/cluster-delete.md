@@ -1,6 +1,10 @@
 ---
 title: Удаление кластера {{ dataproc-name }}
 description: 'Вы можете удалить кластер {{ dataproc-name }} вместе со всеми хранимыми данными. Помните, что резервные копии данных не создаются автоматически: если вы хотите сохранить данные для восстановления кластера или последующего использования, используйте, например, сервис {{ objstorage-full-name }}.'
+alternate:
+  - href: ru/data-proc/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление кластера {{ dataproc-name }}

@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }} partner portal release notes'
 description: This section contains the {{ yandex-cloud }} partner portal release notes.
+alternate:
+  - href: en/partner/release-notes/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Partner portal release notes

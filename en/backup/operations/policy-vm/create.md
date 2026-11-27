@@ -1,6 +1,10 @@
 ---
 title: Creating a backup policy
 description: In this tutorial, you will learn how to create a backup policy in {{ backup-full-name }}.
+alternate:
+  - href: en/backup/operations/policy-vm/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a backup policy

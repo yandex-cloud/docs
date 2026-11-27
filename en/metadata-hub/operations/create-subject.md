@@ -1,6 +1,10 @@
 ---
 title: Creating a subject
 description: Follow this guide to create a subject.
+alternate:
+  - href: en/metadata-hub/operations/create-subject.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a subject

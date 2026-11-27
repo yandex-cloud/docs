@@ -1,6 +1,10 @@
 ---
 title: Инструкция по созданию подключения к Яндекс Музыке
 description: Из статьи вы узнаете, как подключиться к Яндекс Музыке в {{ datalens-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/create-podcasts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к подкастам Яндекс Музыки

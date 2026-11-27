@@ -1,6 +1,10 @@
 ---
 title: Access in workbooks and collections
 description: In this tutorial, you will learn how to manage access to objects in {{ datalens-short-name }} with workbook and collection navigation on.
+alternate:
+  - href: en/datalens/security/workbooks-access-advanced.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Advanced access permission management using common objects

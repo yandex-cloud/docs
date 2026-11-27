@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/concepts/promo-code.md
+    type: text/markdown
+    title: Markdown version
+---
 # Промокод
 
 **Промокод** — это пароль, с помощью которого можно получить дополнительную скидку на использование сервисов {{ yandex-cloud }}.

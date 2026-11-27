@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/inbound-endpoint/delete/
+alternate:
+  - href: en/cli/cli-ref/dns/cli-ref/inbound-endpoint/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns inbound-endpoint delete

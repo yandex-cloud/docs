@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/eventrouter/connector/stop/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/eventrouter/connector/stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless eventrouter connector stop

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/datalens/disable.md
+    type: text/markdown
+    title: Markdown version
+---
 # Disabling {{ datalens-name }}
 
 ## Disabling a component {#disable}

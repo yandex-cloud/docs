@@ -1,6 +1,10 @@
 ---
 title: Problems addressed by {{ data-transfer-full-name }}
 description: In this tutorial, you will learn about the problems addressed by {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/concepts/use-cases.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Problems addressed by {{ data-transfer-full-name }}

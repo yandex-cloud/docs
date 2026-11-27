@@ -1,6 +1,10 @@
 ---
 title: uploadPart method. {{ objstorage-name }} API (S3)
 description: The `uploadPart` method in the {{ objstorage-name }} API (S3) saves a part of the object. Users number object parts themselves and transmit these numbers to {{ objstorage-name }}. The number uniquely identifies the part and determines its position in the general sequence. The number is an integer from 1 to 10,000 inclusive.
+alternate:
+  - href: en/storage/s3/api-ref/multipart/uploadpart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, Amazon S3-compatible REST: UploadPart

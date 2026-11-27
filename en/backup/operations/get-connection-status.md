@@ -1,6 +1,10 @@
 ---
 title: Viewing the status of a {{ compute-full-name }} VM connection to {{ backup-full-name }}
 description: Follow this guide to find out the status of a {{ backup-full-name }} connection to a {{ compute-full-name }} VM.
+alternate:
+  - href: en/backup/operations/get-connection-status.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing a VM connection status

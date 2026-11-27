@@ -1,6 +1,10 @@
 ---
 title: Миграция в {{ managed-k8s-name }}
 description: В этом разделе собраны руководства по миграции рабочих нагрузок Kubernetes в {{ managed-k8s-name }} из публичного облака и on-premises.
+alternate:
+  - href: ru/managed-kubernetes/tutorials/migration/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция в {{ managed-k8s-name }}

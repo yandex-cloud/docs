@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/certificate-manager/api-ref/grpc/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager API, gRPC: OperationService.Get

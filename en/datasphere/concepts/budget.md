@@ -1,6 +1,10 @@
 ---
 title: How to manage your computing costs in {{ ml-platform-full-name }}
 description: In this tutorial, you will learn how to control your spending in {{ ml-platform-name }} and what consumption thresholds the service has.
+alternate:
+  - href: en/datasphere/concepts/budget.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cost management

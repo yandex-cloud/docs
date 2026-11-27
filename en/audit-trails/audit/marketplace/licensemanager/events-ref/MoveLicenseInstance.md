@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/marketplace/licensemanager/events-ref/MoveLicenseInstance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace Audit Trails Events: MoveLicenseInstance

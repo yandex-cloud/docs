@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ cloud-desktop-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ cloud-desktop-name }}.
+alternate:
+  - href: ru/cloud-desktop/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ cloud-desktop-name }}

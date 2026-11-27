@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kafka/concepts/managed-schema-registry.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing data schemas
 
 {{ KF }} uses a binary format for storing and transmitting messages. Messages do not contain any information about their structure. As a result, to interpret data in binary format, the consumer needs a _data format schema_ that describes the format of data input or output.

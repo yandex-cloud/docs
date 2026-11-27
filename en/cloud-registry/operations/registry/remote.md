@@ -1,6 +1,10 @@
 ---
 title: Creating a remote registry in {{ cloud-registry-full-name }}
 description: Follow this guide to create a remote registry in {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/registry/remote.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a remote registry

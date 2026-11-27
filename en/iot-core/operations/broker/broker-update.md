@@ -1,6 +1,10 @@
 ---
 title: How to update a broker
 description: Follow this guide to update a broker.
+alternate:
+  - href: en/iot-core/operations/broker/broker-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a broker

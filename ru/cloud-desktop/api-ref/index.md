@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/cloud-desktop/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop API: REST reference

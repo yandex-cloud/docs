@@ -1,6 +1,10 @@
 ---
 title: Getting a list of available master configurations in a {{ k8s }} cluster
 description: Follow this guide to get a list of available master configurations in a {{ k8s }} cluster.
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-configuration-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of available master configurations in a {{ k8s }} cluster

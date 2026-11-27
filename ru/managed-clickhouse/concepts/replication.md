@@ -1,6 +1,10 @@
 ---
 title: Репликация в {{ mch-full-name }}
 description: Из статьи вы узнаете, как работает репликация хостов кластера в {{ mch-full-name }}.
+alternate:
+  - href: ru/managed-clickhouse/concepts/replication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Репликация в {{ mch-name }}

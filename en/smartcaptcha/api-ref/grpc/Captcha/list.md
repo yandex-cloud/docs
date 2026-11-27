@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/smartcaptcha/api-ref/grpc/Captcha/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartCaptcha API, gRPC: CaptchaService.List

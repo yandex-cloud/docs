@@ -1,6 +1,10 @@
 ---
 title: '{{ atr-name }} in {{ sd-full-name }}'
 description: '{{ atr-name }} is an automated tool within {{ sd-name }} designed to ensure transparency of {{ yandex-cloud }} operations.'
+alternate:
+  - href: en/security-deck/concepts/access-transparency.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ atr-name }}

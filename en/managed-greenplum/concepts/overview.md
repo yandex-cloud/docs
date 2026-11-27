@@ -1,6 +1,10 @@
 ---
 title: Overview of {{ GP }} and {{ CB }} in {{ mgp-full-name }}
 description: This article provides general information about {{ mgp-full-name }} and supported databases, {{ GP }} and {{ CB }}.
+alternate:
+  - href: en/managed-greenplum/concepts/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Overview of {{ GP }} and {{ CB }} in {{ mgp-full-name }}

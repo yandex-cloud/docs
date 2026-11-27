@@ -1,6 +1,10 @@
 ---
 title: Ошибки и предупреждения при экспорте и импорте в {{ datalens-full-name }}
 description: На данной странице приведены ошибки и предупреждения при экспорте и импорте в {{ datalens-full-name }}, а также их описание.
+alternate:
+  - href: ru/datalens/workbooks-collections/export-import-notifications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ошибки и предупреждения при экспорте и импорте в {{ datalens-full-name }}

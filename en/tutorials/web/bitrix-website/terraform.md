@@ -1,6 +1,10 @@
 ---
 title: 'Website on Bitrix: Installation and setup using {{ TF }}'
 description: In this tutorial, you will learn how to deploy and set up a Bitrix website in the cloud using {{ TF }}. 1C-Bitrix is a website and web project management system by 1C-Bitrix. It enables you to manage the structure and content of your website without any specialized programming or web design skills.
+alternate:
+  - href: en/tutorials/web/bitrix-website/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a 1C-Bitrix website using {{ TF }}

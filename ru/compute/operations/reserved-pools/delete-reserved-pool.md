@@ -1,6 +1,10 @@
 ---
 title: Удалить пул резервов ВМ
 description: Из статьи вы узнаете, как удалить пул резервов ВМ {{ compute-full-name }}.
+alternate:
+  - href: ru/compute/operations/reserved-pools/delete-reserved-pool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление пула резервов виртуальных машин

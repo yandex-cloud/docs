@@ -1,6 +1,10 @@
 ---
 title: Как изменить версию кластера {{ TR }} в {{ mtr-name }}
 description: Следуя данной инструкции, вы сможете изменить версию кластера {{ TR }}.
+alternate:
+  - href: ru/managed-trino/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновление версии {{ TR }}

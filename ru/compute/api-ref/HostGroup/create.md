@@ -90,6 +90,10 @@ apiPlayground:
         oneOf:
           - required:
               - fixedScale
+alternate:
+  - href: ru/compute/api-ref/HostGroup/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: HostGroup.Create

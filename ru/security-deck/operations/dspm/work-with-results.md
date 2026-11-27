@@ -1,6 +1,10 @@
 ---
 title: Управлять результатами регулярного сканирования в {{ dspm-name }}
 description: Следуя данной инструкции, вы узнаете об операциях, которые можно выполнить с результатами сканирования в модуле {{ dspm-name }} сервиса {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/operations/dspm/work-with-results.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять результатами регулярного сканирования в {{ dspm-name }}

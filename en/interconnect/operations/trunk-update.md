@@ -1,6 +1,10 @@
 ---
 title: How to update a trunk in {{ interconnect-name }}
 description: Follow this guide to update parameters in a trunk in {{ interconnect-name }}.
+alternate:
+  - href: en/interconnect/operations/trunk-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating trunk parameters

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/vm-connect/auth-inside-vm.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с {{ yandex-cloud }} изнутри виртуальной машины
 
 В этом разделе описано, как работать с {{ yandex-cloud }} изнутри [ВМ](../../concepts/vm.md) через API или CLI.

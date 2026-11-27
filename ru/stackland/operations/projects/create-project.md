@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/projects/create-project.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать проект
 
 Проект — логическая единица организации ресурсов, которая объединяет несколько пространств имен Kubernetes. Проект позволяет управлять доступом и квотами на уровне команды или приложения.

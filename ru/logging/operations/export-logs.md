@@ -1,6 +1,10 @@
 ---
 title: Инструкция о том, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}
 description: Из статьи вы узнаете, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}.
+alternate:
+  - href: ru/logging/operations/export-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выгрузить логи в {{ objstorage-name }}

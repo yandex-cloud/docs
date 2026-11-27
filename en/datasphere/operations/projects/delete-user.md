@@ -1,6 +1,10 @@
 ---
 title: How to remove a user from a project
 description: In this guide, you will learn how to remove a user from a project in {{ ml-platform-name }}.
+alternate:
+  - href: en/datasphere/operations/projects/delete-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Removing a user from a project

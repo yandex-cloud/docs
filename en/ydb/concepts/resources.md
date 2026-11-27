@@ -2,6 +2,10 @@
 title: Terms and definitions for {{ ydb-full-name }}
 description: This page presents terms and definitions for {{ ydb-name }}.
 sourcePath: overlay/public_talks.md
+alternate:
+  - href: en/ydb/concepts/resources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Terms and definitions for {{ ydb-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iam/operations/roles/revoke.md
+    type: text/markdown
+    title: Markdown version
+---
 # Отзыв роли на ресурс
 
 {% note info %}

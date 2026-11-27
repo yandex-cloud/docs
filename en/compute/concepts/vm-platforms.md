@@ -1,6 +1,10 @@
 ---
 title: Platforms
 description: In this article, you will learn about available platforms when creating a VM.
+alternate:
+  - href: en/compute/concepts/vm-platforms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Platforms

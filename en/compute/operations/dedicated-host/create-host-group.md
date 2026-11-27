@@ -1,6 +1,10 @@
 ---
 title: Creating a group of dedicated hosts
 description: Follow this guide to create a dedicated host group.
+alternate:
+  - href: en/compute/operations/dedicated-host/create-host-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a group of dedicated hosts

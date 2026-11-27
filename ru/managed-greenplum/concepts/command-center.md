@@ -1,6 +1,10 @@
 ---
 title: Командный центр {{ mgp-name }}
 description: Из статьи вы узнаете, что такое командный центр {{ mgp-name }}, текущее состояние, история состояний, история потребления, ключи запросов и идентификаторы запросов.
+alternate:
+  - href: ru/managed-greenplum/concepts/command-center.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Командный центр {{ mgp-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to edit and delete a response template
 description: Follow this guide to edit or delete a response page template.
+alternate:
+  - href: en/smartwebsecurity/operations/template-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing a response page template

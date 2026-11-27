@@ -1,6 +1,10 @@
 ---
 title: Окружения {{ sd-full-name }}
 description: Окружение {{ sd-full-name }} представляет собой контейнер, который содержит настройки и ресурсы модулей {{ sd-name }}, перечень контролируемых ресурсов, параметры контроля и другие настройки.
+alternate:
+  - href: ru/security-deck/concepts/workspace.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Окружения {{ sd-name }}

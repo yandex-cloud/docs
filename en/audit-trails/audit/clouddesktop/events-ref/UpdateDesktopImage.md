@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/clouddesktop/events-ref/UpdateDesktopImage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop Audit Trails Events: UpdateDesktopImage

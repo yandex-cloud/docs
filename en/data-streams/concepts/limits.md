@@ -1,6 +1,10 @@
 ---
 title: Quotas and limits in {{ yds-full-name }}
 description: '{{ yds-full-name }} has quotas and limits. For more information about the service restrictions, read this article.'
+alternate:
+  - href: en/data-streams/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ yds-name }}

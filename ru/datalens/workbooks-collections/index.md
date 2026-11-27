@@ -1,6 +1,10 @@
 ---
 title: Воркбуки и коллекции {{ datalens-full-name }}
 description: Из статьи вы узнаете, что такое воркбуки и коллекции {{ datalens-full-name }}, их особенности и как начать с ними работать.
+alternate:
+  - href: ru/datalens/workbooks-collections/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Воркбуки и коллекции {{ datalens-full-name }}

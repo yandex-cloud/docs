@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ compute-full-name }} Linux VM with a connection to {{ backup-full-name }}
 description: Follow this guide to create a {{ compute-full-name }} Linux VM instance with a connection to {{ backup-full-name }}.
+alternate:
+  - href: en/backup/operations/create-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a Linux VM with a connection to {{ backup-name }}

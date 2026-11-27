@@ -1,6 +1,10 @@
 ---
 title: Политика жизненного цикла в {{ cloud-registry-full-name }}
 description: Политика жизненного цикла — это набор правил, которые управляют хранением или удалением артефактов в реестре. Политики помогают автоматически удалять старые или неиспользуемые версии артефактов для экономии места и снижения затрат на хранение.
+alternate:
+  - href: ru/cloud-registry/concepts/lifecycle-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политика жизненного цикла в {{ cloud-registry-full-name }}

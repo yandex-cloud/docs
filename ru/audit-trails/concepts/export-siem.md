@@ -1,6 +1,10 @@
 ---
 title: Экспорт аудитных логов в SIEM
 description: Из статьи вы узнаете об экспорте аудитных логов в SIEM.
+alternate:
+  - href: ru/audit-trails/concepts/export-siem.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Экспорт аудитных логов в SIEM

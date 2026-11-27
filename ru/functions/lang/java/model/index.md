@@ -1,6 +1,10 @@
 ---
 title: Модель программирования на языке Java
 description: Из статьи вы узнаете, какие модели программирования на языке Java предоставляет сервис {{ sf-name }}, а также ознакомитесь с требованиями к обработчику.
+alternate:
+  - href: ru/functions/lang/java/model/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Модель программирования на языке Java

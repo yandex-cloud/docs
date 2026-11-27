@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cdn/concepts/origins.md
+    type: text/markdown
+    title: Markdown version
+---
 # Источники и их группы
 
 За контентом, который запрашивают клиенты, CDN-серверы обращаются к _источникам_. 

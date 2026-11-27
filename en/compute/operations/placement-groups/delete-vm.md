@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/placement-groups/delete-vm.md
+    type: text/markdown
+    title: Markdown version
+---
 # Removing a VM from a placement group
 
 Remove the [VM](../../concepts/vm.md) from the [placement group](../../concepts/placement-groups.md).

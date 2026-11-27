@@ -1,6 +1,10 @@
 ---
 title: Электронная подпись в {{ kms-short-name }}
 description: В данной статье описаны особенности использования электронной подписи в {{ kms-short-name }}.
+alternate:
+  - href: ru/kms/concepts/digital-signature.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Электронная подпись в {{ kms-short-name }}

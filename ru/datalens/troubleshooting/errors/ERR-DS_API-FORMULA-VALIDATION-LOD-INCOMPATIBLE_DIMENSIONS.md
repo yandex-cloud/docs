@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.FORMULA.VALIDATION.LOD.INCOMPATIBLE_DIMENSIONS
 description: На странице приведено описание ошибки {{ datalens-full-name }} Incompatible dimensions.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-LOD-INCOMPATIBLE_DIMENSIONS.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Incompatible dimensions

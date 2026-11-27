@@ -1,6 +1,10 @@
 ---
 title: '{{ cdn-full-name }} use cases'
 description: Various use cases for {{ cdn-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/cdn/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cdn-name }} tutorials

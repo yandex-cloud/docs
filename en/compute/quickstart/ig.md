@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/quickstart/ig.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating an instance group
 
 Create an instance group using [Instance Groups](../concepts/instance-groups/index.md) in the {{ yandex-cloud }} management console.

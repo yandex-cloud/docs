@@ -1,6 +1,10 @@
 ---
 title: '{{ monium-name }} release notes'
 description: This section contains the {{ monium-name }} release notes.
+alternate:
+  - href: en/monium/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monium-name }} release notes

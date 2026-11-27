@@ -1,6 +1,10 @@
 ---
 title: Neuroanalyst in {{ datalens-full-name }}
 description: In this article, you will learn about {{ datalens-full-name }} Neuroanalyst.
+alternate:
+  - href: en/datalens/concepts/neuroanalyst.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Neuroanalyst in {{ datalens-full-name }}

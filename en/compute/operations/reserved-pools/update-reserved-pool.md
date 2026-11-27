@@ -1,6 +1,10 @@
 ---
 title: Updating a reserved instance pool
 description: In this tutorial, you will learn how to update a {{ compute-full-name }} reserved instance pool.
+alternate:
+  - href: en/compute/operations/reserved-pools/update-reserved-pool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a reserved instance pool

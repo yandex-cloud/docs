@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-mysql/operations/cluster-users.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление пользователями {{ MY }}
 
 Вы можете добавлять и удалять пользователей, а также управлять их настройками.

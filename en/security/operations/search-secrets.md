@@ -1,6 +1,10 @@
 ---
 title: Scanning for {{ yandex-cloud }} secrets in public sources
 description: Follow this guide to check your repositories.
+alternate:
+  - href: en/security/operations/search-secrets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Scanning for {{ yandex-cloud }} secrets in public sources

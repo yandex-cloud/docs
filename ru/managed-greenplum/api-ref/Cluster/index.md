@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-greenplum/api-ref/Cluster/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster

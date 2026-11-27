@@ -55,6 +55,10 @@ meta:
     - keyword: '{{ SD }} в облаке'
     - keyword: NoSQL СУБД
     - keyword: СУБД с открытым исходным кодом
+  alternate:
+    - href: ru/storedoc/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

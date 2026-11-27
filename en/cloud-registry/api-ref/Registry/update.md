@@ -107,6 +107,10 @@ apiPlayground:
             type: array
             items:
               type: string
+alternate:
+  - href: en/cloud-registry/api-ref/Registry/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, REST: Registry.Update

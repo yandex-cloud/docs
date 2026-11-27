@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/changing-billing-account-type.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to change the billing account type
 
 

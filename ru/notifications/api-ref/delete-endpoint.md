@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/delete-endpoint.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие DeleteEndpoint
 
 Удаляет [эндпоинт для Push-уведомлений](../concepts/push.md#mobile-endpoints).

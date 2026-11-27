@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/concepts/tags.md
+    type: text/markdown
+    title: Markdown version
+---
 # Queue labels
 
 A _label_ is a key-value pair used for logical queue labeling.

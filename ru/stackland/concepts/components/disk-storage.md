@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/disk-storage.md
+    type: text/markdown
+    title: Markdown version
+---
 # Дисковая подсистема
 
 Дисковая подсистема {{ stackland-name }} обеспечивает динамическое выделение блочного хранилища для рабочих нагрузок Kubernetes.

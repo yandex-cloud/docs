@@ -1,6 +1,10 @@
 ---
 title: Setting up hosting in {{ objstorage-full-name }}
 description: Follow this guide to set up static website hosting in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/hosting/setup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up hosting

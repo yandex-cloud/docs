@@ -20,6 +20,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/baremetal/api-ref/Storage/batchGetDefault.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Storage.BatchGetDefault

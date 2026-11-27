@@ -1,6 +1,10 @@
 ---
 title: Updating a trigger in {{ api-gw-full-name }}
 description: Follow this guide to update any trigger parameters in {{ api-gw-full-name }}, except for the trigger type and launched resource type.
+alternate:
+  - href: en/api-gateway/operations/trigger/trigger-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a trigger in {{ api-gw-full-name }}

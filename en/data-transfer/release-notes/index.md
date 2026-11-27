@@ -1,6 +1,10 @@
 ---
 title: '{{ data-transfer-full-name }} release notes'
 description: This section contains the {{ data-transfer-name }} release notes.
+alternate:
+  - href: en/data-transfer/release-notes/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

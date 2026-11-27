@@ -1,6 +1,10 @@
 ---
 title: '{{ mch-name }}. FAQ'
 description: What is {{ mch-name }}? Not sure whether to use {{ mch-name }} or VMs running databases? Want to know the role of {{ mch-name }} in database management and maintenance? Find answers to these and other questions in this article.
+alternate:
+  - href: en/managed-clickhouse/qa/general.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ mch-name }}

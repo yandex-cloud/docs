@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/concepts/network-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сетевые политики кластера {{ k8s }}
 
 Сетевые политики {{ k8s }} позволяют настроить сетевое взаимодействие между группами [подов](./index.md#pod) и узлами сети. Вы можете создать сетевые политики с помощью [{{ k8s }} Network Policy API](https://kubernetes.io/docs/concepts/services-networking/network-policies/), который задает правила фильтрации трафика на уровне подов. Правила определяют, какие поды и сервисы в кластере {{ k8s }} могут получить доступ друг к другу.

@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ objstorage-full-name }}
 description: В разделе представлена история изменений сервиса {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ objstorage-full-name }}

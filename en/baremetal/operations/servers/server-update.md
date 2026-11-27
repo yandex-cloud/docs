@@ -1,6 +1,10 @@
 ---
 title: How to update a server in {{ baremetal-full-name }}
 description: In this tutorial, you will learn how to update your {{ baremetal-full-name }} server’s name and description.
+alternate:
+  - href: en/baremetal/operations/servers/server-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a server

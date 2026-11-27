@@ -1,6 +1,10 @@
 ---
 title: Advanced Rate Limiter
 description: Advanced Rate Limiter enables you to restrict HTTP request frequency and take action when the limits are exceeded.
+alternate:
+  - href: en/smartwebsecurity/concepts/arl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Advanced Rate Limiter

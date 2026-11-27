@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/sdk/CloudVideoPlayerSDK/PlayerStatus.md
+    type: text/markdown
+    title: Markdown version
+---
 # PlayerStatus
 
 ```swift

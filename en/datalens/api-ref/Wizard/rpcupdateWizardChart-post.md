@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Wizard/rpcupdateWizardChart-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Update wizard chart

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/magic.md
+    type: text/markdown
+    title: Markdown version
+---
 # Available commands
 
 {{ ds-nb }} allows you to use IPython magic commands. You can use them to measure program runtime, run bash commands in separate cells, identify variable types, etc. The majority of standard commands from the [IPython documentation](https://ipython.readthedocs.io/en/stable/interactive/magics.html) is available in notebooks. For the restrictions and additions, see below.

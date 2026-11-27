@@ -1,6 +1,10 @@
 ---
 title: Справочник ролей {{ datalens-platform-full-name }}
 description: В справочнике описаны роли {{ datalens-platform-short-name }} для доступа к сервису, к данным и к отдельным объектам.
+alternate:
+  - href: ru/datalens/datalens-platform/security/roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник прав доступа

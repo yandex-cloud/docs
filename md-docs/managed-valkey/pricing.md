@@ -245,41 +245,41 @@ blocks:
 
 | Услуга                                                                                                       | Цена      | Ед. тарификации | Действует с    | Действует до |
 | ------------------------------------------------------------------------------------------------------------ | --------- | --------------- | -------------- | ------------ |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, 100% vCPU                    | 3,39 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, RAM                          | 0,6445 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU                             | 1,74 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год              | 1,3578 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 6 месяцев          | 1,4797 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, RAM                                   | 0,46 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 1 год                    | 0,3597 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 6 месяцев                | 0,3919 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Broadwell, 100% vCPU                       | 2,19 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Broadwell, 20% vCPU                        | 0,9992 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Broadwell, 5% vCPU                         | 0,9992 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Broadwell, RAM                             | 0,5937 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU                    | 1,93 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год     | 1,51 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев | 1,64 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 5% vCPU                      | 0,9992 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 50% vCPU                     | 1,109 ₽   | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM                          | 0,5188 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 1 год           | 0,4046 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake. RAM,  CVoS на 6 месяцев      | 0,44 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), 100% vCPU    | 2,79 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), RAM          | 0,53 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU                        | 1,74 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год         | 1,3578 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев     | 1,4797 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, 50% vCPU                         | 0,9992 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, RAM                              | 0,46 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 1 год               | 0,3597 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев           | 0,3919 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Публичный IP-адрес                                                              | 0,2766 ₽  | IP-адрес × час  | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Резервные копии сверх размера хранилища                                         | 0,00307 ₽ | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)                          | 0,0365 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Хранилище на локальных SSD-дисках                                               | 0,0198 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Хранилище на нереплицируемых SSD-дисках                                         | 0,0147 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for Valkey™. Хранилище на сетевых SSD-дисках                                                 | 0,0218 ₽  | ГБ × час        | 30 апреля 2026 | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, 100% vCPU                    | 3,39 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, RAM                          | 0,6445 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU                             | 1,74 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год              | 1,3578 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 6 месяцев          | 1,4797 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, RAM                                   | 0,46 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 1 год                    | 0,3597 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 6 месяцев                | 0,3919 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Broadwell, 100% vCPU                       | 2,19 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Broadwell, 20% vCPU                        | 0,9992 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Broadwell, 5% vCPU                         | 0,9992 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Broadwell, RAM                             | 0,5937 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU                    | 1,93 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год     | 1,51 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев | 1,64 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 5% vCPU                      | 0,9992 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 50% vCPU                     | 1,109 ₽   | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM                          | 0,5188 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 1 год           | 0,4046 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake. RAM,  CVoS на 6 месяцев      | 0,44 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), 100% vCPU    | 2,79 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), RAM          | 0,53 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU                        | 1,74 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год         | 1,3578 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев     | 1,4797 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, 50% vCPU                         | 0,9992 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, RAM                              | 0,46 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 1 год               | 0,3597 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев           | 0,3919 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Публичный IP-адрес                                                              | 0,2766 ₽  | IP-адрес × час  | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Резервные копии сверх размера хранилища                                         | 0,00307 ₽ | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)                          | 0,0365 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Хранилище на локальных SSD-дисках                                               | 0,0198 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Хранилище на нереплицируемых SSD-дисках                                         | 0,0147 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Хранилище на сетевых SSD-дисках                                                 | 0,0218 ₽  | ГБ × час        | 1 мая 2026     | —            |
 
 
 
@@ -294,7 +294,7 @@ blocks:
 Минимальная единица тарификации — 1 байт.
 
 
-| Услуга                                                    | Цена              | Ед. тарификации | Действует с    | Действует до |
-| --------------------------------------------------------- | ----------------- | --------------- | -------------- | ------------ |
-| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 30 апреля 2026 | —            |
-| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 30 апреля 2026 | —            |
+| Услуга                                                    | Цена              | Ед. тарификации | Действует с | Действует до |
+| --------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
+| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
+| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 1 мая 2026  | —            |

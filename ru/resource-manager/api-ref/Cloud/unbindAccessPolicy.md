@@ -29,6 +29,10 @@ apiPlayground:
         - accessPolicyTemplateId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/resource-manager/api-ref/Cloud/unbindAccessPolicy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API, REST: Cloud.UnbindAccessPolicy

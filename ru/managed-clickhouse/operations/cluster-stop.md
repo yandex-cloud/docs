@@ -1,6 +1,10 @@
 ---
 title: Остановка и запуск кластера {{ CH }}
 description: 'При необходимости вы можете остановить кластер БД {{ CH }} и запустить его заново. Время простоя кластера не тарифицируется: вы продолжаете платить только за размер хранилища и резервных копий.'
+alternate:
+  - href: ru/managed-clickhouse/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Остановка и запуск кластера {{ CH }}

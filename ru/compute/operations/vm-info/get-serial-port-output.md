@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/vm-info/get-serial-port-output.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получить вывод последовательного порта
 
 Вы можете получить информацию, которую виртуальная машина выводит в последовательный порт, и использовать ее, например, для диагностики неполадок.

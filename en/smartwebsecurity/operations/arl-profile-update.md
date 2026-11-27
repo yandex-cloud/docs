@@ -1,6 +1,10 @@
 ---
 title: Editing basic ARL profile settings
 description: Follow this guide to edit basic ARL profile settings.
+alternate:
+  - href: en/smartwebsecurity/operations/arl-profile-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing basic ARL profile settings

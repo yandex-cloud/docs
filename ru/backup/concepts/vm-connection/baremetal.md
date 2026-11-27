@@ -1,6 +1,10 @@
 ---
 title: Подключение серверов {{ baremetal-full-name }} к {{ backup-full-name }}
 description: Из этой статьи вы узнаете, как подключить к {{ backup-full-name }} виртуальные машины {{ baremetal-full-name }}.
+alternate:
+  - href: ru/backup/concepts/vm-connection/baremetal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение серверов {{ baremetal-full-name }} к {{ backup-name }}

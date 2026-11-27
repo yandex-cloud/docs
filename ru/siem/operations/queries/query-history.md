@@ -1,6 +1,10 @@
 ---
 title: История запросов в {{ yandex-siem-full-name }}
 description: Следуя данной инструкции, вы научитесь работать с историей выполнения запросов в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/operations/queries/query-history.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История запросов

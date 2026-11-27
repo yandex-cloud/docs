@@ -1,5 +1,10 @@
 ---
 editable: false
+noIndex: true
+alternate:
+  - href: ru/cloud-router/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Router API: REST reference

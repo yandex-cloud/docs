@@ -1,6 +1,10 @@
 ---
 title: Поддерживаемые инструменты для работы с {{ cns-name }}
 description: Перечень поддерживаемых инструментов для работы с {{ cns-name }}.
+alternate:
+  - href: ru/notifications/tools/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поддерживаемые инструменты

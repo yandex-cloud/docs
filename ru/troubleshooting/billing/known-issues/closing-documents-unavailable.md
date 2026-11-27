@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/closing-documents-unavailable.md
+    type: text/markdown
+    title: Markdown version
+---
 # В консоли недоступны закрывающие документы
 
 

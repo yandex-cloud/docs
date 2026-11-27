@@ -2,6 +2,10 @@
 title: Transferring {{ managed-k8s-name }} cluster logs to {{ cloud-logging-full-name }}
 description: Fluent Bit transfers {{ managed-k8s-name }} cluster logs to {{ cloud-logging-name }}. To transfer logs, you will use the Fluent Bit plugin for {{ cloud-logging-full-name }}.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/k8s-fluent-bit-logging'
+alternate:
+  - href: en/managed-kubernetes/tutorials/k8s-fluent-bit-logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring {{ managed-k8s-name }} cluster logs to {{ cloud-logging-full-name }}

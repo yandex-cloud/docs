@@ -1,6 +1,10 @@
 ---
 title: How to create a DNS filter in {{ dns-full-name }}
 description: Follow this guide to create a DNS filter.
+alternate:
+  - href: en/dns/operations/filter-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a DNS filter

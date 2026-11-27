@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/cluster/start/
+alternate:
+  - href: en/storedoc/cli-ref/cluster/start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb cluster start

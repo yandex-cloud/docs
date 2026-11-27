@@ -1,6 +1,10 @@
 ---
 title: Триггеры в {{ serverless-containers-name }}. Обзор
 description: Триггер — условие, при выполнении которого автоматически запускается контейнер. Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например {{ objstorage-full-name }}, {{ message-queue-full-name }} и {{ iot-full-name }}.
+alternate:
+  - href: ru/serverless-containers/concepts/trigger/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Триггеры в {{ serverless-containers-name }}. Обзор

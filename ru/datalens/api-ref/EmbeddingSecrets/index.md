@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/EmbeddingSecrets/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # EmbeddingSecrets
 
 <!-- markdownlint-disable-file -->

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/concepts/runtime.md
+    type: text/markdown
+    title: Markdown version
+---
 # Среда выполнения
 
 Приложение выполняется в виртуальном окружении.

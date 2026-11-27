@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ metastore-full-name }} cluster
 description: Follow this guide to create a {{ metastore-full-name }} cluster.
+alternate:
+  - href: en/metadata-hub/operations/metastore/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ metastore-full-name }} cluster

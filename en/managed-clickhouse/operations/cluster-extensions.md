@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/operations/cluster-extensions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing extensions in {{ mch-name }}
 
 In {{ mch-name }} clusters, the following extensions are available:

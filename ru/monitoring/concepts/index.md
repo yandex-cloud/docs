@@ -1,6 +1,10 @@
 ---
 title: '{{ monitoring-full-name }}. Обзор сервиса'
 description: Сервис {{ monitoring-full-name }} позволяет собирать и хранить метрики, а также отображать их в виде графиков на дашбордах. {{ monitoring-full-name }} автоматически собирает данные о состоянии ваших ресурсов в {{ yandex-cloud }} и отображает их на сервисных дашбордах. Для загрузки пользовательских метрик доступен API.
+alternate:
+  - href: ru/monitoring/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор {{ monitoring-name }}

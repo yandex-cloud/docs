@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/concepts/logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Логи {{ cloud-logging-name }}
 
 Вы можете [настроить сохранение логов](../operations/configure-logging.md) создания эндпоинтов и отправки уведомлений в сервис [{{ cloud-logging-name }}](../../logging/).

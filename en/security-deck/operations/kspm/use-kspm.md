@@ -1,6 +1,10 @@
 ---
 title: Working with the {{ kspm-full-name }} ({{ kspm-name }}) dashboard in {{ sd-full-name }}
 description: Guide on working with the {{ kspm-full-name }} ({{ kspm-name }}) interface in {{ sd-name }}.
+alternate:
+  - href: en/security-deck/operations/kspm/use-kspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with the {{ kspm-name }} dashboard

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/concepts/visibility-timeout.md
+    type: text/markdown
+    title: Markdown version
+---
 # Visibility timeout
 
 The visibility timeout is the period during which messages are hidden from a queue after one of the consumers has picked a message. As long as the message is hidden, other consumers cannot fetch the message from the queue. During the timeout period, the consumer has to process the message and delete it from the queue. If the message is not deleted when the visibility timeout is reached, it reappears in the queue and can be picked by other consumers.

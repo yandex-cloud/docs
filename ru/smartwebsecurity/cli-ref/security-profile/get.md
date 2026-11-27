@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/security-profile/get/
+alternate:
+  - href: ru/smartwebsecurity/cli-ref/security-profile/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartwebsecurity security-profile get

@@ -1,6 +1,10 @@
 ---
 title: Downloading alerts in {{ sd-full-name }}
 description: In this section, you will learn how to download alerts in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/alerts/download.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Downloading alerts

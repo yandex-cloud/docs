@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/mmy-to-yds'
+alternate:
+  - href: en/data-streams/tutorials/mmy-to-yds.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ MY }} change data capture and delivery to {{ DS }}

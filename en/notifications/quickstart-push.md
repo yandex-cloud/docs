@@ -1,6 +1,10 @@
 ---
 title: Getting started with push notifications in {{ cns-full-name }}
 description: 'With {{ cns-name }}, you can send push notifications to apps registered in the following services: Apple Push Notification service (APNs), Firebase Cloud Messaging (FCM), Huawei Mobile Services (HMS).'
+alternate:
+  - href: en/notifications/quickstart-push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with push notifications in {{ cns-full-name }}

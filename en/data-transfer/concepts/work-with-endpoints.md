@@ -1,6 +1,10 @@
 ---
 title: '{{ data-transfer-full-name }} workflow for sources and targets'
 description: '{{ data-transfer-full-name }} considers the specifics of sources and targets when preparing a transfer and transferring data.'
+alternate:
+  - href: en/data-transfer/concepts/work-with-endpoints.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Specifics of working with endpoints

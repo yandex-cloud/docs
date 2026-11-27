@@ -1,6 +1,10 @@
 ---
 title: Поставка данных из {{ forms-full-name }} в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как быстро отобразить сводные данные из форм при использовании {{ forms-full-name }}.
+alternate:
+  - href: ru/tutorials/serverless/forms-and-datalens-integration/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поставка данных из {{ forms-full-name }} в {{ datalens-full-name }} с использованием {{ sf-full-name }} и {{ yq-full-name }}

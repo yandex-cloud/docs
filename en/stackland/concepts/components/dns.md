@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/dns.md
+    type: text/markdown
+    title: Markdown version
+---
 # DNS
 
 {{ stackland-name }} allows you to access cluster services (both the Kubernetes API and native services running in the cluster) from the outside using domain names.

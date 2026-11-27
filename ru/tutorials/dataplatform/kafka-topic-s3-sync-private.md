@@ -1,6 +1,10 @@
 ---
 title: Синхронизация данных из топиков {{ KF }} в бакет {{ objstorage-name }} без использования интернета
 description: Синхронизировать данные из топиков кластера {{ mkf-name }} в бакет {{ objstorage-name }} без использования публичных IP-адресов можно с помощью сервисного подключения в {{ vpc-full-name }}.
+alternate:
+  - href: ru/tutorials/dataplatform/kafka-topic-s3-sync-private.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Синхронизация данных из топиков {{ KF }} в бакет {{ objstorage-name }} без использования интернета

@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ cns-full-name }}
 description: '{{ cns-name }} ({{ cns-short-name }}): Service for multichannel user notifications. Its HTTP API is compatible with the Amazon SNS API.'
+alternate:
+  - href: en/notifications/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ cns-full-name }}

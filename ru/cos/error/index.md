@@ -1,6 +1,10 @@
 ---
 title: Решение проблем с {{ coi }} в {{ cos-full-name }}
 description: Следуя данной инструкции, вы сможете решить проблемы с {{ coi }}.
+alternate:
+  - href: ru/cos/error/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение проблем

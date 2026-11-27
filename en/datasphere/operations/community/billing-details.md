@@ -1,6 +1,10 @@
 ---
 title: How to view {{ ml-platform-full-name }} usage details
 description: In this guide, you will learn how to view your {{ ml-platform-name }} usage details.
+alternate:
+  - href: en/datasphere/operations/community/billing-details.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing {{ ml-platform-name }} usage details

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/folder/update/
+alternate:
+  - href: ru/resource-manager/cli-ref/folder/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc resource-manager folder update

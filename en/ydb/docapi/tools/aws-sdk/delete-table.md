@@ -2,6 +2,10 @@
 title: How to delete a table in {{ ydb-full-name }}
 description: Follow this guide to delete a table.
 sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
+alternate:
+  - href: en/ydb/docapi/tools/aws-sdk/delete-table.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Deleting a table
 

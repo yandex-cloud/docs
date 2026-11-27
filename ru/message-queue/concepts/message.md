@@ -1,6 +1,10 @@
 ---
 title: Сообщения в {{ message-queue-full-name }}
 description: Состояния сообщений, состав полей и пример структуры сообщения в {{ message-queue-name }}.
+alternate:
+  - href: ru/message-queue/concepts/message.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сообщения

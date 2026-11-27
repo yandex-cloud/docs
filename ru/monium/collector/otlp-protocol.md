@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/collector/otlp-protocol.md
+    type: text/markdown
+    title: Markdown version
+---
 # Особенности OTLP в {{ monium-name }}
 
 {{ monium-name }} поддерживает прием телеметрии по протоколу [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol), что позволяет напрямую отправлять данные из приложений с OpenTelemetry SDK или через OpenTelemetry Collector.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/overview/concepts/zone-migration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Migrating resources to a different availability zone
 
 We added the `relocate` CLI command for a number of {{ compute-name }} and {{ vpc-name }} resources, which allows you to migrate resources to a different zone. If migrating instance groups, {{ network-load-balancer-name }} and {{ alb-name }} resources, managed databases, {{ mgl-name }} instances, {{ managed-k8s-name }} clusters, and serverless services, use the existing tools.

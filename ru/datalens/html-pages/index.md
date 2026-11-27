@@ -1,6 +1,10 @@
 ---
 title: HTML-страницы в {{ datalens-full-name }}
 description: Из статьи вы узнаете, что такое HTML-страницы в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/html-pages/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # HTML-страницы в {{ datalens-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о транковых подключениях в {{ interconnect-name }}
 description: Следуя этой инструкции, вы сможете получить информацию о транковых подключениях в {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/operations/trunk-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о транковых подключениях

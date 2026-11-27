@@ -1,6 +1,10 @@
 ---
 title: '{{ mgl-full-name }} use cases'
 description: Various {{ mgl-full-name }} use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/managed-gitlab/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mgl-name }} tutorials

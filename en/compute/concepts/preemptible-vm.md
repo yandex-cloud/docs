@@ -1,6 +1,10 @@
 ---
 title: Preemptible VMs in {{ compute-full-name }}
 description: In this article, you will learn what preemptible VMs are, how to use them, and learn about their limitations.
+alternate:
+  - href: en/compute/concepts/preemptible-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Preemptible VMs

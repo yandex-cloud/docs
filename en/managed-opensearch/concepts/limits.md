@@ -1,6 +1,10 @@
 ---
 title: '{{ mos-name }} quotas and limits'
 description: '{{ mos-name }} has limits and quotas for the number of clusters, total number of processor cores for all hosts, total amount of virtual memory for all hosts, and total storage for all clusters per cloud. For more information about the service limitations, read this article.'
+alternate:
+  - href: en/managed-opensearch/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

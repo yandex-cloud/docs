@@ -1,6 +1,10 @@
 ---
 title: Консоль управления {{ baremetal-full-name }}
 description: В этом разделе вы узнаете о возможностях, которые предоставляет консоль управления {{ yandex-cloud }} при работе с серверами {{ baremetal-full-name }}.
+alternate:
+  - href: ru/baremetal/concepts/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Консоль управления {{ baremetal-name }}

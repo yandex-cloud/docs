@@ -1,6 +1,10 @@
 ---
 title: Нейроаналитик для создания вычисляемых полей
 description: Из статьи вы узнаете, как использовать Нейроаналитик при создании вычисляемых полей.
+alternate:
+  - href: ru/datalens/concepts/calculations/formulas-helper.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Нейроаналитик для создания вычисляемых полей

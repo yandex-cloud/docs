@@ -1,6 +1,10 @@
 ---
 title: Добавить шаблон страницы ответа к профилю или правилу
 description: Следуя данной инструкции, вы сможете добавить шаблон страницы ответа к профилю безопасности или ARL, а также к правилу в этих профилях.
+alternate:
+  - href: ru/smartwebsecurity/operations/template-attach.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить шаблон страницы ответа к профилю или правилу

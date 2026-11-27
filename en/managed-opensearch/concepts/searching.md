@@ -1,6 +1,10 @@
 ---
 title: Searching with {{ OS }} in {{ mos-full-name }}
 description: '{{ OS }} is a tool for searching and analyzing data using structured queries, full-text queries, and complex queries.'
+alternate:
+  - href: en/managed-opensearch/concepts/searching.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Searching with {{ OS }}

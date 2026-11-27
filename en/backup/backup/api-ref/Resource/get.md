@@ -26,6 +26,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/backup/backup/api-ref/Resource/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Resource.Get

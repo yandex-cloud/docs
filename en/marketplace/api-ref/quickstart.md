@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ marketplace-short-name }} Metering API
 description: You will learn how to send consumption metrics for your product in {{ marketplace-short-name }} Metering API.
+alternate:
+  - href: en/marketplace/api-ref/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to get started with {{ marketplace-short-name }} Metering API

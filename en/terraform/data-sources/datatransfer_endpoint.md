@@ -1,5 +1,9 @@
 ---
 subcategory: Data Transfer
+alternate:
+  - href: en/terraform/data-sources/datatransfer_endpoint.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_datatransfer_endpoint (DataSource)

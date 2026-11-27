@@ -1,6 +1,10 @@
 ---
 title: Encryption in {{ managed-k8s-full-name }}
 description: In this article, you will learn about encryption in {{ managed-k8s-name }}.
+alternate:
+  - href: en/managed-kubernetes/concepts/encryption.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Encryption in {{ managed-k8s-name }}

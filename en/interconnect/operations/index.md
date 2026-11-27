@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/interconnect/operations/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Step-by-step guides for {{ interconnect-name }}
 
 ## Trunk

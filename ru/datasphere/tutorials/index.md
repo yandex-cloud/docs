@@ -1,6 +1,10 @@
 ---
 title: Практические руководства {{ ml-platform-full-name }}
 description: 'Различные сценарии использования {{ ml-platform-full-name }}: развертывание сервиса, веб-аналитика, интеграция с другими сервисами {{ yandex-cloud }}.'
+alternate:
+  - href: ru/datasphere/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ ml-platform-full-name }}

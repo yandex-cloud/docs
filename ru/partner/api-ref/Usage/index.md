@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Usage/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Usage
 
 <!-- markdownlint-disable-file -->

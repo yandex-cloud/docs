@@ -1,6 +1,10 @@
 ---
 title: Как управлять суммаризацией в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете управлять суммаризацией в сервисе {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/video/summarization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять суммаризацией

@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования сетевой инфраструктуры в {{ yandex-cloud }}
 description: Различные сценарии использования сетевой инфраструктуры в {{ yandex-cloud }}.
+alternate:
+  - href: ru/tutorials/routing/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Руководства по работе с сетевой инфраструктурой в {{ yandex-cloud }}

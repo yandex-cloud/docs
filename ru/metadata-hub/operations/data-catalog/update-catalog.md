@@ -1,6 +1,10 @@
 ---
 title: Изменение каталога метаданных
 description: Следуя данной инструкции, вы сможете изменить параметры каталога метаданных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/update-catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение каталога

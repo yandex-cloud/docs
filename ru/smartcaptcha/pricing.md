@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ captcha-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ captcha-name }}.
 editable: false
+alternate:
+  - href: ru/smartcaptcha/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ captcha-full-name }}

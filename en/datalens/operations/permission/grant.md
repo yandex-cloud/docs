@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/operations/permission/grant.md
+    type: text/markdown
+    title: Markdown version
+---
 # Assigning and changing access permissions
 
 Only a user with the `{{ permission-admin }}` access can assign or change access permissions for an object or folder, either directly or by confirming a request. By default, objects inherit permissions of their parent folder.

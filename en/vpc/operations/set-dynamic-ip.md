@@ -1,6 +1,10 @@
 ---
 title: Converting a static public IP address to dynamic
 description: Follow this guide to make a static public IP address dynamic.
+alternate:
+  - href: en/vpc/operations/set-dynamic-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Converting a static public IP address to dynamic

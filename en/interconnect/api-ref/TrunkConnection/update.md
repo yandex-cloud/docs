@@ -74,6 +74,10 @@ apiPlayground:
           type: boolean
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/interconnect/api-ref/TrunkConnection/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Interconnect API, REST: TrunkConnection.Update

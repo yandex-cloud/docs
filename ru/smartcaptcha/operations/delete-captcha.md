@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/smartcaptcha/operations/delete-captcha.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить капчу
 
 В этом разделе вы узнаете, как удалить [капчу](../concepts/validation.md).

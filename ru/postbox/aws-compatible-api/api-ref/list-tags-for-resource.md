@@ -1,6 +1,10 @@
 ---
 title: Метод ListTagsForResource в API Amazon для {{ postbox-full-name }}
 description: Из статьи вы узнаете, как с помощью метода ListTagsForResource получить список меток адреса, конфигурации или пула выделенных IP-адресов в {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/list-tags-for-resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метод ListTagsForResource

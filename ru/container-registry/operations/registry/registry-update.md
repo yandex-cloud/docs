@@ -1,6 +1,10 @@
 ---
 title: Как изменить реестр в {{ container-registry-full-name }}
 description: Следуя данной инструкции, вы сможете изменить реестр.
+alternate:
+  - href: ru/container-registry/operations/registry/registry-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить реестр

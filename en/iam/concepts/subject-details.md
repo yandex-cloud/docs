@@ -1,6 +1,10 @@
 ---
 title: Getting information about subjects in the {{ yandex-cloud }} access management system
 description: This section describes the feature for getting information about subjects in the {{ yandex-cloud }} access control system, including users, service accounts, user groups, system groups, and public groups. You can use it to search for subjects and retrieve subject attributes.
+alternate:
+  - href: en/iam/concepts/subject-details.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about subjects in the {{ yandex-cloud }} access management system

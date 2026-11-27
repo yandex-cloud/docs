@@ -1,6 +1,10 @@
 ---
 title: Получить список объектов в бакете в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете получить список объектов в бакете в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/objects/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список объектов в бакете

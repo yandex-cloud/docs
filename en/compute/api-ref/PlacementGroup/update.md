@@ -49,6 +49,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/compute/api-ref/PlacementGroup/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: PlacementGroup.Update

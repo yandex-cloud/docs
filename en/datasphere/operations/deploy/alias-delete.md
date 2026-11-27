@@ -1,6 +1,10 @@
 ---
 title: Deleting an alias in {{ ml-platform-full-name }}
 description: Follow this guide to delete an alias in {{ ml-platform-name }}.
+alternate:
+  - href: en/datasphere/operations/deploy/alias-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an alias

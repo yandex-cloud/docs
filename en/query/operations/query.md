@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/operations/query.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing queries
 
 [Queries](../concepts/glossary.md#query) include connection settings and YQL statements.

@@ -1,6 +1,10 @@
 ---
 title: How to create a response template
 description: In this tutorial, you will learn how to create a custom template for responding to client requests.
+alternate:
+  - href: en/smartwebsecurity/operations/template-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a response page template

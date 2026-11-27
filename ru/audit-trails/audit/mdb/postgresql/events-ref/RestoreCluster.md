@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/mdb/postgresql/events-ref/RestoreCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL Audit Trails Events: RestoreCluster

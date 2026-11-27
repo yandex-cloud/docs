@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/TODAY.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # TODAY

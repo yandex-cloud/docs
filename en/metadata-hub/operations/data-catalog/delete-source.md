@@ -1,6 +1,10 @@
 ---
 title: Deleting a metadata source
 description: Follow this guide to delete a metadata source in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/delete-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a source

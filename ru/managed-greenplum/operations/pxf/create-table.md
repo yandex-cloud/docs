@@ -1,6 +1,10 @@
 ---
 title: Создание внешней таблицы по протоколу PXF
 description: Следуя данной инструкции, вы создадите внешнюю таблицу по протоколу PXF с помощью SQL-запроса.
+alternate:
+  - href: ru/managed-greenplum/operations/pxf/create-table.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

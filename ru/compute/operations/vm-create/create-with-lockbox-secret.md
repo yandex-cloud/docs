@@ -1,6 +1,10 @@
 ---
 title: Как создать виртуальную машину с доступом к секрету {{ lockbox-name }}
 description: Следуя данной инструкции, вы сможете получить изнутри виртуальной машины значение секрета {{ lockbox-full-name }}, переданного через метаданные при создании ВМ.
+alternate:
+  - href: ru/compute/operations/vm-create/create-with-lockbox-secret.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать ВМ с доступом к секрету {{ lockbox-full-name }}

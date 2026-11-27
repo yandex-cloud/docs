@@ -1,6 +1,10 @@
 ---
 title: How to recover an external resource from a backup
 description: Follow this guide to recover a VM or server located outside of your {{ yandex-cloud }} infrastructure from a backup.
+alternate:
+  - href: en/backup/operations/external/recover.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recovering an external VM or server from a backup

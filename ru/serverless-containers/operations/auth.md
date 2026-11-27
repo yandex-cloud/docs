@@ -1,6 +1,10 @@
 ---
 title: Как аутентифицироваться при вызове приватного контейнера через HTTPS в {{ sf-full-name }}
 description: Следуя данной инструкции, вы сможете аутентифицироваться при вызове приватного контейнера через HTTPS.
+alternate:
+  - href: ru/serverless-containers/operations/auth.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентифицироваться при вызове приватного контейнера через HTTPS

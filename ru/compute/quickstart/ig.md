@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/quickstart/ig.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание группы виртуальных машин
 
 Создайте группу ВМ с помощью компонента [Instance Groups](../concepts/instance-groups/index.md) в консоли управления {{ yandex-cloud }}.

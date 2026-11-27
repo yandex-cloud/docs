@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть роли, назначенные на контейнер
 description: Следуя данной инструкции, вы сможете посмотреть роли, назначенные на контейнер.
+alternate:
+  - href: ru/serverless-containers/operations/role-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть роли, назначенные на контейнер

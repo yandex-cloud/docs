@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/models/foundation-models.md
+    type: text/markdown
+    title: Markdown version
+---
 # Foundation models in {{ ml-platform-name }}
 
 {{ ml-platform-full-name }} enables the use of foundation models for your tasks at hand.

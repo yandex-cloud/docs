@@ -289,6 +289,10 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/HealthCheck'
+alternate:
+  - href: ru/network-load-balancer/api-ref/NetworkLoadBalancer/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.Create

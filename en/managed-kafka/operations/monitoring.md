@@ -1,6 +1,10 @@
 ---
 title: '{{ KF }} cluster and host state monitoring'
 description: In this guide, you will learn how to monitor the state of an {{ KF }} cluster and hosts.
+alternate:
+  - href: en/managed-kafka/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ KF }} cluster and host state monitoring

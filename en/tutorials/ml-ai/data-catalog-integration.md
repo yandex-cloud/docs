@@ -2,6 +2,10 @@
 title: How to set up {{ ai-studio-name }} integration with {{ data-catalog-full-name }} for AI-powered data analytics
 description: In this tutorial, you will set up {{ ai-studio-name }} integration with {{ data-catalog-full-name }} for AI-driven data analysis.
 canonical: '{{ link-docs }}/tutorials/ml-ai/data-catalog-integration'
+alternate:
+  - href: en/tutorials/ml-ai/data-catalog-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Integrating {{ ai-studio-name }} with {{ data-catalog-full-name }}

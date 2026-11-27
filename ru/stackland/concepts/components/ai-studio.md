@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/ai-studio.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ ai-studio-name }}
 
 {{ ai-studio-full-name }} — платформа для работы с генеративными моделями и создания AI-агентов в составе {{ stackland-name }}. Позволяет выполнять запросы к языковым моделям, получать эмбеддинги, создавать ассистентов и подключать к ним инструменты.

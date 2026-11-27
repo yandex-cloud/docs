@@ -1,6 +1,10 @@
 ---
 title: Connecting to a {{ MY }} cluster in {{ mmy-full-name }}
 description: Follow this guide to connect to a {{ MY }} cluster database with the help of command line tools, {{ websql-full-name }}, graphical IDEs, or a Docker container.
+alternate:
+  - href: en/managed-mysql/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ MY }} cluster from applications

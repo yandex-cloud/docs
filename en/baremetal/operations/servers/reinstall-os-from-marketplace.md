@@ -1,6 +1,10 @@
 ---
 title: How to reinstall an OS on a {{ baremetal-name }} server using a {{ marketplace-short-name }} image
 description: Follow this guide to reinstall a {{ baremetal-full-name }} server OS from a {{ marketplace-short-name }} image.
+alternate:
+  - href: en/baremetal/operations/servers/reinstall-os-from-marketplace.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reinstalling an OS from a {{ marketplace-short-name }} image

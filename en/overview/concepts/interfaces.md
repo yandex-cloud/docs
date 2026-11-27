@@ -1,6 +1,10 @@
 ---
 title: Overview of service interfaces
 description: 'You can access {{ yandex-cloud }} services using a variety of interfaces: the management console, stand-alone web interface, mobile application, as well as the CLI, {{ TF }}, and API.'
+alternate:
+  - href: en/overview/concepts/interfaces.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Overview of service interfaces

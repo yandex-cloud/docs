@@ -1,6 +1,10 @@
 ---
 title: Триггеры в {{ sf-name }}. Обзор
 description: Триггер — условие, при выполнении которого автоматически запускается функция. Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например, Yandex Object Storage, Yandex Message Queue и Yandex IoT Core.
+alternate:
+  - href: ru/functions/concepts/trigger/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Триггеры в {{ sf-name }}. Обзор

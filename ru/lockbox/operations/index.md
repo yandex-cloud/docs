@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ lockbox-full-name }}
 description: Из статьи вы узнаете, как работать с {{ lockbox-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/lockbox/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ lockbox-name }}

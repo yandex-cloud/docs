@@ -1,6 +1,10 @@
 ---
 title: Создание потока данных в AWS SDK
 description: Следуя данной инструкции, вы сможете создать поток данных в AWS SDK.
+alternate:
+  - href: ru/data-streams/operations/aws-sdk/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание потока данных в AWS SDK

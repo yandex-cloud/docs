@@ -168,6 +168,10 @@ apiPlayground:
               - textValue
           - required:
               - binaryValue
+alternate:
+  - href: en/lockbox/api-ref/Secret/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox API, REST: Secret.Create

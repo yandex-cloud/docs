@@ -1,6 +1,10 @@
 ---
 title: How to get information about a log group in {{ cloud-logging-full-name }}
 description: Follow this guide to get information about a log group.
+alternate:
+  - href: en/logging/operations/get-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a log group

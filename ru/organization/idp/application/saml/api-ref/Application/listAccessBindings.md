@@ -43,6 +43,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/idp/application/saml/api-ref/Application/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: Application.ListAccessBindings

@@ -81,6 +81,10 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
+alternate:
+  - href: ru/compute/api-ref/DiskPlacementGroup/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: DiskPlacementGroup.Create

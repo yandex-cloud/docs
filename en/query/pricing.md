@@ -2,6 +2,10 @@
 title: '{{ yq-full-name }} pricing policy'
 description: '{{ yq-name }} is being discontinued. Learn about the shutdown timeline and migration recommendations.'
 editable: false
+alternate:
+  - href: en/query/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yq-full-name }} pricing policy

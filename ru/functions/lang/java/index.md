@@ -1,6 +1,10 @@
 ---
 title: Разработка на Java в {{ sf-full-name }}. Обзор
 description: С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на Java. Сервис предоставляет среду выполнения с версией языка 11 и операционной системой Ubuntu 18.04.
+alternate:
+  - href: ru/functions/lang/java/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разработка на Java. Обзор

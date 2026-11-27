@@ -1,6 +1,10 @@
 ---
 title: Получить информацию о таблице маршрутизации в {{ vpc-full-name }}
 description: Следуя этой инструкции, вы получите информацию о таблице маршрутизации в {{ vpc-full-name }}.
+alternate:
+  - href: ru/vpc/operations/route-table-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о таблице маршрутизации

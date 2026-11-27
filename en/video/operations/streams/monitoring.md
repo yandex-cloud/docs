@@ -1,6 +1,10 @@
 ---
 title: Checking broadcast status in {{ video-full-name }}
 description: How to monitor broadcast quality in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/streams/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Checking broadcast status

@@ -1,6 +1,10 @@
 ---
 title: Access diagnostics in {{ sd-full-name }} {{ access-analyzer-name }}
 description: In this section, you will learn how to view and revoke account or group access permissions for organization resources in {{ sd-name }}.
+alternate:
+  - href: en/security-deck/operations/access-analyzer/analyze-permissions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access diagnostics in {{ access-analyzer-name }}

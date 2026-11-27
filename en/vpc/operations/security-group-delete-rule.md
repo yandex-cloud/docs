@@ -1,6 +1,10 @@
 ---
 title: Deleting a rule from a security group
 description: Follow this guide to delete a rule from a security group.
+alternate:
+  - href: en/vpc/operations/security-group-delete-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a rule from a security group

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_yarl_delete_couple.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli yarl delete couple
 
 Delete a bucket couple quota

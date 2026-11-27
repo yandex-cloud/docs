@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/autoplay-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Browser autoplay policy
 
 Automatic playback of a video hosted on an HTML page using the [video player SDK for IFrame](./sdk/iframe/index.md) may not work due to the browser's media autoplay policy.

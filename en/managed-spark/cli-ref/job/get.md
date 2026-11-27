@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/job/get/
+alternate:
+  - href: en/managed-spark/cli-ref/job/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-spark job get

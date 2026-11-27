@@ -1,6 +1,10 @@
 ---
 title: 'Control Plane и Data Plane: что такое слои управления цифровыми системами'
 description: Control Plane и Data Plane — ключевые понятия в архитектуре цифровых сетей, {{ k8s }} и облачных систем, определяющие их функциональность, масштабируемость и эффективность.
+alternate:
+  - href: ru/glossary/control-plane.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Control Plane и Data Plane

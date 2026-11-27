@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/cluster/update-config/
+alternate:
+  - href: ru/managed-greenplum/cli-ref/cluster/update-config.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-greenplum cluster update-config

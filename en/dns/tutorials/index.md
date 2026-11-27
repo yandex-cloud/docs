@@ -1,6 +1,10 @@
 ---
 title: '{{ dns-full-name }} use cases'
 description: Various {{ dns-full-name }} use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/dns/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ dns-name }} tutorials

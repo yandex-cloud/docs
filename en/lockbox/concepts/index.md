@@ -1,6 +1,10 @@
 ---
 title: '{{ lockbox-full-name }}. Service overview'
 description: A service for creating and storing secrets in the {{ yandex-cloud }} infrastructure
+alternate:
+  - href: en/lockbox/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ lockbox-full-name }} overview

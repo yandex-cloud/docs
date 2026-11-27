@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_certs_upload-private.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops certs upload-private
 
 Upload Private ingress certificate

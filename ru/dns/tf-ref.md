@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ dns-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ dns-name }}.
+alternate:
+  - href: ru/dns/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ dns-full-name }}

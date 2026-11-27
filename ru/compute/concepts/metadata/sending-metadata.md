@@ -1,6 +1,10 @@
 ---
 title: Передача метаданных в виртуальную машину {{ compute-name }}
 description: Из этой статьи вы узнаете о способах передачи метаданных в виртуальные машины {{ compute-full-name }}.
+alternate:
+  - href: ru/compute/concepts/metadata/sending-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передача метаданных в виртуальные машины

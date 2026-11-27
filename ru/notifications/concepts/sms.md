@@ -1,6 +1,10 @@
 ---
 title: SMS в {{ cns-full-name }}
 description: Из статьи вы узнаете про SMS в {{ cns-name }}, типы отправителей и песочницу.
+alternate:
+  - href: ru/notifications/concepts/sms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SMS в {{ cns-full-name }}

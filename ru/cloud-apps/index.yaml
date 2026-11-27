@@ -12,4 +12,8 @@ meta:
   description: >-
     Yandex Cloud Apps — сервис, который позволяет в один клик развернуть
     приложение на базе Yandex Cloud.
+  alternate:
+    - href: ru/cloud-apps/index.yaml
+      type: application/yaml
+      title: Yaml version
 links: []

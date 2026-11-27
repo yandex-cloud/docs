@@ -91,6 +91,10 @@ apiPlayground:
             format: int64
         required:
           - hostName
+alternate:
+  - href: en/storedoc/api-ref/Cluster/updateHosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.UpdateHosts

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/connector/resume/
+alternate:
+  - href: ru/cli/cli-ref/managed-kafka/cli-ref/connector/resume.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kafka connector resume

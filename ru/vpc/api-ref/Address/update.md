@@ -108,6 +108,10 @@ apiPlayground:
               **boolean**
               Optional. If the PTR record is required, this parameter must be set to "true".
             type: boolean
+alternate:
+  - href: ru/vpc/api-ref/Address/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: Address.Update

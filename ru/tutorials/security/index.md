@@ -1,6 +1,10 @@
 ---
 title: Руководства по безопасности
 description: Различные сценарии использования по безопасности в {{ yandex-cloud }}.
+alternate:
+  - href: ru/tutorials/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Руководства по безопасности

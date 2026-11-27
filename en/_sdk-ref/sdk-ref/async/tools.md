@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/async/tools.md
+    type: text/markdown
+    title: Markdown version
+---
 # Tools domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_tools.domain.**AsyncTools**{#yandex_ai_studio_sdk._tools.domain.AsyncTools}

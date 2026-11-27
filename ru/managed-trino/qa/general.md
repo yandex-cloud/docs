@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ mtr-name }}
 description: На странице представлены вопросы и ответы про {{ mtr-full-name }}.
+alternate:
+  - href: ru/managed-trino/qa/general.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие вопросы про {{ mtr-name }}

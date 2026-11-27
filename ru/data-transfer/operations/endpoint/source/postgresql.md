@@ -1,6 +1,10 @@
 ---
 title: Как настроить эндпоинт-источник {{ PG }} в {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-источника {{ PG }} в {{ data-transfer-full-name }}.
+alternate:
+  - href: ru/data-transfer/operations/endpoint/source/postgresql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передача данных из эндпоинта-источника {{ PG }}

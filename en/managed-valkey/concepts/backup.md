@@ -9,6 +9,10 @@ keywords:
   - '{{ VLK }} backups'
   - backup {{ VLK }}
   - '{{ VLK }}'
+alternate:
+  - href: en/managed-valkey/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backups in {{ mrd-name }}

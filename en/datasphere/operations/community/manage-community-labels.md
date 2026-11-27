@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/community/manage-community-labels.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing community labels
 
 You can add and delete community [labels](../../../resource-manager/concepts/labels.md#services). If a project does not have its own labels, it inherits them from the community.

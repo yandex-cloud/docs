@@ -48,6 +48,10 @@ apiPlayground:
       UnpublishVideoAction:
         type: object
         properties: {}
+alternate:
+  - href: en/video/api-ref/Video/performAction.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Video.PerformAction

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/delete-dedicated-ip-pool.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteDedicatedIpPool method
 
 Deletes a [dedicated IP address pool](../../concepts/glossary.md#dedicated-ip-pool) in a folder. The folder is selected based on the service account the request originates from.

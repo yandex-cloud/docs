@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/resource-manager/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как начать работать с {{ resmgr-full-name }}
 
 При регистрации в {{ yandex-cloud }} для пользователя будет создано _облако_ — отдельное рабочее пространство, для которого этот пользователь будет назначен владельцем. В облаке будет создан каталог `default` и сеть `default`.

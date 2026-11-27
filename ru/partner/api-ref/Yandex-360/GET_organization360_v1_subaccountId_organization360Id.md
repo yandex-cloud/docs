@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Yandex-360/GET_organization360_v1_subaccountId_organization360Id.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get organization 360 data

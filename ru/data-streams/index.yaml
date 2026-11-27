@@ -24,6 +24,10 @@ meta:
     - keyword: потоки данных
     - keyword: потоки передачи данных
     - keyword: управления потоками данных в {{ yandex-cloud }}
+  alternate:
+    - href: ru/data-streams/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте поток данных, настройте поставку и сохранение данных

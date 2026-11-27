@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/organization/idp/api-ref/grpc/User/reactivate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, gRPC: UserService.Reactivate

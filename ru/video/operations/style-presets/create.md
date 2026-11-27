@@ -1,6 +1,10 @@
 ---
 title: Как создать шаблон плеера в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете создать шаблон плеера в сервисе {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/style-presets/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать шаблон плеера

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/DB_CALL_ARRAY_STRING.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DB_CALL_ARRAY_STRING

@@ -1,6 +1,10 @@
 ---
 title: Доступ в воркбуках и коллекциях
 description: Из статьи вы узнаете, как регулируется доступ к объектам в {{ datalens-short-name }} при включенной навигации по воркбукам и коллекциям.
+alternate:
+  - href: ru/datalens/security/workbooks-access-advanced.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Продвинутая настройка прав доступа с помощью общих объектов

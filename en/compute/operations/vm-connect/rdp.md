@@ -1,6 +1,10 @@
 ---
 title: How to connect to a Windows VM via RDP
 description: Follow this guide to connect to a Windows VM via RDP.
+alternate:
+  - href: en/compute/operations/vm-connect/rdp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a Windows VM via RDP

@@ -1,6 +1,10 @@
 ---
 title: How to prepare for a transfer
 description: In this tutorial, you will learn how to prepare for a transfer.
+alternate:
+  - href: en/data-transfer/operations/prepare.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Preparing for a transfer

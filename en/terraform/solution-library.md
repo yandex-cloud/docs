@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/terraform/solution-library.md
+    type: text/markdown
+    title: Markdown version
+---
 # Solution library
 
 {{ yandex-cloud }} provides a extensive collection of ready-to-use Terraform recipes and modules you can tailor to meet your needs. 

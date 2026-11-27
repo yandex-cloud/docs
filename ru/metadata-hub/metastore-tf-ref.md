@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ metastore-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для {{ metastore-name }} в сервисе {{ metadata-hub-full-name }}.
+alternate:
+  - href: ru/metadata-hub/metastore-tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ metastore-name }}

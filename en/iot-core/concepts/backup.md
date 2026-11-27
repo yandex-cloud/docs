@@ -1,6 +1,10 @@
 ---
 title: Backing up to {{ iot-full-name }}
 description: Data in {{ iot-full-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can view lists of registries, registry certificates, and registry devices, information about registries and devices, and lists of device certificates and aliases.
+alternate:
+  - href: en/iot-core/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backing up to {{ iot-name }}

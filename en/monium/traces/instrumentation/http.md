@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/traces/instrumentation/http.md
+    type: text/markdown
+    title: Markdown version
+---
 # HTTP communication
 
 If you are using [automatic instrumentation](auto.md), spans are created and attributes are filled automatically. If using [manual instrumentation](manual.md), follow the conventions described below:

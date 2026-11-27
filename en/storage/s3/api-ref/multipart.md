@@ -1,6 +1,10 @@
 ---
 title: Multipart upload of objects to a {{ objstorage-full-name }} bucket step-by-step
 description: In this article, you will learn how to upload objects to buckets in parts.
+alternate:
+  - href: en/storage/s3/api-ref/multipart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Multipart upload process

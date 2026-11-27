@@ -18,6 +18,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/smartwebsecurity/api-ref/SecurityProfile/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity API, REST: SecurityProfile.List

@@ -1,6 +1,10 @@
 ---
 title: Creating a lifecycle policy in {{ cloud-registry-full-name }}
 description: Follow this guide to create a lifecycle policy in {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/lifecycle-policy/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a lifecycle policy

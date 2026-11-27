@@ -1,6 +1,10 @@
 ---
 title: How to add a hierarchy to charts in {{ datalens-full-name }}
 description: Follow this guide to add a hierarchy to charts in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/chart/add-hierarchy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a hierarchy to charts in {{ datalens-full-name }}

@@ -36,6 +36,10 @@ apiPlayground:
             - internalIpv4Address
     body: null
     definitions: null
+alternate:
+  - href: ru/vpc/api-ref/Address/getByValue.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: Address.GetByValue

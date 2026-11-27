@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/overview/concepts/zone-migration-partners.md
+    type: text/markdown
+    title: Markdown version
+---
 # Миграция ресурсов с помощью партнеров
 
 Если вам необходима помощь в [перемещении ресурсов](./zone-migration.md) в другую зону доступности или нужны консультации по организации процесса миграции, то мы рекомендуем обратиться к нашим партнерам:

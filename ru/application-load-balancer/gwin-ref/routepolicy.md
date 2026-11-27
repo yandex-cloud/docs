@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/application-load-balancer/gwin-ref/routepolicy.md
+    type: text/markdown
+    title: Markdown version
+---
 # RoutePolicy
 
 RoutePolicy is a Gwin custom resource for configuring route-level policies in Yandex Application Load Balancer. It allows you to define backend settings, routing configuration, virtual host options, and security policies that apply to HTTPRoute, GRPCRoute, and TLSRoute resources.

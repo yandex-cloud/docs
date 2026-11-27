@@ -1,6 +1,10 @@
 ---
 title: Как создать сделку
 description: Следуя данной инструкции, вы сможете создать сделку
+alternate:
+  - href: ru/partner/operations/deals/create-deal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать сделку

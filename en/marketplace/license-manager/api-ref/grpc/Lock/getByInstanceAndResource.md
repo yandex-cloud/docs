@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/marketplace/license-manager/api-ref/grpc/Lock/getByInstanceAndResource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace License Manager, gRPC: LockService.GetByInstanceAndResource

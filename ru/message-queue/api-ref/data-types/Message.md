@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/data-types/Message.md
+    type: text/markdown
+    title: Markdown version
+---
 # Message
 
 Сообщение Message Queue.

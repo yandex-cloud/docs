@@ -1,6 +1,10 @@
 ---
 title: Классы хостов {{ dataproc-name }} до 20 июня 2023 года
 description: В этой статье описаны классы хостов {{ dataproc-name }}, доступные до 20 июня 2023 года.
+alternate:
+  - href: ru/data-proc/concepts/instance-types-archive/instance-types-20062023.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Классы хостов {{ dataproc-name }} до 20 июня 2023 года

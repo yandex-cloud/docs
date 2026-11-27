@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/registry/set-access-bindings/
+alternate:
+  - href: ru/container-registry/cli-ref/registry/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container registry set-access-bindings

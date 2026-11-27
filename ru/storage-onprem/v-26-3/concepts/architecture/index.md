@@ -1,6 +1,10 @@
 ---
 title: Обзор в {{ objstorage-onprem-name }}
 description: Обзор архитектуры и компонентов {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор

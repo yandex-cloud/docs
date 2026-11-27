@@ -1,6 +1,10 @@
 ---
 title: Как настроить политику доступа к реестру {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы сможете настроить политику доступа к реестру.
+alternate:
+  - href: ru/cloud-registry/operations/registry/create-access-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить политику доступа к реестру

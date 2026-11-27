@@ -260,6 +260,10 @@ apiPlayground:
               - autoAllocation
           - required:
               - manualAllocation
+alternate:
+  - href: ru/baremetal/api-ref/PublicSubnet/updatePublicSubnet.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PublicSubnet.UpdatePublicSubnet

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/host-group/
+alternate:
+  - href: en/compute/cli-ref/host-group/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute host-group

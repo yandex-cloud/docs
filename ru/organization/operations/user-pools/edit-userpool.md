@@ -1,6 +1,10 @@
 ---
 title: Как редактировать пул пользователей в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете редактировать пул пользователей в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/edit-userpool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Редактировать пул пользователей

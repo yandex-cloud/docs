@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/resource-manager/api-ref/Folder/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API, REST: Folder.UpdateAccessBindings

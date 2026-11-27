@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ yandex-siem-full-name }}
 description: Из статьи вы узнаете, как работать с расследованиями, запросами, правилами корреляции и исключениями в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Инструкции по работе с {{ yandex-siem-full-name }}

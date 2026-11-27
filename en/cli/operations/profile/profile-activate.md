@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cli/operations/profile/profile-activate.md
+    type: text/markdown
+    title: Markdown version
+---
 # Activating a {{ yandex-cloud }} profile
 
 Multiple profiles let you quickly switch your command execution context. 

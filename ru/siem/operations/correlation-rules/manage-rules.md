@@ -1,6 +1,10 @@
 ---
 title: Управление правилами корреляции в {{ yandex-siem-full-name }}
 description: Следуя данной инструкции, вы научитесь создавать, редактировать, выключать и удалять правила корреляции в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/operations/correlation-rules/manage-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление правилами корреляции

@@ -1,6 +1,10 @@
 ---
 title: How to delete a custom certificate in {{ certificate-manager-full-name }}
 description: Follow this guide to delete a custom certificate.
+alternate:
+  - href: en/certificate-manager/operations/import/cert-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a custom certificate

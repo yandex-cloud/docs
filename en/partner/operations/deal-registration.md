@@ -1,6 +1,10 @@
 ---
 title: Registering a deal
 description: Follow this guide to register a deal.
+alternate:
+  - href: en/partner/operations/deal-registration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Registering a deal

@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.CHYT.CLIQUE.SUSPENDED
 description: На странице приведено описание ошибки {{ datalens-full-name }} Clique <название_клики> is suspended.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-SUSPENDED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Clique <название_клики> is suspended

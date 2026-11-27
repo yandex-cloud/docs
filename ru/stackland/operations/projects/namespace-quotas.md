@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/projects/namespace-quotas.md
+    type: text/markdown
+    title: Markdown version
+---
 # Установить квоты в пространствах имен
 
 Квоты ограничивают потребление ресурсов в пространствах имен проекта. Квоты задаются на уровне пространства имен и позволяют контролировать использование CPU, памяти, хранилища и GPU.

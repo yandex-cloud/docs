@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/metadata-hub/concepts/schema-compatibility.md
+    type: text/markdown
+    title: Markdown version
+---
 # Совместимость схем
 
 

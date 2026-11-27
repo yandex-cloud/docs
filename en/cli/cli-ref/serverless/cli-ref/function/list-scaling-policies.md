@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/function/list-scaling-policies/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/function/list-scaling-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless function list-scaling-policies

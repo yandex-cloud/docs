@@ -2,6 +2,10 @@
 title: '{{ data-transfer-full-name }} pricing policy'
 description: This article covers the {{ data-transfer-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/data-transfer/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ data-transfer-name }} pricing policy

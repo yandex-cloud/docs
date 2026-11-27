@@ -1,6 +1,10 @@
 ---
 title: Kotlin function execution logging
 description: '{{ sf-name }} automatically captures the Kotlin application''s standard output streams and sends them to the centralized logging system in {{ yandex-cloud }}.'
+alternate:
+  - href: en/functions/lang/kotlin/logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Kotlin function execution logging

@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/cloud-router/scenarios/ri-2_prc-1noha_vpc-1.md
+    type: text/markdown
+    title: Markdown version
+---
 # Two separate virtual routers without on-prem redundancy
 
 

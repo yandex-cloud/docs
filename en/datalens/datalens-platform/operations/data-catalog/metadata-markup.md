@@ -1,6 +1,10 @@
 ---
 title: Metadata markup in {{ datalens-platform-full-name }}
 description: Follow this guide to learn how to create markup components and use them to mark up data in {{ datalens-platform-full-name }}.
+alternate:
+  - href: en/datalens/datalens-platform/operations/data-catalog/metadata-markup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Metadata markup

@@ -1,6 +1,10 @@
 ---
 title: Metadata in {{ datalens-platform-full-name }}
 description: In this section, you will learn how to view metadata in {{ datalens-platform-short-name }}, mark it up with domains, classification tags, or glossary terms, and analyze metadata relationships
+alternate:
+  - href: en/datalens/datalens-platform/concepts/data-catalog/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Metadata in {{ datalens-platform-full-name }}

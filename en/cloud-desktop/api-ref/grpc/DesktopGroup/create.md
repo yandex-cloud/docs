@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/cloud-desktop/api-ref/grpc/DesktopGroup/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop API, gRPC: DesktopGroupService.Create

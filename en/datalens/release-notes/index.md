@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} release notes: September 2026'
 description: Check out the {{ datalens-full-name }} release notes for September 2026.
+alternate:
+  - href: en/datalens/release-notes/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} release notes: September 2026

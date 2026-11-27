@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/trigger/v2/update/add-actions/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/trigger/v2/update/add-actions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless trigger v2 update add-actions

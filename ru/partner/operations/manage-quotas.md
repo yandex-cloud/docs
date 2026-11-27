@@ -1,6 +1,10 @@
 ---
 title: Настроить квоты для клиентов
 description: Следуя данной инструкции, вы сможете настроить квоты для клиентов.
+alternate:
+  - href: ru/partner/operations/manage-quotas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить квоты для клиентов

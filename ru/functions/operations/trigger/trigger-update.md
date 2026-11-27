@@ -1,6 +1,10 @@
 ---
 title: Изменить триггер в {{ sf-name }}
 description: Из статьи вы узнаете, как изменить все параметры триггера в {{ sf-name }}, кроме типа триггера и запускаемого ресурса.
+alternate:
+  - href: ru/functions/operations/trigger/trigger-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить триггер в {{ sf-name }}

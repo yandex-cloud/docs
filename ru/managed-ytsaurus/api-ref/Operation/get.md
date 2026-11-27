@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-ytsaurus/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ytsaurus API, REST: Operation.Get

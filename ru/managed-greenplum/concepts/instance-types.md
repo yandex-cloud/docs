@@ -1,6 +1,10 @@
 ---
 title: Классы хостов {{ mgp-name }}
 description: Из статьи вы узнаете про классы хостов в сервисе {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/concepts/instance-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Классы хостов {{ mgp-name }}

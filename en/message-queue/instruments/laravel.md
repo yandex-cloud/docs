@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/instruments/laravel.md
+    type: text/markdown
+    title: Markdown version
+---
 # Example of using {{ message-queue-full-name }} on Laravel
 
 To work with queues, the [Laravel](https://laravel.com/) PHP framework provides the [Queue](https://laravel.com/docs/6.x/queues) primitive. As a message broker, you can use {{ message-queue-name }}.

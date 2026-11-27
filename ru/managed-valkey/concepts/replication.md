@@ -5,6 +5,10 @@ keywords:
   - репликация Valkey
   - Valkey
   - субд Valkey
+alternate:
+  - href: ru/managed-valkey/concepts/replication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Репликация и персистентность в {{ mrd-name }}

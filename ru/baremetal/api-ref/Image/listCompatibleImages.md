@@ -241,6 +241,10 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/ConfigurationNetworkInterface'
+alternate:
+  - href: ru/baremetal/api-ref/Image/listCompatibleImages.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Image.ListCompatibleImages

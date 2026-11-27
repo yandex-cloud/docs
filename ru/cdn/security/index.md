@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cdn/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление доступом в {{ cdn-name }}
 
 Для управления правами доступа в {{ cdn-name }} используются [роли](../../iam/concepts/access-control/roles.md).

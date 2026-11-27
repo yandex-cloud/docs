@@ -1,6 +1,10 @@
 ---
 title: Удаление пользовательских наборов правил в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в {{ sd-full-name }} удалить пользовательский набор правил.
+alternate:
+  - href: ru/security-deck/operations/custom-rules-sets/delete-set.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить пользовательский набор правил {#delete-set}

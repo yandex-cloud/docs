@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/access-key/issue-ephemeral/
+alternate:
+  - href: ru/cli/cli-ref/iam/cli-ref/v0/access-key/issue-ephemeral.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam v0 access-key issue-ephemeral

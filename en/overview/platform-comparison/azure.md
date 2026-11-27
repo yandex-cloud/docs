@@ -1,6 +1,10 @@
 ---
 title: Equivalents for Microsoft Azure
 description: This article establishes the equivalence between {{ yandex-cloud }} services and Microsoft Azure services.
+alternate:
+  - href: en/overview/platform-comparison/azure.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Equivalents for Microsoft Azure

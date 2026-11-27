@@ -1,6 +1,10 @@
 ---
 title: Профили безопасности
 description: Профили безопасности объединяют правила {{ sws-name }} для защиты веб-ресурсов от атак.
+alternate:
+  - href: ru/smartwebsecurity/concepts/profiles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Профили безопасности

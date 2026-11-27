@@ -1,6 +1,10 @@
 ---
 title: Identifying resources in the API
 description: In this tutorial, you will learn about resource identification in the {{ yandex-cloud }} API.
+alternate:
+  - href: en/api-design-guide/concepts/resources-identification.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource identification

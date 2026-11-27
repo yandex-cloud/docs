@@ -1,6 +1,10 @@
 ---
 title: '{{ captcha-name }} public IP addresses'
 description: For {{ captcha-name }} to work correctly, allow access to specific IP addresses.
+alternate:
+  - href: en/smartcaptcha/concepts/ips.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ captcha-name }} public IP addresses

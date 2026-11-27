@@ -126,6 +126,10 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/ScheduledRule'
+alternate:
+  - href: ru/cloud-registry/api-ref/ScanPolicy/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, REST: ScanPolicy.Update

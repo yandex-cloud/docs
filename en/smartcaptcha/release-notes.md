@@ -1,6 +1,10 @@
 ---
 title: '{{ captcha-full-name }} release notes'
 description: This section contains the {{ captcha-name }} release notes.
+alternate:
+  - href: en/smartcaptcha/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ captcha-full-name }} release notes

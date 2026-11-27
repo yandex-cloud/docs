@@ -1,6 +1,10 @@
 ---
 title: Создание пользовательских наборов правил в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в {{ sd-full-name }} создавать пользовательские наборы правил.
+alternate:
+  - href: ru/security-deck/operations/custom-rules-sets/create-set.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать пользовательский набор правил

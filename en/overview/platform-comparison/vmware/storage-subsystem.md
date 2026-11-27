@@ -1,6 +1,10 @@
 ---
 title: Data storage subsystem (Storage)
 description: This article compares fault tolerance, disaster recovery, and backup models in VMware Cloud Director and {{ yandex-cloud }}. You will also learn about the different ways to approach data storage.
+alternate:
+  - href: en/overview/platform-comparison/vmware/storage-subsystem.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data storage subsystem (Storage)

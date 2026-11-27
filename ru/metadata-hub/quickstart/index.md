@@ -1,6 +1,10 @@
 ---
 title: Как начать работу с {{ metadata-hub-full-name }}
 description: Из статьи вы узнаете, как создать первое подключение и как начать работать с реестром данных.
+alternate:
+  - href: ru/metadata-hub/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с сервисами {{ metadata-hub-full-name }}

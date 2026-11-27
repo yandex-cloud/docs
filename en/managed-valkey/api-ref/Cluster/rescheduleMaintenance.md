@@ -47,6 +47,10 @@ apiPlayground:
         - rescheduleType
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/managed-valkey/api-ref/Cluster/rescheduleMaintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, REST: Cluster.RescheduleMaintenance

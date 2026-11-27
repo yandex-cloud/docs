@@ -1,6 +1,10 @@
 ---
 title: How to view roles assigned to an account in {{ iam-full-name }}
 description: Use this guide to view roles assigned to an account.
+alternate:
+  - href: en/iam/operations/roles/get-assigned-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing assigned roles

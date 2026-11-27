@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/ytsaurus/enable.md
+    type: text/markdown
+    title: Markdown version
+---
 # Activate {{ yt-name }}
 
 [{{ yt-name }}](../../concepts/components/ytsaurus.md) deploys a single shared {{ YT }} cluster on the platform. The cluster is described by a `YTsaurusConfig` resource named `main`. By default, the component is disabled (`spec.enabled: false`); to deploy the cluster, set the resource to `spec.enabled: true`.

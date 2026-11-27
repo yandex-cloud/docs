@@ -87,6 +87,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: en/compute/instancegroup/api-ref/InstanceGroup/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud Instance Groups API, REST: InstanceGroup.SetAccessBindings

@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете создать внутреннюю и публичную зоны DNS.
+alternate:
+  - href: ru/dns/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ dns-name }}

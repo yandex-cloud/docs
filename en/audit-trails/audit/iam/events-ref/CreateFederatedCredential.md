@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/iam/events-ref/CreateFederatedCredential.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management Audit Trails Events: CreateFederatedCredential

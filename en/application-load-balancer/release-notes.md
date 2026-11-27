@@ -1,6 +1,10 @@
 ---
 title: '{{ alb-full-name }} release notes'
 description: This section contains the {{ alb-name }} release notes.
+alternate:
+  - href: en/application-load-balancer/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ alb-full-name }} release notes

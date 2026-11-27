@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/concepts/logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Log export
 
 {{ cdn-name }} provides CDN server request logs and, if [origin shielding](origins-shielding.md) is enabled, requests to the shielding servers.

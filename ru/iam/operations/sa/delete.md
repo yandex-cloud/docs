@@ -1,6 +1,10 @@
 ---
 title: Как удалить сервисный аккаунт
 description: Следуя данной инструкции, вы сможете удалить сервисный аккаунт.
+alternate:
+  - href: ru/iam/operations/sa/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление сервисного аккаунта

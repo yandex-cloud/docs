@@ -2,6 +2,10 @@
 title: '{{ message-queue-full-name }} metrics'
 description: In this tutorial, you will learn about {{ message-queue-name }} metrics.
 editable: false
+alternate:
+  - href: en/monitoring/metrics-ref/message-queue-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ message-queue-full-name }} metrics

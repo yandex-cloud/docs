@@ -1,6 +1,10 @@
 ---
 title: Публичные материалы о {{ mspqr-full-name }}
 description: Видеозаписи конференций и вебинаров, посвященных {{ mspqr-full-name }}.
+alternate:
+  - href: ru/managed-spqr/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные материалы о {{ mspqr-full-name }}

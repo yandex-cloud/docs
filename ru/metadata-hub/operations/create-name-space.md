@@ -1,6 +1,10 @@
 ---
 title: Создание пространства имен
 description: Следуя данной инструкции, вы сможете создать пространство имен.
+alternate:
+  - href: ru/metadata-hub/operations/create-name-space.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание пространства имен

@@ -1,6 +1,10 @@
 ---
 title: Проверки и автоматическое восстановление виртуальных машин в группе
 description: '{{ ig-name }} регулярно проверяет, что виртуальные машины в вашей группе работают корректно.'
+alternate:
+  - href: ru/compute/concepts/instance-groups/autohealing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Проверки и автоматическое восстановление виртуальных машин в группе

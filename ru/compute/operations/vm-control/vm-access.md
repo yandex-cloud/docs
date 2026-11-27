@@ -1,6 +1,10 @@
 ---
 title: Как настроить права доступа к виртуальной машине {{ compute-name }}
 description: Следуя данной инструкции, вы настроите права доступа к виртуальной машине.
+alternate:
+  - href: ru/compute/operations/vm-control/vm-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к виртуальной машине

@@ -1,6 +1,10 @@
 ---
 title: List of {{ ad-sync-agent }} releases
 description: This page presents sync agent releases and their updates.
+alternate:
+  - href: en/organization/sync-agent-release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ad-sync-agent }} releases

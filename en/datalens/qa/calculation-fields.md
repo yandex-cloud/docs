@@ -1,6 +1,10 @@
 ---
 title: FAQ about calculated fields
 description: This page addresses the FAQs about calculated fields.
+alternate:
+  - href: en/datalens/qa/calculation-fields.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Calculated fields

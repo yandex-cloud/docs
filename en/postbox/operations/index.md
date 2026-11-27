@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ postbox-full-name }}
 description: This section contains step-by-step guides for {{ postbox-name }}.
+alternate:
+  - href: en/postbox/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ postbox-name }}

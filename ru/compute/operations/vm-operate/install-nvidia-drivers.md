@@ -1,6 +1,10 @@
 ---
 title: Установка NVIDIA-драйверов
 description: Следуя данной инструкции, вы сможете установить NVIDIA-драйверы.
+alternate:
+  - href: ru/compute/operations/vm-operate/install-nvidia-drivers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

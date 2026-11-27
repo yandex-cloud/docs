@@ -1,6 +1,10 @@
 ---
 title: Добавить расширение {{ ml-platform-full-name }}
 description: Следуя данной инструкции, вы сможете добавить расширение {{ ml-platform-full-name }} с помощью конструктора спецификации.
+alternate:
+  - href: ru/api-gateway/operations/spec-constructor/datasphere.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить расширение x-yc-apigateway-integration:cloud_datasphere

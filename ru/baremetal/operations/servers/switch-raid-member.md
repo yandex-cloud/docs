@@ -1,6 +1,10 @@
 ---
 title: Как заменить неисправный диск в RAID-массиве на сервере {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете заменить неисправный диск в RAID-массиве на сервере {{ baremetal-name }}.
+alternate:
+  - href: ru/baremetal/operations/servers/switch-raid-member.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Заменить диск в RAID-массиве

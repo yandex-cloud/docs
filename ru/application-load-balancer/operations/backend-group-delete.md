@@ -1,6 +1,10 @@
 ---
 title: Как удалить группу бэкендов
 description: Следуя данной инструкции, вы сможете удалить группу бэкендов.
+alternate:
+  - href: ru/application-load-balancer/operations/backend-group-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить группу бэкендов

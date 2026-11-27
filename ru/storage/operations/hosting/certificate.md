@@ -1,6 +1,10 @@
 ---
 title: Настроить HTTPS для хостинга в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить  HTTPS для хостинга в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/hosting/certificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить HTTPS

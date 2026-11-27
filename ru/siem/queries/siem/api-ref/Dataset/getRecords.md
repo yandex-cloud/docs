@@ -71,6 +71,10 @@ apiPlayground:
               In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
             type: string
             format: date-time
+alternate:
+  - href: ru/siem/queries/siem/api-ref/Dataset/getRecords.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM Queries API, REST: Dataset.GetRecords

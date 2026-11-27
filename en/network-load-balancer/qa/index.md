@@ -1,6 +1,10 @@
 ---
 title: '{{ network-load-balancer-full-name }}. FAQ'
 description: How do I get logs of my work in {{ network-load-balancer-full-name }}? For more information, see Data requests.
+alternate:
+  - href: en/network-load-balancer/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ network-load-balancer-name }}

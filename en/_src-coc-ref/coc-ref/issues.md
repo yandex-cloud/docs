@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_src-coc-ref/coc-ref/issues.md
+    type: text/markdown
+    title: Markdown version
+---
 # Issues configuration
 
 Path in repository: `.sourcecraft/issues.yaml`.

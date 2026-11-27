@@ -1,6 +1,10 @@
 ---
 title: Creating a {{ baremetal-extend-stackland-name }} cluster
 description: Follow this guide to create a {{ baremetal-extend-stackland-name }} cluster on {{ baremetal-name }} servers.
+alternate:
+  - href: en/baremetal/operations/extend/stackland.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ baremetal-extend-stackland-name }} cluster

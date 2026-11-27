@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Subaccounts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Subaccounts
 
 <!-- markdownlint-disable-file -->

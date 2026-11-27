@@ -1,6 +1,10 @@
 ---
 title: Нормированная диаграмма с областями в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Нормированная диаграмма с областями.
+alternate:
+  - href: ru/datalens/visualization-ref/normalized-area-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Нормированная диаграмма с областями ![](../../_assets/datalens/normalized-area.svg) в {{ datalens-full-name }}

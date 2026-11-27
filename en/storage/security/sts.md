@@ -1,5 +1,9 @@
 ---
 noIndex: true
+alternate:
+  - href: en/storage/security/sts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [sts-overview](../../_includes/iam/sts-overview.md) %}

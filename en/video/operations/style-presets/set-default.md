@@ -1,6 +1,10 @@
 ---
 title: How to set a default player preset in {{ video-full-name }}
 description: Follow this guide to select a default player preset in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/style-presets/set-default.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting a default player preset

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-spark/concepts/network.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сеть в {{ msp-full-name }}
 
 При создании кластера вы можете задать следующие сетевые настройки:

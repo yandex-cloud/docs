@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/secrets.md
+    type: text/markdown
+    title: Markdown version
+---
 # Private data storage
 
 To safely store keys, passwords, and other private information, {{ ml-platform-name }} provides a special type of resource called _secrets_.

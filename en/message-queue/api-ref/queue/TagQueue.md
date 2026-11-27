@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/queue/TagQueue.md
+    type: text/markdown
+    title: Markdown version
+---
 # TagQueue
 
 This is a method for setting [queue labels](../../concepts/tags.md). Updating labels can take up to 60 seconds.

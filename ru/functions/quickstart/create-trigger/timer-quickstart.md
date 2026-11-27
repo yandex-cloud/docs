@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/quickstart/create-trigger/timer-quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание таймера, который запускает функцию
 
 Создайте [таймер](../../concepts/trigger/timer.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} каждую минуту.

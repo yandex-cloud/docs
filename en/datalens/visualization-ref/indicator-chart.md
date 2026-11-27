@@ -1,6 +1,10 @@
 ---
 title: Indicator in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the indicator visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/indicator-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Indicator ![](../../_assets/datalens/indicator.svg) in {{ datalens-full-name }}

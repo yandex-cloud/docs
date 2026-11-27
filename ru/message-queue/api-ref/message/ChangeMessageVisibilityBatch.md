@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/message/ChangeMessageVisibilityBatch.md
+    type: text/markdown
+    title: Markdown version
+---
 # ChangeMessageVisibilityBatch
 
 Метод для установки таймаута видимости группе сообщений в указанной очереди. Можно отправить до 10 вызовов `ChangeMessageVisibility` в одном вызове `ChangeMessageVisibilityBatch`.

@@ -1,6 +1,10 @@
 ---
 title: Reading data from a stream in the AWS SDK
 description: Follow this guide to get data from a stream in the AWS SDK.
+alternate:
+  - href: en/data-streams/operations/aws-sdk/get-records.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reading data from a stream in the AWS SDK

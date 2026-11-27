@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/yql-tutorials/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с синтаксисом {{ yql-full-name }} в {{ yq-full-name }}
 
 {% include [sunset](../../_includes/query/sunset.md) %}

@@ -1,6 +1,10 @@
 ---
 title: Managing namespaces in {{ managed-k8s-full-name }}
 description: In this tutorial, you will learn how to manage {{ k8s }} namespaces in {{ yandex-cloud }} using the management console without kubectl.
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing namespaces

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/organization/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление доступом в {{ org-full-name }}
 
 Управление доступом в {{ yandex-cloud }} построено на политике [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC). Чтобы предоставить пользователю определенные права или доступ к ресурсу, нужно назначить ему соответствующие роли.

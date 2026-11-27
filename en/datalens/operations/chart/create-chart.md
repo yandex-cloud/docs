@@ -1,6 +1,10 @@
 ---
 title: How to create a chart in {{ datalens-full-name }}
 description: Follow this guide to create a chart in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/chart/create-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a chart in {{ datalens-full-name }}

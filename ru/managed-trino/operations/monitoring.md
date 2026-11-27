@@ -1,6 +1,10 @@
 ---
 title: Мониторинг состояния кластера {{ mtr-name }}
 description: Из статьи вы узнаете, как осуществлять мониторинг состояния кластера {{ mtr-name }}.
+alternate:
+  - href: ru/managed-trino/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг состояния кластера {{ mtr-name }}

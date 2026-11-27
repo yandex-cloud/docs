@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/queue/SetQueueAttributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # SetQueueAttributes
 
 Метод для задания атрибутов указанной очереди. Изменение атрибутов может занять до 60 секунд. Изменение атрибута `MessageRetentionPeriod` может занять до 15 минут.

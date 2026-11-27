@@ -1,6 +1,11 @@
 ---
 title: Restoring database clusters in {{ yandex-cloud }} in case of an availability zone failure
 description: 'The process of restoring managed database clusters if an availability zone fails: restoring from a backup, replacing hosts, and contacting support.'
+noIndex: true
+alternate:
+  - href: en/architecture/mdb-recovery.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Restoring database clusters in case of an availability zone failure

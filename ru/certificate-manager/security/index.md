@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ certificate-manager-full-name }}
 description: Управление доступом в сервисе для получения и обновления TLS-сертификатов от Let's Encrypt, а также для загрузки собственных сертификатов — {{ certificate-manager-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
+alternate:
+  - href: ru/certificate-manager/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ certificate-manager-name }}

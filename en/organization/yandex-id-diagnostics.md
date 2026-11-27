@@ -1,6 +1,10 @@
 ---
 title: Possible Yandex account authentication errors
 description: In this article, you will learn about possible Yandex account authentication errors.
+alternate:
+  - href: en/organization/yandex-id-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Diagnosing Yandex account authentication errors

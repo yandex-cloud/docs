@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/storage/create-bucket.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a bucket
 
 If you have a [project](../projects/create-project.md), you can create a [bucket](../../concepts/components/storage.md) in it.

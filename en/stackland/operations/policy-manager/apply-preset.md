@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/policy-manager/apply-preset.md
+    type: text/markdown
+    title: Markdown version
+---
 # Activating policy preset
 
 {{ stackland-name }} allows you to activate policy presets and apply them to cluster resources. To activate a preset, create the `ClusterPolicySet` resource.

@@ -1,6 +1,10 @@
 ---
 title: Video player SDK
 description: In this article, you will learn about video player SDKs.
+alternate:
+  - href: en/video/sdk/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video player SDK

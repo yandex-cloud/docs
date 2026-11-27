@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/data/connect-to-postgresql.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение к базе данных {{ PG }}
 
 В инфраструктуре {{ yandex-cloud }} разворачивать и поддерживать кластеры серверов [{{ PG }}](https://www.postgresql.org/) позволяет сервис {{ mpg-short-name }}.

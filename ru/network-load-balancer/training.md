@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ network-load-balancer-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ network-load-balancer-full-name }}.
+alternate:
+  - href: ru/network-load-balancer/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ network-load-balancer-full-name }}

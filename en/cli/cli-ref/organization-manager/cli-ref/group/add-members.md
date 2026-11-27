@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/group/add-members/
+alternate:
+  - href: en/cli/cli-ref/organization-manager/cli-ref/group/add-members.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager group add-members

@@ -1,6 +1,10 @@
 ---
 title: Управлять исключениями политики MFA в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете управлять исключениями политики MFA в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/mfa/excluded-audience.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять исключениями политики MFA

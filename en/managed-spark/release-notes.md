@@ -1,6 +1,10 @@
 ---
 title: '{{ msp-full-name }} release notes'
 description: This section contains {{ msp-name }} release notes.
+alternate:
+  - href: en/managed-spark/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ msp-full-name }} release notes

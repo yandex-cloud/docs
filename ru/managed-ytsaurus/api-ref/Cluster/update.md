@@ -539,6 +539,10 @@ apiPlayground:
             type: array
             items:
               type: string
+alternate:
+  - href: ru/managed-ytsaurus/api-ref/Cluster/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ytsaurus API, REST: Cluster.Update

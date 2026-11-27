@@ -2,6 +2,10 @@
 title: How to upload data to a {{ ydb-full-name }} table
 description: Follow this guide to upload data to a table.
 sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
+alternate:
+  - href: en/ydb/docapi/tools/aws-sdk/load-data.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Uploading data to a table
 

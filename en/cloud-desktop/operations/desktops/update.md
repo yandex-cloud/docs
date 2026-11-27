@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cloud-desktop/operations/desktops/update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating a desktop
 
 {% include [updating-group-disclaimer](../../../_includes/cloud-desktop/updating-group-disclaimer.md) %}

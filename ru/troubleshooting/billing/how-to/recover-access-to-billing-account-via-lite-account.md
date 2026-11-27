@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/recover-access-to-billing-account-via-lite-account.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как восстановить доступ к платежному аккаунту, созданному на основе упрощенной регистрации в Яндекс ID
 
 

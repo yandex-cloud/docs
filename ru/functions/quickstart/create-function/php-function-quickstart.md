@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/quickstart/create-function/php-function-quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание функции на PHP
 
 Создайте и выполните [функцию](../../concepts/function.md) на PHP, которая приветствует пользователя.

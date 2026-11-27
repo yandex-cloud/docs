@@ -1,6 +1,10 @@
 ---
 title: Закрытие сервиса {{ cloud-desktop-full-name }}
 description: Возврат данных после закрытия {{ cloud-desktop-name }} и рекомендации по миграции.
+alternate:
+  - href: ru/cloud-desktop/sunset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Закрытие сервиса {{ cloud-desktop-full-name }}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/trigger/create/yds/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/trigger/create/yds.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless trigger create yds

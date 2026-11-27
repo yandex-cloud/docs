@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/concepts/lifecycles.md
+    type: text/markdown
+    title: Markdown version
+---
 # Bucket object lifecycles
 
 With _object lifecycles_, you can [configure](../operations/buckets/lifecycles.md) automatic actions on individual objects or groups of objects in a bucket at specified points in time.

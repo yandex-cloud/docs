@@ -1,6 +1,10 @@
 ---
 title: Use cases for data storage and recovery in {{ yandex-cloud }}
 description: Various use cases for data storage and recovery in {{ yandex-cloud }}.
+alternate:
+  - href: en/tutorials/archive/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Storing and recovering data

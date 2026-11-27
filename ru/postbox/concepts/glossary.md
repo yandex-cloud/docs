@@ -1,6 +1,10 @@
 ---
 title: Термины и определения в {{ postbox-full-name }}
 description: В статье вы ознакомитесь с терминами и определениями в {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/concepts/glossary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Термины и определения в {{ postbox-name }}

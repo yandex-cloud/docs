@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/reserved-instance-pool/list-operations/
+alternate:
+  - href: ru/cli/cli-ref/compute/cli-ref/v0/reserved-instance-pool/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute v0 reserved-instance-pool list-operations

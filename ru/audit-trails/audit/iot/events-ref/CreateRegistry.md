@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/iot/events-ref/CreateRegistry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Audit Trails Events: CreateRegistry

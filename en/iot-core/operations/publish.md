@@ -1,6 +1,10 @@
 ---
 title: How to send messages to {{ iot-full-name }} resources
 description: Follow this guide to send messages to {{ iot-full-name }} resources.
+alternate:
+  - href: en/iot-core/operations/publish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sending messages

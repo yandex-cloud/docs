@@ -1,6 +1,10 @@
 ---
 title: How to change quotas
 description: Follow this guide to request a quota change, as well as check the status of your request or cancel it.
+alternate:
+  - href: en/quota-manager/operations/set-quotas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing quotas

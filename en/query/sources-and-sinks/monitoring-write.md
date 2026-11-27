@@ -1,6 +1,10 @@
 ---
 title: Writing metrics to {{ monitoring-full-name }}
 description: In this article, you will learn how to write metrics from {{ yq-full-name }} to {{ monitoring-name }}.
+alternate:
+  - href: en/query/sources-and-sinks/monitoring-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Writing metrics to {{ monitoring-name }}

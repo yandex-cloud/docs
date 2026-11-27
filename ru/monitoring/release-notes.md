@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ monitoring-full-name }}
 description: В разделе представлена история изменений сервиса {{ monitoring-name }}.
+alternate:
+  - href: ru/monitoring/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ monitoring-full-name }}

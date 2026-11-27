@@ -1,6 +1,10 @@
 ---
 title: Создание тарифа
 description: Следуя данной инструкции, вы сможете создать тариф.
+alternate:
+  - href: ru/marketplace/operations/create-tariff.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание тарифа

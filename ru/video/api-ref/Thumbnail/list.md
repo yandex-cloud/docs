@@ -52,6 +52,10 @@ apiPlayground:
             - videoId
     body: null
     definitions: null
+alternate:
+  - href: ru/video/api-ref/Thumbnail/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Thumbnail.List

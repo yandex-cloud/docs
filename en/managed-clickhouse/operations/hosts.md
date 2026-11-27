@@ -1,6 +1,10 @@
 ---
 title: Managing {{ CH }} hosts
 description: 'Follow this guide to manage {{ CH }} cluster hosts: get a list of hosts in the cluster, create a host, update {{ CH }} settings for a host, restart, and delete a host.'
+alternate:
+  - href: en/managed-clickhouse/operations/hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ CH }} hosts

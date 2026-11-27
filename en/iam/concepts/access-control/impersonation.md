@@ -1,6 +1,10 @@
 ---
 title: Impersonation in {{ iam-full-name }}
 description: In this article, you will learn about impersonation in {{ iam-full-name }} and how to use it when managing {{ yandex-cloud }} resources.
+alternate:
+  - href: en/iam/concepts/access-control/impersonation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Impersonation

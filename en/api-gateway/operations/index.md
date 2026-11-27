@@ -1,6 +1,10 @@
 ---
 title: How to work with {{ api-gw-full-name }}
 description: In this article, you will learn how to work with {{ api-gw-full-name }} in {{ yandex-cloud }}. You will learn to create, edit, and delete API gateways, as well as view monitoring charts and execution logs.
+alternate:
+  - href: en/api-gateway/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ api-gw-name }}

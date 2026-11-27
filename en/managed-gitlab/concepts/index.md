@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-gitlab/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Resource relationships in {{ mgl-name }}
 
 [{{ GL }}](https://about.gitlab.com/) is an open-source web-based DevOps lifecycle tool. It is a code repository management system for [Git](https://git-scm.com/) with error tracking, [CI/CD](https://en.wikipedia.org/wiki/CI/CD) pipeline, dedicated Wiki, and other features.

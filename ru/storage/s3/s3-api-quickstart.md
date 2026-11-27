@@ -1,6 +1,10 @@
 ---
 title: Начало работы с S3 API в {{ objstorage-full-name }}
 description: Из этой статьи вы узнаете, как выполнять базовые операции в {{ objstorage-full-name }} при помощи AWS S3 API.
+alternate:
+  - href: ru/storage/s3/s3-api-quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с AWS S3 API в {{ objstorage-full-name }}

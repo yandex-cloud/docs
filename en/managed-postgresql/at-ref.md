@@ -1,6 +1,10 @@
 ---
 title: '{{ mpg-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ mpg-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/managed-postgresql/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

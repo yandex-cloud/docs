@@ -1,6 +1,10 @@
 ---
 title: Creating a trigger for a broker topic in {{ iot-full-name }}
 description: Create a {{ iot-full-name }} trigger for a {{ iot-full-name }} broker topic and process message copies using a function from {{ sf-name }}. The trigger must be in the same cloud as the broker whose topic it reads messages from.
+alternate:
+  - href: en/iot-core/operations/trigger-broker-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a trigger for a broker topic

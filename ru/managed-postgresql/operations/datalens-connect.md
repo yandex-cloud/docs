@@ -1,6 +1,10 @@
 ---
 title: Инструкция по подключению к кластеру {{ PG }} из {{ datalens-name }}
 description: Из статьи вы узнаете, как подключиться к кластеру {{ PG }} из {{ datalens-name }}.
+alternate:
+  - href: ru/managed-postgresql/operations/datalens-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ PG }} из {{ datalens-name }}

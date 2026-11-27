@@ -1,6 +1,10 @@
 ---
 title: Скрытие заголовков от источника
 description: В данном разделе описана опция CDN-ресурса, позволяющая скрывать HTTP-заголовки, полученные от источника контента, от конечных клиентов.
+alternate:
+  - href: ru/cdn/concepts/hiding-headers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Скрытие заголовков от источника

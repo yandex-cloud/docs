@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/tls-termination/console'
+alternate:
+  - href: ru/dns/tutorials/tls-termination/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Терминирование TLS-соединений с помощью консоли управления

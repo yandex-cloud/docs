@@ -1,6 +1,10 @@
 ---
 title: How to set up the Calico network policy controller in {{ managed-k8s-full-name }}
 description: Follow this guide to set up the Calico network policy controller.
+alternate:
+  - href: en/managed-kubernetes/operations/calico.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring the Calico network policy controller

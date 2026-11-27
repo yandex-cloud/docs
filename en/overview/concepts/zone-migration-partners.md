@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/overview/concepts/zone-migration-partners.md
+    type: text/markdown
+    title: Markdown version
+---
 # Migrating resources through partners
 
 If you need assistance in [migrating your resources](./zone-migration.md) to another availability zone or advice on how to arrange the migration process, we recommend contacting our partners:

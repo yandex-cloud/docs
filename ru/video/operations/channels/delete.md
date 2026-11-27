@@ -1,6 +1,10 @@
 ---
 title: Как удалить канал в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете удалить канал {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/channels/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить канал

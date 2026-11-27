@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ mgl-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ mgl-name }}.
 editable: false
+alternate:
+  - href: ru/managed-gitlab/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ mgl-full-name }}

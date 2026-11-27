@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/write/
+alternate:
+  - href: ru/logging/cli-ref/write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc logging write

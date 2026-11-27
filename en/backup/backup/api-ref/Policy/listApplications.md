@@ -41,6 +41,10 @@ apiPlayground:
             - computeInstanceId
     body: null
     definitions: null
+alternate:
+  - href: en/backup/backup/api-ref/Policy/listApplications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Policy.ListApplications

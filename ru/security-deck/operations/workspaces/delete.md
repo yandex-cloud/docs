@@ -1,6 +1,10 @@
 ---
 title: Удаление окружения {{ sd-full-name }}
 description: Из этой инструкции вы узнаете, как удалить окружение в {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/operations/workspaces/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить окружение {{ sd-name }}

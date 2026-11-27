@@ -1,6 +1,11 @@
 ---
 title: Как создать виртуальный маршрутизатор в {{ cr-name }}
 description: Следуя этой инструкции, вы сможете создать виртуальный маршрутизатор в {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: ru/cloud-router/operations/ri-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать виртуальный маршрутизатор

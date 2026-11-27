@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете начать работать с {{ backup-name }}.
+alternate:
+  - href: ru/backup/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ backup-full-name }}

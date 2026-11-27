@@ -1,5 +1,9 @@
 ---
 title: Как получить информацию о группе размещения в {{ compute-full-name }}
+alternate:
+  - href: ru/compute/operations/placement-groups/placement-groups-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о группе размещения

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/device/add-topic-aliases/
+alternate:
+  - href: ru/cli/cli-ref/iot/cli-ref/device/add-topic-aliases.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot device add-topic-aliases

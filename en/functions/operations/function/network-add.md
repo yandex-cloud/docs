@@ -1,6 +1,10 @@
 ---
 title: How to specify a cloud network for running a function
 description: Follow this guide to specify a cloud network for running your function.
+alternate:
+  - href: en/functions/operations/function/network-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Specifying a cloud network for running a function

@@ -1,6 +1,10 @@
 ---
 title: How to look up video viewing statistics in {{ video-full-name }}
 description: Follow this guide to look up your video viewing statistics in {{ video-name }}.
+alternate:
+  - href: en/video/operations/video/get-statistics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Looking up video viewing statistics

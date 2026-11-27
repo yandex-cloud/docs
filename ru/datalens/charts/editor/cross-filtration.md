@@ -1,6 +1,10 @@
 ---
 title: Кросс-фильтрация
 description: Из статьи вы узнаете, как настроить фильтрацию чартов другими чартами.
+alternate:
+  - href: ru/datalens/charts/editor/cross-filtration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Кросс-фильтрация

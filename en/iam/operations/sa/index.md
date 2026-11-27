@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides on using service accounts
 description: Step-by-step guides on creating and managing service accounts in {{ iam-full-name }}.
+alternate:
+  - href: en/iam/operations/sa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service accounts

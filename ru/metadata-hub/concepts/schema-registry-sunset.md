@@ -1,6 +1,10 @@
 ---
 title: Закрытие сервиса {{ schema-registry-name }}
 description: Сервис {{ schema-registry-name }} прекращает работу. На этой странице описаны сроки, порядок закрытия и рекомендации по миграции.
+alternate:
+  - href: ru/metadata-hub/concepts/schema-registry-sunset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Закрытие сервиса {{ schema-registry-name }}

@@ -40,6 +40,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/quota-manager/api-ref/QuotaRequest/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quota Manager API, REST: QuotaRequest.ListOperations

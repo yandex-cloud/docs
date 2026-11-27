@@ -3,6 +3,10 @@ title: Защита {{ api-gw-full-name }} при помощи интеграц�
 description: Настройка защиты API-шлюза с помощью интеграции с {{ sws-name }} для мониторинга и предотвращения угроз безопасности.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/api-gw-sws-integration'
+alternate:
+  - href: ru/api-gateway/tutorials/api-gw-sws-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Защита {{ api-gw-name }} при помощи интеграции с {{ sws-name }}

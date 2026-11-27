@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/v0/folder/remove-access-binding/
+alternate:
+  - href: en/resource-manager/cli-ref/v0/folder/remove-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc resource-manager v0 folder remove-access-binding

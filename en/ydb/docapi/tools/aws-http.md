@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/quickstart/document-api/aws-http.md
+alternate:
+  - href: en/ydb/docapi/tools/aws-http.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Data operations through the HTTP interface
 

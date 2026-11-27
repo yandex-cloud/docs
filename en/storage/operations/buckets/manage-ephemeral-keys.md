@@ -1,6 +1,10 @@
 ---
 title: Gaining bucket access using an ephemeral {{ iam-full-name }} access key
 description: In this tutorial, you will learn how to access a bucket using an ephemeral {{ iam-name }} access key via the CLI.
+alternate:
+  - href: en/storage/operations/buckets/manage-ephemeral-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to access a bucket using an ephemeral access key

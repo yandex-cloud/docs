@@ -22,6 +22,10 @@ meta:
     - keyword: капча в {{ yandex-cloud }}
     - keyword: '{{ captcha-name }} в {{ yandex-cloud }}'
     - keyword: human verification {{ yandex-cloud }}
+  alternate:
+    - href: ru/smartcaptcha/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Настройте первый виджет и проверьте пользователя

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/concepts/trigger/telegram-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Telegram trigger that invokes a function from {{ sf-name }}
 
 A Telegram [trigger](../trigger/) invokes a [function](../function.md) from {{ sf-name }} when your Telegram bot receives a new update, such as a message, command, button callback, or other event. To receive updates, the trigger uses the Telegram bot token.

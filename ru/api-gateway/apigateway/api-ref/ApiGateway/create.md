@@ -208,6 +208,10 @@ apiPlayground:
             type: object
             additionalProperties:
               $ref: '#/definitions/VariableInput'
+alternate:
+  - href: ru/api-gateway/apigateway/api-ref/ApiGateway/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Gateway Service, REST: ApiGateway.Create

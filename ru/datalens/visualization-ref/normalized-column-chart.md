@@ -1,6 +1,10 @@
 ---
 title: Нормированная столбчатая диаграмма в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Нормированная столбчатая диаграмма.
+alternate:
+  - href: ru/datalens/visualization-ref/normalized-column-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Нормированная столбчатая диаграмма ![](../../_assets/datalens/normalized-column.svg) в {{ datalens-full-name }}

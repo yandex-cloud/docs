@@ -1,6 +1,10 @@
 ---
 title: Точечная диаграмма в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Точечная диаграмма.
+alternate:
+  - href: ru/datalens/visualization-ref/scatter-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Точечная диаграмма ![](../../_assets/datalens/scatter-chart.svg) в {{ datalens-full-name }}

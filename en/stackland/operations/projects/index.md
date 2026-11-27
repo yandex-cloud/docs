@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/projects/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Projects
 
 A project is a logical resource organization unit in {{ stackland-name }}. A project groups together several Kubernetes namespaces for access and quota management at the team or application level.

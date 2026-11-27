@@ -1,6 +1,10 @@
 ---
 title: Disk snapshots
 description: In this tutorial, you will learn what disk snapshots are, how to store, replicate, and encrypt them.
+alternate:
+  - href: en/compute/concepts/snapshot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Disk snapshots

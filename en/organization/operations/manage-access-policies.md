@@ -1,6 +1,10 @@
 ---
 title: Organization access policy management
 description: In this tutorial, you will learn how to view {{ iam-full-name }} access policies created for an organization, as well as create and delete such policies.
+alternate:
+  - href: en/organization/operations/manage-access-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organization access policy management

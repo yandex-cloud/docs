@@ -1,6 +1,10 @@
 ---
 title: Access from {{ TR }}
 description: How to enable a secure connection between {{ mgp-name }} and {{ mtr-name }} using the management console and CLI.
+alternate:
+  - href: en/managed-greenplum/operations/gpfdist/trino-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access from {{ TR }}

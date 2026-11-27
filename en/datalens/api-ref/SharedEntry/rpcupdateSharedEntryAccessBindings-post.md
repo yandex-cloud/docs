@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/SharedEntry/rpcupdateSharedEntryAccessBindings-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Update common objects access bindings

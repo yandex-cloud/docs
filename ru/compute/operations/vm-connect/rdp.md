@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к виртуальной машине Windows по RDP
 description: Следуя данной инструкции, вы сможете подключиться к виртуальной машине Windows по RDP.
+alternate:
+  - href: ru/compute/operations/vm-connect/rdp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключиться к виртуальной машине Windows по RDP

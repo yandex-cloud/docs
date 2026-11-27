@@ -1,6 +1,10 @@
 ---
 title: Автоматическая привязка политики резервного копирования к ВМ
 description: В этом руководстве описано, как создать ВМ с привязанной политикой резервного копирования.
+alternate:
+  - href: ru/tutorials/archive/vm-with-backup-policy/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [vm-with-backup-policy](../../../_tutorials/archive/vm-with-backup-policy.md) %}

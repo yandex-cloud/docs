@@ -2,6 +2,10 @@
 title: Восстановление PostgreSQL из резервной копии WAL-G
 description: Следуя этой инструкции, вы сможете самостоятельно восстановить базу данных PostgreSQL из резервной копии WAL-G.
 noIndex: true
+alternate:
+  - href: ru/managed-postgresql/operations/cluster-outbound-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановление {{ PG }} из резервной копии WAL-G

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/SparkApplications/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # SparkApplications
 
 <!-- markdownlint-disable-file -->

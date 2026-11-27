@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/get-sms-channel-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие GetSMSChannelAttributes
 
 Получает параметры [канала SMS-уведомлений](../concepts/sms.md).

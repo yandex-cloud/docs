@@ -1,6 +1,10 @@
 ---
 title: Как управлять метками очередей в {{ message-queue-full-name }}
 description: Следуя данной инструкции, вы сможете добавлять и удалять метки очередей.
+alternate:
+  - href: ru/message-queue/operations/message-queue-tags.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление метками очередей

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/update-private-networks/
+alternate:
+  - href: ru/dns/cli-ref/zone/update-private-networks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns zone update-private-networks

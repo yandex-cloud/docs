@@ -1,6 +1,10 @@
 ---
 title: Как переустановить ОС на сервере {{ baremetal-name }} из образа {{ marketplace-short-name }}
 description: Следуя данной инструкции, вы сможете переустановить операционную систему сервера {{ baremetal-full-name }} из образа {{ marketplace-short-name }}.
+alternate:
+  - href: ru/baremetal/operations/servers/reinstall-os-from-marketplace.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переустановить операционную систему из образа {{ marketplace-short-name }}

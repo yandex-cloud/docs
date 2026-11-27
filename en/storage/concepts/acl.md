@@ -5,6 +5,10 @@ keywords:
   - ACL
   - access control lists
   - access control list
+alternate:
+  - href: en/storage/concepts/acl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [acl](../../_includes/storage/security/acl.md) %}

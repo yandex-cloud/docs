@@ -25,6 +25,10 @@ meta:
     - keyword: data analysis
     - keyword: analytical queries
     - keyword: streaming queries
+  alternate:
+    - href: en/query/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Learn how to get started with Yandex Query

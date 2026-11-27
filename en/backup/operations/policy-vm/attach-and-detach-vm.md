@@ -1,6 +1,10 @@
 ---
 title: How to link a resource to a backup policy
 description: In this article, you will learn how to link a VM or server to a backup policy.
+alternate:
+  - href: en/backup/operations/policy-vm/attach-and-detach-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Linking a resource to a backup policy

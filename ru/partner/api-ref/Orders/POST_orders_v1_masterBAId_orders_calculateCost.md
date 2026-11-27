@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Orders/POST_orders_v1_masterBAId_orders_calculateCost.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Calculate order cost

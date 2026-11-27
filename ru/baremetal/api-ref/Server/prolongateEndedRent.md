@@ -23,6 +23,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/baremetal/api-ref/Server/prolongateEndedRent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Server.ProlongateEndedRent

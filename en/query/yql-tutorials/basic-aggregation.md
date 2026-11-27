@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/yql-tutorials/basic-aggregation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Aggregating data
 
 You can aggregate results by fields.

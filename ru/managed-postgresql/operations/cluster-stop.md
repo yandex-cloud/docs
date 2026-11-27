@@ -1,6 +1,10 @@
 ---
 title: Остановка и запуск кластера {{ PG }} в {{ mpg-name }}
 description: 'При необходимости вы можете остановить кластер {{ PG }} БД и запустить его заново. Время простоя кластера не тарифицируется: вы продолжаете платить только за размер хранилища и резервных копий.'
+alternate:
+  - href: ru/managed-postgresql/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Остановка и запуск кластера {{ PG }}

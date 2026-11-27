@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/postbox/events-ref/DeleteIdentity.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Postbox Audit Trails Events: DeleteIdentity

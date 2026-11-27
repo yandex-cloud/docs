@@ -27,6 +27,10 @@ apiPlayground:
         - enabled
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/storedoc/api-ref/Cluster/setBalancerStatus.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.SetBalancerStatus

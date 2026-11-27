@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/network-load-balancer/known-issues/one-of-the-targets-already-a-part-of-the-another-target-group.md
+    type: text/markdown
+    title: Markdown version
+---
 # Устранение ошибки `One of the targets already a part of the another target group`
 
 

@@ -1,10 +1,16 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/certificate-manager.md
+    type: text/markdown
+    title: Markdown version
+---
 # Certificate Manager
 
 Компонент Certificate Manager отвечает за управление сертификатами, используемыми при межсервисном взаимодействии. Для управления сертификатами доступны два глобальных эмитента (`kind: ClusterIssuer`): Default CA Issuer (`stackland-default`) и Let's Encrypt HTTP01 (`stackland-letsencrypt`). Оба эмитента построены на наработках открытого проекта [cert-manager](https://cert-manager.io/).
 
 ## Default CA Issuer
 
-Данный эмитент включен по умолчанию и не подлежит настройке. В случае, если при установке Stackland был указан промежуточный CA (см. [Начало работы](../../quickstart.md#prepare-secrets)), сгенерированные сертификаты будут удостоверены им. В противном случае генерируются самоподписанные сертификаты.
+Данный эмитент включен по умолчанию и не подлежит настройке. В случае, если при установке Stackland был указан промежуточный CA (см. [Начало работы](../../quickstart.md#prepare-image)), сгенерированные сертификаты будут удостоверены им. В противном случае генерируются самоподписанные сертификаты.
 
 ## Let's Encrypt HTTP01
 

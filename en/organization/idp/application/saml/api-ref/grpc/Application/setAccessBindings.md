@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/idp/application/saml/api-ref/grpc/Application/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, gRPC: ApplicationService.SetAccessBindings

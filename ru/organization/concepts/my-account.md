@@ -1,6 +1,10 @@
 ---
 title: Портал Мой аккаунт в {{ org-full-name }}
 description: '[_Мой аккаунт_]({{ link-my-account }}) — это личное пространство пользователя, в котором он может управлять своей учетной записью в {{ org-full-name }}.'
+alternate:
+  - href: ru/organization/concepts/my-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Портал Мой аккаунт

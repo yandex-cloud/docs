@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ serverless-containers-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ serverless-containers-name }}.
+alternate:
+  - href: ru/serverless-containers/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ serverless-containers-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to set up a {{ PG }} source endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to create and configure an {{ PG }} source endpoint in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/operations/endpoint/source/postgresql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring data from a {{ PG }} source endpoint

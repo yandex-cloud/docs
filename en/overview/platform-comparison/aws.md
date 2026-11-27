@@ -1,6 +1,10 @@
 ---
 title: Equivalents for Amazon Web Services
 description: This article establishes the equivalence between {{ yandex-cloud }} services and Amazon Web Services.
+alternate:
+  - href: en/overview/platform-comparison/aws.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Equivalents for Amazon Web Services

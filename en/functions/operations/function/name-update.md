@@ -1,6 +1,10 @@
 ---
 title: Updating a function name
 description: Follow this guide to update a function name.
+alternate:
+  - href: en/functions/operations/function/name-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a function name

@@ -1,6 +1,10 @@
 ---
 title: Scheduled instance group scaling in {{ yandex-cloud }}
 description: Follow this guide to set up scheduled scaling for an instance group in {{ yandex-cloud }}.
+alternate:
+  - href: en/tutorials/infrastructure-management/vm-scale-scheduled/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [vm-scale-scheduled](../../../_tutorials/infrastructure/vm-scale-scheduled.md) %}

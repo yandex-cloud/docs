@@ -1,6 +1,10 @@
 ---
 title: Getting started with video hosting in {{ video-full-name }}
 description: Follow this guide to upload your video to {{ video-full-name }} and publish it.
+alternate:
+  - href: en/video/hosting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with video hosting in {{ video-full-name }}

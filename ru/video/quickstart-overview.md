@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ video-full-name }}
 description: Начните работу с трансляциями или хостингом видео в сервисе {{ video-name }}.
+alternate:
+  - href: ru/video/quickstart-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ video-full-name }}

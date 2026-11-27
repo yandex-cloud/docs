@@ -1,6 +1,10 @@
 ---
 title: Как активировать и деактивировать политику аутентификации в {{ org-full-name }}
 description: Следуя этой инструкции, вы сможете активировать и деактивировать политику аутентификации в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/authentication-policies/activate-deactivate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Активировать и деактивировать политику аутентификации

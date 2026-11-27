@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/getting-started/free-trial/concepts/upgrade-to-paid.md
+    type: text/markdown
+    title: Markdown version
+---
 # Переход на платную версию
 
 {% note warning %}

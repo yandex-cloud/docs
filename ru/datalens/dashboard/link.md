@@ -1,6 +1,10 @@
 ---
 title: Связь в {{ datalens-full-name }}
 description: Связь в {{ datalens-full-name }} определяет влияние селектора на один или несколько чартов, а также на другие селекторы.
+alternate:
+  - href: ru/datalens/dashboard/link.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Связь в {{ datalens-full-name }}

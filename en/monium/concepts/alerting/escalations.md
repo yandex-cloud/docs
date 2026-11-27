@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/concepts/alerting/escalations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Escalations
 
 

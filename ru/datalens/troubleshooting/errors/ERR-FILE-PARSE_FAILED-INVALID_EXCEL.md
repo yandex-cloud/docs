@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.FILE.PARSE_FAILED.INVALID_EXCEL
 description: На странице приведено описание ошибки {{ datalens-full-name }} Неверный формат файла.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-FILE-PARSE_FAILED-INVALID_EXCEL.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Неверный формат файла

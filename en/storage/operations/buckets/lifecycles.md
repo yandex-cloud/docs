@@ -1,6 +1,10 @@
 ---
 title: Configuring object lifecycle in a {{ objstorage-full-name }} bucket
 description: Follow this guide to manage object lifecycles in an {{ objstorage-name }} bucket.
+alternate:
+  - href: en/storage/operations/buckets/lifecycles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring object lifecycle in a bucket

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/dataproc/events-ref/CreateCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Data Processing Audit Trails Events: CreateCluster

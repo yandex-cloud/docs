@@ -1,6 +1,10 @@
 ---
 title: Как управлять базами данных кластера {{ CH }} в {{ mch-full-name }}
 description: Следуя данной инструкции, вы сможете управлять базами данных кластера {{ CH }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/databases.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление базами данных в {{ mch-name }}

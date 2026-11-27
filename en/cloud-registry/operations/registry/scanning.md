@@ -1,6 +1,10 @@
 ---
 title: Scanning a {{ cloud-registry-name }}
 description: In this guide, you will learn how to configure {{ cloud-registry-name }} scanning.
+alternate:
+  - href: en/cloud-registry/operations/registry/scanning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Scanning a {{ cloud-registry-name }}

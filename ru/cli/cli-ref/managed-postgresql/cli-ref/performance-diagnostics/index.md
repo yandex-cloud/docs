@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/performance-diagnostics/
+alternate:
+  - href: ru/cli/cli-ref/managed-postgresql/cli-ref/performance-diagnostics/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-postgresql performance-diagnostics

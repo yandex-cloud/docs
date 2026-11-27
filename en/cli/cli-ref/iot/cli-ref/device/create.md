@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/device/create/
+alternate:
+  - href: en/cli/cli-ref/iot/cli-ref/device/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot device create

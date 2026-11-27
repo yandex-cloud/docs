@@ -1,6 +1,10 @@
 ---
 title: Deleting a container
 description: Follow this guide to delete a container.
+alternate:
+  - href: en/serverless-containers/operations/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a container

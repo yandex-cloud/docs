@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ mspqr-full-name }}
 description: На странице представлены вопросы и ответы про {{ mspqr-name }}.
+alternate:
+  - href: ru/managed-spqr/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ mspqr-name }} {#general}

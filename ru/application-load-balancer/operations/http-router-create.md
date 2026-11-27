@@ -1,6 +1,10 @@
 ---
 title: Как создать HTTP-роутер для HTTP-трафика в {{ alb-full-name }}
 description: Следуя данной инструкции, вы сможете создать HTTP-роутер для HTTP-трафика.
+alternate:
+  - href: ru/application-load-balancer/operations/http-router-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать HTTP-роутер для HTTP-трафика

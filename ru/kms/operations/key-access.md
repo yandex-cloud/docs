@@ -1,6 +1,10 @@
 ---
 title: Настройка прав доступа к симметричному ключу шифрования
 description: Следуя данной инструкции, вы сможете назначить роли на симметричный ключ шифрования.
+alternate:
+  - href: ru/kms/operations/key-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка прав доступа к симметричному ключу шифрования

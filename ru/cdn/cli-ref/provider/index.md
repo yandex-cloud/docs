@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/provider/
+alternate:
+  - href: ru/cdn/cli-ref/provider/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cdn provider

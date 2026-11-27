@@ -123,6 +123,10 @@ apiPlayground:
             type: string
         required:
           - passwordKey
+alternate:
+  - href: ru/lockbox/api-ref/Secret/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox API, REST: Secret.Update

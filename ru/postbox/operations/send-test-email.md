@@ -1,6 +1,10 @@
 ---
 title: Отправка тестового письма в {{ postbox-full-name }}
 description: Следуя данной инструкции, вы сможете отправить тестовое письмо в {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/operations/send-test-email.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправка тестового письма

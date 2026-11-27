@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-spark/concepts/network.md
+    type: text/markdown
+    title: Markdown version
+---
 # Networking in {{ msp-full-name }}
 
 When creating a cluster, you can specify the following network settings:

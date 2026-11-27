@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ sws-full-name }}'
 description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ sws-full-name }}.
+alternate:
+  - href: en/smartwebsecurity/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ sws-full-name }}

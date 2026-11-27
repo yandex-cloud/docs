@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/concepts/node-group/deploy-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Политика развертывания группы узлов в {{ managed-k8s-name }}
 
 При [изменении](../../operations/node-group/node-group-update.md) группы узлов (в том числе при [обновлении версии {{ k8s }}](../../operations/update-kubernetes.md#node-group-upgrade)) может потребоваться остановить, перезагрузить или удалить узлы в группе. При этом группа перейдет в статус `Reconciling`, а узлы станут недоступны.

@@ -1,6 +1,10 @@
 ---
 title: Как создать образ из снимка диска в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете создать образ из снимка диска.
+alternate:
+  - href: ru/compute/operations/image-create/create-from-snapshot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать образ из снимка диска

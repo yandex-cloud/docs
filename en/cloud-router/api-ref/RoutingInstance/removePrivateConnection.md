@@ -29,6 +29,11 @@ apiPlayground:
         - cicPrivateConnectionId
       additionalProperties: false
     definitions: null
+noIndex: true
+alternate:
+  - href: en/cloud-router/api-ref/RoutingInstance/removePrivateConnection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Router API, REST: RoutingInstance.RemovePrivateConnection

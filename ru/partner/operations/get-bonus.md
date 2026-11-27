@@ -1,6 +1,10 @@
 ---
 title: Получить вознаграждение
 description: Следуя данной инструкции, вы сможете получить вознаграждение.
+alternate:
+  - href: ru/partner/operations/get-bonus.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить вознаграждение

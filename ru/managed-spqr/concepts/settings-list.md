@@ -3,6 +3,10 @@ title: Настройки {{ SPQR }}
 description: '{{ SPQR }} — система для горизонтального масштабирования {{ PG }}. Настройки {{ SPQR }} могут быть определены на уровне кластера {{ mspqr-name }}.'
 keywords:
   - keyword: настройки SPQR
+alternate:
+  - href: ru/managed-spqr/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Настройки {{ SPQR }}
 

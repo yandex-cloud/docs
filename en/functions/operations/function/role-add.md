@@ -1,6 +1,10 @@
 ---
 title: Assigning roles for a function
 description: Follow this guide to assign roles for a function.
+alternate:
+  - href: en/functions/operations/function/role-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning roles for a function

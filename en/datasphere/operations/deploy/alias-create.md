@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/deploy/alias-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating an alias
 
 [Aliases](../../concepts/resource-model.md#resources) enable distributing the load across [nodes](../../concepts/deploy/index.md#node) and updating the deployed services without stopping them.

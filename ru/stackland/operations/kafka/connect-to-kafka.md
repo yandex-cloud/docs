@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/kafka/connect-to-kafka.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключиться к кластеру {{ KF }}
 
 В данной инструкции мы разберем команды [kcat](https://github.com/edenhill/kcat) для внешнего и внутреннего [подключения к кластеру {{ KF }}](#how-to) и отправим сообщение от производителя к потребителю.

@@ -6,6 +6,10 @@ keywords:
   - keyword: шардирование в PostgreSQL
   - keyword: шардированный PostgreSQL
   - keyword: шард PostgreSQL
+alternate:
+  - href: ru/managed-spqr/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Взаимосвязь ресурсов в {{ mspqr-full-name }}

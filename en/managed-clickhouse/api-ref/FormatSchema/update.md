@@ -47,6 +47,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/managed-clickhouse/api-ref/FormatSchema/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: FormatSchema.Update

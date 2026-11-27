@@ -1,6 +1,10 @@
 ---
 title: '{{ vpc-full-name }} use cases'
 description: Various {{ vpc-name }} use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/vpc/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ vpc-name }} tutorials

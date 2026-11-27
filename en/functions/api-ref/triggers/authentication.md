@@ -1,6 +1,10 @@
 ---
 title: Authentication with the {{ sf-full-name }} API (Triggers)
 description: To perform operations via the API in {{ sf-full-name }}, a service for running applications without creating VMs, get an IAM token for your account. This guide describes how to authenticate with the API to enable triggers.
+alternate:
+  - href: en/functions/api-ref/triggers/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authentication with the {{ sf-name }} API (Triggers)

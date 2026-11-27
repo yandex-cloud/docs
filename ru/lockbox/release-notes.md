@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ lockbox-full-name }}
 description: В разделе представлена история изменений сервиса {{ lockbox-name }}.
+alternate:
+  - href: ru/lockbox/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ lockbox-full-name }}

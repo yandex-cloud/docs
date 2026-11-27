@@ -1,6 +1,10 @@
 ---
 title: Working with a VM
 description: This article describes how to work with a VM created from a public image in {{ yandex-cloud }}. Let's consider operations like connecting to a VM using an SSH key pair, generating an SSH key pair on Linux/macOS, Windows 7, 8, 10, connecting to a VM via {{ oslogin }}, using SSL certificates, network traffic filtering, and installing updates.
+alternate:
+  - href: en/compute/operations/images-with-pre-installed-software/operate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with a VM created from a public image

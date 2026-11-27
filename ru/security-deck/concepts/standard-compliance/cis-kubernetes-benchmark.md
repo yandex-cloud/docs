@@ -1,6 +1,10 @@
 ---
 title: Требования стандарта CIS Benchmark™ для {{ k8s }}
 description: Этот набор правил содержит рекомендации стандарта CIS {{ k8s }} Benchmark, помогающие обеспечить безопасную работу компонентов, запущенных на узлах {{ k8s }}.
+alternate:
+  - href: ru/security-deck/concepts/standard-compliance/cis-kubernetes-benchmark.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Требования стандарта CIS Benchmark™ для {{ k8s }}

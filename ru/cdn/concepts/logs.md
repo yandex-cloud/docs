@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cdn/concepts/logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Выгрузка логов
 
 {{ cdn-name }} предоставляет логи запросов к CDN-серверам и, если включено [экранирование источников](origins-shielding.md), к экранирующим серверам.

@@ -47,6 +47,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/application-load-balancer/api-ref/BackendGroup/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: BackendGroup.List

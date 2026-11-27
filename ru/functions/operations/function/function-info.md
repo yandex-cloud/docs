@@ -1,6 +1,10 @@
 ---
 title: Получить информацию о функции
 description: Следуя данной инструкции, вы сможете получить информацию о функции.
+alternate:
+  - href: ru/functions/operations/function/function-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о функции

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/instruments/symfony.md
+    type: text/markdown
+    title: Markdown version
+---
 # Пример использования {{ message-queue-full-name }} на Symfony
 
 PHP-фреймворк [Symfony](https://symfony.com/) содержит компонент [Messenger](https://symfony.com/doc/current/messenger.html) для работы с очередями. В качестве брокера сообщений можно использовать {{ message-queue-name }}.

@@ -1,6 +1,10 @@
 ---
 title: Resource relationships in {{ msp-full-name }}
 description: '{{ msp-full-name }} is a managed service for deploying {{ SPRK }} clusters and running Spark/PySpark jobs in the {{ yandex-cloud }} infrastructure.'
+alternate:
+  - href: en/managed-spark/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource relationships in {{ msp-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как переместить купленную в {{ marketplace-full-name }} подписку в другой каталог
 description: В этой статье вы узнаете, как переместить купленную в {{ marketplace-full-name }} подписку в другой каталог.
+alternate:
+  - href: ru/marketplace/operations/users/move-subscription.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Перемещение подписки между каталогами

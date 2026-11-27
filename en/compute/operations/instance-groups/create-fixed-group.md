@@ -1,6 +1,10 @@
 ---
 title: Creating a fixed-size instance group
 description: Follow this guide to create a fixed-size instance group.
+alternate:
+  - href: en/compute/operations/instance-groups/create-fixed-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a fixed-size instance group

@@ -1,6 +1,11 @@
 ---
 title: How to get a list of operations for a virtual router
 description: Follow this guide to get a list of operations performed on a virtual router in {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: en/cloud-router/operations/ri-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of operations with a virtual router

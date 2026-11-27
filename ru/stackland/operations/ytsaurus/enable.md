@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/ytsaurus/enable.md
+    type: text/markdown
+    title: Markdown version
+---
 # Включить {{ yt-name }}
 
 Компонент [{{ yt-name }}](../../concepts/components/ytsaurus.md) разворачивает один общий кластер {{ YT }} на платформу. Кластер описывается ресурсом `YTsaurusConfig` с именем `main`. По умолчанию компонент отключен (`spec.enabled: false`); чтобы развернуть кластер, переведите ресурс в состояние `spec.enabled: true`.

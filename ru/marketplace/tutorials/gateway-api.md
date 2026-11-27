@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/gateway-api'
+alternate:
+  - href: ru/marketplace/tutorials/gateway-api.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка Gateway API

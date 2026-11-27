@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/security-deck/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck Alerts API, gRPC: OperationService.Cancel

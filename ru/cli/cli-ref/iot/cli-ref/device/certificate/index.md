@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/device/certificate/
+alternate:
+  - href: ru/cli/cli-ref/iot/cli-ref/device/certificate/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot device certificate

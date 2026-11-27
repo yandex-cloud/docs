@@ -1,6 +1,10 @@
 ---
 title: Working with the {{ yandex-cloud }} CLI and API in Microsoft Windows
 description: '{{ yandex-cloud }} services provide a variety of interfaces for implementing your projects.'
+alternate:
+  - href: en/overview/concepts/console-syntax-guide.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with the {{ yandex-cloud }} CLI and API in Microsoft Windows

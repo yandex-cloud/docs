@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/data-types/MessageAttributeValue.md
+    type: text/markdown
+    title: Markdown version
+---
 # MessageAttributeValue
 
 Custom message attribute value. The same restrictions apply to string values as to the message body.

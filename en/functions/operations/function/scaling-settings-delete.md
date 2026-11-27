@@ -1,6 +1,10 @@
 ---
 title: Deleting function scaling settings
 description: Follow this guide to delete function scaling settings.
+alternate:
+  - href: en/functions/operations/function/scaling-settings-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting function scaling settings

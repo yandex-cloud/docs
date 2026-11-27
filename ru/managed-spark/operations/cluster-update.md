@@ -5,6 +5,10 @@ keywords:
   - изменение кластера {{ SPRK }}
   - кластер {{ SPRK }}
   - '{{ SPRK }}'
+alternate:
+  - href: ru/managed-spark/operations/cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение кластера {{ SPRK }}

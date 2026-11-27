@@ -1,6 +1,10 @@
 ---
 title: '{{ dns-full-name }} integration with {{ compute-full-name }}'
 description: In this tutorial, you will learn how {{ dns-full-name }} is connected with {{ compute-full-name }} resources.
+alternate:
+  - href: en/dns/concepts/compute-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Integration with {{ compute-name }}

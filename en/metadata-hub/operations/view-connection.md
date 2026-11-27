@@ -1,6 +1,10 @@
 ---
 title: How to get information about a {{ metadata-hub-name }} connection. Step-by-step guides
 description: Step-by-step guides on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to view connections.
+alternate:
+  - href: en/metadata-hub/operations/view-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing connection information

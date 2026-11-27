@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ vpc-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ vpc-name }}.
 editable: false
+alternate:
+  - href: ru/vpc/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ vpc-name }}

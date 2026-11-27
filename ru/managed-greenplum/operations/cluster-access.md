@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к кластеру {{ mgp-full-name }}
 description: Следуя данной инструкции, вы настроите права доступа к кластеру {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к кластеру {{ mgp-name }}

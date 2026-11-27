@@ -1,6 +1,10 @@
 ---
 title: '{{ data-transfer-full-name }} API authentication'
 description: To perform operations through the API in {{ data-transfer-name }}, get an IAM token for your account.
+alternate:
+  - href: en/data-transfer/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ data-transfer-name }} API authentication

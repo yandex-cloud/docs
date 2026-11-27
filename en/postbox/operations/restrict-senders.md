@@ -1,6 +1,10 @@
 ---
 title: Limiting the list of senders in {{ postbox-full-name }}
 description: Follow this guide to set up the list of permitted senders.
+alternate:
+  - href: en/postbox/operations/restrict-senders.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Limiting the list of senders in {{ postbox-name }}

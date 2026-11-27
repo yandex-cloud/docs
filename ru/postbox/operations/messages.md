@@ -1,6 +1,10 @@
 ---
 title: Просмотр информации об отправленных письмах в {{ postbox-name }}
 description: Следуя данной инструкции, вы посмотрите информацию о письмах и событиях с ними в {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/operations/messages.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

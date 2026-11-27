@@ -1,6 +1,10 @@
 ---
 title: Резервируемое потребление
 description: Из статьи вы узнаете, что такое резервируемое потребление и для каких сервисов оно доступно.
+alternate:
+  - href: ru/billing/concepts/cvos.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Резервируемое потребление

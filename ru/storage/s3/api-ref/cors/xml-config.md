@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/cors/xml-config.md
+    type: text/markdown
+    title: Markdown version
+---
 # CORS-конфигурация бакетов
 
 {{ objstorage-name }} позволяет управлять [конфигурацией CORS](../../../concepts/cors.md) бакета. Для загрузки конфигурации CORS в {{ objstorage-name }} необходимо сформировать XML-документ, описанный в этом разделе. Скачивая существующую конфигурацию, вы получаете документ такого же формата.

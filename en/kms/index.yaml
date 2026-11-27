@@ -38,6 +38,10 @@ meta:
     - keyword: RSA
     - keyword: '{{ kms-name }}'
     - keyword: '{{ kms-name }} in {{ yandex-cloud }}'
+  alternate:
+    - href: en/kms/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Use a KMS key to encrypt and decrypt text

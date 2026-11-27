@@ -1,6 +1,10 @@
 ---
 title: Delta Lake в {{ dataproc-full-name }}
 description: Из статьи вы узнаете, что такое Delta Lake в {{ dataproc-name }}, ознакомитесь с преимуществами Delta Lake и совместимостью версий Delta Lake и {{ dataproc-name }}.
+alternate:
+  - href: ru/data-proc/concepts/deltalake.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delta Lake в {{ dataproc-name }}

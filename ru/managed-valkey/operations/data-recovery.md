@@ -1,6 +1,10 @@
 ---
 title: Восстановление данных из доступного хоста {{ mrd-full-name }}
 description: Скопируйте данные из доступного хоста {{ mrd-name }} в самостоятельно развернутый экземпляр Valkey с помощью репликации.
+alternate:
+  - href: ru/managed-valkey/operations/data-recovery.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановление данных из доступного хоста {{ mrd-name }}

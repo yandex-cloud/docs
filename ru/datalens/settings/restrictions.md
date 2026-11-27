@@ -1,6 +1,10 @@
 ---
 title: Настройки безопасности в {{ datalens-full-name }}
 description: Настройки безопасности в {{ datalens-full-name }} позволяют настроить ограничения на использование некоторых функциональностей сервиса.
+alternate:
+  - href: ru/datalens/settings/restrictions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройки безопасности в {{ datalens-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Storage classes in {{ objstorage-full-name }}
 description: '{{ objstorage-name }} allows you to store objects in storages of various classes depending on how long you want to store your objects and how often you access them. You can choose among the standard, cold, ice, and intelligent-tiering storage.'
+alternate:
+  - href: en/storage/concepts/storage-class.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Storage class

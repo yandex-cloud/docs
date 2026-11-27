@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/tutorials/web/joomla-postgresql/console.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание сайта на CMS Joomla с базой данных {{ PG }} с помощью консоли управления
 
 Чтобы создать инфраструктуру для [сайта на CMS Joomla с базой данных {{ PG }}](index.md) c помощью консоли управления {{ yandex-cloud }}:

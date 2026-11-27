@@ -1,6 +1,10 @@
 ---
 title: Updates to a {{ mch-full-name }} cluster v2
 description: 'This section describes differences between the {{ TF }} provider''s resource v2 and resource v1 for {{ mch-name }}: the changes in the nested section structure, host format, sharding, and other parameters.'
+alternate:
+  - href: en/managed-clickhouse/concepts/migration-v1-v2.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updates in a v2 cluster

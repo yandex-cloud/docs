@@ -148,6 +148,10 @@ apiPlayground:
               **[ChannelVideoSettings](#yandex.cloud.video.v1.ChannelVideoSettings)**
               Settings for displaying video
             $ref: '#/definitions/ChannelVideoSettings'
+alternate:
+  - href: ru/video/api-ref/Channel/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Channel.Create

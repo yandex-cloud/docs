@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/async/chat/text_embeddings.md
+    type: text/markdown
+    title: Markdown version
+---
 # Domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_chat.text\_embeddings.function.**AsyncChatEmbeddings**{#yandex_ai_studio_sdk._chat.text_embeddings.function.AsyncChatEmbeddings}

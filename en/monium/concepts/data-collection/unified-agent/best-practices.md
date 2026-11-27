@@ -1,6 +1,10 @@
 ---
 title: Agent best practices
 description: In this article, you will learn about the agent best practices.
+alternate:
+  - href: en/monium/concepts/data-collection/unified-agent/best-practices.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Agent best practices

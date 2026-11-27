@@ -51,6 +51,10 @@ apiPlayground:
           type: boolean
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/certificate-manager/privateca/api-ref/PrivateCaCertificate/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, REST: PrivateCaCertificate.Update

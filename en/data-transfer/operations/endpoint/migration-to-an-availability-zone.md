@@ -1,6 +1,10 @@
 ---
 title: Migrating a {{ data-transfer-full-name }} transfer and endpoints to a different availability zone
 description: Follow this tutorial to migrate your endpoints and transfers to a different availability zone.
+alternate:
+  - href: en/data-transfer/operations/endpoint/migration-to-an-availability-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating a {{ data-transfer-name }} transfer and endpoints to a different availability zone

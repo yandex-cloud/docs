@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }} IaaS security checklist'
 description: This article presents a security checklist for a {{ yandex-cloud }} based network, VM, and {{ objstorage-name }}.
+alternate:
+  - href: en/security/domains/iaas-checklist.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IaaS security checklist

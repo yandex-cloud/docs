@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/marketplace/concepts/version.md
+    type: text/markdown
+    title: Markdown version
+---
 # Version
 
 Version is a variant of a software product and information about it.

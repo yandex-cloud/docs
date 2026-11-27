@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/user-auth-rules.md
+    type: text/markdown
+    title: Markdown version
+---
 # User authentication rules
 
 [User authentication](../concepts/user-authentication.md) rules determine which users from which addresses are allowed to connect to a cluster, as well as which databases they can access.

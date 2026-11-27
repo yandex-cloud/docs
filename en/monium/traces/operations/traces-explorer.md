@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/traces/operations/traces-explorer.md
+    type: text/markdown
+    title: Markdown version
+---
 # Searching for traces and spans
 
 The {{ traces-name }} interface enables you to search for traces and spans by specified criteria, view a trace by ID, and access aggregation charts by span attributes.

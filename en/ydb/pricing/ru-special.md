@@ -2,6 +2,10 @@
 title: Estimating the cost of requests to {{ ydb-full-name }} via ad-hoc APIs
 description: In this article, you will learn how to calculate the cost of requests to {{ ydb-short-name }} via ad-hoc APIs.
 editable: false
+alternate:
+  - href: en/ydb/pricing/ru-special.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Estimating the cost of requests to {{ ydb-short-name }} via ad-hoc APIs

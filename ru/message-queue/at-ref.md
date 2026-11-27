@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ message-queue-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ message-queue-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/message-queue/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ at-full-name }}

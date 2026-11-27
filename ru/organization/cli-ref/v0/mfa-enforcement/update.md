@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/mfa-enforcement/update/
+alternate:
+  - href: ru/organization/cli-ref/v0/mfa-enforcement/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager v0 mfa-enforcement update

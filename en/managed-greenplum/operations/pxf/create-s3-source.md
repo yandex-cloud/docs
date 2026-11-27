@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/pxf/create-s3-source.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating an external S3 data source
 
 In {{ mgp-name }}, you can use [{{ objstorage-full-name }}](../../../storage/index.yaml) as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the S3 connection type, including by connecting to {{ objstorage-full-name }} via [Private Endpoint](../../../storage/operations/buckets/access-via-vpc.md). You can also use other third-party S3 services.

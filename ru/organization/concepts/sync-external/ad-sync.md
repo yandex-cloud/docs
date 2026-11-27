@@ -1,6 +1,10 @@
 ---
 title: Синхронизация пользователей и групп с {{ microsoft-idp.ad-full }}
 description: В этом разделе вы узнаете об особенностях синхронизации пользователей и групп в пуле {{ org-full-name }} с пользователями и группами в {{ microsoft-idp.ad-full }}.
+alternate:
+  - href: ru/organization/concepts/sync-external/ad-sync.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Синхронизация пользователей и групп с {{ microsoft-idp.ad-full }}

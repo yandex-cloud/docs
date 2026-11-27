@@ -1,6 +1,10 @@
 ---
 title: Authentication with the {{ postbox-full-name }} API
 description: To perform operations via the {{ postbox-name }} API, get a static access key.
+alternate:
+  - href: en/postbox/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authentication with the {{ postbox-name }} API

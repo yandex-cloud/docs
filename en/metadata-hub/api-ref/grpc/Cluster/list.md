@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/metadata-hub/api-ref/grpc/Cluster/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Hive Metastore™ API, gRPC: ClusterService.List

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/broker/certificate/list/
+alternate:
+  - href: en/iot-core/cli-ref/broker/certificate/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot broker certificate list

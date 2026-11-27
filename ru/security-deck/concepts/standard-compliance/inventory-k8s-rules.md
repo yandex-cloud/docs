@@ -1,6 +1,10 @@
 ---
 title: Аудит процессов и приложений на рабочих узлах {{ k8s }}
 description: Набор содержит правила, позволяющие выполнять инвентаризацию и аудит множества параметров, компонентов и запуска процессов с уровня операционной системы рабочих узлов {{ k8s }}.
+alternate:
+  - href: ru/security-deck/concepts/standard-compliance/inventory-k8s-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аудит процессов и приложений на рабочих узлах {{ k8s }}

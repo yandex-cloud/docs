@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/iam/workload/workload-identity/api-ref/FederatedCredential/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Workload Identity, REST: FederatedCredential

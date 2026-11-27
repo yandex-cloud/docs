@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ cdn-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ cdn-name }}.
+alternate:
+  - href: ru/cdn/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ cdn-full-name }}

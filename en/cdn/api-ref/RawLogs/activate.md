@@ -50,6 +50,10 @@ apiPlayground:
             type: string
         required:
           - bucketName
+alternate:
+  - href: en/cdn/api-ref/RawLogs/activate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: RawLogs.Activate

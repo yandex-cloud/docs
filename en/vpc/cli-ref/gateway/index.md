@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/gateway/
+alternate:
+  - href: en/vpc/cli-ref/gateway/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc gateway

@@ -5,6 +5,10 @@ keywords:
   - winscp
   - win scp
   - what is winscp
+alternate:
+  - href: en/storage/tools/winscp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # WinSCP

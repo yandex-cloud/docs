@@ -1,6 +1,10 @@
 ---
 title: Installing applications from {{ marketplace-full-name }} using {{ TF }}
 description: Follow this guide to enable the Helm {{ TF }} provider and install applications from {{ marketplace-name }} using {{ TF }} manifests.
+alternate:
+  - href: en/managed-kubernetes/operations/apply-helm-provider.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing applications from {{ marketplace-full-name }} with {{ TF }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/container-registry/concepts/docker-volume.md
+    type: text/markdown
+    title: Markdown version
+---
 # Docker volume in {{ container-registry-name }}
 
 A _Docker volume_ is a tool for the permanent storage of information on a [VM](../../compute/concepts/vm.md) instance. The data in the volume is stored independently of containers. If you delete a container, both its volumes and data will persist. Deleting a volume is a separate operation.

@@ -1,6 +1,10 @@
 ---
 title: Deleting a glossary
 description: Follow this guide to delete a glossary in a metadata catalog.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/delete-glossary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a glossary

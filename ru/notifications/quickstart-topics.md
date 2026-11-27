@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с топиками в {{ cns-full-name }}
 description: В {{ cns-name }} вы можете отправлять уведомления различным эндпоинтам, подписанным на топик.
+alternate:
+  - href: ru/notifications/quickstart-topics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с топиками в {{ cns-full-name }}

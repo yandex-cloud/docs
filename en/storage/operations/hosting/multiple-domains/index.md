@@ -1,6 +1,10 @@
 ---
 title: Setting up support for multiple website domain names
 description: Follow this guide to set up multiple domain name support for a website.
+alternate:
+  - href: en/storage/operations/hosting/multiple-domains/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up support for multiple domain names

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-gitlab/operations/omniauth.md
+    type: text/markdown
+    title: Markdown version
+---
 # Setting up OmniAuth
 
 With [OmniAuth](https://rubygems.org/gems/omniauth/), users can sign in to {{ GL }} using credentials from other services.

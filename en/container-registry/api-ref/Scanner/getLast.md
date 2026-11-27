@@ -16,6 +16,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/container-registry/api-ref/Scanner/getLast.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: Scanner.GetLast

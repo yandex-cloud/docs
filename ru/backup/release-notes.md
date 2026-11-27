@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ backup-full-name }}
 description: В разделе представлена история изменений сервиса {{ backup-name }}.
+alternate:
+  - href: ru/backup/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ backup-full-name }}

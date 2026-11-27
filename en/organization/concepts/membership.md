@@ -1,6 +1,10 @@
 ---
 title: Organization membership
 description: Organization members are users who belong to an organization and can access the services within it.
+alternate:
+  - href: en/organization/concepts/membership.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organization membership

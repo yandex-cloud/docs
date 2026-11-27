@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к серийной консоли в {{ compute-full-name }}
 description: Следуя данной инструкции, вы научитесь включать и выключать доступ к серийной консоли виртуальных машин {{ compute-full-name }}.
+alternate:
+  - href: ru/compute/operations/serial-console/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять доступом к серийной консоли

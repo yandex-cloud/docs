@@ -1,6 +1,10 @@
 ---
 title: Чтение данных из потока в AWS CLI
 description: Следуя данной инструкции, вы сможете получить данные из потока в AWS CLI.
+alternate:
+  - href: ru/data-streams/operations/aws-cli/get-records.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение данных из потока в AWS CLI

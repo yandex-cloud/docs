@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Comarketing/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Comarketing
 
 <!-- markdownlint-disable-file -->

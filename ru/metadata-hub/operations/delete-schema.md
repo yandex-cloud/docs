@@ -1,6 +1,10 @@
 ---
 title: Удаление схемы
 description: Следуя данной инструкции, вы сможете удалить схему.
+alternate:
+  - href: ru/metadata-hub/operations/delete-schema.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление схемы

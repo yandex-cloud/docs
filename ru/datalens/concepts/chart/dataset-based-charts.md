@@ -1,6 +1,10 @@
 ---
 title: Чарты в визарде {{ datalens-full-name }}
 description: Из статьи вы узнаете, что такое визард и чарт в {{ datalens-full-name }}, а также познакомитесь с интерфейсом визарда.
+alternate:
+  - href: ru/datalens/concepts/chart/dataset-based-charts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чарты в визарде {{ datalens-full-name }}

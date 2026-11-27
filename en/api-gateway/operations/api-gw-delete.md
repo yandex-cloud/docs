@@ -1,6 +1,10 @@
 ---
 title: Deleting an API gateway
 description: Follow this guide to delete an API gateway.
+alternate:
+  - href: en/api-gateway/operations/api-gw-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an API gateway

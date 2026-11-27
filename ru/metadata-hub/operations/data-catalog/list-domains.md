@@ -1,6 +1,10 @@
 ---
 title: Получение списка доменов и поддоменов в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы получите список доменов и поддоменов в {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/list-domains.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка доменов и поддоменов

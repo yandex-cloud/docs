@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/internet-store/opencart/'
+alternate:
+  - href: en/compute/tutorials/opencart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [opencart](../../../_tutorials/applied/opencart.md) %}

@@ -1,6 +1,10 @@
 ---
 title: Viewing monitoring charts in {{ serverless-containers-full-name }}
 description: You can view monitoring charts in {{ serverless-containers-full-name }} using the management console. To do this, navigate to {{ serverless-containers-name }} and click the trigger whose monitoring charts you want to view.
+alternate:
+  - href: en/serverless-containers/operations/trigger-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing trigger monitoring charts in {{ serverless-containers-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/slo/management.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление SLO в {{ monium-name }}
 
 Для работы со SLO:

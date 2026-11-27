@@ -1,6 +1,10 @@
 ---
 title: Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
 description: A {{ ydb-name }} cluster can ingest data from {{ KF }} topics in real time. This data is automatically added to {{ ydb-short-name }} tables with topic names.
+alternate:
+  - href: en/tutorials/dataplatform/mkf-ydb-stream.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}

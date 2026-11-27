@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ data-catalog-full-name }} для аналитика метаданных
 description: Следуя данному руководству, вы начнете работу с {{ data-catalog-name }} в роли аналитика метаданных.
+alternate:
+  - href: ru/metadata-hub/quickstart/data-analyst-quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы для аналитика метаданных

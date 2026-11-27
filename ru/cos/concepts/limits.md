@@ -1,6 +1,10 @@
 ---
 title: Квоты и лимиты в {{ coi }}
 description: При работе с образом {{ coi }} учитываются ограничения {{ compute-name }} и {{ container-registry-name }}.
+alternate:
+  - href: ru/cos/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты

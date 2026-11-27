@@ -2,6 +2,10 @@
 title: '{{ sf-full-name }} metrics'
 description: In this tutorial, you will learn about {{ sf-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/functions-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sf-full-name }} metrics

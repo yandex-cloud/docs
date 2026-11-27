@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/cloud-router/concepts/announces.md
+    type: text/markdown
+    title: Markdown version
+---
 ## Cloud subnet announcements and communication with {{ vpc-short-name }} {#prc-announce}
 
 To announce virtual network IP prefixes in a virtual router, you need to know the following:

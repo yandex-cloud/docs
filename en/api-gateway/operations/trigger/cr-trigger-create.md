@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/operations/trigger/cr-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a trigger for {{ container-registry-name }} that sends messages to WebSocket connections
 
 Create a [trigger for {{ container-registry-name }}](../../concepts/trigger/cr-trigger.md) to send messages to [WebSocket connections](../../concepts/extensions/websocket.md) when you create or delete {{ container-registry-name }} [Docker images](../../../container-registry/concepts/docker-image.md) or Docker image tags.

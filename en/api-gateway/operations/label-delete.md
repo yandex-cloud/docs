@@ -1,6 +1,10 @@
 ---
 title: Deleting an API gateway label
 description: Follow this guide to delete an API gateway label.
+alternate:
+  - href: en/api-gateway/operations/label-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an API gateway label

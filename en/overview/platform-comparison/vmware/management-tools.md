@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/overview/platform-comparison/vmware/management-tools.md
+    type: text/markdown
+    title: Markdown version
+---
 # Management, monitoring, and billing tools
 
 The {{ yandex-cloud }} platform is a fully-featured out-of-the-box cloud service. Its management, monitoring, and billing capabilities exceed those of VMware.

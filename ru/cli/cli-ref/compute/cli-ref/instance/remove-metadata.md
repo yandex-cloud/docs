@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance/remove-metadata/
+alternate:
+  - href: ru/cli/cli-ref/compute/cli-ref/instance/remove-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute instance remove-metadata

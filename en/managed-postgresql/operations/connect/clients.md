@@ -1,6 +1,10 @@
 ---
 title: Connecting to a {{ PG }} cluster in {{ mpg-full-name }}
 description: Follow this guide to connect to {{ PG }} cluster hosts with the help of command line tools, graphical IDEs, your browser, {{ pgadmin }}, {{ google-looker }}, and a Docker container.
+alternate:
+  - href: en/managed-postgresql/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ PG }} cluster from applications

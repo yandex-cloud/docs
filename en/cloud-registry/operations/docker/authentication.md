@@ -1,6 +1,10 @@
 ---
 title: Authentication in {{ cloud-registry-full-name }}
 description: Follow this guide to authenticate for the required interface.
+alternate:
+  - href: en/cloud-registry/operations/docker/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authentication in {{ cloud-registry-name }}

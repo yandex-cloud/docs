@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Information about existing {{ mgp-name }} clusters
 
 You can get detailed information about each {{ mgp-name }} cluster you created.

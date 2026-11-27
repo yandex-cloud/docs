@@ -1,6 +1,10 @@
 ---
 title: Как изменить версию кластера в {{ mgp-full-name }}
 description: Следуя данной инструкции, вы сможете изменить версию кластера {{ GP }}.
+alternate:
+  - href: ru/managed-greenplum/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновление версии в {{ mgp-full-name }}

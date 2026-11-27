@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ backup-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ backup-name }}.
+alternate:
+  - href: ru/backup/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ backup-name }}

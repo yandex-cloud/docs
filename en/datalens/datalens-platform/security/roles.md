@@ -1,6 +1,10 @@
 ---
 title: Role reference {{ datalens-platform-full-name }}
 description: This reference describes the {{ datalens-platform-short-name }} roles for accessing the service, data, and individual objects.
+alternate:
+  - href: en/datalens/datalens-platform/security/roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access permissions reference

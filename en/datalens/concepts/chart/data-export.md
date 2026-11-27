@@ -1,6 +1,10 @@
 ---
 title: Exporting data from charts
 description: Follow this guide to export data from charts.
+alternate:
+  - href: en/datalens/concepts/chart/data-export.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Exporting data from charts

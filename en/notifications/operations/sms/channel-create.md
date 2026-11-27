@@ -1,6 +1,10 @@
 ---
 title: Creating an SMS notification channel in {{ cns-full-name }}
 description: Follow this guide to create an SMS notification channel.
+alternate:
+  - href: en/notifications/operations/sms/channel-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an SMS notification channel

@@ -45,6 +45,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/iam/api-ref/AccessAnalyzer/listSubjectAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: AccessAnalyzer.ListSubjectAccessBindings

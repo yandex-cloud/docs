@@ -1,6 +1,10 @@
 ---
 title: Как изменить настройки дашборда {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете изменить настройки дашборда {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/dash-settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек дашборда {{ datalens-full-name }}

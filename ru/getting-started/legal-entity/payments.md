@@ -1,6 +1,10 @@
 ---
 title: Инструкции для юридических лиц по контролю расходов
 description: Из статьи вы узнаете, как пополнить счет и настроить оплату ресурсов вашей организации для юридических лиц.
+alternate:
+  - href: ru/getting-started/legal-entity/payments.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пополнение счета и контроль расходов

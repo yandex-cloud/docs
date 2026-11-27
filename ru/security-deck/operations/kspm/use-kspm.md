@@ -1,6 +1,10 @@
 ---
 title: Работать с дашбордом модуля Контроль {{ k8s }}® ({{ kspm-name }}) в {{ sd-full-name }}
 description: Инструкция по работе с интерфейсом модуля Контроль {{ k8s }}® ({{ kspm-name }}) в {{ sd-name }}.
+alternate:
+  - href: ru/security-deck/operations/kspm/use-kspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работать с дашбордом модуля {{ kspm-name }}

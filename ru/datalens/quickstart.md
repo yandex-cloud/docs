@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете начать работать с {{ datalens-full-name }} — подключиться к источнику данных, создать свой первый датасет, построить несколько чартов для визуализации данных и разместить их на дашборде.
+alternate:
+  - href: ru/datalens/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ datalens-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/release-notes.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ managed-k8s-full-name }} release notes
 
 <!-- Changelog begin -->

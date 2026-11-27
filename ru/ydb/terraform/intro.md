@@ -1,6 +1,10 @@
 ---
 title: Введение в работу с {{ ydb-short-name }} через {{ TF }}
 description: 'Статья содержит: описание основных команд {{ TF }} CLI, а также список инструкций по работе с {{ ydb-short-name }} с помощью {{ TF }}.'
+alternate:
+  - href: ru/ydb/terraform/intro.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Введение в работу с {{ ydb-short-name }} через {{ TF }}

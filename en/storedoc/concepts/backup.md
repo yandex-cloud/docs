@@ -11,6 +11,10 @@ keywords:
   - backup MongoDB
   - MongoDB
   - Yandex StoreDoc
+alternate:
+  - href: en/storedoc/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backups in {{ mmg-name }}

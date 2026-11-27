@@ -1,6 +1,10 @@
 ---
 title: Как создать внутренний сетевой балансировщик
 description: Следуя данной инструкции, вы сможете создать внутренний сетевой балансировщик.
+alternate:
+  - href: ru/network-load-balancer/operations/internal-lb-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать внутренний сетевой балансировщик

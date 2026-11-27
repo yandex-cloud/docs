@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/operations/trigger/timer-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a timer that sends messages to WebSocket connections
 
 Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger to send messages to [WebSocket connections](../../concepts/extensions/websocket.md) on schedule.

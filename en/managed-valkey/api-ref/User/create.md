@@ -109,6 +109,10 @@ apiPlayground:
               - AUTH_TYPE_IAM
         required:
           - name
+alternate:
+  - href: en/managed-valkey/api-ref/User/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, REST: User.Create

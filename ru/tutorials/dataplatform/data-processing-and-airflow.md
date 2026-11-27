@@ -1,5 +1,9 @@
 ---
 noIndex: true
+alternate:
+  - href: ru/tutorials/dataplatform/data-processing-and-airflow.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Автоматизация работы с {{ dataproc-full-name }} с помощью {{ maf-full-name }}

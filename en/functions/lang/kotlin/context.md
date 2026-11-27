@@ -1,6 +1,10 @@
 ---
 title: Kotlin function invocation context in {{ sf-full-name }}
 description: In this article, you will learn about the Kotlin function invocation context.
+alternate:
+  - href: en/functions/lang/kotlin/context.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Kotlin function invocation context

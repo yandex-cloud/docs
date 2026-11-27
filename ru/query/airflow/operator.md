@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/airflow/operator.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ AF }}
 
 {% include [sunset](../../_includes/query/sunset.md) %}

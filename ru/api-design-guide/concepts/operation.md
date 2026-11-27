@@ -1,6 +1,10 @@
 ---
 title: Объект Operation
 description: Из статьи вы узнаете про объект Operation, ознакомитесь с его форматом, а также узнаете, как отследить статус операции, отменить операцию и просмотреть список операций.
+alternate:
+  - href: ru/api-design-guide/concepts/operation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Объект Operation

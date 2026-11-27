@@ -1,6 +1,10 @@
 ---
 title: Инструкция о том, как получить информацию о триггере в {{ serverless-containers-full-name }}
 description: Из статьи вы узнаете, как получить подробную информацию о триггере в {{ serverless-containers-full-name }}.
+alternate:
+  - href: ru/serverless-containers/operations/trigger-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о триггере в {{ serverless-containers-name }}

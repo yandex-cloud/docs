@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/scale.md
+    type: text/markdown
+    title: Markdown version
+---
 # Scaling types
 
 Instance group scaling type should be selected for each new instance group. This setting decides how the number of instances in the group will be controlled: [automatically](#auto-scale) or [manually](#fixed-scale).

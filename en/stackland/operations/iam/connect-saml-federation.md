@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/iam/connect-saml-federation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting a SAML federation
 
 SAML federation allows users to log in using an external identity provider's (IdP) accounts.

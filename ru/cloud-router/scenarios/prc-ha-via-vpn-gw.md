@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/cloud-router/scenarios/prc-ha-via-vpn-gw.md
+    type: text/markdown
+    title: Markdown version
+---
 # Резервирование подключения On-Prem через VPN-шлюз
 
 

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/python/context.md
+    type: text/markdown
+    title: Markdown version
+---
 # Контекст вызова функции на Python
 
 _Контекст вызова_ — это объект, который содержит некоторые параметры [контекста выполнения](../../concepts/runtime/execution-context.md) и параметры вызова самой функции на Python. Принимается [обработчиком запросов](handler.md) в качестве второго аргумента.

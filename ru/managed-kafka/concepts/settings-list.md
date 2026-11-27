@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kafka/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройки Apache Kafka®
 
 Для кластера {{ mkf-name }} можно задать настройки, которые относятся к {{ KF }}. Часть настроек задается [на уровне кластера](#cluster-settings), часть — [на уровне топиков](#topic-settings).

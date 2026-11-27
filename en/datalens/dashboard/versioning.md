@@ -1,6 +1,10 @@
 ---
 title: Dashboard versioning in {{ datalens-full-name }}
 description: '{{ datalens-full-name }} dashboard versioning allows you to store the dashboard configuration revision history as versions. A list of versions is available to users with the minimum {{ permission-write }} access permissions to the dashboard.'
+alternate:
+  - href: en/datalens/dashboard/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Versioning in {{ datalens-full-name }}

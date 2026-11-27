@@ -1,6 +1,10 @@
 ---
 title: Изменить профиль SolidWall WAF в {{ sws-full-name }}
 description: Измените имя, описание, тариф и полосу RPS профиля SolidWall WAF в {{ sws-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/solidwall-waf-profile-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить профиль SolidWall WAF

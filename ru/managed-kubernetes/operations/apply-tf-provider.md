@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/operations/apply-tf-provider.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение {{ TF }}-провайдера {{ k8s }}
 
 Вы можете создать ресурсы {{ k8s }} с помощью манифестов {{ TF }}. Для этого подключите {{ TF }}-провайдер `kubernetes`. Он поддерживает {{ TF }}-ресурсы, которые соответствуют конфигурационным файлам YAML для различных {{ k8s }}-ресурсов.

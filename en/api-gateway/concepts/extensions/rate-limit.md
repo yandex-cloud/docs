@@ -1,6 +1,10 @@
 ---
 title: Request rate limit
 description: The `x-yc-apigateway-rate-limits` and `x-yc-apigateway-rate-limit` extensions allow you to set a request rate limit. You can set limits for an API gateway or specific paths and/or HTTP methods.
+alternate:
+  - href: en/api-gateway/concepts/extensions/rate-limit.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Request rate limit

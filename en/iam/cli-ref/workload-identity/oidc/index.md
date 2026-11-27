@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/workload-identity/oidc/
+alternate:
+  - href: en/iam/cli-ref/workload-identity/oidc/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam workload-identity oidc

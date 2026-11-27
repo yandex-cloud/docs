@@ -1,6 +1,10 @@
 ---
 title: Configuration options for {{ myt-name }} cluster components
 description: The component configuration determines the computing power allocated for each component in a {{ myt-name }} cluster.
+alternate:
+  - href: en/managed-ytsaurus/concepts/component-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuration options for {{ myt-name }} cluster components

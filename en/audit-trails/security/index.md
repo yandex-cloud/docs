@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ at-full-name }}
 description: Access management in {{ at-name }}, a trail management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+alternate:
+  - href: en/audit-trails/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management {{ at-name }}

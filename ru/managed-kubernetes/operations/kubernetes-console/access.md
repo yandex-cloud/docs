@@ -1,6 +1,10 @@
 ---
 title: Управление сервисными аккаунтами {{ k8s }} в {{ managed-k8s-full-name }}
 description: Из статьи вы узнаете, как в {{ yandex-cloud }} создать и удалить сервисный аккаунт {{ k8s }} с помощью консоли управления без использования kubectl.
+alternate:
+  - href: ru/managed-kubernetes/operations/kubernetes-console/access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление сервисными аккаунтами {{ k8s }}

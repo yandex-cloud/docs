@@ -1,6 +1,10 @@
 ---
 title: Создание API-шлюза
 description: Следуя данной инструкции, вы сможете создать API-шлюз.
+alternate:
+  - href: ru/api-gateway/operations/api-gw-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание API-шлюза

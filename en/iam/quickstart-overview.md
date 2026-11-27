@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iam/quickstart-overview.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ iam-name }}
 
 {{ iam-full-name }} allows you to manage access to {{ yandex-cloud }} resources. With {{ iam-short-name }}, only users with relevant access permissions can perform operations on resources.

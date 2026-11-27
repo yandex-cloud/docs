@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Accounts/POST_accounts_v1_masterBAId_account.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Create account

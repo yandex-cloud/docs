@@ -1,6 +1,10 @@
 ---
 title: '{{ billing-name }} release notes'
 description: This section contains the {{ billing-name }} release notes.
+alternate:
+  - href: en/billing/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ billing-name }} release notes

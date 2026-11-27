@@ -1,6 +1,10 @@
 ---
 title: Как сбросить вывод ячеек ноутбука в {{ ml-platform-full-name }}
 description: Следуя данной инструкции, вы сможете сбросить вывод ячеек ноутбука.
+alternate:
+  - href: ru/datasphere/operations/projects/clear-outputs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Очистить вывод ячеек ноутбука

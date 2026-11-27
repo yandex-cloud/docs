@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/cloudregistry/events-ref/CreateScanPolicy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry Audit Trails Events: CreateScanPolicy

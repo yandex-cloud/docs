@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/subnet/remove-range/
+alternate:
+  - href: ru/cli/cli-ref/vpc/cli-ref/subnet/remove-range.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc subnet remove-range

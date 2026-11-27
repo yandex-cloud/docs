@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/compute/api-ref/ReservedInstancePool/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: ReservedInstancePool

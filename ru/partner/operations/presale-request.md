@@ -1,6 +1,10 @@
 ---
 title: Оставить заявку на пресейл
 description: Следуя данной инструкции, вы сможете оставить заявку на пресейл.
+alternate:
+  - href: ru/partner/operations/presale-request.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Оставить заявку на пресейл

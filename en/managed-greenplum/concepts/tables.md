@@ -1,6 +1,10 @@
 ---
 title: Types of data storage in a {{ mgp-full-name }} cluster
 description: '{{ mgp-name }} offers two types of table data storage: heap storage and append-optimized storage.'
+alternate:
+  - href: en/managed-greenplum/concepts/tables.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Types of data storage in {{ mgp-name }}

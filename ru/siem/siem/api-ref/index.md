@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/siem/siem/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM API: REST reference

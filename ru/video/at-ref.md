@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ video-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ video-full-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/video/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

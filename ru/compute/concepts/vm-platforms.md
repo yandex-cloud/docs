@@ -1,6 +1,10 @@
 ---
 title: Платформы
 description: Из этой статьи вы узнаете про доступные платформы при создании виртуальной машины.
+alternate:
+  - href: ru/compute/concepts/vm-platforms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Платформы

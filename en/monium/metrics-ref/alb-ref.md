@@ -2,6 +2,10 @@
 title: '{{ alb-full-name }} metrics'
 description: In this tutorial, you will learn about {{ alb-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/alb-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ alb-full-name }} metrics

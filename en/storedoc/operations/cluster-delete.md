@@ -1,6 +1,10 @@
 ---
 title: Deleting a {{ SD }} cluster
 description: After you delete a {{ SD }} database cluster, its backups are retained and available for recovery for 7 days. To restore a deleted cluster from a backup, you will need its ID. Therefore, make sure to save the cluster ID safely before deletion.
+alternate:
+  - href: en/storedoc/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a {{ SD }} cluster

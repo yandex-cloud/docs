@@ -1,6 +1,10 @@
 ---
 title: Установка Bitrix
 description: Следуя данной инструкции, вы сможете установить приложение Битрикс в кластере Managed Service for Kubernetes.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/bitrix.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка Битрикс

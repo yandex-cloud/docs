@@ -1,6 +1,10 @@
 ---
 title: How to get an embed code or link to a playlist in {{ video-full-name }}
 description: Follow this guide to get an embed code or link to a playlist in {{ video-name }}.
+alternate:
+  - href: en/video/operations/playlists/get-link.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting an embed code or link to a playlist

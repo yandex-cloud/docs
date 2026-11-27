@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/operations/ml-models.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing machine learning models in {{ mch-name }}
 
 {{ mch-short-name }} enables data analysis using [CatBoost](https://catboost.ai/) ML models without any additional tools.

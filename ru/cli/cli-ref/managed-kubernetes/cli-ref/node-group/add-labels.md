@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/node-group/add-labels/
+alternate:
+  - href: ru/cli/cli-ref/managed-kubernetes/cli-ref/node-group/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kubernetes node-group add-labels

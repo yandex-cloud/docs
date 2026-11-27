@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Yandex-360/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Yandex 360
 
 <!-- markdownlint-disable-file -->

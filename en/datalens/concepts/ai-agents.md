@@ -1,6 +1,10 @@
 ---
 title: AI agents in {{ datalens-full-name }}
 description: In this tutorial, you will learn how AI agents interact with {{ datalens-name }}.
+alternate:
+  - href: en/datalens/concepts/ai-agents.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI agents in {{ datalens-full-name }}

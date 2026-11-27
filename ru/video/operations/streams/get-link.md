@@ -1,6 +1,10 @@
 ---
 title: Как получить код вставки или ссылку на трансляцию в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете получить код вставки или ссылку на трансляцию {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/streams/get-link.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить код вставки или ссылку на трансляцию

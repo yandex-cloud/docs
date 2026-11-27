@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/ALL_CONCAT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # ALL_CONCAT

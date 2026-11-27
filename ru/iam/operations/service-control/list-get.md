@@ -1,6 +1,10 @@
 ---
 title: Получение информации о статусах сервисов {{ yandex-cloud }}
 description: С помощью этой инструкции вы научитесь получать информацию о статусах сервисов в облаке {{ yandex-cloud }}.
+alternate:
+  - href: ru/iam/operations/service-control/list-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение статусов сервисов

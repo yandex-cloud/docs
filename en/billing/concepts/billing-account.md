@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/concepts/billing-account.md
+    type: text/markdown
+    title: Markdown version
+---
 # Billing accounts
 
 Billing accounts are used to identify users paying for resources in {{ yandex-cloud }}.

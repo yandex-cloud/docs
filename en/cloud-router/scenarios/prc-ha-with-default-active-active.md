@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/cloud-router/scenarios/prc-ha-with-default-active-active.md
+    type: text/markdown
+    title: Markdown version
+---
 # Even traffic distribution for route 0.0.0.0/0
 
 

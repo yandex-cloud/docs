@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_certs_generate-csr-monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops certs generate-csr-monitoring
 
 Generate CSR for Monitoring ingress certificate via cert-manager

@@ -861,6 +861,10 @@ apiPlayground:
             type: string
         required:
           - name
+alternate:
+  - href: ru/application-load-balancer/api-ref/HttpRouter/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: HttpRouter.Create

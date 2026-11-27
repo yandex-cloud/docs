@@ -1,6 +1,10 @@
 ---
 title: What performance analysis tools are available in {{ SD }}
 description: In this tutorial, you will learn about performance analysis tools available in {{ SD }}.
+alternate:
+  - href: en/storedoc/operations/tools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Performance analysis tools

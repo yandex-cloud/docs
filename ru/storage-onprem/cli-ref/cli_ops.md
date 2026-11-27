@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops
 
 Cluster maintenance operations

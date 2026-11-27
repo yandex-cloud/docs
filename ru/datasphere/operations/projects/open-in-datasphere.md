@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/projects/open-in-datasphere.md
+    type: text/markdown
+    title: Markdown version
+---
 # Открыть ноутбук в {{ ml-platform-name }}
 
 Вы можете опубликовать исходный файл ноутбука {{ jlab }}Lab на своем сайте и предоставить пользователям возможность запустить его в {{ ml-platform-name }}. При переходе по ссылке пользователю нужно будет пройти авторизацию в {{ yandex-cloud }} и выбрать проект.

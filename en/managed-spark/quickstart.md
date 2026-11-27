@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ msp-full-name }}
 description: Follow this guide to create a {{ msp-full-name }} cluster and run jobs in it.
+alternate:
+  - href: en/managed-spark/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ msp-full-name }}

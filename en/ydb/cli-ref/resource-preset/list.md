@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/resource-preset/list/
+alternate:
+  - href: en/ydb/cli-ref/resource-preset/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc ydb resource-preset list

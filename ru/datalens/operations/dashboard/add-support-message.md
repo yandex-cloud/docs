@@ -1,6 +1,10 @@
 ---
 title: Как добавить информацию к сообщению при обращении в поддержку в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить информацию к сообщению при обращении в поддержку в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-support-message.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление сообщения при обращении в поддержку в {{ datalens-full-name }}

@@ -3,6 +3,10 @@ noIndex: true
 title: Миграция сервисов с балансировщика {{ network-load-balancer-full-name }} на L7-балансировщик {{ alb-full-name }} для подключения защиты {{ sws-full-name }}
 description: Из статьи вы узнаете, как перенести сервисы с балансировщика {{ network-load-balancer-name }} на L7-балансировщик {{ alb-name }} для подключения защиты {{ sws-full-name }}.
 canonical: '{{ link-docs }}/tutorials/security/migration-from-nlb-to-alb/'
+alternate:
+  - href: ru/network-load-balancer/tutorials/migration-from-nlb-to-alb/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для подключения защиты {{ sws-full-name }}

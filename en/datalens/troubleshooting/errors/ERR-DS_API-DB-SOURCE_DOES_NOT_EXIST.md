@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.DB.SOURCE_DOES_NOT_EXIST'
 description: This page describes the Data source (table) timed does not exist {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DB-SOURCE_DOES_NOT_EXIST.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Data source (table) does not exist

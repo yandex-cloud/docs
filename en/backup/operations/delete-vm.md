@@ -1,6 +1,10 @@
 ---
 title: How to delete a {{ compute-full-name }} VM instance from {{ backup-full-name }}
 description: Follow this guide to delete a VM from {{ backup-name }}.
+alternate:
+  - href: en/backup/operations/delete-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a VM from {{ backup-name }}

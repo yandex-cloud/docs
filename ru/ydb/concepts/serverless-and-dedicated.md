@@ -5,6 +5,10 @@ keywords:
   - ydb
   - serverless
   - dedicated
+alternate:
+  - href: ru/ydb/concepts/serverless-and-dedicated.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Режимы работы Serverless и Dedicated

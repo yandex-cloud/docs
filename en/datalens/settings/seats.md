@@ -1,6 +1,10 @@
 ---
 title: Setting up seats in {{ datalens-full-name }}
 description: Use seat settings in {{ datalens-full-name }} to manage your seats.
+alternate:
+  - href: en/datalens/settings/seats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up seats in {{ datalens-full-name }}

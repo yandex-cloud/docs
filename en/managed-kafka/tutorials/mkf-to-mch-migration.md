@@ -2,6 +2,10 @@
 title: Delivering data to {{ mch-full-name }} using {{ data-transfer-full-name }}
 description: Follow this tutorial to set up data delivery to {{ mch-name }} using {{ data-transfer-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mch'
+alternate:
+  - href: en/managed-kafka/tutorials/mkf-to-mch-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering data to {{ mch-full-name }} using {{ data-transfer-full-name }}

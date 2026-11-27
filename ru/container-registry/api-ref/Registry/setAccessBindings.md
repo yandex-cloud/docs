@@ -84,6 +84,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: ru/container-registry/api-ref/Registry/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: Registry.SetAccessBindings

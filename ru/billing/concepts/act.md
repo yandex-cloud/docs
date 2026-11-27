@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/concepts/act.md
+    type: text/markdown
+    title: Markdown version
+---
 # Акты
 
 Пользователи {{ yandex-cloud }} могут получать [акты выполненных работ](#report-of-completion) и [акт сверки](#reconciliation-report). Акты сверки доступны только для резидентов Российской Федерации и Республики Казахстан.

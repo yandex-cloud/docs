@@ -1,6 +1,10 @@
 ---
 title: Sessions in {{ org-full-name }}
 description: Sessions give users access to services that rely on single sign-on with {{ org-full-name }} as the identity provider (IdP) without re-authentication in {{ org-full-name }}.
+alternate:
+  - href: en/organization/concepts/sessions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sessions

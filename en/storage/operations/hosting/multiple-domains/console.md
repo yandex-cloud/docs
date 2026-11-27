@@ -1,6 +1,10 @@
 ---
 title: Setting up support for multiple website domain names using the management console, CLI, or API
 description: Follow this guide to set up support for multiple website domain names using the {{ yandex-cloud }} management console, CLI, or API.
+alternate:
+  - href: en/storage/operations/hosting/multiple-domains/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up support for multiple domain names using the management console, CLI, or API

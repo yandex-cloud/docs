@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/storedoc/api-ref/Cluster/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: Cluster

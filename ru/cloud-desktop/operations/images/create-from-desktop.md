@@ -1,6 +1,10 @@
 ---
 title: Как создать образ на основе рабочего стола
 description: Следуя данной инструкции, вы сможете создать образ на основе рабочего стола.
+alternate:
+  - href: ru/cloud-desktop/operations/images/create-from-desktop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать образ на основе рабочего стола

@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ container-registry-full-name }}
 description: Access management in {{ container-registry-full-name }}, the Docker image storage and distribution service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
+alternate:
+  - href: en/container-registry/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ container-registry-name }}

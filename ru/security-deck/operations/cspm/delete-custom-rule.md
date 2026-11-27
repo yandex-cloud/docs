@@ -1,6 +1,10 @@
 ---
 title: Удалить пользовательское правило в {{ sd-full-name }}
 description: Из этой инструкции вы узнаете, как удалить пользовательское правило безопасности, если оно больше не требуется для проверки инфраструктуры.
+alternate:
+  - href: ru/security-deck/operations/cspm/delete-custom-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить пользовательское правило

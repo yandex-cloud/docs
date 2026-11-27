@@ -1,6 +1,10 @@
 ---
 title: Дашборд сети магазинов из БД {{ CH }} в {{ datalens-full-name }}
 description: Следуя данному руководству, вы создадите дашборд сети магазинов на основе данных из базы данных {{ CH }} в {{ datalens-name }}.
+alternate:
+  - href: ru/tutorials/datalens/data-from-ch-visualization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [data-from-ch-visualization](../../_tutorials/datalens/data-from-ch-visualization.md) %}

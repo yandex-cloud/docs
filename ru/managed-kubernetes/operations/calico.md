@@ -1,6 +1,10 @@
 ---
 title: Как настроить контроллер сетевых политик Calico в {{ managed-k8s-full-name }}
 description: Следуя данной инструкции, вы сможете настроить контроллер сетевых политик Calico.
+alternate:
+  - href: ru/managed-kubernetes/operations/calico.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка контроллера сетевых политик Calico

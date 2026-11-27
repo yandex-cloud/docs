@@ -1,6 +1,10 @@
 ---
 title: '{{ video-player-name }} initialization parameters in the JavaScript SDK'
 description: This page describes the parameters you can use when initializing {{ video-player-name }} in the JavaScript SDK.
+alternate:
+  - href: en/video/sdk/javascript/initialization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Player initialization parameters

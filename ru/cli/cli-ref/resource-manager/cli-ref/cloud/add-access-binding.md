@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/cloud/add-access-binding/
+alternate:
+  - href: ru/cli/cli-ref/resource-manager/cli-ref/cloud/add-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc resource-manager cloud add-access-binding

@@ -1,6 +1,10 @@
 ---
 title: Getting a list of metadata catalogs
 description: Follow this guide to get a list of metadata catalogs in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/catalog-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of catalogs

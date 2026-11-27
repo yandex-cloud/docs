@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/connectionmanager/events-ref/CreateConnection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connection Manager Audit Trails Events: CreateConnection

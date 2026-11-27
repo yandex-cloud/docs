@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/get-endpoint-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие GetEndpointAttributes
 
 Получает атрибуты [эндпоинта для Push-уведомлений](../concepts/push.md#mobile-endpoints).

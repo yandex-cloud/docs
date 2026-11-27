@@ -1,6 +1,10 @@
 ---
 title: Как использовать расширение gp_url_tools в {{ mgp-full-name }}
 description: Следуя данной инструкции, вы сможете использовать расширение gp_url_tools в {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/extensions/gp-url-tools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование gp_url_tools в {{ mgp-name }}

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/monium/api-ref/MetricsData/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # MetricsData

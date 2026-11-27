@@ -1,6 +1,10 @@
 ---
 title: How to create a player preset in {{ video-full-name }}
 description: Follow this guide to create a player preset in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/style-presets/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a player preset

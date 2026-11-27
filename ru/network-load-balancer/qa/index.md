@@ -1,6 +1,10 @@
 ---
 title: '{{ network-load-balancer-full-name }}. Ответы на вопросы'
 description: Как получить логи моей работы в сервисе {{ network-load-balancer-full-name }}. Подробнее читайте в разделе Запросы данных.
+alternate:
+  - href: ru/network-load-balancer/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие вопросы про {{ network-load-balancer-name }}

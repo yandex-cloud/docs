@@ -2,6 +2,10 @@
 title: '{{ mch-full-name }} metrics'
 description: In this tutorial, you will learn about {{ mch-name }} metrics.
 editable: false
+alternate:
+  - href: en/monitoring/metrics-ref/managed-clickhouse-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mch-full-name }} metrics

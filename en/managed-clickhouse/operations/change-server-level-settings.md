@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/operations/change-server-level-settings.md
+    type: text/markdown
+    title: Markdown version
+---
 # Changing {{ CH }} settings at the server level
 
 You can specify [{{ CH }} settings at the server level]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings) to configure the way databases or individual tables work in a {{ mch-name }} cluster. You can specify settings using several methods:

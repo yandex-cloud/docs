@@ -1,6 +1,10 @@
 ---
 title: '{{ msp-full-name }} host classes'
 description: The host class determines the computing power allocated for each host in a {{ msp-full-name }} cluster.
+alternate:
+  - href: en/managed-spark/concepts/instance-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ msp-full-name }} host classes

@@ -1,6 +1,10 @@
 ---
 title: Управление дисковым пространством {{ mpg-name }}
 description: При заполнении хранилища более чем на 97% хост автоматически переходит в режим read-only. Вы можете отслеживать степень заполнения хранилища, настраивать автоматическое увеличение его размера, отключать режим read-only
+alternate:
+  - href: ru/managed-postgresql/operations/storage-space.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление дисковым пространством

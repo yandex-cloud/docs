@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ mmy-full-name }}
 description: В разделе представлена история изменений сервиса {{ mmy-name }}.
+alternate:
+  - href: ru/managed-mysql/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ mmy-full-name }}

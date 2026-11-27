@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/operations/jobs-hive.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing Hive jobs
 
 In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and receive execution logs for them. For examples of jobs, see [{#T}](../tutorials/job-overview.md).

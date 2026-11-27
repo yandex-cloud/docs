@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/rest-catalog/create-catalog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a catalog
 
 Create an [{{ rest-catalog-name }} catalog](../../concepts/components/rest-catalog.md) within your [project namespace](../projects/manage-namespaces.md). The {{ rest-catalog-name }} and [{{ objstorage-name }} components](../../concepts/components/storage.md) must be enabled in the cluster.

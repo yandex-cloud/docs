@@ -1,6 +1,10 @@
 ---
 title: Управлять сессиями пользователей {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете просматривать и завершать сессии федеративных и локальных пользователей в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/manage-sessions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять сессиями пользователей

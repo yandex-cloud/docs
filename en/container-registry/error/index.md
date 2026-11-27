@@ -1,6 +1,10 @@
 ---
 title: Troubleshooting in {{ container-registry-full-name }}
 description: This page gives a list of common issues and their fixes.
+alternate:
+  - href: en/container-registry/error/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting in {{ container-registry-name }}

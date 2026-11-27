@@ -1,6 +1,10 @@
 ---
 title: Настроить права доступа к кластеру GPU {{ compute-name }}
 description: Следуя данной инструкции, вы настроите права доступа к кластеру GPU.
+alternate:
+  - href: ru/compute/operations/gpu-cluster/access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к кластеру GPU

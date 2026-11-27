@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ datalens-name }} management and data events tracked in {{ at-name }}.
+alternate:
+  - href: en/datalens/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

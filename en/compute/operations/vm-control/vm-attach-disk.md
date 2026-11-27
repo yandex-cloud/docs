@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/vm-control/vm-attach-disk.md
+    type: text/markdown
+    title: Markdown version
+---
 # Attaching a disk to a VM
 
 You can attach a secondary [disk](../../concepts/disk.md) to [either a running or stopped VM](../../concepts/vm-statuses.md).

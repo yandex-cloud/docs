@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/deleteTable.md
+alternate:
+  - href: en/ydb/docapi/api-ref/actions/deleteTable.md
+    type: text/markdown
+    title: Markdown version
 ---
 # DeleteTable method
 

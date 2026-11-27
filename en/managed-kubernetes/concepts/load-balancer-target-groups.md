@@ -1,6 +1,10 @@
 ---
 title: Load balancer target groups in {{ managed-k8s-full-name }}
 description: Learn how {{ managed-k8s-name }} manages network load balancer target groups and how to reduce the number of health-checked nodes in a large cluster.
+alternate:
+  - href: en/managed-kubernetes/concepts/load-balancer-target-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Load balancer target groups

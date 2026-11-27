@@ -1,6 +1,10 @@
 ---
 title: Как назначить права группе пользователей в {{ org-full-name }}
 description: Из этой статьи вы узнаете, как настроить доступ группы пользователей в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/access-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначить роль на всю организацию

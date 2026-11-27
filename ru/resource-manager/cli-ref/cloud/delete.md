@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/cloud/delete/
+alternate:
+  - href: ru/resource-manager/cli-ref/cloud/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc resource-manager cloud delete

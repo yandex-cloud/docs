@@ -4272,6 +4272,10 @@ apiPlayground:
               **[Clickhouse](/docs/managed-clickhouse/api-ref/Cluster/create#yandex.cloud.mdb.clickhouse.v1.ConfigSpec.Clickhouse)**
               ClickHouse configuration for a shard.
             $ref: '#/definitions/Clickhouse'
+alternate:
+  - href: ru/managed-clickhouse/api-ref/Cluster/updateShard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.UpdateShard

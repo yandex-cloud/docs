@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть график сетевых соединений в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете посмотреть график сетевых соединений.
+alternate:
+  - href: ru/vpc/operations/connections-view.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # График сетевых соединений

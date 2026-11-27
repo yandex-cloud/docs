@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/collector/opentelemetry.md
+    type: text/markdown
+    title: Markdown version
+---
 # Передача данных через OpenTelemetry Collector
 
 OpenTelemetry Collector (OTel Collector) — агент для сбора, обработки и экспорта телеметрических данных по стандарту [OpenTelemetry](https://opentelemetry.io/docs/). Вы можете использовать OTel Collector для передачи данных из вашего приложения в {{ monium-name }}.

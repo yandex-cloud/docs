@@ -1,6 +1,10 @@
 ---
 title: How to work with disks in {{ cos-full-name }}
 description: In this article, you will learn about working with boot and secondary disks when creating a VM from a {{ coi }}.
+alternate:
+  - href: en/cos/concepts/disks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to work with disks

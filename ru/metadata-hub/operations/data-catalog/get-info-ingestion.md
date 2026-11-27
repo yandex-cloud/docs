@@ -1,6 +1,10 @@
 ---
 title: Получение информации о загрузке
 description: Следуя данной инструкции, вы получите информацию о загрузке в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/get-info-ingestion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации о загрузке

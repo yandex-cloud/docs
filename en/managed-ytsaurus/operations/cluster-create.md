@@ -5,6 +5,10 @@ keywords:
   - creating an {{ ytsaurus-name }} cluster
   - '{{ ytsaurus-name }} cluster'
   - '{{ ytsaurus-name }}'
+alternate:
+  - href: en/managed-ytsaurus/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a cluster {{ ytsaurus-name }}

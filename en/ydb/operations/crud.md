@@ -1,6 +1,10 @@
 ---
 title: How to read and write data in {{ ydb-full-name }}
 description: Follow this guide to learn how to read and write data.
+alternate:
+  - href: en/ydb/operations/crud.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reading and writing data

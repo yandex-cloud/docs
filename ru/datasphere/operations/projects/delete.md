@@ -1,6 +1,10 @@
 ---
 title: Как удалить ноутбук или проект в {{ ml-platform-full-name }}
 description: Из статьи вы узнаете, как удалить ноутбук или проект в {{ ml-platform-name }}.
+alternate:
+  - href: ru/datasphere/operations/projects/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить ноутбук или проект

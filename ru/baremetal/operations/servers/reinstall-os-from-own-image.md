@@ -1,6 +1,10 @@
 ---
 title: Как переустановить ОС на сервере {{ baremetal-name }} из своего ISO-образа
 description: Следуя данной инструкции, вы сможете установить и переустановить операционную систему сервера {{ baremetal-full-name }} из своего ISO-образа.
+alternate:
+  - href: ru/baremetal/operations/servers/reinstall-os-from-own-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переустановить операционную систему из своего ISO-образа

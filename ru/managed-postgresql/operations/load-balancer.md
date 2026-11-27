@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/operations/load-balancer.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление балансировщиком нагрузки {{ mdb-lb }}
 
 В {{ mpg-name }} доступен [балансировщик нагрузки {{ mdb-lb }}](../concepts/load-balancer.md), который автоматически распределяет запросы по хостам БД в зависимости от их роли и доступности.

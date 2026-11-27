@@ -1,6 +1,10 @@
 ---
 title: Role reference {{ yandex-cloud }}
 description: This article provides a full reference and description of roles for {{ yandex-cloud }} services.
+alternate:
+  - href: en/iam/roles-reference.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Role reference {{ yandex-cloud }}

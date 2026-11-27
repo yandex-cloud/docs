@@ -1,6 +1,10 @@
 ---
 title: 'Использование кластера {{ mrd-name }} в качестве хранилища кеша для «1С-Битрикс: Управление сайтом»'
 description: 'Следуя данной инструкции, вы сможете настроить кластер {{ mrd-full-name }} как внешнее хранилище кеша для сайта на «1С-Битрикс: Управление сайтом».'
+alternate:
+  - href: ru/tutorials/infrastructure-management/yc-valkey-as-1c-cache-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование кластера {{ mrd-name }} в качестве хранилища кеша для «1С-Битрикс: Управление сайтом»

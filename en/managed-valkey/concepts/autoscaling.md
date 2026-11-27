@@ -1,6 +1,10 @@
 ---
 title: Autoscaling in {{ mrd-name }}
 description: Autoscaling is changing the number of {{ VLK }} cluster shards depending on current load.
+alternate:
+  - href: en/managed-valkey/concepts/autoscaling.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Autoscaling in {{ mrd-name }}

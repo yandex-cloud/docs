@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ monium-name }}
 description: В этом разделе собраны обучающие курсы по {{ monium-name }}.
+alternate:
+  - href: ru/monium/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ monium-name }}

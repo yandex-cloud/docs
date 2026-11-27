@@ -1,6 +1,10 @@
 ---
 title: How to move an NLB backend VM to a target group in a new availability zone
 description: Follow this guide to move {{ network-load-balancer-full-name }} backend VMs to a target group in a different availability zone.
+alternate:
+  - href: en/network-load-balancer/operations/load-balancer-change-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving a VM to a target group in a new availability zone

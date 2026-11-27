@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route/
+alternate:
+  - href: ru/cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc application-load-balancer virtual-host insert-http-route

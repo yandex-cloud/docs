@@ -87,6 +87,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: en/storage/api-ref/Bucket/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, REST: Bucket.SetAccessBindings

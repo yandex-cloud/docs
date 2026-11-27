@@ -1,6 +1,10 @@
 ---
 title: Mounting file systems to {{ serverless-containers-full-name }}
 description: In this tutorial, you will learn how to mount file systems to {{ serverless-containers-name }}.
+alternate:
+  - href: en/serverless-containers/concepts/mounting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Mounting external resources to a container file system

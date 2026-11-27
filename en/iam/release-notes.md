@@ -1,6 +1,10 @@
 ---
 title: '{{ iam-full-name }} release notes'
 description: This section contains the {{ iam-name }} release notes.
+alternate:
+  - href: en/iam/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ iam-full-name }} release notes

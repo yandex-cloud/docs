@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ cloud-logging-full-name }}
 description: В разделе представлена история изменений сервиса {{ cloud-logging-name }}.
+alternate:
+  - href: ru/logging/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ cloud-logging-full-name }}

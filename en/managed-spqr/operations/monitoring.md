@@ -1,6 +1,10 @@
 ---
 title: '{{ SPQR }} cluster and host state monitoring'
 description: You can monitor the state of a {{ SPQR }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster state monitoring.
+alternate:
+  - href: en/managed-spqr/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ SPQR }} cluster and host state monitoring

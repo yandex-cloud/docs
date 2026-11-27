@@ -1,6 +1,10 @@
 ---
 title: Adding a link for a community"
 description: Follow this guide to add a link for a community.
+alternate:
+  - href: en/datasphere/operations/community/link-channel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a link for a community

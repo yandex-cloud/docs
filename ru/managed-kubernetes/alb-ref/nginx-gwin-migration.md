@@ -1,6 +1,10 @@
 ---
 title: Миграция приложений с Ingress NGINX на Gwin в {{ managed-k8s-full-name }}
 description: В статье приведено соответствие пользовательских аннотаций Ingress NGINX и Gwin, необходимое для миграции приложений на Gwin в {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/alb-ref/nginx-gwin-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция приложений с Ingress NGINX на Gwin

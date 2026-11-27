@@ -1,5 +1,9 @@
 ---
 subcategory: Identity and Access Management
+alternate:
+  - href: ru/terraform/resources/iam_service_account_static_access_key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_iam_service_account_static_access_key (Resource)

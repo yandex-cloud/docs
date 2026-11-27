@@ -1,6 +1,10 @@
 ---
 title: Как добавить сертификат от Let's Encrypt® в {{ certificate-manager-full-name }}
 description: Следуя этой инструкции, вы сможете добавить сертификат от Let's Encrypt® и посмотреть статус его выпуска.
+alternate:
+  - href: ru/certificate-manager/operations/managed/cert-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить сертификат от Let's Encrypt®

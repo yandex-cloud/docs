@@ -1,6 +1,10 @@
 ---
 title: Как настроить эндпоинт-источник {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить эндпоинт-источник {{ objstorage-full-name }}.
+alternate:
+  - href: ru/data-transfer/operations/endpoint/source/object-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Передача данных из эндпоинта-источника {{ objstorage-full-name }}
 

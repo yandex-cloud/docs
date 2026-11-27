@@ -1,6 +1,10 @@
 ---
 title: How to add timecodes to a video in {{ video-full-name }}
 description: Follow this guide to add timecodes to a video in {{ video-name }}.
+alternate:
+  - href: en/video/operations/video/add-timecodes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding timecodes to a video

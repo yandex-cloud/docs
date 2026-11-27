@@ -1,6 +1,10 @@
 ---
 title: Setting up SSO for applications
 description: Setting up integration between {{ org-full-name }} and external applications using SAML and OIDC.
+alternate:
+  - href: en/organization/tutorials/single-sign-on/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up single sign-on (SSO) for apps

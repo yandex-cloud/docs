@@ -1,6 +1,10 @@
 ---
 title: Руководство по запуску вычислений в {{ ml-platform-full-name }} с помощью API
 description: Следуя данному руководству, вы сможете запустить вычисления в {{ ml-platform-full-name }} с помощью API.
+alternate:
+  - href: ru/tutorials/ml-ai/batch-code-execution.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запуск вычислений в {{ ml-platform-full-name }} с помощью API

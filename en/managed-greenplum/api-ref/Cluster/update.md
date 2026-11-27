@@ -1394,6 +1394,10 @@ apiPlayground:
               - folderId
           - required:
               - logGroupId
+alternate:
+  - href: en/managed-greenplum/api-ref/Cluster/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.Update

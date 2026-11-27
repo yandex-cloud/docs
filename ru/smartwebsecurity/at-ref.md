@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ sws-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ sws-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/smartwebsecurity/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ at-full-name }}

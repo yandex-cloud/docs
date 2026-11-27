@@ -1,6 +1,10 @@
 ---
 title: Как работать с {{ video-full-name }}. Пошаговые инструкции
 description: Пошаговые инструкции по работе с сервисом потоковых трансляций и видеохостинга в {{ yandex-cloud }}. Из статьи вы узнаете, как управлять каналами и видео в {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ video-name }}

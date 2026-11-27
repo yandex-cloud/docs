@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/resource-manager/operations/cloud/delete-cancel.md
+    type: text/markdown
+    title: Markdown version
+---
 # Отмена удаления облака
 
 В этом разделе приведена инструкция по отмене удаления облака в случае, если ранее вы ошибочно [инициировали удаление](delete.md). Нельзя отменить удаление облака, привязанного к заблокированному платежному аккаунту в статусе `SUSPENDED`. Об отмене удаления облака при удалении из-за задолженности читайте в разделах [Цикл оплаты для физических лиц](../../../billing/payment/billing-cycle-individual.md) и [Цикл оплаты для организаций и ИП](../../../billing/payment/billing-cycle-business.md).

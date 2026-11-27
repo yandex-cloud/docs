@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/models/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Модели
 
 Во время работы в {{ ml-platform-full-name }} в памяти ВМ сохраняется состояние интерпретатора и результаты вычислений или обучения. Вы можете сохранить эти вычисления в отдельный ресурс _модель_.

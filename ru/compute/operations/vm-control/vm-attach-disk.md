@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/vm-control/vm-attach-disk.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключить диск к виртуальной машине
 
 Вы можете подключить дополнительный [диск](../../concepts/disk.md) к [работающей и остановленной ВМ](../../concepts/vm-statuses.md).

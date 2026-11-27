@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/certificate-manager/api-ref/grpc/Certificate/listVersions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager API, gRPC: CertificateService.ListVersions

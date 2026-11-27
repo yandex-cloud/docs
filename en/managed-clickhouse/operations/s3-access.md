@@ -1,6 +1,10 @@
 ---
 title: How to configure access to {{ objstorage-full-name }} from a {{ CH }} cluster in {{ mch-full-name }}
 description: Follow this guide to configure access to {{ objstorage-full-name }} from a {{ CH }} cluster.
+alternate:
+  - href: en/managed-clickhouse/operations/s3-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring access to {{ objstorage-name }} from a {{ CH }} cluster

@@ -1,6 +1,10 @@
 ---
 title: Rules {{ sws-name }}
 description: Learn about the available rule types in {{ sws-name }}, how they apply actions to HTTP requests, and how rule priority is enforced.
+alternate:
+  - href: en/smartwebsecurity/concepts/rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Rules

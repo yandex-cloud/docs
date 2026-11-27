@@ -1,6 +1,10 @@
 ---
 title: Создание окружения в {{ sd-full-name }}
 description: Из этой инструкции вы узнаете, как в {{ sd-full-name }} создать окружение для контроля соответствия облачной инфраструктуры отраслевым стандартам.
+alternate:
+  - href: ru/security-deck/operations/workspaces/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать окружение {{ sd-name }}

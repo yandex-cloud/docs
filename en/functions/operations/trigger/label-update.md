@@ -1,6 +1,10 @@
 ---
 title: Updating a trigger label in {{ sf-name }}
 description: Follow this guide to update a trigger label in {{ sf-name }}.
+alternate:
+  - href: en/functions/operations/trigger/label-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a trigger label in {{ sf-name }}

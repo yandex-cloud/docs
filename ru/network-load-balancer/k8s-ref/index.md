@@ -1,6 +1,10 @@
 ---
 title: Справочник инструментов {{ network-load-balancer-full-name }} для {{ managed-k8s-full-name }}
 description: На странице представлен справочник инструментов {{ network-load-balancer-name }} для {{ managed-k8s-name }}.
+alternate:
+  - href: ru/network-load-balancer/k8s-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник ресурсов для {{ managed-k8s-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ sf-full-name }}
 description: Следуя данной инструкции, вы сможете создать и настроить функцию или триггер.
+alternate:
+  - href: ru/functions/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с {{ sf-name }}

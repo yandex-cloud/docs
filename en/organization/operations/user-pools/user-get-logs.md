@@ -1,6 +1,10 @@
 ---
 title: How to view user logs
 description: Follow this guide to view logs of organization users or all pool users.
+alternate:
+  - href: en/organization/operations/user-pools/user-get-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing user logs

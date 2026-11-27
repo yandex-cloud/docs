@@ -1,6 +1,10 @@
 ---
 title: List of {{ yandex-cloud }} metric references
 description: This page contains a list of references for {{ yandex-cloud }} metrics automatically collected in {{ monitoring-full-name }}.
+alternate:
+  - href: en/monium/metrics-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} metric references

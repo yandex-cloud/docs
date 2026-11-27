@@ -1,6 +1,10 @@
 ---
 title: Servers in {{ baremetal-full-name }}
 description: Learn about rental options, network interfaces, statuses, and quarantine for {{ baremetal-name }} servers.
+alternate:
+  - href: en/baremetal/concepts/servers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Servers

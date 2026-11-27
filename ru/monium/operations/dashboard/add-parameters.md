@@ -1,6 +1,10 @@
 ---
 title: Как добавить параметр дашборда в {{ monitoring-full-name }}
 description: Из статьи вы узнаете, как добавить параметр дашборда в {{ monitoring-name }}.
+alternate:
+  - href: ru/monium/operations/dashboard/add-parameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление параметра дашборда

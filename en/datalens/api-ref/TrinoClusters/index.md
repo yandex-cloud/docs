@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/TrinoClusters/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # TrinoClusters
 
 <!-- markdownlint-disable-file -->

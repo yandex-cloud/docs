@@ -1,6 +1,10 @@
 ---
 title: Как изменить входящее DNS-подключение в {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете изменить входящее DNS-подключение.
+alternate:
+  - href: ru/dns/operations/connection-inbound-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить входящее DNS-подключение

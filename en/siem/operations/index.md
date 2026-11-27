@@ -1,6 +1,10 @@
 ---
 title: How to work with {{ yandex-siem-full-name }}
 description: From the article, you will learn how to work with investigations, queries, correlation rules, and exceptions in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to work with {{ yandex-siem-full-name }}

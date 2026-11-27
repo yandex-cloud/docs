@@ -1,6 +1,10 @@
 ---
 title: Viewing a list of namespaces
 description: Follow this guide to view namespaces.
+alternate:
+  - href: en/metadata-hub/operations/list-name-space.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing a list of namespaces

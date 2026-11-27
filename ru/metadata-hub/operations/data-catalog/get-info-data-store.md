@@ -1,6 +1,10 @@
 ---
 title: Получение информации о хранилище данных в {{ data-catalog-name }}
 description: Как просмотреть информацию о выгруженных данных, загрузках, источниках данных и связях хранилища данных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/get-info-data-store.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации о хранилище данных

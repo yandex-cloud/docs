@@ -23,6 +23,10 @@ meta:
     - keyword: quota {{ yandex-cloud }}
     - keyword: limit {{ yandex-cloud }}
     - keyword: usage {{ yandex-cloud }}
+  alternate:
+    - href: en/quota-manager/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: View service quotas

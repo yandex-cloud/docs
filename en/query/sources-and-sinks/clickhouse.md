@@ -1,6 +1,10 @@
 ---
 title: Working with {{ mch-full-name }} databases
 description: In this tutorial, you will learn how to connect to a {{ mch-name }} database and run queries against it from {{ yq-full-name }}.
+alternate:
+  - href: en/query/sources-and-sinks/clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with {{ mch-name }} databases

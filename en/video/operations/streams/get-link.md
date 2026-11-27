@@ -1,6 +1,10 @@
 ---
 title: How to get an embed code or link to a broadcast in {{ video-full-name }}
 description: Follow this guide to get a {{ video-full-name }} embed code or link to a broadcast.
+alternate:
+  - href: en/video/operations/streams/get-link.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting an embed code or link to a broadcast

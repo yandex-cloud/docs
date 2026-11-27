@@ -1,6 +1,10 @@
 ---
 title: Binary artifact in {{ cloud-registry-full-name }}
 description: 'A binary artifact is a file containing a package of any type: installation script, executable, CSV file, document, image, etc.'
+alternate:
+  - href: en/cloud-registry/concepts/artifacts/binary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Binary artifact

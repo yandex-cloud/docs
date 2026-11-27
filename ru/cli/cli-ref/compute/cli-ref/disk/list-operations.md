@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/disk/list-operations/
+alternate:
+  - href: ru/cli/cli-ref/compute/cli-ref/disk/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute disk list-operations

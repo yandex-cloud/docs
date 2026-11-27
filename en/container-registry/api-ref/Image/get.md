@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/container-registry/api-ref/Image/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: Image.Get

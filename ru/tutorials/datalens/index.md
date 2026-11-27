@@ -1,6 +1,10 @@
 ---
 title: Практические руководства по анализу и визуализации данных
 description: На странице представлен список практических руководств по анализу данных и визуализации данных с помощью сервиса {{ datalens-full-name }}.
+alternate:
+  - href: ru/tutorials/datalens/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Руководства по анализу и визуализации данных

@@ -1,6 +1,10 @@
 ---
 title: Technical fields Measure Names and Measure Values in {{ datalens-full-name }}
 description: From this article, you will learn about the Measure Names and Measure Values​​ fields in {{ datalens-full-name }} and how to use them in the wizard.
+alternate:
+  - href: en/datalens/concepts/chart/measure-values.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Measure Names and Measure Values in {{ datalens-full-name }}

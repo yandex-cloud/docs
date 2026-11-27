@@ -1,6 +1,10 @@
 ---
 title: Managing access to a {{ mgp-full-name }} cluster
 description: Follow this guide to configure {{ mgp-name }} cluster access permissions.
+alternate:
+  - href: en/managed-greenplum/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to a {{ mgp-name }} cluster

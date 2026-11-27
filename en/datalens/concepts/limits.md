@@ -2,6 +2,10 @@
 title: '{{ datalens-full-name }} quotas and limits'
 description: In this article, you will learn about quotas and limits in {{ datalens-full-name }}.
 editable: false
+alternate:
+  - href: en/datalens/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

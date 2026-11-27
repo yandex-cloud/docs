@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Usage/POST_usage_v1_masterBAId_meta.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get usage filter values

@@ -1,6 +1,10 @@
 ---
 title: Как предоставить доступ к OIDC-приложению в {{ org-full-name }}
 description: Из этой статьи вы узнаете, как настроить доступ к OIDC-приложению в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/applications/oidc-set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить доступ к OIDC-приложению в {{ org-full-name }}

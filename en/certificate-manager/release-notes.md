@@ -1,6 +1,10 @@
 ---
 title: '{{ certificate-manager-full-name }} release notes'
 description: This section contains the {{ certificate-manager-name }} release notes.
+alternate:
+  - href: en/certificate-manager/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ certificate-manager-full-name }} release notes

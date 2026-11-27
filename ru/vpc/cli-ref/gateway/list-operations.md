@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/gateway/list-operations/
+alternate:
+  - href: ru/vpc/cli-ref/gateway/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc gateway list-operations

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/quickstart/container.md
+    type: text/markdown
+    title: Markdown version
+---
 # Начало работы с {{ serverless-containers-name }}
 
 В этой инструкции вы [подготовите](#prepare) [Docker-образ](../../container-registry/concepts/docker-image.md) контейнера в {{ container-registry-full-name }} и [добавите](#deploy) его в {{ serverless-containers-name }}.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/concepts/push.md
+    type: text/markdown
+    title: Markdown version
+---
 # Mobile push notifications
 
 _Push notifications_ are pop-up messages on your smartphone screen with information about {{ cns-full-name }} events, its services, promotions, news, and updates.

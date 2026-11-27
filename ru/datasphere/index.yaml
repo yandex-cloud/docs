@@ -36,6 +36,10 @@ meta:
     - keyword: конфигурации вычислительных ресурсов в {{ yandex-cloud }}
     - keyword: бесшовные конфигурации ресурсов
     - keyword: машинное обучение в {{ yandex-cloud }}
+  alternate:
+    - href: ru/datasphere/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Концепции
     description: Узнайте про концепции и возможности сервиса

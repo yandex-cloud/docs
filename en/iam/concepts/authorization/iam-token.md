@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iam/concepts/authorization/iam-token.md
+    type: text/markdown
+    title: Markdown version
+---
 # IAM token
 
 An IAM token is a unique sequence of characters issued to a user after authentication. This is the preferred authentication method for both users and applications (using [service accounts](../users/service-accounts.md)). IAM tokens are issued for [Yandex accounts](../../operations/iam-token/create.md), [service accounts](../../operations/iam-token/create-for-sa.md), [federated accounts](../../operations/iam-token/create-for-federation.md), and [local accounts](../../operations/iam-token/create-for-local.md).

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/gateway/remove-labels/
+alternate:
+  - href: en/vpc/cli-ref/gateway/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc gateway remove-labels

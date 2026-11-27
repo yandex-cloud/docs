@@ -27,6 +27,10 @@ meta:
     - keyword: анализ трафика
     - keyword: трафик в {{ sws-name }}
     - keyword: web security
+  alternate:
+    - href: ru/smartwebsecurity/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первый профиль безопасности и подключите его к L7-балансировщику

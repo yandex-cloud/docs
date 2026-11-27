@@ -34,6 +34,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/idp/application/saml/api-ref/Application/listAssignments.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: Application.ListAssignments

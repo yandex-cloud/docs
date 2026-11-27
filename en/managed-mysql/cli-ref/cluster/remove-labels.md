@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/cluster/remove-labels/
+alternate:
+  - href: en/managed-mysql/cli-ref/cluster/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mysql cluster remove-labels

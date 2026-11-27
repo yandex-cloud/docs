@@ -1,6 +1,10 @@
 ---
 title: Как создать образ операционной системы Windows и добавить его в {{ cloud-desktop-name }}
 description: Следуя данной инструкции, вы сможете добавить образ на основе своего образа Windows.
+alternate:
+  - href: ru/cloud-desktop/operations/images/create-from-windows.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать образ на основе Windows

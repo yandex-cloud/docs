@@ -1,6 +1,10 @@
 ---
 title: Markdown в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как использовать язык разметки Markdown в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/dashboard/markdown.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Markdown в {{ datalens-full-name }}

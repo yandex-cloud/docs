@@ -106,6 +106,10 @@ apiPlayground:
           format: date-time
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/organization/idp/api-ref/User/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: User.Update

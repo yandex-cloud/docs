@@ -1,6 +1,10 @@
 ---
 title: Updating a GPU cluster
 description: Follow this guide to update a GPU cluster.
+alternate:
+  - href: en/compute/operations/gpu-cluster/gpu-cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a GPU cluster

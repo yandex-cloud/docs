@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/kinesisapi/methods/getrecords.md
+    type: text/markdown
+    title: Markdown version
+---
 # GetRecords
 
 Retrieves [records](../../concepts/glossary.md#message) from a data stream [shard](../../concepts/glossary.md#shard).

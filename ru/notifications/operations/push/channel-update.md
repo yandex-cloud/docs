@@ -1,6 +1,10 @@
 ---
 title: Изменить канал push-уведомлений в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете изменить канал push-уведомлений.
+alternate:
+  - href: ru/notifications/operations/push/channel-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить канал push-уведомлений

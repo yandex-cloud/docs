@@ -1,5 +1,9 @@
 ---
 subcategory: Identity and Access Management
+alternate:
+  - href: ru/terraform/data-sources/iam_user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_iam_user (DataSource)

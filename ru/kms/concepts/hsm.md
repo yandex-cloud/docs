@@ -1,6 +1,10 @@
 ---
 title: Аппаратный модуль безопасности (HSM) в {{ kms-full-name }}
 description: Из статьи вы узнаете, что такое аппаратный модуль безопасности, как он реализован в {{ kms-name }} и о порядке работы с ним.
+alternate:
+  - href: ru/kms/concepts/hsm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аппаратный модуль безопасности (HSM)

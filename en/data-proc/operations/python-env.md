@@ -1,6 +1,10 @@
 ---
 title: How to set up and use Python virtual environments in {{ dataproc-full-name }}
 description: Follow this guide to set up and use Python virtual environments.
+alternate:
+  - href: en/data-proc/operations/python-env.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up and using Python virtual environments

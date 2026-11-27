@@ -1,6 +1,10 @@
 ---
 title: KQL reference for {{ ycdr-full-name }}
 description: Reference of KQL functions and operators in {{ ycdr-name }}.
+alternate:
+  - href: en/ycdr/kql-reference.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # KQL reference

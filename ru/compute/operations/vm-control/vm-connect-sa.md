@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/vm-control/vm-connect-sa.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключить сервисный аккаунт к ВМ
 
 {% include [what-for-to-use-sa-with-vm](../../../_includes/compute/what-for-to-use-sa-with-vm.md) %}

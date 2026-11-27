@@ -1,6 +1,10 @@
 ---
 title: '{{ at-full-name }} event reference'
 description: Audit event JSON structure, field types and descriptions. {{ at-full-name }} event reference navigation.
+alternate:
+  - href: en/audit-trails/events-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Audit log reference

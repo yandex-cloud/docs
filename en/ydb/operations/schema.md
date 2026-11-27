@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/ydb/operations/schema.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing tables and directories
 
 This section describes how to manage row-oriented and document tables as well as directories using the cloud management console or [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).

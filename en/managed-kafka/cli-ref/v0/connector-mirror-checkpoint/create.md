@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/v0/connector-mirror-checkpoint/create/
+alternate:
+  - href: en/managed-kafka/cli-ref/v0/connector-mirror-checkpoint/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kafka v0 connector-mirror-checkpoint create

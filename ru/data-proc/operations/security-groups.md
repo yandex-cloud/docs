@@ -1,6 +1,10 @@
 ---
 title: Настройка групп безопасности в {{ dataproc-full-name }}
 description: Следуя данной инструкции, вы сможете настроить группы безопасности в {{ dataproc-name }}.
+alternate:
+  - href: ru/data-proc/operations/security-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка групп безопасности

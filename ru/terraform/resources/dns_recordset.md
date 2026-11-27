@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud DNS
+alternate:
+  - href: ru/terraform/resources/dns_recordset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_dns_recordset (Resource)

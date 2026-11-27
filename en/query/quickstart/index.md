@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ yq-name }}
 
 {{ yq-full-name }} enables both [analytical processing](../concepts/batch-processing.md) of data stored in [{{ objstorage-full-name }}](../../storage/index.yaml) and real-time [streaming processing](../concepts/stream-processing.md) from [{{ yds-full-name }}](../../data-streams/index.yaml). Built around the concept of [unified streaming and analytical computing](../concepts/unified-processing.md), {{ yq-name }} allows you to process both streaming and analytical data with a single query.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/trigger/ymq-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для {{ message-queue-short-name }}, который отправляет сообщения в WebSocket-соединения
 
 [Триггер](../trigger/) для {{ message-queue-short-name }} предназначен для разгрузки [очереди сообщений](../../../message-queue/concepts/queue.md). Он принимает сообщения из очереди и передает их в [WebSocket-соединения](../extensions/websocket.md).

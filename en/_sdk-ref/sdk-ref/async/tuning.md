@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/async/tuning.md
+    type: text/markdown
+    title: Markdown version
+---
 # Tuning domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_tuning.domain.**AsyncTuning**{#yandex_ai_studio_sdk._tuning.domain.AsyncTuning}

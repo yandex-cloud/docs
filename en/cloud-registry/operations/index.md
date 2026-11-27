@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ cloud-registry-full-name }}
 description: This section contains step-by-step guides for {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ cloud-registry-name }}

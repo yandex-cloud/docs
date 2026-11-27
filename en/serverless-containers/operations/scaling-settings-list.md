@@ -1,6 +1,10 @@
 ---
 title: Viewing container scaling settings
 description: Follow this guide to view container scaling settings.
+alternate:
+  - href: en/serverless-containers/operations/scaling-settings-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing container scaling settings

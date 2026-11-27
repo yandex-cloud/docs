@@ -1,6 +1,10 @@
 ---
 title: Link in {{ datalens-full-name }}
 description: In {{ datalens-full-name }}, a link decides how a selector influences one or more charts or other selectors.
+alternate:
+  - href: en/datalens/dashboard/link.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Link in {{ datalens-full-name }}

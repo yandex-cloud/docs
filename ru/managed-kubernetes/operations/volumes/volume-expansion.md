@@ -1,6 +1,10 @@
 ---
 title: Увеличение размера тома для подов
 description: Следуя данной инструкции, вы сможете увеличить размер тома для подов.
+alternate:
+  - href: ru/managed-kubernetes/operations/volumes/volume-expansion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Увеличение размера тома для подов

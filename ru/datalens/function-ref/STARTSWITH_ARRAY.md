@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/STARTSWITH_ARRAY.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # STARTSWITH (массивы)

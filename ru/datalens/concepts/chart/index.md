@@ -1,6 +1,10 @@
 ---
 title: Чарт в {{ datalens-full-name }}
 description: Чарт в {{ datalens-full-name }} — это визуализация данных из датасета в виде таблицы, диаграммы или картограммы."
+alternate:
+  - href: ru/datalens/concepts/chart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чарт в {{ datalens-full-name }}

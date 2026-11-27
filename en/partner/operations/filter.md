@@ -1,6 +1,10 @@
 ---
 title: How to filter a list of entities
 description: Follow this guide to filter a list of entities.
+alternate:
+  - href: en/partner/operations/filter.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Filtering a list of entities

@@ -1,6 +1,10 @@
 ---
 title: Managing pod allocation to nodes in {{ managed-k8s-full-name }}
 description: In this tutorial, you will learn how to manage pod allocation to {{ k8s }} nodes in {{ yandex-cloud }} using the management console without kubectl.
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-console/nodes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing pod allocation to nodes

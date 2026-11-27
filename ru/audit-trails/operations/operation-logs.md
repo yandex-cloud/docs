@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/audit-trails/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Посмотреть операции с ресурсами сервиса {{ at-full-name }}
 
 Все действия с ресурсами сервиса {{ at-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.

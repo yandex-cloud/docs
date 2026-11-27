@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/data-center-placement-l2.md
+    type: text/markdown
+    title: Markdown version
+---
 # Размещение в дата-центрах с L2-балансировщиком
 
 ## Пример размещения в одном дата-центре {#single-data-center}

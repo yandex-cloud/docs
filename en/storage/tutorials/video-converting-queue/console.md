@@ -1,6 +1,10 @@
 ---
 canonical: '{{ link-docs }}/tutorials/serverless/video-converting-queue/console'
 noIndex: true
+alternate:
+  - href: en/storage/tutorials/video-converting-queue/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Converting a video to a GIF in Python using the management console

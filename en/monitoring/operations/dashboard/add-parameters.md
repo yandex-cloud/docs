@@ -1,6 +1,10 @@
 ---
 title: How to add a dashboard parameter to {{ monitoring-full-name }}
 description: In this guide, you will learn how to add a dashboard parameter to {{ monitoring-name }}.
+alternate:
+  - href: en/monitoring/operations/dashboard/add-parameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a dashboard parameter

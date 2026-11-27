@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/environment-variables-add.md
+    type: text/markdown
+    title: Markdown version
+---
 # Adding container environment variables
 
 Adding environment variables creates a new container revision. You cannot add environment variables to an existing revision.

@@ -22,6 +22,10 @@ meta:
     - keyword: оплата {{ yandex-cloud }}
     - keyword: оплатить {{ yandex-cloud }}
     - keyword: потребление ресурсов {{ yandex-cloud }}
+  alternate:
+    - href: ru/billing/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Cloud Billing

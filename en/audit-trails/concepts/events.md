@@ -1,6 +1,10 @@
 ---
 title: Control plane event reference {{ at-full-name }}
 description: This section provides descriptions of management events collected in {{ yandex-cloud }} services.
+alternate:
+  - href: en/audit-trails/concepts/events.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Management event reference

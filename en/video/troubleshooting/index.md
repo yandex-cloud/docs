@@ -1,6 +1,10 @@
 ---
 title: Troubleshooting in {{ video-full-name }}
 description: This section provides solutions to potential issues with {{ video-name }}.
+alternate:
+  - href: en/video/troubleshooting/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting in {{ video-name }}

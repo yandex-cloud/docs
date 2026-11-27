@@ -1,6 +1,10 @@
 ---
 title: Инструкция по созданию подключения к {{ TR }} в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как подключиться к {{ TR }} в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/create-trino.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к {{ TR }} в {{ datalens-full-name }}

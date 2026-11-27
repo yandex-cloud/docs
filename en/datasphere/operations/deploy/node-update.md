@@ -1,6 +1,10 @@
 ---
 title: How to update a node in {{ ml-platform-full-name }}
 description: Follow this guide to update a node.
+alternate:
+  - href: en/datasphere/operations/deploy/node-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a node

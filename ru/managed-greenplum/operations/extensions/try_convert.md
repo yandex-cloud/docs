@@ -1,6 +1,10 @@
 ---
 title: Использование try_convert в {{ mgp-name }}
 description: Как использовать расширение try_convert в {{ mgp-full-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/extensions/try_convert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование try_convert в {{ mgp-name }}

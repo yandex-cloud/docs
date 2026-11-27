@@ -7,6 +7,10 @@ keywords:
   - backup
   - backing up
   - data backups
+alternate:
+  - href: en/compute/concepts/backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backing up to {{ compute-name }}

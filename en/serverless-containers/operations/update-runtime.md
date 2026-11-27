@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/update-runtime.md
+    type: text/markdown
+    title: Markdown version
+---
 # Changing the container operation mode
 
 {% list tabs group=instructions %}

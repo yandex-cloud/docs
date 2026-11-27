@@ -1,6 +1,10 @@
 ---
 title: Долгоживущие функции {{ sf-full-name }}
 description: На данной странице описаны особенности работы долгоживущих функций {{ sf-name }} — функций с таймаутом выполнения до одного часа.
+alternate:
+  - href: ru/functions/concepts/long-lived-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Долгоживущие функции

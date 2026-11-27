@@ -25,6 +25,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/baremetal/extend/api-ref/StacklandCluster/getStacklandClusterConfigs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Extend API, REST: StacklandCluster.GetStacklandClusterConfigs

@@ -1,6 +1,10 @@
 ---
 title: Sharding in {{ mch-full-name }}
 description: This article explains what sharding is and how to manage it in {{ mch-name }} and describes the benefits and use cases of sharding.
+alternate:
+  - href: en/managed-clickhouse/concepts/sharding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sharding in {{ mch-name }}

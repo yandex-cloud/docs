@@ -1,6 +1,10 @@
 ---
 title: Эфемерные ключи доступа, совместимые с AWS API
 description: Из статьи вы узнаете, зачем нужен эфемерный ключ доступа, какой у него формат и какие сервисы поддерживают этот способ аутентификации.
+alternate:
+  - href: ru/iam/concepts/authorization/ephemeral-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [ephemeral-key](../../../_includes/iam/ephemeral-keys.md) %}

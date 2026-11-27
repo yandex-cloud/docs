@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/operations/manage-streams.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing data streams
 
 You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#stream-concepts), [edit](#edit-data-stream) their settings, [create](#create-data-stream) a new stream, or [delete](#delete-data-stream) an existing one.

@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for Apache Kafka®
+alternate:
+  - href: en/terraform/resources/mdb_kafka_cluster_iam_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_kafka_cluster_iam_binding (Resource)

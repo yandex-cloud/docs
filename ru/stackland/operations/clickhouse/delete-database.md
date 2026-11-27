@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/clickhouse/delete-database.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить базу данных
 
 Если у вас есть [база данных](create-database.md) [{{ CH }}](../../concepts/components/clickhouse.md), вы можете удалить ее.

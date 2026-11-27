@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/logs/concepts/glossary.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обзор и основные понятия
 
 {{ monium-logs-name }} — распределенная система для хранения, поиска, визуализации и анализа логов.

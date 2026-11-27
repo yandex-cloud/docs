@@ -1,6 +1,10 @@
 ---
 title: Getting a list of buckets in {{ objstorage-full-name }}
 description: Follow this guide to get a list of buckets in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/buckets/get-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of buckets

@@ -1,6 +1,10 @@
 ---
 title: Service sections
 description: 'In this article, you will learn about the service sections: status, main_thread_pool, agent_log, system, and flow_control.'
+alternate:
+  - href: en/monitoring/concepts/data-collection/unified-agent/services.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service sections

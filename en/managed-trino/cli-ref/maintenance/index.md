@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/maintenance/
+alternate:
+  - href: en/managed-trino/cli-ref/maintenance/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-trino maintenance

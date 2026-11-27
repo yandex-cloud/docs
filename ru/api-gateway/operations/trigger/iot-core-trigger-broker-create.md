@@ -1,6 +1,10 @@
 ---
 title: Создать триггер, который рассылает сообщения в соединения по протоколу WebSocket {{ api-gw-full-name }} из топика брокера {{ iot-full-name }}
 description: Создайте триггер для топика брокера {{ iot-name }} для отправки копий сообщений в соединения по протоколу WebSocket {{ api-gw-full-name }}.
+alternate:
+  - href: ru/api-gateway/operations/trigger/iot-core-trigger-broker-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать триггер, который отправляет сообщения в WebSocket-соединения из топика брокера {{ iot-full-name }}

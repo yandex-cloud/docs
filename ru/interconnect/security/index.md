@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ interconnect-full-name }}
 description: Управление доступом в сервисе {{ interconnect-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ interconnect-name }}, назначьте пользователю нужные роли из приведенного ниже списка. На данный момент роль может быть назначена только на родительский ресурс (каталог или облако).
+alternate:
+  - href: ru/interconnect/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ interconnect-name }}

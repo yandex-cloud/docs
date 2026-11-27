@@ -469,6 +469,10 @@ apiPlayground:
               - connectorConfigIcebergSink
           - required:
               - connectorConfigMirrorCheckpoint
+alternate:
+  - href: ru/managed-kafka/api-ref/Connector/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, REST: Connector.Update

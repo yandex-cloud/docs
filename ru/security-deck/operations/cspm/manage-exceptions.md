@@ -1,6 +1,10 @@
 ---
 title: Управлять исключениями из правил контроля безопасности модуля {{ cspm-name }} в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в модуле Контроль конфигурации ({{ cspm-name }}) {{ sd-full-name }} можно создавать, изменять и удалять исключения из правил.
+alternate:
+  - href: ru/security-deck/operations/cspm/manage-exceptions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять исключениями из правил контроля безопасности модуля {{ cspm-name }}

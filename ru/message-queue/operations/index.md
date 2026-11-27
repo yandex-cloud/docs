@@ -1,6 +1,10 @@
 ---
 title: Как работать с очередями сообщений. Пошаговые инструкции
 description: Пошаговые инструкции по работе с очередями сообщений в {{ yandex-cloud }}. Из статьи вы узнаете, как создать и удалить очередь сообщений, как отправить, принять, или удалить сообщения.
+alternate:
+  - href: ru/message-queue/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ message-queue-name }}

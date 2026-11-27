@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/metadata-hub/operations/connect-to-namespace.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение к пространству имен
 
 

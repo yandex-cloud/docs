@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ MS }} connection in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to connect to {{ MS }} in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-mssql-server.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a connection to {{ MS }} in {{ datalens-full-name }}

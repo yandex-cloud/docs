@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/api/methods/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Все методы
 
 {% include [sunset](../../../_includes/query/sunset.md) %}

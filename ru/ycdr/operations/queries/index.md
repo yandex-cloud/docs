@@ -1,6 +1,10 @@
 ---
 title: Работа с запросами в {{ ycdr-full-name }}
 description: Обзор возможностей работы с запросами в {{ ycdr-name }}.
+alternate:
+  - href: ru/ycdr/operations/queries/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с запросами

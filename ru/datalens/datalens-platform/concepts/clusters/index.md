@@ -1,6 +1,10 @@
 ---
 title: Кластеры и окружения в {{ datalens-platform-full-name }}
 description: Из статьи вы узнаете, для чего нужны окружения и кластеры в {{ datalens-platform-full-name }}, как устроены вычисления в {{ TR }} и {{ SPRK }} и как управлять ресурсами кластера.
+alternate:
+  - href: ru/datalens/datalens-platform/concepts/clusters/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Кластеры и окружения в {{ datalens-platform-full-name }}

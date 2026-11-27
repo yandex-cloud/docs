@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/tools.md
+    type: text/markdown
+    title: Markdown version
+---
 # Инструменты для работы с контейнерами {{ serverless-containers-name }}
 
 ## Провайдер {{ TF }} {#tf-provider}

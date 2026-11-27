@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/resource-preset/list/segment/
+alternate:
+  - href: ru/managed-greenplum/cli-ref/resource-preset/list/segment.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-greenplum resource-preset list segment

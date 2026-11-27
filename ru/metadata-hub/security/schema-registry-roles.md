@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ schema-registry-name }}
 description: Управление доступом в {{ schema-registry-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
+alternate:
+  - href: ru/metadata-hub/security/schema-registry-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сервисные роли для управления схемами данных с помощью {{ schema-registry-name }}

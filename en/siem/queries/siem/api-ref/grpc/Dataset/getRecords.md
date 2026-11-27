@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/siem/queries/siem/api-ref/grpc/Dataset/getRecords.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM Queries API, gRPC: DatasetService.GetRecords

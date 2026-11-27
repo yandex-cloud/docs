@@ -23,6 +23,10 @@ apiPlayground:
         - imageId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/baremetal/api-ref/MountedImage/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: MountedImage.Create

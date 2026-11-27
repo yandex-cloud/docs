@@ -1,6 +1,10 @@
 ---
 title: How to update an OIDC app in {{ org-full-name }}
 description: Follow this guide to update an OIDC app in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/applications/oidc-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating an OIDC app in {{ org-full-name }}

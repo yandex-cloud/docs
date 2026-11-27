@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-airflow/concepts/versions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Versioning in {{ maf-name }}
 
 ## Available {{ AF }} versions {#available-versions}

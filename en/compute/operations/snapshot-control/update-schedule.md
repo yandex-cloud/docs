@@ -1,6 +1,10 @@
 ---
 title: How to update a disk snapshot schedule in {{ compute-full-name }}
 description: Follow this guide to update a disk snapshot schedule in {{ compute-name }}.
+alternate:
+  - href: en/compute/operations/snapshot-control/update-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a disk snapshot schedule

@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание в {{ mrd-full-name }}
 description: Под техническим обслуживанием в {{ mrd-name }} понимается автоматическая установка обновлений и исправлений СУБД для хостов (в т. ч. для выключенных кластеров), изменение класса хостов и размера хранилища и другие сервисные работы.
+alternate:
+  - href: ru/managed-valkey/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание в {{ mrd-name }}

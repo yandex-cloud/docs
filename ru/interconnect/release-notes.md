@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ interconnect-full-name }}
 description: В разделе представлена история изменений сервиса {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ interconnect-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/marketplace/concepts/baremetal-product.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание продукта {{ baremetal-name }} на базе Linux для загрузки в {{ marketplace-name }}
 
 

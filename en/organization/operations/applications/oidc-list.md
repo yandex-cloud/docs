@@ -1,6 +1,10 @@
 ---
 title: How to get a list of OIDC apps in {{ org-full-name }}
 description: Follow this guide to get a list of OIDC apps in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/applications/oidc-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of OIDC apps in {{ org-full-name }}

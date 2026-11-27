@@ -864,6 +864,10 @@ apiPlayground:
               - PROFILE_LEGACY
               - PROFILE_SECURE
               - PROFILE_STRICT
+alternate:
+  - href: ru/cdn/api-ref/Resource/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: Resource.Create

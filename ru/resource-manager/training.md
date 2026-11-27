@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ resmgr-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ resmgr-full-name }}.
+alternate:
+  - href: ru/resource-manager/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ resmgr-full-name }}

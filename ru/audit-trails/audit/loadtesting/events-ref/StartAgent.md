@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/loadtesting/events-ref/StartAgent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Load Testing Audit Trails Events: StartAgent

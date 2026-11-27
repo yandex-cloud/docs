@@ -1,6 +1,10 @@
 ---
 title: Как удалить L7-балансировщик в {{ alb-full-name }}
 description: Следуя данной инструкции, вы сможете удалить L7-балансировщик.
+alternate:
+  - href: ru/application-load-balancer/operations/application-load-balancer-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить L7-балансировщик

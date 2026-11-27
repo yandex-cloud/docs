@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }} key security principles'
 description: From this article, you will learn about the key security principles of {{ yandex-cloud }}.
+alternate:
+  - href: en/security/principles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} key security principles

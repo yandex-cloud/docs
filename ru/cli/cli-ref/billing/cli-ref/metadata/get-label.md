@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/billing/cli-ref/metadata/get-label/
+alternate:
+  - href: ru/cli/cli-ref/billing/cli-ref/metadata/get-label.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc billing metadata get-label

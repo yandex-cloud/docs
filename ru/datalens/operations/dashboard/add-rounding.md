@@ -1,6 +1,10 @@
 ---
 title: Как настроить скругление на дашборде в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете настроить скругление виджетов на дашборде в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-rounding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить скругление на дашборде в {{ datalens-full-name }}

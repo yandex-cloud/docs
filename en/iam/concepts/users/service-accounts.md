@@ -1,6 +1,10 @@
 ---
 title: Service account
 description: A service account is an account that can be used by a program to manage resources in {{ yandex-cloud }}.
+alternate:
+  - href: en/iam/concepts/users/service-accounts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service accounts

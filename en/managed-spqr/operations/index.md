@@ -4,6 +4,10 @@ description: In this article, you will learn how to work with {{ mspqr-name }} i
 keywords:
   - keyword: Working with a {{ SPQR }} cluster
   - keyword: '{{ SPQR }}'
+alternate:
+  - href: en/managed-spqr/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ mspqr-name }}

@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в API {{ api-gw-full-name }}
 description: Для выполнения операций через API в сервисе управления API-шлюзами – {{ api-gw-full-name }}, необходимо получить IAM-токен для своего аккаунта.
+alternate:
+  - href: ru/api-gateway/api-ref/apigateway/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в API {{ api-gw-name }}

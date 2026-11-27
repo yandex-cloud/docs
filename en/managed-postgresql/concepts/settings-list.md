@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ PG }} settings
 
 For a {{ mpg-name }} cluster, you can set {{ PG }} settings. Some settings are configured [at the cluster level](#dbms-cluster-settings), while others, [at the user level](#dbms-user-settings).

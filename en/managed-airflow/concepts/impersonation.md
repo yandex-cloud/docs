@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-airflow/concepts/impersonation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Impersonation in {{ maf-name }}
 
 _Impersonation_ in {{ maf-short-name }} is when an {{ AF }} cluster performs actions with user resources on behalf of a service account.

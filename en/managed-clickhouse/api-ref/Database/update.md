@@ -55,6 +55,10 @@ apiPlayground:
             - DELETION_PROTECTION_MODE_INHERITED
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/managed-clickhouse/api-ref/Database/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: Database.Update

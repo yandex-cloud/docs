@@ -120,6 +120,10 @@ apiPlayground:
               Acceptable values are 0 to 1, inclusive.
             type: string
             format: int64
+alternate:
+  - href: en/storedoc/api-ref/Cluster/addShard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.AddShard

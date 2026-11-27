@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/dns/api-ref/grpc/DnsZone/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, gRPC: DnsZoneService.UpdateAccessBindings

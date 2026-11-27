@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/schema-registry-overview'
+alternate:
+  - href: en/managed-kafka/tutorials/schema-registry-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing data schemas in {{ mkf-short-name }}

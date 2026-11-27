@@ -1,6 +1,10 @@
 ---
 title: What topics and partitions are available in {{ mkf-full-name }}
 description: In this tutorial, you will learn about topics and partitions available in {{ mkf-name }}.
+alternate:
+  - href: en/managed-kafka/concepts/topics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Topics and partitions

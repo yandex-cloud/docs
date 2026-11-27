@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ sf-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ sf-full-name }}.
+alternate:
+  - href: ru/functions/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ sf-full-name }}

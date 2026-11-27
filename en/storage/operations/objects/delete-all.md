@@ -1,6 +1,10 @@
 ---
 title: Deleting all objects from a bucket in {{ objstorage-full-name }}
 description: Follow this guide to delete all objects from a bucket in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/objects/delete-all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting all objects from a bucket

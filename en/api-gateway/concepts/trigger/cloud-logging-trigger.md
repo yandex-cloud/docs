@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/trigger/cloud-logging-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for {{ cloud-logging-name }} that sends messages to WebSocket connections
 
 A [trigger](../trigger/) for {{ cloud-logging-name }} sends messages to [WebSocket connections](../extensions/websocket.md) when you add entries to a [log group](../../../logging/concepts/log-group.md).

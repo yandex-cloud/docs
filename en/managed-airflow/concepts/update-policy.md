@@ -1,6 +1,10 @@
 ---
 title: '{{ AF }} versioning policy'
 description: In this tutorial, you will learn about the {{ AF }} versioning policy in {{ maf-full-name }}.
+alternate:
+  - href: en/managed-airflow/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ AF }} versioning policy

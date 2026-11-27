@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/overview/roles-and-resources.md
+    type: text/markdown
+    title: Markdown version
+---
 # Interaction between users and {{ yandex-cloud }} resources
 
 All {{ yandex-cloud }} services work based on the common _resource and role model_. Its underlying entity is _organization_ that combines different types of resources and users in a single workspace. You add and manage users at the organization level; learn more [here](../organization/concepts/membership.md).

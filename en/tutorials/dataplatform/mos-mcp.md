@@ -1,6 +1,10 @@
 ---
 title: Connecting an MCP client to an {{ OS }} cluster
 description: 'Follow this tutorial to set up an MCP connection to an {{ OS }} cluster: enable the built-in MCP server, register tools, and add the server to the client configuration.'
+alternate:
+  - href: en/tutorials/dataplatform/mos-mcp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting an MCP client to an {{ OS }} cluster

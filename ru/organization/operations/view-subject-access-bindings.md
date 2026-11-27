@@ -1,6 +1,10 @@
 ---
 title: Просмотр списка доступов субъекта в {{ org-full-name }}
 description: В данном разделе вы узнаете, как можно посмотреть все имеющиеся у аккаунта или группы права доступа к ресурсам организации в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/view-subject-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотреть список доступов субъекта

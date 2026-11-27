@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/cluster-monitoring/nvidia-dcgm-monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # NVIDIA DCGM dashboard metrics
 
 {{ grafana-name }}'s NVIDIA DCGM dashboard enables comprehensive monitoring of NVIDIA GPUs in a {{ stackland-name }} cluster. The dashboard presents the metrics of temperature, power consumption, GPU utilization, memory usage, and other critical GPU performance parameters.

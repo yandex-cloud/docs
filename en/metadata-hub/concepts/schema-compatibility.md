@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/metadata-hub/concepts/schema-compatibility.md
+    type: text/markdown
+    title: Markdown version
+---
 # Schema compatibility
 
 

@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ certificate-manager-name }}
 description: Следуя этой инструкции, вы добавите первый сертификат от Let's Encrypt и настроите доступ по HTTPS к статическому сайту в {{ objstorage-full-name }}.
+alternate:
+  - href: ru/certificate-manager/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ certificate-manager-name }}

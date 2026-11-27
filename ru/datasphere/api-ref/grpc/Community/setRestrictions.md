@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datasphere/api-ref/grpc/Community/setRestrictions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, gRPC: CommunityService.SetRestrictions

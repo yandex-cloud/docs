@@ -1,6 +1,10 @@
 ---
 title: Stopping and starting an {{ SPRK }} cluster
 description: You can stop and restart an {{ SPRK }} cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
+alternate:
+  - href: en/managed-spark/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Stopping and restarting an {{ SPRK }} cluster

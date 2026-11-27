@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-streams/quickstart/debezium.md
+    type: text/markdown
+    title: Markdown version
+---
 
 # Обработка потока изменений Debezium
 

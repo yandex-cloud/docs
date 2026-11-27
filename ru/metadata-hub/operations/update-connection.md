@@ -1,6 +1,10 @@
 ---
 title: Как изменить подключение {{ metadata-hub-name }}. Пошаговые инструкции
 description: Пошаговые инструкции по работе с {{ connection-manager-name }} в {{ yandex-cloud }}. Из статьи вы узнаете, как изменять подключения.
+alternate:
+  - href: ru/metadata-hub/operations/update-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение подключения

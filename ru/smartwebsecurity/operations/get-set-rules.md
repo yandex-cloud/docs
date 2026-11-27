@@ -1,6 +1,10 @@
 ---
 title: Получить информацию о наборе правил Cloud WAF
 description: Следуя данной инструкции, вы сможете получить информацию о наборе правил для профиля WAF.
+alternate:
+  - href: ru/smartwebsecurity/operations/get-set-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о наборе правил Cloud WAF

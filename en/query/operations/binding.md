@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/operations/binding.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing bindings
 
 [Bindings](../concepts/glossary.md#binding) contain information about the connection, data format, and schema. You can use several different bindings in a single query.

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/archive/single-node-file-server/'
+alternate:
+  - href: en/compute/tutorials/single-node-file-server/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [single-node-file-server](../../../_tutorials/archive/single-node-file-server.md) %}

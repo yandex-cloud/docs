@@ -1,6 +1,10 @@
 ---
 title: QuasiEndpoint — SDK видеоплеера {{ video-full-name }} для iOS
 description: Настройка HTTP-эндпоинтов для отправки телеметрии в SDK видеоплеера {{ video-name }} для iOS.
+alternate:
+  - href: ru/video/sdk/CloudVideoPlayerSDK/QuasiEndpoint.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # QuasiEndpoint

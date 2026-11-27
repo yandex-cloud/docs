@@ -36,6 +36,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/metadata-hub/datacatalog/api-ref/Catalog/listCatalogs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Datacatalog API, REST: Catalog.ListCatalogs

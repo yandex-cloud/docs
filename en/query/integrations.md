@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/integrations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Integrations
 
 This section covers the basics of {{ yq-full-name }} integration with {{ yandex-cloud }} services and third-party systems.

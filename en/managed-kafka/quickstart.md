@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ mkf-full-name }}
 description: In this guide, you will learn how to create and configure a {{ KF }} cluster.
+alternate:
+  - href: en/managed-kafka/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ mkf-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to set up a workload identity federation in {{ iam-full-name }}
 description: In this guide, you will learn how to set up workload identity federations in {{ iam-name }}.
+alternate:
+  - href: en/iam/operations/wlif/setup-wlif.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up workload identity federations

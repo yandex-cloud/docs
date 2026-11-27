@@ -1,6 +1,10 @@
 ---
 title: '{{ metastore-full-name }} clusters'
 description: You can create {{ metastore-full-name }} clusters in {{ metadata-hub-full-name }}.
+alternate:
+  - href: en/metadata-hub/concepts/metastore.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ metastore-full-name }} clusters

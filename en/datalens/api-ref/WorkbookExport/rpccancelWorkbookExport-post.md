@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/WorkbookExport/rpccancelWorkbookExport-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Cancel workbook export

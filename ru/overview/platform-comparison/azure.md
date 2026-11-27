@@ -1,6 +1,10 @@
 ---
 title: Сопоставление с Microsoft Azure
 description: В этой статье сопоставляются сервисы {{ yandex-cloud }} и сервисы Microsoft Azure.
+alternate:
+  - href: ru/overview/platform-comparison/azure.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сопоставление с Microsoft Azure

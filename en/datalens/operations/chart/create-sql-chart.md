@@ -1,6 +1,10 @@
 ---
 title: Creating a QL chart in {{ datalens-full-name }}
 description: Follow this guide to create a QL chart in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/chart/create-sql-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a QL chart in {{ datalens-full-name }}

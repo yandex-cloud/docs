@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ postbox-full-name }}
 description: Access management in the {{ postbox-full-name }} email service. To allow a user access to {{ postbox-full-name }} resources, assign them the roles from the list below.
+alternate:
+  - href: en/postbox/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ postbox-full-name }}

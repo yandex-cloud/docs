@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/instruments/golang.md
+    type: text/markdown
+    title: Markdown version
+---
 # Пример использования {{ message-queue-full-name }} на Golang
 
 С помощью [AWS SDK для Golang](https://aws.amazon.com/ru/sdk-for-go/) можно управлять очередями сообщений в {{ message-queue-name }}, отправлять и принимать сообщения.

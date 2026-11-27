@@ -1,6 +1,10 @@
 ---
 title: Transferring {{ maf-full-name }} cluster logs to {{ cloud-logging-full-name }}
 description: Follow this guide to set up the transfer of {{ maf-name }} cluster logs to {{ cloud-logging-name }}.
+alternate:
+  - href: en/managed-airflow/operations/af-logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring {{ maf-name }} cluster logs to {{ cloud-logging-full-name }}

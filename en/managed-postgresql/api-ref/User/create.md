@@ -358,6 +358,10 @@ apiPlayground:
         required:
           - name
           - password
+alternate:
+  - href: en/managed-postgresql/api-ref/User/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, REST: User.Create

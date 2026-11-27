@@ -39,6 +39,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/iam/workload/oidc/workload-identity/api-ref/Federation/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Federation, REST: Federation.List

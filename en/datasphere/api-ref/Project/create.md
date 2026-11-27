@@ -141,6 +141,10 @@ apiPlayground:
               The number of units that can be spent on the one execution.
             type: string
             format: int64
+alternate:
+  - href: en/datasphere/api-ref/Project/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, REST: Project.Create

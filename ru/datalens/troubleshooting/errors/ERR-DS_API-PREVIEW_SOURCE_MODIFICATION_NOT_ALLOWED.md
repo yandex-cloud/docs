@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.PREVIEW_SOURCE_MODIFICATION_NOT_ALLOWED
 description: На странице приведено описание ошибки {{ datalens-full-name }} Изменение источника данных недоступно.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-PREVIEW_SOURCE_MODIFICATION_NOT_ALLOWED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Изменение источника данных недоступно

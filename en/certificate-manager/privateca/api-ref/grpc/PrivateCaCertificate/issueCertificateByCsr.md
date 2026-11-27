@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/certificate-manager/privateca/api-ref/grpc/PrivateCaCertificate/issueCertificateByCsr.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, gRPC: PrivateCaCertificateService.IssueCertificateByCsr

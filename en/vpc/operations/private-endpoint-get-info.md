@@ -1,6 +1,10 @@
 ---
 title: How to get information about a service connection in {{ vpc-full-name }}
 description: Follow this guide to get information about a service connection (private endpoint) in {{ vpc-name }}.
+alternate:
+  - href: en/vpc/operations/private-endpoint-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting service connection info

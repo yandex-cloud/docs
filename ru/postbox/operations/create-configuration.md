@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/operations/create-configuration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание конфигурации
 
 Создайте [конфигурацию](../concepts/configuration.md), чтобы настроить правила обработки писем:

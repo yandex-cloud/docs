@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cdn/concepts/clients-to-servers-tls.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка TLS-сертификатов для HTTPS-соединений между клиентами и CDN
 
 Чтобы клиенты могли запрашивать файлы по HTTPS (например, если вы используете в сервисе URI со схемой `https` или включили переадресацию с HTTP на HTTPS в настройках [CDN-ресурса](resource.md)), для [доменного имени для раздачи контента](resource.md#hostnames), указанного в ресурсе, нужно настроить TLS-сертификат.

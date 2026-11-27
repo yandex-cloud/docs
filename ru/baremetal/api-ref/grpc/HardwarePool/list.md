@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/baremetal/api-ref/grpc/HardwarePool/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, gRPC: HardwarePoolService.List

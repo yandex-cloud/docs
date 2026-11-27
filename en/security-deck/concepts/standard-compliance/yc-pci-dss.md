@@ -1,6 +1,10 @@
 ---
 title: PCI DSS requirements
 description: This section sets forth rules that help you automate compliance with the Payment Card Industry Data Security Standard (PCI DSS).
+alternate:
+  - href: en/security-deck/concepts/standard-compliance/yc-pci-dss.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # PCI DSS requirements

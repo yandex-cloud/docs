@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к кластеру {{ maf-full-name }}
 description: Следуя данной инструкции, вы настроите права доступа к кластеру {{ maf-name }}.
+alternate:
+  - href: ru/managed-airflow/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к кластеру {{ maf-name }}

@@ -1,6 +1,10 @@
 ---
 title: Карта инфраструктуры в консоли управления {{ yandex-cloud }}
 description: Карта инфраструктуры отображает в консоли управления {{ yandex-cloud }} взаимосвязи между ресурсами, а также сетями и подсетями в каталоге, в котором расположены эти ресурсы.
+alternate:
+  - href: ru/console/concepts/infrastructure-map.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Карта инфраструктуры

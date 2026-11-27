@@ -1,6 +1,10 @@
 ---
 title: Managing regular scan results in {{ dspm-name }}
 description: Follow this guide to learn about the operations you can perform with scan results in {{ sd-full-name }}'s {{ dspm-name }} module.
+alternate:
+  - href: en/security-deck/operations/dspm/work-with-results.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing regular scan results in {{ dspm-name }}

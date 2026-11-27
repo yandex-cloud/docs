@@ -1,6 +1,10 @@
 ---
 title: Особенности работы с временными кластерами {{ dataproc-full-name }}
 description: Из статьи вы узнаете про особенности работы с временными кластерами {{ dataproc-name }}, коннектором Spark, шаблонами {{ dataproc-name }}.
+alternate:
+  - href: ru/datasphere/concepts/temporary-data-processing-clusters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Особенности работы с временными кластерами {{ dataproc-name }}

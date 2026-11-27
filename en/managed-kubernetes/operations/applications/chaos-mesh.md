@@ -1,6 +1,10 @@
 ---
 title: Installing Chaos Mesh
 description: Follow this guide to install Chaos Mesh.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/chaos-mesh.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing Chaos Mesh

@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ msp-full-name }}
 description: Access management in {{ SPRK }}, a cluster creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
+alternate:
+  - href: en/managed-spark/security.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to {{ msp-full-name }}

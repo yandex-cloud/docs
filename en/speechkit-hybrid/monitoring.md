@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/speechkit-hybrid/monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Monitoring {{ sk-hybrid-name }} services
 
 {{ sk-hybrid-name }} collects and stores metrics in [Prometheus](https://prometheus.io) format. For more information about metric types, see [this Prometheus guide](https://prometheus.io/docs/concepts/metric_types/).

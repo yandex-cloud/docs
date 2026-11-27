@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/operations/change-server-level-settings.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменение настроек {{ CH }} на уровне сервера
 
 Вы можете задать [настройки {{ CH }} на уровне сервера]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings), чтобы настроить поведение баз данных или отдельных таблиц в кластере {{ mch-name }}. Указать настройки можно несколькими способами:

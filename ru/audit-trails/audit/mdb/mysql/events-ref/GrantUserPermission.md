@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/mdb/mysql/events-ref/GrantUserPermission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL Audit Trails Events: GrantUserPermission

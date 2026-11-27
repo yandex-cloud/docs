@@ -1,6 +1,10 @@
 ---
 title: Updating a connection in {{ websql-full-name }}
 description: Follow this guide to update your connections.
+alternate:
+  - href: en/websql/operations/update-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a connection

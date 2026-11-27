@@ -1,6 +1,10 @@
 ---
 title: Как удалить статический публичный IP-адрес
 description: Следуя данной инструкции, вы сможете удалить статический публичный IP-адрес.
+alternate:
+  - href: ru/vpc/operations/address-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить статический публичный IP-адрес

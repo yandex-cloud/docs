@@ -1,6 +1,10 @@
 ---
 title: How to create a connection to 1C Extractor
 description: Follow this guide to create a connection to 1C Extractor.
+alternate:
+  - href: en/datalens/operations/connection/create-extractor1c.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a connection to 1C Extractor

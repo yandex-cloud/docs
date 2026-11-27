@@ -1,6 +1,10 @@
 ---
 title: Как создать пул пользователей в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете создать пул пользователей в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/create-userpool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать пул пользователей

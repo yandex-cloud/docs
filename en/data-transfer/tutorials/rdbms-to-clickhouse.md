@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/rdbms-to-clickhouse'
+alternate:
+  - href: en/data-transfer/tutorials/rdbms-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Loading data from {{ PG }} to a {{ CH }} data mart

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/kinesisapi/methods/describestream.md
+    type: text/markdown
+    title: Markdown version
+---
 # DescribeStream
 
 Returns information about the [data stream](../../concepts/glossary.md#stream-concepts).

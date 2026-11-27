@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть группы пользователя
 description: Следуя данной инструкции, вы сможете посмотреть группы пользователя.
+alternate:
+  - href: ru/organization/operations/get-users-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть группы пользователя

@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ mkf-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ mkf-full-name }}.
+alternate:
+  - href: ru/managed-kafka/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ mkf-full-name }}

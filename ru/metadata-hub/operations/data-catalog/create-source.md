@@ -1,6 +1,10 @@
 ---
 title: Создание источника метаданных
 description: Следуя данной инструкции, вы сможете создать источник метаданных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/create-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание источника

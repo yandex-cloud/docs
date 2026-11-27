@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/list-dedicated-ip-pools.md
+    type: text/markdown
+    title: Markdown version
+---
 # ListDedicatedIpPools method
 
 Returns the list of [dedicated IP address pools](../../concepts/glossary.md#dedicated-ip-pool) in the folder. The folder is selected based on the service account the request originates from.

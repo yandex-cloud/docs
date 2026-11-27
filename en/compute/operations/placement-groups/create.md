@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/placement-groups/create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a placement group
 
 Create a [placement group](../../concepts/placement-groups.md).

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/trigger/v1/create/billing-budget/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/trigger/v1/create/billing-budget.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless trigger v1 create billing-budget

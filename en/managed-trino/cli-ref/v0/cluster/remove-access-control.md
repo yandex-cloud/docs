@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/v0/cluster/remove-access-control/
+alternate:
+  - href: en/managed-trino/cli-ref/v0/cluster/remove-access-control.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-trino v0 cluster remove-access-control

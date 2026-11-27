@@ -1,6 +1,10 @@
 ---
 title: Как предоставить доступ к SAML-приложению в {{ org-full-name }}
 description: Из этой статьи вы узнаете, как настроить доступ к SAML-приложению в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/applications/saml-set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить доступ к SAML-приложению в {{ org-full-name }}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/v0/hosts/update/
+alternate:
+  - href: ru/cli/cli-ref/managed-postgresql/cli-ref/v0/hosts/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-postgresql v0 hosts update

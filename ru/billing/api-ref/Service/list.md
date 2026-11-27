@@ -38,6 +38,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/billing/api-ref/Service/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, REST: Service.List

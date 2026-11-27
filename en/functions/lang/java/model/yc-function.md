@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/java/model/yc-function.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using the YcFunction interface for a Java handler
 
 To create a [handler](../handler.md) in Java, you can implement the [YcFunction](https://github.com/yandex-cloud/java-sdk/blob/master/java-sdk-functions/src/main/java/yandex/cloud/sdk/functions/YcFunction.java) interface. To do this, add the [SDK](../sdk.md) to the [dependencies](../dependencies.md).

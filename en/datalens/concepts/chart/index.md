@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} chart'
 description: A {{ datalens-full-name }} chart is a dataset visualization in the form of a table, diagram, or map."
+alternate:
+  - href: en/datalens/concepts/chart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} chart

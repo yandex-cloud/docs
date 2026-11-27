@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к кластеру {{ ytsaurus-name }}
 description: Следуя данной инструкции, вы сможете подключиться к кластеру {{ ytsaurus-name }}.
+alternate:
+  - href: ru/managed-ytsaurus/operations/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ ytsaurus-name }}

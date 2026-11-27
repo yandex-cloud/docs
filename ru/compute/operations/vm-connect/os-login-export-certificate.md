@@ -1,6 +1,10 @@
 ---
 title: Как экспортировать SSH-сертификат
 description: Следуя данной инструкции, вы сможете локально экспортировать SSH-сертификат, чтобы использовать его для подключения через {{ oslogin }} к виртуальным машинам, для которых настроен доступ по {{ oslogin }}.
+alternate:
+  - href: ru/compute/operations/vm-connect/os-login-export-certificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Экспортировать SSH-сертификат

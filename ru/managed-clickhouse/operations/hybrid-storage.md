@@ -1,6 +1,10 @@
 ---
 title: Работа с гибридным хранилищем
 description: Следуя данной инструкции, вы сможете включить для кластера {{ mch-name }} гибридное хранилище, а также задать настройки гибридного хранилища и политики хранения данных.
+alternate:
+  - href: ru/managed-clickhouse/operations/hybrid-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с гибридным хранилищем

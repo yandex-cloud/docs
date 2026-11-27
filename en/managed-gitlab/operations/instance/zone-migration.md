@@ -1,6 +1,10 @@
 ---
 title: Migrating a {{ mgl-full-name }} instance to a different availability zone
 description: In this article, you will learn how to migrate a {{ mgl-name }} instance to a different availability zone.
+alternate:
+  - href: en/managed-gitlab/operations/instance/zone-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating an instance to a different availability zone

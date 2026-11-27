@@ -1,6 +1,10 @@
 ---
 title: Изменение настроек {{ CH }} на уровне запроса
 description: Следуя данной инструкции, вы сможете изменить настройки {{ CH }} на уровне запроса.
+alternate:
+  - href: ru/managed-clickhouse/operations/change-query-level-settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек {{ CH }} на уровне запроса

@@ -1,6 +1,10 @@
 ---
 title: Deleting an ARL profile
 description: Follow this guide to delete an ARL profile.
+alternate:
+  - href: en/smartwebsecurity/operations/arl-profile-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an ARL profile

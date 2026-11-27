@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/api/methods/create-query.md
+    type: text/markdown
+    title: Markdown version
+---
 # create-query
 
 Метод создает запрос к данным и запускает его выполнение. После этого запрос переходит в статус `RUNNING`. Результат можно [получить](get-query-results.md) только после успешного выполнения запроса. Чтобы узнать статус выполнения запроса, используйте метод [get-query-status](get-query-status.md).

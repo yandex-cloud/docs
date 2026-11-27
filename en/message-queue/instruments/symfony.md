@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/instruments/symfony.md
+    type: text/markdown
+    title: Markdown version
+---
 # Example of using {{ message-queue-full-name }} with Symfony
 
 The [Symfony](https://symfony.com/) PHP framework contains the [Messenger](https://symfony.com/doc/current/messenger.html) component allowing you to work with queues. As a message broker, you can use {{ message-queue-name }}.

@@ -58,6 +58,10 @@ apiPlayground:
             - functionId
     body: null
     definitions: null
+alternate:
+  - href: en/functions/functions/api-ref/Function/listVersions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, REST: Function.ListVersions

@@ -1,6 +1,10 @@
 ---
 title: Selecting all columns in {{ yq-full-name }}
 description: In this tutorial, you will learn how to select all columns.
+alternate:
+  - href: en/query/yql-tutorials/select-all-columns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Selecting all columns

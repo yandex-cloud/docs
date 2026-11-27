@@ -1,6 +1,10 @@
 ---
 title: Viewing container monitoring charts
 description: Follow this guide to view container monitoring charts.
+alternate:
+  - href: en/serverless-containers/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing container monitoring charts

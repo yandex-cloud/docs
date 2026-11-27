@@ -1,6 +1,10 @@
 ---
 title: Setting up customer quotas
 description: Follow this guide to set up customer quotas.
+alternate:
+  - href: en/partner/operations/manage-quotas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up customer quotas

@@ -1,6 +1,10 @@
 ---
 title: Как подключить виртуальную машину {{ compute-full-name }} на Linux к {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете подключить виртуальную машину {{ compute-full-name }} на Linux к {{ backup-full-name }}.
+alternate:
+  - href: ru/backup/operations/connect-vm-linux.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключить существующую виртуальную машину на Linux к {{ backup-name }}

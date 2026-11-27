@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/operations/configure-logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настроить логирование
 
 {% list tabs group=instructions %}

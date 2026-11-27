@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/job/create-spark/
+alternate:
+  - href: ru/cli/cli-ref/dataproc/cli-ref/job/create-spark.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dataproc job create-spark

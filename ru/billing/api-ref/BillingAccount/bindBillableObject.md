@@ -41,6 +41,10 @@ apiPlayground:
               Billable object type. Can be one of the following:
               * `cloud`
             type: string
+alternate:
+  - href: ru/billing/api-ref/BillingAccount/bindBillableObject.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, REST: BillingAccount.BindBillableObject

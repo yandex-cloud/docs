@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/collector/opentelemetry.md
+    type: text/markdown
+    title: Markdown version
+---
 # Data transmission via OpenTelemetry Collector
 
 OpenTelemetry Collector (OTel Collector) is an agent that collects, processes, and exports telemetry data based on the [OpenTelemetry](https://opentelemetry.io/docs/) standard. You can use the OTel Collector to transfer data from your app to {{ monium-name }}.

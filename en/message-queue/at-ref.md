@@ -1,6 +1,10 @@
 ---
 title: '{{ message-queue-full-name }} event reference in {{ at-full-name }}'
 description: This page gives a reference for {{ message-queue-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/message-queue/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

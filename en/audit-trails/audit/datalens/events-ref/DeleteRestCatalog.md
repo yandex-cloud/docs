@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/datalens/events-ref/DeleteRestCatalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataLens Audit Trails Events: DeleteRestCatalog

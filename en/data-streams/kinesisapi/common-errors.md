@@ -1,6 +1,10 @@
 ---
 title: Common {{ yds-full-name }} API request errors
 description: Learn what errors may occur in API requests.
+alternate:
+  - href: en/data-streams/kinesisapi/common-errors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Common errors

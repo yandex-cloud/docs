@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/vm-control/vm-change-folder.md
+    type: text/markdown
+    title: Markdown version
+---
 # Moving a VM to a different folder
 
 When you create a VM, it is placed in the current folder.

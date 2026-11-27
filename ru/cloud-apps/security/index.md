@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ cloud-apps-full-name }}
 description: Управление доступом в сервисе {{ cloud-apps-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ cloud-apps-full-name }}, назначьте пользователю нужные роли из приведенного списка.
+alternate:
+  - href: ru/cloud-apps/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ cloud-apps-full-name }}

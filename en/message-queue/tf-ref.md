@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ message-queue-full-name }}'
 description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ message-queue-name }}.
+alternate:
+  - href: en/message-queue/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ message-queue-full-name }}

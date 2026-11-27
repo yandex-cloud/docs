@@ -2,6 +2,10 @@
 title: '{{ dataproc-full-name }} pricing policy'
 description: This article covers the {{ dataproc-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/data-proc/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ dataproc-name }} pricing policy

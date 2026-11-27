@@ -1,6 +1,10 @@
 ---
 title: Asynchronously replicating data from {{ PG }} to {{ CH }}
 description: You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}.
+alternate:
+  - href: en/tutorials/dataplatform/rdbms-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Asynchronously replicating data from {{ PG }} to {{ CH }}

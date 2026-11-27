@@ -1,6 +1,10 @@
 ---
 title: Управление пользователями кластера {{ PG }} в {{ mpg-full-name }}
 description: Из статьи вы узнаете, как добавлять и удалять пользователей, а также управлять их индивидуальными настройками в сервисе по управлению базами данных {{ PG }}.
+alternate:
+  - href: ru/managed-postgresql/operations/cluster-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление пользователями {{ PG }}

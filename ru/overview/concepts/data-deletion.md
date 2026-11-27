@@ -1,6 +1,10 @@
 ---
 title: Порядок и сроки удаления данных пользователей
 description: Из статьи вы узнаете про порядок и сроки удаления данных пользователей.
+alternate:
+  - href: ru/overview/concepts/data-deletion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Порядок и сроки удаления данных пользователей

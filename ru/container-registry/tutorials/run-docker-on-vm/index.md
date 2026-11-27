@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm/index'
+alternate:
+  - href: ru/container-registry/tutorials/run-docker-on-vm/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [run-docker-on-vm](../../../_tutorials/infrastructure/run-docker-on-vm.md) %}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/plugin/
+alternate:
+  - href: ru/managed-opensearch/cli-ref/plugin/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-opensearch plugin

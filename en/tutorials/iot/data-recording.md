@@ -2,6 +2,10 @@
 title: Guide on writing data from a device to a database
 description: In this tutorial, you will write data from a device into a database using {{ mpg-full-name }} as an example.
 canonical: '{{ link-docs }}/tutorials/iot/data-recording'
+alternate:
+  - href: en/tutorials/iot/data-recording.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Writing data from a device into a database

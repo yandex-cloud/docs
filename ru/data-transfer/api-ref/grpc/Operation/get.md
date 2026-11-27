@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/data-transfer/api-ref/grpc/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer API, gRPC: OperationService.Get

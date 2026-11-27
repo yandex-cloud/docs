@@ -1,6 +1,10 @@
 ---
 title: Установка ExternalDNS c Webhook {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете установить ExternalDNS c Webhook {{ dns-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/externaldns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка ExternalDNS c Webhook {{ dns-full-name }}

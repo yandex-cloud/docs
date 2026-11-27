@@ -1,6 +1,10 @@
 ---
 title: Invoking a container asynchronously in {{ serverless-containers-full-name }}
 description: Follow this guide to configure and run an asynchronous invocation for a container in {{ serverless-containers-name }}.
+alternate:
+  - href: en/serverless-containers/operations/invoke-async.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Invoking a container asynchronously

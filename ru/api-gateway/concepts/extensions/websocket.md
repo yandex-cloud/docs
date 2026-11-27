@@ -1,6 +1,10 @@
 ---
 title: Поддержка протокола WebSocket
 description: Чтобы подключиться к API-шлюзу по протоколу WebSocket, клиентские приложения должны сделать GET-запрос на URI, для которого настроены интеграции в OpenAPI-спецификации.
+alternate:
+  - href: ru/api-gateway/concepts/extensions/websocket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поддержка протокола WebSocket

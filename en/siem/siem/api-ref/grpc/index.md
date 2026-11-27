@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/siem/siem/api-ref/grpc/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM API: gRPC reference

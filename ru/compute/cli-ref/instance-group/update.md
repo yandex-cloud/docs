@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance-group/update/
+alternate:
+  - href: ru/compute/cli-ref/instance-group/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute instance-group update

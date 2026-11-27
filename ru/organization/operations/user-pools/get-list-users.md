@@ -1,6 +1,10 @@
 ---
 title: Как получить список пользователей в пуле в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете получить список пользователей в пуле в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/get-list-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список пользователей в пуле

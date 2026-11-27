@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/unpin-card.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to remove a credit/debit card from a billing account
 
 

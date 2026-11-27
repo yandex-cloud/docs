@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monitoring/concepts/data-collection/unified-agent/configuration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Конфигурирование
 
 Раздел описывает настройку {{ unified-agent-full-name }}. Предварительно познакомьтесь с [основными понятиями](index.md), которые используются в конфигурации агента.

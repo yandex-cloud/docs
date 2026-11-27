@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/backend-group/delete-stream-backend/
+alternate:
+  - href: en/cli/cli-ref/application-load-balancer/cli-ref/backend-group/delete-stream-backend.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc application-load-balancer backend-group delete-stream-backend

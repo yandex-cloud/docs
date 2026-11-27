@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-kafka/api-ref/ResourcePreset/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, REST: ResourcePreset

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/clouddesktop/events-ref/SetDesktopGroupAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop Audit Trails Events: SetDesktopGroupAccessBindings

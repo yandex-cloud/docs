@@ -1,6 +1,10 @@
 ---
 title: '{{ lockbox-full-name }}. Обзор сервиса'
 description: Сервис для создания и хранения секретов в инфраструктуре Yandex Cloud
+alternate:
+  - href: ru/lockbox/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор сервиса {{ lockbox-full-name }}

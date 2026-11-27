@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/collector/otlp-protocol.md
+    type: text/markdown
+    title: Markdown version
+---
 # OTLP in {{ monium-name }}
 
 {{ monium-name }} can receive telemetry via [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol), which allows you to send data directly from applications using the OpenTelemetry SDK or through OpenTelemetry Collector.

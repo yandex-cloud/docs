@@ -1,6 +1,10 @@
 ---
 title: Getting a service account IAM token using a function
 description: Follow this guide to get a service account IAM token using a function.
+alternate:
+  - href: en/functions/operations/function-sa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a service account IAM token using a function

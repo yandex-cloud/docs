@@ -1,6 +1,10 @@
 ---
 title: Как настроить доступ к управлению группой пользователей в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете настроить доступ к управлению группой пользователей в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/access-manage-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить доступ к управлению группой

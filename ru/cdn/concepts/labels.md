@@ -1,6 +1,10 @@
 ---
 title: Метки в {{ cdn-full-name }}
 description: Метка — это пара ключ-значение для логической маркировки CDN-ресурсов.
+alternate:
+  - href: ru/cdn/concepts/labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метки

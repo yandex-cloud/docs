@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/user/list/
+alternate:
+  - href: ru/cli/cli-ref/managed-clickhouse/cli-ref/user/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse user list

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/create-token/
+alternate:
+  - href: ru/iam/cli-ref/create-token.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam create-token

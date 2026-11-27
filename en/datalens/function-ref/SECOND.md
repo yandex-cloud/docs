@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/SECOND.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SECOND

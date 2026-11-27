@@ -1,6 +1,10 @@
 ---
 title: Изменить настройки сетевого балансировщика
 description: Следуя данной инструкции, вы сможете изменить настройки сетевого балансировщика.
+alternate:
+  - href: ru/network-load-balancer/operations/load-balancer-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить настройки сетевого балансировщика

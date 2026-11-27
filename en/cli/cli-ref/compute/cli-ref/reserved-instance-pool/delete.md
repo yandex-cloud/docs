@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/reserved-instance-pool/delete/
+alternate:
+  - href: en/cli/cli-ref/compute/cli-ref/reserved-instance-pool/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute reserved-instance-pool delete

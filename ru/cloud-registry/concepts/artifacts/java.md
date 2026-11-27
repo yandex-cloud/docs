@@ -1,6 +1,10 @@
 ---
 title: Java-артефакты в {{ cloud-registry-full-name }}
 description: Java-артефакт — это файл, содержащий скомпилированный код на языке Java и информацию о нем. Артефакты используются для распространения библиотек, фреймворков и других компонентов, которые можно включить в проекты на Java.
+alternate:
+  - href: ru/cloud-registry/concepts/artifacts/java.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Java-артефакт

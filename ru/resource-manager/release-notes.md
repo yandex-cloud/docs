@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ resmgr-full-name }}
 description: В разделе представлена история изменений сервиса {{ resmgr-name }}.
+alternate:
+  - href: ru/resource-manager/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ resmgr-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/policy-manager/apply-preset.md
+    type: text/markdown
+    title: Markdown version
+---
 # Активировать пресет политик
 
 {{ stackland-name }} позволяет активировать пресеты политик и применять их к ресурсам кластера. Чтобы активировать пресет, создайте ресурс `ClusterPolicySet`.

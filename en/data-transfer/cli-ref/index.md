@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/
+alternate:
+  - href: en/data-transfer/cli-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc datatransfer

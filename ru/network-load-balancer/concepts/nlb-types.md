@@ -1,6 +1,10 @@
 ---
 title: Типы сетевых балансировщиков
 description: 'Сетевой балансировщик в {{ yandex-cloud }} можно развернуть в следующих вариантах: внешний балансировщик (EXTERNAL) для обработки трафика из интернета, внутренний балансировщик (INTERNAL) для обработки трафика внутри {{ vpc-name }}.'
+alternate:
+  - href: ru/network-load-balancer/concepts/nlb-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Типы сетевых балансировщиков

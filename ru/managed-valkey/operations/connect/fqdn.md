@@ -1,6 +1,10 @@
 ---
 title: FQDN хостов {{ mrd-full-name }}
 description: Следуя данной инструкции, вы сможете получить FQDN для подключения к хосту {{ mrd-full-name }}.
+alternate:
+  - href: ru/managed-valkey/operations/connect/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FQDN хостов {{ VLK }}

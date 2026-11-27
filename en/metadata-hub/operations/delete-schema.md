@@ -1,6 +1,10 @@
 ---
 title: Deleting a schema
 description: Follow this guide to delete a schema.
+alternate:
+  - href: en/metadata-hub/operations/delete-schema.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a schema

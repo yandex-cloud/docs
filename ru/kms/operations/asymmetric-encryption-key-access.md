@@ -1,6 +1,10 @@
 ---
 title: Настройка прав доступа к асимметричной ключевой паре шифрования
 description: Следуя данной инструкции, вы сможете назначить роли на асимметричную ключевую пару шифрования.
+alternate:
+  - href: ru/kms/operations/asymmetric-encryption-key-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка прав доступа к асимметричной ключевой паре шифрования

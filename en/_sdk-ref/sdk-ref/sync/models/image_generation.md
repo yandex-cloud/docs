@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/sync/models/image_generation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_models.image\_generation.function.**ImageGeneration**{#yandex_ai_studio_sdk._models.image_generation.function.ImageGeneration}

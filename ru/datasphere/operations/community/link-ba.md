@@ -1,6 +1,10 @@
 ---
 title: Привязать платежный аккаунт для работы с {{ ml-platform-name }}
 description: Платежный аккаунт используется для идентификации пользователя, оплачивающего вычисления, работу нод и хранение ресурсов всех проектов сообщества.
+alternate:
+  - href: ru/datasphere/operations/community/link-ba.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Привязать платежный аккаунт

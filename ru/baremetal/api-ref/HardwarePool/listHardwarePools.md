@@ -37,6 +37,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/baremetal/api-ref/HardwarePool/listHardwarePools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: HardwarePool.ListHardwarePools

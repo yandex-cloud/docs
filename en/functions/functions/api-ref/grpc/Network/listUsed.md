@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/functions/functions/api-ref/grpc/Network/listUsed.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, gRPC: NetworkService.ListUsed

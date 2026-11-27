@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/network-load-balancer/api-ref/grpc/TargetGroup/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Load Balancer API, gRPC: TargetGroupService.Get

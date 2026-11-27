@@ -1,6 +1,10 @@
 ---
 title: AI-инструменты в {{ datalens-platform-full-name }}
 description: Из статьи вы узнаете про нейроаналитика в  {{ datalens-platform-full-name }}.
+alternate:
+  - href: ru/datalens/datalens-platform/concepts/ai-tools/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI-инструменты в {{ datalens-platform-full-name }}

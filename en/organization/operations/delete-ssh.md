@@ -1,6 +1,10 @@
 ---
 title: How to delete a user SSH key
 description: Follow this guide to delete a user SSH key.
+alternate:
+  - href: en/organization/operations/delete-ssh.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an SSH key

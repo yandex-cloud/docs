@@ -1,6 +1,10 @@
 ---
 title: How to use `gp_url_tools` in {{ mgp-full-name }}
 description: Follow this guide to use the `gp_url_tools` extension in {{ mgp-name }}.
+alternate:
+  - href: en/managed-greenplum/operations/extensions/gp-url-tools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using `gp_url_tools` in {{ mgp-name }}

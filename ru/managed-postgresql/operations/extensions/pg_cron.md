@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/operations/extensions/pg_cron.md
+    type: text/markdown
+    title: Markdown version
+---
 # Использование pg_cron в {{ mpg-name }}
 
 Расширение [pg_cron](https://github.com/citusdata/pg_cron) — это планировщик задач, который позволяет добавлять в базу данных задачи по расписанию и выполнять SQL-запросы прямо из задачи.

@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ cdn-full-name }}
 description: This page features step-by-step guides for {{ cdn-name }}.
+alternate:
+  - href: en/cdn/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ cdn-name }}

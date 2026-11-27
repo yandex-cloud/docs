@@ -1,6 +1,10 @@
 ---
 title: Как добавить информацию о дашборде в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить информацию о дашборде в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-description.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление информации о дашборде в {{ datalens-full-name }}

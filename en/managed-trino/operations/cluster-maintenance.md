@@ -1,6 +1,10 @@
 ---
 title: '{{ TR }} cluster maintenance'
 description: Follow this guide to view the {{ TR }} cluster’s scheduled and completed maintenance jobs and schedule a maintenance window.
+alternate:
+  - href: en/managed-trino/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TR }} cluster maintenance

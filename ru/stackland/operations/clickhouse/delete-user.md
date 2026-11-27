@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/clickhouse/delete-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить пользователя
 
 Если у вас есть [пользователь](create-user.md) [{{ CH }}](../../concepts/components/clickhouse.md), вы можете удалить его.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Activities/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Activities
 
 <!-- markdownlint-disable-file -->

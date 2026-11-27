@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ mch-full-name }}
 description: Различные сценарии использования {{ mch-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-clickhouse/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ mch-name }}

@@ -1,6 +1,10 @@
 ---
 title: Ключевые принципы безопасности {{ yandex-cloud }}
 description: Из статьи вы узнаете, какие ключевые принципы безопасности действуют на платформе {{ yandex-cloud }}.
+alternate:
+  - href: ru/security/principles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ключевые принципы безопасности {{ yandex-cloud }}

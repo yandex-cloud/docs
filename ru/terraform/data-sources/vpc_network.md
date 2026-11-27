@@ -1,5 +1,9 @@
 ---
 subcategory: Virtual Private Cloud
+alternate:
+  - href: ru/terraform/data-sources/vpc_network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_vpc_network (DataSource)

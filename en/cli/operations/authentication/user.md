@@ -1,6 +1,10 @@
 ---
 title: Authenticating as a user
 description: Follow this guide to authenticate in the CLI as a user.
+alternate:
+  - href: en/cli/operations/authentication/user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authentication in the {{ yandex-cloud }} CLI with a Yandex account

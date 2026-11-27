@@ -1,6 +1,10 @@
 ---
 title: Envelope encryption in {{ kms-full-name }}
 description: Encryption using the encrypt method is limited by the maximum size of data to be encrypted (32 KB). As your data volumes increase, {{ kms-short-name }} experiences an increased workload. This results in decreased performance of the _encrypt_ and _decrypt_ methods. Envelope encryption is mainly implemented on the client side and helps avoid these issues.
+alternate:
+  - href: en/kms/concepts/envelope.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Envelope encryption

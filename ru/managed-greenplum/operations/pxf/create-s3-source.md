@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/pxf/create-s3-source.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание внешнего источника данных S3
 
 В {{ mgp-name }} в качестве [внешнего источника данных](../../concepts/external-tables.md#pxf-data-sources) с типом подключения S3 можно использовать сервис [{{ objstorage-full-name }}](../../../storage/index.yaml) в том числе, с подключением к {{ objstorage-full-name }} через [Private Endpoint](../../../storage/operations/buckets/access-via-vpc.md). Вы также можете использовать другие сторонние сервисы S3.

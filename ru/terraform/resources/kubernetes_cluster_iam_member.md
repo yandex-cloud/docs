@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Services for Kubernetes
+alternate:
+  - href: ru/terraform/resources/kubernetes_cluster_iam_member.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_kubernetes_cluster_iam_member (Resource)

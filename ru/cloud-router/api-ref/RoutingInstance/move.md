@@ -31,6 +31,11 @@ apiPlayground:
         - destinationFolderId
       additionalProperties: false
     definitions: null
+noIndex: true
+alternate:
+  - href: ru/cloud-router/api-ref/RoutingInstance/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Router API, REST: RoutingInstance.Move

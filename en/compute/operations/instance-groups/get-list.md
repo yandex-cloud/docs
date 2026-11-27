@@ -1,6 +1,10 @@
 ---
 title: How to get a list of instance groups in {{ compute-full-name }}
 description: Follow this guide to get a list of instance groups.
+alternate:
+  - href: en/compute/operations/instance-groups/get-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of instance groups

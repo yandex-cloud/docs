@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datasphere/jobs/api-ref/grpc/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere Jobs API v2, gRPC: OperationService.Get

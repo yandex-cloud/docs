@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/backup/
+alternate:
+  - href: en/managed-valkey/cli-ref/backup/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-redis backup

@@ -3,6 +3,10 @@ title: Безопасная передача пароля в скрипт ини
 description: В этом руководстве вы создадите виртуальную машину {{ compute-name }} с операционной системой Windows с использованием скрипта инициализации с помощью {{ TF }}.
 canonical: '{{ link-docs }}/tutorials/windows/secure-password-script/terraform'
 noIndex: true
+alternate:
+  - href: ru/microsoft/tutorials/secure-password-script/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Безопасная передача пароля в скрипт инициализации с помощью {{ TF }}

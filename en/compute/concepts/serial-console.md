@@ -1,6 +1,10 @@
 ---
 title: Serial console in {{ compute-full-name }}
 description: In this guide, you will learn about the serial console of a {{ compute-full-name }} virtual machine, how and why to use it, and the risks associated with it.
+alternate:
+  - href: en/compute/concepts/serial-console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # VM serial console

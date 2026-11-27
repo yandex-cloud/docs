@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Dataset/rpcgetDataset-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get dataset

@@ -1,6 +1,10 @@
 ---
 title: Загрузка аудитных логов в MaxPatrol SIEM с помощью {{ TF }}
 description: Следуя данному руководству, вы сможете настроить загрузку аудитных логов {{ at-full-name }} в MaxPatrol SIEM с помощью {{ yds-full-name }} с использованием {{ TF }}.
+alternate:
+  - href: ru/tutorials/security/maxpatrol/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [at-maxpatrol-siem-terraform](../../../_tutorials/security/at-maxpatrol-siem-terraform.md) %}

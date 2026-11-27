@@ -1,6 +1,10 @@
 ---
 title: Query language in {{ monium-name }}
 description: In {{ monium-name }}, you can search for data by metrics, logs, and traces using a unified query language.
+alternate:
+  - href: en/monium/concepts/querying-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using functions when searching metrics

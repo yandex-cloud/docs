@@ -1,6 +1,10 @@
 ---
 title: Introduction to using {{ ydb-short-name }} via {{ TF }}
 description: This article describes the basic {{ TF }} CLI commands and provides the list of guides on using {{ ydb-short-name }} via {{ TF }}.
+alternate:
+  - href: en/ydb/terraform/intro.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Introduction to using {{ ydb-short-name }} via {{ TF }}

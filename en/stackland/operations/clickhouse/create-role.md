@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/create-role.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a role
 
 If you have a [{{ CH }}](../../concepts/components/clickhouse.md) [cluster](create-cluster.md), you can create a role in it using a custom `ClickhouseRole` resource.

@@ -1,6 +1,10 @@
 ---
 title: Отчеты в {{ datalens-full-name }}
 description: Из статьи вы узнаете, что такое отчеты в {{ datalens-full-name }} и ознакомитесь с особенностями виджетов отчета.
+alternate:
+  - href: ru/datalens/reports/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отчеты в {{ datalens-name }}

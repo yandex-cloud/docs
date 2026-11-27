@@ -1,6 +1,10 @@
 ---
 title: Free tier
 description: In this article, you will learn about the free tier and what services it is available for.
+alternate:
+  - href: en/billing/concepts/serverless-free-tier.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Free tier

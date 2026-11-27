@@ -1,6 +1,10 @@
 ---
 title: Как назначить роли на ресурс в {{ container-registry-full-name }}
 description: Следуя данной инструкции, вы сможете назначить роли на ресурс.
+alternate:
+  - href: ru/container-registry/operations/roles/grant.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначить роль на ресурс

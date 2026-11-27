@@ -31,6 +31,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/ydb/api-ref/Database/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for YDB API, REST: Database.List

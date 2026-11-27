@@ -1,6 +1,10 @@
 ---
 title: Миграция с {{ yq-full-name }}
 description: В практическом руководстве описано, как мигрировать с {{ yq-full-name }} на {{ ydb-full-name }} или прямую работу с {{ objstorage-name }}.
+alternate:
+  - href: ru/query/tutorials/migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция с {{ yq-full-name }}

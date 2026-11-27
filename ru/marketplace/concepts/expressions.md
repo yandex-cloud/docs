@@ -1,6 +1,10 @@
 ---
 title: Вычисляемые выражения в значениях атрибутов ресурсов
 description: Из статьи вы узнаете о вычисляемых выражениях в значениях атрибутов ресурсов, которые можно использовать при настройке конфигураций продуктов {{ cloud-apps-name }}.
+alternate:
+  - href: ru/marketplace/concepts/expressions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вычисляемые выражения в конфигурации продукта {{ cloud-apps-name }}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance-group/set-access-bindings/
+alternate:
+  - href: ru/compute/cli-ref/instance-group/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute instance-group set-access-bindings

@@ -28,6 +28,10 @@ apiPlayground:
         - workloadId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/marketplace/workload/api-ref/CloudApplication/resolveByWorkload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Apps Workload API, REST: CloudApplication.ResolveByWorkload

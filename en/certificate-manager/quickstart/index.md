@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ certificate-manager-name }}
 description: Follow this guide to add your first Let's Encrypt certificate and use it to set up HTTPS access to a static website in {{ objstorage-full-name }}.
+alternate:
+  - href: en/certificate-manager/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ certificate-manager-name }}

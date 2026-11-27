@@ -1,6 +1,10 @@
 ---
 title: Создать пользовательское правило в {{ sd-full-name }}
 description: Из этой инструкции вы узнаете, как создать пользовательское правило в {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/operations/cspm/create-custom-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать пользовательское правило

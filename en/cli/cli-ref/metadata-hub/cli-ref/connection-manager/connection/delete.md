@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/metadata-hub/cli-ref/connection-manager/connection/delete/
+alternate:
+  - href: en/cli/cli-ref/metadata-hub/cli-ref/connection-manager/connection/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc metadata-hub connection-manager connection delete

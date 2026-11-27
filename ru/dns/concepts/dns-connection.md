@@ -1,6 +1,10 @@
 ---
 title: DNS-подключения в облачных сетях {{ yandex-cloud }}
 description: DNS-подключения позволяют настроить интеграцию корпоративных (on-premise) DNS-сервисов с внутренними DNS-зонами в {{ yandex-cloud }}.
+alternate:
+  - href: ru/dns/concepts/dns-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DNS-подключения

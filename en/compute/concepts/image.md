@@ -5,6 +5,10 @@ keywords:
   - vm
   - vm image
   - virtual machine image
+alternate:
+  - href: en/compute/concepts/image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Images

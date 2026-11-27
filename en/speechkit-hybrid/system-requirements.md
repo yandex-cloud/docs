@@ -1,6 +1,11 @@
 ---
 title: System requirements
 description: This article describes system and software requirements for servers.
+noIndex: true
+alternate:
+  - href: en/speechkit-hybrid/system-requirements.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # System requirements

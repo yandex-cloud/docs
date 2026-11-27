@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ cns-full-name }}
 description: В разделе представлена история изменений сервиса {{ cns-name }}.
+alternate:
+  - href: ru/notifications/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ cns-name }}

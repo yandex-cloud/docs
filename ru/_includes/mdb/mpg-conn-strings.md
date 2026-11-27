@@ -64,7 +64,7 @@ tskv ... level=INFO      module=MakeQuerySpan ( userver/postgresql/src/storages/
 db_statement=SELECT 1 AS ping
 db_type=postgres
 db_instance=********
-peer_address={{ host-name }}.{{ dns-zone }}:{{ port-mpg }}
+peer_address={{ specialFqdn }}:{{ port-mpg }}
 ...
 ```
 
@@ -87,7 +87,7 @@ peer_address={{ host-name }}.{{ dns-zone }}:{{ port-mpg }}
       {
           static async Task Main(string[] args)
           {
-              var host       = "<список_хостов>";
+              var host = "<особый_FQDN>";
               var port       = "{{ port-mpg }}";
               var db         = "<имя_БД>";
               var username   = "<имя_пользователя>";
@@ -111,8 +111,6 @@ peer_address={{ host-name }}.{{ dns-zone }}:{{ port-mpg }}
   ```
 
 {% endlist %}
-
-В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
 
 ## Go {#go}
 
@@ -143,7 +141,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "<список_хостов>"
+        host = "<особый_FQDN>";
         port     = 6432
         user     = "<имя_пользователя>"
         password = "<пароль_пользователя>"
@@ -181,8 +179,6 @@ go mod init example && go get github.com/jackc/pgx/v4
           fmt.Println(version)
       }
       ```
-    
-    В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:6432.{{ dns-zone }}`).
 
   1. Подключение:
 
@@ -211,7 +207,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "<список_хостов>"
+        host = "<особый_FQDN>";
         port     = 6432
         user     = "<имя_пользователя>"
         password = "<пароль_пользователя>"
@@ -243,7 +239,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
           connConfig.TLSConfig = &tls.Config{
               RootCAs:            rootCertPool,
-              ServerName: "<список_хостов>",
+              ServerName: "<особый_Fqdn>",
           }
 
           conn, err := pgx.ConnectConfig(context.Background(), connConfig)
@@ -265,8 +261,6 @@ go mod init example && go get github.com/jackc/pgx/v4
           fmt.Println(version)
       }
       ```
-
-      В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
 
       При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ PG }} в переменной `ca`.
 
@@ -388,7 +382,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://<список_хостов>/<имя_БД>?targetServerType=master&ssl=false&sslmode=disable";
+          String DB_URL     = "jdbc:postgresql://<особый_FQDN>:{{ port-mgp }}/<имя_БД>?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER    = "<имя_пользователя>";
           String DB_PASS    = "<пароль_пользователя>";
 
@@ -405,8 +399,6 @@ go mod init example && go get github.com/jackc/pgx/v4
         }
       }
       ```
-
-     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
 
   1. Сборка и подключение:
 
@@ -428,7 +420,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://<список_хостов>:{{ port-mgp }}/<имя_БД>?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL     = "jdbc:postgresql://<особый_FQDN>:{{ port-mgp }}/<имя_БД>?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER    = "<имя_пользователя>";
           String DB_PASS    = "<пароль_пользователя>";
 
@@ -445,8 +437,6 @@ go mod init example && go get github.com/jackc/pgx/v4
         }
       }
       ```
-
-     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
 
   1. Сборка и подключение:
 
@@ -699,7 +689,7 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=<список_хостов>
+          host=<особый_FQDN>
           port={{ port-mgp }}
           sslmode=disable
           dbname=<имя_БД>
@@ -715,8 +705,6 @@ pip3 install psycopg2-binary
 
       conn.close()
       ```
-
-     {% include [host lists](../managed-postgresql/host-list.md) %}
 
   1. Подключение:
 
@@ -734,7 +722,7 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=<список_хостов>
+          host=<особый_FQDN>
           port={{ port-mgp }}
           sslmode=verify-full
           dbname=<имя_БД>
@@ -750,8 +738,6 @@ pip3 install psycopg2-binary
 
       conn.close()
       ```
-
-     {% include [host lists](../managed-postgresql/host-list.md) %}
 
   1. Подключение:
 

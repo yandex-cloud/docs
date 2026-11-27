@@ -1,6 +1,10 @@
 ---
 title: Создание виртуальной машины из публичного образа DSVM
 description: Создайте ВМ DSVM с помощью сервиса {{ compute-name }} в консоли управления {{ yandex-cloud }} и подключитесь к ней по протоколу SSH.
+alternate:
+  - href: ru/compute/operations/dsvm/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание виртуальной машины из публичного образа DSVM

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Tutorials
 
 * [Installing {{ stackland-name }} on {{ baremetal-full-name }}](install-on-yc-bms.md)

@@ -1,5 +1,9 @@
 ---
 noIndex: true
+alternate:
+  - href: en/video/troubleshooting-drm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Protected content

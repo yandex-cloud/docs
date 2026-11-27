@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-opensearch/concepts/index-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Index policies
 
 A _policy_ is a set of rules that describes how to manage an index. You can work with policies using the [{{ OS }} Index State Management (ISM)]({{ os.docs }}/im-plugin/ism/index/) plugin.

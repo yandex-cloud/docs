@@ -15,6 +15,10 @@ keywords:
   - yandex cloud postbox
   - апи ses
   - апи aws
+alternate:
+  - href: ru/postbox/aws-compatible-api/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как пользоваться API Amazon для работы с {{ postbox-name }}

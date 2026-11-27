@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/trigger/timer.md
+    type: text/markdown
+    title: Markdown version
+---
 # Таймер, который отправляет сообщения в WebSocket-соединения
 
 _Таймер_ — это [триггер](../trigger/), который отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md) по расписанию. Расписание задается в виде [cron-выражения](#cron-expression). Время в cron-выражении указывается по [UTC+0](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).

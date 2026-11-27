@@ -1,6 +1,10 @@
 ---
 title: Как удалить виртуальную машину {{ compute-full-name }} из {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете удалить виртуальную машину из {{ backup-name }}.
+alternate:
+  - href: ru/backup/operations/delete-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить виртуальную машину из {{ backup-name }}

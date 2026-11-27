@@ -264,55 +264,55 @@ blocks:
 
 | Услуга                                                                                                                  | Цена      | Ед. тарификации | Действует с    | Действует до |
 | ----------------------------------------------------------------------------------------------------------------------- | --------- | --------------- | -------------- | ------------ |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, AMD Zen 4 HighFreq, 100% vCPU                     | 1,26 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, AMD Zen 4 HighFreq, RAM                           | 0,2381 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, AMD Zen 4, 100% vCPU                              | 0,5764 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, AMD Zen 4, RAM                                    | 0,1729 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Cascade Lake, 100% vCPU                     | 0,634 ₽   | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Cascade Lake, RAM                           | 0,1844 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Ice Lake (Compute Optimized), 100% vCPU     | 1,0376 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Ice Lake (Compute Optimized), RAM           | 0,1959 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Ice Lake, 100% vCPU                         | 0,5764 ₽  | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Ice Lake, RAM                               | 0,1729 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов,  AMD Zen 4, 100% vCPU, CVoS на 6 месяцев         | 1,64 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4 HighFreq, 100% vCPU                    | 3,76 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4 HighFreq, RAM                          | 0,74 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, 100% vCPU                             | 1,93 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год              | 1,51 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM                                   | 0,53 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM, CVoS на 1 год                    | 0,4136 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM, CVoS на 6 месяцев                | 0,45 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, 100% vCPU                       | 2,07 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, 20% vCPU                        | 1,1244 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, 5% vCPU                         | 1,1244 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, 50% vCPU                        | 1,1244 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, RAM                             | 0,56 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 100% vCPU                    | 2,15 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год     | 1,68 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев | 1,83 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 20% vCPU                     | 1,1244 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 5% vCPU                      | 1,1244 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 50% vCPU                     | 1,1244 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM                          | 0,5879 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM, CVoS на 1 год           | 0,4586 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM, CVoS на 6 месяцев       | 0,4997 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake (Compute Optimized), 100% vCPU    | 3,1 ₽     | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake (Compute Optimized), RAM          | 0,61 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU                        | 1,93 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год         | 1,51 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев     | 1,64 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 50% vCPU                         | 1,1244 ₽  | vCPU × час      | 8 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM                              | 0,53 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM, CVoS на 1 год               | 0,4136 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев           | 0,45 ₽    | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Публичный IP-адрес                                                                          | 0,2766 ₽  | IP-адрес × час  | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Резервные копии сверх размера хранилища                                                     | 0,00307 ₽ | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)                                      | 0,0365 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Хранилище на локальных SSD-дисках, выделенные хосты                                         | 0,0064 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Хранилище на локальных SSD-дисках, стандартные хосты                                        | 0,0198 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Хранилище на нереплицируемых SSD-дисках                                                     | 0,0147 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Хранилище на сетевых HDD-дисках                                                             | 0,0052 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for MySQL®. Хранилище на сетевых SSD-дисках                                                             | 0,0218 ₽  | ГБ × час        | 30 апреля 2026 | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, AMD Zen 4 HighFreq, 100% vCPU                     | 1,26 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, AMD Zen 4 HighFreq, RAM                           | 0,2381 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, AMD Zen 4, 100% vCPU                              | 0,5764 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, AMD Zen 4, RAM                                    | 0,1729 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Cascade Lake, 100% vCPU                     | 0,634 ₽   | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Cascade Lake, RAM                           | 0,1844 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Ice Lake (Compute Optimized), 100% vCPU     | 1,0376 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Ice Lake (Compute Optimized), RAM           | 0,1959 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Ice Lake, 100% vCPU                         | 0,5764 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Ice Lake, RAM                               | 0,1729 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов,  AMD Zen 4, 100% vCPU, CVoS на 6 месяцев         | 1,64 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4 HighFreq, 100% vCPU                    | 3,76 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4 HighFreq, RAM                          | 0,74 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, 100% vCPU                             | 1,93 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год              | 1,51 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM                                   | 0,53 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM, CVoS на 1 год                    | 0,4136 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM, CVoS на 6 месяцев                | 0,45 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, 100% vCPU                       | 2,07 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, 20% vCPU                        | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, 5% vCPU                         | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, 50% vCPU                        | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, RAM                             | 0,56 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 100% vCPU                    | 2,15 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год     | 1,68 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев | 1,83 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 20% vCPU                     | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 5% vCPU                      | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 50% vCPU                     | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM                          | 0,5879 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM, CVoS на 1 год           | 0,4586 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM, CVoS на 6 месяцев       | 0,4997 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake (Compute Optimized), 100% vCPU    | 3,1 ₽     | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake (Compute Optimized), RAM          | 0,61 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU                        | 1,93 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год         | 1,51 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев     | 1,64 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 50% vCPU                         | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM                              | 0,53 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM, CVoS на 1 год               | 0,4136 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев           | 0,45 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Публичный IP-адрес                                                                          | 0,2766 ₽  | IP-адрес × час  | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Резервные копии сверх размера хранилища                                                     | 0,00307 ₽ | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)                                      | 0,0365 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Хранилище на локальных SSD-дисках, выделенные хосты                                         | 0,0064 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Хранилище на локальных SSD-дисках, стандартные хосты                                        | 0,0198 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Хранилище на нереплицируемых SSD-дисках                                                     | 0,0147 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Хранилище на сетевых HDD-дисках                                                             | 0,0052 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for MySQL®. Хранилище на сетевых SSD-дисках                                                             | 0,0218 ₽  | ГБ × час        | 1 мая 2026     | —            |
 
 
 
@@ -327,7 +327,7 @@ blocks:
 Минимальная единица тарификации — 1 байт.
 
 
-| Услуга                                                    | Цена              | Ед. тарификации | Действует с    | Действует до |
-| --------------------------------------------------------- | ----------------- | --------------- | -------------- | ------------ |
-| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 30 апреля 2026 | —            |
-| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 30 апреля 2026 | —            |
+| Услуга                                                    | Цена              | Ед. тарификации | Действует с | Действует до |
+| --------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
+| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
+| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 1 мая 2026  | —            |

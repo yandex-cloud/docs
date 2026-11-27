@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/operations/organizations/change-organization.md
+    type: text/markdown
+    title: Markdown version
+---
 # Переключение между экземплярами {{ datalens-short-name }}
 
 Если вы администратор или пользователь нескольких [организаций](../../concepts/organizations.md), вы можете переключаться между ними. Это позволит работать в нескольких экземплярах {{ datalens-short-name }}.

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/REPLACE_ARRAY.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # REPLACE (array)

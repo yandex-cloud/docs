@@ -57,6 +57,10 @@ apiPlayground:
             type: array
             items:
               type: string
+alternate:
+  - href: ru/datasphere/api-ref/Project/setRestrictions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, REST: Project.SetRestrictions

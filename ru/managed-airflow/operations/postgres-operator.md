@@ -1,6 +1,10 @@
 ---
 title: Подключение к {{ mpg-full-name }}
 description: С помощью направленного ациклического графа (DAG) можно настроить подключение к БД в кластере {{ mpg-full-name }}.
+alternate:
+  - href: ru/managed-airflow/operations/postgres-operator.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к {{ mpg-full-name }}

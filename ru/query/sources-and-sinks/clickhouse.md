@@ -1,6 +1,10 @@
 ---
 title: Работа с базами данных {{ mch-full-name }}
 description: Из статьи вы узнаете, как подключиться к базе данных {{ mch-name }} и выполнять запросы к ней из {{ yq-full-name }}.
+alternate:
+  - href: ru/query/sources-and-sinks/clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с базами данных {{ mch-name }}

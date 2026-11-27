@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ mmy-full-name }}
 description: В этой инструкции вы научитесь создавать кластер {{ MY }} и подключаться к нему.
+alternate:
+  - href: ru/managed-mysql/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ mmy-name }}

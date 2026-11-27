@@ -6,6 +6,10 @@ keywords:
   - сайт WordPress
   - Установка WordPress
   - перенос WordPress
+alternate:
+  - href: ru/tutorials/web/wordpress-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сайты на WordPress

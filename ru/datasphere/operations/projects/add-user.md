@@ -1,6 +1,10 @@
 ---
 title: Как добавить пользователя в проект
 description: Следуя данной инструкции, вы сможете добавить пользователя в проект.
+alternate:
+  - href: ru/datasphere/operations/projects/add-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить пользователя в проект

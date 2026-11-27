@@ -1,6 +1,10 @@
 ---
 title: Назначение правил доступа к объектам каталогов в {{ mtr-name }}
 description: Правила описывают общий контроль доступа пользователей к объектам каталога (например схемам и таблицам) в рамках кластера {{ mtr-name }}.
+alternate:
+  - href: ru/managed-trino/operations/access-control-catalogs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначение правил доступа к объектам каталогов в {{ mtr-name }}

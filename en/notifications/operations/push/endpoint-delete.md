@@ -1,6 +1,10 @@
 ---
 title: Deleting an endpoint in {{ cns-full-name }}
 description: Follow this guide to delete an endpoint.
+alternate:
+  - href: en/notifications/operations/push/endpoint-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an endpoint

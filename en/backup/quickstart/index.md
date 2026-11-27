@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ backup-full-name }}
 description: This guide describes how you can get started with {{ backup-name }}.
+alternate:
+  - href: en/backup/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ backup-full-name }}

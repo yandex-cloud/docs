@@ -1,6 +1,10 @@
 ---
 title: Удалить правило из группы безопасности
 description: Следуя данной инструкции, вы сможете удалить правило из группы безопасности.
+alternate:
+  - href: ru/vpc/operations/security-group-delete-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить правило из группы безопасности

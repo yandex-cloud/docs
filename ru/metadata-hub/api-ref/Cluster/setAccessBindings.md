@@ -98,6 +98,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: ru/metadata-hub/api-ref/Cluster/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Hive Metastore™ API, REST: Cluster.SetAccessBindings

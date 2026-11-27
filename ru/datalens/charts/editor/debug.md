@@ -1,6 +1,10 @@
 ---
 title: Отладка чартов в Editor
 description: На этой странице содержится информация об отладке чартов в Editor.
+alternate:
+  - href: ru/datalens/charts/editor/debug.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отладка чартов в Editor

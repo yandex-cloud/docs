@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} overview in {{ yandex-cloud }}'
 description: 'Learn how to use {{ TF }} to manage infrastructure in {{ yandex-cloud }}: explore benefits, key workflows, and resource configuration examples.'
+alternate:
+  - href: en/terraform/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Overview

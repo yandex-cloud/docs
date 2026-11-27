@@ -1,6 +1,10 @@
 ---
 title: Deleting custom rule sets in {{ sd-full-name }}
 description: In this section, you will learn how to delete a custom rule set in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/custom-rules-sets/delete-set.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a custom rule set in {#delete-set}

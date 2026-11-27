@@ -1,6 +1,10 @@
 ---
 title: Подключение виртуальных машин {{ compute-full-name }} к {{ backup-full-name }}
 description: Из этой статьи вы узнаете, как подключить к {{ backup-full-name }} виртуальные машины {{ compute-full-name }}.
+alternate:
+  - href: ru/backup/concepts/vm-connection/compute.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение виртуальных машин {{ compute-full-name }} к {{ backup-name }}

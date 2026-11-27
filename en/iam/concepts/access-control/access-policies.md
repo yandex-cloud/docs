@@ -1,6 +1,10 @@
 ---
 title: Access policies in {{ iam-full-name }}
 description: In this article, you will learn about access policies in {{ iam-full-name }} and how to use them when managing {{ yandex-cloud }} resources.
+alternate:
+  - href: en/iam/concepts/access-control/access-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access policies

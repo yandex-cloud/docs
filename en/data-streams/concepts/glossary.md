@@ -1,6 +1,10 @@
 ---
 title: Terms and definitions in {{ yds-full-name }}
 description: In this article, you can find the terms and definitions for {{ yds-name }}.
+alternate:
+  - href: en/data-streams/concepts/glossary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Terms and definitions in {{ yds-name }}

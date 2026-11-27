@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/firewall/
+alternate:
+  - href: ru/cli/cli-ref/dns/cli-ref/firewall/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns firewall

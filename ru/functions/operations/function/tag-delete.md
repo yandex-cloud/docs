@@ -1,6 +1,10 @@
 ---
 title: Удалить тег версии функции
 description: Следуя данной инструкции, вы сможете удалить тег версии функции.
+alternate:
+  - href: ru/functions/operations/function/tag-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить тег версии функции

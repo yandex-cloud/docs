@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ monium-name }}
 description: В разделе представлена история изменений сервиса {{ monium-name }}.
+alternate:
+  - href: ru/monium/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ monium-name }}

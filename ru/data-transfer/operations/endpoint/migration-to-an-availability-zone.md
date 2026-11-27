@@ -1,6 +1,10 @@
 ---
 title: Миграция эндпоинтов и трансфера {{ data-transfer-full-name }} в другую зону доступности
 description: Следуя данной инструкции, вы сможете перенести эндпоинты и трансферы в другую зону доступности.
+alternate:
+  - href: ru/data-transfer/operations/endpoint/migration-to-an-availability-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция эндпоинтов и трансфера {{ data-transfer-name }} в другую зону доступности

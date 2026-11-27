@@ -1,6 +1,10 @@
 ---
 title: How to send requests to an external API when an alert triggers in {{ monitoring-full-name }}
 description: Follow this guide to create a webhook that invokes a function in {{ sf-full-name }}.
+alternate:
+  - href: en/monitoring/operations/alert/alert-call-function.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Webhook using {{ sf-name }}

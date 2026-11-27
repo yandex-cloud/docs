@@ -1,6 +1,10 @@
 ---
 title: Настройка демо-приложения для сбора телеметрии из приложения в кластере
 description: Инструкция по настройке демо-приложения в кластере {{ k8s }} и передаче телеметрии в {{ monium-name }}.
+alternate:
+  - href: ru/monium/collector/otel-k8s-example.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка демо-приложения и сбор телеметрии в {{ k8s }}

@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error: ERR.DS_API.CONNECTION.MIGRATION.CONNMAN.INSUFFICIENT_USE_PERMISSION'
 description: This page describes the `No access to {{ connection-manager-name }} connection` error in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-CONNMAN-INSUFFICIENT_USE_PERMISSION.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] No access to {{ connection-manager-name }} connection

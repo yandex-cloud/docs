@@ -1,6 +1,10 @@
 ---
 title: Как автоматически просканировать Docker-образ при загрузке
 description: Следуя данному руководству, вы сможете настроить автоматическое сканирование Docker-образов при загрузке в {{ container-registry-full-name }}.
+alternate:
+  - href: ru/container-registry/tutorials/image-auto-scan/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Автоматическое сканирование Docker-образа при загрузке

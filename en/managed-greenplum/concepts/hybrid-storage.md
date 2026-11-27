@@ -1,6 +1,10 @@
 ---
 title: Hybrid storage in {{ mgp-name }}
 description: How hybrid storage works in a {{ mgp-name }} cluster.
+alternate:
+  - href: en/managed-greenplum/concepts/hybrid-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Hybrid storage in {{ mgp-name }}

@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ objstorage-full-name }}
 description: This page provides answers to questions about {{ objstorage-name }}.
+alternate:
+  - href: en/storage/qa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ objstorage-name }}

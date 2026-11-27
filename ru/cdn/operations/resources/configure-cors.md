@@ -1,6 +1,10 @@
 ---
 title: Как настроить CORS при ответах клиентам в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете настроить CORS при ответах клиентам.
+alternate:
+  - href: ru/cdn/operations/resources/configure-cors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка CORS при ответах клиентам

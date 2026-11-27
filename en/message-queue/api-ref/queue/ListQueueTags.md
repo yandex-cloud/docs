@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/queue/ListQueueTags.md
+    type: text/markdown
+    title: Markdown version
+---
 # ListQueueTags
 
 Method for getting [queue labels](../../concepts/tags.md).

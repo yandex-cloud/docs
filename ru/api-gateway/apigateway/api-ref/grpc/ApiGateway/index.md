@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/api-gateway/apigateway/api-ref/grpc/ApiGateway/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Gateway Service, gRPC: ApiGatewayService

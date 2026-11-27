@@ -1,6 +1,10 @@
 ---
 title: Component properties in {{ dataproc-full-name }}
 description: In this tutorial, you will learn what cluster component properties are, how they are stored, and what settings they have.
+alternate:
+  - href: en/data-proc/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Component properties

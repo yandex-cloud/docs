@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/concepts/node-group/cluster-autoscaler.md
+    type: text/markdown
+    title: Markdown version
+---
 # Автоматическое масштабирование группы узлов в {{ managed-k8s-name }}
 
 Автоматическое масштабирование [группы узлов](../index.md#node-group) — это изменение размера группы узлов на основе запросов ресурсов для [подов](../index.md#pod), запущенных на узлах этой группы.

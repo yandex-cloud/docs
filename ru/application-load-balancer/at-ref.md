@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ alb-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ alb-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/application-load-balancer/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ at-full-name }}

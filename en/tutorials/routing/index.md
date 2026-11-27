@@ -1,6 +1,10 @@
 ---
 title: Use cases for network infrastructure in {{ yandex-cloud }}
 description: Various use cases for network infrastructure in {{ yandex-cloud }}.
+alternate:
+  - href: en/tutorials/routing/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Tutorials on the use of the network infrastructure in {{ yandex-cloud }}

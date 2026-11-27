@@ -1,6 +1,10 @@
 ---
 title: Creating an SLO alert
 description: Follow this guide to create an SLO alert.
+alternate:
+  - href: en/monium/operations/alert/create-slo-alert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an SLO alert

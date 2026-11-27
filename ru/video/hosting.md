@@ -1,6 +1,10 @@
 ---
 title: Начало работы хостингом видео в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете загрузить ваше видео в сервис {{ video-full-name }} и опубликовать его.
+alternate:
+  - href: ru/video/hosting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с хостингом видео в {{ video-full-name }}

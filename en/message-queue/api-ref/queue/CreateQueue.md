@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/queue/CreateQueue.md
+    type: text/markdown
+    title: Markdown version
+---
 # CreateQueue
 
 Method for creating a new standard or FIFO queue.

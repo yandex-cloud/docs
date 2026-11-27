@@ -1,6 +1,10 @@
 ---
 title: Disabling {{ maf-name }}
 description: How to safely disable {{ maf-name }}.
+alternate:
+  - href: en/stackland/operations/airflow/disable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Disabling {{ maf-name }}

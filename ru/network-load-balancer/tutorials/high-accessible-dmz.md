@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/routing/high-accessible-dmz'
+alternate:
+  - href: ru/network-load-balancer/tutorials/high-accessible-dmz.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

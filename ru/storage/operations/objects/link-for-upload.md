@@ -1,6 +1,10 @@
 ---
 title: Получить подписанную ссылку на загрузку объекта в бакет в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете получить подписанную ссылку (pre-signed URL) на загрузку объекта в бакет в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/objects/link-for-upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить подписанную ссылку (pre-signed URL) на загрузку объекта

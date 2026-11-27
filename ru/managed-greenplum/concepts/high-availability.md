@@ -1,6 +1,10 @@
 ---
 title: Высокая доступность кластера {{ mgp-name }}
 description: Доступность кластера {{ mgp-name }} определяется его конфигурацией, настройками подключения клиентов, свободным местом в хранилище и другими параметрами.
+alternate:
+  - href: ru/managed-greenplum/concepts/high-availability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Высокая доступность кластера {{ mgp-name }}

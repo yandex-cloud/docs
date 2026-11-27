@@ -1,6 +1,10 @@
 ---
 title: Рекомендации по использованию правил ревью кода в {{ mgl-full-name }}
 description: 'В статье приведены примеры файлов APPROVALRULES и CODEOWNERS для типовых сценариев: двухэтапное ревью, одобрение изменений в CI/CD, одобрение по ролям в {{ mgl-name }}.'
+alternate:
+  - href: ru/managed-gitlab/concepts/approval-rules-scenarios.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Рекомендации по использованию правил ревью кода в {{ mgl-full-name }}

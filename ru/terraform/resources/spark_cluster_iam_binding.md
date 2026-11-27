@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Spark
+alternate:
+  - href: ru/terraform/resources/spark_cluster_iam_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_spark_cluster_iam_binding (Resource)

@@ -1,6 +1,10 @@
 ---
 title: Мониторинг состояния кластера {{ metastore-name }}
 description: Из статьи вы узнаете, как осуществлять мониторинг состояния кластера {{ metastore-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/metastore/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг состояния кластера {{ metastore-name }}
@@ -80,38 +84,47 @@ description: Из статьи вы узнаете, как осуществля�
 
 {% endlist %}
 
-## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
+## Настройка алертов в {{ monium-full-name }} {#monitoring-integration}
 
-Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster):
+Чтобы получать уведомления об изменении [показателей состояния кластера](#monitoring-cluster), создайте алерт по запросу с сервисного дашборда:
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. [Перейдите]({{ link-monitoring }}) в сервис ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите **Managed Service For Hive Metastore — Cluster Overview**.
-  1. На нужном графике нажмите на значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов в [документации {{ monitoring-full-name }}](../../../monitoring/concepts/querying.md).
-  1. Задайте пороговые значения `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.label_warning }}` для срабатывания алерта.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Откройте [{{ monium-name }}]({{ link-monium }}).
+  1. На панели сверху выберите проект каталога с кластером: `folder__<идентификатор_каталога>`.
+  1. На панели слева выберите ![layout-cells-large](../../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** и перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+  1. Откройте дашборд **Managed Service For Hive Metastore — Cluster Overview**. Если на дашборде доступны параметры, выберите нужный кластер.
+  1. На нужном графике нажмите ![rectangle-pulse](../../../_assets/console-icons/rectangle-pulse.svg) **Перейти в Метрики**.
+  1. На панели нужного запроса справа вверху нажмите ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **Создать алерт по запросу** или **{{ ui-key.yacloud_monitoring.querystring.action.create-alert-from-all-queries }}**.
+  1. Укажите название алерта. В блоке **Условия срабатывания** выберите запрос для проверки, функцию агрегации и функцию сравнения. Задайте пороги **Warning** и **Alarm**, окно и задержку вычисления.
+  1. Добавьте [канал уведомлений](../../../monium/operations/alert/create-channel.md) и выберите статусы для отправки уведомлений.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.monitoring-alerts.action.calculate-alert }}** и проверьте график, значения запросов и статус алерта.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
+Подробнее о создании алерта по запросу в [инструкции {{ monium-name }}](../../../monium/metrics/metric-explorer.md#create-alert), о параметрах алерта — в разделе [Создание алерта](../../../monium/operations/alert/create-alert.md).
+
 {% include [other-indicators](../../../_includes/mdb/other-indicators.md) %}
 
-Рекомендуемые значения порогов для некоторых метрик:
+Если вы создаете запросы с нуля, для отслеживания загрузки CPU вычислите отношение `cpu_usage.gauge` к `cpu_limit.gauge`, а для использования памяти — отношение `memory_usage.gauge` к `memory_limit.gauge`. Умножьте результат на сто, чтобы получить значение в процентах.
+
+Для счетчиков ошибок и таймаутов примените функцию [non_negative_derivative()](../../../monium/concepts/querying-functions.md#non_negative_derivative), чтобы отслеживать появление новых событий.
+
+Рекомендуемые значения порогов для некоторых показателей:
 
 | Метрика                               | Обозначение                | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`                   | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`                 |
 |---------------------------------------|:--------------------------:|:-------------------------:|:-------------------------:|
-| Использование процессорного времени                   | `cpu_usage` | 90%                      | 80%                       |
-| Использование оперативной памяти     | `memory_usage`        | 90% | 80% |
-| 95-й процентиль общего времени выполнения запросов     | `metastore_api_calls_duration_seconds`    | 10 секунд                         | 3 секунды                    |
-| Количество запросов, ожидающих выделения подключения      | `metastore_pool_pending_connections`          | —  | Больше нуля в течение пяти минут  |
-| Количество запросов, завершившихся таймаутом из-за отсутствия доступных подключений | `metastore_pool_connection_timeouts_total` | Больше нуля | — |
-| Количество ошибок при выполнении DirectSQL-запросов, после которых {{ metastore-name }} перешел к выполнению запросов через JDO | `metastore_directsql_errors_total` | — | Больше нуля |
+| Использование процессорного времени                   | `cpu_usage.gauge`, `cpu_limit.gauge` | 90%                      | 80%                     |
+| Использование оперативной памяти     | `memory_usage.gauge`, `memory_limit.gauge`        | 90% | 80% |
+| 95-й процентиль общего времени выполнения запросов     | `metastore_api_calls_duration_seconds.gauge`, метки `method = total` и `quantile = 0.95`    | 10 секунд                         | 3 секунды                    |
+| Количество запросов, ожидающих выделения подключения      | `metastore_pool_pending_connections.gauge`          | —  | Больше нуля в течение пяти минут  |
+| Частота таймаутов из-за отсутствия доступных подключений | `metastore_pool_connection_timeouts_total.counter` | Больше нуля | — |
+| Частота ошибок при выполнении DirectSQL-запросов, после которых {{ metastore-name }} перешел к выполнению запросов через JDO | `metastore_directsql_errors_total.counter` | — | Больше нуля |
 
-Полный список поддерживаемых метрик в [документации {{ monitoring-name }}](../../../monitoring/metrics-ref/managed-metastore-ref.md).
+Полный список поддерживаемых метрик в [справочнике метрик {{ metastore-name }}](../../metastore-metrics.md).
 
 ## Состояние и статус кластера {#cluster-health-and-status}
 

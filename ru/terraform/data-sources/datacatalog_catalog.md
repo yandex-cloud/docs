@@ -1,5 +1,9 @@
 ---
 subcategory: Datacatalog
+alternate:
+  - href: ru/terraform/data-sources/datacatalog_catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_datacatalog_catalog (DataSource)

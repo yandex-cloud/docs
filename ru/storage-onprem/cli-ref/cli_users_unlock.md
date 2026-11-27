@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_users_unlock.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli users unlock
 
 Unlock user

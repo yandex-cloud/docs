@@ -1,6 +1,10 @@
 ---
 title: How to view activity info
 description: Follow this guide to view information about activities regarding a deal.
+alternate:
+  - href: en/partner/operations/activity-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing activity info

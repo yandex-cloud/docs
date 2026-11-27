@@ -1,6 +1,10 @@
 ---
 title: How to disable subscription auto-renewal in {{ marketplace-full-name }}
 description: In this tutorial, you will learn how to disable subscription auto-renewal in {{ marketplace-full-name }}.
+alternate:
+  - href: en/marketplace/operations/users/cancel-subscription.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Disabling subscription auto-renewal in {{ marketplace-name }}

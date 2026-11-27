@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/dummy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение x-yc-apigateway-integration:dummy
 
 Расширение `x-yc-apigateway-integration:dummy` возвращает фиксированное содержимое с указанным кодом ответа и необходимыми заголовками без участия стороннего сервиса.

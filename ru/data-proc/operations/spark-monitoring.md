@@ -1,6 +1,10 @@
 ---
 title: Как выполнить мониторинг состояния Spark-приложений в {{ dataproc-full-name }}
 description: Следуя данной инструкции, вы сможете выполнить мониторинг состояния Spark-приложений.
+alternate:
+  - href: ru/data-proc/operations/spark-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг состояния Spark-приложений

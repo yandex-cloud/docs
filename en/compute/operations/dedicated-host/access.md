@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for a dedicated host group
 description: You can assign or revoke access permissions for a group of dedicated {{ compute-name }} hosts.
+alternate:
+  - href: en/compute/operations/dedicated-host/access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring access permissions for a dedicated host group

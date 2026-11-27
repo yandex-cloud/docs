@@ -1,6 +1,10 @@
 ---
 title: Pivot table in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the pivot table visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/pivot-table-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pivot table ![](../../_assets/datalens/pivot-table.svg) in {{ datalens-full-name }}

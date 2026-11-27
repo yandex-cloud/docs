@@ -6,6 +6,10 @@ keywords:
   - Открыть сервис {{ yandex-cloud }}
   - Найти сервис {{ yandex-cloud }}
   - Выбрать сервис {{ yandex-cloud }}
+alternate:
+  - href: ru/console/operations/select-service.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работу с сервисами и создавать ресурсы

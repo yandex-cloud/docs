@@ -1,6 +1,10 @@
 ---
 title: How to create, update, and delete digital signature key pairs
 description: Follow this guide to create, update, and delete digital signature key pairs.
+alternate:
+  - href: en/kms/operations/asymmetric-signature-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing digital signature key pairs

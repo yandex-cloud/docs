@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/describeTable.md
+alternate:
+  - href: en/ydb/docapi/api-ref/actions/describeTable.md
+    type: text/markdown
+    title: Markdown version
 ---
 # DescribeTable method
 

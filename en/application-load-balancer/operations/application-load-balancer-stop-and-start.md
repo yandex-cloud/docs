@@ -1,6 +1,10 @@
 ---
 title: How to stop and start an L7 load balancer in {{ alb-full-name }}
 description: In this tutorial, you will learn how to stop and start an L7 load balancer in {{ alb-name }}.
+alternate:
+  - href: en/application-load-balancer/operations/application-load-balancer-stop-and-start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Stopping and starting an L7 load balancer

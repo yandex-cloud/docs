@@ -1,6 +1,10 @@
 ---
 title: 'Обзор Data Vault: гибкое решение для хранения и анализа данных'
 description: Data Vault или свод данных — одна из моделей хранилища данных (Data Warehouse), структура которой предусматривает длительное хранение больших объемов разнородной информации.
+alternate:
+  - href: ru/glossary/datavault.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Vault

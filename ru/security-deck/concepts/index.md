@@ -1,6 +1,10 @@
 ---
 title: Обзор {{ sd-full-name }}
 description: Сервис {{ sd-name }} представляет собой CNAPP — комплексную платформу, которая позволяет обнаруживать уязвимости, отслеживать и защищать доступ к данным, а также контролировать соблюдение нормативных актов и отраслевых стандартов.
+alternate:
+  - href: ru/security-deck/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор {{ sd-full-name }}

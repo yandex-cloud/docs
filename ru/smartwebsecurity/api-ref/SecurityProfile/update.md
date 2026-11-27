@@ -843,6 +843,10 @@ apiPlayground:
                 - CLOUD_LOGGING
                 - AUDIT_TRAILS
                 - MONIUM
+alternate:
+  - href: ru/smartwebsecurity/api-ref/SecurityProfile/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity API, REST: SecurityProfile.Update

@@ -1,6 +1,11 @@
 ---
 title: Как добавить приватное соединение в виртуальный маршрутизатор в {{ cr-name }}
 description: Следуя этой инструкции, вы сможете добавить приватное соединение в виртуальный маршрутизатор в {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: ru/cloud-router/operations/ri-priv-con-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить приватное соединение в виртуальный маршрутизатор

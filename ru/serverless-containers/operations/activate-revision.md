@@ -1,6 +1,10 @@
 ---
 title: Сделать ревизию активной
 description: Следуя данной инструкции, вы сможете сделать ревизию контейнера активной.
+alternate:
+  - href: ru/serverless-containers/operations/activate-revision.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сделать ревизию активной

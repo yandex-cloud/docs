@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_SAME_KEY_POSITION
 description: На странице приведено описание ошибки {{ datalens-full-name }} Joined columns do not occupy same positions in key columns of joined tables.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_SAME_KEY_POSITION.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Joined columns do not occupy same positions in key columns of joined tables

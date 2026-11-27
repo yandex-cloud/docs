@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/slo/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Overview
 
 _SLO (Service Level Objective)_ is the target service quality level expressed in certain metrics over a period of time. Unlike an SLA, an SLO is an internal objective, not a legal obligation.

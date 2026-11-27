@@ -10,7 +10,7 @@
 1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) в подсети, к которой будет подключен кластер. Это необходимо, чтобы кластер мог взаимодействовать с сервисами Yandex Cloud.
 1. [Настройте группу безопасности](configure-security-group.md).
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
-1. [Назначьте сервисному аккаунту](../../../iam/operations/sa/assign-role-for-sa.md) роль `managed-metastore.integrationProvider`. Она позволяет кластеру от имени сервисного аккаунта [взаимодействовать с сервисами](../../concepts/metastore-impersonation.md) Yandex Cloud, например с Yandex Cloud Logging и Yandex Monitoring.
+1. [Назначьте сервисному аккаунту](../../../iam/operations/sa/assign-role-for-sa.md) роль `managed-metastore.integrationProvider`. Она позволяет кластеру от имени сервисного аккаунта [взаимодействовать с сервисами](../../concepts/metastore-impersonation.md) Yandex Cloud, например с Yandex Cloud Logging и Yandex Monium.
 
     Для использования Object Storage дополнительно назначьте сервисному аккаунту кластера [роль](../../../storage/security/index.md#storage-editor) `storage.editor`.
 

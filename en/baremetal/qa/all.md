@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ baremetal-full-name }}
 description: This page covers questions and answers about {{ baremetal-name }}.
+alternate:
+  - href: en/baremetal/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ baremetal-name }}

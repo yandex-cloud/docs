@@ -1,6 +1,10 @@
 ---
 title: Как управлять эфемерными ключами доступа в {{ iam-full-name }}
 description: Из статьи вы узнаете, как создавать эфемерные ключи доступа в {{ iam-name }} через CLI.
+alternate:
+  - href: ru/iam/operations/authentication/manage-ephemeral-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление эфемерными ключами доступа

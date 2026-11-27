@@ -1,6 +1,10 @@
 ---
 title: How to open a chart as a table in {{ datalens-full-name }}
 description: Follow this guide to open a chart as a table in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/chart/open-as-table.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Opening a chart as a table in {{ datalens-full-name }}

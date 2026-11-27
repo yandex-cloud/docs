@@ -1,6 +1,10 @@
 ---
 title: How to manage ephemeral access keys in {{ iam-full-name }}
 description: In this guide, you will learn how to create ephemeral access keys in {{ iam-name }} via the CLI.
+alternate:
+  - href: en/iam/operations/authentication/manage-ephemeral-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing ephemeral access keys

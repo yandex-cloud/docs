@@ -1,6 +1,10 @@
 ---
 title: '{{ alb-full-name }} use cases'
 description: Various use cases for {{ alb-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/application-load-balancer/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ alb-name }} tutorials

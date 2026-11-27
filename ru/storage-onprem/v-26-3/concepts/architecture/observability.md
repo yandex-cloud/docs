@@ -1,6 +1,10 @@
 ---
 title: Observability в {{ objstorage-onprem-name }}
 description: Хранение и доступность метрик и логов {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/observability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Observability

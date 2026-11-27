@@ -1,6 +1,10 @@
 ---
 title: How to add parameters to a dashboard in {{ datalens-full-name }}
 description: Follow this guide to add parameters to a dashboard in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/add-parameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding parameters to a dashboard in {{ datalens-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Deleting an {{ AF }} cluster
 description: How to delete an {{ AF }} cluster and its associated data.
+alternate:
+  - href: en/stackland/operations/airflow/delete-cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an {{ AF }} cluster

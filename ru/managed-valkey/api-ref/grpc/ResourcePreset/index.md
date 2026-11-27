@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-valkey/api-ref/grpc/ResourcePreset/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, gRPC: ResourcePresetService

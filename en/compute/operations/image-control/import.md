@@ -1,6 +1,10 @@
 ---
 title: How to import an image from a different cloud or folder in {{ compute-full-name }}
 description: Follow this guide to import an image from a different cloud or folder.
+alternate:
+  - href: en/compute/operations/image-control/import.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Importing an image from a different cloud or folder

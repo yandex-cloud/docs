@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ mmy-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ mmy-name }}.
+alternate:
+  - href: ru/managed-mysql/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ mmy-name }}

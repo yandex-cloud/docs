@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/async/models/text_classifiers.md
+    type: text/markdown
+    title: Markdown version
+---
 # Domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_models.text\_classifiers.function.**AsyncTextClassifiers**{#yandex_ai_studio_sdk._models.text_classifiers.function.AsyncTextClassifiers}

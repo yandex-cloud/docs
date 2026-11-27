@@ -1,6 +1,10 @@
 ---
 title: '{{ quota-manager-name }} concepts'
 description: In this article, you will learn about {{ quota-manager-name }} concepts.
+alternate:
+  - href: en/quota-manager/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

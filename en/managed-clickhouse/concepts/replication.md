@@ -1,6 +1,10 @@
 ---
 title: Replication in {{ mch-full-name }}
 description: In this article, you will learn about cluster host replication in {{ mch-full-name }}.
+alternate:
+  - href: en/managed-clickhouse/concepts/replication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Replication in {{ mch-name }}

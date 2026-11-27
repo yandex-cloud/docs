@@ -2,6 +2,10 @@
 title: Quotas and limits in {{ dataproc-full-name }}
 description: There are quotas and limits in {{ dataproc-full-name }}. {{ dataproc-name }} cluster VMs utilize your {{ compute-full-name }} cloud quotas. For more information about the service restrictions, read this article.
 editable: false
+alternate:
+  - href: en/data-proc/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ dataproc-name }}

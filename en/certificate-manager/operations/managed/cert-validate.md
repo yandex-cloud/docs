@@ -1,6 +1,10 @@
 ---
 title: How to verify domain ownership in {{ certificate-manager-full-name }}
 description: Follow this guide to verify domain ownership.
+alternate:
+  - href: en/certificate-manager/operations/managed/cert-validate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Verifying domain ownership

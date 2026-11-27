@@ -1,6 +1,10 @@
 ---
 title: Basic security rules for the {{ yandex-cloud }} cloud platform
 description: This section provides a list of control rules from the {{ yandex-cloud }} basic security rule set.
+alternate:
+  - href: en/security-deck/concepts/standard-compliance/yc-security-baseline.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} basic security rules

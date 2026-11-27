@@ -1,6 +1,10 @@
 ---
 title: User pools in {{ org-full-name }}
 description: You can create user pools to use local users and group them into containers. With a pool, you can manage users centrally, link your domains to them, grant access permissions, and manage authentication via the {{ yandex-cloud }} IdP.
+alternate:
+  - href: en/organization/concepts/user-pools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # User pools

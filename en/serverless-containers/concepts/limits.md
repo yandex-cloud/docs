@@ -1,6 +1,10 @@
 ---
 title: Quotas and limits in {{ serverless-containers-full-name }}
 description: '{{ serverless-containers-full-name }} has quotas and limits. For more information about such restrictions, read this article.'
+alternate:
+  - href: en/serverless-containers/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 editable: false

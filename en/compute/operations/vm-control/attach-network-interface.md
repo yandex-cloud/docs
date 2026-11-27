@@ -1,6 +1,10 @@
 ---
 title: Adding another network interface to a virtual machine
 description: Follow this guide to add another network interface to a VM.
+alternate:
+  - href: en/compute/operations/vm-control/attach-network-interface.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding another network interface to a virtual machine

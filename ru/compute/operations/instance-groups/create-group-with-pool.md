@@ -1,6 +1,10 @@
 ---
 title: Создать группу виртуальных машин с привязкой к пулу резервов ВМ
 description: Из статьи вы узнаете, как создать группу виртуальных машин {{ compute-full-name }} с привязкой к пулу резервов ВМ.
+alternate:
+  - href: ru/compute/operations/instance-groups/create-group-with-pool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать группу с виртуальными машинами из пула резервов {{ compute-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to get information about trunks in {{ interconnect-name }}
 description: In this tutorial, we will get information about trunks in {{ interconnect-name }}.
+alternate:
+  - href: en/interconnect/operations/trunk-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about trunk links

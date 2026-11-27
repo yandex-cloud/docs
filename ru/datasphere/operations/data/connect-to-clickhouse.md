@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/data/connect-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение к базе данных {{ CH }}
 
 В инфраструктуре {{ yandex-cloud }} разворачивать и поддерживать кластеры серверов [{{ CH }}](https://{{ ch-domain }}/) позволяет сервис {{ mch-short-name }}.

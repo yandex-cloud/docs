@@ -2,6 +2,10 @@
 title: '{{ postbox-full-name }} metrics'
 description: In this tutorial, you will learn about {{ postbox-name }} metrics.
 editable: false
+alternate:
+  - href: en/monitoring/metrics-ref/postbox-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ postbox-full-name }} metrics

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/cors.md
+    type: text/markdown
+    title: Markdown version
+---
 # CORS
 
 Расширения `x-yc-apigateway-cors-rules` и `x-yc-apigateway-cors` позволяют настроить автоматическую обработку [preflight-запросов](https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request) в соответствии с механизмом [CORS](https://developer.mozilla.org/en-US/docs/Glossary/CORS).

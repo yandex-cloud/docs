@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/operations/activate-commercial.md
+    type: text/markdown
+    title: Markdown version
+---
 # Activate the paid version
 
 Businesses can activate the paid version within sixty days after the [trial period](../concepts/trial-period.md) expires. Otherwise, all resources will be deleted. 

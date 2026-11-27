@@ -1,6 +1,10 @@
 ---
 title: Управление резервными копиями {{ SD }}
 description: Вы можете создавать резервные копии и восстанавливать кластеры из имеющихся резервных копий {{ SD }}. Технология Point-in-Time Recovery (PITR) позволяет восстановить состояние кластера на любой момент времени, начиная с момента создания резервной копии.
+alternate:
+  - href: ru/storedoc/operations/cluster-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление резервными копиями в {{ mmg-name }}

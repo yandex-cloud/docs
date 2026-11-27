@@ -1,6 +1,10 @@
 ---
 title: DAG file sources in {{ maf-full-name }}
 description: Learn how {{ maf-name }} downloads DAG files from an {{ objstorage-name }} bucket or Git repository and what authentication methods are supported.
+alternate:
+  - href: en/managed-airflow/concepts/dag-sources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DAG file sources

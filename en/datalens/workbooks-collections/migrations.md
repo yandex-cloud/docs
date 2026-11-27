@@ -1,6 +1,10 @@
 ---
 title: Migrating objects to workbooks
 description: Follow this guide to migrate objects to workbooks.
+alternate:
+  - href: en/datalens/workbooks-collections/migrations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating objects to workbooks from folders

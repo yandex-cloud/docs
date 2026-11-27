@@ -1,5 +1,9 @@
 ---
 subcategory: Data Transfer
+alternate:
+  - href: ru/terraform/resources/datatransfer_transfer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_datatransfer_transfer (Resource)

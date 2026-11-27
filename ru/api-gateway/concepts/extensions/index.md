@@ -1,6 +1,10 @@
 ---
 title: Расширения спецификации {{ api-gw-name }}. Обзор
 description: Расширение x-yc-apigateway позволяет задать верхнеуровневые параметры API-шлюза, значения которых будут наследоваться вложенными расширениями. Расширение x-yc-apigateway-integration — это точка входа для интеграции API-шлюза с другими сервисами.
+alternate:
+  - href: ru/api-gateway/concepts/extensions/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Расширения спецификации {{ api-gw-name }}. Обзор

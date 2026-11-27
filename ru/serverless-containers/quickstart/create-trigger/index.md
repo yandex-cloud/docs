@@ -1,6 +1,10 @@
 ---
 title: Создание и запуск триггера в {{ serverless-containers-full-name }}
 description: Из статьи вы узнаете, как создать и запустить триггер в {{ serverless-containers-full-name }}.
+alternate:
+  - href: ru/serverless-containers/quickstart/create-trigger/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание и запуск триггера в {{ serverless-containers-name }}

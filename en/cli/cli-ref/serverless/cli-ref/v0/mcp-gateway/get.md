@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/mcp-gateway/get/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/v0/mcp-gateway/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless v0 mcp-gateway get

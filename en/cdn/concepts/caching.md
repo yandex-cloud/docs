@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/concepts/caching.md
+    type: text/markdown
+    title: Markdown version
+---
 # Content caching
 
 In the CDN resource settings, you can enable _content caching_ to temporarily store the file copies loaded from origins. There are two types of caching:

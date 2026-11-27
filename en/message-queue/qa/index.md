@@ -1,6 +1,10 @@
 ---
 title: '{{ message-queue-full-name }}. FAQ'
 description: How do I get the logs of my actions in {{ message-queue-full-name }}? Find the answer to this and other questions in this article.
+alternate:
+  - href: en/message-queue/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ message-queue-name }}

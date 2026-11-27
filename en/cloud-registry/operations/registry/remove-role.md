@@ -1,6 +1,10 @@
 ---
 title: How to revoke registry roles in {{ cloud-registry-full-name }}
 description: Follow this guide to revoke roles for a registry.
+alternate:
+  - href: en/cloud-registry/operations/registry/remove-role.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Revoking a registry role

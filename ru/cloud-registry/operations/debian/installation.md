@@ -1,6 +1,10 @@
 ---
 title: Настроить менеджер пакетов APT для работы с реестром {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы настроите APT для работы с реестром {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/debian/installation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить менеджер пакетов APT

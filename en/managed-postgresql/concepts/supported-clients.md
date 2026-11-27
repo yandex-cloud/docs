@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/concepts/supported-clients.md
+    type: text/markdown
+    title: Markdown version
+---
 # Recommended {{ mpg-name }} clients
 
 To connect to {{ mpg-short-name }}, consider using the following clients:

@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for SPQR
+alternate:
+  - href: ru/terraform/resources/mdb_sharded_postgresql_shard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_sharded_postgresql_shard (Resource)

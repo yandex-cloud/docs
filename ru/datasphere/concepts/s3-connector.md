@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/s3-connector.md
+    type: text/markdown
+    title: Markdown version
+---
 # Коннектор S3
 
 {{ ml-platform-name }} предоставляет возможность подключаться к объектному хранилищу [S3](../../glossary/s3.md) с помощью специального типа ресурсов — _Коннекторы S3_.

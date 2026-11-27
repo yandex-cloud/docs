@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/yq/events-ref/DeleteConnection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Query Audit Trails Events: DeleteConnection

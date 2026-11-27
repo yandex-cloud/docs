@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.CHYT.CLIQUE.ACCESS_DENIED
 description: На странице приведено описание ошибки {{ datalens-full-name }} Access to clique <название_клики> for user <логин_пользователя> was denied.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-ACCESS_DENIED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Access to clique <название_клики> for user <логин_пользователя> was denied

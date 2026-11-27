@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/artifact/
+alternate:
+  - href: ru/cloud-registry/cli-ref/artifact/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry artifact

@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ yq-full-name }}'
 description: This page is a reference for {{ TF }} provider resources supported for {{ yq-name }}.
+alternate:
+  - href: en/query/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ yq-full-name }}

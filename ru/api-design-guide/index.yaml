@@ -25,6 +25,10 @@ meta:
     - keyword: API endpoints {{ yandex-cloud }}
     - keyword: HTTP методы в {{ yandex-cloud }}
     - keyword: архитектура API {{ yandex-cloud }}
+  alternate:
+    - href: ru/api-design-guide/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Основные принципы
     description: Как устроены API и в чем заключается ресурсо-ориентированный подход

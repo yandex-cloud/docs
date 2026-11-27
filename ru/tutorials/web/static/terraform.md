@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/tutorials/web/static/terraform.md
+    type: text/markdown
+    title: Markdown version
+---
 # Статический сайт в {{ objstorage-full-name }} с помощью {{ TF }}
 
 Чтобы разместить [статический сайт в {{ objstorage-name }}](index.md) с помощью {{ TF }}:

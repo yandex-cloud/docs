@@ -1,6 +1,10 @@
 ---
 title: How to delete a disk image
 description: Follow this guide to delete a disk image.
+alternate:
+  - href: en/compute/operations/image-control/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a disk image

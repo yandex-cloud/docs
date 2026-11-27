@@ -1,6 +1,10 @@
 ---
 title: Правила тарификации для продуктов Microsoft
 description: В статье содержатся правила тарификации продуктов Microsoft.
+alternate:
+  - href: ru/microsoft/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации

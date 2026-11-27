@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение к {{ yq-full-name }}
 description: Следуя данной инструкции, вы сможете создать подключение к {{ yq-full-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/create-yandex-query.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к {{ yq-full-name }}

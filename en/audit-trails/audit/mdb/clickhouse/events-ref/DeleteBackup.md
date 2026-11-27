@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/mdb/clickhouse/events-ref/DeleteBackup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse Audit Trails Events: DeleteBackup

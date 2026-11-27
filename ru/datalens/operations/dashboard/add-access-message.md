@@ -1,6 +1,10 @@
 ---
 title: Как добавить сообщение при ошибке прав доступа к дашборду в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить сообщение при ошибке прав доступа к дашборду в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-access-message.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление сообщения при ошибке доступа в {{ datalens-full-name }}

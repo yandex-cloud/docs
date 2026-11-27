@@ -1,6 +1,10 @@
 ---
 title: Как удалить NAT-шлюз в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете удалить NAT-шлюз.
+alternate:
+  - href: ru/vpc/operations/delete-nat-gateway.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить NAT-шлюз

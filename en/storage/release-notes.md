@@ -1,6 +1,10 @@
 ---
 title: '{{ objstorage-full-name }} release notes'
 description: This section contains the {{ objstorage-name }} release notes.
+alternate:
+  - href: en/storage/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ objstorage-full-name }} release notes

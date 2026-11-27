@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/v1/migration/get-cloud-migration-status-dashboard/
+alternate:
+  - href: en/cloud-registry/cli-ref/v1/migration/get-cloud-migration-status-dashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry v1 migration get-cloud-migration-status-dashboard

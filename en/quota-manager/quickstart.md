@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ quota-manager-full-name }}
 description: Follow this guide to view quotas for your services.
+alternate:
+  - href: en/quota-manager/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ quota-manager-full-name }}

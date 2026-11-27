@@ -1,6 +1,10 @@
 ---
 title: Многофакторная аутентификация (MFA) в {{ org-full-name }}
 description: Для федеративных и локальных пользователей в {{ org-full-name }} вы можете настроить MFA — многофакторную аутентификацию, позволяющую повысить уровень защищенности учетных записей таких пользователей.
+alternate:
+  - href: ru/organization/concepts/mfa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Многофакторная аутентификация в {{ org-full-name }}

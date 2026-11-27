@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/topic/update/
+alternate:
+  - href: ru/cli/cli-ref/managed-kafka/cli-ref/topic/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kafka topic update

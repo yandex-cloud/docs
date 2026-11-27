@@ -1,6 +1,10 @@
 ---
 title: API methods
 description: In this article, you will learn about {{ yandex-cloud }} API methods and their types.
+alternate:
+  - href: en/api-design-guide/concepts/about-methods.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API methods

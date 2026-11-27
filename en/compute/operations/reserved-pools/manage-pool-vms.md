@@ -1,6 +1,10 @@
 ---
 title: Managing VMs in a reserved instance pool
 description: In this article, you will learn how to create {{ compute-full-name }} VMs in a reserved instance pool and how to link/unlink existing VMs to/from such pools.
+alternate:
+  - href: en/compute/operations/reserved-pools/manage-pool-vms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing VMs in a reserved instance pool

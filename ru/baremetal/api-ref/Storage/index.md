@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/baremetal/api-ref/Storage/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Storage

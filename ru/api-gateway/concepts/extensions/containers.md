@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/containers.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение x-yc-apigateway-integration:serverless_containers
 
 Расширение `x-yc-apigateway-integration:serverless_containers` вызывает указанный [контейнер](../../../serverless-containers/concepts/container.md) и передает в него HTTP-запрос, адресованный к API-шлюзу. В заголовке `Host` при этом указывается хост, по которому пользователь обратился к API-шлюзу, а не хост контейнера.

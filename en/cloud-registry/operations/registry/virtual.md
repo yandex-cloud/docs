@@ -1,6 +1,10 @@
 ---
 title: Creating a virtual registry in {{ cloud-registry-full-name }}
 description: Follow this guide to create a virtual registry in {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/registry/virtual.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a virtual registry

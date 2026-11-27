@@ -1,6 +1,10 @@
 ---
 title: Allocation policy
 description: In this tutorial, you will learn about the VM allocation policy.
+alternate:
+  - href: en/compute/concepts/instance-groups/policies/allocation-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Allocation policy

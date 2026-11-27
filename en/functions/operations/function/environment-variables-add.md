@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/function/environment-variables-add.md
+    type: text/markdown
+    title: Markdown version
+---
 # Adding function environment variables
 
 When adding environment variables, you create a new version of the function. You cannot add variables to an existing version.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/postgresql/delete-database.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить базу данных PostgreSQL
 
 Если у вас есть база данных PostgreSQL в [кластере](../../concepts/components/postgresql.md), вы можете удалить ее.

@@ -2,6 +2,10 @@
 title: Метрики {{ monitoring-full-name }}
 description: Из статьи вы узнаете про метрики {{ monitoring-name }}.
 editable: false
+alternate:
+  - href: ru/monitoring/metrics-ref/monitoring-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ monitoring-full-name }}

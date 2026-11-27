@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/smartcaptcha/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Посмотреть операции с ресурсами сервиса {{ captcha-name }}
 
 Все действия с ресурсами сервиса {{ captcha-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.

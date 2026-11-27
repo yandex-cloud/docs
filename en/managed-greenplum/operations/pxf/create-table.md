@@ -1,6 +1,10 @@
 ---
 title: Creating an external table using PXF
 description: Follow this guide to create an external PXF table using an SQL query.
+alternate:
+  - href: en/managed-greenplum/operations/pxf/create-table.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

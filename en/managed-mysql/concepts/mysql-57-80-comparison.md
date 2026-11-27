@@ -1,6 +1,10 @@
 ---
 title: Comparing {{ MY }} 5.7 and {{ MY }} 8.0 in {{ yandex-cloud }}
 description: Overview of the key differences and advantages of {{ MY }} 8.0 compared to {{ MY }} 5.7 in {{ mmy-full-name }}.
+alternate:
+  - href: en/managed-mysql/concepts/mysql-57-80-comparison.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Comparing {{ MY }} 5.7 and 8.0

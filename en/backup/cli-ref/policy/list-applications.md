@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/policy/list-applications/
+alternate:
+  - href: en/backup/cli-ref/policy/list-applications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc backup policy list-applications

@@ -1,6 +1,10 @@
 ---
 title: Параметры инициализации плеера {{ video-player-name }} в SDK для JavaScript
 description: На странице описаны параметры, которые можно использовать при инициализации видеоплеера {{ video-player-name }} в SDK для JavaScript.
+alternate:
+  - href: ru/video/sdk/javascript/initialization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Параметры инициализации плеера

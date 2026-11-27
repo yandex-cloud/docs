@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/move-cloud-between-billing-accounts.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как привязать облако к другому платежному аккаунту
 
 

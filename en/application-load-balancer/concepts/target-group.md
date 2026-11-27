@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/application-load-balancer/concepts/target-group.md
+    type: text/markdown
+    title: Markdown version
+---
 # Target groups
 
 An L7 load balancer target group is a set of IP addresses of VMs that your network applications are running on. To enable the load balancer to distribute routing requests between the VMs of the target group, specify it in the [backend group](backend-group.md) configuration.

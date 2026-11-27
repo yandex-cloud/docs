@@ -1,6 +1,10 @@
 ---
 title: How to create an empty disk in {{ compute-full-name }}
 description: Follow this guide to create an empty disk of the specified size.
+alternate:
+  - href: en/compute/operations/disk-create/empty.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an empty disk

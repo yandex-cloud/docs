@@ -1,6 +1,10 @@
 ---
 title: Creating a VM in a group of dedicated hosts
 description: Follow this guide to create a VM in a group of dedicated hosts.
+alternate:
+  - href: en/compute/operations/dedicated-host/running-host-group-vms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM in a group of dedicated hosts

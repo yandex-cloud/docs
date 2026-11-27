@@ -1,6 +1,10 @@
 ---
 title: Pushing a Helm chart to {{ container-registry-name }}
 description: In this guide, you will learn how to push Helm charts to {{ container-registry-name }} repositories.
+alternate:
+  - href: en/container-registry/operations/helm-chart/helm-chart-push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pushing a Helm chart to a registry

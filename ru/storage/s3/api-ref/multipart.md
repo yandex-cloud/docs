@@ -1,6 +1,10 @@
 ---
 title: Общий порядок составной (multipart) загрузки объектов в бакет {{ objstorage-full-name }}
 description: Из статьи вы узнаете, какие шаги нужно предпринять для выполнения составной (multipart) загрузки объектов в бакет.
+alternate:
+  - href: ru/storage/s3/api-ref/multipart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общий порядок составной (multipart) загрузки

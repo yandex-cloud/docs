@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/siem/siem/api-ref/grpc/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM API, gRPC: OperationService

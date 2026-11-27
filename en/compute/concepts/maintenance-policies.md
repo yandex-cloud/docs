@@ -1,6 +1,10 @@
 ---
 title: Compute maintenance policies
 description: In this tutorial, you will learn about compute maintenance policies.
+alternate:
+  - href: en/compute/concepts/maintenance-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute maintenance policies

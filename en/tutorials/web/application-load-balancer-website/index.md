@@ -1,6 +1,10 @@
 ---
 title: Fault-tolerant website with load balancing via {{ alb-full-name }}
 description: In this tutorial, you will create a fault-tolerant website in {{ yandex-cloud }} with load balancing via {{ alb-full-name }}.
+alternate:
+  - href: en/tutorials/web/application-load-balancer-website/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [application-load-balancer-website](../../../_tutorials/infrastructure/application-load-balancer-website.md) %}

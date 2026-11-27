@@ -1,6 +1,10 @@
 ---
 title: Migrating {{ VLK }} cluster hosts to a different availability zone
 description: Follow this guide to migrate {{ VLK }} cluster hosts to a different availability zone.
+alternate:
+  - href: en/managed-valkey/operations/host-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating {{ VLK }} cluster hosts to a different availability zone

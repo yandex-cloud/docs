@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-opensearch/operations/saml-authentication.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring SAML authentication
 
 The Security Assertion Markup Language (SAML) is used for transferring authentication and authorization data between two parties. With SAML, you can implement a single sign-on system (SSO) to switch between applications without re-authentication.

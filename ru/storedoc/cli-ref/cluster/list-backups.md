@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/cluster/list-backups/
+alternate:
+  - href: ru/storedoc/cli-ref/cluster/list-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb cluster list-backups

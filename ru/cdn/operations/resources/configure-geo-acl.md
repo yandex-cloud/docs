@@ -1,6 +1,10 @@
 ---
 title: Настройка политики доступа по странам
 description: Следуя данной инструкции, вы сможете настроить доступ к CDN-ресурсу по странам.
+alternate:
+  - href: ru/cdn/operations/resources/configure-geo-acl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка политики доступа по странам

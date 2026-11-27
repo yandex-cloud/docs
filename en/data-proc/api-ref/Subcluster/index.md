@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/data-proc/api-ref/Subcluster/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Data Processing API, REST: Subcluster

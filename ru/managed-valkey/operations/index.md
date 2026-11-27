@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ mrd-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ mrd-name }}.
+alternate:
+  - href: ru/managed-valkey/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ mrd-name }}

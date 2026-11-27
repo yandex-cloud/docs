@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/concepts/trigger/telegram-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для Telegram, который вызывает функцию {{ sf-name }}
 
 [Триггер](../trigger/) для Telegram вызывает [функцию](../function.md) {{ sf-name }}, когда Telegram-бот получает новое обновление: сообщение, команду, срабатывание кнопки и другие события. Для получения обновлений триггер использует токен Telegram-бота.

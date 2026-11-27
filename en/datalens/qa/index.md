@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }}. FAQ'
 description: How do I get my activity logs in {{ datalens-full-name }}? Find answers to this and other questions in this article.
+alternate:
+  - href: en/datalens/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Questions and answers about {{ datalens-name }}

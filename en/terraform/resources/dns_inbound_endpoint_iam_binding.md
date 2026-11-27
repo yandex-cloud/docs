@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud DNS
+alternate:
+  - href: en/terraform/resources/dns_inbound_endpoint_iam_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_dns_inbound_endpoint_iam_binding (Resource)

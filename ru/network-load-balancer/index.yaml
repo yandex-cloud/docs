@@ -38,6 +38,10 @@ meta:
     - keyword: внутренний балансировщик
     - keyword: обработчик трафика
     - keyword: трафик в {{ network-load-balancer-name }}
+  alternate:
+    - href: ru/network-load-balancer/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте и настройте первый сетевой балансировщик

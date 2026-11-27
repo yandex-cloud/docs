@@ -2,6 +2,10 @@
 title: Правила тарификации для режима Serverless в {{ ydb-full-name }}
 description: В статье содержатся правила тарификации для режима Serverless в {{ ydb-name }}.
 editable: false
+alternate:
+  - href: ru/ydb/pricing/serverless.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для режима Serverless в {{ ydb-name }}

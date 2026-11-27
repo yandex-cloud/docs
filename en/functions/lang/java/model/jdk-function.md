@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/java/model/jdk-function.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using the Function interface to set a handler in Java
 
 You can set a handler function in Java by implementing the [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html) interface.

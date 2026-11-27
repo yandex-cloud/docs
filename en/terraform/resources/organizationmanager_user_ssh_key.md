@@ -1,5 +1,9 @@
 ---
 subcategory: Identity Hub
+alternate:
+  - href: en/terraform/resources/organizationmanager_user_ssh_key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_organizationmanager_user_ssh_key (Resource)

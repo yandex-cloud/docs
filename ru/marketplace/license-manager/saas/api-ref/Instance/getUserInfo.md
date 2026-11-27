@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/marketplace/license-manager/saas/api-ref/Instance/getUserInfo.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace License Manager for SaaS, REST: Instance.GetUserInfo

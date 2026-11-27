@@ -1,6 +1,10 @@
 ---
 title: Изменение источника метаданных
 description: Следуя данной инструкции, вы сможете изменить источник метаданных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/update-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение источника

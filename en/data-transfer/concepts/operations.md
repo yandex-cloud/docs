@@ -1,6 +1,10 @@
 ---
 title: Operations on transfers in {{ data-transfer-full-name }}
 description: An operation is an action performed on a transfer that can be initiated by users, the transfer itself, or {{ yandex-cloud }} administrators.
+alternate:
+  - href: en/data-transfer/concepts/operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Operations on transfers

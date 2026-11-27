@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mch'
+alternate:
+  - href: en/data-transfer/tutorials/mkf-to-mch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering data from an {{ KF }} queue to {{ CH }}

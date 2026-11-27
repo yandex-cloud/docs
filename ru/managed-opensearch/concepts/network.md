@@ -1,6 +1,10 @@
 ---
 title: Сеть и кластеры БД в {{ mos-full-name }}
 description: Из статьи вы узнаете об основных настройках сетевого интерфейса кластера {{ OS }}.
+alternate:
+  - href: ru/managed-opensearch/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сеть в {{ mos-name }}

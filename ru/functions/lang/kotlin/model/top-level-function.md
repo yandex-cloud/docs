@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/kotlin/model/top-level-function.md
+    type: text/markdown
+    title: Markdown version
+---
 # Использование функции верхнего уровня для обработчика на Kotlin
 
 Чтобы создать [обработчик](../handler.md) на Kotlin, вы можете задать [функцию верхнего уровня](https://kotlinlang.org/docs/functions.html#function-scope). Это функция, объявленная внутри пакета, для создания которой не нужно создавать класс.

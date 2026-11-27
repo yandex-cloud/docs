@@ -38,6 +38,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/organization/policy/api-ref/AuthenticationPolicyRule/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organization Policy API, REST: AuthenticationPolicyRule.List

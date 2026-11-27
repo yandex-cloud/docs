@@ -1,6 +1,10 @@
 ---
 title: Changing a SolidWall WAF profile in {{ sws-full-name }}
 description: Change the name, description, pricing plan, and RPS tier for the SolidWall WAF profile in {{ sws-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/solidwall-waf-profile-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing a SolidWall WAF profile

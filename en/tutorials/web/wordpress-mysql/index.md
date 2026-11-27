@@ -8,6 +8,10 @@ keywords:
   - setting up a wordpress website
   - wordpress mysql
   - wordpress website on mysql
+alternate:
+  - href: en/tutorials/web/wordpress-mysql/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [wordpress-mysql](../../../_tutorials/applied/wordpress-mysql.md) %}

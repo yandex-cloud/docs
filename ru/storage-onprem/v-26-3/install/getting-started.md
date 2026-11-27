@@ -1,6 +1,10 @@
 ---
 title: Проверка установки {{ objstorage-onprem-name }}
 description: Проверка готовности кластера и компонентов {{ objstorage-onprem-name }} после выполнения плейбука Ansible.
+alternate:
+  - href: ru/storage-onprem/v-26-3/install/getting-started.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # После установки

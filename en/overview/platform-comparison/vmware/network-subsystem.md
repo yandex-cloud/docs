@@ -1,6 +1,10 @@
 ---
 title: Network
 description: This article compares the key components of the VMware Cloud Director network architecture and {{ yandex-cloud }}.
+alternate:
+  - href: en/overview/platform-comparison/vmware/network-subsystem.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network

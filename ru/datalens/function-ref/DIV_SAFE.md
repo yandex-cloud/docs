@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/DIV_SAFE.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DIV_SAFE

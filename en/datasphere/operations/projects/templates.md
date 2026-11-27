@@ -1,6 +1,10 @@
 ---
 title: How to set up a notebook template in {{ ml-platform-full-name }}
 description: Follow this guide to start using {{ jlab }}Lab-templates.
+alternate:
+  - href: en/datasphere/operations/projects/templates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up template-based {{ jlab }}Lab notebook creation

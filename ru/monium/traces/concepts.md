@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/traces/concepts.md
+    type: text/markdown
+    title: Markdown version
+---
 # Основные понятия
 
 В этом разделе описаны ключевые концепции, необходимые для работы с {{ traces-name }}: модель данных, подходы к инструментации и семплирование.

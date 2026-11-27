@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/overview.md
+    type: text/markdown
+    title: Markdown version
+---
 # Компоненты {{ stackland-name }}
 
 {{ stackland-full-name }} включает набор компонентов, которые по умолчанию готовы к использованию. При необходимости пользователь может изменить их настройки в специальном кастомном ресурсе.

@@ -20,7 +20,11 @@
 * PowerShell: `5.1.19041`.
 * cURL: `7.55.1 WinSSL`.
 
-Подключиться к MySQL®-хостам в публичном доступе можно только с использованием SSL-сертификата.
+В приведенных примерах подключения используется [особый FQDN](fqdn.md#special-fqdns) мастера (RW).
+
+Примеры кода с заполненным FQDN хоста доступны в [консоли управления](https://console.yandex.cloud) по нажатию кнопки **Подключиться** на странице кластера. Для подключения скопируйте значения адреса и порта выбранного варианта в окне подключения:
+
+![image](../../../_assets/managed-mysql/connect-console-rw.png)
 
 ### Go
 
@@ -50,7 +54,7 @@ go get github.com/go-sql-driver/mysql
   )
 
   const (
-    host     = "<FQDN_любого_хоста_MySQL®>"
+    host     = "<особый_FQDN>"
     port     = 3306
     user     = "<имя_пользователя>"
     password = "<пароль_пользователя>"
@@ -110,7 +114,7 @@ go get github.com/go-sql-driver/mysql
   )
 
   const (
-    host     = "<FQDN_любого_хоста_MySQL®>"
+    host     = "<особый_FQDN>"
     port     = 3306
     user     = "<имя_пользователя>"
     password = "<пароль_пользователя>"
@@ -143,7 +147,7 @@ go get github.com/go-sql-driver/mysql
 
 {% endlist %}
 
-О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
+О том, как получить особый FQDN хоста, читайте в [инструкции](fqdn.md#special-fqdns).
 
 Подключение:
 
@@ -333,7 +337,7 @@ go run connect.go
 
   public class App {
     public static void main(String[] args) {
-      String DB_URL     = "jdbc:mysql://<FQDN_любого_хоста_MySQL®>:3306/<имя_БД>?useSSL=true";
+      String DB_URL     = "jdbc:mysql://<особый_FQDN>:3306/<имя_БД>?useSSL=true";
       String DB_USER    = "<имя_пользователя>";
       String DB_PASS    = "<пароль_пользователя>";
 
@@ -367,7 +371,7 @@ go run connect.go
 
   public class App {
     public static void main(String[] args) {
-      String DB_URL     = "jdbc:mysql://<FQDN_любого_хоста_MySQL®>:3306/<имя_БД>?useSSL=false";
+      String DB_URL     = "jdbc:mysql://<особый_FQDN>:3306/<имя_БД>?useSSL=false";
       String DB_USER    = "<имя_пользователя>";
       String DB_PASS    = "<пароль_пользователя>";
 
@@ -387,7 +391,7 @@ go run connect.go
 
 {% endlist %}
 
-О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
+О том, как получить особый FQDN хоста, читайте в [инструкции](fqdn.md#special-fqdns).
 
 Подключение:
 
@@ -419,7 +423,7 @@ npm install mysql2
   const mysql = require('mysql2');
   
   const config = {
-    host     : '<FQDN_любого_хоста_MySQL®>',
+    host     : '<особый_FQDN>',
     port     : 3306,
     user     : '<имя_пользователя>',
     password : '<пароль_пользователя>',
@@ -450,7 +454,7 @@ npm install mysql2
   const mysql = require('mysql2');
   
   const config = {
-    host     : '<FQDN_любого_хоста_MySQL®>',
+    host     : '<особый_FQDN>',
     port     : 3306,
     user     : '<имя_пользователя>',
     password : '<пароль_пользователя>',
@@ -468,7 +472,7 @@ npm install mysql2
 
 {% endlist %}
 
-О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
+О том, как получить особый FQDN хоста, читайте в [инструкции](fqdn.md#special-fqdns).
 
 Подключение:
 
@@ -501,7 +505,7 @@ sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
   ```ini
   [mysql]
   Driver=MySQL ODBC 8.0 Unicode Driver
-  SERVER=<FQDN_любого_хоста_MySQL®>
+  SERVER=<особый_FQDN>
   UID=<имя_пользователя>
   PWD=<пароль_пользователя>
   DATABASE=<имя_БД>
@@ -519,7 +523,7 @@ sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
   ```ini
   [mysql]
   Driver=MySQL ODBC 8.0 Unicode Driver
-  SERVER=<FQDN_любого_хоста_MySQL®>
+  SERVER=<особый_FQDN>
   UID=<имя_пользователя>
   PWD=<пароль_пользователя>
   DATABASE=<имя_БД>
@@ -528,7 +532,7 @@ sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
 
 {% endlist %}
 
-О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
+О том, как получить особый FQDN хоста, читайте в [инструкции](fqdn.md#special-fqdns).
 
 Подключение:
 
@@ -560,7 +564,7 @@ sudo apt update && apt install --yes php php-mysql
 
       $conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, true);
       $conn->ssl_set(NULL, NULL, '/home/<домашняя_директория>/.mysql/root.crt', NULL, NULL);
-      $conn->real_connect('<FQDN_любого_хоста_MySQL®>', '<имя_пользователя>', '<пароль_пользователя>', '<имя_БД>', 3306, NULL, MYSQLI_CLIENT_SSL);
+      $conn->real_connect('<особый_FQDN>', '<имя_пользователя>', '<пароль_пользователя>', '<имя_БД>', 3306, NULL, MYSQLI_CLIENT_SSL);
 
       $q = $conn->query('SELECT version()');
       $result = $q->fetch_row();
@@ -582,7 +586,7 @@ sudo apt update && apt install --yes php php-mysql
       $conn = mysqli_init();
 
       $conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
-      $conn->real_connect('<FQDN_любого_хоста_MySQL®>', '<имя_пользователя>', '<пароль_пользователя>', '<имя_БД>', 3306, NULL, NULL);
+      $conn->real_connect('<особый_FQDN>', '<имя_пользователя>', '<пароль_пользователя>', '<имя_БД>', 3306, NULL, NULL);
 
       $q = $conn->query('SELECT version()');
       $result = $q->fetch_row();
@@ -595,7 +599,7 @@ sudo apt update && apt install --yes php php-mysql
 
 {% endlist %}
 
-О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
+О том, как получить особый FQDN хоста, читайте в [инструкции](fqdn.md#special-fqdns).
 
 Подключение:
 
@@ -624,7 +628,7 @@ pip3 install mysqlclient
   import MySQLdb
   
   conn = MySQLdb.connect(
-        host="<FQDN_любого_хоста_MySQL®>",
+        host="<особый_FQDN>",
         port=3306,
         db="<имя_БД>",
         user="<имя_пользователя>",
@@ -647,7 +651,7 @@ pip3 install mysqlclient
   import MySQLdb
   
   conn = MySQLdb.connect(
-        host="<FQDN_любого_хоста_MySQL®>",
+        host="<особый_FQDN>",
         port=3306,
         db="<имя_БД>",
         user="<имя_пользователя>",
@@ -663,7 +667,7 @@ pip3 install mysqlclient
 
 {% endlist %}
 
-О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
+О том, как получить особый FQDN хоста, читайте в [инструкции](fqdn.md#special-fqdns).
 
 Подключение:
 
@@ -691,7 +695,7 @@ sudo apt update && sudo apt install --yes ruby ruby-mysql2
   require "mysql2"
 
   conn = Mysql2::Client.new(
-          :host => "<FQDN_любого_хоста_MySQL®>",
+          :host => "<особый_FQDN>",
           :port => 3306,
           :database => "<имя_БД>",
           :username => "<имя_пользователя>",
@@ -716,7 +720,7 @@ sudo apt update && sudo apt install --yes ruby ruby-mysql2
   require "mysql2"
 
   conn = Mysql2::Client.new(
-          :host => "<FQDN_любого_хоста_MySQL®>",
+          :host => "<особый_FQDN>",
           :port => 3306,
           :database => "<имя_БД>",
           :username => "<имя_пользователя>",
@@ -733,7 +737,7 @@ sudo apt update && sudo apt install --yes ruby ruby-mysql2
 
 {% endlist %}
 
-О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
+О том, как получить особый FQDN хоста, читайте в [инструкции](fqdn.md#special-fqdns).
 
 Подключение:
 

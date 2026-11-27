@@ -1,6 +1,10 @@
 ---
 title: Resource relationships in {{ k8s }}
 description: The main entity {{ k8s }} operates is a cluster. {{ k8s }} clusters consist of a master and one or multiple node groups. The master manages a {{ k8s }} cluster. Containerized user applications run on nodes.
+alternate:
+  - href: en/managed-kubernetes/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource relationships in {{ managed-k8s-name }}

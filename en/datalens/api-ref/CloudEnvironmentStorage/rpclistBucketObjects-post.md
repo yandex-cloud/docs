@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/CloudEnvironmentStorage/rpclistBucketObjects-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] List bucket objects

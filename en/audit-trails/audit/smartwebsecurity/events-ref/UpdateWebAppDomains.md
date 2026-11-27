@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/smartwebsecurity/events-ref/UpdateWebAppDomains.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Smart Web Security Audit Trails Events: UpdateWebAppDomains

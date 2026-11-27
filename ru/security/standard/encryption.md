@@ -1,6 +1,10 @@
 ---
 title: Шифрование данных и управление ключами и секретами
 description: "{{ yandex-cloud }} предоставляет встроенные функции шифрования при\_использовании ряда сервисов. В зоне ответственности клиента находится включение шифрования в этих сервисах, а также самостоятельная реализация шифрования в других компонентах обработки критичных данных. Для шифрования данных и управления ключами шифрования предназначен сервис\_{{ kms-name }}."
+alternate:
+  - href: ru/security/standard/encryption.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [data-encryption-and-key-management](../../_includes/security/standard/encryption.md) %}

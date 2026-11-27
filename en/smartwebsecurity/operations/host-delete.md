@@ -1,6 +1,10 @@
 ---
 title: How to disconnect a security profile in {{ sws-full-name }} from a virtual host, domain, or API gateway
 description: Follow this guide to disconnect a security profile in {{ sws-full-name }} from a protected resource.
+alternate:
+  - href: en/smartwebsecurity/operations/host-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Disconnecting a security profile from a resource

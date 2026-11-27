@@ -1,6 +1,10 @@
 ---
 title: Миграция с {{ cloud-logging-name }} на {{ monium-name }}
 description: Инструкция по миграции с {{ cloud-logging-name }} на {{ monium-name }}.
+alternate:
+  - href: ru/logging/migration-to-monium.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция с {{ cloud-logging-name }} на {{ monium-name }}

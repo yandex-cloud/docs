@@ -183,6 +183,10 @@ apiPlayground:
               **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
               Placement policy configuration for given disk.
             $ref: '#/definitions/DiskPlacementPolicy'
+alternate:
+  - href: en/compute/api-ref/Instance/relocate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Instance.Relocate

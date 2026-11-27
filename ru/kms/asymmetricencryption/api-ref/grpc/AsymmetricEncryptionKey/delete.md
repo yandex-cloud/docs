@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/kms/asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, gRPC: AsymmetricEncryptionKeyService.Delete

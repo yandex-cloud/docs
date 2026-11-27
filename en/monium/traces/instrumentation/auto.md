@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/traces/instrumentation/auto.md
+    type: text/markdown
+    title: Markdown version
+---
 # Auto-instrumentation
 
 With automatic instrumentation, OpenTelemetry libraries and agents intercept calls to standard frameworks and protocols and automatically generate spans. You get a trace without writing additional code: you just need to connect the agent or library and specify the export parameters.

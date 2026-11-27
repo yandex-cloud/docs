@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/nodejs/logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Node.js function execution logging
 
 {{ sf-name }} automatically captures the Node.js application's standard output streams and sends them to the centralized logging system in {{ yandex-cloud }}. In addition to the application execution logs, the system also logs request execution events.

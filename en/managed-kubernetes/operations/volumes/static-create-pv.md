@@ -1,6 +1,10 @@
 ---
 title: How to create a pod with a statically provisioned volume in {{ managed-k8s-full-name }}
 description: Follow this guide to create a pod with a statically provisioned volume.
+alternate:
+  - href: en/managed-kubernetes/operations/volumes/static-create-pv.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Static volume provisioning

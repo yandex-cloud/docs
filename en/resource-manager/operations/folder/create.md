@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/resource-manager/operations/folder/create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a folder
 
 A _folder_ is a space where {{ yandex-cloud }} resources are created and [grouped](../../concepts/resources-hierarchy.md).

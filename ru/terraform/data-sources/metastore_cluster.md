@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for Hive Metastore™
+alternate:
+  - href: ru/terraform/data-sources/metastore_cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_metastore_cluster (DataSource)

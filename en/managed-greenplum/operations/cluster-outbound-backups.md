@@ -2,6 +2,10 @@
 title: Restoring Greenplum from a WAL-G backup
 description: Follow this guide to recover a {{ GP }} cluster's database from a WAL-G backup.
 noIndex: true
+alternate:
+  - href: en/managed-greenplum/operations/cluster-outbound-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recovering {{ GP }} from a WAL-G backup

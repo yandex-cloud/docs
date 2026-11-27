@@ -41,6 +41,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/data-transfer/api-ref/Transfer/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer API, REST: Transfer.List

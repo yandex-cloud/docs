@@ -1,6 +1,10 @@
 ---
 title: Параметры в {{ datalens-full-name }}
 description: Параметр в {{ datalens-full-name }} — это переменная, которая может заменять константные значения в вычисляемых полях.
+alternate:
+  - href: ru/datalens/concepts/parameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Параметры в {{ datalens-full-name }}

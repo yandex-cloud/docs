@@ -153,6 +153,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: en/certificate-manager/privateca/api-ref/Template/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, REST: Template.SetAccessBindings

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/server/reinstall/
+alternate:
+  - href: ru/baremetal/cli-ref/server/reinstall.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal server reinstall

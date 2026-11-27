@@ -7,6 +7,10 @@ keywords:
   - upload to cloud
   - disk image
   - Linux image
+alternate:
+  - href: en/compute/operations/image-create/upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Uploading a custom disk image to {{ yandex-cloud }}

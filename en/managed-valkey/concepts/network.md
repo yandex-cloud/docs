@@ -1,6 +1,10 @@
 ---
 title: Network and database clusters in {{ mrd-full-name }}
 description: In this tutorial, you will learn about the basic network interface settings for a {{ VLK }} cluster.
+alternate:
+  - href: en/managed-valkey/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mrd-short-name }} network and DB clusters

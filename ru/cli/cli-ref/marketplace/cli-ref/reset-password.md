@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/marketplace/cli-ref/reset-password/
+alternate:
+  - href: ru/cli/cli-ref/marketplace/cli-ref/reset-password.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc marketplace reset-password

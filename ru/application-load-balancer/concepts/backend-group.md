@@ -1,6 +1,10 @@
 ---
 title: Группы бэкендов
 description: Из статьи вы узнаете про типы групп бэкендов, привязку сессий, настройки протокола и балансировки, проверки состояния.
+alternate:
+  - href: ru/application-load-balancer/concepts/backend-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Группы бэкендов

@@ -1,6 +1,10 @@
 ---
 title: Зарезервировать статический публичный IP-адрес
 description: Следуя данной инструкции, вы сможете зарезервировать статический публичный IP-адрес.
+alternate:
+  - href: ru/vpc/operations/get-static-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Зарезервировать статический публичный IP-адрес

@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ mtr-name }}
 description: На странице собраны инструкции по просмотру, настройке и удалению правил доступа к объектам кластера {{ mtr-name }}.
+alternate:
+  - href: ru/managed-trino/operations/access-control.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ mtr-name }}

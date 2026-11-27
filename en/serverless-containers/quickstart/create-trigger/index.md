@@ -1,6 +1,10 @@
 ---
 title: Creating and enabling a trigger in {{ serverless-containers-full-name }}
 description: In this article, you will learn how to create and enable a trigger in {{ serverless-containers-full-name }}.
+alternate:
+  - href: en/serverless-containers/quickstart/create-trigger/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating and enabling a trigger in {{ serverless-containers-name }}

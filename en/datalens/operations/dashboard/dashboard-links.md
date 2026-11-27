@@ -1,6 +1,10 @@
 ---
 title: How to configure widget links on a dashboard in {{ datalens-full-name }}
 description: Follow this guide to configure widget links on a dashboard in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/dashboard-links.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring links on a dashboard in {{ datalens-full-name }}

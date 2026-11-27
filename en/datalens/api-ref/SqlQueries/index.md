@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/SqlQueries/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # SqlQueries
 
 <!-- markdownlint-disable-file -->

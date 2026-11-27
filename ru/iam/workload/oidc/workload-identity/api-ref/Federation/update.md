@@ -75,6 +75,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/iam/workload/oidc/workload-identity/api-ref/Federation/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Federation, REST: Federation.Update

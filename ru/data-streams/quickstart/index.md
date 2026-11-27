@@ -1,6 +1,10 @@
 ---
 title: Подготовка окружения для {{ yds-full-name }}
 description: Следуя данной инструкции, вы сможете подготовить окружение для {{ yds-name }}.
+alternate:
+  - href: ru/data-streams/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подготовка окружения для {{ yds-name }}

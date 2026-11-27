@@ -1,6 +1,10 @@
 ---
 title: How to manage Spark jobs in {{ msp-full-name }}
 description: In this guide, you will learn how to manage Spark jobs in {{ msp-full-name }}.
+alternate:
+  - href: en/managed-spark/operations/jobs-spark.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing Spark jobs

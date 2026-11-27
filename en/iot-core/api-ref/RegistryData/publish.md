@@ -36,6 +36,10 @@ apiPlayground:
         - topic
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/iot-core/api-ref/RegistryData/publish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: RegistryData.Publish

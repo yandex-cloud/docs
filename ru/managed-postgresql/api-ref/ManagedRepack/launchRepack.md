@@ -107,6 +107,10 @@ apiPlayground:
               pg_repack option; Use this many parallel jobs for each table
             type: string
             format: int64
+alternate:
+  - href: ru/managed-postgresql/api-ref/ManagedRepack/launchRepack.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, REST: ManagedRepack.LaunchRepack

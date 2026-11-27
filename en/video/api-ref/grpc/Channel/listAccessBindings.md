@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/video/api-ref/grpc/Channel/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, gRPC: ChannelService.ListAccessBindings

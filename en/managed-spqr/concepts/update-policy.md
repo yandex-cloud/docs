@@ -1,6 +1,10 @@
 ---
 title: '{{ mspqr-name }} versioning policy'
 description: In this tutorial, you will learn about the {{ PG }} versioning policy in {{ mspqr-full-name }}.
+alternate:
+  - href: en/managed-spqr/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ PG }} versioning policy in {{ mspqr-name }}

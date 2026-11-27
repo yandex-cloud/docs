@@ -2,6 +2,10 @@
 title: Настройка NodeLocal DNS
 description: Следуя данному руководству, вы сможете настроить NodeLocal DNS.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/node-local-dns'
+alternate:
+  - href: ru/managed-kubernetes/tutorials/node-local-dns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка NodeLocal DNS

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/websql/operations/query-executor.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с редактором запросов
 
 Редактор запросов открывается на панели данных, когда вы выбираете в разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) БД, таблицу или представление.

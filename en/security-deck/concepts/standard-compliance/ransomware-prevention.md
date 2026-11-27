@@ -1,6 +1,10 @@
 ---
 title: Ransomware attack prevention standard
 description: This section lists the control rules that constitute the ransomware attack prevention standard.
+alternate:
+  - href: en/security-deck/concepts/standard-compliance/ransomware-prevention.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ransomware attack prevention standard

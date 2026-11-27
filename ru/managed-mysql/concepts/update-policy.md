@@ -1,6 +1,10 @@
 ---
 title: Политика поддержки версий {{ MY }}
 description: Из статьи вы узнаете о политике поддержки версий {{ MY }} в сервисе {{ mmy-full-name }}.
+alternate:
+  - href: ru/managed-mysql/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политика поддержки версий {{ MY }}

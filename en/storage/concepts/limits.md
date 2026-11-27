@@ -2,6 +2,10 @@
 title: '{{ objstorage-full-name }} quotas and limits'
 description: '{{ objstorage-full-name }} has limits and quotas for maximum storage capacity in a cloud and the number of buckets per cloud. For more information about the service limitations, read this article.'
 editable: false
+alternate:
+  - href: en/storage/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ objstorage-name }} quotas and limits

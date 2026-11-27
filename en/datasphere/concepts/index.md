@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # About {{ ml-platform-name }}
 
 {{ ml-platform-full-name }} is a full-cycle ML development environment. {{ ml-platform-full-name }} offers powerful features to easily work with {{ yandex-cloud }} services.

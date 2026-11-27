@@ -1,6 +1,10 @@
 ---
 title: Как подготовить спецификацию для создания или изменения трейла
 description: Следуя данной инструкции, вы сможете подготовить спецификацию для создания или изменения трейла {{ at-full-name }}.
+alternate:
+  - href: ru/audit-trails/operations/prepare-spec.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подготовка спецификации трейла

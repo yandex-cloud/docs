@@ -1,6 +1,10 @@
 ---
 title: Получение данных из внешних источников с помощью именованных запросов
 description: Следуя этому руководству, вы создадите именованный запрос, с помощью которого обратитесь к внешнему источнику данных.
+alternate:
+  - href: ru/tutorials/dataplatform/pxf-named-queries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [named-queries](../../_tutorials/dataplatform/mgp/pxf-named-queries.md) %}

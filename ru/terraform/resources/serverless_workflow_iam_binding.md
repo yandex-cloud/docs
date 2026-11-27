@@ -1,5 +1,9 @@
 ---
 subcategory: Serverless Workflows
+alternate:
+  - href: ru/terraform/resources/serverless_workflow_iam_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_serverless_workflow_iam_binding (Resource)

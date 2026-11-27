@@ -1,6 +1,10 @@
 ---
 title: How to delete a resource record in {{ dns-full-name }}
 description: In this tutorail, you will learn how to delete a resource record.
+alternate:
+  - href: en/dns/operations/resource-record-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a resource record

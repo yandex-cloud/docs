@@ -1,6 +1,10 @@
 ---
 title: Deleting a node group on {{ baremetal-name }} servers
 description: Delete a node group on {{ baremetal-name }} servers from a {{ managed-k8s-name }} cluster via the management console.
+alternate:
+  - href: en/managed-kubernetes/operations/baremetal-group/delete-baremetal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a node group on {{ baremetal-name }} servers

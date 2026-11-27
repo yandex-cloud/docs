@@ -1,6 +1,10 @@
 ---
 title: 'Keys processed in public images {{ yandex-cloud }} '
 description: In this article, you will learn which keys are processed by the metadata service in public VM instance images in {{ yandex-cloud }}.
+alternate:
+  - href: en/compute/concepts/metadata/public-image-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Keys processed in public images {{ yandex-cloud }}

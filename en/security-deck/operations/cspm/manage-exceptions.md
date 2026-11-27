@@ -1,6 +1,10 @@
 ---
 title: Managing exceptions to the {{ cspm-name }} module's security control rules in {{ sd-full-name }}
 description: In this section, you will learn how to create, modify, and delete exceptions to rules in the {{ sd-full-name }} {{ cspm-name }} module.
+alternate:
+  - href: en/security-deck/operations/cspm/manage-exceptions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing exceptions to {{ cspm-name }} security control rules

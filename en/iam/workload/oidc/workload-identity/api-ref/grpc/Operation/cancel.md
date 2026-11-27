@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iam/workload/oidc/workload-identity/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Federation, gRPC: OperationService.Cancel

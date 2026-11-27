@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/backend-group/add-grpc-backend/
+alternate:
+  - href: en/application-load-balancer/cli-ref/backend-group/add-grpc-backend.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc application-load-balancer backend-group add-grpc-backend

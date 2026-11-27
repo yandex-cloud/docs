@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/concepts/dictionaries.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ CH }} dictionaries
 
 _Dictionaries_ in {{ CH }} are mappings of key-value pairs that are fully or partially stored in the {{ CH }} server memory.

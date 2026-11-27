@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/marketplace/metering/api-ref/ImageProductUsage/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Marketplace Metering API, REST: ImageProductUsage

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iot-core/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Все руководства для {{ iot-name }}
 
 {% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}

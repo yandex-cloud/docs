@@ -1,6 +1,10 @@
 ---
 title: Как настроить доступ к {{ objstorage-full-name }} из кластера {{ CH }} в {{ mch-full-name }}
 description: Следуя данной инструкции, вы сможете настроить доступ к {{ objstorage-full-name }} из кластера {{ CH }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/s3-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка доступа к {{ objstorage-name }} из кластера {{ CH }}

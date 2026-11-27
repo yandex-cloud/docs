@@ -1,6 +1,10 @@
 ---
 title: How to add a broadcast to a playlist in {{ video-full-name }}
 description: Follow this guide to add a broadcast to a playlist in {{ video-name }}.
+alternate:
+  - href: en/video/operations/streams/add-to-playlist.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a completed broadcast to a playlist

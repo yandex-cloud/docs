@@ -1,6 +1,10 @@
 ---
 title: Как использовать Prometheus recording rules
 description: Следуя данному руководству, вы сможете создавать и редактировать файлы Prometheus с правилами записи (recording rules).
+alternate:
+  - href: ru/monitoring/operations/prometheus/recording-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила записи

@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования по управлению федерациями удостоверений в {{ org-full-name }}
 description: Различные сценарии по управлению федерациями удостоверений {{ org-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/organization/tutorials/federations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление федерациями удостоверений в {{ org-full-name }}

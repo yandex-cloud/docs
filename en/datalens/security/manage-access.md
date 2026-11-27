@@ -1,6 +1,10 @@
 ---
 title: Object access permissions
 description: In this tutorial, you will learn about object access management in {{ datalens-short-name }}.
+alternate:
+  - href: en/datalens/security/manage-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object access permissions

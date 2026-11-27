@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции по работе с сервисными аккаунтами
 description: Пошаговые инструкции по созданию и управлению сервисными аккаунтами в {{ iam-full-name }}.
+alternate:
+  - href: ru/iam/operations/sa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сервисные аккаунты

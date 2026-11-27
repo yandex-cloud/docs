@@ -1,6 +1,10 @@
 ---
 title: Скорость копирования данных в {{ data-transfer-full-name }}
 description: При копировании скорость может достигать 15 МБ/с
+alternate:
+  - href: ru/data-transfer/concepts/copy-speed.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Скорость копирования

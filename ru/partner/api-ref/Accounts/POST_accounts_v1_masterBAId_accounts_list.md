@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Accounts/POST_accounts_v1_masterBAId_accounts_list.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # List accounts

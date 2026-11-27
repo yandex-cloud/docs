@@ -1,6 +1,10 @@
 ---
 title: Настройка группы безопасности для кластера {{ metastore-full-name }}
 description: Следуя данной инструкции, вы сможете настроить группы безопасности для кластера {{ metastore-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/metastore/configure-security-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка группы безопасности для кластера {{ metastore-name }}

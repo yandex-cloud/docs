@@ -1,6 +1,10 @@
 ---
 title: .NET Core function invocation context in {{ sf-full-name }}
 description: In this article, you will learn about the .NET Core function invocation context.
+alternate:
+  - href: en/functions/lang/csharp/context.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # .NET Core function invocation context

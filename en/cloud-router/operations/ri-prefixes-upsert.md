@@ -1,6 +1,11 @@
 ---
 title: How to manage networks and IP prefixes in a {{ cr-name }} virtual router
 description: Follow this guide to update a list of networks and IP prefixes in a {{ cr-name }} virtual router.
+noIndex: true
+alternate:
+  - href: en/cloud-router/operations/ri-prefixes-upsert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing networks and IP prefixes in a virtual router

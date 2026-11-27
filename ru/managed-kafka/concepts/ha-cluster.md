@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kafka/concepts/ha-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Высокая доступность кластера {{ mkf-name }}
 
 Высокая доступность кластера {{ mkf-name }} определяется количеством и расположением его хостов, настройками топиков и другими параметрами кластера.

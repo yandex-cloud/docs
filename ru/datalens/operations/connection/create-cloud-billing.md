@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение к {{ yandex-cloud }} Billing
 description: Следуя данной инструкции, вы сможете создать подключение к {{ yandex-cloud }} Billing.
+alternate:
+  - href: ru/datalens/operations/connection/create-cloud-billing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к {{ yandex-cloud }} Billing

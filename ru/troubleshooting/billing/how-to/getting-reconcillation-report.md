@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/getting-reconcillation-report.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как получить акт сверки
 
 

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance/move/
+alternate:
+  - href: ru/cli/cli-ref/compute/cli-ref/instance/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute instance move

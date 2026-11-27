@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-spqr/api-ref/grpc/ChangeFreeze/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR API, gRPC: ChangeFreezeService.Get

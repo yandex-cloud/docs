@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/get-dedicated-ips.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод GetDedicatedIps
 
 Возвращает список [выделенных IP-адресов](../../concepts/glossary.md#dedicated-ip) в каталоге или [пуле](../../concepts/glossary.md#dedicated-ip-pool). Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.

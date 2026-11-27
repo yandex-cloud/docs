@@ -1,6 +1,10 @@
 ---
 title: How to create an image from a desktop
 description: In this tutorial, you will create an image from a desktop.
+alternate:
+  - href: en/cloud-desktop/operations/images/create-from-desktop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an image from a desktop

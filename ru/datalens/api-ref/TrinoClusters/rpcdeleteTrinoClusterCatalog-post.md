@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/TrinoClusters/rpcdeleteTrinoClusterCatalog-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Delete REST catalog from Trino cluster

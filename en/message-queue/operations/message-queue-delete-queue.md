@@ -1,6 +1,10 @@
 ---
 title: How to delete a message queue in {{ message-queue-full-name }}
 description: Follow this guide to delete a message queue.
+alternate:
+  - href: en/message-queue/operations/message-queue-delete-queue.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a message queue

@@ -1,6 +1,10 @@
 ---
 title: Публичные материалы о {{ mmy-full-name }}
 description: Видеозаписи конференций и вебинаров, посвященных {{ mmy-full-name }}.
+alternate:
+  - href: ru/managed-mysql/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные материалы о {{ mmy-full-name }}

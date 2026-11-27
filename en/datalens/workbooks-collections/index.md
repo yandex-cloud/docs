@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} workbooks and collections'
 description: In this tutorial, you will learn about {{ datalens-full-name }} workbooks and collections, their features, and how to start using them.
+alternate:
+  - href: en/datalens/workbooks-collections/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} workbooks and collections

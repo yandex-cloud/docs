@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/internals/bases.md
+    type: text/markdown
+    title: Markdown version
+---
 # Base classes
 
 ## *class* yandex\_ai\_studio\_sdk.\_sdk.**BaseSDK**{#yandex_ai_studio_sdk._sdk.BaseSDK}

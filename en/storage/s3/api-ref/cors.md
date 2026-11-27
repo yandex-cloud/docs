@@ -1,6 +1,10 @@
 ---
 title: What S3 API methods can be used to manage a {{ objstorage-full-name }} CORS bucket configuration
 description: In this article, you will learn what S3 API methods can be used to manage a CORS bucket configuration.
+alternate:
+  - href: en/storage/s3/api-ref/cors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All CORS methods

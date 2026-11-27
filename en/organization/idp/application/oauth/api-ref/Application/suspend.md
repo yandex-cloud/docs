@@ -19,6 +19,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/organization/idp/application/oauth/api-ref/Application/suspend.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OAUTH Application API, REST: Application.Suspend

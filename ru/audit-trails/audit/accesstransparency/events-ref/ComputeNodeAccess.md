@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/accesstransparency/events-ref/ComputeNodeAccess.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access Transparency Audit Trails Events: ComputeNodeAccess

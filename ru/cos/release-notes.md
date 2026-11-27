@@ -1,6 +1,10 @@
 ---
 title: Релизы COI
 description: Из статьи вы узнаете, как узнать свою версию COI и ознакомитесь с предыдущими релизами.
+alternate:
+  - href: ru/cos/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Релизы COI

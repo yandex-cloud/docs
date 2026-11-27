@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/sink/delete/
+alternate:
+  - href: en/cli/cli-ref/logging/cli-ref/sink/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc logging sink delete

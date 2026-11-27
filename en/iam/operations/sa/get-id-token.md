@@ -1,6 +1,10 @@
 ---
 title: How to create a service account ID token
 description: Follow this guide to create an ID token for authenticating a service account in an external system with OIDC authentication support.
+alternate:
+  - href: en/iam/operations/sa/get-id-token.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a service account ID token

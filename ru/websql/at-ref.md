@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ websql-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ websql-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/websql/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ websql-full-name }}

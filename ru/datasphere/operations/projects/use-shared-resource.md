@@ -1,5 +1,9 @@
 ---
 title: Как использовать ресурсы с совместным доступом в {{ ml-platform-full-name }}
+alternate:
+  - href: ru/datasphere/operations/projects/use-shared-resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использовать ресурс с совместным доступом

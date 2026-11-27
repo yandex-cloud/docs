@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ alb-full-name }}'
 description: This page provides information about {{ TF }} resources and data sources supported by {{ alb-name }}.
+alternate:
+  - href: en/application-load-balancer/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ alb-full-name }}

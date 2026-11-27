@@ -36,6 +36,10 @@ meta:
     - keyword: SPQR in {{ yandex-cloud }}
     - keyword: '{{ mspqr-name }} in {{ yandex-cloud }}'
     - keyword: '{{ mspqr-name }}'
+  alternate:
+    - href: en/managed-spqr/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Get started with {{ mspqr-name }}

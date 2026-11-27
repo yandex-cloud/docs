@@ -1,6 +1,10 @@
 ---
 title: Скачать отчетные документы
 description: Узнайте как скачать архив с закрывающими документами, заказать акт сверки, акт выполненных работы и электронные счета-фактуры.
+alternate:
+  - href: ru/billing/operations/download-reporting-docs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть историю расходов и скачать отчетные документы в сервисе {{ billing-name }}

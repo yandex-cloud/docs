@@ -1,6 +1,10 @@
 ---
 title: Удалить сетевой балансировщик
 description: Следуя данной инструкции, вы сможете удалить сетевой балансировщик.
+alternate:
+  - href: ru/network-load-balancer/operations/load-balancer-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить сетевой балансировщик

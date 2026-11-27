@@ -1,6 +1,10 @@
 ---
 title: Сеть в {{ mmy-name }}
 description: При создании кластера {{ MY }} вы можете задать сеть для самого кластера, подсети для каждого из хостов кластера и запросить публичный доступ, чтобы подключаться к кластеру извне {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-mysql/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сеть и кластеры в {{ mmy-name }}

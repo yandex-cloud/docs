@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Dataset/rpcvalidateDataset-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Validate dataset

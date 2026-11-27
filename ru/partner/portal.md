@@ -1,6 +1,10 @@
 ---
 title: Партнерский портал {{ yandex-cloud }}
 description: Партнерский портал — главный инструмент партнера {{ yandex-cloud }} для управления клиентами и финансами.
+alternate:
+  - href: ru/partner/portal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Партнерский портал

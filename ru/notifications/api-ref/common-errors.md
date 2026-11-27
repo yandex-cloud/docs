@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/common-errors.md
+    type: text/markdown
+    title: Markdown version
+---
 # Ошибки
 
 При возникновении ошибки {{ cns-name }} отвечает сообщением с соответствующим HTTP-кодом и дополнительным описанием в формате XML или JSON в зависимости от указанного параметра `ResponseFormat`.

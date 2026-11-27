@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/artifact/upsert/
+alternate:
+  - href: ru/cli/cli-ref/cloud-registry/cli-ref/artifact/upsert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry artifact upsert

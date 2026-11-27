@@ -1,6 +1,10 @@
 ---
 title: Preparing the environment for {{ yds-full-name }}
 description: In this tutorial, you will learn how to prepare the environment for {{ yds-name }}.
+alternate:
+  - href: en/data-streams/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Preparing the environment for {{ yds-name }}

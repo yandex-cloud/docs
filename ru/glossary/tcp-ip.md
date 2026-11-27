@@ -6,6 +6,10 @@ keywords:
   - IP
   - UDP
   - FTP
+alternate:
+  - href: ru/glossary/tcp-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Технология TCP/IP

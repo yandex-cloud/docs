@@ -1,6 +1,10 @@
 ---
 title: Добавить расширение Обращение по HTTP
 description: Следуя данной инструкции, вы сможете добавить расширение Обращение по HTTP с помощью конструктора спецификации.
+alternate:
+  - href: ru/api-gateway/operations/spec-constructor/http.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить расширение x-yc-apigateway-integration:http

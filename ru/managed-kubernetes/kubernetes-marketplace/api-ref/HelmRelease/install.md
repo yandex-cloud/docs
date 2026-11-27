@@ -56,6 +56,10 @@ apiPlayground:
             $ref: '#/definitions/Value'
         required:
           - key
+alternate:
+  - href: ru/managed-kubernetes/kubernetes-marketplace/api-ref/HelmRelease/install.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Kubernetes Marketplace, REST: HelmRelease.Install

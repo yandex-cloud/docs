@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cli/operations/profile/profile-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получение информации о профиле {{ yandex-cloud }} CLI
 
 Для обращения к профилю используйте его имя. Узнать имя профиля можно получив список профилей.

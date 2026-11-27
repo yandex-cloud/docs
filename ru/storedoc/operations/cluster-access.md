@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к кластеру {{ mmg-full-name }}
 description: Следуя данной инструкции, вы настроите права доступа к кластеру {{ mmg-name }}.
+alternate:
+  - href: ru/storedoc/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к кластеру {{ mmg-name }}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/hosts/restart/
+alternate:
+  - href: en/managed-clickhouse/cli-ref/hosts/restart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse hosts restart

@@ -1,6 +1,10 @@
 ---
 title: How to connect a {{ compute-full-name }} Linux VM with {{ oslogin }} to {{ backup-full-name }}
 description: Follow this guide to connect a {{ compute-full-name }} Linux VM with {{ oslogin }} to {{ backup-name }}.
+alternate:
+  - href: en/backup/operations/connect-vm-oslogin-linux.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting an existing Linux VM with {{ oslogin }} to {{ backup-name }}

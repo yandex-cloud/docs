@@ -1,6 +1,10 @@
 ---
 title: How to create an instance group in {{ compute-full-name }} based on a YAML specification
 description: Follow this guide to create an instance group based on a YAML specification.
+alternate:
+  - href: en/compute/operations/instance-groups/create-from-yaml.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an instance group based on a YAML specification

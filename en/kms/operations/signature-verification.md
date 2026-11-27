@@ -1,6 +1,10 @@
 ---
 title: How to create a digital signature
 description: Follow this guide to create a digital signature.
+alternate:
+  - href: en/kms/operations/signature-verification.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Digital signature and its verification based on data hash

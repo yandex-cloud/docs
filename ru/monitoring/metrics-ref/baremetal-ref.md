@@ -2,6 +2,10 @@
 title: Метрики {{ baremetal-full-name }}
 description: Из статьи вы узнаете про метрики {{ baremetal-name }}.
 editable: false
+alternate:
+  - href: ru/monitoring/metrics-ref/baremetal-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ baremetal-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как настроить DNS в приватной подсети {{ baremetal-full-name }}
 description: Настройте выдачу DNS-серверов и доменного имени по DHCP в приватной подсети {{ baremetal-name }} и проверьте применение параметров на сервере.
+alternate:
+  - href: ru/baremetal/operations/configure-dns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить DNS в приватной подсети

@@ -2,6 +2,10 @@
 title: '{{ cdn-full-name }} metrics'
 description: In this tutorial, you will learn about {{ cdn-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/cdn-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cdn-full-name }} metrics

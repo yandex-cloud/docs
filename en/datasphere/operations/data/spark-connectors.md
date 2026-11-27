@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/data/spark-connectors.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with Spark connectors
 
 In {{ ml-platform-name }}, you can use [Spark connectors](../../concepts/spark-connector.md) to work with existing or automatically created [{{ dataproc-full-name }}](../../../data-proc/) clusters.

@@ -3,6 +3,10 @@ title: Как отправить сообщение с использовани�
 description: Следуя данному руководству, вы сможете отправить сообщение с использованием Mosquitto на MQTT-сервер.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/iot/mosquitto/mosquitto-publish'
+alternate:
+  - href: ru/tutorials/serverless/mosquitto-publish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправить сообщение с использованием Mosquitto

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/trino/events-ref/DeleteCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Trino Audit Trails Events: DeleteCluster

@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ yandex-cloud }} Billing connection
 description: Follow this guide to create a {{ yandex-cloud }} Billing connection.
+alternate:
+  - href: en/datalens/operations/connection/create-cloud-billing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ yandex-cloud }} Billing connection

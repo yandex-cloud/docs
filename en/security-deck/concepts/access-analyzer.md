@@ -1,6 +1,10 @@
 ---
 title: '{{ access-analyzer-name }} in {{ sd-full-name }}'
 description: This section describes the {{ sd-name }} {{ access-analyzer-name }} module, which allows you to view the access permissions that an organization’s subjects have for resources and, if required, update or revoke such permissions.
+alternate:
+  - href: en/security-deck/concepts/access-analyzer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ access-analyzer-name }} module

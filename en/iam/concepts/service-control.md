@@ -1,6 +1,10 @@
 ---
 title: Managing service access to user cloud resources
 description: In this tutorial, you will learn how to manage the access of services to user resources in {{ yandex-cloud }}.
+alternate:
+  - href: en/iam/concepts/service-control.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service access to user resources

@@ -1,6 +1,10 @@
 ---
 title: '{{ CB }} — современная, бурно развивающаяся альтернатива {{ GP }}'
 description: Из статьи вы узнаете, почему СУБД {{ CB }} является самой достойной альтернативой {{ GP }}.
+alternate:
+  - href: ru/managed-greenplum/concepts/cloudberry-vs-greenplum/why-cloudberry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Почему выбирают {{ CB }}

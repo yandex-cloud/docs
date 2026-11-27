@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/error-prohibited-user-account-usage-status.md
+    type: text/markdown
+    title: Markdown version
+---
 # Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`
 
 

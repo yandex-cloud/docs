@@ -1,6 +1,10 @@
 ---
 title: Как скачать видео в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете скачать видео из сервиса {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/video/download.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Скачать видео

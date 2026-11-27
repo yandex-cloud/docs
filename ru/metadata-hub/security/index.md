@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ metadata-hub-full-name }}
 description: Управление доступом в сервисе {{ metadata-hub-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
+alternate:
+  - href: ru/metadata-hub/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ metadata-hub-name }}

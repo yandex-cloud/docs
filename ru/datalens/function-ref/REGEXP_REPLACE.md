@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/REGEXP_REPLACE.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # REGEXP_REPLACE

@@ -39,6 +39,10 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/backup/backup/api-ref/Provider/activate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Provider.Activate

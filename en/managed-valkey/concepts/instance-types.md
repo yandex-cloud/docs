@@ -1,6 +1,10 @@
 ---
 title: '{{ mrd-name }} host classes'
 description: 'The host class determines the computing power allocated for each host in a Valkey™ cluster. When you change the host class for a cluster, all existing hosts change accordingly. The amount of memory allocated to a host also depends on the maxmemory configuration parameter for Valkey™ hosts: the maximum amount of data equals 75% of available memory.'
+alternate:
+  - href: en/managed-valkey/concepts/instance-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ VLK }} host classes

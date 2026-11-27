@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for ClickHouse
+alternate:
+  - href: ru/terraform/resources/mdb_clickhouse_cluster_change_freeze.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_clickhouse_cluster_change_freeze (Resource)

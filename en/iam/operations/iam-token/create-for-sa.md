@@ -1,6 +1,10 @@
 ---
 title: How to get an IAM token for a service account in {{ iam-full-name }}
 description: Follow this guide to get an IAM token for a service account.
+alternate:
+  - href: en/iam/operations/iam-token/create-for-sa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting an IAM token for a service account

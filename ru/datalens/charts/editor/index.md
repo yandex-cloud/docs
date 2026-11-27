@@ -1,6 +1,10 @@
 ---
 title: Обзор инструмента Editor
 description: На данной странице описаны возможности инструмента Editor для создания чартов.
+alternate:
+  - href: ru/datalens/charts/editor/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чарты в Editor

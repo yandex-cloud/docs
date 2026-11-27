@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/concepts/clients-to-servers-tls.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring TLS certificates for HTTPS connections between clients and the CDN
 
 To enable clients to request files over HTTPS (e.g., if you use a URI with the `https` scheme or enabled redirection from HTTP to HTTPS in the [CDN resource](resource.md) settings), you need to configure a TLS certificate for the [domain name used to distribute content](resource.md#hostnames) specified in the resource.

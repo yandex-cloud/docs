@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/reserved-instance-pool/list-instances/
+alternate:
+  - href: en/cli/cli-ref/compute/cli-ref/reserved-instance-pool/list-instances.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute reserved-instance-pool list-instances

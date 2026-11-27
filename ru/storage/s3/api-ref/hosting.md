@@ -1,6 +1,10 @@
 ---
 title: Какие методы S3 API доступны для управления конфигурациями бакетов для статического веб-хостинга в {{ objstorage-full-name }}
 description: Из статьи вы узнаете, какие методы S3 API доступны для управления конфигурациями бакетов для статического веб-хостинга.
+alternate:
+  - href: ru/storage/s3/api-ref/hosting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все методы Static Website Hosting

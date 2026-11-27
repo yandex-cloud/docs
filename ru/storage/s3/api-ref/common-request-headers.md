@@ -1,6 +1,10 @@
 ---
 title: Какие заголовки запросов существуют в S3 API {{ objstorage-full-name }}
 description: Из статьи вы узнаете, какие заголовки запросов существуют в S3 API.
+alternate:
+  - href: ru/storage/s3/api-ref/common-request-headers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие заголовки запросов

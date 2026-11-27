@@ -1,6 +1,10 @@
 ---
 title: How to assign a user as an organization administrator in {{ org-full-name }}
 description: Follow this guide to assign a user as an organization administrator in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/add-org-admin.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning a user as an organization administrator

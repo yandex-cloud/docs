@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-transfer/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как начать работать с {{ data-transfer-name }}
 
 С помощью сервиса {{ data-transfer-name }} вы сможете перенести данные из стороннего кластера-источника в кластер-приемник, не останавливая обслуживание пользователей. В этой инструкции рассмотрим перенос стороннего кластера {{ MY }} в {{ mmy-name }}. Репликация происходит с помощью настройки [эндпоинтов](concepts/index.md#endpoint) и [трансфера](concepts/index.md#transfer) между ними.

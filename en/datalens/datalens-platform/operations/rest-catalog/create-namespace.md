@@ -1,6 +1,10 @@
 ---
 title: Creating a namespace in a {{ datalens-platform-full-name }} REST catalog
 description: Follow this guide to create namespaces in a {{ datalens-platform-full-name }} REST catalog.
+alternate:
+  - href: en/datalens/datalens-platform/operations/rest-catalog/create-namespace.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a namespace

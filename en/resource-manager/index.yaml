@@ -15,6 +15,10 @@ meta:
     - keyword: managing cloud resources
     - keyword: managing a cloud
     - keyword: cloud resource model
+  alternate:
+    - href: en/resource-manager/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: "Yandex\_Identity\_and\_Access\_Management"

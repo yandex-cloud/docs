@@ -1,6 +1,10 @@
 ---
 title: '{{ ig-name }} concepts'
 description: In this article, you will learn about {{ ig-name }} concepts.
+alternate:
+  - href: en/compute/concepts/instance-groups/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ig-name }} concepts

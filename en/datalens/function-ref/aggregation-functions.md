@@ -8,6 +8,10 @@ keywords:
   - level of detail
   - lod
 editable: false
+alternate:
+  - href: en/datalens/function-ref/aggregation-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Aggregate functions

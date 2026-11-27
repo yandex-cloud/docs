@@ -10,6 +10,10 @@ keywords:
   - object storage
   - апи s3
   - объектное хранилище
+alternate:
+  - href: ru/storage/s3/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как пользоваться S3 API

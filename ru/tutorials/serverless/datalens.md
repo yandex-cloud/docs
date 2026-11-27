@@ -3,6 +3,10 @@ title: Мониторинг состояния географически рас
 description: Настройте мониторинг состояния устройств с помощью сервисов {{ iot-name }}, {{ sf-name }}, {{ mpg-name }} и {{ datalens-name }}.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/iot/datalens'
+alternate:
+  - href: ru/tutorials/serverless/datalens.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг состояния географически распределенных устройств

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/kotlin/model/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Модель программирования на языке Kotlin
 
 Сервис {{ sf-name }} предоставляет две модели программирования на языке Kotlin — с помощью [функций верхнего уровня](top-level-function.md) и интерфейса [YcFunction](yc-function.md). Интерфейс `YcFunction` в отличие от функций верхнего уровня дает доступ к [контексту вызова](../context.md).

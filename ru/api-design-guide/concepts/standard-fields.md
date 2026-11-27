@@ -1,6 +1,10 @@
 ---
 title: Стандартные поля в API
 description: Из статьи вы узнаете, какие стандартные поля могут содержаться в представлении ресурсов {{ yandex-cloud }}.
+alternate:
+  - href: ru/api-design-guide/concepts/standard-fields.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Стандартные поля

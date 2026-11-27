@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Workbook/rpcmoveWorkbooks-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Move workbooks

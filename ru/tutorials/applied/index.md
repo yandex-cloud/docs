@@ -1,6 +1,10 @@
 ---
 title: Практические руководства для прикладных решений {{ yandex-cloud }}
 description: На странице представлен список практических руководств для создания сайтов, работы с 1С и Интернетом вещей.
+alternate:
+  - href: ru/tutorials/applied/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Прикладные решения

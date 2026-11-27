@@ -1,5 +1,9 @@
 ---
 title: How to get HTTP router information in {{ alb-full-name }}
+alternate:
+  - href: en/application-load-balancer/operations/http-router-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting HTTP router information

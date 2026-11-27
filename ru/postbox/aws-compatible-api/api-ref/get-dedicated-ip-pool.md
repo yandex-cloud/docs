@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/get-dedicated-ip-pool.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод GetDedicatedIpPool
 
 Возвращает информацию о [пуле выделенных IP-адресов](../../concepts/glossary.md#dedicated-ip-pool) в каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.

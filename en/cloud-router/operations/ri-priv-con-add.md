@@ -1,6 +1,11 @@
 ---
 title: How to add a private connection to a virtual router in {{ cr-name }}
 description: Follow this guide to add a private connection to a virtual router in {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: en/cloud-router/operations/ri-priv-con-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a private connection to a virtual router

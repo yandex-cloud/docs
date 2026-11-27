@@ -1,6 +1,10 @@
 ---
 title: Поставки данных в {{ datalens-platform-full-name }}
 description: Из статьи вы узнаете, какие бывают поставки данных в {{ datalens-platform-full-name }}
+alternate:
+  - href: ru/datalens/datalens-platform/concepts/data-transfer/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поставки данных в {{ datalens-platform-full-name }}

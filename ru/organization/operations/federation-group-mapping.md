@@ -1,6 +1,10 @@
 ---
 title: Настроить сопоставление групп федеративных пользователей
 description: Настройте сопоставление групп поставщика удостоверений с группами {{ org-full-name }} через {{ cloud-center }} или Terraform.
+alternate:
+  - href: ru/organization/operations/federation-group-mapping.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить сопоставление групп федеративных пользователей

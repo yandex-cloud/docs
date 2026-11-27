@@ -5,6 +5,10 @@ keywords:
   - static routing
   - route table
   - routing
+alternate:
+  - href: en/vpc/concepts/routing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Routing

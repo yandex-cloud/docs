@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/operations/timer-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать таймер, который вызывает контейнер {{ serverless-containers-name }}
 
 Создайте [таймер](../concepts/trigger/timer.md) — триггер, который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} по расписанию.

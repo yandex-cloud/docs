@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iam/concepts/users/accounts.md
+    type: text/markdown
+    title: Markdown version
+---
 # Accounts in {{ yandex-cloud }}
 
 {{ yandex-cloud }} uses [Yandex accounts](#passport), [service accounts](#sa), [federated accounts](#saml-federation), and [local accounts](#local).

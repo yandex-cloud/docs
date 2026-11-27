@@ -1,6 +1,10 @@
 ---
 title: OIDC apps in {{ org-full-name }}
 description: In {{ org-full-name }}, you can authenticate {{ yandex-cloud }} users to external applications using OIDC apps with OpenID Connect single sign-on.
+alternate:
+  - href: en/organization/concepts/applications/oidc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OIDC apps

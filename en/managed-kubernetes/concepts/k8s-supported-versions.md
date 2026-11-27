@@ -1,6 +1,10 @@
 ---
 title: Support for {{ k8s }} versions in {{ managed-k8s-full-name }}
 description: In this tutorial, you will learn which {{ k8s }} versions are supported in different {{ managed-k8s-name }} release channels.
+alternate:
+  - href: en/managed-kubernetes/concepts/k8s-supported-versions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Support for {{ k8s }} versions in {{ managed-k8s-full-name }}

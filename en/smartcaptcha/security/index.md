@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ captcha-name }}
 description: This section lists the resources supporting role assignment and roles available in {{ captcha-name }}.
+alternate:
+  - href: en/smartcaptcha/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ captcha-name }}

@@ -1,6 +1,10 @@
 ---
 title: Guide for collecting and delivering {{ ydb-full-name }} data using Fluentd
 description: In this tutorial, you will learn how to collect and deliver {{ ydb-full-name }} data using Fluentd.
+alternate:
+  - href: en/data-streams/quickstart/fluentd.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Fluentd

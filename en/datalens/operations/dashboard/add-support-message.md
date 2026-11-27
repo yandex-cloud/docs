@@ -1,6 +1,10 @@
 ---
 title: How to add information to a message when contacting support in {{ datalens-full-name }}
 description: Follow this guide to add information to a message when contacting support in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/add-support-message.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a message when contacting support in {{ datalens-full-name }}

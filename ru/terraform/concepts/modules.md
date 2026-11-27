@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/terraform/concepts/modules.md
+    type: text/markdown
+    title: Markdown version
+---
 # Модули
 
 **Модули в Terraform** — это способ организации кода, который позволяет разделить большую инфраструктуру на более мелкие и управляемые части.

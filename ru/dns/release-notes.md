@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ dns-full-name }}
 description: В разделе представлена история изменений сервиса {{ dns-name }}.
+alternate:
+  - href: ru/dns/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ dns-full-name }}

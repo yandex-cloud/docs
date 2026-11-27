@@ -1,6 +1,10 @@
 ---
 title: Валидация данных в {{ api-gw-full-name }}
 description: Из статьи вы узнаете, какие расширения {{ api-gw-name }} позволяют определить валидатор для схем, описанных в спецификации API-шлюза.
+alternate:
+  - href: ru/api-gateway/concepts/extensions/validator.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Валидация данных

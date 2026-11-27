@@ -1,6 +1,10 @@
 ---
 title: Базовый доступ в воркбуках и коллекциях
 description: Из статьи вы узнаете, как регулируется базовый доступ к объектам в {{ datalens-short-name }} при включенной навигации по воркбукам и коллекциям.
+alternate:
+  - href: ru/datalens/security/workbooks-access-basic.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Базовая настройка прав доступа в воркбуках и коллекциях

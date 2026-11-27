@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/concepts/caching.md
+    type: text/markdown
+    title: Markdown version
+---
 # Кеширование
 
 _Кеш_ хранит в себе часто запрашиваемые данные и обеспечивает к ним быстрый доступ.

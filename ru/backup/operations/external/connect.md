@@ -1,6 +1,10 @@
 ---
 title: Как подключить внешний ресурс к {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете подключить к {{ backup-full-name }} виртуальную машину или сервер, расположенные за пределами {{ yandex-cloud }}.
+alternate:
+  - href: ru/backup/operations/external/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключить к {{ backup-name }} виртуальную машину или сервер, расположенные за пределами {{ yandex-cloud }}

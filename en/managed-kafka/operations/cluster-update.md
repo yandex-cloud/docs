@@ -1,6 +1,10 @@
 ---
 title: How to update {{ KF }} cluster settings in {{ mkf-full-name }}
 description: Follow this guide to update {{ KF }} cluster settings.
+alternate:
+  - href: en/managed-kafka/operations/cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating {{ KF }} cluster settings

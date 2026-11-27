@@ -221,6 +221,10 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/Subject'
+alternate:
+  - href: ru/cloud-desktop/api-ref/DesktopGroup/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop API, REST: DesktopGroup.Create

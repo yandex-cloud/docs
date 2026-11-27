@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/vm/list/
+alternate:
+  - href: ru/cli/cli-ref/backup/cli-ref/vm/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc backup vm list

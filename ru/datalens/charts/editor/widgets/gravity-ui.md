@@ -1,6 +1,10 @@
 ---
 title: График (Gravity UI Charts) в Editor
 description: Из статьи вы узнаете, что такое график (Gravity UI Charts) в Editor.
+alternate:
+  - href: ru/datalens/charts/editor/widgets/gravity-ui.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # График (Gravity UI Charts)

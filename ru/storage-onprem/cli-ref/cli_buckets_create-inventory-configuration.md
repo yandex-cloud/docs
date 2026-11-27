@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_create-inventory-configuration.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets create-inventory-configuration
 
 Create or replace an inventory configuration

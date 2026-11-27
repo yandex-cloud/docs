@@ -1,6 +1,10 @@
 ---
 title: Как удалить расписание, по которому создаются снимки дисков в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете удалить расписание, по которому создаются снимки дисков.
+alternate:
+  - href: ru/compute/operations/snapshot-control/delete-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить расписание, по которому создаются снимки дисков

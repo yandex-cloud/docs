@@ -1,6 +1,10 @@
 ---
 title: Управление анализом данных в {{ sd-full-name }}
 description: Следуя данной инструкции, вы узнаете о работе с анализом данных в модуле {{ dspm-name }} сервиса {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/operations/dspm/discovery-mode.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять анализом данных {{ dspm-name }}

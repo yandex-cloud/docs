@@ -1,6 +1,10 @@
 ---
 title: Long-lived functions in {{ sf-full-name }}
 description: This page describes some aspects related to long-lived functions in {{ sf-name }}, i.e., functions that can run for up to an hour before timing out.
+alternate:
+  - href: en/functions/concepts/long-lived-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Long-lived functions

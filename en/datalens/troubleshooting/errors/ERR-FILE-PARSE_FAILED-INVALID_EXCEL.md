@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.FILE.PARSE_FAILED.INVALID_EXCEL'
 description: This page describes the Invalid file format {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-FILE-PARSE_FAILED-INVALID_EXCEL.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Invalid file format

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-spark/environment/api-ref/grpc/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Spark Environment API, gRPC: OperationService

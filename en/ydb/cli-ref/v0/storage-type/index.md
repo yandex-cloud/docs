@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/storage-type/
+alternate:
+  - href: en/ydb/cli-ref/v0/storage-type/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc ydb v0 storage-type

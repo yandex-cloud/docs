@@ -1,6 +1,10 @@
 ---
 title: RAID-массивы в серверах {{ baremetal-full-name }}
 description: В данном разделе вы узнаете о типах и уровнях RAID-массивов, которые можно использовать для повышения производительности и отказоустойчивости дисковой подсистемы в серверах {{ baremetal-full-name }}.
+alternate:
+  - href: ru/baremetal/concepts/disks/raid.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # RAID-массивы в серверах {{ baremetal-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/operations/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сценарии обслуживания
 
 * [{#T}](installing-updates.md)

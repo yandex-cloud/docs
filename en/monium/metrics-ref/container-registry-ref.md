@@ -2,6 +2,10 @@
 title: '{{ container-registry-full-name }} metrics'
 description: In this tutorial, you will learn about {{ container-registry-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/container-registry-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ container-registry-full-name }} metrics

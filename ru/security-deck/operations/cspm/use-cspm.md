@@ -1,6 +1,10 @@
 ---
 title: Работать с дашбордом модуля Контроль облачной конфигурации ({{ cspm-name }}) в {{ sd-full-name }}
 description: Инструкция по работе с интерфейсом модуля Контроль облачной конфигурации ({{ cspm-name }}) в {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/operations/cspm/use-cspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работать с дашбордом модуля {{ cspm-name }}

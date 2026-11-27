@@ -41,6 +41,10 @@ apiPlayground:
         - data
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/api-gateway/apigateway/websocket/api-ref/Connection/send.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Gateway WebSocket Connection Service, REST: Connection.Send

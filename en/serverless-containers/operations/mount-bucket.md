@@ -1,6 +1,10 @@
 ---
 title: Mounting buckets to a container in {{ serverless-containers-full-name }}
 description: Follow this guide to mount a bucket to a container in {{ serverless-containers-name }}.
+alternate:
+  - href: en/serverless-containers/operations/mount-bucket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Mounting buckets to a container

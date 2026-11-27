@@ -2,6 +2,10 @@
 title: repository.create
 description: RepositoryCreated event
 editable: false
+alternate:
+  - href: en/_src-events-ref/events-ref/repository-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # repository.create

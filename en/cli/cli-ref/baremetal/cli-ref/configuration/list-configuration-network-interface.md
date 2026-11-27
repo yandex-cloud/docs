@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/configuration/list-configuration-network-interface/
+alternate:
+  - href: en/cli/cli-ref/baremetal/cli-ref/configuration/list-configuration-network-interface.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal configuration list-configuration-network-interface

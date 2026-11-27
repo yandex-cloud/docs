@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} usage statistics'
 description: In this article, you will learn what {{ datalens-name }} instance usage statistics is available to you in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/concepts/datalens-usage-analytics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-short-name }} usage statistics

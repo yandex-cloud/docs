@@ -1,6 +1,10 @@
 ---
 title: Resizing project storage
 description: In this tutorial, you will learn how to resize your project storage.
+alternate:
+  - href: en/datasphere/operations/projects/storage-resize.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resizing project storage

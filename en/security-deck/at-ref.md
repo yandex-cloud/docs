@@ -1,6 +1,10 @@
 ---
 title: '{{ sd-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ sd-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/security-deck/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

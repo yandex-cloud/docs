@@ -1,6 +1,10 @@
 ---
 title: Инструкция о том, как удалить триггер в {{ serverless-containers-full-name }}
 description: Из статьи вы узнаете, как удалить триггер в {{ serverless-containers-full-name }}.
+alternate:
+  - href: ru/serverless-containers/operations/trigger-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить триггер в {{ serverless-containers-name }}

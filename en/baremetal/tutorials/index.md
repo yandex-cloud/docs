@@ -1,6 +1,10 @@
 ---
 title: '{{ baremetal-name }} use cases'
 description: Various use cases for {{ baremetal-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/baremetal/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ baremetal-name }} tutorials

@@ -1,6 +1,10 @@
 ---
 title: 'Snapshot: отличие от backup и рекомендации по работе'
 description: Snapshot (снапшот) — это полный снимок текущего состояния виртуальной машины, который позволяет в любой момент вернуть систему к сохраненной конфигурации.
+alternate:
+  - href: ru/glossary/snapshot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Снапшот

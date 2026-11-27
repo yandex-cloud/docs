@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/v0/agent/reinstall/
+alternate:
+  - href: ru/backup/cli-ref/v0/agent/reinstall.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc backup v0 agent reinstall

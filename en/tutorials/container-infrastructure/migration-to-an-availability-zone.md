@@ -1,6 +1,10 @@
 ---
 title: Migrating {{ managed-k8s-full-name }} resources to a different availability zone
 description: Follow this tutorial to migrate {{ managed-k8s-name }} resources to a different availability zone.
+alternate:
+  - href: en/tutorials/container-infrastructure/migration-to-an-availability-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating {{ managed-k8s-full-name }} resources to a different availability zone

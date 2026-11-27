@@ -1,6 +1,10 @@
 ---
 title: '{{ interconnect-full-name }} release notes'
 description: This section contains {{ interconnect-name }} release notes.
+alternate:
+  - href: en/interconnect/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ interconnect-full-name }} release notes

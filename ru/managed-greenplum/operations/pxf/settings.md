@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/pxf/settings.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменение настроек PXF
 
 Настройки [PXF](../external-tables.md), которые можно задать средствами {{ yandex-cloud }}, совпадают с настройками в конфигурационном файле [pxf-application.properties]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfappprops). Он описывает свойства протокола PXF. В кластере {{ mgp-name }} для настроек PXF заданы значения по умолчанию. Чтобы оптимизировать работу с [внешними таблицами](../../concepts/external-tables.md), вы можете изменить настройки PXF с помощью интерфейсов {{ yandex-cloud }} вместо правки файла.

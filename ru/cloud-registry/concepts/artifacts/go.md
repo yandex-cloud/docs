@@ -1,6 +1,10 @@
 ---
 title: Go-артефакт в {{ cloud-registry-full-name }}
 description: Go-артефакт — это модуль, содержащий исходный код на языке Go, метаданные и зависимости. Модули используются для распространения библиотек и других компонентов, которые можно добавить в проекты на Go.
+alternate:
+  - href: ru/cloud-registry/concepts/artifacts/go.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Go-артефакт

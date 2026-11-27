@@ -4,6 +4,10 @@ description: Вы создадите функцию с приложением н
 author: gayratv
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/connect-from-cf-nodejs'
+alternate:
+  - href: ru/functions/tutorials/connect-to-ydb-nodejs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к базе данных {{ ydb-full-name }} из функции {{ sf-name }} на Node.js

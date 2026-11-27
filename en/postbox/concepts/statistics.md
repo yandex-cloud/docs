@@ -1,6 +1,10 @@
 ---
 title: Statistics
 description: In {{ postbox-full-name }}, you can view statistics for sent emails, e.g., how many emails were sent, delivered/not delivered, opened, and the number of email clicks.
+alternate:
+  - href: en/postbox/concepts/statistics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Statistics

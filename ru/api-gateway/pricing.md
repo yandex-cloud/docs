@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ api-gw-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ api-gw-name }}.
 editable: false
+alternate:
+  - href: ru/api-gateway/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ api-gw-full-name }}

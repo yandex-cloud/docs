@@ -1,6 +1,10 @@
 ---
 title: Getting a list of user pools in {{ org-full-name }}
 description: Follow this guide to get a list of user pools in an {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/user-pools/get-list-userpools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of user pools

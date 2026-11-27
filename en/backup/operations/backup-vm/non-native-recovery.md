@@ -1,6 +1,10 @@
 ---
 title: How to restore a {{ compute-name }} VM or {{ baremetal-name }} server from a backup of another VM or {{ backup-full-name }} server
 description: Use this guide to restore a {{ compute-name }} VM or {{ baremetal-name }} server from a backup of another VM or {{ backup-full-name }} server.
+alternate:
+  - href: en/backup/operations/backup-vm/non-native-recovery.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Restoring a {{ compute-name }} VM or {{ baremetal-name }} server from a backup of another VM or server

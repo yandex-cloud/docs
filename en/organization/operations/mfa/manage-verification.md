@@ -1,6 +1,10 @@
 ---
 title: Removing MFA factors and resetting user verification dates in {{ org-full-name }}
 description: Follow this guide to remove MFA factors as well as track and reset user MFA verification in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/mfa/manage-verification.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Removing an MFA factor and resetting the verification date

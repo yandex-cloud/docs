@@ -1,6 +1,10 @@
 ---
 title: Invoking a function in {{ sf-full-name }}
 description: In this guide, you will learn about invoking a {{ sf-name }} function using an HTTPS request, the CLI, a trigger or an {{ api-gw-name }} extension.
+alternate:
+  - href: en/functions/concepts/function-invoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Invoking a function in {{ sf-name }}

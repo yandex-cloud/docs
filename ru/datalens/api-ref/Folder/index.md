@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Folder/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Folder
 
 <!-- markdownlint-disable-file -->

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-scale-scheduled/terraform'
+alternate:
+  - href: en/functions/tutorials/vm-scale-scheduled/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Scheduled instance group scaling with {{ TF }}

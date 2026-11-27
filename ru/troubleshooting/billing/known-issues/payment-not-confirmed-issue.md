@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/payment-not-confirmed-issue.md
+    type: text/markdown
+    title: Markdown version
+---
 # Платежный аккаунт находится в статусе `PAYMENT_NOT_CONFIRMED`
 
 

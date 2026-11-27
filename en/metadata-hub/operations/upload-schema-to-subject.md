@@ -1,6 +1,10 @@
 ---
 title: Uploading a schema to a new subject
 description: Follow this guide to upload a schema and create a subject.
+alternate:
+  - href: en/metadata-hub/operations/upload-schema-to-subject.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Uploading a schema to a new subject

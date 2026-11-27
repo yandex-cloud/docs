@@ -1,6 +1,10 @@
 ---
 title: Как аутентифицироваться в {{ yandex-cloud }} CLI от имени сервисного аккаунта
 description: Следуя данной инструкции, вы сможете аутентифицироваться в {{ yandex-cloud }} CLI от имени сервисного аккаунта.
+alternate:
+  - href: ru/cli/operations/authentication/service-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в {{ yandex-cloud }} CLI от имени сервисного аккаунта

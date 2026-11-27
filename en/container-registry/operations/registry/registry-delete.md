@@ -1,6 +1,10 @@
 ---
 title: How to delete a {{ container-registry-full-name }} registry
 description: Follow this guide to delete a {{ container-registry-short-name }} registry.
+alternate:
+  - href: en/container-registry/operations/registry/registry-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a registry

@@ -1,6 +1,10 @@
 ---
 title: Как изменить организацию платежного аккаунта
 description: Следуя данной инструкции, вы сможете изменить организацию платежного аккаунта.
+alternate:
+  - href: ru/billing/operations/change-organization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить организацию платежного аккаунта

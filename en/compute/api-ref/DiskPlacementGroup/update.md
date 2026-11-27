@@ -58,6 +58,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/compute/api-ref/DiskPlacementGroup/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: DiskPlacementGroup.Update

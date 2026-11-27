@@ -1,6 +1,10 @@
 ---
 title: How to set up a rule for blocking black addresses in {{ sws-full-name }}
 description: Follow this guide to set up a rule for blocking black addresses in {{ sws-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/black-list-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Rule for blocking black addresses

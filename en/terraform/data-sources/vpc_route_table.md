@@ -1,5 +1,9 @@
 ---
 subcategory: Virtual Private Cloud
+alternate:
+  - href: en/terraform/data-sources/vpc_route_table.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_vpc_route_table (DataSource)

@@ -1,6 +1,10 @@
 ---
 title: Assigning a role
 description: Follow this guide to assign a role for a resource.
+alternate:
+  - href: en/iam/operations/roles/grant.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning a role

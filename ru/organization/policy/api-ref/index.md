@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/organization/policy/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organization Policy API: REST reference

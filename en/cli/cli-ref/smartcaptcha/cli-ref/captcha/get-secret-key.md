@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartcaptcha/cli-ref/captcha/get-secret-key/
+alternate:
+  - href: en/cli/cli-ref/smartcaptcha/cli-ref/captcha/get-secret-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartcaptcha captcha get-secret-key

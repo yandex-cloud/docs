@@ -1,6 +1,10 @@
 ---
 title: Аутентификация от имени пользователя
 description: Следуя данной инструкции, вы сможете аутентифицироваться в CLI от имени пользователя.
+alternate:
+  - href: ru/cli/operations/authentication/user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в {{ yandex-cloud }} CLI с аккаунтом на Яндексе

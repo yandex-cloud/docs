@@ -1,6 +1,10 @@
 ---
 title: How to add a user to {{ datalens-full-name }}
 description: Follow this guide to add a user to {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/security/add-new-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Users

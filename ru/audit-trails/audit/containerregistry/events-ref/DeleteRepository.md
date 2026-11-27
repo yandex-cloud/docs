@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/containerregistry/events-ref/DeleteRepository.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry Audit Trails Events: DeleteRepository

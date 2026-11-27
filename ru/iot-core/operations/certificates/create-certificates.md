@@ -1,6 +1,10 @@
 ---
 title: Как создать сертификат в {{ iot-full-name }}
 description: Следуя данной инструкции, вы сможете создать сертификат в {{ iot-full-name }}.
+alternate:
+  - href: ru/iot-core/operations/certificates/create-certificates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание сертификата

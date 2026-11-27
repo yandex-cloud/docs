@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for a {{ objstorage-full-name }} bucket using {{ iam-name }}
 description: Follow this guide to assign a role for a bucket.
+alternate:
+  - href: en/storage/operations/buckets/iam-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring access permissions for a bucket using {{ iam-name }}

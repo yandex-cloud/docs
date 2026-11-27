@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/audit-trails/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing {{ at-full-name }} resource operations
 
 The system logs all actions with {{ at-name }} resources as a list of operations. Each operation gets a unique ID.

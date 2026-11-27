@@ -18,6 +18,10 @@ apiPlayground:
         - serviceAccountId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/iam/api-ref/IamToken/createForServiceAccount.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: IamToken.CreateForServiceAccount

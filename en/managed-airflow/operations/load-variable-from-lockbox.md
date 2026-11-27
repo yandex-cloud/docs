@@ -1,6 +1,10 @@
 ---
 title: Loading a variable from {{ lockbox-name }}
 description: 'When working with {{ maf-full-name }}, you can use {{ lockbox-full-name }} to store artifacts that can be used in DAG files: connections, variables, and configuration data. You can load a variable from {{ lockbox-name }} using a directed acyclic graph (DAG).'
+alternate:
+  - href: en/managed-airflow/operations/load-variable-from-lockbox.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Loading a variable from {{ lockbox-name }}

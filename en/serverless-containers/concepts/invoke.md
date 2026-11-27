@@ -1,6 +1,10 @@
 ---
 title: Invoking a container in {{ serverless-containers-full-name }}
 description: You can invoke a container using an HTTPS, trigger, or the {{ api-gw-full-name }} extension.
+alternate:
+  - href: en/serverless-containers/concepts/invoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Invoking a container in {{ serverless-containers-name }}

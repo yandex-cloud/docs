@@ -1,6 +1,10 @@
 ---
 title: Инструкция по настройке эндпоинта-приемника {{ ES }} в {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ ES }} в {{ data-transfer-full-name }}.
+alternate:
+  - href: ru/data-transfer/operations/endpoint/target/elasticsearch.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Передача данных в эндпоинт-приемник {{ ES }}
 

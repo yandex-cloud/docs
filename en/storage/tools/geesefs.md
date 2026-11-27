@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/tools/geesefs.md
+    type: text/markdown
+    title: Markdown version
+---
 # GeeseFS
 
 [GeeseFS](https://github.com/yandex-cloud/geesefs) is a utility for mounting {{ objstorage-name }} buckets using [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) on Linux, MacOS, and Windows platforms. It was developed by the {{ yandex-cloud }} team as a [goofys](goofys.md) branch. It is a high-performance, POSIX-ish file system.

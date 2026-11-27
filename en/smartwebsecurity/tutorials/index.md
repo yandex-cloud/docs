@@ -1,6 +1,10 @@
 ---
 title: '{{ sws-name }} use cases'
 description: Use cases for {{ sws-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/smartwebsecurity/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sws-name }} tutorials

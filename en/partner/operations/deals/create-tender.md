@@ -1,6 +1,10 @@
 ---
 title: How to create a deal as part of a scheduled procurement
 description: Follow this guide to create a deal as part of a scheduled procurement.
+alternate:
+  - href: en/partner/operations/deals/create-tender.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a deal as part of a scheduled procurement

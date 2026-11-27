@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/unpin-card.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как отвязать банковскую карту от платежного аккаунта и остановить списания
 
 

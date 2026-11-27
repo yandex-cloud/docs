@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/audittrails/events-ref/UpdateTrail.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Audit Trails Events: UpdateTrail

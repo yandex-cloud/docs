@@ -1,6 +1,10 @@
 ---
 title: Веб-интерфейс {{ kafka-ui }} для {{ mkf-name }}
 description: Из статьи вы узнаете о возможностях веб-интерфейса {{ kafka-ui }} для {{ KF }}.
+alternate:
+  - href: ru/managed-kafka/concepts/kafka-ui.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Веб-интерфейс {{ kafka-ui }} для {{ KF }}

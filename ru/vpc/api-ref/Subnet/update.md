@@ -95,6 +95,10 @@ apiPlayground:
             type: array
             items:
               type: string
+alternate:
+  - href: ru/vpc/api-ref/Subnet/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: Subnet.Update

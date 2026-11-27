@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/quota-manager/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quota Manager API, gRPC: OperationService.Cancel

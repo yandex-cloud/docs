@@ -1,6 +1,10 @@
 ---
 title: How to revoke access to a broadcast in {{ video-full-name }}
 description: Follow this guide to revoke access to a broadcast in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/streams/revoke-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Revoking access to a broadcast

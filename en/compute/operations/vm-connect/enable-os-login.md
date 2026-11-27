@@ -1,6 +1,10 @@
 ---
 title: Configuring {{ oslogin }} access on an existing VM
 description: Follow this guide to configure access to an existing VM via {{ oslogin }}.
+alternate:
+  - href: en/compute/operations/vm-connect/enable-os-login.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

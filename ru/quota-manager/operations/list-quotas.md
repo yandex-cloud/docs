@@ -1,5 +1,9 @@
 ---
 title: Как посмотреть список сервисов и квот
+alternate:
+  - href: ru/quota-manager/operations/list-quotas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть список сервисов и квот

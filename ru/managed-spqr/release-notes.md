@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ mspqr-full-name }}
 description: В разделе представлена история изменений сервиса {{ mspqr-name }}.
+alternate:
+  - href: ru/managed-spqr/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ mspqr-full-name }}

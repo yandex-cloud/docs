@@ -1,6 +1,10 @@
 ---
 title: Connecting to {{ mch-full-name }}
 description: You can use a directed acyclic graph (DAG) to configure a connection to a database in a {{ mch-full-name }} cluster.
+alternate:
+  - href: en/managed-airflow/operations/clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to {{ mch-full-name }}

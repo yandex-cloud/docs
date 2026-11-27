@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/concepts/dictionaries.md
+    type: text/markdown
+    title: Markdown version
+---
 # Словари {{ CH }}
 
 _Словарь_ в {{ CH }} — это хранилище данных типа «ключ-значение», которое полностью или частично хранится в оперативной памяти сервера {{ CH }}.

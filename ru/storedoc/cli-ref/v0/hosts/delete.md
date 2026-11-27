@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/v0/hosts/delete/
+alternate:
+  - href: ru/storedoc/cli-ref/v0/hosts/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb v0 hosts delete

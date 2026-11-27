@@ -1,6 +1,10 @@
 ---
 title: Configuring NAT routing from the management console
 description: In this tutorial, you will create a {{ compute-full-name }} VM instance and configure its internet connection through a NAT instance with static routing in {{ vpc-full-name }}, all using the management console.
+alternate:
+  - href: en/tutorials/routing/nat-instance/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring NAT routing from the management console

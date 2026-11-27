@@ -1,6 +1,10 @@
 ---
 title: Neuroanalyst in Editor
 description: In this article, you will learn about Neuroanalyst in Editor and how to use it.
+alternate:
+  - href: en/datalens/charts/editor/code-helper.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Neuroanalyst in Editor

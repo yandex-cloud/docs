@@ -1,6 +1,10 @@
 ---
 title: Контекст вызова функции на .NET Core в {{ sf-full-name }}
 description: Из статьи вы узнаете, что такое контекст вызова функции на .NET Core.
+alternate:
+  - href: ru/functions/lang/csharp/context.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Контекст вызова функции на .NET Core

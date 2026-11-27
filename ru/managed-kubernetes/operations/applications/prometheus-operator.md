@@ -1,6 +1,10 @@
 ---
 title: Установка Prometheus Operator с поддержкой {{ monium-full-name }}
 description: Следуя данной инструкции, вы сможете установить Prometheus Operator с поддержкой {{ monium-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/prometheus-operator.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка Prometheus Operator с поддержкой {{ monium-full-name }}

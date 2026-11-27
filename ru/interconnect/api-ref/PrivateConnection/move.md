@@ -31,6 +31,10 @@ apiPlayground:
         - destinationFolderId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/interconnect/api-ref/PrivateConnection/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Interconnect API, REST: PrivateConnection.Move

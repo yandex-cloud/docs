@@ -1,6 +1,10 @@
 ---
 title: Настроить права доступа к подключению
 description: Следуя данной инструкции, вы сможете настроить права доступа к подключению.
+alternate:
+  - href: ru/metadata-hub/operations/connection-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к подключению

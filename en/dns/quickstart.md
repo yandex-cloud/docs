@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ dns-full-name }}
 description: Follow this guide to create private and public DNS zones.
+alternate:
+  - href: en/dns/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ dns-name }}

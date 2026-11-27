@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.CONNECTION_CONFIG.DASHSQL_NOT_ALLOWED'
 description: This page describes the `Use of QL charts is prohibited at connection level` {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-DASHSQL_NOT_ALLOWED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}]: Use of QL charts is prohibited at connection level

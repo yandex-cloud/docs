@@ -115,6 +115,10 @@ apiPlayground:
             type: object
             additionalProperties:
               type: string
+alternate:
+  - href: en/compute/api-ref/SnapshotSchedule/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: SnapshotSchedule.Create

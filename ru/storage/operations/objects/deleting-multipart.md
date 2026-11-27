@@ -1,6 +1,10 @@
 ---
 title: Удалить частично загруженный объект в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете удалить частично загруженный объект из бакета в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/objects/deleting-multipart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить частично загруженный объект

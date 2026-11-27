@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/network/list-route-tables/
+alternate:
+  - href: ru/vpc/cli-ref/network/list-route-tables.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc network list-route-tables

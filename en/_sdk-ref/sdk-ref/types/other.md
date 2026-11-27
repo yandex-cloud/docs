@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/types/other.md
+    type: text/markdown
+    title: Markdown version
+---
 # Other types
 
 ## Settings types

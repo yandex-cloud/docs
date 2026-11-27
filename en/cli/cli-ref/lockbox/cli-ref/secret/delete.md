@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/delete/
+alternate:
+  - href: en/cli/cli-ref/lockbox/cli-ref/secret/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc lockbox secret delete

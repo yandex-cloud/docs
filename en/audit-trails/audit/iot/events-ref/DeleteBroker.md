@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/iot/events-ref/DeleteBroker.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Audit Trails Events: DeleteBroker

@@ -1,6 +1,10 @@
 ---
 title: Deleting a child term in {{ data-catalog-full-name }}
 description: Follow this guide to delete a child term from a {{ data-catalog-name }} glossary.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/delete-term-child.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a child term

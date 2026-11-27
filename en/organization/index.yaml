@@ -14,6 +14,10 @@ meta:
     - keyword: corporate cloud
     - keyword: cloud for corporate customers
     - keyword: how to manage employee access
+  alternate:
+    - href: en/organization/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Identity Hub

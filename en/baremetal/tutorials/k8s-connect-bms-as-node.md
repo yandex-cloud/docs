@@ -3,6 +3,10 @@ title: Connecting a {{ baremetal-full-name }} server as an external node to a {{
 description: In this tutorial, you will learn how to connect a {{ baremetal-name }} server to a {{ managed-k8s-name }} cluster as an external node.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/k8s-connect-bms-as-node'
 noIndex: true
+alternate:
+  - href: en/baremetal/tutorials/k8s-connect-bms-as-node.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [k8s-node-bms](../../_tutorials/k8s/k8s-node-bms.md) %}

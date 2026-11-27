@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ mkf-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ mkf-name }}.
+alternate:
+  - href: ru/managed-kafka/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ mkf-name }}

@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ captcha-full-name }}
 description: 4 simple steps to quickly integrate CAPTCHA on your website
+alternate:
+  - href: en/smartcaptcha/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ captcha-full-name }}

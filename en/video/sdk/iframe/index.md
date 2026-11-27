@@ -1,6 +1,10 @@
 ---
 title: Getting started with the IFrame SDK for {{ video-player-name }}
 description: This page describes the basic controls for {{ video-player-name }} in the IFrame SDK.
+alternate:
+  - href: en/video/sdk/iframe/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with the video player SDK for IFrame

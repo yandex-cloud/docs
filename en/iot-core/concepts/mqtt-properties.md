@@ -1,6 +1,10 @@
 ---
 title: MQTT server connection parameters
 description: This article describes MQTT server connection parameters.
+alternate:
+  - href: en/iot-core/concepts/mqtt-properties.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # MQTT server connection parameters

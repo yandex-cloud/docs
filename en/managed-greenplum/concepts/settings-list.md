@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # DBMS settings
 
 In {{ mgp-name }}, you can configure DBMS-related settings. Some settings are configured [at the cluster level](#dbms-cluster-settings), while others, at the level of external data sources, such as [S3](#s3-settings), [JDBC](#jdbc-settings), [HDFS](#hdfs-settings), [Hive](#hive-settings).

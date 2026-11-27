@@ -1,6 +1,10 @@
 ---
 title: Managing {{ mgp-full-name }} cluster roles and users
 description: In this tutorial, you will learn how to manage database access rights, as well as view, create, set up, and delete roles.
+alternate:
+  - href: en/managed-greenplum/operations/roles-and-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Role and user management

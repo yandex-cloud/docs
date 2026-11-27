@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ compute-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий уровня сервисов и конфигурации {{ compute-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/compute/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ at-full-name }}

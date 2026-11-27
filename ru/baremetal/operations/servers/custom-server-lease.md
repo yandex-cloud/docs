@@ -1,6 +1,10 @@
 ---
 title: Как арендовать сервер в {{ baremetal-full-name }} в пользовательской конфигурации
 description: Следуя данной инструкции, вы сможете арендовать сервер в {{ baremetal-full-name }} в конфигурации, собранной индивидуально под ваши потребности.
+alternate:
+  - href: ru/baremetal/operations/servers/custom-server-lease.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Арендовать сервер в своей конфигурации

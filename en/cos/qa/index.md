@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ cos-full-name }}
 description: This page covers FAQ about {{ cos-name }}.
+alternate:
+  - href: en/cos/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ cos-name }}

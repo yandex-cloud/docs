@@ -1,6 +1,10 @@
 ---
 title: Как создать загрузку данных в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы сможете создать загрузку данных в {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/create-ingestion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание загрузки данных

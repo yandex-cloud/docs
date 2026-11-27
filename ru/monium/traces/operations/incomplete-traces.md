@@ -1,6 +1,10 @@
 ---
 title: Неполные трейсы
 description: Причины появления неполных трейсов и способы диагностики проблем с отправкой данных.
+alternate:
+  - href: ru/monium/traces/operations/incomplete-traces.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Неполные трейсы

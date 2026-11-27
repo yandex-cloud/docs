@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/logging/api-ref/grpc/Export/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, gRPC: ExportService.Get

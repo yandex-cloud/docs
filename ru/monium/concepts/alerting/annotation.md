@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/concepts/alerting/annotation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Аннотация
 
 Аннотации позволяют сохранить дополнительную информацию в момент вычисления алерта. Имя и значение аннотаций передаются при отправке уведомлений по алертам в [каналы](notification-channel.md) `Email` и `Telegram`.

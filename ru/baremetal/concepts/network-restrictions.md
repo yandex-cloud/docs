@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/baremetal/concepts/network-restrictions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Ограничения в сетях {{ baremetal-name }}
 
 В сетях {{ baremetal-name }} действует ряд ограничений.

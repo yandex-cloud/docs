@@ -1,6 +1,10 @@
 ---
 title: Настройка выделенной IP-адресации CDN-ресурсов
 description: Следуя данной инструкции, вы сможете настроить выделенную IP-адресацию CDN-ресурсов.
+alternate:
+  - href: ru/cdn/operations/resources/dedicated-ip-addressing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка выделенной IP-адресации CDN-ресурсов

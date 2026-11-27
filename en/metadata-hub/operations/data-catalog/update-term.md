@@ -1,6 +1,10 @@
 ---
 title: Updating a term in {{ data-catalog-full-name }}
 description: Follow this guide to update a term in a {{ data-catalog-name }} glossary.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/update-term.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a term

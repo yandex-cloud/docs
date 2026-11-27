@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/smartcaptcha/concepts/js-interface.md
+    type: text/markdown
+    title: Markdown version
+---
 # JavaScript Interface object
 
 JavaScript Interface is an object Android transfers to **WebView**. The front end will then access this object to send messages using a callback function on Android.

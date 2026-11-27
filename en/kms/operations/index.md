@@ -1,6 +1,10 @@
 ---
 title: How to work with encryption keys. Step-by-step guides
 description: Step-by-step guides on using encryption keys in {{ yandex-cloud }}. In this guide, you will learn how to manage encryption keys and their versions. Learn about encrypting data using the {{ yandex-cloud }} CLI and API.
+alternate:
+  - href: en/kms/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ kms-name }}

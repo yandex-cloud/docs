@@ -1,6 +1,10 @@
 ---
 title: Миграция из on-premises в {{ managed-k8s-full-name }}
 description: Руководство по переносу рабочих нагрузок {{ k8s }} из собственной инфраструктуры в {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/tutorials/migration/migration-from-onprem.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция из on-premises в {{ managed-k8s-name }}

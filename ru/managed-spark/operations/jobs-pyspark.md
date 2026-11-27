@@ -1,6 +1,10 @@
 ---
 title: Как управлять заданиями PySpark в {{ msp-full-name }}
 description: Из статьи вы узнаете, как управлять заданиями PySpark в {{ msp-full-name }}.
+alternate:
+  - href: ru/managed-spark/operations/jobs-pyspark.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление заданиями PySpark

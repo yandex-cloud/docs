@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/video/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, gRPC: OperationService.Cancel

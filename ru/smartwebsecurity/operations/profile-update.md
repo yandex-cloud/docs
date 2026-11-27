@@ -1,6 +1,10 @@
 ---
 title: Как изменить основные параметры профиля безопасности {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете изменить основные параметры профиля безопасности {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/profile-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить основные параметры профиля безопасности

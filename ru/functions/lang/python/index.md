@@ -1,6 +1,10 @@
 ---
 title: Разработка на Python в {{ sf-full-name }}. Обзор
 description: С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на Python. Сервис предоставляет несколько сред выполнения с различными версиями окружения.
+alternate:
+  - href: ru/functions/lang/python/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разработка на Python. Обзор

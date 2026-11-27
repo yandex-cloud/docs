@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/object/putobjectretention.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: PutObjectRetention
 
 Puts [retention](../../../concepts/object-lock.md) on the object version or configures/disables a previously set lock.

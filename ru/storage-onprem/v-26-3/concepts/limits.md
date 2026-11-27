@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
+---
 # Ограничения и лимиты
 
 В {{ objstorage-onprem-name }} действуют _лимиты_ — технические ограничения, обусловленные особенностями архитектуры. Изменение некоторых лимитов может быть ограничено архитектурой продукта.

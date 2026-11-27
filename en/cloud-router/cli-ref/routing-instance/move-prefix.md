@@ -1,6 +1,11 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/routing-instance/move-prefix/
+noIndex: true
+alternate:
+  - href: en/cloud-router/cli-ref/routing-instance/move-prefix.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloudrouter routing-instance move-prefix

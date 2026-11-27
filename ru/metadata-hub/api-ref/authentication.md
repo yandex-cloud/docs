@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в API {{ metadata-hub-full-name }}
 description: Для выполнения операций через API в сервисе {{ metadata-hub-full-name }}, необходимо получить IAM-токен для своего аккаунта.
+alternate:
+  - href: ru/metadata-hub/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в API {{ metadata-hub-full-name }}

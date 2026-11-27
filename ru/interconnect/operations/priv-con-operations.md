@@ -1,6 +1,10 @@
 ---
 title: Как получить список операций приватного соединения в {{ interconnect-name }}
 description: Следуя этой инструкции, вы сможете получить список операций приватного соединения в {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/operations/priv-con-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список операций приватного соединения

@@ -1,6 +1,10 @@
 ---
 title: Managing queries in {{ yandex-siem-full-name }}
 description: Follow this guide to learn how to create, edit, run, and delete queries in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/operations/queries/manage-queries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing queries

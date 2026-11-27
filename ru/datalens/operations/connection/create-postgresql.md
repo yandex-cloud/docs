@@ -1,6 +1,10 @@
 ---
 title: Инструкция по созданию подключения к {{ PG }} в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как подключиться к {{ PG }} в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/create-postgresql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к {{ PG }} в {{ datalens-full-name }}

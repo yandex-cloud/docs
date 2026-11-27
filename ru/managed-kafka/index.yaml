@@ -16,6 +16,10 @@ meta:
     - keyword: Apache Kafka в {{ yandex-cloud }}
     - keyword: '{{ mkf-name }} в {{ yandex-cloud }}'
     - keyword: сервис {{ mkf-name }}
+  alternate:
+    - href: ru/managed-kafka/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Managed Service for Apache Kafka®

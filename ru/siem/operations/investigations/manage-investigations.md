@@ -1,6 +1,10 @@
 ---
 title: Управление расследованиями в {{ yandex-siem-full-name }}
 description: Следуя данной инструкции, вы научитесь создавать, изменять, копировать и удалять расследования в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/operations/investigations/manage-investigations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление расследованиями

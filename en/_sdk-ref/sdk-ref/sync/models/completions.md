@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/sync/models/completions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_models.completions.function.**Completions**{#yandex_ai_studio_sdk._models.completions.function.Completions}

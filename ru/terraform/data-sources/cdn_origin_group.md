@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud CDN
+alternate:
+  - href: ru/terraform/data-sources/cdn_origin_group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cdn_origin_group (DataSource)

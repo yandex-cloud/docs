@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/video/api-ref/grpc/Subtitle/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, gRPC: SubtitleService.Get

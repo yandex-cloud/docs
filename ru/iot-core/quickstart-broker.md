@@ -1,6 +1,10 @@
 ---
 title: Начало работы с брокерами {{ iot-full-name }}
 description: Чтобы начать работать с {{ iot-name }}, создайте сертификат X.509 и брокер. Затем настройте обмен сообщениями.
+alternate:
+  - href: ru/iot-core/quickstart-broker.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с брокерами {{ iot-name }}

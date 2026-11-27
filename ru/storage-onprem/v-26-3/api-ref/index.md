@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Руководство по использованию gRPC API
 
 Это руководство описывает, как использовать gRPC API для работы с S3-хранилищем в системе {{ objstorage-onprem-name }}. Основное внимание уделено процессу авторизации.

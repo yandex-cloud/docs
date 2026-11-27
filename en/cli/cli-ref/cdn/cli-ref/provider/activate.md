@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/provider/activate/
+alternate:
+  - href: en/cli/cli-ref/cdn/cli-ref/provider/activate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cdn provider activate

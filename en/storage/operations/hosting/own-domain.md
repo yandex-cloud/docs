@@ -1,6 +1,10 @@
 ---
 title: Supporting your own domain
 description: Follow this guide to set up a custom domain for hosting.
+alternate:
+  - href: en/storage/operations/hosting/own-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Supporting your own domain

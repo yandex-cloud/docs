@@ -1,6 +1,10 @@
 ---
 title: Errors in {{ datalens-full-name }}
 description: This page presents {{ datalens-full-name }} error codes and their descriptions.
+alternate:
+  - href: en/datalens/troubleshooting/errors/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All {{ datalens-full-name }} errors

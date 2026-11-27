@@ -1,6 +1,10 @@
 ---
 title: Гибридное хранилище в {{ mgp-name }}
 description: Как устроено гибридное хранилище в кластере {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/concepts/hybrid-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Гибридное хранилище в {{ mgp-name }}

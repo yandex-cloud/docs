@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/organization/operations/subscribe-user-for-notifications.md
+    type: text/markdown
+    title: Markdown version
+---
 # Subscribing a user to notifications
 
 By default, technical notifications for an organization are sent to users with the `organization-manager.organizations.owner` role.

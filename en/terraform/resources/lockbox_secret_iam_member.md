@@ -1,5 +1,9 @@
 ---
 subcategory: Lockbox
+alternate:
+  - href: en/terraform/resources/lockbox_secret_iam_member.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_lockbox_secret_iam_member (Resource)

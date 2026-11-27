@@ -1,6 +1,10 @@
 ---
 title: История изменений партнерского портала {{ yandex-cloud }}
 description: В разделе представлена история изменений партнерского портала {{ yandex-cloud }}.
+alternate:
+  - href: ru/partner/release-notes/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений партнерского портала

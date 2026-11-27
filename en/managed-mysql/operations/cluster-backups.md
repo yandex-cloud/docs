@@ -1,6 +1,10 @@
 ---
 title: Managing {{ MY }} backups
 description: You can back up {{ MY }} clusters and restore them from existing backups. Point-in-time recovery (PITR) allows you to restore your cluster’s state to any point in time, starting from when the backup was created.
+alternate:
+  - href: en/managed-mysql/operations/cluster-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing backups in {{ mmy-name }}

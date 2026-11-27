@@ -322,6 +322,10 @@ apiPlayground:
             $ref: '#/definitions/AdditionalRDN'
         required:
           - baseRdn
+alternate:
+  - href: ru/certificate-manager/privateca/api-ref/PrivateCa/generateCsrForCertificateAuthority.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, REST: PrivateCa.GenerateCsrForCertificateAuthority

@@ -1,6 +1,10 @@
 ---
 title: Pricing policy for Microsoft products
 description: This article provides the pricing policy for Microsoft products.
+alternate:
+  - href: en/microsoft/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pricing policy

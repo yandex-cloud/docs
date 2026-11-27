@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/speechkit-hybrid/monitoring-envoy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Envoy service monitoring
 
 Envoy services is a collective name of the Envoy and License server {{ sk-hybrid-name }} components For more information about the {{ sk-hybrid-name }} components, see [{#T}](architecture.md).

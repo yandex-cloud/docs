@@ -1,6 +1,10 @@
 ---
 title: Updating management console settings
 description: Follow this guide to change your management console settings.
+alternate:
+  - href: en/console/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating management console settings

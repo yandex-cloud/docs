@@ -1,6 +1,10 @@
 ---
 title: Изменение лог-группы
 description: Следуя данной инструкции, вы сможете изменить лог-группу.
+alternate:
+  - href: ru/logging/operations/retention-period.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить лог-группу

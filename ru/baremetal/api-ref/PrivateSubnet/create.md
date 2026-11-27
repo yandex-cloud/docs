@@ -146,6 +146,10 @@ apiPlayground:
               **string**
               Gateway IP address for the subnet.
             type: string
+alternate:
+  - href: ru/baremetal/api-ref/PrivateSubnet/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PrivateSubnet.Create

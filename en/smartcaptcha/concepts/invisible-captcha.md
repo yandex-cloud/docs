@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/smartcaptcha/concepts/invisible-captcha.md
+    type: text/markdown
+    title: Markdown version
+---
 # Invisible CAPTCHA
 
 Invisible CAPTCHA is a way of connecting the {{ captcha-name }} widget without the **"I’m not a robot"** button on the page. Only users whose requests are considered suspicious by {{ captcha-name }} will see the challenge pop-up window.

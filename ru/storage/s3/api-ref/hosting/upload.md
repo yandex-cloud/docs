@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/hosting/upload.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: PutBucketWebsite
 
 Загружает конфигурацию хостинга статического сайта для бакета.

@@ -1,6 +1,10 @@
 ---
 title: Политика доступа по странам
 description: В данном разделе описана политика доступа к CDN-ресурсу по странам.
+alternate:
+  - href: ru/cdn/concepts/geo-acl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политика доступа по странам

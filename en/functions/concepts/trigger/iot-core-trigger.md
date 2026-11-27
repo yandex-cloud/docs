@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/concepts/trigger/iot-core-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for {{ iot-short-name }} that sends messages to a {{ sf-name }} function
 
 A [trigger](../trigger/) for {{ iot-short-name }} manages messages exchanged between devices, registries, and brokers. You create this trigger for topics: it receives copies of messages from topics and sends those to the {{ sf-name }} function for processing.

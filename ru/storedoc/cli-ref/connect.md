@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/connect/
+alternate:
+  - href: ru/storedoc/cli-ref/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb connect

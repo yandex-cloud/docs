@@ -1,6 +1,10 @@
 ---
 title: Настроить защиту от удаления в {{ vpc-full-name }}
 description: Чтобы предотвратить случайное удаление статического публичного IP-адреса, включите для него защиту от удаления.
+alternate:
+  - href: ru/vpc/operations/deletion-protection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить защиту от удаления

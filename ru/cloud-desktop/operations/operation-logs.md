@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cloud-desktop/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Посмотреть операции с ресурсами сервиса {{ cloud-desktop-name }}
 
 Все действия с ресурсами сервиса {{ cloud-desktop-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.

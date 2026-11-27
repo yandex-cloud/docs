@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/gpu.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ gpu-operator }}
 
 {{ stackland-name }} позволяет использовать GPU {{ nvidia }} в кластере {{ stackland-name }} с помощью компонента {{ gpu-operator }}. Компонент автоматизирует управление GPU-ресурсами и обеспечивает их доступность для рабочих нагрузок. Компонент основан на [{{ nvidia }} GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html) и включает набор инструментов для полноценной работы с GPU в Kubernetes.

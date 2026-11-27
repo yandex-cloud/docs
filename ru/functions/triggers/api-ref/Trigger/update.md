@@ -1136,6 +1136,10 @@ apiPlayground:
               - dataStream
           - required:
               - mail
+alternate:
+  - href: ru/functions/triggers/api-ref/Trigger/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Triggers Service, REST: Trigger.Update

@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ cloud-registry-name }}
 description: Use this guide to create your first registry in {{ cloud-registry-name }} and try your hand at managing Docker images.
+alternate:
+  - href: en/cloud-registry/quickstart/docker.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ cloud-registry-name }}

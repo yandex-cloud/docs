@@ -1,6 +1,10 @@
 ---
 title: Взаимосвязь ресурсов в {{ compute-full-name }}
 description: Из статьи вы узнаете, как связаны между собой ресурсы сервиса {{ compute-short-name }}, виды ресурсов, а также как они связаны с другими сервисами {{ yandex-cloud }}.
+alternate:
+  - href: ru/compute/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Взаимосвязь ресурсов в {{ compute-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Viewing a list of a subject's accesses in {{ org-full-name }}
 description: In this section, you will learn how to view all access permissions of an account or group to resources in a {{ org-full-name }} organization.
+alternate:
+  - href: en/organization/operations/view-subject-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing a list of a subject's accesses

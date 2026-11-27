@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ mgl-full-name }} instance
 description: In this article, you will learn how to create a {{ mgl-name }} instance.
+alternate:
+  - href: en/managed-gitlab/operations/instance/instance-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating and activating a {{ mgl-full-name }} instance

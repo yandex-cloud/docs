@@ -2,6 +2,10 @@
 title: Restoring databases from a backups in case the availability zone fails
 description: The process of restoring managed database clusters from backups if the availability zone fails.
 noIndex: true
+alternate:
+  - href: en/architecture/mdb-outbound-backup-recovery.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Restoring DB clusters from backups to an external S3 storage

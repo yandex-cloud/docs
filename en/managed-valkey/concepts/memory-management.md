@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-valkey/concepts/memory-management.md
+    type: text/markdown
+    title: Markdown version
+---
 # Memory management in {{ mrd-name }}
 
 For user data on the {{ mrd-name }} cluster hosts, {{ mrd-memory-used }} of the total amount of RAM is allocated. The remaining RAM is reserved for the {{ VLK }} process's own needs. You can reduce the amount of RAM allocated for user data by using the [Maxmemory percent](settings-list.md#settings-maxmemory-percent) parameter. This may be helpful if an out-of-memory error occurs in the cluster.

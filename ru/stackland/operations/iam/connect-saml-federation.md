@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/iam/connect-saml-federation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключить SAML-федерацию
 
 SAML-федерация позволяет пользователям входить в систему с помощью учетных записей из внешнего провайдера идентификации (IdP).

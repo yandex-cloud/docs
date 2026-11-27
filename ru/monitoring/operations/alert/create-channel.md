@@ -1,6 +1,10 @@
 ---
 title: Как создать канал уведомлений в {{ monitoring-full-name }}
 description: Следуя данной инструкции, вы сможете создать канал уведомлений и отправлять сообщения получателям на почту и в мессенджеры.
+alternate:
+  - href: ru/monitoring/operations/alert/create-channel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание канала уведомлений с получателями

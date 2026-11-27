@@ -1,6 +1,10 @@
 ---
 title: Изменение сервиса координации со встроенного {{ CK }} на {{ CK }} на отдельных хостах
 description: Следуя данной инструкции, вы сможете изменить сервис координации со встроенного {{ CK }} на {{ CK }} на отдельных хостах.
+alternate:
+  - href: ru/managed-clickhouse/operations/ck-hosts-upgrade.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение сервиса координации со встроенного {{ CK }} на {{ CK }} на отдельных хостах

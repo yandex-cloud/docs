@@ -1,6 +1,10 @@
 ---
 title: Sending messages to an MQTT server via gRPC
 description: In this article you will learn about sending messages to an MQTT-server via gRPC, see what the serializable data structure looks like, and also find a suitable use case.
+alternate:
+  - href: en/iot-core/concepts/mqtt-grpc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sending messages to an MQTT server via gRPC

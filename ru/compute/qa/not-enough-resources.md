@@ -1,6 +1,10 @@
 ---
 title: Ошибка Not enough resources
 description: Если в зоне доступности не хватает аппаратных ресурсов, создание ВМ может завершиться ошибкой Not enough resources.
+alternate:
+  - href: ru/compute/qa/not-enough-resources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ошибка Not enough resources

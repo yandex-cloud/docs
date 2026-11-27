@@ -1,6 +1,10 @@
 ---
 title: Getting an IAM token
 description: Using a directed acyclic graph (DAG), you can get the IAM token of the service account attached to an {{ AF }} cluster.
+alternate:
+  - href: en/managed-airflow/operations/get-iam-token.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting an IAM token

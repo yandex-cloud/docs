@@ -1,6 +1,10 @@
 ---
 title: Анализ критического пути
 description: Критический путь в трейсе — это последовательность спанов, определяющая общее время выполнения запроса.
+alternate:
+  - href: ru/monium/traces/operations/critical-path.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Анализ критического пути

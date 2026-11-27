@@ -1,6 +1,10 @@
 ---
 title: Как удалить кластер {{ mgp-full-name }}
 description: Из статьи вы узнаете, как удалить кластер {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление кластера {{ mgp-name }}

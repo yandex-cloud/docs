@@ -1,6 +1,10 @@
 ---
 title: Поставка метрик с хостов вне {{ yandex-cloud }}
 description: Следуя данной инструкции, вы сможете поставлять метрики с хостов вне {{ yandex-cloud }}.
+alternate:
+  - href: ru/monitoring/operations/unified-agent/non-yc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поставка метрик с хостов вне {{ yandex-cloud }}

@@ -1,6 +1,10 @@
 ---
 title: How to create a notification channel that invokes a function in {{ monitoring-full-name }}
 description: Follow this guide to create a notification channel that invokes a function in {{ sf-full-name }}.
+alternate:
+  - href: en/monitoring/operations/alert/create-channel-function.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a notification channel that invokes a function

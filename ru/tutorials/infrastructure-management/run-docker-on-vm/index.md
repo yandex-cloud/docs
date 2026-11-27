@@ -1,6 +1,10 @@
 ---
 title: Запуск Docker-образа на виртуальной машине
 description: В этом руководстве вы запустите Docker-образ на виртуальной машине {{ compute-full-name }} с использованием реестра {{ container-registry-full-name }}.
+alternate:
+  - href: ru/tutorials/infrastructure-management/run-docker-on-vm/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [run-docker-on-vm](../../../_tutorials/infrastructure/run-docker-on-vm.md) %}

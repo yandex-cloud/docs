@@ -1,6 +1,10 @@
 ---
 title: Создание кластера {{ SD }}
 description: Следуя данной инструкции, вы сможете создать кластер {{ SD }}.
+alternate:
+  - href: ru/storedoc/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ SD }}

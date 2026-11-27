@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/updateTimeToLive.md
+alternate:
+  - href: en/ydb/docapi/api-ref/actions/updateTimeToLive.md
+    type: text/markdown
+    title: Markdown version
 ---
 # UpdateTimeToLive method
 

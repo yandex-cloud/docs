@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/trigger/mail-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating an email trigger that invokes {{ sf-name }}
 
 Create an [email trigger](../../concepts/trigger/mail-trigger.md) that invokes [{{ sf-name }}](../../concepts/function.md) when an email arrives. {{ sf-name }} will automatically generate an email address when creating the trigger.

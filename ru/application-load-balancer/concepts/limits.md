@@ -2,6 +2,10 @@
 title: Квоты и лимиты в {{ alb-name }}
 description: В сервисе {{ alb-name }} действуют лимиты и квоты на максимальное количество балансировщиков в одном облаке, максимальное количество HTTP-роутеров в одном облаке. Более подробно об ограничениях в сервисе вы узнаете из этой статьи.
 editable: false
+alternate:
+  - href: ru/application-load-balancer/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ alb-name }}

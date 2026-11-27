@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/cluster/set-access-bindings/
+alternate:
+  - href: ru/managed-valkey/cli-ref/cluster/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-redis cluster set-access-bindings

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-policy-template/list/
+alternate:
+  - href: ru/iam/cli-ref/access-policy-template/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam access-policy-template list

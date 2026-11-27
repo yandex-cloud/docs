@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Opportunities/POST_opportunities_v1_masterBAId_opportunities_list.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # List opportunities

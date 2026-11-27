@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к кластеру {{ dataproc-full-name }}
 description: Следуя данной инструкции, вы сможете подключиться к кластеру {{ dataproc-name }}.
+alternate:
+  - href: ru/data-proc/operations/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ dataproc-name }}

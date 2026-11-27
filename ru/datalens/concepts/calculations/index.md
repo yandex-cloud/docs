@@ -1,6 +1,10 @@
 ---
 title: Вычисляемые поля в {{ datalens-full-name }}
 description: Вычисляемое поле в {{ datalens-full-name }} — это дополнительное поле данных, значения которого вычисляются по формуле.
+alternate:
+  - href: ru/datalens/concepts/calculations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вычисляемые поля в {{ datalens-full-name }}

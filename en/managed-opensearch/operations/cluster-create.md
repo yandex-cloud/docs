@@ -5,6 +5,10 @@ keywords:
   - Creating an OpenSearch cluster
   - OpenSearch cluster
   - OpenSearch
+alternate:
+  - href: en/managed-opensearch/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an {{ OS }} cluster

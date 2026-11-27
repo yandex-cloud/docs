@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Backup
+alternate:
+  - href: ru/terraform/data-sources/backup_policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_backup_policy (DataSource)

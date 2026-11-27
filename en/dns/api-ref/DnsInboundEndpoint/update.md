@@ -73,6 +73,10 @@ apiPlayground:
           type: boolean
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/dns/api-ref/DnsInboundEndpoint/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, REST: DnsInboundEndpoint.Update

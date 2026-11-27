@@ -2,6 +2,10 @@
 title: '{{ neurosupport-full-name }} pricing policy'
 description: This article covers the {{ neurosupport-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/neurosupport/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ neurosupport-full-name }} pricing policy

@@ -1,6 +1,10 @@
 ---
 title: Запись данных в {{ objstorage-full-name }}
 description: Из статьи вы узнаете, как записывать данные из {{ yq-full-name }} в {{ objstorage-full-name }} через соединения и привязки к данным.
+alternate:
+  - href: ru/query/sources-and-sinks/object-storage-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запись данных в {{ objstorage-full-name }}

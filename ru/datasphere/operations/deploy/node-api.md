@@ -1,6 +1,10 @@
 ---
 title: Как отправить запрос в ноду в {{ ml-platform-full-name }}
 description: Следуя данной инструкции, вы сможете отправить запрос в ноду.
+alternate:
+  - href: ru/datasphere/operations/deploy/node-api.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправить запрос в ноду

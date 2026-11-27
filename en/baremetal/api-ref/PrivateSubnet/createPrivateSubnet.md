@@ -221,6 +221,10 @@ apiPlayground:
               **string**
               ID of the availability zone where the server resides.
             type: string
+alternate:
+  - href: en/baremetal/api-ref/PrivateSubnet/createPrivateSubnet.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PrivateSubnet.CreatePrivateSubnet

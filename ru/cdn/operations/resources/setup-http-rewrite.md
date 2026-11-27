@@ -1,6 +1,10 @@
 ---
 title: Как настроить перенаправление запросов к контенту
 description: Следуя данной инструкции, вы сможете настроить перенаправление запросов от CDN-ресурса к источнику с помощью правила Rewrite.
+alternate:
+  - href: ru/cdn/operations/resources/setup-http-rewrite.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка перенаправления запросов

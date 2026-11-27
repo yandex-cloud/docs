@@ -3,6 +3,10 @@ noIndex: true
 title: Migrating services from a {{ network-load-balancer-full-name }} to an L7 {{ alb-full-name }} to enable {{ sws-full-name }} protection
 description: In this tutorial, you will learn how to migrate a {{ network-load-balancer-name }} to an L7 {{ alb-name }} to enable {{ sws-full-name }} protection.
 canonical: '{{ link-docs }}/tutorials/security/migration-from-nlb-to-alb/'
+alternate:
+  - href: en/network-load-balancer/tutorials/migration-from-nlb-to-alb/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating services from an NLB to an L7 ALB to enable {{ sws-full-name }} protection

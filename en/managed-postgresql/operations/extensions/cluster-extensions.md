@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/operations/extensions/cluster-extensions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing extensions
 
 {{ mpg-short-name }} supports multiple standard {{ PG }} extensions, along with several custom ones. A complete list of available extensions and their versions for each {{ PG }} release [is provided below](#postgresql).

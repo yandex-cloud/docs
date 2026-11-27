@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/data-types/SendMessageBatchRequestEntry.md
+    type: text/markdown
+    title: Markdown version
+---
 # SendMessageBatchRequestEntry
 
 Идентификатор и сведения об отправляемом сообщении. Подробное описание атрибутов приведено в описании метода [SendMessage](../message/SendMessage.md#array-parameters).

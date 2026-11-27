@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for MongoDB
+alternate:
+  - href: ru/terraform/resources/mdb_mongodb_database.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_mongodb_database (Resource)

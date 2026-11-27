@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iot-core/operations/password/device-password.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление паролями устройства
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}

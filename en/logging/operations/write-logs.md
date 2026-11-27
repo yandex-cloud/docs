@@ -1,6 +1,10 @@
 ---
 title: How to add records to a log group in {{ cloud-logging-name }}
 description: In this guide, you will learn how to add records to a log group in {{ cloud-logging-name }}.
+alternate:
+  - href: en/logging/operations/write-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding records

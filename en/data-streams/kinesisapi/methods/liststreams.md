@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/kinesisapi/methods/liststreams.md
+    type: text/markdown
+    title: Markdown version
+---
 # ListStreams
 
 Returns a list of [streams](../../concepts/glossary.md#stream-concepts).

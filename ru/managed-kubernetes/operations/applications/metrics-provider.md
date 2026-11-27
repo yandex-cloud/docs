@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/metrics-provider.md
+    type: text/markdown
+    title: Markdown version
+---
 # Установка {{ MP }}
 
 {{ MP }} транслирует метрики объектов [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в системы мониторинга и [системы автоматического масштабирования](../../concepts/autoscale.md). Метрики можно транслировать и в обратную сторону: например, объекты кластера могут получать метрики [{{ monium-full-name }}](../../../monium/).

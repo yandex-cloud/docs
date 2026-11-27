@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/hosts/add/
+alternate:
+  - href: ru/managed-valkey/cli-ref/hosts/add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-redis hosts add

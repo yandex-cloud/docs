@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cloud-registry/operations/docker/pull.md
+    type: text/markdown
+    title: Markdown version
+---
 # Pulling a Docker image from a registry {{ cloud-registry-name }}
 
 To download a [Docker image](../../concepts/artifacts/docker.md), you need the `cloud-registry.artifacts.puller` [role](../../security/index.md#cloud-registry-artifacts-puller) or higher.

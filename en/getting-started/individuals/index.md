@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }}: Getting started for individuals'
 description: These articles will help you get started with {{ yandex-cloud }} as an individual. Find the answers to FAQs about a billing account and paid consumption, the initial grant, and documents.
+alternate:
+  - href: en/getting-started/individuals/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started for individuals

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monitoring/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ monitoring-full-name }}
 
 {% include [deprecation-warning](../_includes/monitoring/deprecation-warning.md) %}

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/static/console'
+alternate:
+  - href: en/storage/tutorials/static/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Static website in {{ objstorage-full-name }} using the management console

@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ MY }} cluster
 description: Follow this guide to create a {{ MY }} cluster with one or multiple database hosts.
+alternate:
+  - href: en/managed-mysql/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ MY }} cluster

@@ -1,6 +1,10 @@
 ---
 title: Как удалить все копии защищаемого ресурса
 description: Следуя данной инструкции, вы сможете удалить все резервные копии защищаемого ресурса.
+alternate:
+  - href: ru/backup/operations/backup-vm/batch-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить все резервные копии защищаемого ресурса

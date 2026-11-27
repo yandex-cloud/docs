@@ -29,6 +29,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/cdn/api-ref/OriginGroup/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: OriginGroup.Get

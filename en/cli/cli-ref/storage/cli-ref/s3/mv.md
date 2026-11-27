@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/s3/mv/
+alternate:
+  - href: en/cli/cli-ref/storage/cli-ref/s3/mv.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc storage s3 mv

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/concepts/restrictions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Limitations on email attachments
 
 In {{ postbox-full-name }}, certain limitations apply to email attachments. Below is the list of file extensions you cannot send in emails.

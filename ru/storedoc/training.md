@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ mmg-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ mmg-full-name }}.
+alternate:
+  - href: ru/storedoc/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ mmg-full-name }}

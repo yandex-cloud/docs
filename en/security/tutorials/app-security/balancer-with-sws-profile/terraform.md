@@ -2,6 +2,10 @@
 title: Creating an L7 load balancer in {{ alb-full-name }} with a {{ sws-full-name }} profile through {{ TF }}
 description: Follow this guide to use {{ TF }} to create a test web server, deploy an L7 {{ alb-name }}, and protect this new infrastructure with a {{ sws-name }} security profile.
 canonical: '{{ link-docs }}/tutorials/security/balancer-with-sws-profile/terraform'
+alternate:
+  - href: en/security/tutorials/app-security/balancer-with-sws-profile/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

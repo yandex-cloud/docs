@@ -1,6 +1,10 @@
 ---
 title: '{{ RD }} host classes before June 20, 2023'
 description: 'The host class determines the computing power allocated for each host in the Redis cluster. When you change the host class for a cluster, all existing hosts change accordingly. The amount of memory allocated to a host also depends on the maxmemory configuration parameter for Redis hosts: the maximum amount of data equals 75% of available memory.'
+alternate:
+  - href: en/managed-valkey/concepts/instance-types-archive/instance-types-20062023.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ RD }} host classes before June 20, 2023

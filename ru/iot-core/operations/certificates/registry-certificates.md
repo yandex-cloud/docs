@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iot-core/operations/certificates/registry-certificates.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление сертификатами реестра
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}

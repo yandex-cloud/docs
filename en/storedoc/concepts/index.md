@@ -1,6 +1,10 @@
 ---
 title: Resource relationships in {{ mmg-full-name }}
 description: The main entity {{ mmg-name }} operates is a database cluster. Each cluster consists of one or multiple database hosts, which are virtual machines with DBMS servers deployed. Cluster hosts may reside in different availability zones. In a cluster with two or more active hosts, one is automatically selected as the master to process write requests. If the master fails, {{ SD }} selects a new master from the available hosts.
+alternate:
+  - href: en/storedoc/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource relationships in {{ mmg-name }}

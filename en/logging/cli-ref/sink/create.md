@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/sink/create/
+alternate:
+  - href: en/logging/cli-ref/sink/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc logging sink create

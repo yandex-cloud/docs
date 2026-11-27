@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/backup/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing operations with {{ backup-name }} resources
 
 The system logs all actions with {{ backup-name }} resources as a list of operations. Each operation gets an ID.

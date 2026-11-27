@@ -7,6 +7,10 @@ __system:
     - Рекомендации не помогли
     - Содержание не соответствует заголовку
     - Другое
+alternate:
+  - href: ru/storage/concepts/presigned-post-forms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузка файла с помощью HTML формы

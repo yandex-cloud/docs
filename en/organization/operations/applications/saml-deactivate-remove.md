@@ -1,6 +1,10 @@
 ---
 title: How to deactivate or delete a SAML application in {{ org-full-name }}
 description: Follow this guide to deactivate, reactivate, and delete a SAML application in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/applications/saml-deactivate-remove.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deactivating and deleting a SAML application in {{ org-full-name }}

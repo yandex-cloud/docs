@@ -1,5 +1,9 @@
 ---
 subcategory: Container Registry
+alternate:
+  - href: en/terraform/data-sources/container_registry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_container_registry (DataSource)

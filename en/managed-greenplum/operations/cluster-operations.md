@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/cluster-operations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing operations with clusters
 
 All actions with {{ mgp-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.

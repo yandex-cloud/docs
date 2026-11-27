@@ -1,6 +1,10 @@
 ---
 title: Получение информации о каталогах в кластере {{ mtr-name }}
 description: Следуя этой инструкции, сможете получить список каталогов в кластере {{ mtr-name }} и запросить подробную информацию о каждом из них.
+alternate:
+  - href: ru/managed-trino/operations/catalog-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации о каталогах в кластере {{ mtr-name }}

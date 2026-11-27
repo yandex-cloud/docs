@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/data-proc/api-ref/grpc/Cluster/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Data Processing API, gRPC: ClusterService.Update

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monitoring/operations/metric/get.md
+    type: text/markdown
+    title: Markdown version
+---
 # Downloading metrics
 
 To download metric data, use the [read](../../api-ref/MetricsData/read.md) method.

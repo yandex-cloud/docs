@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/instruments/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Инструменты для работы с {{ message-queue-full-name }}
 
 Для использования [API](../../glossary/rest-api.md) подходят все инструменты, совместимые с Amazon SQS: AWS CLI, Boto3 и другие [поддерживаемые SDK](https://aws.amazon.com/ru/tools/#sdk).

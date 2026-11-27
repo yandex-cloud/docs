@@ -1,6 +1,10 @@
 ---
 title: '{{ OS }} host classes'
 description: In this article, you will learn about {{ OS }} host classes.
+alternate:
+  - href: en/managed-opensearch/concepts/instance-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ OS }} host classes

@@ -82,6 +82,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/organization/api-ref/Organization/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: Organization.UpdateAccessBindings

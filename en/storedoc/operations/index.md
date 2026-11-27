@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ mmg-full-name }}
 description: This page features step-by-step guides for {{ mmg-name }}.
+alternate:
+  - href: en/storedoc/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ mmg-name }}

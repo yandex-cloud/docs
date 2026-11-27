@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/concepts/secure-tokens.md
+    type: text/markdown
+    title: Markdown version
+---
 # Secure tokens
 
 Using _secure tokens_ , you can restrict access to [CDN resource](./resource.md) files to only. For example, with secure tokens, you can provide temporary or paid access to files and ensure the security of sensitive data.

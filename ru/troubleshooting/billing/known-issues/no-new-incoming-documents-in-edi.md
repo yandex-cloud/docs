@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/no-new-incoming-documents-in-edi.md
+    type: text/markdown
+    title: Markdown version
+---
 # Документы перестали поступать в систему ЭДО
 
 {% include [kz-preview](../../../_includes/kz-preview.md) %}

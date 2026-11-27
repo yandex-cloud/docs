@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/maintenance/list/
+alternate:
+  - href: en/managed-valkey/cli-ref/maintenance/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-redis maintenance list

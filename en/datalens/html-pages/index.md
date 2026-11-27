@@ -1,6 +1,10 @@
 ---
 title: HTML pages in {{ datalens-full-name }}
 description: In this article, you will learn about HTML pages in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/html-pages/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # HTML pages in {{ datalens-name }}

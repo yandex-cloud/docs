@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ serverless-containers-full-name }}
 description: В разделе представлена история изменений сервиса {{ serverless-containers-name }}.
+alternate:
+  - href: ru/serverless-containers/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ serverless-containers-full-name }}

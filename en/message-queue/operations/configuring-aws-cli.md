@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/operations/configuring-aws-cli.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring the AWS CLI
 
 You can manage queues and messages in {{ message-queue-name }} using the [AWS CLI](https://aws.amazon.com/cli/).

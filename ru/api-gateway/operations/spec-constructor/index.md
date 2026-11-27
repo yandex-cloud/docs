@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с конструктором спецификаций {{ api-gw-full-name }}
 description: Из статьи вы узнаете, как работать с конструктором спецификаций {{ api-gw-full-name }} в {{ yandex-cloud }}. Вы научитесь добавлять расширения в спецификацию с помощью конструктора.
+alternate:
+  - href: ru/api-gateway/operations/spec-constructor/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор конструктора спецификаций

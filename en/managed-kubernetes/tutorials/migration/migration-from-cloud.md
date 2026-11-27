@@ -1,6 +1,10 @@
 ---
 title: Migrating from a public cloud to {{ managed-k8s-name }}
 description: Guide on migrating {{ k8s }} workloads from a public cloud to {{ managed-k8s-name }}.
+alternate:
+  - href: en/managed-kubernetes/tutorials/migration/migration-from-cloud.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating from a public cloud to {{ managed-k8s-name }}

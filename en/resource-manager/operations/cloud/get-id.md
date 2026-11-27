@@ -1,6 +1,10 @@
 ---
 title: How to get a cloud ID in {{ yandex-cloud }}
 description: In this tutorial, you will learn how to get a cloud ID in {{ yandex-cloud }}.
+alternate:
+  - href: en/resource-manager/operations/cloud/get-id.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a cloud ID

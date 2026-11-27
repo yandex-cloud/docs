@@ -1,6 +1,10 @@
 ---
 title: Getting information about a Cloud WAF rule set
 description: Follow this guide to get information about a rule set for a WAF profile.
+alternate:
+  - href: en/smartwebsecurity/operations/get-set-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a Cloud WAF rule set

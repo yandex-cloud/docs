@@ -1,6 +1,10 @@
 ---
 title: Как создать чарт в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете создать чарт в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/chart/create-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание чарта в {{ datalens-full-name }}

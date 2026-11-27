@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/v0/cloud/list-access-policy-bindings/
+alternate:
+  - href: ru/resource-manager/cli-ref/v0/cloud/list-access-policy-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc resource-manager v0 cloud list-access-policy-bindings

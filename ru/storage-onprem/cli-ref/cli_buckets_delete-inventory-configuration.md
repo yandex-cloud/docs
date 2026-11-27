@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_delete-inventory-configuration.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets delete-inventory-configuration
 
 Delete an inventory configuration

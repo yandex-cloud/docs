@@ -1,6 +1,10 @@
 ---
 title: Как визуализировать метрики в {{ monitoring-name }}
 description: Следуя данной инструкции, вы сможете прочитать и визуализировать метрики {{ prometheus-name }} в {{ monitoring-name }}.
+alternate:
+  - href: ru/monium/operations/prometheus/querying/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение и визуализация метрик в {{ monitoring-name }}

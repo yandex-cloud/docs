@@ -1,6 +1,10 @@
 ---
 title: Java function execution logging
 description: '{{ sf-name }} automatically captures the Java application''s standard output streams and sends them to the centralized logging system in {{ yandex-cloud }}.'
+alternate:
+  - href: en/functions/lang/java/logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Java function execution logging

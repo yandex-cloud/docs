@@ -3,6 +3,10 @@ title: Развертывание веб-приложения с JWT-автор�
 description: В этом руководстве вы узнаете, как реализовать аутентификацию и авторизацию в вашем веб-приложении на основе протоколов OAuth 2.0 и OpenID Connect.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/jwt-authorizer-firebase'
+alternate:
+  - href: ru/api-gateway/tutorials/jwt-authorizer-firebase.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [jwt-authorizer-firebase](../../_tutorials/serverless/jwt-authorizer-firebase.md) %}

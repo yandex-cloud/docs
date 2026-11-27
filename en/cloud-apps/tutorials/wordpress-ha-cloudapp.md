@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/wordpress-ha-cloudapp'
+alternate:
+  - href: en/cloud-apps/tutorials/wordpress-ha-cloudapp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing WordPress High Availability using {{ cloud-apps-name }}

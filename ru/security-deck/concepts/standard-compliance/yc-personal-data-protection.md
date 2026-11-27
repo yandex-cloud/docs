@@ -1,6 +1,10 @@
 ---
 title: Требования федерального закона № 152-ФЗ «О персональных данных»
 description: Набор правил помогает автоматизировать контроль соответствия требованиям законодательства по защите персональных данных.
+alternate:
+  - href: ru/security-deck/concepts/standard-compliance/yc-personal-data-protection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Требования федерального закона № 152-ФЗ «О персональных данных»

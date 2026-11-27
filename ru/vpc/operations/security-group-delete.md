@@ -1,6 +1,10 @@
 ---
 title: Как удалить группу безопасности
 description: Следуя данной инструкции, вы сможете удалить группу безопасности.
+alternate:
+  - href: ru/vpc/operations/security-group-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить группу безопасности

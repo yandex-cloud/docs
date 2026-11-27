@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/get-sms-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие GetSMSAttributes
 
 Получает параметры для отправки SMS в [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud).

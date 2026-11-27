@@ -1,6 +1,10 @@
 ---
 title: Подключение в {{ datalens-full-name }}
 description: Подключение в {{ datalens-full-name }} содержит информацию о параметрах доступа к источнику данных.
+alternate:
+  - href: ru/datalens/concepts/connection/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к источнику данных в {{ datalens-full-name }}

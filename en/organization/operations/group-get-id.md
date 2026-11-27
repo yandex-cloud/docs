@@ -1,6 +1,10 @@
 ---
 title: Getting {{ yandex-cloud }} group ID
 description: Follow this guide to get {{ yandex-cloud }} group ID.
+alternate:
+  - href: en/organization/operations/group-get-id.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting group ID

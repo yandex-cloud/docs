@@ -1,6 +1,10 @@
 ---
 title: Типы масштабирования групп виртуальных машин
 description: Тип масштабирования группы виртуальных машин необходимо выбирать при создании каждой группы.
+alternate:
+  - href: ru/compute/concepts/instance-groups/scale.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Типы масштабирования

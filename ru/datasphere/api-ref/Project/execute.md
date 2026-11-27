@@ -66,6 +66,10 @@ apiPlayground:
         - required:
             - cellId
     definitions: null
+alternate:
+  - href: ru/datasphere/api-ref/Project/execute.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, REST: Project.Execute

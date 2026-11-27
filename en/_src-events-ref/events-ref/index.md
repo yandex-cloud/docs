@@ -1,6 +1,10 @@
 ---
 title: Events
 editable: false
+alternate:
+  - href: en/_src-events-ref/events-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Events

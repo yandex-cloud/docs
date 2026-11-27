@@ -18,6 +18,10 @@ apiPlayground:
         - iamToken
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/iam/api-ref/IamToken/revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: IamToken.Revoke

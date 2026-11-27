@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ mmg-full-name }}
 description: Следуя данной инструкции, вы сможете создать и настроить кластер {{ SD }}.
+alternate:
+  - href: ru/storedoc/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ mmg-name }}

@@ -1,6 +1,10 @@
 ---
 title: Миграция базы данных из {{ GP }} в {{ CH }}
 description: Вы можете перенести базу данных из {{ GP }} в {{ CH }} с помощью сервиса {{ data-transfer-full-name }}.
+alternate:
+  - href: ru/tutorials/dataplatform/greenplum-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция базы данных из {{ GP }} в {{ CH }}

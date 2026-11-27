@@ -34,6 +34,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/backup/backup/api-ref/Resource/listTasks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Resource.ListTasks

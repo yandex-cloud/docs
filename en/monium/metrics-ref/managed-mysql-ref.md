@@ -2,6 +2,10 @@
 title: '{{ mmy-full-name }} metrics'
 description: In this tutorial, you will learn about {{ mmy-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/managed-mysql-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mmy-full-name }} metrics

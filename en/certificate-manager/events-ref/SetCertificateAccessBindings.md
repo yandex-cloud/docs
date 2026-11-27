@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/certificate-manager/events-ref/SetCertificateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Audit Trails Events: SetCertificateAccessBindings

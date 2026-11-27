@@ -1,6 +1,10 @@
 ---
 title: Use cases for core infrastructure management systems in {{ yandex-cloud }}
 description: Various use cases for core infrastructure management systems in {{ yandex-cloud }}.
+alternate:
+  - href: en/tutorials/infrastructure/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Tutorials for working with basic infrastructure management systems

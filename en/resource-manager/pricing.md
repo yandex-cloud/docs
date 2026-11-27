@@ -2,6 +2,10 @@
 title: '{{ resmgr-full-name }} pricing policy'
 description: This article covers the {{ resmgr-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/resource-manager/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ resmgr-full-name }} pricing policy

@@ -1,6 +1,10 @@
 ---
 title: Changing a SolidWall WAF application in {{ sws-full-name }}
 description: Change the name and description of a SolidWall WAF application in {{ sws-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/solidwall-waf-application-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing a SolidWall WAF application

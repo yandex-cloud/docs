@@ -1,6 +1,10 @@
 ---
 title: Разработка на Node.js в {{ sf-full-name }}. Обзор
 description: С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на Node.js. Сервис предоставляет несколько сред выполнения с различными версиями операционной системы.
+alternate:
+  - href: ru/functions/lang/nodejs/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разработка на Node.js. Обзор

@@ -1,6 +1,10 @@
 ---
 title: '{{ sf-full-name }} tutorials'
 description: This section provides tutorials for {{ sf-name }}.
+alternate:
+  - href: en/functions/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sf-name }} tutorials

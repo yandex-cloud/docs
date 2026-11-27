@@ -1,6 +1,10 @@
 ---
 title: Скопировать объект в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете скопировать объект из бакета в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/objects/copy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Скопировать объект

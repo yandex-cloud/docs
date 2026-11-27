@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/jobs/airflow.md
+    type: text/markdown
+    title: Markdown version
+---
 # Integration with {{ maf-full-name }}
 
 [{{ maf-full-name }}](../../../managed-airflow/concepts/index.md#about-the-service) allows you to describe and manage automated data processing workflows. A workflow is a Directed Acyclic Graph (_DAG_) implemented using a Python script. A file with this script is called a _DAG file_. It contains jobs, their run schedule, and dependencies between them.

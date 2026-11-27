@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monitoring/concepts/visualization/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Visualization
 
 {{ monitoring-full-name }} provides the following visualization tools:

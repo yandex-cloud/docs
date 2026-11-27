@@ -1,6 +1,10 @@
 ---
 title: Как настроить шаблон ноутбуков в {{ ml-platform-full-name }}
 description: Следуя данной инструкции, вы сможете пользоваться расширением {{ jlab }}Lab-templates.
+alternate:
+  - href: ru/datasphere/operations/projects/templates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить создание ноутбуков {{ jlab }}Lab по шаблону

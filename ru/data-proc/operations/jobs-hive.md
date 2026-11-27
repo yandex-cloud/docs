@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/operations/jobs-hive.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление заданиями Hive
 
 В кластере {{ dataproc-name }} можно управлять [заданиями (jobs)](../concepts/jobs.md), а также получать логи их выполнения. Примеры заданий описаны в разделе [{#T}](../tutorials/job-overview.md).

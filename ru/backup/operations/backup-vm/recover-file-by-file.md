@@ -1,6 +1,10 @@
 ---
 title: Как восстановить отдельные директории и файлы на ВМ {{ compute-full-name }} или сервере {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете восстановить на виртуальной машине {{ compute-full-name }} или сервере {{ baremetal-full-name }} отдельные директории и файлы.
+alternate:
+  - href: ru/backup/operations/backup-vm/recover-file-by-file.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановить на виртуальной машине {{ compute-full-name }} или сервере {{ baremetal-full-name }} отдельные директории и файлы

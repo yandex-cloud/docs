@@ -1,6 +1,10 @@
 ---
 title: '{{ ml-platform-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ ml-platform-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/datasphere/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

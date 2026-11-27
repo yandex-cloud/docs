@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ maf-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ maf-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/managed-airflow/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

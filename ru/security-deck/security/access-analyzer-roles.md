@@ -1,6 +1,10 @@
 ---
 title: Роли для работы с модулем {{ access-analyzer-name }} в {{ sd-full-name }}
 description: На данной странице приведен список ролей, необходимых для управления доступом к модулю {{ access-analyzer-name }} в сервисе {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/security/access-analyzer-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Роли для работы с модулем {{ access-analyzer-name }}

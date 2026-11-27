@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/cdn/api-ref/grpc/Cache/purge.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, gRPC: CacheService.Purge

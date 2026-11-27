@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ container-registry-full-name }}
 description: На странице представлены вопросы и ответы про {{ container-registry-name }}.
+alternate:
+  - href: ru/container-registry/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ container-registry-name }}

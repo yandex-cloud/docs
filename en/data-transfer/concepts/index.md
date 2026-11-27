@@ -1,6 +1,10 @@
 ---
 title: Resource relationships in {{ data-transfer-full-name }}
 description: You can use {{ data-transfer-full-name }} to easily transfer data between databases. The service enables you to save time on migration, minimize downtime when switching to a new database, and maintain a database replica that is always up to date.
+alternate:
+  - href: en/data-transfer/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource relationships in {{ data-transfer-name }}

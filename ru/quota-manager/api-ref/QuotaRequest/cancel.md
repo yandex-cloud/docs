@@ -29,6 +29,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/quota-manager/api-ref/QuotaRequest/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quota Manager API, REST: QuotaRequest.Cancel

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/concepts/data-collection/unified-agent/filters.md
+    type: text/markdown
+    title: Markdown version
+---
 # Filters
 
 You can describe a filter in the `routes` section within the `channel`:`pipe`:`filter` element. Alternatively, you can do this in the `pipes` section. 

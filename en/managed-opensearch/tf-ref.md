@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ mos-full-name }}'
 description: This page lists the {{ TF }} provider resources and data sources supported by {{ mos-name }}.
+alternate:
+  - href: en/managed-opensearch/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ mos-full-name }}

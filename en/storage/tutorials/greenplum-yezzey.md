@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/greenplum-yezzey'
+alternate:
+  - href: en/storage/tutorials/greenplum-yezzey.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Exporting {{ GP }} data to a hybrid storage in {{ objstorage-full-name }}

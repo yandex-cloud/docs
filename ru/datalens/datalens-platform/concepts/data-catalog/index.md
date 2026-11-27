@@ -1,6 +1,10 @@
 ---
 title: Метаданные в {{ datalens-platform-full-name }}
 description: В этом разделе вы узнаете о том, как просматривать метаданные в {{ datalens-platform-short-name }}, размечать их доменами, тегами из классификаций или терминами из глоссариев, и анализировать связи между метаданными
+alternate:
+  - href: ru/datalens/datalens-platform/concepts/data-catalog/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метаданные в {{ datalens-platform-full-name }}

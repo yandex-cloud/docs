@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_src-coc-ref/coc-ref/branches.md
+    type: text/markdown
+    title: Markdown version
+---
 # Branch Protection configuration
 
 Path in repository: `.sourcecraft/branches.yaml`.

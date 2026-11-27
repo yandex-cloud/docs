@@ -1,6 +1,10 @@
 ---
 title: Как загрузить схему данных в {{ yq-full-name }}
 description: Следуя данной инструкции, вы сможете загрузить схему данных.
+alternate:
+  - href: ru/query/operations/schema-uploading.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузка схемы данных

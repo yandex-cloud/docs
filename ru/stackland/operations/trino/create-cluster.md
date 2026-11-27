@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/trino/create-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать кластер {{ mtr-name }}
 
 Кластер [{{ TR }}](../../concepts/components/trino.md) создается в пространстве имен внутри [проекта](../projects/create-project.md). Если у вас уже есть проект и пространство имен в нем, в этом пространстве имен вы можете создать кластер.

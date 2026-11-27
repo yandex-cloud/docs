@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/v0/cluster/remove-access-binding/
+alternate:
+  - href: ru/managed-kubernetes/cli-ref/v0/cluster/remove-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kubernetes v0 cluster remove-access-binding

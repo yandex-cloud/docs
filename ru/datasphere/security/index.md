@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ ml-platform-full-name }}
 description: Управление доступом в сервисе, предоставляющем среду для ML-разработки — {{ ml-platform-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ ml-platform-name }}, назначьте пользователю нужные роли из приведенного списка.
+alternate:
+  - href: ru/datasphere/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ ml-platform-name }}

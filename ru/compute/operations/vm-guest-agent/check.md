@@ -1,6 +1,10 @@
 ---
 title: Как проверить работу агента для сброса паролей на виртуальной машине Windows Server
 description: Из статьи вы узнаете, как проверить работу агента для сброса паролей на виртуальной машине Windows Server.
+alternate:
+  - href: ru/compute/operations/vm-guest-agent/check.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Проверить работу агента для сброса паролей на виртуальной машине Windows Server

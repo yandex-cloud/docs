@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/shards/update-config/
+alternate:
+  - href: ru/managed-clickhouse/cli-ref/shards/update-config.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse shards update-config

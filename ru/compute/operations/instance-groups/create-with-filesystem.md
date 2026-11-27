@@ -1,6 +1,10 @@
 ---
 title: Создать группу виртуальных машин с подключением к файловому хранилищу
 description: Следуя данной инструкции, вы сможете создать группу виртуальных машин с подключением к файловому хранилищу.
+alternate:
+  - href: ru/compute/operations/instance-groups/create-with-filesystem.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать группу виртуальных машин с подключением к файловому хранилищу

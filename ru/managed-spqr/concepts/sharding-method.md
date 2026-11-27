@@ -4,6 +4,10 @@ description: Выбор стратегии шардирования зависи
 keywords:
   - keyword: методы шардирования SPQR
   - keyword: стратегия шардирования SPQR
+alternate:
+  - href: ru/managed-spqr/concepts/sharding-method.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выбор стратегии шардирования

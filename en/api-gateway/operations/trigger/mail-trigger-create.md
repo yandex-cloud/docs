@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/operations/trigger/mail-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating an email trigger that sends messages to WebSocket connections
 
 Create an [email trigger](../../concepts/trigger/mail-trigger.md) to send messages to {{ api-gw-full-name }} [WebSocket connections](../../concepts/extensions/websocket.md) when an email arrives. The service automatically generates an email address when creating the trigger.

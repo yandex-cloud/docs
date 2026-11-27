@@ -1,6 +1,10 @@
 ---
 title: '{{ metastore-name }} cluster maintenance'
 description: Follow this guide to be able to view cluster maintenance info, postpone scheduled maintenance, and configure a maintenance window in {{ mgp-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/metastore/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

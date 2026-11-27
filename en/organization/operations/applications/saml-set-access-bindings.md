@@ -1,6 +1,10 @@
 ---
 title: How to grant access to a SAML app in {{ org-full-name }}
 description: In this article, you will learn how to set up access to a SAML app in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/applications/saml-set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up access to an SAML app in {{ org-full-name }}

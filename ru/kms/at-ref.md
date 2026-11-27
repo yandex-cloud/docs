@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ kms-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ kms-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/kms/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ at-full-name }}

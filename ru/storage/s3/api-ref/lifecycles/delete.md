@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/lifecycles/delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: DeleteBucketLifecycle
 
 Удаляет конфигурацию жизненного цикла объектов в бакете из {{ objstorage-name }}.

@@ -1,6 +1,10 @@
 ---
 title: '{{ compute-full-name }} use cases'
 description: Use cases for {{ compute-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/compute/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ compute-name }} tutorials

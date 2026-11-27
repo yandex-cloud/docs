@@ -1,6 +1,10 @@
 ---
 title: Спецификации Docker-контейнера в {{ cos-full-name }}
 description: Описать конфигурацию запуска Docker-контейнера можно с помощью COI- или Docker Compose-спецификации.
+alternate:
+  - href: ru/cos/concepts/coi-specifications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Спецификации Docker-контейнера

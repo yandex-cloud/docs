@@ -1,6 +1,10 @@
 ---
 title: '{{ GP }} instance and host monitoring'
 description: You can monitor the state of a {{ mgl-name }} instance using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also set up alerts in {{ monitoring-full-name }} to monitor the instance state automatically.
+alternate:
+  - href: en/managed-gitlab/operations/instance/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mgl-name }} instance state monitoring

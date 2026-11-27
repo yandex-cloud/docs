@@ -1,6 +1,10 @@
 ---
 title: Managing {{ k8s }} service accounts in {{ managed-k8s-full-name }}
 description: In this tutorial, you will learn how to create or delete a {{ k8s }} service account in {{ yandex-cloud }} using the management console without kubectl.
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-console/access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ k8s }} service accounts

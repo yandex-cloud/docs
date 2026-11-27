@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/rest-catalog/edit-catalog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Editing catalog settings
 
 You can edit the description and deletion protection settings for an existing [{{ rest-catalog-name }}](../../concepts/components/rest-catalog.md). Once a catalog is created, its name (`metadata.name`) and labels (`spec.labels`) cannot be changed.

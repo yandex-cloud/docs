@@ -1,6 +1,10 @@
 ---
 title: Assigning access rules for tables in {{ mtr-full-name }}
 description: Rules define the actions users can perform with tables and views in {{ mtr-name }}.
+alternate:
+  - href: en/managed-trino/operations/access-control-tables.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning access rules for tables in {{ mtr-name }}

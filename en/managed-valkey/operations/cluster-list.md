@@ -1,6 +1,10 @@
 ---
 title: Information about clusters in {{ mrd-short-name }}
 description: You can request detailed information for each {{ mrd-short-name }} cluster you have created. To get a list of database clusters in a folder, go to {{ mrd-name }}.
+alternate:
+  - href: en/managed-valkey/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Information about existing {{ VLK }} clusters

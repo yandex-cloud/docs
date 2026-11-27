@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing operations with a {{ managed-k8s-name }} cluster
 
 The system logs all actions with {{ managed-k8s-name }} resources as a list of operations. Each operation gets its own unique [ID](../../../api-design-guide/concepts/about-async.md).

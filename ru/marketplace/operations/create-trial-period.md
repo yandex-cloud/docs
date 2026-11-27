@@ -1,6 +1,10 @@
 ---
 title: Создание пробного периода
 description: Следуя данной инструкции, вы сможете создать пробный период.
+alternate:
+  - href: ru/marketplace/operations/create-trial-period.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание пробного периода

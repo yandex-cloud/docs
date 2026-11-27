@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/viewing-email-for-invoices.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как узнать, на какую электронную почту отправляются счета на оплату
 
 

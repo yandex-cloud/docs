@@ -1,6 +1,10 @@
 ---
 title: How to set up the widget display order on a mobile device in {{ datalens-full-name }}
 description: Follow this guide to set up the widget display order on a mobile device in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/display-modes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Widget display order on a mobile device in {{ datalens-full-name }}

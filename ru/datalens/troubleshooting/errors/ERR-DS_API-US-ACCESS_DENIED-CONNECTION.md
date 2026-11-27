@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.US.ACCESS_DENIED.CONNECTION
 description: На странице приведено описание ошибки {{ datalens-full-name }} Access to the connection was denied.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED-CONNECTION.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Access to the connection was denied

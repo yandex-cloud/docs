@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }}. Ответы на вопросы'
 description: Как получить логи моей работы в сервисе {{ datalens-full-name }}? Ответы на этот и другие вопросы в данной статье.
+alternate:
+  - href: ru/datalens/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ответы на вопросы в {{ datalens-name }}

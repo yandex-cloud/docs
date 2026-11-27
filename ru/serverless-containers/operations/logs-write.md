@@ -1,6 +1,10 @@
 ---
 title: Запись логов в журнал выполнения в {{ serverless-containers-full-name }}
 description: Следуя данной инструкции, вы сможете настроить логирование контейнера.
+alternate:
+  - href: ru/serverless-containers/operations/logs-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Записать логи в журнал выполнения контейнера

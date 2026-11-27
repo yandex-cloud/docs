@@ -1,6 +1,10 @@
 ---
 title: Чеклист безопасности аутентификации и авторизации
 description: В этой статье вы ознакомитесь с содержимым чеклиста безопасности аутентификации, авторизации и контроля доступа к ресурсам {{ yandex-cloud }}.
+alternate:
+  - href: ru/security/domains/iam-checklist.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чеклист безопасности аутентификации и авторизации

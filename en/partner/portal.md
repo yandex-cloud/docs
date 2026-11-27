@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }} partner portal'
 description: The partner portal is a {{ yandex-cloud }} partner's primary tool for managing clients and finances.
+alternate:
+  - href: en/partner/portal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Partner portal

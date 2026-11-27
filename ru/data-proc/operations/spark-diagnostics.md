@@ -1,6 +1,10 @@
 ---
 title: Как выполнить диагностику и устранить проблемы производительности Spark-приложений в {{ dataproc-full-name }}
 description: Следуя данной инструкции, вы сможете выполнить диагностику и устранить проблемы производительности Spark-приложений.
+alternate:
+  - href: ru/data-proc/operations/spark-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика и устранение проблем производительности Spark-приложений

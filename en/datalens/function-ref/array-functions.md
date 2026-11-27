@@ -1,6 +1,10 @@
 ---
 title: Array functions
 editable: false
+alternate:
+  - href: en/datalens/function-ref/array-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Array functions

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/synchronization-settings/create/
+alternate:
+  - href: ru/cli/cli-ref/organization-manager/cli-ref/idp/synchronization-settings/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager idp synchronization-settings create

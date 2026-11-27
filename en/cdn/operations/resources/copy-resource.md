@@ -1,6 +1,10 @@
 ---
 title: How to copy a configuration from one resource to another in {{ cdn-full-name }}
 description: Follow this guide to copy a configuration from one resource to another.
+alternate:
+  - href: en/cdn/operations/resources/copy-resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Copying a configuration from one resource to another

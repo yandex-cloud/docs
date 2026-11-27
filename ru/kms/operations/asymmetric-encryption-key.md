@@ -1,6 +1,10 @@
 ---
 title: Как создать, изменить и удалить ключевую пару шифрования
 description: Следуя данной инструкции, вы сможете создать, изменить и удалить ключевую пару шифрования.
+alternate:
+  - href: ru/kms/operations/asymmetric-encryption-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление ключевыми парами шифрования

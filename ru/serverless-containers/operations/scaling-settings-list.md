@@ -1,6 +1,10 @@
 ---
 title: Посмотреть настройки масштабирования контейнера
 description: Следуя данной инструкции, вы сможете посмотреть настройки масштабирования контейнера.
+alternate:
+  - href: ru/serverless-containers/operations/scaling-settings-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть настройки масштабирования контейнера

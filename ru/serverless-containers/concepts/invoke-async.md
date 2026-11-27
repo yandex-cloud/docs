@@ -1,6 +1,10 @@
 ---
 title: Асинхронный вызов контейнера в {{ serverless-containers-full-name }}
 description: При создании ревизии контейнера в {{ serverless-containers-name }} можно настроить асинхронный вызов, чтобы вызывать контейнер, но не дожидаться завершения исполнения запроса.
+alternate:
+  - href: ru/serverless-containers/concepts/invoke-async.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Асинхронный вызов контейнера

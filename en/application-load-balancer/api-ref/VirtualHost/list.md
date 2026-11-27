@@ -39,6 +39,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/application-load-balancer/api-ref/VirtualHost/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: VirtualHost.List

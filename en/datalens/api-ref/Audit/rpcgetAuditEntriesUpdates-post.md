@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Audit/rpcgetAuditEntriesUpdates-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get updated entries for audit

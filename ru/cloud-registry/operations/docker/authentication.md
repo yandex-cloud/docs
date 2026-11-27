@@ -1,6 +1,10 @@
 ---
 title: Аутентифицироваться в {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы сможете аутентифицироваться для нужного интерфейса.
+alternate:
+  - href: ru/cloud-registry/operations/docker/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентифицироваться в {{ cloud-registry-name }}

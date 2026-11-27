@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/unauthorized-error-after-attempt-to-create-billing-account.md
+    type: text/markdown
+    title: Markdown version
+---
 # Fixing the `Unauthorized` error when creating a billing account
 
 

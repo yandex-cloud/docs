@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storedoc/operations/stepdown.md
+    type: text/markdown
+    title: Markdown version
+---
 # Переключение мастера
 
 Если в кластере есть [несколько реплик](../concepts/replication.md), то при необходимости можно переключить мастер.

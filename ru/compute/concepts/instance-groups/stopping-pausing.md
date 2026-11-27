@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/concepts/instance-groups/stopping-pausing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Остановка группы и приостановка процессов
 
 Группу виртуальных машин можно остановить полностью или частично.

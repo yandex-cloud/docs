@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/repository/lifecycle-policy/list-dry-run-affected-images/
+alternate:
+  - href: ru/cli/cli-ref/container/cli-ref/v0/repository/lifecycle-policy/list-dry-run-affected-images.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container v0 repository lifecycle-policy list-dry-run-affected-images

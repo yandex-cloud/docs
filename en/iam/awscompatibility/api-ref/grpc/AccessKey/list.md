@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iam/awscompatibility/api-ref/grpc/AccessKey/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access Key, gRPC: AccessKeyService.List

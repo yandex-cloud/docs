@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cloud-desktop/concepts/acl.md
+    type: text/markdown
+    title: Markdown version
+---
 # Access control list (ACL)
 
 {{ cloud-desktop-full-name }} leverages [{{ iam-full-name }} roles](../security/index.md) for access control.

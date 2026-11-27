@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/application-load-balancer/api-ref/TargetGroup/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: TargetGroup

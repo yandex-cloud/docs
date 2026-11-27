@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/resource-model.md
+    type: text/markdown
+    title: Markdown version
+---
 # Ресурсная модель
 
 В {{ stackland-name }} используется иерархическая модель организации ресурсов. Модель позволяет группировать ресурсы, управлять доступом и квотировать потребление на разных уровнях.

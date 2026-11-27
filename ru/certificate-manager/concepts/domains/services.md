@@ -1,6 +1,10 @@
 ---
 title: Интеграция системы управления доменами с сервисами {{ yandex-cloud }}
 description: Вы можете использовать подтвержденные домены из {{ certificate-manager-name }} в сервисе {{ api-gw-full-name }}.
+alternate:
+  - href: ru/certificate-manager/concepts/domains/services.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Интеграция системы управления доменами с сервисами {{ yandex-cloud }}

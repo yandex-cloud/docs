@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ iam-full-name }}'
 description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ iam-name }}.
+alternate:
+  - href: en/iam/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ iam-full-name }}

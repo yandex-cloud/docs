@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/v0/subcluster/
+alternate:
+  - href: en/cli/cli-ref/dataproc/cli-ref/v0/subcluster/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dataproc v0 subcluster

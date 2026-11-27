@@ -1,6 +1,10 @@
 ---
 title: '{{ websql-full-name }} event reference in {{ at-full-name }}'
 description: This page gives a reference for {{ websql-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/websql/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ websql-full-name }} event reference

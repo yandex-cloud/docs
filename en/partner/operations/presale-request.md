@@ -1,6 +1,10 @@
 ---
 title: Submitting a presale request
 description: Follow this guide to submit a presale request.
+alternate:
+  - href: en/partner/operations/presale-request.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Submitting a presale request

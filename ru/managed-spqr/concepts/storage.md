@@ -4,6 +4,10 @@ description: Из статьи вы узнаете, что такое храни
 keywords:
   - keyword: Хранилище в {{ mspqr-full-name }}
   - keyword: Диски в {{ mspqr-full-name }}
+alternate:
+  - href: ru/managed-spqr/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Хранилище в {{ mspqr-full-name }}

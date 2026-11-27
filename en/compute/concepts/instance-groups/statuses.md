@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/statuses.md
+    type: text/markdown
+    title: Markdown version
+---
 # Statuses
 
 This section lists the possible statuses of [instance groups](#group-statuses) and [instances (VMs)](#vm-statuses) in a group.

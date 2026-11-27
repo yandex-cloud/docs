@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/SHA1.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SHA1

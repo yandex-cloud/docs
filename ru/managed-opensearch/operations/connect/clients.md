@@ -1,6 +1,10 @@
 ---
 title: Подключение к кластеру {{ OS }} в {{ mos-full-name }}
 description: Следуя этой инструкции, вы сможете подключиться к базе данных в кластере {{ OS }} с помощью инструментов командной строки, {{ OS }} Dashboards и из Docker-контейнера.
+alternate:
+  - href: ru/managed-opensearch/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ OS }} из приложений

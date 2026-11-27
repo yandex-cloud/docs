@@ -1,6 +1,10 @@
 ---
 title: '{{ certificate-manager-full-name }}. FAQ'
 description: '{{ certificate-manager-name }} FAQ: Fetching logs, domain control verification, and Let''s Encrypt issuance and renewal errors.'
+alternate:
+  - href: en/certificate-manager/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ certificate-manager-name }}

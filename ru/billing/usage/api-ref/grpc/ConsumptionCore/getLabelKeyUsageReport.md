@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/billing/usage/api-ref/grpc/ConsumptionCore/getLabelKeyUsageReport.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing Usage API, gRPC: ConsumptionCoreService.GetLabelKeyUsageReport

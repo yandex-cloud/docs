@@ -1,6 +1,10 @@
 ---
 title: 'Шардирование в базах данных: обзор концепции'
 description: Шардирование или шардинг — это деление данных на разные фрагменты с целью повышения производительности и надежности.
+alternate:
+  - href: ru/glossary/sharding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Шардирование

@@ -1,6 +1,10 @@
 ---
 title: Сеть и кластеры БД в {{ mrd-full-name }}
 description: Из статьи вы узнаете об основных настройках сетевого интерфейса кластера {{ VLK }}.
+alternate:
+  - href: ru/managed-valkey/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сеть и кластеры {{ mrd-short-name }}

@@ -1,6 +1,10 @@
 ---
 title: Управлять политиками авторизации каталога
 description: Из статьи вы узнаете, как просматривать политики авторизации {{ iam-full-name }}, созданные для каталога, а также создавать и удалять такие политики.
+alternate:
+  - href: ru/resource-manager/operations/folder/manage-access-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять политиками авторизации каталога

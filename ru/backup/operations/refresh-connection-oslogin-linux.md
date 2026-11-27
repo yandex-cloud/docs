@@ -1,6 +1,10 @@
 ---
 title: Как обновить подключение виртуальной машины {{ compute-full-name }} на Linux с {{ oslogin }} к {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете обновить подключение виртуальной машины {{ compute-full-name }} на Linux с {{ oslogin }} к {{ backup-name }}.
+alternate:
+  - href: ru/backup/operations/refresh-connection-oslogin-linux.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переподключить виртуальную машину на Linux с {{ oslogin }} к {{ backup-name }}

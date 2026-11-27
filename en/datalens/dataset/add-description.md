@@ -1,6 +1,10 @@
 ---
 title: How to add dataset info in {{ datalens-full-name }}
 description: Follow this guide to add dataset info in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/dataset/add-description.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding dataset info in {{ datalens-full-name }}

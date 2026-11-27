@@ -1,6 +1,10 @@
 ---
 title: '{{ maf-full-name }} cluster state monitoring'
 description: In this tutorial, you will learn how to monitor the state of your {{ maf-name }} cluster.
+alternate:
+  - href: en/managed-airflow/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ maf-name }} cluster state monitoring

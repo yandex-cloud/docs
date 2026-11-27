@@ -1,6 +1,10 @@
 ---
 title: Изменить образ {{ cloud-desktop-full-name }}
 description: Следуя данной инструкции, вы сможете изменить образ {{ cloud-desktop-name }}.
+alternate:
+  - href: ru/cloud-desktop/operations/images/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить образ

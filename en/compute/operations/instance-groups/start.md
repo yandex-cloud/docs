@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/instance-groups/start.md
+    type: text/markdown
+    title: Markdown version
+---
 # Starting an instance group
 
 Starting an instance group will automatically start all stopped VM instances within that group. You can start a single VM instance, e.g., for diagnostics, but to enable [automatic recovery](../../concepts/instance-groups/autohealing.md) or [scaling](../../concepts/instance-groups/scale.md), you need to start the entire group.

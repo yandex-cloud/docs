@@ -1,6 +1,10 @@
 ---
 title: How to create an origin group in {{ cdn-full-name }}
 description: Follow this guide to create an origin group.
+alternate:
+  - href: en/cdn/operations/origin-groups/create-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an origin group

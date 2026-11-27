@@ -1,6 +1,10 @@
 ---
 title: Setting up a demo app for a vet clinic
 description: How to set up a demo Java application and send telemetry to {{ monium-name }}.
+alternate:
+  - href: en/monium/collector/otel-clinic-example.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up a demo Java app and collecting telemetry

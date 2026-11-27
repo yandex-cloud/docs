@@ -1,6 +1,10 @@
 ---
 title: Pre-configuring a {{ MY }} cluster connection in {{ mmy-full-name }}
 description: In this tutorial, you will learn how to pre-configure a database connection in a {{ MY }} cluster.
+alternate:
+  - href: en/managed-mysql/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pre-configuring a {{ MY }} cluster connection

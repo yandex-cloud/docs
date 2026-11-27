@@ -1,6 +1,10 @@
 ---
 title: '{{ monium-name }} dashboard'
 description: A dashboards in {{ monitoring-full-name }} consists of widgets, charts, text blocks, and titles. Metrics on dashboard charts are displayed for a certain time interval, the same for all charts. Parameters allow you to create dashboards with customizable interactive content. For example, a dashboard presenting aggregated VM status information can be parameterized using the VM ID.
+alternate:
+  - href: en/monium/concepts/visualization/dashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Dashboards in {{ monium-name }}

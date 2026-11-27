@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/licensing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Лицензирование
 
 {{ stackland-name }} лицензируется по суммарному числу процессорных ядер (vCPU) в кластере. Данные о лимитах предоставляет компонент *License Server*. Кластер периодически отправляет в License Server данные о фактическом потреблении ресурсов и получает в ответ актуальные лимиты, по которым формирует статус лицензии.

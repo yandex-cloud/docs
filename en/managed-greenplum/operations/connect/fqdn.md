@@ -1,6 +1,10 @@
 ---
 title: Getting FQDNs for {{ mgp-name }} hosts
 description: Follow this guide to get host FQDNs for connecting to a database in a {{ mgp-name }} cluster.
+alternate:
+  - href: en/managed-greenplum/operations/connect/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FQDNs of {{ mgp-name }} hosts

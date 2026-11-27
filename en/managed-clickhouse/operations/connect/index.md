@@ -1,6 +1,10 @@
 ---
 title: Pre-configuring a {{ CH }} cluster connection in {{ mch-full-name }}
 description: In this tutorial, you will learn how to pre-configure a database connection in a {{ CH }} cluster.
+alternate:
+  - href: en/managed-clickhouse/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pre-configuring a {{ CH }} cluster connection

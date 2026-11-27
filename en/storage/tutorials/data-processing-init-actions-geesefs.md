@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-processing-init-actions-geesefs'
+alternate:
+  - href: en/storage/tutorials/data-processing-init-actions-geesefs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Mounting {{ objstorage-name }} buckets to the file system of {{ dataproc-full-name }} hosts

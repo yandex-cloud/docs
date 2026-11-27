@@ -1,6 +1,10 @@
 ---
 title: Authenticating and connecting to a database via the Amazon SQS-compatible HTTP API
 description: In this tutorial, you will learn how to authenticate and establish a database connection using the Amazon SQS-compatible HTTP API.
+alternate:
+  - href: en/data-streams/sqsapi/auth.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authenticating and connecting to a database via the Amazon SQS-compatible HTTP API

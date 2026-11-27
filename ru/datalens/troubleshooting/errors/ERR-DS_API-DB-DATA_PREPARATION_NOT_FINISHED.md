@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED
 description: На странице приведено описание ошибки {{ datalens-full-name }} Подготовка данных еще не завершилась.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Подготовка данных еще не завершилась

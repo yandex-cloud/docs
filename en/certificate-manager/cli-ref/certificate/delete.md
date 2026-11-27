@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/certificate-manager/cli-ref/certificate/delete/
+alternate:
+  - href: en/certificate-manager/cli-ref/certificate/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc certificate-manager certificate delete

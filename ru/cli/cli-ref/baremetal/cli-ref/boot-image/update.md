@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/boot-image/update/
+alternate:
+  - href: ru/cli/cli-ref/baremetal/cli-ref/boot-image/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal boot-image update

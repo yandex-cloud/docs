@@ -1,6 +1,10 @@
 ---
 title: Обратно несовместимые изменения в СУБД {{ CB }} по сравнению с {{ GP }} в сервисе {{ mgp-full-name }}
 description: Из статьи вы узнаете о обратно несовместимых изменениях в СУБД {{ CB }} по сравнению с {{ GP }} в сервисе {{ mgp-full-name }}.
+alternate:
+  - href: ru/managed-greenplum/concepts/cloudberry-vs-greenplum/breaking-changes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обратно несовместимые изменения в СУБД {{ CB }} по сравнению с {{ GP }} в сервисе {{ mgp-full-name }}

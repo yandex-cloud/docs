@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-spark/operations/cluster-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing {{ SPRK }} cluster logs
 
 {{ msp-full-name }} allows you to [get a cluster log snippet](#get-log) for the selected period.

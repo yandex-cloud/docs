@@ -43,6 +43,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/organization/idp/application/oauth/api-ref/Application/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OAUTH Application API, REST: Application.ListAccessBindings

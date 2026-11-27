@@ -3,6 +3,10 @@ title: Тестирование доставки сообщения в {{ iot-fu
 description: Следуя данному руководству, вы сможете протестировать доставку сообщений на MQTT-сервер.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/iot/message-delivery-check'
+alternate:
+  - href: ru/tutorials/serverless/message-delivery-check.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Тестирование доставки сообщения

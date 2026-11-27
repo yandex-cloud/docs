@@ -1,6 +1,10 @@
 ---
 title: Managing environments in {{ datalens-platform-full-name }}
 description: Create a {{ yandex-cloud }} environment for {{ datalens-platform-short-name }} resources, change its name and description, and delete the environment.
+alternate:
+  - href: en/datalens/datalens-platform/operations/clusters/manage-environment.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing environments

@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ cdn-full-name }}
 description: Follow this guide to use {{ cdn-full-name }} to create and set up a CDN resource with a {{ compute-full-name }} VM instance or {{ baremetal-full-name }} server as the origin.
+alternate:
+  - href: en/cdn/quickstart/server.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a CDN resource with an origin server in {{ yandex-cloud }}

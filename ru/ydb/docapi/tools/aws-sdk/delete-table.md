@@ -2,6 +2,10 @@
 title: Как удалить таблицу в {{ ydb-full-name }}
 description: Следуя данной инструкции, вы сможете удалить таблицу.
 sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
+alternate:
+  - href: ru/ydb/docapi/tools/aws-sdk/delete-table.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Удаление таблицы
 

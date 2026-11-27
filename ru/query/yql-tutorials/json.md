@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/yql-tutorials/json.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с JSON
 
 Формат данных [JSON](https://ru.wikipedia.org/wiki/JSON) используется для хранения и обработки данных.

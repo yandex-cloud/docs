@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/v0/connector/get/
+alternate:
+  - href: ru/cli/cli-ref/managed-kafka/cli-ref/v0/connector/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kafka v0 connector get

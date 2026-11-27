@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/hardware-monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Hardware monitoring
 
 Certain system errors may result from hardware failures rather than Kubernetes or other components. To monitor such failures, {{ stackland-name }} provides a ready-made solution that collects data from various sources, such as kernel logs, `sysfs`, disk [SMART](https://github.com/Seagate/openSeaChest/wiki/Drive-Health-and-SMART) data, and more.

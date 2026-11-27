@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/concepts/origins-shielding.md
+    type: text/markdown
+    title: Markdown version
+---
 # Origin shielding
 
 

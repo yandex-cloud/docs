@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/CloudEnvironmentStorage/rpccreateBucketUploadUrl-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Create bucket object upload URL

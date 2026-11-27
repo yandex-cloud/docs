@@ -1,6 +1,10 @@
 ---
 title: Стандарт предотвращения атак программ-шифровальщиков
 description: В этом разделе приведен список правил контроля, которые входят в стандарт предотвращения атак программ-шифровальщиков.
+alternate:
+  - href: ru/security-deck/concepts/standard-compliance/ransomware-prevention.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Стандарт предотвращения атак программ-шифровальщиков

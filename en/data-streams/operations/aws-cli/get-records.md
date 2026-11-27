@@ -1,6 +1,10 @@
 ---
 title: Reading data from a stream in the AWS CLI
 description: Follow this guide to get data from a stream in the AWS CLI.
+alternate:
+  - href: en/data-streams/operations/aws-cli/get-records.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reading data from a stream in the AWS CLI

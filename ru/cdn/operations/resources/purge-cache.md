@@ -1,6 +1,10 @@
 ---
 title: Как очистить кеш ресурса в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете очистить кеш ресурса.
+alternate:
+  - href: ru/cdn/operations/resources/purge-cache.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Очистка кеша ресурса

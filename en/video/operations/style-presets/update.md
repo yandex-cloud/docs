@@ -1,6 +1,10 @@
 ---
 title: How to update or duplicate a player preset in {{ video-full-name }}
 description: Follow this guide to update or duplicate a player preset in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/style-presets/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating or duplicating a player preset

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/ydb/events-ref/UpdateDatabaseAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for YDB Audit Trails Events: UpdateDatabaseAccessBindings

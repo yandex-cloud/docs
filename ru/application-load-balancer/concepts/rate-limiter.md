@@ -1,6 +1,10 @@
 ---
 title: Настройка лимитов на количество запросов в {{ alb-full-name }}
 description: На странице представлены концепции по настройке лимитов в {{ alb-name }}.
+alternate:
+  - href: ru/application-load-balancer/concepts/rate-limiter.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка лимитов на количество запросов с помощью модуля Global RateLimit

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datasphere/jobs/api-ref/grpc/ProjectJob/clone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere Jobs API v2, gRPC: ProjectJobService.Clone

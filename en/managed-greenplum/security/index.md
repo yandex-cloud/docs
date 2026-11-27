@@ -10,6 +10,10 @@ keywords:
   - cloudberry
   - '{{ GP }}'
   - '{{ CB }}'
+alternate:
+  - href: en/managed-greenplum/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ mgp-name }}

@@ -1,6 +1,10 @@
 ---
 title: Upgrading the major {{ PG }} version in {{ mpg-name }}
 description: To upgrade the major {{ PG }} version in {{ mpg-name }}, select a suitable time and version and start the update. The major version update is performed automatically.
+alternate:
+  - href: en/managed-postgresql/concepts/upgrade.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Upgrading the major {{ PG }} version in {{ mpg-full-name }}

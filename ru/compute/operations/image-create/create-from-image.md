@@ -1,6 +1,10 @@
 ---
 title: Как создать образ из другого пользовательского образа в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете создать образ из другого пользовательского образа.
+alternate:
+  - href: ru/compute/operations/image-create/create-from-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать образ из другого пользовательского образа

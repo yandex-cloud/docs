@@ -1,6 +1,10 @@
 ---
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/security/search-events-audit-logs'
+alternate:
+  - href: ru/storage/tutorials/search-events-audit-logs/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поиск событий в аудитных логах

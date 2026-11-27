@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/list-platform-applications.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие ListPlatformApplications
 
 Получает список [каналов мобильных Push-уведомлений](../concepts/push.md) или [Push-уведомлений в браузере](../concepts/browser.md). Действие всегда выдает одну страницу и не поддерживает пагинацию.

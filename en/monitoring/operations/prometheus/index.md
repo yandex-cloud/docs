@@ -1,6 +1,10 @@
 ---
 title: '{{ managed-prometheus-full-name }}'
 description: '{{ managed-prometheus-full-name }} is a monitoring system compatible with {{ prometheus-name }}. You can use it to collect, store, and query metrics from your containers, applications, and infrastructure. The system leverages the {{ prometheus-name }} data model and {{ promql-name }}, enabling you to use your current {{ grafana-name }} dashboards.'
+alternate:
+  - href: en/monitoring/operations/prometheus/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ managed-prometheus-full-name }} overview

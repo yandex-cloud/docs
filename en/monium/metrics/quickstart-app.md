@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/metrics/quickstart-app.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with application metrics
 
 {{ monium-name }} enables working with {{ yandex-cloud }} metrics and any other metrics uploaded to {{ monium-name }}, such as those from your applications, infrastructure, or other clouds.

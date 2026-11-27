@@ -1,6 +1,10 @@
 ---
 title: Как настроить фон и прозрачность для виджетов на дашборде в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете настроить фон и прозрачность для виджетов на дашборде в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-widget-background.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить фон и прозрачность для виджетов на дашборде в {{ datalens-full-name }}

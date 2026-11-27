@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/get-configuration-sets.md
+    type: text/markdown
+    title: Markdown version
+---
 # GetConfigurationSets method
 
 Returns [configuration](../../concepts/glossary.md#configuration) information in the folder. The folder is selected based on the service account the request originates from.

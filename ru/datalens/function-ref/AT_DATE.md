@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/AT_DATE.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AT_DATE

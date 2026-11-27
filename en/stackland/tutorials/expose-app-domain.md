@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/tutorials/expose-app-domain.md
+    type: text/markdown
+    title: Markdown version
+---
 # Setting up external access to a pod in a cluster
 
 {{ stackland-name }} allows users to run their own applications in a cluster and create external access to them. In this guide, we will show you an example of creating external access to an HTML page in a cluster.

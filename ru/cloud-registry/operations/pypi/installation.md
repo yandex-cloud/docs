@@ -1,6 +1,10 @@
 ---
 title: Настроить PyPI
 description: Следуя данной инструкции, вы настроите PyPI.
+alternate:
+  - href: ru/cloud-registry/operations/pypi/installation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить PyPI

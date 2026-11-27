@@ -1,6 +1,10 @@
 ---
 title: '{{ mmy-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ mmy-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/managed-mysql/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

@@ -1,6 +1,10 @@
 ---
 title: Изменить кластер GPU
 description: Следуя данной инструкции, вы сможете изменить кластер GPU.
+alternate:
+  - href: ru/compute/operations/gpu-cluster/gpu-cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить кластер GPU

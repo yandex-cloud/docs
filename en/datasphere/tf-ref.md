@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ ml-platform-full-name }}'
 description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ ml-platform-name }}.
+alternate:
+  - href: en/datasphere/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ ml-platform-full-name }}

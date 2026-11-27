@@ -1,6 +1,10 @@
 ---
 title: Модуль {{ access-analyzer-name }} в {{ sd-full-name }}
 description: В данном разделе описан модуль {{ sd-full-name }} {{ access-analyzer-name }}, который позволяет просматривать имеющиеся у субъектов организации права доступа к ресурсам и при необходимости изменять или отзывать такие права доступа.
+alternate:
+  - href: ru/security-deck/concepts/access-analyzer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Модуль {{ access-analyzer-name }}

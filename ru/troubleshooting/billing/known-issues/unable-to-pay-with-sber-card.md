@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/unable-to-pay-with-sber-card.md
+    type: text/markdown
+    title: Markdown version
+---
 # Устранение ошибки `Веб-страница временно недоступна` при оплате картой Сбера
 
 

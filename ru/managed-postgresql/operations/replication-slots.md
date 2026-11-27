@@ -1,6 +1,10 @@
 ---
 title: Управление слотами репликации в {{ mpg-full-name }}
 description: Следуя данной инструкции, вы сможете создать и настроить слот репликации.
+alternate:
+  - href: ru/managed-postgresql/operations/replication-slots.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление слотами репликации

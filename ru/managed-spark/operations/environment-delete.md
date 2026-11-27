@@ -1,6 +1,10 @@
 ---
 title: Удаление окружения для кластера {{ SPRK }}
 description: Вы можете удалить окружение кластера {{ SPRK }}, если оно вам больше не потребуется.
+alternate:
+  - href: ru/managed-spark/operations/environment-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление окружения

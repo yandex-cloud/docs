@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-valkey/api-ref/BackupRetentionPolicy/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, REST: BackupRetentionPolicy

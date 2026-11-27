@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/object-storage.md
+    type: text/markdown
+    title: Markdown version
+---
 # x-yc-apigateway-integration:object_storage extension
 
 The `x-yc-apigateway-integration:object_storage` extension delegates request handling to {{ objstorage-short-name }} for static file distribution.

@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.BLOCK.ITEM_COMPATIBILITY'
 description: This page describes the Got items with incompatible roles in block {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-BLOCK-ITEM_COMPATIBILITY.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Got items with incompatible roles in block

@@ -1,6 +1,10 @@
 ---
 title: Registry topics in {{ iot-full-name }}
 description: This page describes all registry topics available in {{ iot-name }}.
+alternate:
+  - href: en/iot-core/concepts/topic/registries-topic.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Registry topics

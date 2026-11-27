@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/routing/ipsec/sgw'
+alternate:
+  - href: en/vpc/tutorials/ipsec/sgw.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security GateWay solution by the {{ yandex-cloud }} architect team

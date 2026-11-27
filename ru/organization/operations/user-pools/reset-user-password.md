@@ -1,6 +1,10 @@
 ---
 title: Как задать или сбросить пароль локального пользователя в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете задать или сбросить пароль локального пользователя в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/reset-user-password.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить пароль локального пользователя

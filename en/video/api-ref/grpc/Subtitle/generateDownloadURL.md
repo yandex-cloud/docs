@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/video/api-ref/grpc/Subtitle/generateDownloadURL.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, gRPC: SubtitleService.GenerateDownloadURL

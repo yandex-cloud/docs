@@ -1,6 +1,10 @@
 ---
 title: Viewing {{ cspm-name }} security control rules in {{ sd-full-name }}
 description: In this section, you will learn how to view the current security rules and learn about related violations in the {{ cspm-full-name }} ({{ cspm-name }}) module in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/cspm/view-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing {{ cspm-name }} security control rules and related violations

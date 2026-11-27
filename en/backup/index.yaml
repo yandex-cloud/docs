@@ -13,6 +13,10 @@ meta:
     - keyword: backing up in {{ yandex-cloud }}
     - keyword: backups
     - keyword: backing up
+  alternate:
+    - href: en/backup/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Cloud Backup

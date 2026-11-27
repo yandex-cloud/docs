@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ mmg-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mmg-name }}.
+alternate:
+  - href: ru/storedoc/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ mmg-full-name }}

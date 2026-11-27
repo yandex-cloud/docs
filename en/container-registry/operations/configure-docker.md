@@ -1,6 +1,10 @@
 ---
 title: Installing and configuring Docker
 description: Before you start using {{ container-registry-name }}, install and configure Docker on your local computer.
+alternate:
+  - href: en/container-registry/operations/configure-docker.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing and configuring Docker

@@ -2,6 +2,10 @@
 title: Все правила {{ sd-full-name }}
 description: Полный список правил безопасности {{ sd-name }} на одной странице
 editable: false
+alternate:
+  - href: ru/security-deck/rules-reference/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все правила {{ sd-full-name }}

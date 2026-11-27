@@ -99,6 +99,10 @@ apiPlayground:
               **string**
               Databases parameter.
             type: string
+alternate:
+  - href: en/managed-valkey/api-ref/User/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, REST: User.Update

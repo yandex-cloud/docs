@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/operations/trigger/os-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать триггер для {{ objstorage-name }}, который отправляет сообщения в WebSocket-соединения
 
 Создайте [триггер для {{ objstorage-name }}](../../concepts/trigger/os-trigger.md), который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) при создании, перемещении или удалении [объекта](../../../storage/concepts/object.md) в бакете.

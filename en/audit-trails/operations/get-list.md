@@ -1,6 +1,10 @@
 ---
 title: How to get a list of trails
 description: Follow this guide to view a list of available trails in {{ at-full-name }}.
+alternate:
+  - href: en/audit-trails/operations/get-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of trails

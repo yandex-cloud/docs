@@ -1,6 +1,10 @@
 ---
 title: Управление аккаунтом пользователя
 description: В этом разделе собраны инструкции для пользователей организации по управлению своим аккаунтом в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-account/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление аккаунтом пользователя

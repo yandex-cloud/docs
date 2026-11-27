@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/projects/export.md
+    type: text/markdown
+    title: Markdown version
+---
 # Exporting a project
 
 You can export a project as a ZIP archive. This export will include not only the notebook file but all files you can see in the **File Browser** window. This enables you to run your notebook locally as long as you have a matching environment.

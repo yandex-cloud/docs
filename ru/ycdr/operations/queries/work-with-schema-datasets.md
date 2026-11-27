@@ -1,6 +1,10 @@
 ---
 title: Работа со схемой базы и датасетами в {{ ycdr-full-name }}
 description: Следуя данной инструкции, вы научитесь работать со схемой базы данных и датасетами в {{ ycdr-name }}.
+alternate:
+  - href: ru/ycdr/operations/queries/work-with-schema-datasets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа со схемой базы и датасетами

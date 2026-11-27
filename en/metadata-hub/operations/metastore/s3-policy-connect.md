@@ -1,6 +1,10 @@
 ---
 title: Connecting {{ metastore-full-name }} to a {{ objstorage-full-name }} bucket with a bucket policy
 description: In {{ metastore-full-name }}, you can work with a {{ objstorage-full-name }} bucket with bucket policies configured.
+alternate:
+  - href: en/metadata-hub/operations/metastore/s3-policy-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ objstorage-full-name }} bucket with a bucket policy

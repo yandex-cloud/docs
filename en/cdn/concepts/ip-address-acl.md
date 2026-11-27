@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/concepts/ip-address-acl.md
+    type: text/markdown
+    title: Markdown version
+---
 # IP-based access policy
 
 _IP-based access policy_ allows you to restrict access to content distributed over a CDN by setting an _allow_ or _block_ policy for [CDN resources](./resource.md).

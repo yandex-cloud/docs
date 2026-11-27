@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/oslogin/user-ssh-key/get/
+alternate:
+  - href: en/cli/cli-ref/organization-manager/cli-ref/oslogin/user-ssh-key/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager oslogin user-ssh-key get

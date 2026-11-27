@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/iam/create-group.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a user group
 
 You can create a user group in {{ iam-name }} to simplify access permission management.

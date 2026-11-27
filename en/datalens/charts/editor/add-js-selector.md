@@ -1,6 +1,10 @@
 ---
 title: Adding a JS selector to a dashboard
 description: In this article, you will learn how to add a JS selector to a dashboard.
+alternate:
+  - href: en/datalens/charts/editor/add-js-selector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a JS selector to a dashboard

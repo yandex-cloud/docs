@@ -1,6 +1,10 @@
 ---
 title: Moving a security group to a different folder
 description: Follow this guide to move a security group to a different folder.
+alternate:
+  - href: en/vpc/operations/security-group-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving a security group to a different folder

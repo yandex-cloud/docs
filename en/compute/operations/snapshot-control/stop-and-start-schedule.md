@@ -1,6 +1,10 @@
 ---
 title: How to disable/enable a {{ compute-full-name }} disk snapshot schedule
 description: Follow this guide to disable/enable a disk snapshot schedule in {{ compute-name }}.
+alternate:
+  - href: en/compute/operations/snapshot-control/stop-and-start-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Disabling and enabling a disk snapshot schedule

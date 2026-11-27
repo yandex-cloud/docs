@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ objstorage-full-name }}
 description: Следуя данным инструкциям, вы сможете создать бакет и загрузить в него объект.
+alternate:
+  - href: ru/storage/quickstart/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с {{ objstorage-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Reading data via bindings
 description: In this article, you will learn how to create a data binding and read data from {{ yds-full-name }} using {{ yq-full-name }}.
+alternate:
+  - href: en/query/sources-and-sinks/data-streams-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reading data via bindings

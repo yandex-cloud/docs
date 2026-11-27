@@ -1,6 +1,10 @@
 ---
 title: Загрузить Python-пакет в реестр {{ cloud-registry-name }}
 description: Инструкция описывает, как загрузить локальный Python-пакет в реестр {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/pypi/push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузить Python-пакет в локальный реестр {{ cloud-registry-name }}

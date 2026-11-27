@@ -1,6 +1,10 @@
 ---
 title: Network and database clusters in {{ mkf-full-name }}
 description: In this tutorial, you will learn about the basic network interface settings for a {{ KF }} cluster.
+alternate:
+  - href: en/managed-kafka/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Networking in {{ mkf-name }}

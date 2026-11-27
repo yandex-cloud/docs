@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/concepts/logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Логи контейнера
 
 Контейнер пишет логи в {{ cloud-logging-full-name }}, в [лог-группу по умолчанию](../../logging/concepts/log-group.md) для каталога, в котором находится контейнер.

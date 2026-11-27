@@ -2,6 +2,10 @@
 title: Rule Reference
 description: Security Deck security rules reference
 editable: false
+alternate:
+  - href: en/security-deck/rules-reference/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Rule Reference

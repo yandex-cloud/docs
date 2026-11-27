@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/monitoring/api-ref/api-ref-grpc/DashboardService.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Monitoring API, gRPC: DashboardService

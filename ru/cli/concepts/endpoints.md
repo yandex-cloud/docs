@@ -1,6 +1,10 @@
 ---
 title: Подключение {{ yandex-cloud }} CLI к эндпоинтам
 description: Из статьи вы узнаете, к каким эндпоинтам подключается {{ yandex-cloud }} CLI и как проверить соединение.
+alternate:
+  - href: ru/cli/concepts/endpoints.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение CLI к эндпоинтам {{ yandex-cloud }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/php/dependencies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing PHP function dependencies
 
 {{ sf-name }} can automatically install dependencies required for a PHP function when creating a new [function version](../../operations/function/version-manage.md).

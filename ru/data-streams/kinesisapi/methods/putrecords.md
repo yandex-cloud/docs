@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-streams/kinesisapi/methods/putrecords.md
+    type: text/markdown
+    title: Markdown version
+---
 # PutRecords
 
 Записывает несколько [сообщений](../../concepts/glossary.md#message) в [поток данных](../../concepts/glossary.md#stream-concepts) за один вызов.

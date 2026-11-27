@@ -1,6 +1,10 @@
 ---
 title: Обработка секретов, попавших в открытый доступ в {{ yandex-cloud }}
 description: Из статьи вы узнаете, какие шаги предпринять в случае утечки секретов в открытый доступ.
+alternate:
+  - href: ru/iam/operations/compromised-credentials.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обработка секретов, попавших в открытый доступ

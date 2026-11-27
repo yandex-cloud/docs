@@ -1,6 +1,10 @@
 ---
 title: Asymmetric encryption key pair in {{ kms-short-name }}
 description: This guide describes the specifics of using an asymmetric encryption key pair in {{ kms-short-name }}.
+alternate:
+  - href: en/kms/concepts/asymmetric-encryption-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Asymmetric encryption key pair in {{ kms-short-name }}

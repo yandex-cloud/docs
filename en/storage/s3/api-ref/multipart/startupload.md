@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/multipart/startupload.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: CreateMultipartUpload
 
 Returns the ID to use in all subsequent operations for uploading objects.

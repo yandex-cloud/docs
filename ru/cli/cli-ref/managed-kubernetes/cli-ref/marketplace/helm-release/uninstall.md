@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/marketplace/helm-release/uninstall/
+alternate:
+  - href: ru/cli/cli-ref/managed-kubernetes/cli-ref/marketplace/helm-release/uninstall.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kubernetes marketplace helm-release uninstall

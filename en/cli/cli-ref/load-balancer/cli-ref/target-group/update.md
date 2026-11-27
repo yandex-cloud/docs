@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/load-balancer/cli-ref/target-group/update/
+alternate:
+  - href: en/cli/cli-ref/load-balancer/cli-ref/target-group/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc load-balancer target-group update

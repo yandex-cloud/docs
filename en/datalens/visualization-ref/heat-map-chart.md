@@ -1,6 +1,10 @@
 ---
 title: Heat map in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the heat map visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/heat-map-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Heat map ![](../../_assets/datalens/heatmap.svg) in {{ datalens-full-name }}

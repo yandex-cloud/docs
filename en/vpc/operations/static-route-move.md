@@ -1,6 +1,10 @@
 ---
 title: Moving a route table to a different folder
 description: Follow this guide to move a route table to a different folder.
+alternate:
+  - href: en/vpc/operations/static-route-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving a route table to a different folder

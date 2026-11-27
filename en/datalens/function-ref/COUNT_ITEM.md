@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/COUNT_ITEM.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # COUNT_ITEM

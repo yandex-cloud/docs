@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/cloud-router/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ cr-full-name }} overview
 
 {{ cr-full-name }} is a service for managing network topologies of a hybrid cloud in {{ yandex-cloud }}.

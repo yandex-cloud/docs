@@ -756,6 +756,10 @@ apiPlayground:
               - customConfiguration
           - required:
               - stockConfigurationId
+alternate:
+  - href: en/baremetal/api-ref/Server/createServer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Server.CreateServer

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/create-sms-channel.md
+    type: text/markdown
+    title: Markdown version
+---
 # CreateSMSChannel
 
 Creates an [SMS notification channel](../concepts/sms.md).

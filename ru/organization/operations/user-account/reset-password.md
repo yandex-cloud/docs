@@ -1,6 +1,10 @@
 ---
 title: Как самостоятельно сбросить пароль для входа в консоль управления {{ yandex-cloud }}
 description: Следуя этой инструкции, вы сможете самостоятельно сбросить пароль локального аккаунта для входа в консоль управления {{ yandex-cloud }}.
+alternate:
+  - href: ru/organization/operations/user-account/reset-password.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сбросить пароль для входа в консоль управления {{ yandex-cloud }}

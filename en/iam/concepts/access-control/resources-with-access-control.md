@@ -1,6 +1,10 @@
 ---
 title: Resources for which you can assign roles in {{ iam-full-name }}
 description: In this tutorial, you will learn which {{ yandex-cloud }} resources you can assign roles for.
+alternate:
+  - href: en/iam/concepts/access-control/resources-with-access-control.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resources that roles can be assigned for

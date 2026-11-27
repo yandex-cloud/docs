@@ -1,6 +1,10 @@
 ---
 title: Вызвать функцию асинхронно
 description: Следуя данной инструкции, вы сможете настроить и выполнить асинхронный вызов функции.
+alternate:
+  - href: ru/functions/operations/function/function-invoke-async.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вызвать функцию асинхронно

@@ -1,6 +1,10 @@
 ---
 title: '{{ ydb-full-name }} use cases'
 description: Various use cases for {{ ydb-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/ydb/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ydb-name }} tutorials

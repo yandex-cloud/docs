@@ -1,6 +1,10 @@
 ---
 title: '{{ sd-full-name }} overview'
 description: '{{ sd-name }} is a CNAPP, a comprehensive platform that discovers vulnerabilities, monitors and protects access to data, and enforces compliance with regulations and industry standards.'
+alternate:
+  - href: en/security-deck/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sd-full-name }} overview

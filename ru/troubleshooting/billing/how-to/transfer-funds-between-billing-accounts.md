@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/transfer-funds-between-billing-accounts.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как перевести денежные средства между разными платежными аккаунтами
 
 

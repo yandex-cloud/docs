@@ -1,6 +1,10 @@
 ---
 title: Deactivating and activating a {{ sd-full-name }} workspace
 description: Follow this guide to deactivate and activate a workspace in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/workspaces/deactivate-activate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deactivating and activating a workspace

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Screenshots/rpcgetChartScreenshot-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Get chart screenshot

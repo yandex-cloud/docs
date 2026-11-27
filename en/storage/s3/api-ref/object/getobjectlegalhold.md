@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/object/getobjectlegalhold.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: GetObjectLegalHold
 
 Returns the settings of the legal [hold](../../../concepts/object-lock.md) placed on the object version.

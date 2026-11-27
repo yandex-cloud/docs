@@ -1,6 +1,10 @@
 ---
 title: Backups in {{ backup-full-name }}
 description: In this tutorial, you will learn about backups in {{ backup-name }}.
+alternate:
+  - href: en/backup/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backups

@@ -1,6 +1,10 @@
 ---
 title: Automating operations with {{ msp-full-name }} using {{ maf-full-name }}
 description: In this tutorial, you will learn how to automate your work with {{ msp-name }} using {{ maf-name }}.
+alternate:
+  - href: en/tutorials/dataplatform/airflow-and-spark.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Automating operations using {{ maf-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to delete a node
 description: Follow this guide to delete a node.
+alternate:
+  - href: en/datasphere/operations/deploy/node-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a node

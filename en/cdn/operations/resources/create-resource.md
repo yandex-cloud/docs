@@ -1,6 +1,10 @@
 ---
 title: How to create a resource in {{ cdn-full-name }}
 description: Follow this guide to create a resource.
+alternate:
+  - href: en/cdn/operations/resources/create-resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a resource

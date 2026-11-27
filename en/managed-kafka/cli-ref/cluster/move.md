@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/cluster/move/
+alternate:
+  - href: en/managed-kafka/cli-ref/cluster/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kafka cluster move

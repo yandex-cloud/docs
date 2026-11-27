@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к узлу кластера {{ k8s }} по SSH в {{ managed-k8s-full-name }}
 description: Следуя данной инструкции, вы сможете подключиться к узлу по SSH.
+alternate:
+  - href: ru/managed-kubernetes/operations/node-connect-ssh.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к узлу по SSH

@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ prometheus-name }} connection in {{ datalens-full-name }}
 description: Follow this guide to create a connection to {{ prometheus-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-prometheus.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ prometheus-name }} connection

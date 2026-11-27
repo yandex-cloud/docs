@@ -4,6 +4,10 @@ description:
 meta:
   title: Troubleshooting
   description: Known solutions and tips for optimal use of {{ yandex-cloud }} services.
+  alternate:
+    - href: en/troubleshooting/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: '{{ billing-name }}'
     description: Solutions for {{ billing-name }}

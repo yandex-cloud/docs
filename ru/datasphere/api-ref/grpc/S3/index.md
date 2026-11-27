@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datasphere/api-ref/grpc/S3/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, gRPC: S3Service

@@ -2,9 +2,7 @@
 Метрики сервиса {{ mgp-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
 
 
-
 {% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
-
 
 Общие метки для всех метрик сервиса {{ mgp-name }}:
 

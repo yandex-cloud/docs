@@ -1,6 +1,10 @@
 ---
 title: Рекомендуемые конфигурации мастера {{ k8s }}
 description: В статье приведены рекомендуемые конфигурации мастера {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/concepts/master-configuration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Рекомендуемые конфигурации мастера

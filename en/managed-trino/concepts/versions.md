@@ -1,6 +1,10 @@
 ---
 title: Versioning in {{ mtr-name }}
 description: This section lists the supported {{ TR }} versions and describes how they are upgraded in {{ mtr-name }}.
+alternate:
+  - href: en/managed-trino/concepts/versions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Versioning in {{ mtr-name }}

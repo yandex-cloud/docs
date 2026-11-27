@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/smartcaptcha/operations/get-keys.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получить ключи капчи 
 
 В этом разделе вы узнаете, как получить [ключи капчи](../concepts/keys.md). С помощью клиентского ключа вы можете [добавить виджет](../quickstart.md#add-widget) {{ captcha-name }} на свою страницу. Серверный ключ потребуется для [проверки ответа](../quickstart.md#check-answer) пользователя.

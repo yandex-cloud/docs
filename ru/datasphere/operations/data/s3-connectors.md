@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/data/s3-connectors.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение к хранилищу S3
 
 Вы можете управлять подключением к объектному хранилищу [S3](../../../glossary/s3.md) в интерфейсе {{ ml-platform-name }} на странице проекта с помощью ресурса **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.

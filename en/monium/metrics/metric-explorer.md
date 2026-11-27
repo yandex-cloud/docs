@@ -1,6 +1,10 @@
 ---
 title: Viewing your services' or applications' metrics in {{ metrics-name }}
 description: Follow this guide to view detailed metric charts for your services or applications.
+alternate:
+  - href: en/monium/metrics/metric-explorer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing metrics in {{ metrics-name }}

@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ mpg-full-name }}
 description: This page covers questions and answers about {{ mpg-short-name }}.
+alternate:
+  - href: en/managed-postgresql/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ mpg-short-name }}

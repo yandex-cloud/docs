@@ -1,6 +1,10 @@
 ---
 title: Обзор сервиса {{ baremetal-full-name }}
 description: Узнайте об аренде физических серверов, настройке сети и управлении ресурсами {{ baremetal-name }}.
+alternate:
+  - href: ru/baremetal/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор сервиса {{ baremetal-full-name }}

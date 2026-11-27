@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/artifact/update-access-bindings/
+alternate:
+  - href: ru/cloud-registry/cli-ref/artifact/update-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry artifact update-access-bindings

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/cluster/list-node-groups/
+alternate:
+  - href: ru/cli/cli-ref/managed-kubernetes/cli-ref/cluster/list-node-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kubernetes cluster list-node-groups

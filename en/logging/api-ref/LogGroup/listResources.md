@@ -29,6 +29,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/logging/api-ref/LogGroup/listResources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, REST: LogGroup.ListResources

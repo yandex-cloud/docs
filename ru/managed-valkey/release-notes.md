@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ mrd-full-name }}
 description: В разделе представлена история изменений сервиса {{ mrd-name }}.
+alternate:
+  - href: ru/managed-valkey/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ mrd-full-name }}

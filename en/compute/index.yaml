@@ -38,6 +38,10 @@ meta:
     - keyword: '{{ yandex-cloud }} virtual resources'
     - keyword: virtual machines
     - keyword: cloud resources
+  alternate:
+    - href: en/compute/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first VM instance or instance group

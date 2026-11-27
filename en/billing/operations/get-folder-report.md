@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/operations/get-folder-report.md
+    type: text/markdown
+    title: Markdown version
+---
 # Exporting extended usage details
 
 You can get a CSV file with your general or per-resource spending details. You can either [download](#single-time-download) the file once or [set up](#regular-download) its regular export.

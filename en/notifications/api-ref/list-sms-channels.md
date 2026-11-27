@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/list-sms-channels.md
+    type: text/markdown
+    title: Markdown version
+---
 # ListSMSChannels
 
 Gets a list of [SMS notification channels](../concepts/sms.md) in a folder.

@@ -1,6 +1,10 @@
 ---
 title: Для партнеров On-premises
 description: 'Как партнеру продавать продукты {{ yandex-cloud }} и {{ yandex-360 }} в формате On-premises: от создания аккаунта клиента до заказа с лицензиями.'
+alternate:
+  - href: ru/partner/on-premises.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Для партнеров On-premises

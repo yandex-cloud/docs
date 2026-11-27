@@ -1,6 +1,10 @@
 ---
 title: How to get information about a disk placement group in {{ compute-full-name }}
 description: Follow this guide to get information about a disk placement group.
+alternate:
+  - href: en/compute/operations/disk-placement-groups/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting disk placement group info

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обзор {{ yq-full-name }}
 
 {% include [sunset](../../_includes/query/sunset.md) %}

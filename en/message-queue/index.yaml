@@ -33,6 +33,10 @@ meta:
     - keyword: message exchange between applications in {{ yandex-cloud }}
     - keyword: message queues
     - keyword: message exchange between applications
+  alternate:
+    - href: en/message-queue/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create and configure your first message queue

@@ -55,6 +55,10 @@ apiPlayground:
         - tag
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/functions/functions/api-ref/Function/setScalingPolicy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, REST: Function.SetScalingPolicy

@@ -33,6 +33,10 @@ apiPlayground:
         - data
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/certificate-manager/privateca/api-ref/Template/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager Private CA API, REST: Template.Create

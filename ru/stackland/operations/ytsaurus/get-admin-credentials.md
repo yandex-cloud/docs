@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/ytsaurus/get-admin-credentials.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получить пароль и токен администратора {{ yt-name }}
 
 После [включения компонента](enable.md) учетные данные администратора кластера {{ YT }} сохраняются в Secret `ytadminsec` в пространстве имен `stackland-ytsaurus`.

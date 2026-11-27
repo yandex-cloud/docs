@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kafka/concepts/ha-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # High availability of a {{ mkf-name }} cluster
 
 High availability of a {{ mkf-name }} cluster depends on the number and placement of its hosts, topic settings, and other cluster parameters.

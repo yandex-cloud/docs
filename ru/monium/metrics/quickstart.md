@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/metrics/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Начало работы с метриками ресурсов {{ yandex-cloud }}
 
 {{ monium-name }} позволяет работать с метриками сервисов {{ yandex-cloud }}, а также с любыми другими метриками, загруженными в {{ monium-name }}. Например, из ваших приложений, вашей инфраструктуры или других облаков.

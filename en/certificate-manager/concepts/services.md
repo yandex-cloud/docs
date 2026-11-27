@@ -1,6 +1,10 @@
 ---
 title: Integrating {{ certificate-manager-full-name }} with {{ yandex-cloud }} services
 description: In this tutorial, you will learn which {{ yandex-cloud }} services support {{ certificate-manager-name }} certificates.
+alternate:
+  - href: en/certificate-manager/concepts/services.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Integration with the {{ yandex-cloud }} services

@@ -1,6 +1,10 @@
 ---
 title: Deleting a {{ dataproc-name }} cluster
 description: 'You can delete a {{ dataproc-name }} cluster along with all its stored data. Note that data backups are not created automatically: if you want to save data for cluster recovery or future use, you can do that using {{ objstorage-full-name }}.'
+alternate:
+  - href: en/data-proc/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a {{ dataproc-name }} cluster

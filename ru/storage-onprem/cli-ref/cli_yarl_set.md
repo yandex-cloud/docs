@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_yarl_set.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli yarl set
 
 Create or update a yarl quota

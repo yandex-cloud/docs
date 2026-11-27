@@ -1,6 +1,10 @@
 ---
 title: Установка External Secrets Operator с поддержкой {{ lockbox-full-name }}
 description: Следуя данной инструкции, вы сможете установить External Secrets Operator с поддержкой {{ lockbox-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/external-secrets-operator.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка External Secrets Operator с поддержкой {{ lockbox-name }}

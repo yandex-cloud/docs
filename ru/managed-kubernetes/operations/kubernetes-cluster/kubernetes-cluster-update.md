@@ -1,6 +1,10 @@
 ---
 title: Как изменить кластер {{ managed-k8s-name }}
 description: Следуя данной инструкции, вы сможете изменить кластер {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение кластера {{ managed-k8s-name }}

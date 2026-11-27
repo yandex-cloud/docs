@@ -2,6 +2,10 @@
 title: '{{ managed-k8s-full-name }} pricing policy'
 description: This article covers the {{ managed-k8s-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/managed-kubernetes/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

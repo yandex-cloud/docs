@@ -246,6 +246,10 @@ apiPlayground:
             $ref: '#/definitions/UserConnectionManager'
         required:
           - name
+alternate:
+  - href: ru/managed-mysql/api-ref/User/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, REST: User.Create

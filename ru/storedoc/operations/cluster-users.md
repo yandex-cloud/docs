@@ -1,6 +1,10 @@
 ---
 title: Управление пользователями {{ SD }} в {{ mmg-full-name }}
 description: Из статьи вы узнаете, как добавлять и удалять пользователей, а также управлять их индивидуальными настройками в сервисе по управлению базами данных {{ SD }}.
+alternate:
+  - href: ru/storedoc/operations/cluster-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление пользователями {{ SD }}

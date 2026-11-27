@@ -1,6 +1,10 @@
 ---
 title: Networking in {{ baremetal-full-name }}
 description: In this article, you will learn about the {{ baremetal-full-name }} network infrastructure, including public and private networks.
+alternate:
+  - href: en/baremetal/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network

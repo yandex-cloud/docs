@@ -1,6 +1,10 @@
 ---
 title: Управление дисковым пространством в кластере {{ mkf-name }}
 description: Вы можете отслеживать степень заполнения хранилища и увеличивать его размер вручную или автоматически.
+alternate:
+  - href: ru/managed-kafka/operations/storage-space.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление дисковым пространством в кластере {{ mkf-name }}

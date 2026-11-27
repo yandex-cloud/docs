@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/cluster/enable-sharding/
+alternate:
+  - href: ru/storedoc/cli-ref/cluster/enable-sharding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb cluster enable-sharding

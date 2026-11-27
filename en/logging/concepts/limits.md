@@ -2,6 +2,10 @@
 title: Quotas and limits in {{ cloud-logging-full-name }}
 description: '{{ cloud-logging-full-name }} has quotas and limits. For more information about the service restrictions, read this article.'
 editable: false
+alternate:
+  - href: en/logging/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits {{ cloud-logging-name }}

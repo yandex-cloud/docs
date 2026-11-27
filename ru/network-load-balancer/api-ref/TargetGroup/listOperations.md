@@ -38,6 +38,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/network-load-balancer/api-ref/TargetGroup/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Load Balancer API, REST: TargetGroup.ListOperations

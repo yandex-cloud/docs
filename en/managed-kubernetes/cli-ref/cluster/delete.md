@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/cluster/delete/
+alternate:
+  - href: en/managed-kubernetes/cli-ref/cluster/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kubernetes cluster delete

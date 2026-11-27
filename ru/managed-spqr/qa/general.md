@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-spqr/qa/general.md
+    type: text/markdown
+    title: Markdown version
+---
 # Общие вопросы про {{ mspqr-name }}
 
 {% include [general-minitoc](../../_qa/managed-spqr/minitoc/general.md) %}

@@ -1,6 +1,10 @@
 ---
 title: How to use Prometheus recording rules
 description: In this guide, you will learn to create and edit Prometheus files that define recording rules.
+alternate:
+  - href: en/monitoring/operations/prometheus/recording-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recording rules

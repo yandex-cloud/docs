@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for ClickHouse
+alternate:
+  - href: ru/terraform/data-sources/mdb_clickhouse_cluster_v2.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_clickhouse_cluster_v2 (DataSource)
@@ -481,7 +485,7 @@ output "network_id" {
       - `table` (*Read-Only*) (String). MySQL table name.
       - `user` (*Read-Only*) (String). Default user for replicas.
       - `where` (*Read-Only*) (String). WHERE clause for selecting rows.
-    - `postgresql_source` [Block]. PostgreSQL source for the external dictionary.
+    - `postgresql_source` [Block]. Deprecated ODBC-based PostgreSQL source. Use postgresql_source_v2 for new configurations. Existing configurations remain supported and are not migrated automatically.
       - `db` (*Read-Only*) (String). PostgreSQL database name.
       - `hosts` (*Read-Only*) (List Of String). PostgreSQL hosts.
       - `invalidate_query` (*Read-Only*) (String). Query to check if the dictionary data has changed.
@@ -490,6 +494,27 @@ output "network_id" {
       - `ssl_mode` (*Read-Only*) (String). SSL mode for the PostgreSQL connection (DISABLE, ALLOW, PREFER, VERIFY_CA, VERIFY_FULL).
       - `table` (*Read-Only*) (String). PostgreSQL table name.
       - `user` (*Read-Only*) (String). PostgreSQL user.
+    - `postgresql_source_v2` [Block]. PostgreSQL source using the native ClickHouse integration. Use this source for new PostgreSQL dictionaries instead of the deprecated ODBC-based postgresql_source.
+      - `background_reconnect` (*Read-Only*) (Bool). Reconnect to unavailable replicas in the background.
+      - `db` (*Read-Only*) (String). PostgreSQL database name.
+      - `invalidate_query` (*Read-Only*) (String). Query to check if the dictionary data has changed.
+      - `password` (*Read-Only*) (String). Default PostgreSQL password for replicas. Sensitive; the API does not return this value.
+      - `port` (*Read-Only*) (Number). Default PostgreSQL port inherited by replicas without a port override. Defaults to 5432.
+      - `query` (*Read-Only*) (String). Custom SQL query.
+      - `replicas` [Block]. PostgreSQL replicas used as dictionary sources. The API requires at least one replica. Replicas inherit port, user and password from the source unless overridden.
+        - `host` (*Read-Only*) (String). PostgreSQL replica host.
+        - `password` (*Read-Only*) (String). Replica password. Sensitive; the API does not return this value.
+        - `port` (*Read-Only*) (Number). Replica port.
+        - `priority` (*Read-Only*) (Number). Replica priority. Lower values have higher priority. Defaults to 0 when omitted.
+        - `user` (*Read-Only*) (String). Replica user.
+      - `ssl_mode` (*Read-Only*) (String). SSL mode for the PostgreSQL connection. Valid values: DISABLE, ALLOW, PREFER, VERIFY_CA, VERIFY_FULL, REQUIRE.
+      - `table` (*Read-Only*) (String). PostgreSQL table name.
+      - `user` (*Read-Only*) (String). Default PostgreSQL user for replicas without a user override.
+      - `where` (*Read-Only*) (String). Selection criteria (WHERE clause) for data in the specified table. Cannot be combined with query.
+    - `yt_source_v2` [Block]. YTsaurus source using the native ClickHouse integration. Available in public and internal clouds. Use this source for YTsaurus dictionaries; the legacy library-based source is unavailable starting with ClickHouse 26.8.
+      - `cypress_path` (*Read-Only*) (String). Cypress path to the YTsaurus table used as the dictionary source, for example //home/user/cities.
+      - `http_proxy_urls` (*Read-Only*) (List Of String). URLs of the YTsaurus HTTP proxies, reachable from the ClickHouse cluster. At least one non-empty URL is required.
+      - `oauth_token` (*Read-Only*) (String). OAuth token for accessing the YTsaurus table. Sensitive; the API does not return this value.
   - `structure` [Block]. Structure of the external dictionary.
     - `attributes` [Block]. Dictionary attributes.
       - `expression` (*Read-Only*) (String). Expression for computing the attribute.

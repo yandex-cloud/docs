@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/greedy-parameters.md
+    type: text/markdown
+    title: Markdown version
+---
 # Greedy parameters
 
 [OpenAPI Specification 3.0](https://github.com/OAI/OpenAPI-Specification) only allows capturing a single URL segment. To capture multiple segments, add `+` after the parameter name, such as `/prefix/{param+}/suffix`.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/cors.md
+    type: text/markdown
+    title: Markdown version
+---
 # CORS
 
 The `x-yc-apigateway-cors-rules` and `x-yc-apigateway-cors` extensions allow you to configure automatic processing of [preflight requests](https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request) using [CORS](https://developer.mozilla.org/en-US/docs/Glossary/CORS).

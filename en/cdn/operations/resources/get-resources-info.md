@@ -1,6 +1,10 @@
 ---
 title: How to get information about a resource in {{ cdn-full-name }}
 description: Follow this guide to get information about a resource.
+alternate:
+  - href: en/cdn/operations/resources/get-resources-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting resource info

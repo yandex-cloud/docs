@@ -443,6 +443,10 @@ apiPlayground:
               - topicConfig_3
           - required:
               - topicConfig_4
+alternate:
+  - href: ru/managed-kafka/api-ref/Topic/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Kafka® API, REST: Topic.Create

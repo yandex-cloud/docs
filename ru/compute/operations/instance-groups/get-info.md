@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/instance-groups/get-info.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получить информацию о группе виртуальных машин
 
 После создания [группы ВМ](../../concepts/instance-groups/index.md) вы можете получить основную информацию о группе.

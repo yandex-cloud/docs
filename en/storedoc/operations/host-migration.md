@@ -1,6 +1,10 @@
 ---
 title: Migrating {{ SD }} cluster hosts to a different availability zone
 description: In this tutorial, you will learn how to migrate {{ SD }} cluster hosts to a different availability zone.
+alternate:
+  - href: en/storedoc/operations/host-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating {{ SD }} cluster hosts to a different availability zone

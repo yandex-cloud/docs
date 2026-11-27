@@ -1,6 +1,10 @@
 ---
 title: How to enable the {{ kafka-ui }} web interface for {{ KF }}
 description: In this tutorial, you will learn how to enable the {{ kafka-ui }} web interface for {{ KF }}.
+alternate:
+  - href: en/managed-kafka/operations/kafka-ui-enable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ kafka-ui }} web interface for {{ KF }}

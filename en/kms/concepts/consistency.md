@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/kms/concepts/consistency.md
+    type: text/markdown
+    title: Markdown version
+---
 # Key consistency
 
 Some operations are [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency). The changes they produce take **up to three hours** to take effect. These operations include:

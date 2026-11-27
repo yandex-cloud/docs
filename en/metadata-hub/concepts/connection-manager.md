@@ -1,6 +1,10 @@
 ---
 title: Connecting {{ connection-manager-name }} to a database
 description: With {{ connection-manager-name }}, you can manage database connection parameters.
+alternate:
+  - href: en/metadata-hub/concepts/connection-manager.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connection

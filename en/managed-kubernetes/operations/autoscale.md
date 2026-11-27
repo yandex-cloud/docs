@@ -1,6 +1,10 @@
 ---
 title: How to configure autoscaling for a {{ k8s }} cluster in {{ managed-k8s-full-name }}
 description: Follow this guide to configure autoscaling.
+alternate:
+  - href: en/managed-kubernetes/operations/autoscale.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring autoscaling

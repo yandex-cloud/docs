@@ -1,6 +1,10 @@
 ---
 title: Публичные материалы о {{ mrd-full-name }}
 description: Видеозаписи конференций и вебинаров, посвященных {{ mrd-full-name }}.
+alternate:
+  - href: ru/managed-valkey/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные материалы о {{ mrd-full-name }}

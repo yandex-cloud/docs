@@ -1,6 +1,10 @@
 ---
 title: Normalized stacked area chart in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the normalized stacked area chart visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/normalized-area-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Normalized stacked area chart ![](../../_assets/datalens/normalized-area.svg) in {{ datalens-full-name }}

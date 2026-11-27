@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ maf-full-name }}
 description: Из статьи вы узнаете, как работать с {{ maf-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-airflow/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ maf-name }}

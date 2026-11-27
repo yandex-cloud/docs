@@ -1,6 +1,10 @@
 ---
 title: OIDC-приложения в {{ org-full-name }}
 description: В {{ org-full-name }} вы можете аутентифицировать пользователей {{ yandex-cloud }} во внешних приложениях с помощью OIDC-приложений с использованием технологии единого входа OpenID Connect.
+alternate:
+  - href: ru/organization/concepts/applications/oidc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OIDC-приложения

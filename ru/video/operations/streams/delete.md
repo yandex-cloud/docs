@@ -1,6 +1,10 @@
 ---
 title: Как удалить трансляцию в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете удалить трансляцию {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/streams/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить трансляцию

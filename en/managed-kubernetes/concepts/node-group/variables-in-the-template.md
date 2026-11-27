@@ -1,6 +1,10 @@
 ---
 title: Variables in a {{ managed-k8s-full-name }} node template
 description: In this tutorial, you will learn how to use variables in a {{ managed-k8s-name }} node template.
+alternate:
+  - href: en/managed-kubernetes/concepts/node-group/variables-in-the-template.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Variables in a {{ managed-k8s-full-name }} node template

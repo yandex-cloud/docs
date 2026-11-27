@@ -1,6 +1,10 @@
 ---
 title: Viewing trigger monitoring charts in {{ api-gw-full-name }}
 description: You can view monitoring charts in {{ api-gw-full-name }} using the management console. To do this, select {{ api-gw-full-name }} and click the trigger whose monitoring charts you want to view.
+alternate:
+  - href: en/api-gateway/operations/trigger/trigger-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing trigger monitoring charts in {{ api-gw-full-name }}

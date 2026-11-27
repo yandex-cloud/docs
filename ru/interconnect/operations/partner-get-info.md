@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о партнерах {{ interconnect-name }}
 description: Следуя этой инструкции, вы сможете получить информацию о партнерах {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/operations/partner-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о партнерах {{ interconnect-name }}

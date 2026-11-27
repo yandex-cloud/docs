@@ -329,6 +329,10 @@ apiPlayground:
               Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
+alternate:
+  - href: ru/managed-postgresql/api-ref/User/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, REST: User.Update

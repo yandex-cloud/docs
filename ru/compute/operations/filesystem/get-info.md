@@ -1,5 +1,9 @@
 ---
 title: Как получить информацию о файловом хранилище в {{ compute-full-name }}
+alternate:
+  - href: ru/compute/operations/filesystem/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о файловом хранилище

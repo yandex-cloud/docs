@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Logging
+alternate:
+  - href: en/terraform/resources/logging_group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_logging_group (Resource)

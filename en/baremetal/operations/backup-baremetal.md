@@ -2,6 +2,10 @@
 title: How to connect a {{ baremetal-name }} server to {{ backup-full-name }}
 description: In this tutorial, you will learn how to connect a {{ baremetal-name }} server to {{ backup-full-name }}.
 canonical: '{{ link-docs }}/tutorials/archive/backup-baremetal'
+alternate:
+  - href: en/baremetal/operations/backup-baremetal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting a {{ baremetal-name }} server to {{ backup-full-name }}

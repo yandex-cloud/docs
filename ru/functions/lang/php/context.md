@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/php/context.md
+    type: text/markdown
+    title: Markdown version
+---
 # Контекст вызова функции на PHP
 
 _Контекст вызова_ — это объект, который принимается [обработчиком запросов](handler.md) функции на PHP в качестве второго аргумента.

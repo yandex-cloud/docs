@@ -1,6 +1,10 @@
 ---
 title: Configuring self-service password reset in {{ org-full-name }}
 description: Follow this guide to configure self-service password reset (SSPR) in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/manage-sspr.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring self-service password reset in {{ org-full-name }}

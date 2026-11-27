@@ -1,6 +1,10 @@
 ---
 title: Миграция с {{ iot-full-name }} на MQTT-решения с открытым исходным кодом
 description: В практическом руководстве описано, как мигрировать с {{ iot-full-name }} на MQTT-решения с открытым исходным кодом.
+alternate:
+  - href: ru/iot-core/tutorials/iot-core-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция с {{ iot-full-name }} на MQTT-решения с открытым исходным кодом

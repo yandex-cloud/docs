@@ -1,6 +1,10 @@
 ---
 title: How to create a VM with a custom script
 description: This guide will show you how to use `cloud-init` scripts to install additional software and customize your VM while creating it.
+alternate:
+  - href: en/compute/operations/vm-create/create-with-cloud-init-scripts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM with a custom configuration script

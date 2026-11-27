@@ -1,6 +1,10 @@
 ---
 title: How to set up a YTsaurus source endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to configure a YTsaurus source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/operations/endpoint/source/yt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring data from an {{ ytsaurus-name }} source endpoint

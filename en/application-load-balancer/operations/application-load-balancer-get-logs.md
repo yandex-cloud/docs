@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/application-load-balancer/operations/application-load-balancer-get-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing L7 load balancer logs
 
 You can [configure](application-load-balancer-manage-logs.md) the delivery of L7 load balancer [logs](../concepts/monitoring.md#logging) to a {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md).

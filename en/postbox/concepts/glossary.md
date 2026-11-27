@@ -1,6 +1,10 @@
 ---
 title: Terms and definitions in {{ postbox-full-name }}
 description: In this article, you will learn about the terms and definitions in {{ postbox-name }}.
+alternate:
+  - href: en/postbox/concepts/glossary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Terms and definitions in {{ postbox-name }}

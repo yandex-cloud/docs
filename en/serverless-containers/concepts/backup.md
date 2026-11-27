@@ -1,6 +1,10 @@
 ---
 title: Backups in {{ serverless-containers-full-name }}
 description: In this article, you will learn about backups in {{ serverless-containers-full-name }} and what information you can get.
+alternate:
+  - href: en/serverless-containers/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backups in {{ serverless-containers-name }}

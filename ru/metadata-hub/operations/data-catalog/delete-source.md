@@ -1,6 +1,10 @@
 ---
 title: Удаление источника метаданных
 description: Следуя данной инструкции, вы сможете удалить источник метаданных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/delete-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление источника

@@ -4,6 +4,10 @@ keywords:
   - cloud network
   - cloud
   - network
+alternate:
+  - href: en/vpc/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud networks and subnets

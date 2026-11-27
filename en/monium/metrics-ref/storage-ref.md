@@ -2,6 +2,10 @@
 title: '{{ objstorage-full-name }} metrics'
 description: In this tutorial, you will learn about {{ objstorage-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/storage-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ objstorage-full-name }} metrics

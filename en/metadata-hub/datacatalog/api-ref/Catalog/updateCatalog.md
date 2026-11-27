@@ -130,6 +130,10 @@ apiPlayground:
               In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
             type: string
             format: date-time
+alternate:
+  - href: en/metadata-hub/datacatalog/api-ref/Catalog/updateCatalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Datacatalog API, REST: Catalog.UpdateCatalog

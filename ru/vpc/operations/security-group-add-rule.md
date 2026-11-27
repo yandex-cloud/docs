@@ -1,6 +1,10 @@
 ---
 title: Добавить новое правило в группу безопасности {{ vpc-full-name }}
 description: Добавлять правила можно через консоль управления, CLI и API {{ vpc-name }}. Если вы добавили или удалили правила, не нужно перезагружать ВМ. Правила применятся сразу ко всем ресурсам, которым назначена группа.
+alternate:
+  - href: ru/vpc/operations/security-group-add-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить новое правило в группу безопасности

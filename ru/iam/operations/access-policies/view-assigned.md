@@ -1,6 +1,10 @@
 ---
 title: Посмотреть политики авторизации, созданные для ресурса
 description: Из статьи вы узнаете, как посмотреть политики авторизации {{ iam-full-name }}, созданные для каталога, облака или организации.
+alternate:
+  - href: ru/iam/operations/access-policies/view-assigned.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотр политик авторизации, созданных для ресурса

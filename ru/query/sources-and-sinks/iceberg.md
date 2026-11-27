@@ -1,6 +1,10 @@
 ---
 title: Чтение данных из таблиц {{ yq-iceberg-name }}
 description: Из статьи вы узнаете, как подключиться к каталогу {{ yq-iceberg-name }} и читать данные из таблиц с помощью {{ yq-full-name }}.
+alternate:
+  - href: ru/query/sources-and-sinks/iceberg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение данных из таблиц {{ yq-iceberg-name }}

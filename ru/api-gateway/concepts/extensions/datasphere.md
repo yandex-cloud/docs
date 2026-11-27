@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/datasphere.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение x-yc-apigateway-integration:cloud_datasphere
 
 Расширение `x-yc-apigateway-integration:cloud_datasphere` вызывает ноду {{ ml-platform-name }}, развернутую в виде отдельного микросервиса. В запросе к {{ api-gw-short-name }} должен быть JSON-объект, который содержит входные переменные, указанные при создании ноды, и их значения. В ответе от {{ api-gw-short-name }} будет JSON-объект, который содержит выходные переменные, указанные при создании ноды, и их значения, полученные после ее выполнения.

@@ -2,6 +2,10 @@
 title: Estimating the cost of YQL queries to {{ ydb-full-name }}
 description: This article contains the rules for estimating the cost of YQL queries to {{ ydb-name }}.
 editable: false
+alternate:
+  - href: en/ydb/pricing/ru-yql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Estimating the cost of YQL queries to {{ ydb-short-name }}

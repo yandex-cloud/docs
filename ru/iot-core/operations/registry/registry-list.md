@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iot-core/operations/registry/registry-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получение информации о реестре
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}

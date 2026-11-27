@@ -1,6 +1,10 @@
 ---
 title: Права пользователей в {{ mmy-name }}
 description: Права пользователя в кластере {{ mmy-full-name }} определяются одной или несколькими привилегиями, назначенными пользователю.
+alternate:
+  - href: ru/managed-mysql/concepts/user-rights.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Права пользователей в {{ mmy-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/kms/operations/version.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing key versions
 
 You can make key versions primary (a primary key version is used for encryption and decryption by default) and destroy them. To create a new key version, [rotate](key.md#rotate) the key.

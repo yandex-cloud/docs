@@ -1,6 +1,10 @@
 ---
 title: Как выполнить диагностику проблем производительности Spark-приложений в {{ msp-full-name }}
 description: Следуя данной инструкции, вы сможете выполнить диагностику проблем производительности Spark-приложений.
+alternate:
+  - href: ru/managed-spark/operations/spark-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика и примеры устранения проблем производительности Spark-приложений

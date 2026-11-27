@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for using {{ yds-full-name }}
 description: Step-by-step guides for working with {{ yds-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/data-streams/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ yds-name }}

@@ -846,6 +846,10 @@ apiPlayground:
               - greenplum
           - required:
               - storedoc
+alternate:
+  - href: ru/metadata-hub/connection-manager/api-ref/Connection/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connection Manager API, REST: Connection.Create

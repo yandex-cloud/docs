@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/ydb/api-ref/overview.md
+    type: text/markdown
+    title: Markdown version
+---
 # API {{ yandex-cloud }} для {{ ydb-name }}
 
 Вы можете управлять ресурсами {{ ydb-name }} с помощью [API {{ yandex-cloud }}](../../api-design-guide/).

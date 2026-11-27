@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/managed-greenplum'
+alternate:
+  - href: en/data-transfer/tutorials/managed-greenplum.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating a {{ GP }}/{{ CB }} cluster

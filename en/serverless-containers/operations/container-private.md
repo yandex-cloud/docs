@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/container-private.md
+    type: text/markdown
+    title: Markdown version
+---
 # Making a container private
 
 For a container to be invoked only by users with the permission to do so, make the container private.

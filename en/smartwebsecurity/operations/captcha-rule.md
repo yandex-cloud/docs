@@ -1,6 +1,10 @@
 ---
 title: How to set up a rule for {{ captcha-full-name }}
 description: Follow this guide to set up a rule for {{ captcha-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/captcha-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Rule for {{ captcha-full-name }}

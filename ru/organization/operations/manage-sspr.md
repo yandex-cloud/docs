@@ -1,6 +1,10 @@
 ---
 title: Настроить самостоятельный сброс пароля пользователями в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете настроить самостоятельный сброс пароля пользователями (SSPR) в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/manage-sspr.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить самостоятельный сброс пароля пользователями в {{ org-full-name }}

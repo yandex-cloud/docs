@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/freetier.md
+    type: text/markdown
+    title: Markdown version
+---
 # Специальные условия для образовательных учреждений
 
 Для образовательных учреждений и научных проектов платформа {{ yandex-cloud }} предоставляет специальные условия использования. [Подробнее о программе](/datasphere-education-program).

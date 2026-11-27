@@ -1,6 +1,10 @@
 ---
 title: Создание удаленного реестра в {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы сможете создать удаленный реестр в {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/registry/remote.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать удаленный реестр

@@ -1,6 +1,10 @@
 ---
 title: Безопасность в {{ mgl-full-name }}
 description: Из статьи вы узнаете, какие меры безопасности доступны в {{ mgl-name }}.
+alternate:
+  - href: ru/managed-gitlab/concepts/security.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Безопасность в {{ mgl-name }}

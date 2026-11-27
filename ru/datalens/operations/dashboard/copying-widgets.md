@@ -1,6 +1,10 @@
 ---
 title: Копирование виджетов на дашборде в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете скопировать и вставить виджеты на дашборде в {{ datalens-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/copying-widgets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Копирование виджетов на дашборде в {{ datalens-full-name }}

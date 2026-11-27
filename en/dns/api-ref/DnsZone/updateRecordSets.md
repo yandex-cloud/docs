@@ -72,6 +72,10 @@ apiPlayground:
               **string**
               Description of the record set.
             type: string
+alternate:
+  - href: en/dns/api-ref/DnsZone/updateRecordSets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, REST: DnsZone.UpdateRecordSets

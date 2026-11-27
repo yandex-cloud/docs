@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error: ERR.DS_API.DB.CH.READONLY_USER'
 description: This page describes the `{{ CH }} user must be correctly configured to use readonly 1 option (see docs)` {{ datalens-full-name }} error. For other readonly options user should have parameter readonly set to 0 or 2.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DB-CH-READONLY_USER.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] {{ CH }} user must be correctly configured to use readonly 1 option (see docs). For other readonly options user should have parameter readonly set to 0 or 2

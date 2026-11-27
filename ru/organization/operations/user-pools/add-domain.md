@@ -1,6 +1,10 @@
 ---
 title: Как привязать домен к пулу пользователей или федерации {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете привязать домен к пулу пользователей или федерации {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/add-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Привязать домен

@@ -1,6 +1,10 @@
 ---
 title: Creating a stream in the AWS CLI
 description: Follow this guide to create a stream in the AWS CLI.
+alternate:
+  - href: en/data-streams/operations/aws-cli/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a stream in the AWS CLI

@@ -1,6 +1,10 @@
 ---
 title: Как получить список трейлов
 description: Следуя данной инструкции, вы сможете посмотреть список доступных трейлов {{ at-full-name }}.
+alternate:
+  - href: ru/audit-trails/operations/get-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список трейлов

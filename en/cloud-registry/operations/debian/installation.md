@@ -1,6 +1,10 @@
 ---
 title: Configuring the APT package manager for {{ cloud-registry-full-name }}
 description: Follow this guide to configure APT for {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/debian/installation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring the APT package manager

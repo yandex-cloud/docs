@@ -1,5 +1,9 @@
 ---
 subcategory: Smart Captcha
+alternate:
+  - href: ru/terraform/resources/smartcaptcha_captcha.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_smartcaptcha_captcha (Resource)

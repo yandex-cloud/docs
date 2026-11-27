@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ sd-full-name }}
 description: В данном разделе описано, как начать работу с сервисом {{ sd-name }} и использовать входящие в него инструменты.
+alternate:
+  - href: ru/security-deck/quickstart-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с {{ sd-full-name }}

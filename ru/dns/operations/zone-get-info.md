@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о зоне DNS в {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о зоне DNS.
+alternate:
+  - href: ru/dns/operations/zone-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о зоне DNS

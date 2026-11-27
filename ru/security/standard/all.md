@@ -1,6 +1,10 @@
 ---
 title: Стандарт по защите облачной инфраструктуры {{ yandex-cloud }} — все разделы на одной странице
 description: Этот документ содержит перечень разделов с рекомендациями по техническим мерам защиты и помогает выбрать меры обеспечения информационной безопасности (ИБ) при развёртывании информационных систем на облачной платформе {{ yandex-cloud }}.
+alternate:
+  - href: ru/security/standard/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [overview](../../_includes/security/standard/overview.md) %}

@@ -1,6 +1,10 @@
 ---
 title: COI releases
 description: In this article, you will learn how to find out your COI version and read about the previous COI releases.
+alternate:
+  - href: en/cos/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # COI releases

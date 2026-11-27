@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Access management in {{ yds-name }}
 
 {{ yds-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.

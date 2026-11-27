@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/csharp/model/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # C# programming model
 
 {{ sf-name }} provides two models for programming in C#: one is based on the [YcFunction](yc-function.md) interface, the other, on an [independent class](independent-function.md) with a compatible method. Both models require custom implementations of the interfaces and allow the function to accept one argument and one return value of any type. 

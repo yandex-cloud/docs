@@ -1,6 +1,10 @@
 ---
 title: Trigger for {{ yds-full-name }} that sends messages to WebSocket connections
 description: In this article, you will learn about the {{ yds-name }} trigger, the format of the messages it sends, and the roles required to use the trigger.
+alternate:
+  - href: en/api-gateway/concepts/trigger/data-streams-trigger.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Trigger for {{ yds-name }} that sends messages to WebSocket connections

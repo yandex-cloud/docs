@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/operations/query.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление запросами
 
 {% include [sunset](../../_includes/query/sunset.md) %}

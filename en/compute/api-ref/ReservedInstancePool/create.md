@@ -205,6 +205,10 @@ apiPlayground:
               - STANDARD
               - SOFTWARE_ACCELERATED
               - HARDWARE_ACCELERATED
+alternate:
+  - href: en/compute/api-ref/ReservedInstancePool/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: ReservedInstancePool.Create

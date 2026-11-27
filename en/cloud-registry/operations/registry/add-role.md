@@ -1,6 +1,10 @@
 ---
 title: How to assign roles for a registry in {{ cloud-registry-full-name }}
 description: Follow this tutorial to assign roles for a registry.
+alternate:
+  - href: en/cloud-registry/operations/registry/add-role.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning a role for a registry

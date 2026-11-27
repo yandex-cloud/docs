@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/operations/cluster-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing {{ SD }} cluster logs
 
 {{ mmg-name }} enables retrieval of [cluster log snippets](#get-log) for a chosen period and [real-time log viewing](#get-log-stream).

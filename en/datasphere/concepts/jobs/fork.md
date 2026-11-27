@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/jobs/fork.md
+    type: text/markdown
+    title: Markdown version
+---
 # Rerunning jobs in {{ ds-jobs }}
 
 In {{ ml-platform-full-name }}, you can rerun a job with the required parameters redefined. A rerun creates a job fork and the original job becomes the parent one. A job fork can also be rerun, in which case the job will become both the fork of one and the parent of the other.

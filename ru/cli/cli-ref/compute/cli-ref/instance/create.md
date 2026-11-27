@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance/create/
+alternate:
+  - href: ru/cli/cli-ref/compute/cli-ref/instance/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute instance create

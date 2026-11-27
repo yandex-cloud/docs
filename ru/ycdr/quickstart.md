@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ ycdr-full-name }}
 description: Следуя данной инструкции, вы научитесь создавать расследования, выполнять KQL-запросы и анализировать события безопасности в {{ ycdr-name }}.
+alternate:
+  - href: ru/ycdr/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с расследованиями

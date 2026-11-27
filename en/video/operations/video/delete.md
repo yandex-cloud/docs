@@ -1,6 +1,10 @@
 ---
 title: How to delete a video in {{ video-full-name }}
 description: Follow this guide to delete a {{ video-full-name }} video.
+alternate:
+  - href: en/video/operations/video/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a video

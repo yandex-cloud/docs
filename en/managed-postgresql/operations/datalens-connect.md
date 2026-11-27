@@ -1,6 +1,10 @@
 ---
 title: How to connect to a {{ PG }} cluster from {{ datalens-name }}
 description: Follow this guide to connect to a {{ PG }} cluster from {{ datalens-name }}.
+alternate:
+  - href: en/managed-postgresql/operations/datalens-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ PG }} cluster from {{ datalens-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как настроить WireGuard-шлюзы для подключения внешних узлов к кластеру {{ managed-k8s-name }}
 description: Следуя данной инструкции, вы сможете настроить WireGuard-шлюзы для подключения внешних узлов к кластеру {{ managed-k8s-name }}
+alternate:
+  - href: ru/managed-kubernetes/operations/external-nodes-connect-wireguard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка WireGuard-шлюзов для подключения внешних узлов к кластеру

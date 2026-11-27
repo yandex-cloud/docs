@@ -1,6 +1,10 @@
 ---
 title: Поддержать несколько доменных имен для сайта с помощью консоли управления, CLI или API
 description: Следуя данной инструкции, вы сможете настроить поддержку нескольких доменных имен для сайта с помощью консоли управления {{ yandex-cloud }}, CLI или API.
+alternate:
+  - href: ru/storage/operations/hosting/multiple-domains/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поддержать несколько доменных имен с помощью консоли управления, CLI или API

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/deploy/deploy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deployment algorithm
 
 The deployment algorithm switches an instance group from one state to another using short iterative changes. Each iteration takes into account the restrictions set by the user.

@@ -1,6 +1,10 @@
 ---
 title: Error handling
 description: In this article, you will learn about known errors that occur when sending audit logs to trail destination objects. Follow the suggested recommendations to get the trail back to normal.
+alternate:
+  - href: en/audit-trails/operations/error.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Error handling

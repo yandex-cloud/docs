@@ -85,6 +85,10 @@ apiPlayground:
               The minimum value is 0.
             type: string
             format: int64
+alternate:
+  - href: en/container-registry/api-ref/LifecyclePolicy/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: LifecyclePolicy.Create

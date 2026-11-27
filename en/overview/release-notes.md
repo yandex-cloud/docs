@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/overview/release-notes.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ yandex-cloud }} release notes
 
 To see what changed in the {{ yandex-cloud }} services and tools, see the links below.

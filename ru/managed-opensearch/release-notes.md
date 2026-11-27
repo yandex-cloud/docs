@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ mos-full-name }}
 description: В разделе представлена история изменений сервиса {{ mos-name }}.
+alternate:
+  - href: ru/managed-opensearch/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ mos-full-name }}

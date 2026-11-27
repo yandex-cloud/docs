@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/datalens/events-ref/DeleteEmbeddingSecret.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataLens Audit Trails Events: DeleteEmbeddingSecret

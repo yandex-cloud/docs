@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ dataproc-full-name }}
 description: Access management for Apache Hadoop® and Apache Spark™ cluster creation and management services. To grant a user access to {{ dataproc-name }} resources, i.e., clusters and subclusters, assign them the roles from the list below.
+alternate:
+  - href: en/data-proc/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ dataproc-name }}

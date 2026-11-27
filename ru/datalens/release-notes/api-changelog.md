@@ -1,6 +1,10 @@
 ---
 title: История изменений Public API в {{ datalens-full-name }}
 description: Ознакомьтесь с историей изменений Public API в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/release-notes/api-changelog.md
+    type: text/markdown
+    title: Markdown version
 ---
 # История изменений Public API в {{ datalens-full-name }}
 

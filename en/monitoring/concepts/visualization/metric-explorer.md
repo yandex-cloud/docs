@@ -1,6 +1,10 @@
 ---
 title: '{{ monitoring-full-name }} Metric Explorer'
 description: Metric Explorer in {{ monitoring-full-name }} helps you define and view real-time service and application metrics.
+alternate:
+  - href: en/monitoring/concepts/visualization/metric-explorer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Metric Explorer in {{ monitoring-name }}

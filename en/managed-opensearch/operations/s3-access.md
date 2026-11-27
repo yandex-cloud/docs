@@ -1,6 +1,10 @@
 ---
 title: Configuring access to {{ objstorage-full-name }} from an {{ OS }} cluster
 description: In this article, you will learn how to configure access to {{ objstorage-name }} to use it as an {{ OS }} snapshot repository.
+alternate:
+  - href: en/managed-opensearch/operations/s3-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring access to {{ objstorage-name }} from an {{ OS }} cluster

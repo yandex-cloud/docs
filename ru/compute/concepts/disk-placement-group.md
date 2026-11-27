@@ -1,6 +1,10 @@
 ---
 title: Группы размещения нереплицируемых дисков
 description: Из статьи вы узнаете про группы и стратегии размещения нереплицируемых дисков.
+alternate:
+  - href: ru/compute/concepts/disk-placement-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Группы размещения нереплицируемых дисков

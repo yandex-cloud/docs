@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-spark/environment/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Spark Environment API, gRPC: OperationService.Cancel

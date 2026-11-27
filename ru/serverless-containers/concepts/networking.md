@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/concepts/networking.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сетевое взаимодействие в {{ serverless-containers-name }}
 
 По умолчанию контейнер запускается в изолированной IPv4-сети с включенным [NAT-шлюзом](../../vpc/concepts/gateways.md). Поэтому из контейнера доступны только публичные IPv4-адреса.

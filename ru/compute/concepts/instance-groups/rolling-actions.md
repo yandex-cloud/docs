@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/concepts/instance-groups/rolling-actions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Поочередные перезагрузка и пересоздание виртуальных машин в группе
 
 ВМ в группе можно автоматически [перезагружать](../../operations/instance-groups/rolling-restart.md) или [пересоздавать](../../operations/instance-groups/rolling-recreate.md) по очереди с учетом параметров, заданных в [политике развертывания](./policies/deploy-policy.md) группы ВМ. Действия можно выполнять как для всех ВМ в группе, так и для заданных ВМ.

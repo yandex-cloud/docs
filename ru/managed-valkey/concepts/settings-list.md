@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-valkey/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройки {{ VLK }}
 
 Для кластера {{ mrd-name }} можно задать настройки, которые относятся к {{ VLK }}.

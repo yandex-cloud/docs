@@ -1,6 +1,10 @@
 ---
 title: Использование {{ mkf-msr }} с {{ mkf-full-name }} с помощью REST API
 description: При использовании {{ mkf-msr }} совместно с {{ mkf-name }} можно управлять схемами данных, производителями и потребителями с помощью REST API.
+alternate:
+  - href: ru/tutorials/dataplatform/managed-schema-registry-rest.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование {{ mkf-msr }} с {{ mkf-full-name }} с помощью REST API

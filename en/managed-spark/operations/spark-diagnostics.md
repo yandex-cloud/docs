@@ -1,6 +1,10 @@
 ---
 title: How to diagnose performance issues in Spark applications in {{ msp-full-name }}
 description: Follow this guide to diagnose performance issues in Spark applications.
+alternate:
+  - href: en/managed-spark/operations/spark-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Diagnostics and examples of troubleshooting performance issues in Spark applications

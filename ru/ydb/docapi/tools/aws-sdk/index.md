@@ -2,6 +2,10 @@
 title: Работа с AWS SDK. Обзор
 description: В этом разделе описано, как с помощью AWS SDK написать простые программы, которые выполняют некоторые операции c YDB. Примеры приведены для нескольких языков программирования.
 sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
+alternate:
+  - href: ru/ydb/docapi/tools/aws-sdk/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с AWS SDK в {{ ydb-name }}. Обзор

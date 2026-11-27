@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в партнерской программе {{ yandex-cloud }}
 description: Из статьи вы узнаете, какие сервисные и примитивные роли действуют в партнерской программе {{ yandex-cloud }}, а также ознакомитесь с доступными операциями для ролей каждого типа.
+alternate:
+  - href: ru/partner/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом

@@ -1,6 +1,10 @@
 ---
 title: Как создать кластер {{ VLK }}
 description: Следуя данной инструкции, вы сможете создать кластер {{ VLK }} с одним или несколькими хостами базы данных.
+alternate:
+  - href: ru/managed-valkey/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ VLK }}

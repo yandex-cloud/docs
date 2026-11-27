@@ -1,6 +1,10 @@
 ---
 title: '{{ compute-full-name }} instance template'
 description: In this tutorial, you will learn what a {{ compute-name }} instance template is.
+alternate:
+  - href: en/compute/concepts/instance-groups/instance-template.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Instance template

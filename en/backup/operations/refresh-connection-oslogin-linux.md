@@ -1,6 +1,10 @@
 ---
 title: How to update a connection of a {{ compute-full-name }} Linux VM with {{ oslogin }} to {{ backup-full-name }}
 description: Follow this guide to update a connection of a {{ compute-full-name }} Linux VM with {{ oslogin }} to {{ backup-name }}.
+alternate:
+  - href: en/backup/operations/refresh-connection-oslogin-linux.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reconnecting a Linux VM with {{ oslogin }} to {{ backup-name }}

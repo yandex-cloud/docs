@@ -1,6 +1,10 @@
 ---
 title: Viewing alerts in {{ sd-full-name }}
 description: In this section, you will learn how to view alerts in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/alerts/view.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing alerts

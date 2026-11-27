@@ -1,6 +1,10 @@
 ---
 title: How to delete a dashboard in {{ monitoring-full-name }}
 description: Follow this guide to delete a dashboard.
+alternate:
+  - href: en/monitoring/operations/dashboard/delete-dashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a dashboard

@@ -1,6 +1,10 @@
 ---
 title: Просмотр операций и обзор окружения {{ sd-full-name }}
 description: Из этой инструкции вы узнаете, как посмотреть дашборд окружения и операции с ним в {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/operations/workspaces/view-dashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть дашборд и операции с окружением {{ sd-name }}

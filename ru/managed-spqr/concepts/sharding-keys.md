@@ -5,6 +5,10 @@ keywords:
   - keyword: ключи шардирования в SPQR
   - keyword: шард PostgreSQL
   - keyword: SPQR
+alternate:
+  - href: ru/managed-spqr/concepts/sharding-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ключи шардирования

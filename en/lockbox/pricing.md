@@ -2,6 +2,10 @@
 title: '{{ lockbox-full-name }} pricing policy'
 description: This article covers the {{ lockbox-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/lockbox/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ lockbox-name }} pricing policy

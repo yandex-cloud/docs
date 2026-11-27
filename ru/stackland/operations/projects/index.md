@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/projects/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Проекты
 
 Проект — логическая единица организации ресурсов в {{ stackland-name }}. Проект объединяет несколько пространств имен Kubernetes и позволяет управлять доступом и квотами на уровне команды или приложения.

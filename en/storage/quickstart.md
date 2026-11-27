@@ -1,6 +1,10 @@
 ---
 title: Getting started with the management console
 description: Follow this guide to create a bucket and upload an object to it using the management console.
+alternate:
+  - href: en/storage/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ objstorage-full-name }}

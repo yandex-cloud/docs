@@ -1,6 +1,10 @@
 ---
 title: Updating a log group
 description: Follow this guide to update a log group.
+alternate:
+  - href: en/logging/operations/retention-period.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a log group

@@ -1,6 +1,10 @@
 ---
 title: Managing {{ SD }} users in {{ mmg-full-name }}
 description: In this tutorial, you will learn how to add and remove users and how to manage individual user settings in the {{ SD }} database management service.
+alternate:
+  - href: en/storedoc/operations/cluster-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ SD }} users

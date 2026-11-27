@@ -2,6 +2,10 @@
 title: Cost analysis by resource
 description: Configure the automatic export of expense details for your billing account and generate a report with info on the costs associated with the resources within a folder.
 canonical: '{{ link-docs }}/tutorials/infrastructure/billing-resource-detailing'
+alternate:
+  - href: en/storage/tutorials/billing-resource-detailing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cost analysis by resource

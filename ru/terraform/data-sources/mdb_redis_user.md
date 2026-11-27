@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for ValKey
+alternate:
+  - href: ru/terraform/data-sources/mdb_redis_user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_redis_user (DataSource)

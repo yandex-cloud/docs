@@ -1,6 +1,10 @@
 ---
 title: Managing {{ VLK }} backups
 description: You can back up {{ VLK }} clusters and restore them from existing backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If your cloud lacks resources to create such a cluster, you will not be able to restore your data from the backup.
+alternate:
+  - href: en/managed-valkey/operations/cluster-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing backups in {{ mrd-name }}

@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ ml-platform-full-name }}
 description: Access management in {{ ml-platform-full-name }}, a service providing an ML development environment. To allow a user access to {{ ml-platform-name }} resources, assign them the roles from the list below.
+alternate:
+  - href: en/datasphere/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ ml-platform-name }}

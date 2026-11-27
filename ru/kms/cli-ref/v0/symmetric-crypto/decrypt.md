@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/v0/symmetric-crypto/decrypt/
+alternate:
+  - href: ru/kms/cli-ref/v0/symmetric-crypto/decrypt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc kms v0 symmetric-crypto decrypt

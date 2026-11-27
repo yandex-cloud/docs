@@ -1,6 +1,10 @@
 ---
 title: Monitoring DNS zones
 description: In this tutorial, you will learn how to view DNS zone and query metrics.
+alternate:
+  - href: en/dns/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Monitoring DNS zones

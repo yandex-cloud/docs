@@ -1,6 +1,10 @@
 ---
 title: Зарегистрировать проект
 description: Следуя данной инструкции, вы сможете зарегистрировать проект.
+alternate:
+  - href: ru/partner/operations/project-registration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Зарегистрировать проект

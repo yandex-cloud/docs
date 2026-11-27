@@ -1,6 +1,10 @@
 ---
 title: Обзор способов управления доступом в {{ objstorage-full-name }}
 description: Управление доступом в сервисе {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/security/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор способов управления доступом в {{ objstorage-name }}

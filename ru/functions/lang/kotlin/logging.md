@@ -1,6 +1,10 @@
 ---
 title: Журналирование выполнения функции на Kotlin
 description: Сервис {{ sf-name }} автоматически захватывает потоки стандартного вывода приложения на Kotlin и отправляет их в централизованную систему журналирования в {{ yandex-cloud }}.
+alternate:
+  - href: ru/functions/lang/kotlin/logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Журналирование выполнения функции на Kotlin

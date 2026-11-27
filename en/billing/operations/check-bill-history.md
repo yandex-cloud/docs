@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/operations/check-bill-history.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing your payment history
 
 You can view the full history of payments to your [personal account](../concepts/personal-account.md#balance) on the **{{ ui-key.yacloud_billing.billing.account.switch_history }}** page. The tracking method depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).

@@ -1,6 +1,10 @@
 ---
 title: Обзор СУБД {{ GP }} и {{ CB }} в сервисе {{ mgp-full-name }}
 description: Из статьи вы узнаете основную информацию о сервисе {{ mgp-full-name }} и доступных в нем СУБД - {{ GP }} и {{ CB }}.
+alternate:
+  - href: ru/managed-greenplum/concepts/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор СУБД {{ GP }} и {{ CB }} в сервисе {{ mgp-full-name }}

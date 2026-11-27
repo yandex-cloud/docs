@@ -1,6 +1,10 @@
 ---
 title: Restoring data from an available {{ mrd-full-name }} host
 description: Replicate data from an available {{ mrd-name }} host to your self-hosted Valkey instance.
+alternate:
+  - href: en/managed-valkey/operations/data-recovery.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Restoring data from an available {{ mrd-name }} host

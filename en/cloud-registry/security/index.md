@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ cloud-registry-full-name }}
 description: Access management in {{ cloud-registry-full-name }}, a secure storage service for software artifacts. To allow a user access to {{ cloud-registry-name }} resources, assign them the roles from the list below.
+alternate:
+  - href: en/cloud-registry/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ cloud-registry-full-name }}

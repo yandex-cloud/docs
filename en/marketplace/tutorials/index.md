@@ -1,6 +1,10 @@
 ---
 title: '{{ marketplace-full-name }} use cases'
 description: Various use cases for {{ marketplace-name }} products in {{ yandex-cloud }}.
+alternate:
+  - href: en/marketplace/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ marketplace-name }} tutorials

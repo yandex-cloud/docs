@@ -5,6 +5,10 @@ keywords:
   - creating a {{ TR }} cluster
   - '{{ TR }} cluster'
   - '{{ TR }}'
+alternate:
+  - href: en/managed-trino/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ TR }} cluster

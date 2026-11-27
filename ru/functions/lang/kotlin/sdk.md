@@ -1,6 +1,10 @@
 ---
 title: Использование SDK для функции на Kotlin в {{ sf-full-name }}. Обзор
 description: Вы можете управлять функцией {{ sf-name }} на Kotlin с помощью SDK.
+alternate:
+  - href: ru/functions/lang/kotlin/sdk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование SDK для функции на Kotlin

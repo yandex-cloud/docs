@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/concepts/browser.md
+    type: text/markdown
+    title: Markdown version
+---
 # Push-уведомления в браузере
 
 _Push-уведомления в браузере_ — это сообщения, всплывающие в браузере.

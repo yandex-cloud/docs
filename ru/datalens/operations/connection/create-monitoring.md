@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение к {{ monitoring-name }}
 description: Следуя данной инструкции, вы сможете создать подключение к {{ monitoring-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/create-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к {{ monitoring-name }}

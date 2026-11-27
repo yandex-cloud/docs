@@ -1,6 +1,10 @@
 ---
 title: How to delete a {{ sws-full-name }} profile
 description: Follow this guide to delete a {{ sws-full-name }} profile.
+alternate:
+  - href: en/smartwebsecurity/operations/profile-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a security profile

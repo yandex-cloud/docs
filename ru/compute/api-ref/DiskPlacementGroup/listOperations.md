@@ -37,6 +37,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/compute/api-ref/DiskPlacementGroup/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: DiskPlacementGroup.ListOperations

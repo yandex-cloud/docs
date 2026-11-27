@@ -2,6 +2,10 @@
 title: All Security Deck Rules
 description: Complete list of Security Deck security rules
 editable: false
+alternate:
+  - href: en/security-deck/rules-reference/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All Security Deck Rules

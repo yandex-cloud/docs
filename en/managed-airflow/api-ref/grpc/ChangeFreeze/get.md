@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-airflow/api-ref/grpc/ChangeFreeze/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Apache Airflow™ API, gRPC: ChangeFreezeService.Get

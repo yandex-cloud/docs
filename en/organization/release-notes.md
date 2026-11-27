@@ -1,6 +1,10 @@
 ---
 title: '{{ org-full-name }} release notes'
 description: This section contains the {{ org-full-name }} release notes.
+alternate:
+  - href: en/organization/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

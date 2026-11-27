@@ -1,6 +1,10 @@
 ---
 title: Reassigning a public IP address from one VM to another
 description: To reassign a public IP address from one VM to another, convert the IP address to static, unassign it from the original VM, and assign it to the new one.
+alternate:
+  - href: en/compute/operations/vm-control/vm-transferring-public-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reassigning a public IP address from one VM to another

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-greenplum/api-ref/grpc/Cluster/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, gRPC: ClusterService.Backup

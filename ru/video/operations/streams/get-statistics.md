@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть статистику просмотров трансляции в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете посмотреть статистику просмотров трансляции и ее эпизодов в сервисе {{ video-name }}.
+alternate:
+  - href: ru/video/operations/streams/get-statistics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть статистику просмотров трансляции

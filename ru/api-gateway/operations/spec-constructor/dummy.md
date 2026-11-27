@@ -1,6 +1,10 @@
 ---
 title: Добавить расширение Статический ответ
 description: Следуя данной инструкции, вы сможете добавить расширение Статический ответ с помощью конструктора спецификации.
+alternate:
+  - href: ru/api-gateway/operations/spec-constructor/dummy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить расширение x-yc-apigateway-integration:dummy

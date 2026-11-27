@@ -1,6 +1,10 @@
 ---
 title: Изменение настроек подключения в {{ websql-full-name }}
 description: Следуя данной инструкции, вы сможете изменять настройки подключения.
+alternate:
+  - href: ru/websql/operations/change-connection-settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек подключения

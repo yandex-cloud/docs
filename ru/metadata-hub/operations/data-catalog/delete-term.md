@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/delete-term.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удаление термина
 
 

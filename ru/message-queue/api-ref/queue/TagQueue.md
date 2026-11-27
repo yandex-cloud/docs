@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/queue/TagQueue.md
+    type: text/markdown
+    title: Markdown version
+---
 # TagQueue
 
 Метод для задания [меток очереди](../../concepts/tags.md). Изменение меток может занять до 60 секунд.

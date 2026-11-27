@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/siem/instances/siem/api-ref/SIEMInstance/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud SIEM Instances API, REST: SIEMInstance.Get

@@ -1,6 +1,10 @@
 ---
 title: Точечная карта в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Точечная карта.
+alternate:
+  - href: ru/datalens/visualization-ref/point-map-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Точечная карта ![](../../_assets/datalens/heatmap.svg) в {{ datalens-full-name }}

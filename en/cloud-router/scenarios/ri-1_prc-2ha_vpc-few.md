@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/cloud-router/scenarios/ri-1_prc-2ha_vpc-few.md
+    type: text/markdown
+    title: Markdown version
+---
 # On-prem with redundancy and multiple VPCs
 
 

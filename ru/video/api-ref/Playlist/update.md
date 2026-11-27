@@ -96,6 +96,10 @@ apiPlayground:
               - videoId
           - required:
               - episodeId
+alternate:
+  - href: ru/video/api-ref/Playlist/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Playlist.Update

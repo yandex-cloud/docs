@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции по управлению ролями
 description: Пошаговые инструкции по назначению, просмотру и отзыву ролей в {{ iam-full-name }}.
+alternate:
+  - href: ru/iam/operations/roles/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Роли

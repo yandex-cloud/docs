@@ -1,6 +1,10 @@
 ---
 title: '{{ GL }} integration with {{ tracker-full-name }}'
 description: Follow this tutorial to configure {{ GL }} integration with {{ tracker-full-name }}.
+alternate:
+  - href: en/tutorials/dev/gitlab-tracker-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ GL }} integration with {{ tracker-full-name }}

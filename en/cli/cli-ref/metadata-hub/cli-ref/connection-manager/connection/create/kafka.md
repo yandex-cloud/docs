@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/metadata-hub/cli-ref/connection-manager/connection/create/kafka/
+alternate:
+  - href: en/cli/cli-ref/metadata-hub/cli-ref/connection-manager/connection/create/kafka.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc metadata-hub connection-manager connection create kafka

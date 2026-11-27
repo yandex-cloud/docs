@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/create-configuration-set-event-destinations.md
+    type: text/markdown
+    title: Markdown version
+---
 # CreateConfigurationSetEventDestinations method
 
 Creates a [subscription](../../concepts/glossary.md#subscription) for a [configuration](../../concepts/glossary.md#configuration) in a folder. The folder is selected based on the service account the request originates from.

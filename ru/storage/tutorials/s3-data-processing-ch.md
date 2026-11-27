@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/s3-data-processing-ch'
+alternate:
+  - href: ru/storage/tutorials/s3-data-processing-ch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{ mch-full-name }}

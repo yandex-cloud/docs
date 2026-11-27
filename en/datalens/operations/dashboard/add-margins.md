@@ -1,6 +1,10 @@
 ---
 title: How to configure offsets on a dashboard in {{ datalens-full-name }}
 description: Follow this guide to configure offsets between widgets on a dashboard in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/add-margins.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring offsets on a dashboard in {{ datalens-full-name }}

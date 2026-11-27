@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение к Экстрактору 1С
 description: Следуя данной инструкции, вы сможете создать подключение к Экстрактору 1С.
+alternate:
+  - href: ru/datalens/operations/connection/create-extractor1c.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к Экстрактору 1С

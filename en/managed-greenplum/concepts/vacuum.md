@@ -1,6 +1,10 @@
 ---
 title: Table and system folder vacuuming in {{ mgp-name }}
 description: In this guide, you will learn why you need table and system folder vacuuming and how it is done in {{ mgp-full-name }}.
+alternate:
+  - href: en/managed-greenplum/concepts/vacuum.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Table and system folder vacuuming in {{ mgp-name }}

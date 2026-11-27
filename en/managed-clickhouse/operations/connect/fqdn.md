@@ -1,6 +1,10 @@
 ---
 title: FQDNs of {{ CH }} hosts
 description: Follow this guide to get FQDNs of {{ CH }} hosts.
+alternate:
+  - href: en/managed-clickhouse/operations/connect/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FQDNs of {{ CH }} hosts

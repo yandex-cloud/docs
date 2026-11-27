@@ -1,6 +1,10 @@
 ---
 title: Network load balancer
 description: Network load balancers (NLBs) are designed to build fault-tolerant and scalable applications and services in {{ yandex-cloud }}. Fault tolerance and scalability are achieved by distributing the traffic entering the load balancer among the cloud resources behind it.
+alternate:
+  - href: en/network-load-balancer/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network load balancer. Overview

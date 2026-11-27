@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ ydb-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ ydb-full-name }}.
+alternate:
+  - href: ru/ydb/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ ydb-full-name }}

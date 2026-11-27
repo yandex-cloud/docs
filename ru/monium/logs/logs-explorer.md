@@ -1,6 +1,10 @@
 ---
 title: Посмотреть логи ресурсов и приложений в {{ monium-name }}
 description: С помощью инструкции вы сможете посмотреть логи ресурсов, расположенных в {{ yandex-cloud }} или в другой инфраструктуре. А также логи ваших приложений, загруженных через API.
+alternate:
+  - href: ru/monium/logs/logs-explorer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поиск и анализ логов

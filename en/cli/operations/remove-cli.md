@@ -1,6 +1,10 @@
 ---
 title: How to uninstall the {{ yandex-cloud }} CLI
 description: Follow this guide to uninstall the {{ yandex-cloud }} CLI.
+alternate:
+  - href: en/cli/operations/remove-cli.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Uninstalling the {{ yandex-cloud }} CLI

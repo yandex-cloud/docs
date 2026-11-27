@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/jobs/cli.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ ds-cli }}
 
 You run {{ ds-jobs }} jobs using the {{ ds-cli }} utility.

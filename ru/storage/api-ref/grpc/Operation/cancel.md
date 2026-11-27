@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/storage/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, gRPC: OperationService.Cancel

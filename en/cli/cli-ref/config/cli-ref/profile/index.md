@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/config/cli-ref/profile/
+alternate:
+  - href: en/cli/cli-ref/config/cli-ref/profile/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc config profile

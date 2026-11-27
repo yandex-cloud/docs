@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ data-transfer-full-name }}
 description: В разделе представлена история изменений сервиса {{ data-transfer-name }}.
+alternate:
+  - href: ru/data-transfer/release-notes/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

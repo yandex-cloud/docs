@@ -1,6 +1,10 @@
 ---
 title: How to create a profile in the {{ yandex-cloud }} CLI
 description: Follow this guide to create a profile in the CLI.
+alternate:
+  - href: en/cli/operations/profile/profile-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ yandex-cloud }} CLI profile

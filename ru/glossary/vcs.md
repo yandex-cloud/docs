@@ -1,6 +1,10 @@
 ---
 title: Контроль версий в командной разработке ПО
 description: Система контроля версий — это программный инструмент, который облегчает и упрощает процесс разработки ПО.
+alternate:
+  - href: ru/glossary/vcs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Система контроля версий

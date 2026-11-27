@@ -1,6 +1,10 @@
 ---
 title: How to set the number of calls to be processed concurrently by a single function instance in {{ sf-full-name }}
 description: Follow this guide to set the number of calls to be processed concurrently by a single function instance.
+alternate:
+  - href: en/functions/operations/function/concurrency.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting the number of concurrent function instance calls

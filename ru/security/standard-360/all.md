@@ -1,6 +1,10 @@
 ---
 title: Стандарт по безопасной работе {{ yandex-360 }} — все разделы на одной странице
 description: Этот документ содержит перечень разделов с рекомендациями по техническим мерам защиты и помогает выбрать меры обеспечения информационной безопасности (ИБ) при работе с {{ yandex-360 }}.
+alternate:
+  - href: ru/security/standard-360/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [overview](../../_includes/security/standard-360/overview.md) %}

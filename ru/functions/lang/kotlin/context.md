@@ -1,6 +1,10 @@
 ---
 title: Контекст вызова функции на Kotlin в {{ sf-full-name }}
 description: Из статьи вы узнаете, что такое контекст вызова функции на Kotlin.
+alternate:
+  - href: ru/functions/lang/kotlin/context.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Контекст вызова функции на Kotlin

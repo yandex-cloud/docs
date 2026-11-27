@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/firewall/delete/
+alternate:
+  - href: en/dns/cli-ref/v0/firewall/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns v0 firewall delete

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/operations/budgets.md
+    type: text/markdown
+    title: Markdown version
+---
 # Установить уведомления 
 
 Для контроля расходов в {{ yandex-cloud }} вы можете настроить уведомления с помощью [бюджетов](../concepts/budget.md). 

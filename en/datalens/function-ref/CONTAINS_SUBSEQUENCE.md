@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/CONTAINS_SUBSEQUENCE.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # CONTAINS_SUBSEQUENCE

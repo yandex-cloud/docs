@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/broker/add-labels/
+alternate:
+  - href: ru/cli/cli-ref/iot/cli-ref/broker/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot broker add-labels

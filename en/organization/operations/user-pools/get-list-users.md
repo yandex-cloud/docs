@@ -1,6 +1,10 @@
 ---
 title: How to get a list of users in a {{ org-full-name }} pool
 description: Follow this guide to get a list of users in an {{ org-full-name }} pool.
+alternate:
+  - href: en/organization/operations/user-pools/get-list-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of users in a pool

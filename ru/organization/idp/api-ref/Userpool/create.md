@@ -317,6 +317,10 @@ apiPlayground:
               **boolean**
               Whether check in common password database is enabled. Default value is true.
             type: boolean
+alternate:
+  - href: ru/organization/idp/api-ref/Userpool/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: Userpool.Create

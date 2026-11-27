@@ -1,6 +1,10 @@
 ---
 title: Как получить код вставки или ссылку на видео в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете получить код вставки и ссылку на видео в сервисе {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/video/get-link.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить код вставки или ссылку на видео

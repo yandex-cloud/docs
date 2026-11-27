@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/repack/list-running/
+alternate:
+  - href: ru/managed-postgresql/cli-ref/repack/list-running.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-postgresql repack list-running

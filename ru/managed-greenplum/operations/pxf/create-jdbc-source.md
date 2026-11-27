@@ -1,6 +1,10 @@
 ---
 title: Создание внешнего источника данных JDBC
 description: Следуя данной инструкции, вы сможете создать внешний источник данных JDBC.
+alternate:
+  - href: ru/managed-greenplum/operations/pxf/create-jdbc-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание внешнего источника данных JDBC

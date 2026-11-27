@@ -1,6 +1,10 @@
 ---
 title: Асимметричная ключевая пара подписи в {{ kms-short-name }}
 description: В данной статье описаны особенности использования асимметричной ключевой пары подписи в {{ kms-short-name }}.
+alternate:
+  - href: ru/kms/concepts/asymmetric-signature-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Асимметричная ключевая пара подписи в {{ kms-short-name }}

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/video/api-ref/grpc/Playlist/getPlayerURL.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, gRPC: PlaylistService.GetPlayerURL

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/quickstart/create-function/node-function-quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание функции на Node.js
 
 Создайте и выполните [функцию](../../concepts/function.md) на Node.js, которая приветствует пользователя.

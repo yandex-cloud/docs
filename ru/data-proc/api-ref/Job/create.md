@@ -390,6 +390,10 @@ apiPlayground:
               - queryFileUri
           - required:
               - queryList
+alternate:
+  - href: ru/data-proc/api-ref/Job/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Data Processing API, REST: Job.Create

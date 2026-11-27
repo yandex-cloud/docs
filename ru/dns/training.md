@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ dns-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ dns-full-name }}.
+alternate:
+  - href: ru/dns/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ dns-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Updating a trigger in {{ sf-name }}
 description: Follow this guide to update any trigger settings in {{ sf-name }} except for the trigger type and target resource.
+alternate:
+  - href: en/functions/operations/trigger/trigger-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a trigger in {{ sf-name }}

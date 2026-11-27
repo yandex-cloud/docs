@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Registry
+alternate:
+  - href: en/terraform/data-sources/cloudregistry_lifecycle_policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cloudregistry_lifecycle_policy (DataSource)

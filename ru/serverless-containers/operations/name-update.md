@@ -1,6 +1,10 @@
 ---
 title: Изменить имя контейнера
 description: Следуя данной инструкции, вы сможете изменить имя контейнера.
+alternate:
+  - href: ru/serverless-containers/operations/name-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить имя контейнера

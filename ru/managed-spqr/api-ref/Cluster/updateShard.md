@@ -60,6 +60,10 @@ apiPlayground:
         oneOf:
           - required:
               - mdbPostgresql
+alternate:
+  - href: ru/managed-spqr/api-ref/Cluster/updateShard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR API, REST: Cluster.UpdateShard

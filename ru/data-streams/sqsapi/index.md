@@ -1,6 +1,10 @@
 ---
 title: HTTP API, совместимый с Amazon SQS
 description: Узнайте о поддержке HTTP API, совместимого с Amazon SQS, в {{ yds-name }}.
+alternate:
+  - href: ru/data-streams/sqsapi/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # HTTP API, совместимый с Amazon SQS

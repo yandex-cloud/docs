@@ -2,6 +2,10 @@
 title: Интеграция с {{ tracker-full-name }}
 description: 'Следуя данному руководству, вы сможете настроить интеграцию с {{ tracker-name }}. '
 canonical: '{{ link-docs }}/tutorials/dev/gitlab-tracker-integration'
+alternate:
+  - href: ru/managed-gitlab/tutorials/tracker-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Интеграция с {{ tracker-full-name }}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/broker/password/delete/
+alternate:
+  - href: ru/cli/cli-ref/iot/cli-ref/broker/password/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot broker password delete

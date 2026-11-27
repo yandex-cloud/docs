@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-gitlab/operations/omniauth.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка OmniAuth
 
 С помощью [OmniAuth](https://rubygems.org/gems/omniauth/) пользователи могут авторизоваться в {{ GL }}, используя учетные данные других сервисов.

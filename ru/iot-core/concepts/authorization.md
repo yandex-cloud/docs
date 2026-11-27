@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в {{ iot-full-name }}
 description: Вы можете аутентифицироваться с помощью X.509-сертификатов, по логину и паролю или использовать оба способа.
+alternate:
+  - href: ru/iot-core/concepts/authorization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация

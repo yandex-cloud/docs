@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ CH }} versioning policy
 
 {{ CH }} employs the frequent release policy. {{ mch-name }} offers a limited set of {{ CH }} versions: {{ versions.console.str }}. The list of versions is continuously updated. If the {{ CH }} version used in a {{ mch-name }} cluster becomes deprecated, it gets updated.

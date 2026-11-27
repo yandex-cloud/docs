@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-transfer/concepts/regular-incremental-copy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Периодическое инкрементальное копирование
 
 {% include [include](../../_includes/dlp/transfer/regular-copy.md) %}

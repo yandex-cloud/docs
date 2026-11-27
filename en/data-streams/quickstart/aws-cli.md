@@ -1,6 +1,10 @@
 ---
 title: Guide for collecting and delivering {{ ydb-full-name }} data using the AWS CLI
 description: In this tutorial, you will learn how to collect and deliver {{ ydb-full-name }} data using the AWS CLI.
+alternate:
+  - href: en/data-streams/quickstart/aws-cli.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AWS CLI

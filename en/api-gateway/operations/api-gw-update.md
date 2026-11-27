@@ -1,6 +1,10 @@
 ---
 title: Updating an API gateway
 description: Follow this guide to update an API gateway.
+alternate:
+  - href: en/api-gateway/operations/api-gw-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating an API gateway

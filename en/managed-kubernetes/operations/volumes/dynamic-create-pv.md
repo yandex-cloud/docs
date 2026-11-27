@@ -1,6 +1,10 @@
 ---
 title: How to create a pod with a dynamically provisioned volume in {{ managed-k8s-full-name }}
 description: Follow this guide to create a pod with a dynamically provisioned volume.
+alternate:
+  - href: en/managed-kubernetes/operations/volumes/dynamic-create-pv.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Dynamic volume provisioning

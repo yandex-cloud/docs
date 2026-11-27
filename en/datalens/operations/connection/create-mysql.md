@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ MY }} connection in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to connect to {{ MY }} in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-mysql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a connection to {{ MY }} in {{ datalens-full-name }}

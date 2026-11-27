@@ -23,6 +23,10 @@ apiPlayground:
         - resourceId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/marketplace/license-manager/saas/api-ref/Lock/ensure.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace License Manager for SaaS, REST: Lock.Ensure

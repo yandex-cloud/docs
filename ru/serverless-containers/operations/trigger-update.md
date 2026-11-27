@@ -1,6 +1,10 @@
 ---
 title: Изменить триггер в {{ serverless-containers-name }}
 description: Из статьи вы узнаете, как изменить все параметры триггера в {{ serverless-containers-name }}, кроме типа триггера и запускаемого ресурса.
+alternate:
+  - href: ru/serverless-containers/operations/trigger-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить триггер в {{ serverless-containers-name }}

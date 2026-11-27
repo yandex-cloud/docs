@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ cdn-full-name }}'
 description: This page provides information about {{ TF }} resources and data sources supported by {{ cdn-name }}.
+alternate:
+  - href: en/cdn/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ cdn-full-name }}

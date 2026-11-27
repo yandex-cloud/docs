@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/operations/deltalake/one-cluster-mode.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка Delta Lake в однокластерном режиме
 
 {{ dataproc-name }} версии 2.0 и выше поддерживает использование Delta Lake в однокластерном режиме.

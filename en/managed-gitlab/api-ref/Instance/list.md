@@ -34,6 +34,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/managed-gitlab/api-ref/Instance/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Gitlab API, REST: Instance.List

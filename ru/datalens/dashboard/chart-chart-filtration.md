@@ -1,6 +1,10 @@
 ---
 title: Фильтрация чартов чартами в {{ datalens-full-name }}
 description: В статье описано, как в {{ datalens-full-name }} настроить фильтрацию чартов другими чартами.
+alternate:
+  - href: ru/datalens/dashboard/chart-chart-filtration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Фильтрация чартов чартами в {{ datalens-full-name }}

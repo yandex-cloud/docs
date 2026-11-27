@@ -2,6 +2,10 @@
 title: Создание L7-балансировщика {{ alb-full-name }} с профилем безопасности {{ sws-full-name }}
 description: В этом руководстве вы создадите тестовый веб-сервер, развернете L7-балансировщик {{ alb-name }} и защитите созданную инфраструктуру с помощью профиля безопасности {{ sws-name }}.
 canonical: '{{ link-docs }}/tutorials/security/balancer-with-sws-profile/'
+alternate:
+  - href: ru/smartwebsecurity/tutorials/balancer-with-sws-profile/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [balancer-with-sws-profile](../../../_tutorials/security/balancer-with-sws-profile.md) %}

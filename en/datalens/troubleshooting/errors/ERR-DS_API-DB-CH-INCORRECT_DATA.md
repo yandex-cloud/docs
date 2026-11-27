@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error: ERR.DS_API.DB.CH.INCORRECT_DATA'
 description: This page describes the `{{ CH }} could not parse the data in the specified source` {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DB-CH-INCORRECT_DATA.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] {{ CH }} could not parse the data in the specified source

@@ -1,6 +1,10 @@
 ---
 title: Создать подсеть
 description: Следуя данной инструкции, вы сможете создать подсеть.
+alternate:
+  - href: ru/vpc/operations/subnet-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать подсеть

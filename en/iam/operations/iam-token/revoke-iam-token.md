@@ -1,6 +1,10 @@
 ---
 title: How to revoke an IAM token
 description: Follow this guide to revoke an IAM token you got earlier.
+alternate:
+  - href: en/iam/operations/iam-token/revoke-iam-token.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Revoking an IAM token

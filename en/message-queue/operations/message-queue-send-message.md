@@ -1,6 +1,10 @@
 ---
 title: How to send messages in {{ message-queue-full-name }}
 description: Follow this guide to send messages.
+alternate:
+  - href: en/message-queue/operations/message-queue-send-message.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sending messages

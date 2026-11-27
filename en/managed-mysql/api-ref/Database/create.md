@@ -56,6 +56,10 @@ apiPlayground:
               - DELETION_PROTECTION_MODE_INHERITED
         required:
           - name
+alternate:
+  - href: en/managed-mysql/api-ref/Database/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, REST: Database.Create

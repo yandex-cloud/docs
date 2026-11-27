@@ -28,6 +28,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/ydb/api-ref/StorageType/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for YDB API, REST: StorageType.List

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/HtmlPages/rpcgetHtmlPage-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get HTML page

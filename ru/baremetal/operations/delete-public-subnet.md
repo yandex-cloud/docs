@@ -1,6 +1,10 @@
 ---
 title: Как удалить выделенную публичную подсеть в {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете удалить выделенную публичную подсеть в {{ baremetal-full-name }}.
+alternate:
+  - href: ru/baremetal/operations/delete-public-subnet.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить выделенную публичную подсеть

@@ -1,6 +1,10 @@
 ---
 title: Использование Нейроаналитика для анализа данных в {{ datalens-platform-full-name }}
 description: Использование Нейроаналитика для анализа баз данных и оптимизации запросов в интерфейсе {{ datalens-platform-short-name }}.
+alternate:
+  - href: ru/datalens/datalens-platform/operations/sql/neuroanalyst.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аналитика и оптимизация с помощью Нейроаналитика в {{ datalens-platform-full-name }}

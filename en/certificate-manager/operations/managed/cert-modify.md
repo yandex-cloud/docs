@@ -1,6 +1,10 @@
 ---
 title: How to edit a Let's Encrypt certificate in {{ certificate-manager-full-name }}
 description: Follow this guide to edit a Let's Encrypt certificate.
+alternate:
+  - href: en/certificate-manager/operations/managed/cert-modify.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a Let's Encrypt certificate

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/object/putobjectlegalhold.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: PutObjectLegalHold
 
 Puts or removes [legal hold](../../../concepts/object-lock.md) for an object version.

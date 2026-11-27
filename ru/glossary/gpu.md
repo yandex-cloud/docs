@@ -1,6 +1,10 @@
 ---
 title: 'Обзор GPU: преимущества и возможности графических процессоров'
 description: Графический процессор (GPU или Graphics Processing Unit) — это один из видов микропроцессоров. Он управляет памятью видеокарт и ускоряет вывод графики на экран устройства.
+alternate:
+  - href: ru/glossary/gpu.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Графический процессор (GPU)

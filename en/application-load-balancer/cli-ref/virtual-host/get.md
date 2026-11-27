@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/virtual-host/get/
+alternate:
+  - href: en/application-load-balancer/cli-ref/virtual-host/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc application-load-balancer virtual-host get

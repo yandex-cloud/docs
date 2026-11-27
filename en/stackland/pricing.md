@@ -2,6 +2,10 @@
 title: '{{ stackland-full-name }} pricing policy'
 description: This article covers the {{ stackland-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/stackland/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pricing policy

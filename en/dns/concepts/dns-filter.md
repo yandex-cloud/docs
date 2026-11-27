@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/dns/concepts/dns-filter.md
+    type: text/markdown
+    title: Markdown version
+---
 # DNS filters
 
 A *DNS filter* is a feature that enables you to control and filter outbound DNS queries from cloud resources using FQDN lists. You can use DNS filters on outbound DNS queries routed through the cloud [DNS resolver](./dns-resolver.md).

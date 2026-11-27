@@ -56,6 +56,10 @@ apiPlayground:
               ID of the filesystem that should be attached.
               The length must be less than or equal to 50.
             type: string
+alternate:
+  - href: ru/compute/api-ref/Instance/attachFilesystem.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Instance.AttachFilesystem

@@ -1,6 +1,10 @@
 ---
 title: Как сохранить чарт как изображение в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете в {{ datalens-name }} сохранить чарт как изображение.
+alternate:
+  - href: ru/datalens/operations/chart/save-as-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сохранить чарт как изображение в {{ datalens-full-name }}

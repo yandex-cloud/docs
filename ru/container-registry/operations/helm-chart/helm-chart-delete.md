@@ -1,6 +1,10 @@
 ---
 title: Удалить Helm-чарт из репозитория {{ container-registry-name }}
 description: Следуя данной инструкции, вы можете удалить Helm-чарт из репозитория {{ container-registry-name }}.
+alternate:
+  - href: ru/container-registry/operations/helm-chart/helm-chart-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить Helm-чарт из реестра

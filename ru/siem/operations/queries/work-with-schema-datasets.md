@@ -1,6 +1,10 @@
 ---
 title: Работа со схемой базы и датасетами в {{ yandex-siem-full-name }}
 description: Следуя данной инструкции, вы научитесь работать со схемой базы данных и датасетами в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/operations/queries/work-with-schema-datasets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа со схемой базы и датасетами

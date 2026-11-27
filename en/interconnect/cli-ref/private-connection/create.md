@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/private-connection/create/
+alternate:
+  - href: en/interconnect/cli-ref/private-connection/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cic private-connection create

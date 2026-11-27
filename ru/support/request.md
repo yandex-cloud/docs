@@ -1,6 +1,10 @@
 ---
 title: Запросы данных у технической поддержки {{ yandex-cloud }}
 description: У технической поддержки можно запросить записи из логов сервисов {{ yandex-cloud }}, ваши персональные данные, а также сведения о критических процедурах безопасности.
+alternate:
+  - href: ru/support/request.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запросы данных

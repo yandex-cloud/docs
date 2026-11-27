@@ -1,6 +1,10 @@
 ---
 title: Managing serial console access in {{ compute-full-name }}
 description: Follow this guide to learn how to enable and disable access to the serial console of {{ compute-full-name }} VM instances.
+alternate:
+  - href: en/compute/operations/serial-console/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing serial console access

@@ -24,6 +24,10 @@ meta:
     - keyword: devices in cloud
     - keyword: iot platform
     - keyword: iot cloud
+  alternate:
+    - href: en/iot-core/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first device registry or broker

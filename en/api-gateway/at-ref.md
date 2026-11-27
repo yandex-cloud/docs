@@ -1,6 +1,10 @@
 ---
 title: '{{ api-gw-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ api-gw-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/api-gateway/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

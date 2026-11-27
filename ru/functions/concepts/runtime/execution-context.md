@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/concepts/runtime/execution-context.md
+    type: text/markdown
+    title: Markdown version
+---
 # Контекст выполнения
 
 _Контекст выполнения_ — это временная среда выполнения, которая инициализирует любые внешние зависимости кода функции, такие как подключения к базе данных или эндпоинты HTTP. 

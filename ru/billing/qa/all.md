@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы о {{ billing-name }}
 description: На странице представлены вопросы и ответы о {{ billing-name }}.
+alternate:
+  - href: ru/billing/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все вопросы о сервисе {{ billing-name }}

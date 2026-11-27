@@ -1,6 +1,10 @@
 ---
 title: Batch processing in {{ yq-full-name }}
 description: Batch processing in {{ yq-name }}. Aspects of working with data in {{ objstorage-full-name }} with use cases.
+alternate:
+  - href: en/query/concepts/batch-processing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Batch processing

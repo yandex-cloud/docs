@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/resource/get-provider-cname/
+alternate:
+  - href: en/cli/cli-ref/cdn/cli-ref/resource/get-provider-cname.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cdn resource get-provider-cname

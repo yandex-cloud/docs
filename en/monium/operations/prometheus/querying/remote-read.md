@@ -1,6 +1,10 @@
 ---
 title: How to read metrics via the Remote API
 description: Follow this guide to read metrics via the Remote API.
+alternate:
+  - href: en/monium/operations/prometheus/querying/remote-read.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reading metrics via the Remote API

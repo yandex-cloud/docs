@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/serverless-containers/triggers/api-ref/grpc/Trigger/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Triggers Service, gRPC: TriggerService.Create

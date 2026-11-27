@@ -36,6 +36,10 @@ meta:
     - keyword: MySQL
     - keyword: MySQL server clusters
     - keyword: MySQL cluster
+  alternate:
+    - href: en/managed-mysql/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first database cluster

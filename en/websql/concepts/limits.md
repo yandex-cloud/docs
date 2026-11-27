@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/websql/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
+---
 # Limits in {{ websql-full-name }}
 
 _Limits_ are technical constraints of the {{ yandex-cloud }} architecture. Limits cannot be changed.

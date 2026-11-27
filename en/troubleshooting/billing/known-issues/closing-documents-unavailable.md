@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/closing-documents-unavailable.md
+    type: text/markdown
+    title: Markdown version
+---
 # Closing documents are not available in the console
 
 

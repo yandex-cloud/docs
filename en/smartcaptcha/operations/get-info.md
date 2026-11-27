@@ -1,6 +1,10 @@
 ---
 title: How to get CAPTCHA details
 description: In this tutorial, you will learn how to get {{ captcha-full-name }} details.
+alternate:
+  - href: en/smartcaptcha/operations/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting CAPTCHA details

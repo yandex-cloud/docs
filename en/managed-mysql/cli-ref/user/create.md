@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/user/create/
+alternate:
+  - href: en/managed-mysql/cli-ref/user/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mysql user create

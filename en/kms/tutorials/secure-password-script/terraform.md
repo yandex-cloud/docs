@@ -3,6 +3,10 @@ title: Securely providing a password to an initialization script using {{ TF }}
 description: In this tutorial, you will create a Windows-based {{ compute-name }} VM instance using an initialization script with the help of {{ TF }}.
 canonical: '{{ link-docs }}/tutorials/windows/secure-password-script/terraform'
 noIndex: true
+alternate:
+  - href: en/kms/tutorials/secure-password-script/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Securely providing a password to an initialization script using {{ TF }}

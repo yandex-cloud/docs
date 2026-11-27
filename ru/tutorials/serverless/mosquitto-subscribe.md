@@ -3,6 +3,10 @@ title: Как подписать устройство или реестр на �
 description: Следуя данному руководству, вы сможете подписать устройство или реестр на получение сообщений с использованием Mosquitto.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/iot/mosquitto/mosquitto-subscribe'
+alternate:
+  - href: ru/tutorials/serverless/mosquitto-subscribe.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подписать устройство или реестр на получение сообщений с использованием Mosquitto

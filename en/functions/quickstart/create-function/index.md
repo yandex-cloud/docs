@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/quickstart/create-function/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating and running functions
 
 You can create a function for any of the supported runtime environments.

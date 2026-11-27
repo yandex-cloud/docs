@@ -1,6 +1,10 @@
 ---
 title: How to get a list of disk images in {{ compute-full-name }}
 description: Follow this guide to get a list of disk images.
+alternate:
+  - href: en/compute/operations/image-control/get-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of disk images

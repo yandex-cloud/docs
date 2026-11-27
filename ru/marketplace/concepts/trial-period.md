@@ -1,6 +1,10 @@
 ---
 title: Пробный период продуктов {{ marketplace-short-name }}
 description: Пробный период — это время, в течение которого продукт {{ marketplace-short-name }} доступен пользователю бесплатно.
+alternate:
+  - href: ru/marketplace/concepts/trial-period.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пробный период

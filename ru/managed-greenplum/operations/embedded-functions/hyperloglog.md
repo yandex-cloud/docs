@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/embedded-functions/hyperloglog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Оценка количества уникальных элементов с помощью алгоритма HyperLogLog
 
 Чтобы оценить количество уникальных элементов в столбце таблицы (_мощность_ множества), вы можете воспользоваться встроенными в {{ mgp-name }} функциями, реализующими [алгоритм HyperLogLog](https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf).

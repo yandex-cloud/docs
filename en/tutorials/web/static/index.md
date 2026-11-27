@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/tutorials/web/static/index.md
+    type: text/markdown
+    title: Markdown version
+---
 {% include [static](../../../_tutorials/applied/static.md) %}
 
 * [Management console](console.md): Create your infrastructure step by step from the {{ yandex-cloud }} management console.

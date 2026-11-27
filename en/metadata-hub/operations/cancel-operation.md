@@ -1,6 +1,10 @@
 ---
 title: How to cancel a specific {{ metadata-hub-name }} connection operation. Step-by-step guides
 description: Step-by-step guides on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to cancel a specific connection operation.
+alternate:
+  - href: en/metadata-hub/operations/cancel-operation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Canceling an operation

@@ -1,6 +1,10 @@
 ---
 title: Как выполнить техническое обслуживание узлов {{ managed-k8s-name }} без потери ресурсов
 description: Следуя данной инструкции, вы сможете вывести нагрузку с узла {{ managed-k8s-name }} и выполнить его техническое обслуживание без потери ресурсов, например GPU.
+alternate:
+  - href: ru/managed-kubernetes/operations/node-group/node-group-gpu-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание узлов кластера без потери ресурсов

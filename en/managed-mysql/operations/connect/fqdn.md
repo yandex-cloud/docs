@@ -1,6 +1,10 @@
 ---
 title: Getting FQDNs for {{ mmy-full-name }} hosts
 description: Follow this guide to get an FQDN for connection to a {{ MY }} host.
+alternate:
+  - href: en/managed-mysql/operations/connect/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FQDNs of {{ MY }} hosts

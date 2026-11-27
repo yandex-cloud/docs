@@ -1,6 +1,10 @@
 ---
 title: Отправить уведомления в топик в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете отправить уведомление всем эндпоинтам, подписанным на топик.
+alternate:
+  - href: ru/notifications/operations/topics/send.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправить уведомление в топик

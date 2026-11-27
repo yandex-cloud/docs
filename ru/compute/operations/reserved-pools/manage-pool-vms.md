@@ -1,6 +1,10 @@
 ---
 title: Управлять виртуальными машинами в пуле резервов ВМ
 description: Из статьи вы узнаете, как создавать виртуальные машины {{ compute-full-name }} в пуле резервов ВМ, а также как привязывать существующие ВМ к таким пулам и отвязывать их.
+alternate:
+  - href: ru/compute/operations/reserved-pools/manage-pool-vms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление виртуальными машинами пула резервов ВМ

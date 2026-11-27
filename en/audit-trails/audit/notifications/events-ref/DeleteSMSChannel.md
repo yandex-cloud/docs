@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/notifications/events-ref/DeleteSMSChannel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Notification Service Audit Trails Events: DeleteSMSChannel

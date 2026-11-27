@@ -1,6 +1,10 @@
 ---
 title: Creating a node group
 description: Follow this guide to create node groups.
+alternate:
+  - href: en/managed-kubernetes/operations/node-group/node-group-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a node group

@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.CHYT.TABLE_HAS_NO_SCHEMA
 description: На странице приведено описание ошибки {{ datalens-full-name }} YT table has no schema. Only schematized tables are supported.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] YT table has no schema. Only schematized tables are supported

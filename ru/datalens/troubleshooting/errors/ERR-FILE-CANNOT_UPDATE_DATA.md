@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.FILE.CANNOT_UPDATE_DATA
 description: На странице приведено описание ошибки {{ datalens-full-name }} Невозможно обновить данные.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-FILE-CANNOT_UPDATE_DATA.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Невозможно обновить данные

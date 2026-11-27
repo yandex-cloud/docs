@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/operations/function/metadata-options.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настроить параметры сервиса метаданных функции
 
 Настроить параметры сервиса метаданных вы можете при [создании версии функции](version-manage.md).

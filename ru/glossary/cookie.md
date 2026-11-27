@@ -1,6 +1,10 @@
 ---
 title: Что такое cookie и зачем они нужны?
 description: Cookie — это хранящиеся на устройстве пользователя небольшие текстовые файлы, которые помогают сайту его идентифицировать.
+alternate:
+  - href: ru/glossary/cookie.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cookie

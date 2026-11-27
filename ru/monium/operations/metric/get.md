@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/operations/metric/get.md
+    type: text/markdown
+    title: Markdown version
+---
 # Выгрузка метрик
 
 Чтобы выгрузить данные метрики, воспользуйтесь методом [read](../../api-ref/MetricsData/read.md).

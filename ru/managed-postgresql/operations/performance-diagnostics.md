@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/operations/performance-diagnostics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Диагностика производительности в {{ mpg-name }}
 
 {{ mpg-name }} предоставляет встроенный инструмент для диагностики производительности кластера СУБД. Этот инструмент помогает анализировать метрики производительности {{ PG }} для [сессий](#get-sessions) и [запросов](#get-queries).

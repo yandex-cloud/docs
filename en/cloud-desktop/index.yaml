@@ -41,6 +41,10 @@ meta:
     - keyword: ACL {{ cloud-desktop-name }}
     - keyword: ACL
     - keyword: clouddesktop
+  alternate:
+    - href: en/cloud-desktop/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create a desktop and connect to it

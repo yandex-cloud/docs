@@ -20,6 +20,10 @@ meta:
     - keyword: бессерверные функции
     - keyword: бессерверные вычисления
     - keyword: облачные функции
+  alternate:
+    - href: ru/functions/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первую функцию

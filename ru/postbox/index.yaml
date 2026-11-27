@@ -32,6 +32,10 @@ meta:
     - keyword: рассылка электронных писем
     - keyword: рассылка имейлов
     - keyword: рассылка email
+  alternate:
+    - href: ru/postbox/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Узнайте, как начать работать с Yandex Cloud Postbox

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/jobs/airflow.md
+    type: text/markdown
+    title: Markdown version
+---
 # Интеграция с {{ maf-full-name }}
 
 [Сервис {{ maf-full-name }}](../../../managed-airflow/concepts/index.md#about-the-service) позволяет описывать и управлять автоматизированными процессами обработки данных — воркфлоу. Воркфлоу представляет собой направленный ациклический граф (Directed Acyclic Graph, _DAG_), который реализуется с помощью скрипта на Python. Файл с таким скриптом называется _DAG-файлом_. В нем содержатся задачи, расписание их запуска и зависимости между ними.

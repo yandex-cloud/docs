@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/projects/snippets.md
+    type: text/markdown
+    title: Markdown version
+---
 # Примеры кода в ноутбуке
 
 {% include [stop-create-dataset](../../../_includes/datasphere/stop-create-datasets.md) %}

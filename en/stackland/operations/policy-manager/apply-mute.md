@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/policy-manager/apply-mute.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deactivating a policy
 
 {{ stackland-name }} allows you to disable notifications for a policy you select for a specified period of time or forever using a `ClusterPolicyMute` resource. To get the list of cluster policies, run this command: `kubectl get ClusterPolicy`.

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/private-cloud-connection/create/
+alternate:
+  - href: ru/baremetal/cli-ref/private-cloud-connection/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal private-cloud-connection create

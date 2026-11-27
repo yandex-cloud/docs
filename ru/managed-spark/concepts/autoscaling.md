@@ -1,6 +1,10 @@
 ---
 title: Автоматическое масштабирование в {{ msp-full-name }}
 description: Автоматическое масштабирование — это изменение количества хостов в кластере {{ SPRK }} в зависимости от текущей нагрузки.
+alternate:
+  - href: ru/managed-spark/concepts/autoscaling.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Автоматическое масштабирование в {{ msp-full-name }}

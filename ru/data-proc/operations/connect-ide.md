@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к хосту кластера {{ dataproc-full-name }} из графических IDE
 description: Следуя данной инструкции, вы сможете подключиться к хосту {{ dataproc-name }} из графических IDE.
+alternate:
+  - href: ru/data-proc/operations/connect-ide.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к хосту {{ dataproc-name }} из графических IDE

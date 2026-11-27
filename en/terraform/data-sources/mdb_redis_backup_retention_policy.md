@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for ValKey
+alternate:
+  - href: en/terraform/data-sources/mdb_redis_backup_retention_policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_redis_backup_retention_policy (DataSource)

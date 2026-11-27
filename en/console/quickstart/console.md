@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ console-full-name }}
 description: Follow this guide to set up the management console.
+alternate:
+  - href: en/console/quickstart/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ console-full-name }}

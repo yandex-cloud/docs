@@ -1,6 +1,10 @@
 ---
 title: Как удалить профиль
 description: Следуя данной инструкции, вы сможете удалить профиль.
+alternate:
+  - href: ru/cli/operations/profile/profile-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление профиля {{ yandex-cloud }} CLI

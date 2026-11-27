@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/policies/healing-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Recovery policy
 
 When creating an instance group, you can choose how instances that fail a [health](../../instance-groups/autohealing.md#auto-healthcheck) check or an [application health](../../instance-groups/autohealing.md#functional-healthcheck) check will be recovered.

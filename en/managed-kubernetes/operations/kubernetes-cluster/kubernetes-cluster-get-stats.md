@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
+    type: text/markdown
+    title: Markdown version
+---
 # Monitoring {{ managed-k8s-name }} cluster state
 
 {% include [metrics-resources-list](../../../_includes/managed-kubernetes/metrics-resources-list.md) %}

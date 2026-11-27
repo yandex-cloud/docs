@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/cluster/export-data/
+alternate:
+  - href: en/metadata-hub/cli-ref/cluster/export-data.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-metastore cluster export-data

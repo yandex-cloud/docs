@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть роли, назначенные на трейл
 description: Следуя данной инструкции, вы сможете посмотреть роли, назначенные на трейл.
+alternate:
+  - href: ru/audit-trails/operations/role-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть роли, назначенные на трейл

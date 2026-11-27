@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/cloud-router/scenarios/prc-ha-with-active-active.md
+    type: text/markdown
+    title: Markdown version
+---
 # Равномерное распределение трафика из On-Prem (Active-Active)
 
 

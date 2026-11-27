@@ -2,6 +2,10 @@
 title: История изменений технической поддержки {{ yandex-cloud }}
 description: Документ описывает изменения в описании технической поддержки {{ yandex-cloud }}.
 noIndex: true
+alternate:
+  - href: ru/support/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений описания технической поддержки

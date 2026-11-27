@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/java/model/spring-boot.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using SpringBootApplication annotation to set a handler in Java
 
 You can set a handler in Java by running a `Spring Boot` application with an entry point as a class annotated with [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html).

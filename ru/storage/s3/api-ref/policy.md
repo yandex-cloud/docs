@@ -1,6 +1,10 @@
 ---
 title: Какие методы S3 API доступны для управления политиками доступа бакета {{ objstorage-full-name }}
 description: Из статьи вы узнаете, какие методы S3 API доступны для управления политиками доступа бакета.
+alternate:
+  - href: ru/storage/s3/api-ref/policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Все методы политик доступа

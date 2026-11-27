@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/overview/platform-comparison/vmware/management-tools.md
+    type: text/markdown
+    title: Markdown version
+---
 # Инструменты управления, мониторинга и биллинга
 
 Платформа {{ yandex-cloud }} является готовым полнофункциональным облачным сервисом «из коробки». Она обладает более широкими возможностями управления, мониторинга и биллинга, чем решение VMware.

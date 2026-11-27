@@ -1,6 +1,10 @@
 ---
 title: Dashboard settings in {{ datalens-full-name }}
 description: In this tutorial, you will learn about dashboard settings in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/dashboard/settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Dashboard settings in {{ datalens-full-name }}

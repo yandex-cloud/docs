@@ -1,6 +1,10 @@
 ---
 title: Как сбросить пароль root-пользователя на сервере {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете сбросить пароль на сервере {{ baremetal-name }} с помощью загрузочного CD-образа Rescue-CD.
+alternate:
+  - href: ru/baremetal/operations/servers/reset-password.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сбросить пароль root-пользователя на сервере

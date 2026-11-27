@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ dataproc-full-name }}
 description: Управление доступом в сервисе по созданию и управлению кластерами Apache Hadoop® и Apache Spark™. Чтобы разрешить доступ к ресурсам сервиса {{ dataproc-name }} (кластерам или подкластерам), назначьте пользователю нужные роли из приведенного списка.
+alternate:
+  - href: ru/data-proc/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ dataproc-name }}

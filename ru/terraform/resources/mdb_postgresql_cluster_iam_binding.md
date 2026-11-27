@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for PostgreSQL
+alternate:
+  - href: ru/terraform/resources/mdb_postgresql_cluster_iam_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_postgresql_cluster_iam_binding (Resource)

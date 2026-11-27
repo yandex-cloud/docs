@@ -1,6 +1,10 @@
 ---
 title: Информация о кластерах в {{ mrd-short-name }}
 description: Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mrd-short-name }}. Чтобы получить список кластеров БД в каталоге, перейдите в сервис {{ mrd-name }}.
+alternate:
+  - href: ru/managed-valkey/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Информация об имеющихся кластерах {{ VLK }}

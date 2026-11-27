@@ -1,6 +1,10 @@
 ---
 title: Как создать публичное соединение в транковом подключении {{ interconnect-name }}
 description: Следуя этой инструкции, вы сможете создать публичное соединение в транковом подключении {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/operations/pub-con-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать публичное соединение

@@ -1,6 +1,10 @@
 ---
 title: Escalations
 description: A {{ monitoring-short-name }} escalation policy is a sequence of notifications that can be initiated when alert gets the Alarm status.
+alternate:
+  - href: en/monitoring/concepts/alerting/escalations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Escalations

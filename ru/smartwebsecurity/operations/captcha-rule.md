@@ -1,6 +1,10 @@
 ---
 title: Как настроить правило для {{ captcha-full-name }}
 description: Следуя данной инструкции, вы сможете настроить правило для {{ captcha-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/captcha-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правило для {{ captcha-full-name }}

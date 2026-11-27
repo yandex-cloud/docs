@@ -1,6 +1,10 @@
 ---
 title: Registry in {{ cloud-registry-full-name }}
 description: Registry is a centralized repository and a management tool for the various files used in app development and deployment.
+alternate:
+  - href: en/cloud-registry/concepts/registry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Registry in {{ cloud-registry-full-name }}

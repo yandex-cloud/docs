@@ -1,5 +1,9 @@
 ---
 title: Как получить информацию о группе бэкендов в {{ alb-full-name }}
+alternate:
+  - href: ru/application-load-balancer/operations/backend-group-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о группе бэкендов

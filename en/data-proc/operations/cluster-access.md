@@ -1,6 +1,10 @@
 ---
 title: Managing access to a {{ dataproc-full-name }} cluster
 description: Follow this guide to configure {{ dataproc-name }} cluster access permissions.
+alternate:
+  - href: en/data-proc/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to a {{ dataproc-name }} cluster

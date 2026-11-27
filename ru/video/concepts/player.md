@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/video/concepts/player.md
+    type: text/markdown
+    title: Markdown version
+---
 # Видеоплеер
 
 [Трансляции](./streams.md) и [видео](./videos.md) в сервисе {{ video-name }} воспроизводятся с помощью интегрированного _видеоплеера_.

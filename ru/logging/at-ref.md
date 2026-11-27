@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ cloud-logging-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ cloud-logging-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/logging/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ at-full-name }}

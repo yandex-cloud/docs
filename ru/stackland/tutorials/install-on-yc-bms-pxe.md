@@ -1,5 +1,9 @@
 ---
 title: Установка {{ stackland-name }} на {{ baremetal-full-name }} через PXE
+alternate:
+  - href: ru/stackland/tutorials/install-on-yc-bms-pxe.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка {{ stackland-name }} на {{ baremetal-full-name }} через PXE

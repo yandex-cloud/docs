@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/instance-groups/pause-processes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Pausing instance group processes
 
 If you want to suspend the instance group [update](../../concepts/instance-groups/deploy/), [automatic recovery](../../concepts/instance-groups/autohealing.md), and [scaling](../../concepts/instance-groups/policies/scale-policy.md) processes, pause them. This will not stop the VM instances.

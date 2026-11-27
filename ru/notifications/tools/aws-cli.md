@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ cns-full-name }} с помощью AWS CLI
 description: HTTP API {{ cns-name }} совместим с Amazon SNS API.
+alternate:
+  - href: ru/notifications/tools/aws-cli.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ cns-full-name }} с помощью AWS CLI

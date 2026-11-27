@@ -1,5 +1,9 @@
 ---
 subcategory: Certificate Manager
+alternate:
+  - href: en/terraform/data-sources/cm_certificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cm_certificate (DataSource)

@@ -1,6 +1,10 @@
 ---
 title: How to configure DNS in a {{ baremetal-full-name }} private subnet
 description: Configure the distribution of DNS servers and a domain name over DHCP in a {{ baremetal-name }} private subnet, and verify the parameters apply on the server.
+alternate:
+  - href: en/baremetal/operations/configure-dns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring DNS in a private subnet

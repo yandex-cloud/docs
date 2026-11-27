@@ -1,5 +1,9 @@
 ---
 noIndex: true
+alternate:
+  - href: ru/storage/security/public-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичный доступ в бакет

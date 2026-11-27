@@ -1,6 +1,10 @@
 ---
 title: How to set up a domain in a {{ org-full-name }} user pool
 description: Follow this guide to set up a domain in a {{ org-full-name }} user pool.
+alternate:
+  - href: en/organization/operations/user-pools/manage-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing domains in a user pool

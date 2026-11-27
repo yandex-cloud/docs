@@ -1,6 +1,10 @@
 ---
 title: Управлять политиками авторизации облака
 description: Из статьи вы узнаете, как просматривать политики авторизации {{ iam-full-name }}, созданные для облака, а также создавать и удалять такие политики.
+alternate:
+  - href: ru/resource-manager/operations/cloud/manage-access-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять политиками авторизации облака

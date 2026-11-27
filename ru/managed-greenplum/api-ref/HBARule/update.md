@@ -87,6 +87,10 @@ apiPlayground:
           - database
           - user
           - address
+alternate:
+  - href: ru/managed-greenplum/api-ref/HBARule/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: HBARule.Update

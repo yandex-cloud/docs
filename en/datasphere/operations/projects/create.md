@@ -1,6 +1,10 @@
 ---
 title: How to create an empty project
 description: Follow this guide to create an empty project.
+alternate:
+  - href: en/datasphere/operations/projects/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an empty project

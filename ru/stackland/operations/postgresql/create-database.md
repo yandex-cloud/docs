@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/postgresql/create-database.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать базу данных PostgreSQL
 
 Если у вас есть кластер [PostgreSQL](../../concepts/components/postgresql.md) в [проекте](../projects/create-project.md), вы можете создать в нем базу данных. База данных описывается ресурсом `PostgresqlDatabase`. Владелец базы данных задается через поле `spec.owner` и должен соответствовать существующей роли PostgreSQL — см. [{#T}](create-user.md).

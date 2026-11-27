@@ -1,6 +1,10 @@
 ---
 title: PlaybackConfig — SDK видеоплеера {{ video-full-name }} для iOS
 description: Настройка автовоспроизведения, звука и начальной позиции в SDK видеоплеера {{ video-name }} для iOS.
+alternate:
+  - href: ru/video/sdk/CloudVideoPlayerSDK/PlaybackConfig.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # PlaybackConfig

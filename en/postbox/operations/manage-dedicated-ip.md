@@ -1,6 +1,10 @@
 ---
 title: Managing dedicated IP addresses in {{ postbox-full-name }}
 description: Follow this guide to create a pool of dedicated IP addresses, add IPs to it, and link the pool to a configuration.
+alternate:
+  - href: en/postbox/operations/manage-dedicated-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing dedicated IP addresses

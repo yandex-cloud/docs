@@ -1,6 +1,10 @@
 ---
 title: Roles for working with {{ access-analyzer-name }} in {{ sd-full-name }}
 description: This page lists the roles required to manage access to {{ access-analyzer-name }} in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/security/access-analyzer-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Roles for working with {{ access-analyzer-name }}

@@ -1,6 +1,10 @@
 ---
 title: Viewing {{ td-name }} security control rules in {{ sd-full-name }}
 description: In this section, you will learn how to view the active security rules in {{ sd-full-name }}'s {{ td-full-name }} ({{ td-name }}) module.
+alternate:
+  - href: en/security-deck/operations/td/view-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing {{ td-full-name }} ({{ td-name }}) security control rules

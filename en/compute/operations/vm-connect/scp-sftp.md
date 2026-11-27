@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/vm-connect/scp-sftp.md
+    type: text/markdown
+    title: Markdown version
+---
 # Exchanging files with a Linux VM
 
 We recommend using [SCP](https://ru.wikipedia.org/wiki/SCP) and [SFTP](https://ru.wikipedia.org/wiki/SFTP) for exchanging files with a Linux VM.

@@ -1,6 +1,10 @@
 ---
 title: Методы плеера {{ video-player-name }} в SDK для JavaScript
 description: На странице описаны методы, которые можно использовать для управления видеоплеером {{ video-player-name }} в SDK для JavaScript.
+alternate:
+  - href: ru/video/sdk/javascript/player-methods.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Методы плеера

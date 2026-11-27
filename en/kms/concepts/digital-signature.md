@@ -1,6 +1,10 @@
 ---
 title: Digital signature in {{ kms-short-name }}
 description: This article describes how you can use digital signatures in {{ kms-short-name }}.
+alternate:
+  - href: en/kms/concepts/digital-signature.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Digital signature in {{ kms-short-name }}

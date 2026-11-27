@@ -1,6 +1,10 @@
 ---
 title: Создать аккаунт
 description: Следуя данной инструкции, вы сможете создать аккаунт клиента.
+alternate:
+  - href: ru/partner/operations/create-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать аккаунт

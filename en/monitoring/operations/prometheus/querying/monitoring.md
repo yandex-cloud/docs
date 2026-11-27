@@ -1,6 +1,10 @@
 ---
 title: How to visualize metrics in {{ monitoring-name }}
 description: Follow this guide to read and visualize {{ prometheus-name }} metrics in {{ monitoring-name }}.
+alternate:
+  - href: en/monitoring/operations/prometheus/querying/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reading and visualizing metrics in {{ monitoring-name }}

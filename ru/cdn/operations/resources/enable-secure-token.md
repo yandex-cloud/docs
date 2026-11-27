@@ -1,6 +1,10 @@
 ---
 title: Настройка доступа по защищенному токену
 description: Следуя данной инструкции, вы сможете настроить доступ к контенту ресурса {{ cdn-name }} по времени и по IP-адресу с помощью защищенного токена.
+alternate:
+  - href: ru/cdn/operations/resources/enable-secure-token.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка доступа по защищенному токену

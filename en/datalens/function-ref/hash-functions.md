@@ -1,6 +1,10 @@
 ---
 title: Hash functions
 editable: false
+alternate:
+  - href: en/datalens/function-ref/hash-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Hash functions

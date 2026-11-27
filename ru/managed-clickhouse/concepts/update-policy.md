@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Политика работы с версиями {{ CH }}
 
 {{ CH }} использует политику частых релизов. В {{ mch-name }} доступен ограниченный набор версий {{ CH }}: {{ mdb-versions.clickhouse-version.supported }}. Список версий постоянно актуализируется. При устаревании используемая в кластере {{ mch-name }} версия {{ CH }} обновляется.

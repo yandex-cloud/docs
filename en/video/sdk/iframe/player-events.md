@@ -1,6 +1,10 @@
 ---
 title: '{{ video-player-name }} events in the IFrame SDK'
 description: This page describes possible {{ video-player-name }} events to which you can subscribe in the IFrame SDK.
+alternate:
+  - href: en/video/sdk/iframe/player-events.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Player events

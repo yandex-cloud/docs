@@ -1,6 +1,10 @@
 ---
 title: How to configure the infrastructure when adding a domain in {{ sws-name }}
 description: Follow this guide to set up your own domain to work via a {{ sws-full-name }} proxy server.
+alternate:
+  - href: en/smartwebsecurity/operations/setup-infrastructure.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up the infrastructure

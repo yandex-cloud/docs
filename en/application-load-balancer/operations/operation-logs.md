@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/application-load-balancer/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing operations with {{ alb-name }} resources
 
 The system logs all actions with {{ alb-name }} resources as a list of operations. Each operation gets its own unique ID.

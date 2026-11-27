@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/marketplace/operations/create-configuration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание конфигурации для продукта {{ cloud-apps-name }}
 
 ## Создать конфигурацию {#create}

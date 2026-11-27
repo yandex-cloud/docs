@@ -1,6 +1,10 @@
 ---
 title: How to recover the {{ backup-full-name }} agent
 description: Follow this guide to recover the {{ backup-full-name }} agent after a Linux kernel version update.
+alternate:
+  - href: en/backup/operations/backup-baremetal/restore-agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recovering the {{ backup-name }} agent after a Linux kernel update

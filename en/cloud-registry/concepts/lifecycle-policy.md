@@ -1,6 +1,10 @@
 ---
 title: Lifecycle policy in {{ cloud-registry-full-name }}
 description: A lifecycle policy consists of rules that manage storage or deletion of artifacts in a registry. Policies automate the cleanup of old or unused artifact versions to save space and reduce storage costs.
+alternate:
+  - href: en/cloud-registry/concepts/lifecycle-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lifecycle policy in {{ cloud-registry-full-name }}

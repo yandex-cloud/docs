@@ -1,6 +1,10 @@
 ---
 title: '{{ OS }} cluster and host state monitoring'
 description: Follow this guide to get detailed information about a {{ mos-name }} cluster's state.
+alternate:
+  - href: en/managed-opensearch/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ OS }} cluster and host state monitoring

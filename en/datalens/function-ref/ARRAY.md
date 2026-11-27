@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/ARRAY.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # ARRAY

@@ -1,6 +1,10 @@
 ---
 title: Description of fields available for a {{ cloud-apps-name }} product form
 description: In this guide, you will learn how to correctly add fields to a {{ cloud-apps-name }} product form.
+alternate:
+  - href: en/marketplace/concepts/form-fields-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cloud-apps-name }} product form field reference

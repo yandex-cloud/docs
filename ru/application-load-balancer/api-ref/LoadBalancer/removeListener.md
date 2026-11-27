@@ -27,6 +27,10 @@ apiPlayground:
         - name
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/application-load-balancer/api-ref/LoadBalancer/removeListener.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.RemoveListener

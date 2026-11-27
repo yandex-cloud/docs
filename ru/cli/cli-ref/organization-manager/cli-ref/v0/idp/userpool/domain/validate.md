@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/idp/userpool/domain/validate/
+alternate:
+  - href: ru/cli/cli-ref/organization-manager/cli-ref/v0/idp/userpool/domain/validate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager v0 idp userpool domain validate

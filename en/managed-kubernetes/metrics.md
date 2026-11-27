@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ managed-k8s-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides a reference of {{ managed-k8s-name }} metrics exported to {{ monitoring-full-name }}.
+alternate:
+  - href: en/managed-kubernetes/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

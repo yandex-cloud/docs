@@ -130,6 +130,10 @@ apiPlayground:
               maxLength: 63
               minLength: 1
             maxProperties: 64
+alternate:
+  - href: ru/baremetal/api-ref/BootImage/createBootImage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: BootImage.CreateBootImage

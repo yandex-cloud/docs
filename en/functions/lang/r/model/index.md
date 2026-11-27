@@ -1,6 +1,10 @@
 ---
 title: R programming model in {{ sf-full-name }}
 description: Setting a handler requires defining an R function with the event and context parameters.
+alternate:
+  - href: en/functions/lang/r/model/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # R programming model

@@ -2,6 +2,10 @@
 title: '{{ network-load-balancer-full-name }} pricing policy'
 description: This article covers the {{ network-load-balancer-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/network-load-balancer/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ network-load-balancer-name }} pricing policy

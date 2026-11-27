@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/IENDSWITH.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IENDSWITH

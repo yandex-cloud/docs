@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-mysql/api-ref/ChangeFreeze/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL API, REST: ChangeFreeze

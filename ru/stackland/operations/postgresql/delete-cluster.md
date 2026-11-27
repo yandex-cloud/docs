@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/postgresql/delete-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить кластер PostgreSQL
 
 Если у вас есть кластер [PostgreSQL](../../concepts/components/postgresql.md) в [проекте](../projects/create-project.md)), вы можете удалить его.

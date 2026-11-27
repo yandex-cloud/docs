@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ sws-name }}
 description: В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе {{ sws-name }}.
+alternate:
+  - href: ru/smartwebsecurity/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ sws-name }}

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/tls-termination/terraform'
+alternate:
+  - href: ru/application-load-balancer/tutorials/tls-termination/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Терминирование TLS-соединений с помощью {{ TF }}

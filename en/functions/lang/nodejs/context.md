@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/nodejs/context.md
+    type: text/markdown
+    title: Markdown version
+---
 # Node.js function invocation context
 
 _Invocation context_ is an object that is accepted by the [request handler](handler.md) of a function in Node.js as the second argument.

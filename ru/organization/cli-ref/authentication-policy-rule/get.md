@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/authentication-policy-rule/get/
+alternate:
+  - href: ru/organization/cli-ref/authentication-policy-rule/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager authentication-policy-rule get

@@ -1,6 +1,10 @@
 ---
 title: Go function invocation context in {{ sf-full-name }}
 description: In this article, you will learn about the Go function invocation context.
+alternate:
+  - href: en/functions/lang/golang/context.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Go function invocation context

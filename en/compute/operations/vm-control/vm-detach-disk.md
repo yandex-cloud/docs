@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/vm-control/vm-detach-disk.md
+    type: text/markdown
+    title: Markdown version
+---
 # Detaching a disk from a VM
 
 You can detach a disk from either a running or a stopped VM. 

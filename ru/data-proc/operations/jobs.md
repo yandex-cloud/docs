@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для управления заданиями в кластере {{ dataproc-full-name }}
 description: В этом разделе собраны пошаговые инструкции для управления заданиями в кластере {{ dataproc-name }}.
+alternate:
+  - href: ru/data-proc/operations/jobs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление заданиями

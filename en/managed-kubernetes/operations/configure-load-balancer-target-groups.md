@@ -1,6 +1,10 @@
 ---
 title: Configuring the target group management mode in {{ managed-k8s-full-name }}
 description: How to configure the v2 target group management mode for a LoadBalancer service in {{ managed-k8s-name }}, check the composition of a network load balancer target group, and switch back to legacy mode.
+alternate:
+  - href: en/managed-kubernetes/operations/configure-load-balancer-target-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring the management mode for network load balancer target groups

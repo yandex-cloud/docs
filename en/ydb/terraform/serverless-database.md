@@ -1,6 +1,10 @@
 ---
 title: Creating and reconfiguring a serverless database in {{ ydb-full-name }}
 description: Follow this guide to create or update the parameters of a serverless {{ ydb-full-name }} database.
+alternate:
+  - href: en/ydb/terraform/serverless-database.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating and reconfiguring a serverless database

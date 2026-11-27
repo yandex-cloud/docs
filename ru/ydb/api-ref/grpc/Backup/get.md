@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/ydb/api-ref/grpc/Backup/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for YDB API, gRPC: BackupService.Get

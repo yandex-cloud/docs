@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cdn/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обзор сервиса {{ cdn-full-name }}
 
 {% include [cdn-overview-intro](../../_includes/cdn/cdn-overview-intro.md) %}

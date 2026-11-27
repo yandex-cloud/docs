@@ -1,6 +1,10 @@
 ---
 title: Managing exceptions to MFA policies in {{ org-full-name }}
 description: Follow this guide to manage exceptions to MFA policies in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/mfa/excluded-audience.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing exceptions to MFA policies

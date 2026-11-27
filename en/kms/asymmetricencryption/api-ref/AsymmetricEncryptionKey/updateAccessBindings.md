@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: en/kms/asymmetricencryption/api-ref/AsymmetricEncryptionKey/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: AsymmetricEncryptionKey.UpdateAccessBindings

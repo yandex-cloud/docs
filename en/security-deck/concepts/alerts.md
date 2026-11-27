@@ -1,6 +1,10 @@
 ---
 title: '{{ alerts-name }} in {{ sd-full-name }}'
 description: '{{ alerts-name }} provides a single interface for information on security issues in {{ yandex-cloud }} clients'' infrastructure.'
+alternate:
+  - href: en/security-deck/concepts/alerts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # About {{ alerts-name }}

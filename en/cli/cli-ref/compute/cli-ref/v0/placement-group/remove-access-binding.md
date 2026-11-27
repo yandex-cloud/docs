@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/placement-group/remove-access-binding/
+alternate:
+  - href: en/cli/cli-ref/compute/cli-ref/v0/placement-group/remove-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute v0 placement-group remove-access-binding

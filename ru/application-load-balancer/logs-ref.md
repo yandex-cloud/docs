@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/application-load-balancer/logs-ref.md
+    type: text/markdown
+    title: Markdown version
+---
 # Справочник логов {{ alb-full-name }}
 
 В этом разделе описаны поля логов, поставляемых L7-балансировщиком. 

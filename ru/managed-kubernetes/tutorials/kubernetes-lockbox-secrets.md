@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/kubernetes-lockbox-secrets'
+alternate:
+  - href: ru/managed-kubernetes/tutorials/kubernetes-lockbox-secrets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Синхронизация с секретами {{ lockbox-name }}

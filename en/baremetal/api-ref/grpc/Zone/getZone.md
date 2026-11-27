@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/baremetal/api-ref/grpc/Zone/getZone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, gRPC: ZoneService.GetZone

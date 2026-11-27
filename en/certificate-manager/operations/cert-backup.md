@@ -1,6 +1,10 @@
 ---
 title: Backing up TLS certificates
 description: To back up and save your TLS certificate, get the certificate ID and contents and put the resulting files in a secure long-term storage. Repeat the steps for each certificate you want to back up. To restore a TLS certificate, follow the steps in this article.
+alternate:
+  - href: en/certificate-manager/operations/cert-backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backing up certificates

@@ -1,6 +1,10 @@
 ---
 title: '{{ maf-full-name }} cluster maintenance'
 description: Follow this guide to view information about planned and performed {{ maf-name }} cluster maintenance and to schedule maintenance.
+alternate:
+  - href: en/managed-airflow/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ maf-full-name }} cluster maintenance

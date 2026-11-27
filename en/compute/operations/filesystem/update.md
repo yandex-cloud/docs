@@ -1,6 +1,10 @@
 ---
 title: How to change a file storage in {{ compute-full-name }}
 description: Changing the name, description, and size of a file storage in {{ compute-name }}.
+alternate:
+  - href: en/compute/operations/filesystem/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a file storage

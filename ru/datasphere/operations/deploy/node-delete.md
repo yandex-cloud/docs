@@ -1,6 +1,10 @@
 ---
 title: Как удалить ноду
 description: Следуя данной инструкции, вы сможете удалить ноду.
+alternate:
+  - href: ru/datasphere/operations/deploy/node-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить ноду

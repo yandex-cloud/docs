@@ -1,6 +1,10 @@
 ---
 title: Создать функцию
 description: Следуя данной инструкции, вы сможете создать функцию.
+alternate:
+  - href: ru/functions/operations/function/function-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать функцию

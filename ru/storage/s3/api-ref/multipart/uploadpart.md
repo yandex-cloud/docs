@@ -1,6 +1,10 @@
 ---
 title: Метод uploadPart. {{ objstorage-name }} API (S3)
 description: Метод uploadPart в {{ objstorage-name }} API (S3) сохраняет часть объекта. Пользователь самостоятельно нумерует части объекта и передает номера {{ objstorage-name }}. Номер однозначно идентифицирует часть и определяет ее порядок в общей последовательности. Номер — это целое число в промежутке от 1 до 10000 включительно.
+alternate:
+  - href: ru/storage/s3/api-ref/multipart/uploadpart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, REST совместимый с Amazon S3: UploadPart

@@ -1,6 +1,10 @@
 ---
 title: Autoscaling in {{ msp-full-name }}
 description: Autoscaling is changing the number of {{ SPRK }} cluster hosts depending on current load.
+alternate:
+  - href: en/managed-spark/concepts/autoscaling.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Autoscaling in {{ msp-full-name }}

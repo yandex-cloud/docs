@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/postgresql.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managed PostgreSQL
 
 Managed PostgreSQL is a managed solution for operating PostgreSQL, an open-source object-relational DBMS. It simplifies database cluster deployment and upgrades, ensures fault tolerance, and provides tools for backup and monitoring.

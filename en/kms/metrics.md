@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ kms-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides a reference of {{ kms-name }} metrics exported to {{ monitoring-full-name }}.
+alternate:
+  - href: en/kms/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

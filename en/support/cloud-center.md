@@ -1,6 +1,10 @@
 ---
 title: '{{ support-center-name }}'
 description: 'This guide will help you get started with the {{ support-center-name }}: finding troubleshooting recommendations, creating or viewing your support tickets, or switching your service plan.'
+alternate:
+  - href: en/support/cloud-center.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with {{ support-center-name }}

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/bucket/delete-https/
+alternate:
+  - href: ru/cli/cli-ref/storage/cli-ref/bucket/delete-https.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc storage bucket delete-https

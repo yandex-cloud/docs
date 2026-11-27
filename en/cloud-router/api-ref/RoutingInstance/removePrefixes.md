@@ -56,6 +56,11 @@ apiPlayground:
               type: string
         required:
           - azId
+noIndex: true
+alternate:
+  - href: en/cloud-router/api-ref/RoutingInstance/removePrefixes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Router API, REST: RoutingInstance.RemovePrefixes

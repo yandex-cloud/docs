@@ -1,6 +1,10 @@
 ---
 title: Enabling and disabling object lock
 description: Follow this guide to enable or disable object locks and configure default locks in an {{ objstorage-name }} bucket.
+alternate:
+  - href: en/storage/operations/buckets/configure-object-lock.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling and disabling object lock

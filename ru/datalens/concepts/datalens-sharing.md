@@ -1,6 +1,10 @@
 ---
 title: Поделиться объектом в организации в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы узнаете, как поделиться объектом с пользователями внутри организации в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/concepts/datalens-sharing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поделиться объектом в организации

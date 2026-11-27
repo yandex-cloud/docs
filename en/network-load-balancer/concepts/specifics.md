@@ -1,6 +1,10 @@
 ---
 title: Implementation specifics
 description: 'This tutorial describes some aspects of implementing a network load balancer in {{ yandex-cloud }}: the external load balancer workflow, UDP traffic processing, routing traffic through the internal load balancer, etc.'
+alternate:
+  - href: en/network-load-balancer/concepts/specifics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Implementation specifics

@@ -28,6 +28,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/network-load-balancer/api-ref/NetworkLoadBalancer/removeListener.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.RemoveListener

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v1/routing-instance/remove-prefixes/
+alternate:
+  - href: ru/cli/cli-ref/cloudrouter/cli-ref/v1/routing-instance/remove-prefixes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloudrouter v1 routing-instance remove-prefixes

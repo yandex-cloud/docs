@@ -15,6 +15,10 @@ meta:
     - keyword: командная оболочка {{ yandex-cloud }}
     - keyword: командная строка yandex
     - keyword: командная строка {{ yandex-cloud }}
+  alternate:
+    - href: ru/cli/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Интерфейс командной строки

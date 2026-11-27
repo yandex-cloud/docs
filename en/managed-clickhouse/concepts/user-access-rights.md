@@ -1,6 +1,10 @@
 ---
 title: Managing users and access permissions in {{ mch-name }}
 description: 'In {{ mch-full-name }}, access management features depend on the user management method you select: via {{ yandex-cloud }} interfaces or via SQL.'
+alternate:
+  - href: en/managed-clickhouse/concepts/user-access-rights.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

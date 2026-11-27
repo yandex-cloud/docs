@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/operations/trigger/telegram-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to create a Telegram trigger that sends messages to WebSocket connections
 
 Create a [Telegram trigger](../../concepts/trigger/telegram-trigger.md) that sends messages to {{ api-gw-full-name }} [WebSocket connections](../../concepts/extensions/websocket.md) when your Telegram bot receives an update.

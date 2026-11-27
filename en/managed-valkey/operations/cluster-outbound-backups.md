@@ -2,6 +2,10 @@
 title: Recovering {{ mrd-short-name }} from a WAL-G backup
 description: Follow this guide to recover a {{ mrd-short-name }} cluster's database from a WAL-G backup.
 noIndex: true
+alternate:
+  - href: en/managed-valkey/operations/cluster-outbound-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recovering {{ mrd-short-name }} from a WAL-G backup

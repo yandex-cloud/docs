@@ -1,6 +1,10 @@
 ---
 title: Service resource labels
 description: In this article you will learn about labels, their use cases, and the services labels are supported in.
+alternate:
+  - href: en/resource-manager/concepts/labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service resource labels

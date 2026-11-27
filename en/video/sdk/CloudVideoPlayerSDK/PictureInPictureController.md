@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/sdk/CloudVideoPlayerSDK/PictureInPictureController.md
+    type: text/markdown
+    title: Markdown version
+---
 # PictureInPictureController
 
 ## Contents

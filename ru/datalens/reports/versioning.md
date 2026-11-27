@@ -1,6 +1,10 @@
 ---
 title: Версионирование отчета
 description: Из статьи вы узнаете про версионирование отчета и ознакомитесь с видами версий.
+alternate:
+  - href: ru/datalens/reports/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Версионирование

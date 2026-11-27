@@ -1,6 +1,10 @@
 ---
 title: Как восстановить работоспособность агента {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете восстановить работоспособность агента {{ backup-full-name }} после обновления версии ядра Linux.
+alternate:
+  - href: ru/backup/operations/backup-baremetal/restore-agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановить работоспособность агента {{ backup-name }} после обновления ядра Linux

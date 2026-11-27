@@ -1,6 +1,10 @@
 ---
 title: Управление доступом пользователя в {{ marketplace-full-name }}
 description: Управление доступом пользователя в {{ marketplace-short-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
+alternate:
+  - href: ru/marketplace/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом пользователя в {{ marketplace-short-name }}

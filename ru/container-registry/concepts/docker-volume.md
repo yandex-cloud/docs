@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/container-registry/concepts/docker-volume.md
+    type: text/markdown
+    title: Markdown version
+---
 # Том Docker в {{ container-registry-name }}
 
 _Том Docker_ — это средство для постоянного хранения информации на [виртуальной машине](../../compute/concepts/vm.md). Данные в томе хранятся независимо от контейнеров. Если вы удалите контейнер, тома и данные в томах останутся. Удаление тома — отдельная операция.

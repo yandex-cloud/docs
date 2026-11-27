@@ -1,6 +1,10 @@
 ---
 title: Работать с ошибками и статистикой в {{ monium-logs-name }}
 description: С помощью данной инструкции вы сможете изучать записи логов с сообщениями об ошибках, а также исследовать статистику для оценки объема и распределения логов в {{ monium-logs-name }}.
+alternate:
+  - href: ru/monium/logs/errors-and-stats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работать с ошибками и статистикой

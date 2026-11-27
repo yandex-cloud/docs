@@ -1,6 +1,10 @@
 ---
 title: Creating or switching to a different organization in {{ org-full-name }}
 description: In this tutorial, you will learn how to create an additional organization or switch to a different organization in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/manage-organizations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing multiple organizations

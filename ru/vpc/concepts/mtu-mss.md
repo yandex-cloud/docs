@@ -3,6 +3,10 @@ description: MTU — это максимальный размер в байта�
 keywords:
   - mtu
   - что такое mtu
+alternate:
+  - href: ru/vpc/concepts/mtu-mss.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # MTU и TCP MSS

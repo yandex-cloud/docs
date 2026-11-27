@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/audit-trails/cli-ref/trail/list-operations/
+alternate:
+  - href: ru/cli/cli-ref/audit-trails/cli-ref/trail/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc audit-trails trail list-operations

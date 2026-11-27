@@ -2,6 +2,10 @@
 title: '{{ cdn-full-name }} quotas and limits'
 description: '{{ cdn-name }} has limits and quotas on the number of CDN resources per cloud, cache purge requests per minute, file paths per cache purge request, file prefetch requests per minute, and the number of paths to cached files per request. For more information about the service limitations, read this article.'
 editable: false
+alternate:
+  - href: en/cdn/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cdn-name }} quotas and limits

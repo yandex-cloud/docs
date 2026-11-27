@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ mtr-name }}
 description: This page brings to you the guides on how to view, set up, and delete access rules for the {{ mtr-name }} cluster objects.
+alternate:
+  - href: en/managed-trino/operations/access-control.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ mtr-name }}

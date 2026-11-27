@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cli/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Running the {{ yandex-cloud }} CLI commands
 
 CLI commands are grouped by {{ yandex-cloud }} service or component.

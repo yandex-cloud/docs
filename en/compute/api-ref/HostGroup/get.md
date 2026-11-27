@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/compute/api-ref/HostGroup/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: HostGroup.Get

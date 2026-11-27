@@ -1,6 +1,10 @@
 ---
 title: Renaming and moving an object in {{ objstorage-full-name }}
 description: Follow this guide to rename or move an object in an {{ objstorage-name }} bucket.
+alternate:
+  - href: en/storage/operations/objects/rename-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Renaming and moving an object

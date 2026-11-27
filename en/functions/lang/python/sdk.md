@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/python/sdk.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using the SDK for a function in Python
 
 You can use the SDK library to work with the [{{ yandex-cloud }} API](../../../api-design-guide/). To install it, specify the [dependency](dependencies.md) in the `requirements.txt` file. The SDK library is pre-installed in the `python37` and `python38` runtimes.

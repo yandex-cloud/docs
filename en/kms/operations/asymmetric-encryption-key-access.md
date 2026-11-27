@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for an asymmetric encryption key pair
 description: Follow this guide to assign roles for an asymmetric encryption key pair.
+alternate:
+  - href: en/kms/operations/asymmetric-encryption-key-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring access permissions for an asymmetric encryption key pair

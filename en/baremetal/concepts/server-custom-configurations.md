@@ -1,6 +1,10 @@
 ---
 title: Custom {{ baremetal-full-name }} server configuration
 description: Select hardware specs for your {{ baremetal-name }} server and find out how to build it and prepare it for operation.
+alternate:
+  - href: en/baremetal/concepts/server-custom-configurations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Custom {{ baremetal-name }} server configuration {#custom}

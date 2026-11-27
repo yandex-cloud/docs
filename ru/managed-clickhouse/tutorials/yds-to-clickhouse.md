@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/yds-to-clickhouse'
+alternate:
+  - href: ru/managed-clickhouse/tutorials/yds-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сохранение потока данных {{ yds-full-name }} в {{ mch-name }}

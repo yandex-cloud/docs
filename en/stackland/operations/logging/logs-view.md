@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/logging/logs-view.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing logs
 
 To view cluster logs:

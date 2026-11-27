@@ -1,6 +1,10 @@
 ---
 title: Посмотреть детализацию использования сервисов в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете посмотреть детализацию использования сервисов в {{ datalens-name }}.
+alternate:
+  - href: ru/billing/operations/dashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть детализацию использования сервисов в {{ datalens-full-name }}

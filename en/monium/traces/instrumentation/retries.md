@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/traces/instrumentation/retries.md
+    type: text/markdown
+    title: Markdown version
+---
 # Retries
 
 Each retry attempt is recorded as an individual child span. This means a trace will show how many attempts were taken, which of them failed with an error, and which one was successful.

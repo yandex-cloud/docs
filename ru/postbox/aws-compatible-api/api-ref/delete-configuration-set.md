@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/delete-configuration-set.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод DeleteConfigurationSet
 
 Удаляет [конфигурацию](../../concepts/glossary.md#configuration) в каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/get-limits/
+alternate:
+  - href: ru/cli/cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/get-limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-opensearch maintenance change-freeze get-limits

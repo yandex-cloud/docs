@@ -278,7 +278,7 @@
 
    {% endcut %}
 
-1. [Получите FQDN хоста Apache Kafka®](../../managed-kafka/operations/connect/index.md#get-fqdn) и укажите FQDN в каждом скрипте.
+1. [Получите FQDN хоста Apache Kafka®](../../managed-kafka/operations/connect/fqdn.md#get-fqdn) и укажите FQDN в каждом скрипте.
 1. [Загрузите в корень бакета](../../storage/operations/objects/upload.md) подготовленные скрипты.
 1. [Создайте задание PySpark](../operations/jobs-pyspark.md#create) для записи сообщений в топик Apache Kafka®. В поле **Main python файл** укажите путь к скрипту `s3a://<имя_созданного_бакета>/kafka-write.py`.
 1. Дождитесь, когда [статус задания](../operations/jobs-pyspark.md#get-info) изменится на `Done`.

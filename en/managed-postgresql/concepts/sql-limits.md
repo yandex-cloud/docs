@@ -1,6 +1,10 @@
 ---
 title: SQL command limits in {{ mpg-full-name }}
 description: '{{ mpg-short-name }} has some limitations on DB owner actions when using SQL commands.'
+alternate:
+  - href: en/managed-postgresql/concepts/sql-limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SQL command limits

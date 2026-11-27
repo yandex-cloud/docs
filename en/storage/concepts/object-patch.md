@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/concepts/object-patch.md
+    type: text/markdown
+    title: Markdown version
+---
 # Partial object updates
 
 {{ objstorage-name }} supports _partial updating and appending of objects data_ in a bucket.

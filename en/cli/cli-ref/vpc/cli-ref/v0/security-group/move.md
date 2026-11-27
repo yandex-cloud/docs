@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/security-group/move/
+alternate:
+  - href: en/cli/cli-ref/vpc/cli-ref/v0/security-group/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc v0 security-group move

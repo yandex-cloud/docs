@@ -857,6 +857,10 @@ apiPlayground:
               - yaRuleSet
           - required:
               - mlRuleSet
+alternate:
+  - href: ru/smartwebsecurity/waf/api-ref/WafProfile/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity WAF API, REST: WafProfile.Create

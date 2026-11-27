@@ -105,6 +105,10 @@ apiPlayground:
               ID of the public prefix pool that the CIDR block belongs to.
               To get a list of available public prefix pools, use the [PublicPrefixPoolService.List](/docs/baremetal/api-ref/PublicPrefixPool/list#List) request.
             type: string
+alternate:
+  - href: ru/baremetal/api-ref/PublicSubnet/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PublicSubnet.Create

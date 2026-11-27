@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/operations/trigger/budget-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать триггер для бюджетов, который отправляет сообщения в WebSocket-соединения
 
 Создайте [триггер для бюджетов](../../concepts/trigger/budget-trigger.md), который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) при превышении пороговых значений.

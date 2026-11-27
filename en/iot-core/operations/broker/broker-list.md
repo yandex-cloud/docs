@@ -1,6 +1,10 @@
 ---
 title: How to get information about a broker
 description: Follow this guide to get information about a broker.
+alternate:
+  - href: en/iot-core/operations/broker/broker-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a broker

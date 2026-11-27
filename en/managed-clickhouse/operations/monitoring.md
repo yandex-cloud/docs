@@ -1,6 +1,10 @@
 ---
 title: Monitoring the state of a {{ CH }} cluster and its hosts
 description: In this guide, you will learn how to monitor the state of {{ CH }} clusters and their hosts.
+alternate:
+  - href: en/managed-clickhouse/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Monitoring the state of a {{ CH }} cluster and its hosts

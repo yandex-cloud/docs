@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/video/api-ref/Video/getManifests.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Video.GetManifests

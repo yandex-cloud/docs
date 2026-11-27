@@ -2528,6 +2528,10 @@ apiPlayground:
               - metrikaSource
           - required:
               - ydsTarget
+alternate:
+  - href: en/data-transfer/api-ref/Endpoint/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer API, REST: Endpoint.Update

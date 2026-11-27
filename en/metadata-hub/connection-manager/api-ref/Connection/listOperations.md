@@ -26,6 +26,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/metadata-hub/connection-manager/api-ref/Connection/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connection Manager API, REST: Connection.ListOperations

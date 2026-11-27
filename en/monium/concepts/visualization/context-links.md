@@ -1,6 +1,10 @@
 ---
 title: Context links
 description: Context links in {{ monium-name }} allow you to navigate from charts to linked dashboards and external systems.
+alternate:
+  - href: en/monium/concepts/visualization/context-links.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Context links

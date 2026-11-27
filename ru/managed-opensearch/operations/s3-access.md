@@ -1,6 +1,10 @@
 ---
 title: Настройка доступа к {{ objstorage-full-name }} из кластера {{ OS }}
 description: Из статьи вы узнаете, как настроить доступ к объектному хранилищу {{ objstorage-name }}, чтобы использовать его как репозиторий снапшотов {{ OS }}.
+alternate:
+  - href: ru/managed-opensearch/operations/s3-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка доступа к {{ objstorage-name }} из кластера {{ OS }}

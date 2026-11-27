@@ -1,6 +1,10 @@
 ---
 title: How to set up a {{ ydb-full-name }} source endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to create and configure a {{ ydb-full-name }} source endpoint in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/operations/endpoint/source/ydb.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring data from a {{ ydb-name }} source endpoint

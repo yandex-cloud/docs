@@ -34,6 +34,10 @@ keywords:
   - генеративный поиск по документации
   - Model Context Protocol Yandex Cloud
   - MCP сервер без авторизации
+alternate:
+  - href: ru/overview/mcp-doc-server.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Документация {{ yandex-cloud }} в AI‑инструментах

@@ -1,6 +1,10 @@
 ---
 title: Настроить права доступа к бакету {{ objstorage-full-name }} с помощью {{ iam-name }}
 description: Следуя данной инструкции, вы сможете назначить роль на бакет.
+alternate:
+  - href: ru/storage/operations/buckets/iam-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к бакету с помощью {{ iam-name }}

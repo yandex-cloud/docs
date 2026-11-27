@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/types/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Types
 
 - [Expiration types](assistants.md)

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cdn/concepts/compression.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сжатие контента
 
 Контент с CDN-серверов может передаваться клиентам в сжатом виде. Сжатие можно включить в настройках ресурса.

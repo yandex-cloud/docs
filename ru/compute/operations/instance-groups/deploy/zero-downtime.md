@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/instance-groups/deploy/zero-downtime.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обновление без простоя
 
 Чтобы избежать недоступности вашего сервиса, можно обновлять группу виртуальных машин через создание дополнительных машин с новой конфигурацией. 

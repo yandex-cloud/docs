@@ -1,6 +1,10 @@
 ---
 title: Как получить список образов дисков в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете получить список образов дисков.
+alternate:
+  - href: ru/compute/operations/image-control/get-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список образов дисков

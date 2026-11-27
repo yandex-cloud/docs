@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/node-group/update/
+alternate:
+  - href: en/cli/cli-ref/container/cli-ref/node-group/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container node-group update

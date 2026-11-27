@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-valkey/operations/shards.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing cluster shards
 
 You can add and remove cluster shards, request the list of shards in a selected cluster, and rebalance your cluster.

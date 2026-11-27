@@ -1,6 +1,10 @@
 ---
 title: Как изменить группу источников {{ cdn-full-name }}
 description: Из статьи вы узнаете, как изменить группу источников {{ cdn-name }}.
+alternate:
+  - href: ru/cdn/operations/origin-groups/edit-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение группы источников

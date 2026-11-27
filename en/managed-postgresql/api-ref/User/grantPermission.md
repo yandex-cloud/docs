@@ -46,6 +46,10 @@ apiPlayground:
               **string**
               Name of the database that the permission grants access to.
             type: string
+alternate:
+  - href: en/managed-postgresql/api-ref/User/grantPermission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, REST: User.GrantPermission

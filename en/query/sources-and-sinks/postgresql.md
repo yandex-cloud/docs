@@ -1,6 +1,10 @@
 ---
 title: Working with {{ mpg-full-name }} databases
 description: In this tutorial, you will learn how to connect to a {{ mpg-name }} database and run queries against it from {{ yq-full-name }}.
+alternate:
+  - href: en/query/sources-and-sinks/postgresql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with {{ mpg-name }} databases

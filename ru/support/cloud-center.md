@@ -1,6 +1,10 @@
 ---
 title: '{{ support-center-name }}'
 description: Эта инструкция поможет начать работу с {{ support-center-name }} — найти решение возникших проблем, создать обращения в поддержку и просмотреть их, а также изменить тарифный план.
+alternate:
+  - href: ru/support/cloud-center.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с {{ support-center-name }}

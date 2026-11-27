@@ -1,6 +1,10 @@
 ---
 title: 'SQL: основные компоненты и примеры использования'
 description: SQL — это язык программирования, предназначенный для работы с реляционными базами данных.
+alternate:
+  - href: ru/glossary/sql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SQL

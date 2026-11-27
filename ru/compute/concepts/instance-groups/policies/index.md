@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/concepts/instance-groups/policies/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Политики
 
 При создании группы необходимо определить _политики_, которые описывают в каких [зонах](allocation-policy.md), как [развертывать](deploy-policy.md), [масштабировать](scale-policy.md) и [восстанавливать](healing-policy.md) виртуальные машины в группе.

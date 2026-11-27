@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/AVG_IF_WINDOW.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AVG_IF (оконная)

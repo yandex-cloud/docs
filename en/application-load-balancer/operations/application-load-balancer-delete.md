@@ -1,6 +1,10 @@
 ---
 title: How to delete an L7 load balancer in {{ alb-full-name }}
 description: In this tutorial, you will learn how to delete an L7 load balancer.
+alternate:
+  - href: en/application-load-balancer/operations/application-load-balancer-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an L7 load balancer

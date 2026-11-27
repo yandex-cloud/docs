@@ -1,5 +1,9 @@
 ---
 title: Как получить информацию о снимке диска в {{ compute-full-name }}
+alternate:
+  - href: ru/compute/operations/snapshot-control/get-snapshot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о снимке диска

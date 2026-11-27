@@ -1,6 +1,10 @@
 ---
 title: Updating a subnet
 description: Follow this guide to update a subnet.
+alternate:
+  - href: en/vpc/operations/subnet-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a subnet

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/siem/events-ref/CreateSearchLaunch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Siem Audit Trails Events: CreateSearchLaunch

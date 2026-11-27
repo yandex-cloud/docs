@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/operations/function/function-public.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сделать функцию публичной
 
 Чтобы любой пользователь мог вызвать функцию без передачи заголовка авторизации, сделайте ее публичной.

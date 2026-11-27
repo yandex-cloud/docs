@@ -1,6 +1,10 @@
 ---
 title: Troubleshooting user account issues
 description: This section describes fixes to common issues when signing in and working with a user account.
+alternate:
+  - href: en/organization/operations/user-account/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting

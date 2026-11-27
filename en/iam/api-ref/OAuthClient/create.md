@@ -72,6 +72,10 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/iam/api-ref/OAuthClient/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, REST: OAuthClient.Create

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/logging/events-ref/ChangeLogGroupAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Audit Trails Events: ChangeLogGroupAccessBindings

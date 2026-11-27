@@ -132,7 +132,7 @@
     1. Подключитесь к БД:
 
         ```bash
-        psql "host=<список_хостов_кластера> \
+        psql "host=<особый_FQDN> \
               port=6432 \
               sslmode=verify-full \
               dbname=<имя_БД> \

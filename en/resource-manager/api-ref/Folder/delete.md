@@ -38,6 +38,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/resource-manager/api-ref/Folder/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API, REST: Folder.Delete

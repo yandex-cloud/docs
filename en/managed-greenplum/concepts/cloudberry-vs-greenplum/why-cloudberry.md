@@ -1,6 +1,10 @@
 ---
 title: '{{ CB }} is a modern, actively developed alternative to {{ GP }}'
 description: Learn how {{ CB }} measures up to {{ GP }} as the best alternative DBMS.
+alternate:
+  - href: en/managed-greenplum/concepts/cloudberry-vs-greenplum/why-cloudberry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Why choose {{ CB }}

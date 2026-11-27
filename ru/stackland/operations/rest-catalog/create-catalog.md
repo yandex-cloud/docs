@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/rest-catalog/create-catalog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать каталог
 
 Создайте каталог [{{ rest-catalog-name }}](../../concepts/components/rest-catalog.md) в [пространстве имен проекта](../projects/manage-namespaces.md). В кластере должны быть включены компоненты {{ rest-catalog-name }} и [{{ objstorage-name }}](../../concepts/components/storage.md).

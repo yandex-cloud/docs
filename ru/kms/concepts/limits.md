@@ -1,6 +1,10 @@
 ---
 title: Квоты и лимиты в {{ kms-full-name }}
 description: В {{ kms-name }} действуют лимиты и квоты на количество ключей в одном облаке, количество версий у одного ключа, максимальный объем данных для шифрования encrypt-операцией. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
+alternate:
+  - href: ru/kms/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ kms-name }}

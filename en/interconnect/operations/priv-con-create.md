@@ -1,6 +1,10 @@
 ---
 title: How to create a private connection in an {{ interconnect-name }} trunk
 description: Follow this guide to create a private connection in an {{ interconnect-name }} trunk.
+alternate:
+  - href: en/interconnect/operations/priv-con-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a private connection

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/rest-catalog/create-principal.md
+    type: text/markdown
+    title: Markdown version
+---
 # Назначить права на каталог
 
 Чтобы предоставить доступ к [{{ rest-catalog-name }}](../../concepts/components/rest-catalog.md), назначьте роль существующему пользователю, группе или сервисному аккаунту. Отдельную учетную запись каталога создавать не требуется.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/traces/concepts.md
+    type: text/markdown
+    title: Markdown version
+---
 # Basic terms
 
 This section explains the key concepts you need to use {{ traces-name }}: data model, instrumentation strategies, and sampling.

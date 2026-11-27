@@ -1,6 +1,10 @@
 ---
 title: Removing a disk from a placement group
 description: Follow this guide to remove a disk from a placement group.
+alternate:
+  - href: en/compute/operations/disk-placement-groups/remove-disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Removing a disk from a placement group

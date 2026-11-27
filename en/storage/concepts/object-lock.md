@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/concepts/object-lock.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object lock
 
 An _object lock_ in [versioned](versioning.md) buckets protects data from accidental or intentional deletion and modification. You cannot modify or delete a locked object version manually or as part of a [lifecycle](lifecycles.md), but you can read it as many times as you need or [restore](../operations/objects/restore-object-version.md) it.

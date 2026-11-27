@@ -1,6 +1,10 @@
 ---
 title: Миграция групп хостов в кластере {{ mos-full-name }} в другую зону доступности
 description: Следуя данной инструкции, вы сможете переместить группы хостов в кластере {{ mos-full-name }} в другую зону доступности.
+alternate:
+  - href: ru/managed-opensearch/operations/host-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция групп хостов в кластере {{ mos-name }} в другую зону доступности

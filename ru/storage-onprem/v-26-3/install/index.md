@@ -1,6 +1,10 @@
 ---
 title: Установка {{ objstorage-onprem-name }} с помощью Ansible
 description: Порядок подготовки, установки и проверки {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/install/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общее описание процесса установки

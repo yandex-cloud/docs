@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ mgp-full-name }}'
 description: This page lists {{ TF }} provider resources and data sources supported by {{ mgp-name }}.
+alternate:
+  - href: en/managed-greenplum/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ mgp-full-name }}

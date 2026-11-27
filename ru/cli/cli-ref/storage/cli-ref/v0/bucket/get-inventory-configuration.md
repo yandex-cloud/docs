@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/v0/bucket/get-inventory-configuration/
+alternate:
+  - href: ru/cli/cli-ref/storage/cli-ref/v0/bucket/get-inventory-configuration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc storage v0 bucket get-inventory-configuration

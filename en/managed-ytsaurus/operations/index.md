@@ -1,6 +1,10 @@
 ---
 title: How to work with {{ myt-full-name }}
 description: In this article, you will learn how to work with {{ myt-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/managed-ytsaurus/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ myt-name }}

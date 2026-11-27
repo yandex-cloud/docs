@@ -1,6 +1,10 @@
 ---
 title: Изменить эндпоинт в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете изменить эндпоинт.
+alternate:
+  - href: ru/notifications/operations/push/endpoint-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить эндпоинт

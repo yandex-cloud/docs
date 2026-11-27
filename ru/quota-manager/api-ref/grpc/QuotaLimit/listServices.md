@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/quota-manager/api-ref/grpc/QuotaLimit/listServices.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quota Manager API, gRPC: QuotaLimitService.ListServices

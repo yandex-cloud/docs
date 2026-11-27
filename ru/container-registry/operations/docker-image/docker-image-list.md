@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию об имеющихся Docker-образах в {{ container-registry-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию об имеющихся Docker-образах.
+alternate:
+  - href: ru/container-registry/operations/docker-image/docker-image-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию об имеющихся Docker-образах

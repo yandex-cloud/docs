@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/joomla-postgresql/terraform'
+alternate:
+  - href: en/managed-postgresql/tutorials/joomla-postgresql/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a Joomla website with a {{ PG }} database using {{ TF }}

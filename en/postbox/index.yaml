@@ -31,6 +31,10 @@ meta:
     - keyword: sending emails
     - keyword: emailing lists
     - keyword: email sending
+  alternate:
+    - href: en/postbox/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Learn how to get started with Yandex Cloud Postbox

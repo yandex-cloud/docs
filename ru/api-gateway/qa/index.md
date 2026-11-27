@@ -1,6 +1,10 @@
 ---
 title: '{{ api-gw-full-name }}. Ответы на вопросы'
 description: Как получить логи моей работы в сервисе {{ api-gw-name }}. Подробнее читайте в разделе Запросы данных.
+alternate:
+  - href: ru/api-gateway/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие вопросы про {{ api-gw-name }}

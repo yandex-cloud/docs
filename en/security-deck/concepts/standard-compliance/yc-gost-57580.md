@@ -1,6 +1,10 @@
 ---
 title: GOST R 57580 requirements
 description: This section sets forth rules that help you automate compliance with the GOST R 57580 Russian national security standard for banking and financial operations.
+alternate:
+  - href: en/security-deck/concepts/standard-compliance/yc-gost-57580.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Requirements of the GOST R 57580 standard

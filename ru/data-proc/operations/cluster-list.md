@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Информация об имеющихся кластерах {{ dataproc-name }}
 
 Доступна детальная информация о каждом созданном кластере {{ dataproc-name }}.

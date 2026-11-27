@@ -1,6 +1,10 @@
 ---
 title: Закрытие сервиса {{ iot-full-name }}
 description: Сервис {{ iot-full-name }} прекращает работу. На этой странице описаны сроки, порядок закрытия и рекомендации по миграции.
+alternate:
+  - href: ru/iot-core/sunset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Закрытие сервиса {{ iot-full-name }}

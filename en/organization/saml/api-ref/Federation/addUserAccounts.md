@@ -30,6 +30,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/organization/saml/api-ref/Federation/addUserAccounts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Federation API, REST: Federation.AddUserAccounts

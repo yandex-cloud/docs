@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/load-balancer/cli-ref/v0/network-load-balancer/detach-target-group/
+alternate:
+  - href: ru/cli/cli-ref/load-balancer/cli-ref/v0/network-load-balancer/detach-target-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc load-balancer v0 network-load-balancer detach-target-group

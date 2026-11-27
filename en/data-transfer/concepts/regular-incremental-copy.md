@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-transfer/concepts/regular-incremental-copy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Regular incremental copy
 
 {% include [include](../../_includes/dlp/transfer/regular-copy.md) %}

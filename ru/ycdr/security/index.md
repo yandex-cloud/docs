@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ ycdr-full-name }}
 description: Управление доступом в сервисе для мониторинга и реагирования на инциденты {{ ycdr-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе.
+alternate:
+  - href: ru/ycdr/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ ycdr-name }}

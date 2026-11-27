@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/projects/snippets.md
+    type: text/markdown
+    title: Markdown version
+---
 # Notebook code snippets
 
 {% include [stop-create-dataset](../../../_includes/datasphere/stop-create-datasets.md) %}

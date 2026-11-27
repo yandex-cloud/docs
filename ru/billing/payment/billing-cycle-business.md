@@ -1,6 +1,10 @@
 ---
 title: Цикл оплаты для организаций и ИП
 description: Из статьи вы узнаете про особенности цикла оплаты для организаций и ИП.
+alternate:
+  - href: ru/billing/payment/billing-cycle-business.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Цикл оплаты для организаций и ИП

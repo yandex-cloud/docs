@@ -2,6 +2,10 @@
 title: Восстановление {{ mrd-short-name }} из резервной копии WAL-G
 description: Следуя этой инструкции, вы сможете самостоятельно восстановить базу данных кластера {{ mrd-short-name }} из резервной копии WAL-G.
 noIndex: true
+alternate:
+  - href: ru/managed-valkey/operations/cluster-outbound-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановление {{ mrd-short-name }} из резервной копии WAL-G

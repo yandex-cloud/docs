@@ -1,6 +1,10 @@
 ---
 title: BareMetal Extend
 description: In this tutorial, you will learn about the BareMetal Extend product line based on {{ baremetal-full-name }} servers.
+alternate:
+  - href: en/baremetal/concepts/extend.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal Extend

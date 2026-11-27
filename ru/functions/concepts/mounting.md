@@ -1,6 +1,10 @@
 ---
 title: Монтирование файловых систем в функцию {{ sf-full-name }}
 description: Из статьи вы узнаете, как монтировать файловые системы в функцию {{ sf-name }}.
+alternate:
+  - href: ru/functions/concepts/mounting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Монтирование внешних ресурсов на файловую систему функции

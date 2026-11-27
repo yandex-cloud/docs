@@ -1,6 +1,10 @@
 ---
 title: Connecting {{ baremetal-full-name }} servers to {{ backup-full-name }}
 description: In this tutorial, you will learn how to connect {{ baremetal-full-name }} VMs to {{ backup-full-name }}.
+alternate:
+  - href: en/backup/concepts/vm-connection/baremetal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting {{ baremetal-full-name }} servers to {{ backup-name }}

@@ -3,6 +3,10 @@ title: Маршрутизация трафика {{ alb-full-name }} напря�
 description: Узнайте об особенностях маршрутизации трафика {{ alb-full-name }} напрямую в поды кластера {{ managed-k8s-name }} с Gwin и настройте ее.
 canonical: '{{ link-docs }}/application-load-balancer/tools/gwin/routes-pod'
 noIndex: true
+alternate:
+  - href: ru/managed-kubernetes/alb-ref/routes-pod.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

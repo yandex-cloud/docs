@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/concepts/contract.md
+    type: text/markdown
+    title: Markdown version
+---
 # Договор
 
 {% include [contract-concept](../../_includes/billing/contract.md) %}

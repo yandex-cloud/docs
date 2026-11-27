@@ -1,6 +1,10 @@
 ---
 title: Сводка характеристик системы в {{ objstorage-onprem-name }}
 description: Масштабируемость, консистентность и отказоустойчивость {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/system-characteristics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сводка характеристик системы

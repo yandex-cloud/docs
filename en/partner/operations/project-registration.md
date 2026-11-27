@@ -1,6 +1,10 @@
 ---
 title: Registering a project
 description: Follow this guide to register a project.
+alternate:
+  - href: en/partner/operations/project-registration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Registering a project

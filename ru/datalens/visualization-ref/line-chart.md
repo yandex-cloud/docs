@@ -1,6 +1,10 @@
 ---
 title: Линейная диаграмма в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Линейная диаграмма.
+alternate:
+  - href: ru/datalens/visualization-ref/line-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Линейная диаграмма ![](../../_assets/datalens/line.svg) в {{ datalens-full-name }}

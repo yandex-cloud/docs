@@ -1,6 +1,10 @@
 ---
 title: How to lease a {{ baremetal-full-name }} server in a stock configuration
 description: Follow this guide to lease a {{ baremetal-full-name }} server in one of its stock configurations.
+alternate:
+  - href: en/baremetal/operations/servers/server-lease.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Leasing a stock configuration server

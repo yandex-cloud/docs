@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете использовать сервис {{ cdn-full-name }}, чтобы создать и настроить CDN-ресурс с виртуальной машиной {{ compute-full-name }} или сервером {{ baremetal-full-name }} в качестве источника.
+alternate:
+  - href: ru/cdn/quickstart/server.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание CDN-ресурса с источником-сервером в {{ yandex-cloud }}

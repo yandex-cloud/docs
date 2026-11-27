@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/vm-control/vm-change-security-groups-set.md
+    type: text/markdown
+    title: Markdown version
+---
 # Changing security groups of a VM network interface
 
 You can assign multiple [security groups](../../../vpc/operations/security-group-create.md) to a VM [network interface](../../concepts/network.md).

@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ yandex-siem-full-name }}
 description: Следуя данной инструкции, вы научитесь создавать расследования, выполнять KQL-запросы и анализировать события безопасности в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ yandex-siem-full-name }}

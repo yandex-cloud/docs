@@ -231,6 +231,10 @@ apiPlayground:
                   - passwordPlainText
               - required:
                   - passwordLockboxSecret
+alternate:
+  - href: en/baremetal/api-ref/Server/reinstall.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Server.Reinstall

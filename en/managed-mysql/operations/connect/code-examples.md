@@ -1,6 +1,10 @@
 ---
 title: Code examples for connecting to a {{ MY }} cluster in {{ mmy-full-name }}
 description: These examples show you how to connect to a {{ MY }} cluster database from your application.
+alternate:
+  - href: en/managed-mysql/operations/connect/code-examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Code examples for connecting to a {{ MY }} cluster

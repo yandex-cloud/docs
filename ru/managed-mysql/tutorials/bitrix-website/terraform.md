@@ -2,6 +2,10 @@
 title: Сайт на Битрикс – Установка и настройка с помощью Terraform
 description: В этом практическом руководстве мы расскажем, как развернуть и настроить сайт на Битрикс (Bitrix) в облаке с помощью Terraform. 1С-Битрикс — это система управления сайтами и веб-проектами от компании 1С-Битрикс. С его помощью вы можете управлять структурой и содержимым вашего сайта, не обладая специальными знаниями программирования и верстки.
 canonical: '{{ link-docs }}/tutorials/web/bitrix-website/terraform'
+alternate:
+  - href: ru/managed-mysql/tutorials/bitrix-website/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание сайта на базе «1С-Битрикс» с помощью {{ TF }}

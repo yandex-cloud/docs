@@ -2,6 +2,10 @@
 title: Интеграция L7-балансировщика с {{ cdn-full-name }} и {{ objstorage-full-name }} с помощью {{ TF }}
 description: В этом руководстве с помощью {{ TF }} вы настроите L7-балансировщик {{ alb-full-name }}, в котором в качестве бэкенда используется бакет {{ objstorage-full-name }}, а запросы пользователей передаются балансировщику через {{ cdn-full-name }}, чтобы сократить время доставки контента.
 canonical: '{{ link-docs }}/tutorials/web/cdn-storage-integration/terraform'
+alternate:
+  - href: ru/cdn/tutorials/cdn-storage-integration/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Интеграция L7-балансировщика с {{ cdn-short-name }} и {{ objstorage-short-name }} с помощью {{ TF }}

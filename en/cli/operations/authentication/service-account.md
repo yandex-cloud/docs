@@ -1,6 +1,10 @@
 ---
 title: How to authenticate in the {{ yandex-cloud }} CLI as a service account
 description: Follow this guide to get authenticated in the {{ yandex-cloud }} CLI as a service account.
+alternate:
+  - href: en/cli/operations/authentication/service-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Authenticating in the {{ yandex-cloud }} CLI as a service account

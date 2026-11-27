@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/concepts/trigger/mail-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для почты, который вызывает функцию {{ sf-name }}
 
 [Триггер](../trigger/) для почты запускает [функцию](../function.md) {{ sf-name }}, когда на электронную почту приходит письмо. Адрес электронной почты генерируется сервисом автоматически во время создания триггера.

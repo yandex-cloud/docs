@@ -1,6 +1,10 @@
 ---
 title: OBS Studio setup recommendations
 description: Follow this guide to set up OBS Studio, the video recording and live streaming software.
+alternate:
+  - href: en/video/operations/streams/obs-config-help.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

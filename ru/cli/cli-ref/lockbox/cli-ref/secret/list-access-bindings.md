@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/list-access-bindings/
+alternate:
+  - href: ru/cli/cli-ref/lockbox/cli-ref/secret/list-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc lockbox secret list-access-bindings

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/models/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Models
 
 While using {{ ml-platform-full-name }}, a VM's memory stores the interpreter state, as well as computing and training results. You can save these computations to a separate resource named _model_.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/logging/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Начало работы с {{ cloud-logging-name }}
 
 {% include [deprecation-warning](../_includes/logging/deprecation-warning.md) %}

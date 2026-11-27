@@ -1,6 +1,10 @@
 ---
 title: CAPTCHA keys in {{ captcha-full-name }}
 description: In this article, you will learn what CAPTCHA client and server keys are and what they are used for.
+alternate:
+  - href: en/smartcaptcha/concepts/keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # CAPTCHA keys

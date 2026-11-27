@@ -2,6 +2,10 @@
 title: Метрики {{ mch-full-name }}
 description: Из статьи вы узнаете про метрики {{ mch-name }}.
 editable: false
+alternate:
+  - href: ru/monium/metrics-ref/managed-clickhouse-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ mch-full-name }}

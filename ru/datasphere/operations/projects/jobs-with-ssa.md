@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/projects/jobs-with-ssa.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с сервисным агентом из задания
 
 Вы можете работать с другими сервисами из [заданий](../../concepts/jobs/index.md) при помощи [сервисного агента](../../../iam/concepts/service-control.md#service-agent). Сервисный агент — это специальный сервисный аккаунт, от имени которого проекты {{ ml-platform-name }} будут выполнять действия в других сервисах {{ yandex-cloud }}.

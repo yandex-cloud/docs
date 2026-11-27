@@ -1,6 +1,10 @@
 ---
 title: Managing {{ PG }} cluster aliases
 description: You can create a custom network name for your {{ MY }} cluster or assign the name to a different cluster in your folder.
+alternate:
+  - href: en/managed-postgresql/operations/cluster-aliases.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ PG }} cluster aliases

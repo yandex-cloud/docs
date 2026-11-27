@@ -1,6 +1,10 @@
 ---
 title: How to create a user pool in {{ org-full-name }}
 description: Follow this guide to create a user pool in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/user-pools/create-userpool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a user pool

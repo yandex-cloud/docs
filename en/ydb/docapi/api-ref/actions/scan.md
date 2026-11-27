@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/scan.md
+alternate:
+  - href: en/ydb/docapi/api-ref/actions/scan.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Scan method
 

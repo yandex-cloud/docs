@@ -1,6 +1,10 @@
 ---
 title: How to delete an alias in {{ datalens-full-name }}
 description: Follow this guide to delete an alias in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/edit-alias.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an alias in {{ datalens-full-name }}

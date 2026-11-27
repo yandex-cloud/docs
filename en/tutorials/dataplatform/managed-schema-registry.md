@@ -1,6 +1,10 @@
 ---
 title: Using {{ mkf-msr }} with {{ mkf-full-name }}
 description: To use {{ mkf-msr }} jointly with {{ mkf-name }}, create the producer and consumer scripts on the local machine.
+alternate:
+  - href: en/tutorials/dataplatform/managed-schema-registry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using {{ mkf-msr }} with {{ mkf-full-name }}

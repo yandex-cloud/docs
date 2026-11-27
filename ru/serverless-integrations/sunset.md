@@ -1,6 +1,10 @@
 ---
 title: Сервис {{ si-full-name }} закрыт
 description: Сервис {{ si-full-name }} прекратил работу.
+alternate:
+  - href: ru/serverless-integrations/sunset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cервис {{ si-full-name }} закрыт

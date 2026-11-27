@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/cdn/events-ref/RawLogsUpdate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN Audit Trails Events: RawLogsUpdate

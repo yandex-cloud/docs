@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете создать и настроить виртуальную машину или группу ВМ.
+alternate:
+  - href: ru/compute/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с {{ compute-name }}

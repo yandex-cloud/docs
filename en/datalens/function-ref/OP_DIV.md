@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/OP_DIV.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Division (/)

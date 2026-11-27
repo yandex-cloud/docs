@@ -1,6 +1,10 @@
 ---
 title: Основы работы с {{ marketplace-full-name }}
 description: Следуя данной инструкции, вы научитесь работать с {{ marketplace-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/marketplace.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Основы работы с {{ marketplace-name }}

@@ -28,6 +28,10 @@ meta:
     - keyword: traffic analysis
     - keyword: traffic in {{ sws-name }}
     - keyword: web security
+  alternate:
+    - href: en/smartwebsecurity/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first security profile and connect it to the L7 load balancer

@@ -113,6 +113,10 @@ apiPlayground:
               **boolean**
               Whether the locking policy is enabled.
             type: boolean
+alternate:
+  - href: ru/dns/api-ref/DnsFirewall/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, REST: DnsFirewall.Create

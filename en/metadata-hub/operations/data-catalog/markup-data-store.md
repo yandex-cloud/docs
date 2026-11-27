@@ -1,6 +1,10 @@
 ---
 title: Data storage markup in {{ data-catalog-name }}
 description: How to assign a domain and update a description, tags, or terms for a data storage in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/markup-data-store.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data storage markup

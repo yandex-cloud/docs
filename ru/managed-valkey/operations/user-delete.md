@@ -1,6 +1,10 @@
 ---
 title: Удаление пользователя {{ VLK }} в {{ mrd-full-name }}
 description: Вы можете удалить пользователя {{ VLK }} в {{ mrd-name }}.
+alternate:
+  - href: ru/managed-valkey/operations/user-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление пользователя

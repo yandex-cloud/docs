@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/mfa-enforcement/list-audience/
+alternate:
+  - href: en/cli/cli-ref/organization-manager/cli-ref/mfa-enforcement/list-audience.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager mfa-enforcement list-audience

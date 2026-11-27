@@ -1,6 +1,10 @@
 ---
 title: Pulling a Debian package from a {{ cloud-registry-full-name }}
 description: Follow this guide to pull a Debian package from a {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/debian/pull.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pulling a Debian package from a registry

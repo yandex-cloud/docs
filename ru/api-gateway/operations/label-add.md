@@ -1,6 +1,10 @@
 ---
 title: Добавить метку API-шлюзу
 description: Следуя данной инструкции, вы сможете добавить метку API-шлюзу.
+alternate:
+  - href: ru/api-gateway/operations/label-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить метку API-шлюзу

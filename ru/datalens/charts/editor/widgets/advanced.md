@@ -1,6 +1,10 @@
 ---
 title: Advanced-чарт
 description: Из статьи вы узнаете, что такое Advanced-чарт в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/charts/editor/widgets/advanced.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Advanced-чарт

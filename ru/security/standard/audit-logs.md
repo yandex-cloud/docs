@@ -1,6 +1,10 @@
 ---
 title: Сбор, мониторинг и анализ аудитных логов
 description: Аудитные логи (журналы аудита) — это записи обо всех событиях в системе, включая доступ к ней и выполненные операции. Сбор и проверка аудитных логов позволяют контролировать соблюдение установленных процедур и стандартов безопасности и выявить изъяны в механизмах безопасности.
+alternate:
+  - href: ru/security/standard/audit-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [audit-logs](../../_includes/security/standard/audit-logs.md) %}

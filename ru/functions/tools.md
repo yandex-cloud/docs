@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/tools.md
+    type: text/markdown
+    title: Markdown version
+---
 # Инструменты для работы с функциями {{ sf-name }}
 
 

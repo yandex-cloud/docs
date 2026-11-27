@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования контейнерной инфраструктуры в {{ yandex-cloud }}
 description: Различные сценарии использования контейнерной инфраструктуры в {{ yandex-cloud }}.
+alternate:
+  - href: ru/tutorials/container-infrastructure/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Руководства по работе с контейнерной инфраструктурой

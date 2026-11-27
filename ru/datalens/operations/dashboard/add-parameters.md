@@ -1,6 +1,10 @@
 ---
 title: Как добавить параметры на дашборд в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить параметры на дашборд в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-parameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление параметров на дашборд в {{ datalens-full-name }}

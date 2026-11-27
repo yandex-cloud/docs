@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ cloud-desktop-name }} для администраторов
 description: Следуя данной инструкции, вы сможете создать и настроить группу рабочих столов.
+alternate:
+  - href: ru/cloud-desktop/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с {{ cloud-desktop-full-name }} для администраторов

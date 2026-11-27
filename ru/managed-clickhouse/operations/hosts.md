@@ -1,6 +1,10 @@
 ---
 title: Управление хостами {{ CH }}
 description: 'Следуя данной инструкции, вы сможете управлять хостами кластера {{ CH }}: получать список хостов в кластере, создавать хост, изменять настройки {{ CH }} для хоста, перезагружать хост, удалять хост.'
+alternate:
+  - href: ru/managed-clickhouse/operations/hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление хостами {{ CH }}

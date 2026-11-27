@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/operations/api-start.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с Public API в {{ datalens-full-name }}
 
 

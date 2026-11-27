@@ -1,6 +1,10 @@
 ---
 title: Политика работы с версиями {{ AF }}
 description: Из статьи вы узнаете о политике работы с версиями {{ AF }} в сервисе {{ maf-full-name }}.
+alternate:
+  - href: ru/managed-airflow/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политика работы с версиями {{ AF }}

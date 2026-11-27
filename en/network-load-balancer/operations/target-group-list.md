@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/network-load-balancer/operations/target-group-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Information about current target groups
 
 You can request detailed information about each target group you created.

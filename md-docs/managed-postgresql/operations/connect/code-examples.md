@@ -29,9 +29,11 @@
 
 Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри облачной сети при подключении к БД шифроваться не будет.
 
-Подключиться к кластеру возможно как с использованием обычных [FQDN](../../concepts/network.md#hostname) хостов (можно передавать список из нескольких таких FQDN, разделенных запятой), так и [особых FQDN](fqdn.md#special-fqdns). В примерах используется особый FQDN текущего хоста-мастера.
+В приведенных примерах подключения используется [особый FQDN](fqdn.md#special-fqdns) мастера (RW).
 
-Примеры кода с заполненным FQDN хоста доступны в [консоли управления](https://console.yandex.cloud) по нажатию кнопки **Подключиться** на странице кластера.
+Примеры кода с заполненным FQDN хоста доступны в [консоли управления](https://console.yandex.cloud) по нажатию кнопки **Подключиться** на странице кластера. Для подключения скопируйте значения адреса и порта выбранного варианта в окне подключения:
+
+![image](../../../_assets/managed-postgresql/connect-console-rw.png)
 
 ## 1C:Предприятие {#1c}
 
@@ -99,7 +101,7 @@ tskv ... level=INFO      module=MakeQuerySpan ( userver/postgresql/src/storages/
 db_statement=SELECT 1 AS ping
 db_type=postgres
 db_instance=********
-peer_address=rc1a-goh2a9tr********.mdb.yandexcloud.net:6432
+peer_address=c-e4j6*****************:6432
 ...
 ```
 
@@ -122,7 +124,7 @@ peer_address=rc1a-goh2a9tr********.mdb.yandexcloud.net:6432
       {
           static async Task Main(string[] args)
           {
-              var host       = "<список_хостов>";
+              var host = "<особый_FQDN>";
               var port       = "6432";
               var db         = "<имя_БД>";
               var username   = "<имя_пользователя>";
@@ -146,8 +148,6 @@ peer_address=rc1a-goh2a9tr********.mdb.yandexcloud.net:6432
   ```
 
 {% endlist %}
-
-В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:6432` (пример: `rc1a-goh2a9tr********:6432.mdb.yandexcloud.net`).
 
 ## Go {#go}
 
@@ -178,7 +178,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "<список_хостов>"
+        host = "<особый_FQDN>";
         port     = 6432
         user     = "<имя_пользователя>"
         password = "<пароль_пользователя>"
@@ -216,8 +216,6 @@ go mod init example && go get github.com/jackc/pgx/v4
           fmt.Println(version)
       }
       ```
-    
-    В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:6432` (пример: `rc1a-goh2a9tr********:6432.mdb.yandexcloud.net`).
 
   1. Подключение:
 
@@ -246,7 +244,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "<список_хостов>"
+        host = "<особый_FQDN>";
         port     = 6432
         user     = "<имя_пользователя>"
         password = "<пароль_пользователя>"
@@ -278,7 +276,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
           connConfig.TLSConfig = &tls.Config{
               RootCAs:            rootCertPool,
-              ServerName: "<список_хостов>",
+              ServerName: "<особый_Fqdn>",
           }
 
           conn, err := pgx.ConnectConfig(context.Background(), connConfig)
@@ -300,8 +298,6 @@ go mod init example && go get github.com/jackc/pgx/v4
           fmt.Println(version)
       }
       ```
-
-      В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:6432` (пример: `rc1a-goh2a9tr********:6432.mdb.yandexcloud.net`).
 
       При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для PostgreSQL в переменной `ca`.
 
@@ -423,7 +419,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://<список_хостов>/<имя_БД>?targetServerType=master&ssl=false&sslmode=disable";
+          String DB_URL     = "jdbc:postgresql://<особый_FQDN>:6432/<имя_БД>?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER    = "<имя_пользователя>";
           String DB_PASS    = "<пароль_пользователя>";
 
@@ -440,8 +436,6 @@ go mod init example && go get github.com/jackc/pgx/v4
         }
       }
       ```
-
-     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:6432` (пример: `rc1a-goh2a9tr********:6432.mdb.yandexcloud.net`).
 
   1. Сборка и подключение:
 
@@ -463,7 +457,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://<список_хостов>:6432/<имя_БД>?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL     = "jdbc:postgresql://<особый_FQDN>:6432/<имя_БД>?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER    = "<имя_пользователя>";
           String DB_PASS    = "<пароль_пользователя>";
 
@@ -480,8 +474,6 @@ go mod init example && go get github.com/jackc/pgx/v4
         }
       }
       ```
-
-     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:6432` (пример: `rc1a-goh2a9tr********:6432.mdb.yandexcloud.net`).
 
   1. Сборка и подключение:
 
@@ -734,7 +726,7 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=<список_хостов>
+          host=<особый_FQDN>
           port=6432
           sslmode=disable
           dbname=<имя_БД>
@@ -750,8 +742,6 @@ pip3 install psycopg2-binary
 
       conn.close()
       ```
-
-     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).
 
   1. Подключение:
 
@@ -769,7 +759,7 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=<список_хостов>
+          host=<особый_FQDN>
           port=6432
           sslmode=verify-full
           dbname=<имя_БД>
@@ -785,8 +775,6 @@ pip3 install psycopg2-binary
 
       conn.close()
       ```
-
-     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).
 
   1. Подключение:
 

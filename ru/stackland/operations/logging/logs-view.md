@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/logging/logs-view.md
+    type: text/markdown
+    title: Markdown version
+---
 # Посмотреть логи
 
 Чтобы посмотреть логи кластера:

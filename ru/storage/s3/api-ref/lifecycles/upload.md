@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/lifecycles/upload.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: PutBucketLifecycleConfiguration
 
 Загружает конфигурацию жизненных циклов объектов в бакете в {{ objstorage-name }}.

@@ -1,6 +1,10 @@
 ---
 title: Релизные каналы
 description: Из статьи вы узнаете про релизные каналы и ознакомитесь с особенностями их обновления.
+alternate:
+  - href: ru/managed-kubernetes/concepts/release-channels-and-updates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Релизные каналы

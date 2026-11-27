@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/message/ReceiveMessage.md
+    type: text/markdown
+    title: Markdown version
+---
 # ReceiveMessage
 
 Method for retrieving one or more messages (up to 10) from the specified queue. You can use the `WaitTimeSeconds` parameter to perform long-polling requests.

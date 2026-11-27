@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/payment/currency.md
+    type: text/markdown
+    title: Markdown version
+---
 # Billing and payment currency
 
 The currency depends on the agreement and the country of residence:

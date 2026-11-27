@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/mcp-gateway/add-access-binding/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/mcp-gateway/add-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless mcp-gateway add-access-binding

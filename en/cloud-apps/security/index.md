@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ cloud-apps-full-name }}
 description: Access management in {{ cloud-apps-full-name }}. To allow a user access to {{ cloud-apps-full-name }} resources, assign them the roles from the list below.
+alternate:
+  - href: en/cloud-apps/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ cloud-apps-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Exporting audit logs to SIEM systems
 description: In this article, you will learn about exporting audit logs to SIEM systems.
+alternate:
+  - href: en/audit-trails/concepts/export-siem.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Exporting audit logs to SIEM systems

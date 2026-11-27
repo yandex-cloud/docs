@@ -1,6 +1,10 @@
 ---
 title: 'Time: {{ video-full-name }} player SDK for iOS'
 description: Working with time and playback position in the {{ video-name }} player SDK for iOS.
+alternate:
+  - href: en/video/sdk/CloudVideoPlayerSDK/Time.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Time

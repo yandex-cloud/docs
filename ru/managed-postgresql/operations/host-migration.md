@@ -1,6 +1,10 @@
 ---
 title: Миграция хостов кластера {{ PG }} в другую зону доступности
 description: Следуя данной инструкции, вы сможете переместить хосты кластера {{ PG }} в другую зону доступности.
+alternate:
+  - href: ru/managed-postgresql/operations/host-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция хостов кластера {{ PG }} в другую зону доступности

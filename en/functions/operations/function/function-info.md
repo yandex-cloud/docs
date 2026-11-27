@@ -1,6 +1,10 @@
 ---
 title: Getting information about a function
 description: Follow this guide to get information about a function.
+alternate:
+  - href: en/functions/operations/function/function-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a function

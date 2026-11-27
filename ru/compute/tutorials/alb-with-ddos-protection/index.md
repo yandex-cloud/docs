@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/alb-with-ddos-protection'
+alternate:
+  - href: ru/compute/tutorials/alb-with-ddos-protection/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [alb-with-ddos-protection](../../../_tutorials/security/alb-with-ddos-protection.md) %}

@@ -1,6 +1,10 @@
 ---
 title: How to create a channel in {{ video-full-name }}
 description: Follow this guide to create a {{ video-full-name }} channel.
+alternate:
+  - href: en/video/operations/channels/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a channel

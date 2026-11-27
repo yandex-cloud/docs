@@ -1,6 +1,10 @@
 ---
 title: How to set up a {{ MY }} target endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to set up a {{ MY }} target endpoint in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/operations/endpoint/target/mysql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring data to a {{ MY }} target endpoint

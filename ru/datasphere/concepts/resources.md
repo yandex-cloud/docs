@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/resources.md
+    type: text/markdown
+    title: Markdown version
+---
 # Ресурсы проектов {{ ml-platform-name }}
 
 {% include [stop-create-dataset](../../_includes/datasphere/stop-create-datasets.md) %}

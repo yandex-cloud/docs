@@ -1,6 +1,10 @@
 ---
 title: Настроить права доступа к файловому хранилищу {{ compute-name }}
 description: Следуя данной инструкции, вы настроите права доступа к файловому хранилищу.
+alternate:
+  - href: ru/compute/operations/filesystem/filesystem-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к файловому хранилищу

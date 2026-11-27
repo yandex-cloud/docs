@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/billing/api-ref/grpc/BillingAccount/bindBillableObject.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, gRPC: BillingAccountService.BindBillableObject

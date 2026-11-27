@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ at-full-name }}
 description: This page provides a list of step-by-step guides for {{ at-full-name }}.
+alternate:
+  - href: en/audit-trails/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ at-full-name }}

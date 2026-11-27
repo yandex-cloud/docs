@@ -1,6 +1,10 @@
 ---
 title: Подсистема хранения данных (Storage)
 description: В статье сопоставляются модели отказоустойчивости, аварийного восстановления и резервного копирования VMware Cloud Director и {{ yandex-cloud }}. Также вы ознакомитесь с подходами к организации хранения данных.
+alternate:
+  - href: ru/overview/platform-comparison/vmware/storage-subsystem.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подсистема хранения данных (Storage)

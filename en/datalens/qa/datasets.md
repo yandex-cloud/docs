@@ -1,6 +1,10 @@
 ---
 title: FAQ about datasets
 description: This page covers FAQ about datasets.
+alternate:
+  - href: en/datalens/qa/datasets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Datasets

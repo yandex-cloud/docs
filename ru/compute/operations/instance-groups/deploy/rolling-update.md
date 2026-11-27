@@ -1,6 +1,10 @@
 ---
 title: Как выполнить постепенное обновление в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете выполнить постепенное обновление.
+alternate:
+  - href: ru/compute/operations/instance-groups/deploy/rolling-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Постепенное обновление

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/userpool/
+alternate:
+  - href: ru/organization/cli-ref/idp/userpool/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager idp userpool

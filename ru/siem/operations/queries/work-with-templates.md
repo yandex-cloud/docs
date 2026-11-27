@@ -1,6 +1,10 @@
 ---
 title: Работа с шаблонами запросов в {{ yandex-siem-full-name }}
 description: Следуя данной инструкции, вы научитесь работать с шаблонами запросов в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/operations/queries/work-with-templates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с шаблонами запросов

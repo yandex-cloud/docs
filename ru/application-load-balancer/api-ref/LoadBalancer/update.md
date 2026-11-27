@@ -738,6 +738,10 @@ apiPlayground:
               **boolean**
               Do not send logs to Cloud Logging log group.
             type: boolean
+alternate:
+  - href: ru/application-load-balancer/api-ref/LoadBalancer/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.Update

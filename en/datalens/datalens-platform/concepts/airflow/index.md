@@ -1,6 +1,10 @@
 ---
 title: Pipelines in {{ datalens-platform-full-name }}
 description: 'With pipelines in {{ datalens-platform-full-name }}, you can manage data processing: set dependencies across tasks, run processing manually and on schedule, monitor the results.'
+alternate:
+  - href: en/datalens/datalens-platform/concepts/airflow/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pipelines in {{ datalens-platform-full-name }}

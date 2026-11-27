@@ -1,6 +1,10 @@
 ---
 title: Managing a user account
 description: This section contains guides for organization users on how to manage their accounts in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/user-account/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing a user account

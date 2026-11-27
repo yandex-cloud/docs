@@ -1,6 +1,10 @@
 ---
 title: Управлять шаблонами SMS в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете создавать и удалять шаблоны SMS-уведомлений в {{ cns-full-name }}.
+alternate:
+  - href: ru/notifications/operations/sms/manage-templates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять шаблонами SMS

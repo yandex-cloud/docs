@@ -1,6 +1,10 @@
 ---
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/dataplatform/opensearch-to-clickhouse'
+alternate:
+  - href: en/managed-clickhouse/tutorials/opensearch-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Copying data from {{ mos-name }} to {{ mch-name }} using {{ data-transfer-full-name }}

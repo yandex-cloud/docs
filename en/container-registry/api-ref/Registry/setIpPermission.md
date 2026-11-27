@@ -50,6 +50,10 @@ apiPlayground:
             type: string
         required:
           - action
+alternate:
+  - href: en/container-registry/api-ref/Registry/setIpPermission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: Registry.SetIpPermission

@@ -173,6 +173,10 @@ apiPlayground:
           - destination
           - includedObjectVersions
           - schedule
+alternate:
+  - href: en/storage/api-ref/Bucket/createInventoryConfiguration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, REST: Bucket.CreateInventoryConfiguration

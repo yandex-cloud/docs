@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/bucket/delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: DeleteBucket
 
 Deletes an empty bucket. If the bucket is not empty, first delete all objects in the bucket.

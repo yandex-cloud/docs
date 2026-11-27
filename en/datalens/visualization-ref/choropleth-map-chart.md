@@ -1,6 +1,10 @@
 ---
 title: Choropleth map in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the choropleth map visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/choropleth-map-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Choropleth map ![](../../_assets/datalens/heatmap.svg) in {{ datalens-full-name }}

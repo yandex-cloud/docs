@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/cluster-expand.md
+    type: text/markdown
+    title: Markdown version
+---
 # Expanding a cluster
 
 You can expand a {{ mgp-name }} cluster by adding segment hosts to it. You need to add at least two hosts. You can also increase the [number of segments per host](../concepts/index.md).

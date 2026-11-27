@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение к файлу в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете создать подключение к файлу.
+alternate:
+  - href: ru/datalens/operations/connection/create-file.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к файлу

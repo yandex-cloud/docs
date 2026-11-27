@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mpg'
+alternate:
+  - href: ru/data-transfer/tutorials/cdc-mpg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Захват изменений из {{ PG }} и поставка в {{ KF }}

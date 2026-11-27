@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kafka/concepts/available-apis.md
+    type: text/markdown
+    title: Markdown version
+---
 # APIs in {{ mkf-name }}
 
 A cluster features multiple API types for different operations.

@@ -1,6 +1,10 @@
 ---
 title: Инструменты разработки
 description: Из статьи вы узнаете, какие SDK можно использовать для работы с S3 API в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/tools/sdk/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Инструменты разработки

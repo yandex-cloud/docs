@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/backup/get/
+alternate:
+  - href: en/ydb/cli-ref/backup/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc ydb backup get

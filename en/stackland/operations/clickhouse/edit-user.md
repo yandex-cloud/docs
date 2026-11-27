@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/edit-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating a user
 
 If you have a [{{ CH }}](../../concepts/components/clickhouse.md) [user](create-user.md), you can update the set of roles assigned to them.

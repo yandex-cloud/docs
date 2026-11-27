@@ -58,6 +58,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/baremetal/api-ref/Configuration/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Configuration.List

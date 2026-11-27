@@ -1,6 +1,10 @@
 ---
 title: Добавить расширение Swagger UI
 description: Следуя данной инструкции, вы сможете добавить расширение Swagger UI с помощью конструктора спецификации.
+alternate:
+  - href: ru/api-gateway/operations/spec-constructor/swagger.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить расширение x-yc-apigateway-integration:swagger

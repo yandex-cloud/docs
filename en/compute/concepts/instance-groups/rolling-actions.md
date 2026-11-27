@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/rolling-actions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Restarting and recreating instances in a group one by one
 
 Instances in a group can be automatically [restarted](../../operations/instance-groups/rolling-restart.md) or [recreated](../../operations/instance-groups/rolling-recreate.md) one by one based on the parameters specified in the instance group [deployment policy](./policies/deploy-policy.md). These actions can apply both to all instances in the group and to specified instances only.

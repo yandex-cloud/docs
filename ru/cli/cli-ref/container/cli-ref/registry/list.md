@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/registry/list/
+alternate:
+  - href: ru/cli/cli-ref/container/cli-ref/registry/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container registry list

@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for a {{ compute-name }} disk
 description: Follow this guide to configure disk access permissions.
+alternate:
+  - href: en/compute/operations/disk-control/disk-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring disk access permissions

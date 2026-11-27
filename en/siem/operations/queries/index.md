@@ -1,6 +1,10 @@
 ---
 title: Working with queries in {{ yandex-siem-full-name }}
 description: An overview of query operations available in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/operations/queries/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with queries

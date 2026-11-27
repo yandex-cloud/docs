@@ -51,6 +51,10 @@ meta:
     - keyword: '{{ yandex-cloud }} bucket'
     - keyword: '{{ yandex-cloud }} buckets'
     - keyword: '{{ yandex-cloud }} storage'
+  alternate:
+    - href: en/storage/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first bucket and upload data

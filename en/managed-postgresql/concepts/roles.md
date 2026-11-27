@@ -1,6 +1,10 @@
 ---
 title: Assigning {{ PG }} roles in {{ mpg-full-name }}
 description: With {{ mpg-name }}, you cannot access predefined roles. Instead, this service provides special roles you can assign via the {{ yandex-cloud }} CLI or API.
+alternate:
+  - href: en/managed-postgresql/concepts/roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning roles {{ PG }}

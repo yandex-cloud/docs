@@ -23,6 +23,10 @@ meta:
     - keyword: apps in {{ yandex-cloud }}
     - keyword: yandex cloud marketplace
     - keyword: cloud app marketplace
+  alternate:
+    - href: en/marketplace/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Partners
     description: Publish your product in Cloud Marketplace

@@ -1,6 +1,10 @@
 ---
 title: Как создать виртуальную машину из набора дисков
 description: Следуя данной инструкции, вы сможете создать виртуальную машину из набора существующих дисков.
+alternate:
+  - href: ru/compute/operations/vm-create/create-from-disks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать виртуальную машину из набора дисков

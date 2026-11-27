@@ -1,6 +1,10 @@
 ---
 title: How to create a partner connector in {{ datalens-short-name }} {{ marketplace-short-name }}
 description: Follow this guide to create your own connector (connection type) and add it to {{ datalens-short-name }} {{ marketplace-short-name }} or to the connections page.
+alternate:
+  - href: en/datalens/operations/marketplace/create-connector-for-partners.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Offering a custom partner connector

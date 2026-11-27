@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_license_export-usage.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli license export-usage
 
 Download encrypted license usage data

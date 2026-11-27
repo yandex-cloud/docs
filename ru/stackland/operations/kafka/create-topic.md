@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/kafka/create-topic.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать топик
 
 Если вы создали [кластер](create-cluster.md), вы можете создать в нем топик.

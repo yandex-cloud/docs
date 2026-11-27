@@ -3,6 +3,10 @@ title: Работа с API-шлюзом {{ api-gw-full-name }} по проток
 description: Узнайте, как работать с API-шлюзом {{ api-gw-name }} по протоколу WebSocket.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/api-gw-websocket'
+alternate:
+  - href: ru/api-gateway/tutorials/api-gw-websocket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [api-gw-websocket](../../_tutorials/serverless/api-gw-websocket.md) %}

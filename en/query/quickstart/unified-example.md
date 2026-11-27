@@ -1,6 +1,10 @@
 ---
 title: 'Unified streaming and batch data analysis: a taxi fare calculation example'
 description: In this example, we will query analytical and streaming data to calculate taxi fares in specific locations.
+alternate:
+  - href: en/query/quickstart/unified-example.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Unified streaming and batch data analysis

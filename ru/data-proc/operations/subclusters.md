@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/operations/subclusters.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление подкластерами {{ dataproc-name }}
 
 Помимо [изменения настроек](subcluster-update.md) отдельного подкластера вы можете создавать новые и удалять имеющиеся подкластеры.

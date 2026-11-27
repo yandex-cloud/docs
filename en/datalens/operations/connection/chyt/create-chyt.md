@@ -1,6 +1,10 @@
 ---
 title: How to create a CHYT connection in {{ datalens-full-name }}
 description: In this guide, you will learn how to create a CHYT connection in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/chyt/create-chyt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

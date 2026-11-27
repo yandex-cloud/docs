@@ -1,6 +1,10 @@
 ---
 title: Требования стандарта ГОСТ Р 57580
 description: В этом разделе приведен набор правил, который помогает автоматизировать соответствие требованиям стандарта безопасности банковских и финансовых операций ГОСТ Р 57580.
+alternate:
+  - href: ru/security-deck/concepts/standard-compliance/yc-gost-57580.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Требования стандарта ГОСТ Р 57580

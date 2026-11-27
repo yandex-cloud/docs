@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monitoring/operations/dashboard/api-examples.md
+    type: text/markdown
+    title: Markdown version
+---
 # Примеры работы с gRPC API
 
 Примеры использования написаны с помощью утилиты `grpcurl`.

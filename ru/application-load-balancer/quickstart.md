@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ alb-full-name }}
 description: Следуя данной инструкции, вы сможете создать и протестировать инфраструктуру {{ alb-name }}.
+alternate:
+  - href: ru/application-load-balancer/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ alb-full-name }}

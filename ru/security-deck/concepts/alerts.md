@@ -1,6 +1,10 @@
 ---
 title: '{{ alerts-name }} в {{ sd-full-name }}'
 description: Модуль {{ alerts-name }} позволяет получить в едином интерфейсе информацию о проблемах с безопасностью в инфраструктуре клиентов {{ yandex-cloud }}.
+alternate:
+  - href: ru/security-deck/concepts/alerts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # О модуле {{ alerts-name }}

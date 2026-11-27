@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v2/private-cloud-connection/delete/
+alternate:
+  - href: ru/baremetal/cli-ref/v2/private-cloud-connection/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal v2 private-cloud-connection delete

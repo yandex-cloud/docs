@@ -1,6 +1,10 @@
 ---
 title: How to get information about a GPU cluster in {{ compute-full-name }}
 description: Follow this guide to get information about a GPU cluster.
+alternate:
+  - href: en/compute/operations/gpu-cluster/gpu-cluster-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting GPU cluster info

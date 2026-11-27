@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/
+alternate:
+  - href: ru/cli/cli-ref/smartwebsecurity/cli-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartwebsecurity

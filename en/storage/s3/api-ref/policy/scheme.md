@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/policy/scheme.md
+    type: text/markdown
+    title: Markdown version
+---
 # Data schema
 
 Data schema in JSON format:

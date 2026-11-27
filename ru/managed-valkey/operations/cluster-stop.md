@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-valkey/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
+---
 # Остановка и запуск кластера {{ VLK }}
 
 При необходимости вы можете остановить кластер {{ VLK }} и запустить его заново. Время простоя кластера не тарифицируется: вы продолжаете платить только за размер хранилища и резервных копий в соответствии с [тарифом](../pricing.md#rules-storage).

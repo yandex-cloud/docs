@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/filesystem/get/
+alternate:
+  - href: en/cli/cli-ref/compute/cli-ref/filesystem/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute filesystem get

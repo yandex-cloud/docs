@@ -1,6 +1,10 @@
 ---
 title: Концепции {{ ig-name }}
 description: Из этой статьи вы узнаете про концепции {{ ig-name }}.
+alternate:
+  - href: ru/compute/concepts/instance-groups/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Концепции {{ ig-name }}

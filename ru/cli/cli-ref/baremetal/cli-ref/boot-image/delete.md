@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/boot-image/delete/
+alternate:
+  - href: ru/cli/cli-ref/baremetal/cli-ref/boot-image/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal boot-image delete

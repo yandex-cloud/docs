@@ -2,6 +2,10 @@
 title: Оконные функции
 description: Оконные функции в {{ datalens-short-name }} вычисляются как агрегатные функции от показателей.
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/window-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Оконные функции

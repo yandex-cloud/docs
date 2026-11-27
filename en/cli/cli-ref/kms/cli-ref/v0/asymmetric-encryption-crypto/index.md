@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/v0/asymmetric-encryption-crypto/
+alternate:
+  - href: en/cli/cli-ref/kms/cli-ref/v0/asymmetric-encryption-crypto/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc kms v0 asymmetric-encryption-crypto

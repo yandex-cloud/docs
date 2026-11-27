@@ -1,6 +1,10 @@
 ---
 title: Searching for sensitive data in an {{ objstorage-name }} bucket
 description: Follow this tutorial to create bucket scans and work with scan results in {{ objstorage-full-name }}.
+alternate:
+  - href: en/storage/operations/buckets/sensitive-data-search.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Searching for sensitive data in a bucket

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/workflow/execution/stop/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/workflow/execution/stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless workflow execution stop

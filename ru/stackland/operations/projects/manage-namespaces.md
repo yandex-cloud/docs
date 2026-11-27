@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/projects/manage-namespaces.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управлять пространствами имен в проекте
 
 Пространства имен в проекте позволяют организовать ресурсы и обеспечить их изоляцию. Каждый проект может содержать несколько пространств имен.

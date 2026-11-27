@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/SqlQueries/rpccreateSqlQuery-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # 🚧 [Experimental] Create SQL query

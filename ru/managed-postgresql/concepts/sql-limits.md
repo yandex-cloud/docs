@@ -1,6 +1,10 @@
 ---
 title: Ограничения для команд SQL в {{ mpg-full-name }}
 description: В сервисе {{ mpg-short-name }} существуют ограничения на действия владельца БД с помощью команд SQL.
+alternate:
+  - href: ru/managed-postgresql/concepts/sql-limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ограничения для команд SQL

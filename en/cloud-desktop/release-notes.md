@@ -1,6 +1,10 @@
 ---
 title: '{{ cloud-desktop-full-name }} release notes'
 description: This section contains the {{ cloud-desktop-name }} release notes.
+alternate:
+  - href: en/cloud-desktop/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cloud-desktop-name }} release notes

@@ -1,6 +1,10 @@
 ---
 title: Как работать с коннекторами Spark из {{ ds-jobs }}
 description: Из этой статьи вы узнаете, как работать с коннекторами Spark из {{ ds-jobs }}.
+alternate:
+  - href: ru/datasphere/concepts/jobs/work-with-spark.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с коннекторами Spark

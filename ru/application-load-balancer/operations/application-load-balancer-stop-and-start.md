@@ -1,6 +1,10 @@
 ---
 title: Как остановить и запустить L7-балансировщик в {{ alb-full-name }}
 description: Из статьи вы узнаете, как остановить и запустить L7-балансировщик {{ alb-name }}.
+alternate:
+  - href: ru/application-load-balancer/operations/application-load-balancer-stop-and-start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Остановить и запустить L7-балансировщик

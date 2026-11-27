@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/folder/remove-labels/
+alternate:
+  - href: en/resource-manager/cli-ref/folder/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc resource-manager folder remove-labels

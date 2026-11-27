@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/payment/documents.md
+    type: text/markdown
+    title: Markdown version
+---
 # Reporting documents for businesses and individual entrepreneurs
 
 If, during the reporting period, you have used your funds to pay for {{ yandex-cloud }} services, then, depending on your tax residence, the reporting documents will be sent to you within seven business days after the end of the reporting period. They will indicate the total amount due.

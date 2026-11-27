@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/http.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение x-yc-apigateway-integration:http
 
 Расширение `x-yc-apigateway-integration:http` перенаправляет запрос в указанный URL.

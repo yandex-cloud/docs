@@ -1,6 +1,10 @@
 ---
 title: Viewing the execution log in {{ api-gw-full-name }}
 description: You can view the execution log in {{ api-gw-full-name }} using the management console. To do this, select {{ api-gw-name }}, then select the API gateway for which you want to view the execution log. Go to the Logs section and specify the time period. The default period is one hour. The execution log uses UTC time.
+alternate:
+  - href: en/api-gateway/operations/api-gw-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing the execution log in {{ api-gw-name }}

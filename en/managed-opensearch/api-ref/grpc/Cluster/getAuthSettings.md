@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-opensearch/api-ref/grpc/Cluster/getAuthSettings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for OpenSearch API, gRPC: ClusterService.GetAuthSettings

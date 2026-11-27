@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/create-platform-application.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие CreatePlatformApplication
 
 Создает [канал мобильных Push-уведомлений](../concepts/push.md).

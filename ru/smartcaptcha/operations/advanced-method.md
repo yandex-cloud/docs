@@ -1,6 +1,10 @@
 ---
 title: Как добавить виджет {{ captcha-full-name }}
 description: Следуя данной инструкции, вы сможете добавить виджет {{ captcha-name }} расширенным методом или по необходимости.
+alternate:
+  - href: ru/smartcaptcha/operations/advanced-method.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить виджет {{ captcha-name }}

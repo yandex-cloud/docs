@@ -1,5 +1,9 @@
 ---
 subcategory: Identity and Access Management
+alternate:
+  - href: en/terraform/resources/iam_service_account_iam_member.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_iam_service_account_iam_member (Resource)

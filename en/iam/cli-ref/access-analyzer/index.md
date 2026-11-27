@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-analyzer/
+alternate:
+  - href: en/iam/cli-ref/access-analyzer/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam access-analyzer

@@ -1,6 +1,10 @@
 ---
 title: Интеграция {{ msp-full-name }} и {{ maf-full-name }}
 description: На странице представлен список практических руководств о запуске PySpark-заданий в {{ msp-name }} с помощью {{ maf-name }} и работе с таблицами в {{ objstorage-name }} с использованием {{ metastore-name }}.
+alternate:
+  - href: ru/tutorials/dataplatform/spark-airflow-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [airflow-overview](../../_tutorials/dataplatform/spark/airflow-overview.md) %}

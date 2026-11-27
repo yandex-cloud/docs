@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/private-connection/update/
+alternate:
+  - href: ru/interconnect/cli-ref/private-connection/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cic private-connection update

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/payment-problems.md
+    type: text/markdown
+    title: Markdown version
+---
 # Resolving payment issues
 
 

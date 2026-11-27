@@ -3,6 +3,10 @@ title: Подключение к кластеру {{ SPRK }}
 description: Следуя данной инструкции, вы сможете подключиться к кластеру {{ SPRK }}.
 keywords:
   - Подключение к кластеру {{ SPRK }}
+alternate:
+  - href: ru/managed-spark/operations/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ SPRK }}

@@ -1,6 +1,10 @@
 ---
 title: Development and testing guides
 description: Various use cases for development and testing in {{ yandex-cloud }}.
+alternate:
+  - href: en/tutorials/dev/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Development and testing guides

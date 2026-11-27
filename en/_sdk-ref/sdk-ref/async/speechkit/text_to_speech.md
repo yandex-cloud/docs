@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/async/speechkit/text_to_speech.md
+    type: text/markdown
+    title: Markdown version
+---
 # Function
 
 ## *class* yandex\_ai\_studio\_sdk.\_speechkit.text\_to\_speech.function.**AsyncTextToSpeechFunction**{#yandex_ai_studio_sdk._speechkit.text_to_speech.function.AsyncTextToSpeechFunction}

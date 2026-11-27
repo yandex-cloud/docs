@@ -27,6 +27,10 @@ meta:
     - keyword: '{{ cloud-logging-short-name }} log group'
     - keyword: logging sink
     - keyword: '{{ yandex-cloud }} logging'
+  alternate:
+    - href: en/logging/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Add records to a log group and read them

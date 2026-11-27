@@ -1,6 +1,10 @@
 ---
 title: Как установить зависимости
 description: Следуя данной инструкции, вы сможете установить дополнительные пакеты в {{ ds-nb }}.
+alternate:
+  - href: ru/datasphere/operations/projects/install-dependencies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установить зависимости

@@ -1,6 +1,10 @@
 ---
 title: Artifacts in {{ cloud-registry-full-name }}
 description: Artifacts are software packages and other files used in app development and deployment.
+alternate:
+  - href: en/cloud-registry/concepts/artifacts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Artifacts

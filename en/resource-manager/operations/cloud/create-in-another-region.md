@@ -1,6 +1,10 @@
 ---
 title: Creating a cloud in another region
 description: Follow this guide to create a new cloud in another region using a controlled organization.
+alternate:
+  - href: en/resource-manager/operations/cloud/create-in-another-region.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Create a cloud in another region

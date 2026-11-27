@@ -1,6 +1,10 @@
 ---
 title: Статистика использования сервиса {{ datalens-full-name }}
 description: Из статьи вы узнаете какая статистика по использованию экземпляра {{ datalens-name }} предоставляется в сервисе.
+alternate:
+  - href: ru/datalens/concepts/datalens-usage-analytics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Статистика использования сервиса {{ datalens-short-name }}

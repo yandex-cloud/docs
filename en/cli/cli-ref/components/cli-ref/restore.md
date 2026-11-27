@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/components/cli-ref/restore/
+alternate:
+  - href: en/cli/cli-ref/components/cli-ref/restore.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc components restore

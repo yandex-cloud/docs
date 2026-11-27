@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/databases.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing databases in {{ mgp-name }}
 
 {{ mgp-name }} allows you to manage cluster databases using only SQL queries.

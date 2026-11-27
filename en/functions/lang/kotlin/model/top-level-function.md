@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/kotlin/model/top-level-function.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using a top-level function for a handler in Kotlin
 
 To create a [handler](../handler.md) in Kotlin, you can set a [top-level function](https://kotlinlang.org/docs/functions.html#function-scope). This is a function declared within a package and requiring no class for its creation.

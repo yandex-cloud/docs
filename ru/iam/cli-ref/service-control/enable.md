@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/service-control/enable/
+alternate:
+  - href: ru/iam/cli-ref/service-control/enable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam service-control enable

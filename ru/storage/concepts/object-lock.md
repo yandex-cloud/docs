@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/concepts/object-lock.md
+    type: text/markdown
+    title: Markdown version
+---
 # Блокировка версии объекта (object lock)
 
 _Блокировка версии объекта_ (object lock) в [версионируемых](versioning.md) бакетах защищает данные от случайного или намеренного удаления и изменения. Заблокированную версию объекта нельзя изменить, удалить вручную и с помощью [жизненного цикла](lifecycles.md), но можно читать сколько угодно раз или [восстановить](../operations/objects/restore-object-version.md).

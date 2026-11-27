@@ -1,6 +1,10 @@
 ---
 title: Как получить IAM-токен для федеративного аккаунта
 description: Следуя данной инструкции, вы сможете получить IAM-токен для федеративного аккаунта.
+alternate:
+  - href: ru/iam/operations/iam-token/create-for-federation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение IAM-токена для федеративного аккаунта

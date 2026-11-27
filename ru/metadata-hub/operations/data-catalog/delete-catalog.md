@@ -1,6 +1,10 @@
 ---
 title: Удаление каталога метаданных
 description: Следуя данной инструкции, вы сможете удалить каталог метаданных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/delete-catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление каталога

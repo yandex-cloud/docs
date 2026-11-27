@@ -1,6 +1,10 @@
 ---
 title: How to monitor the state of Spark applications in {{ msp-full-name }}
 description: Follow this guide to monitor the state of Spark applications.
+alternate:
+  - href: en/managed-spark/operations/spark-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Monitoring the state of Spark applications

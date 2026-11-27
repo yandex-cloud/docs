@@ -3,6 +3,10 @@ title: Setting up CI/CD in {{ src-full-name }} to deploy an application in {{ se
 description: In this tutorial, you will set up application deployment to a container in {{ serverless-containers-name }} from a {{ src-name }} repository using GitHub Actions.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/ci-cd-sourcecraft-github-actions'
+alternate:
+  - href: en/serverless-containers/tutorials/ci-cd-sourcecraft-github-actions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up CI/CD in {{ src-full-name }} to deploy an application in {{ serverless-containers-full-name }} using GitHub Actions

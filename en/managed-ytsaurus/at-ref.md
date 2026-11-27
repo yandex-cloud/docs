@@ -1,6 +1,10 @@
 ---
 title: '{{ myt-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ myt-full-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/managed-ytsaurus/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

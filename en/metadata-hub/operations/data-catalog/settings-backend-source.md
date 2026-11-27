@@ -1,6 +1,10 @@
 ---
 title: Setting up a backend for data sources
 description: Follow this guide to set up a backend for metadata sources in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/settings-backend-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up a backend for data sources

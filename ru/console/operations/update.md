@@ -1,6 +1,10 @@
 ---
 title: Изменение настроек консоли управления
 description: Следуя данной инструкции, вы сможете изменить настройки консоли управления.
+alternate:
+  - href: ru/console/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек консоли управления

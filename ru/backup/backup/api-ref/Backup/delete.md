@@ -24,6 +24,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/backup/backup/api-ref/Backup/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Backup.Delete

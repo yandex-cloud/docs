@@ -1,6 +1,10 @@
 ---
 title: Combined chart in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the combined chart visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/combined-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Combined chart ![](../../_assets/datalens/combined.svg) in {{ datalens-full-name }}

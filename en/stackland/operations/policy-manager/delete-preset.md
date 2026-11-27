@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/policy-manager/delete-preset.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting policy presets
 
 {{ stackland-name }} administrators can delete Policy Manager presets.

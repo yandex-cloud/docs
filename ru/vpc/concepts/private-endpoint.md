@@ -5,6 +5,10 @@ keywords:
   - сервисное подключение
   - private endpoint
   - private link
+alternate:
+  - href: ru/vpc/concepts/private-endpoint.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сервисные подключения в {{ vpc-full-name }}

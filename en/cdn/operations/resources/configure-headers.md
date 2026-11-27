@@ -1,6 +1,10 @@
 ---
 title: How to configure HTTP headers of requests and responses in {{ cdn-full-name }}
 description: Follow this guide to configure request and response HTTP headers.
+alternate:
+  - href: en/cdn/operations/resources/configure-headers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring HTTP headers of requests and responses

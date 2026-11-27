@@ -1,6 +1,10 @@
 ---
 title: Разовое копирование в {{ datalens-platform-full-name }}
 description: Следуя данной инструкции, вы сможете создать поставку данных типа Разовое копирование в {{ datalens-platform-full-name }}
+alternate:
+  - href: ru/datalens/datalens-platform/operations/data-transfer/one-time-copy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание разового копирования

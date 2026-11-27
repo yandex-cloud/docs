@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/iam/assign-role.md
+    type: text/markdown
+    title: Markdown version
+---
 # Assigning access permissions
 
 You can assign roles to users, groups, and service accounts. Access permissions can be assigned at two levels:

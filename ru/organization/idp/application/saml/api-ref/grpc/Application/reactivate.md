@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/organization/idp/application/saml/api-ref/grpc/Application/reactivate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, gRPC: ApplicationService.Reactivate

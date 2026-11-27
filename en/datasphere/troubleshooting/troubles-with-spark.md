@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/troubleshooting/troubles-with-spark.md
+    type: text/markdown
+    title: Markdown version
+---
 # Errors when using a Spark connector
 
 When using Spark, a hidden directory named `.spark/` is created in the project storage, and that directory contains service information about all Spark connectors available in the project. To see hidden files and directories, in the panel at the top of the {{ jlab }}Lab interface, click **View** ⟶ **Show Hidden Files**.

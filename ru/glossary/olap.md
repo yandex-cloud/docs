@@ -1,6 +1,10 @@
 ---
 title: 'Знакомство с OLAP: основы и преимущества анализа данных'
 description: OLAP — технология для анализа данных в реальном времени.
+alternate:
+  - href: ru/glossary/olap.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OLAP

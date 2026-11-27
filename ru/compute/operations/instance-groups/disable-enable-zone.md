@@ -1,6 +1,10 @@
 ---
 title: Как отключить и включить зону доступности для группы ВМ {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете отключить или включить зоны доступности для группы виртуальных машин.
+alternate:
+  - href: ru/compute/operations/instance-groups/disable-enable-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отключить и включить зоны доступности для группы ВМ {{ compute-full-name }}

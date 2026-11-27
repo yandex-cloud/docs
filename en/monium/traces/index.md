@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/traces/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ traces-name }}
 
 {{ traces-name }} is a distributed tracing system in {{ monium-name }}. It enables you to track requests as they move through services and components of your infrastructure: find the causes of errors, identify bottlenecks, and analyze performance.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monitoring/operations/unified-agent/pull_prometheus.md
+    type: text/markdown
+    title: Markdown version
+---
 # Delivering custom application metrics
 
 {{ unified-agent-full-name }} collects metrics in {{ prometheus-name }} format and converts them to {{ monitoring-full-name }} format. {{ unified-agent-short-name }} enables you to pull metrics from applications that provide them in {{ prometheus-name }} format.

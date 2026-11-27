@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к хосту кластера {{ dataproc-full-name }} через {{ oslogin }}
 description: Следуя данной инструкции, вы сможете подключиться к хосту {{ dataproc-name }} через {{ oslogin }}.
+alternate:
+  - href: ru/data-proc/operations/connect-oslogin.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к хосту {{ dataproc-name }} через {{ oslogin }} 

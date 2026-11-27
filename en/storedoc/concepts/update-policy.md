@@ -1,6 +1,10 @@
 ---
 title: '{{ SD }} versioning policy'
 description: In this article, you will learn about the DBMS versioning policy in {{ SD }}.
+alternate:
+  - href: en/storedoc/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ SD }} versioning policy

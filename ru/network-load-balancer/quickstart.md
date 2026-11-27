@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/network-load-balancer/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как начать работать с {{ network-load-balancer-short-name }}
 
 [Сетевые балансировщики](concepts/index.md) равномерно распределяют нагрузку по облачным ресурсам и отслеживают их состояние. Это позволяет повысить доступность и отказоустойчивость ваших приложений и облачной сетевой инфраструктуры. 

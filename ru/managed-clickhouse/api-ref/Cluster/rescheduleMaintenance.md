@@ -47,6 +47,10 @@ apiPlayground:
         - rescheduleType
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/managed-clickhouse/api-ref/Cluster/rescheduleMaintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.RescheduleMaintenance

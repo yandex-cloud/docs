@@ -29,6 +29,10 @@ meta:
     - keyword: '{{ interconnect-name }} routing'
     - keyword: trunk
     - keyword: '{{ interconnect-name }} trunk'
+  alternate:
+    - href: en/interconnect/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Concepts
     description: Learn about features of the service

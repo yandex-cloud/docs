@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Router
+alternate:
+  - href: ru/terraform/data-sources/cloudrouter_routing_instance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_cloudrouter_routing_instance (DataSource)

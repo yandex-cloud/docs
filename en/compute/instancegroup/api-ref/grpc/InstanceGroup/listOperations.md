@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/compute/instancegroup/api-ref/grpc/InstanceGroup/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud Instance Groups API, gRPC: InstanceGroupService.ListOperations

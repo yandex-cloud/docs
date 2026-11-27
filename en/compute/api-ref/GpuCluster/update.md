@@ -54,6 +54,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/compute/api-ref/GpuCluster/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: GpuCluster.Update

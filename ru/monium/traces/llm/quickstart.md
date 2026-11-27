@@ -1,6 +1,10 @@
 ---
 title: Начало работы с LLM-трейсами
 description: Узнайте, как настроить мониторинг LLM-приложений через систему распределенной трассировки {{ traces-name }}
+alternate:
+  - href: ru/monium/traces/llm/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с LLM-трейсами

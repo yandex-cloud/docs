@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/dns/api-ref/grpc/DnsFirewall/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, gRPC: DnsFirewallService.Update

@@ -1,6 +1,10 @@
 ---
 title: Data model in {{ monitoring-full-name }}
 description: This article describes the data model used in {{ monitoring-full-name }}. A metric is a time series that shows a change of some value over time. Metrics are identified using text labels. A label is a metric's characteristic in the key/value format. Each metric is identified by an unordered set of labels. Use a parameter that takes a limited set of values as a label.
+alternate:
+  - href: en/monium/concepts/data-model.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data model in {{ monitoring-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli
 
 Yandex Object Storage control tool

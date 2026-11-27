@@ -1,6 +1,10 @@
 ---
 title: Создать триггер, который передает сообщения в соединения по протоколу WebSocket {{ api-gw-full-name }} из топика реестра или устройства {{ iot-full-name }}
 description: Создайте триггер для топика устройства или реестра {{ iot-name }} для отправки копий сообщений в соединения по протоколу WebSocket {{ api-gw-full-name }}.
+alternate:
+  - href: ru/api-gateway/operations/trigger/iot-core-trigger-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать триггер, который отправляет сообщения в WebSocket-соединения из топика реестра или устройства {{ iot-full-name }}

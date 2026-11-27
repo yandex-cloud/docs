@@ -1,6 +1,10 @@
 ---
 title: Сервис {{ load-testing-full-name }} закрыт.
 description: Сервис {{ load-testing-full-name }} закрыт.
+alternate:
+  - href: ru/load-testing/sunset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сервис {{ load-testing-full-name }} закрыт

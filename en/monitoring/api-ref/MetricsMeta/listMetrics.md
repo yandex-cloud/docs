@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/monitoring/api-ref/MetricsMeta/listMetrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # listMetrics method

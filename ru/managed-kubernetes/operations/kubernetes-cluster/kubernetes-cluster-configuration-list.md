@@ -1,6 +1,10 @@
 ---
 title: Получение списка доступных конфигураций мастера в кластере {{ k8s }}
 description: Следуя данной инструкции, вы получите список доступных конфигураций мастера в кластере {{ k8s }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-configuration-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка доступных конфигураций мастера в кластере {{ k8s }}

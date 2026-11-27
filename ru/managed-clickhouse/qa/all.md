@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ mch-full-name }}
 description: На странице представлены вопросы и ответы про {{ mch-short-name }}.
+alternate:
+  - href: ru/managed-clickhouse/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ mch-short-name }}

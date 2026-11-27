@@ -8,6 +8,10 @@ meta:
   description: >-
     These tutorials will help you meet various challenges with {{ yandex-cloud
     }} services.
+  alternate:
+    - href: en/tutorials/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     colSizes:

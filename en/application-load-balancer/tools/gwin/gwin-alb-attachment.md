@@ -1,6 +1,10 @@
 ---
 title: Attachment mechanism for {{ yandex-cloud }} Gwin integration with an existing {{ alb-name }} infrastructure
 description: Attachment is a mechanism whereby an {{ alb-name }} infrastructure is created in {{ TF }}, while Gwin connects it with {{ k8s }} resources using annotations.
+alternate:
+  - href: en/application-load-balancer/tools/gwin/gwin-alb-attachment.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

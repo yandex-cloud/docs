@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о профиле Cloud WAF {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о профиле WAF {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/waf-profile-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о профиле Cloud WAF

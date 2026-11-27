@@ -1,6 +1,10 @@
 ---
 title: Загрузить Helm-чарт в реестр {{ cloud-registry-name }}
 description: Из статьи вы узнаете о загрузке Helm-чартов в реестр {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/helm/push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузить Helm-чарт в реестр

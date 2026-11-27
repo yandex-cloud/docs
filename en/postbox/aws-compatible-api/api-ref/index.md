@@ -1,6 +1,10 @@
 ---
 title: Amazon API methods for {{ postbox-full-name }}
 description: In this tutorial, you will learn about the Amazon API methods you can use to manage {{ postbox-name }}.
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Amazon API methods for {{ postbox-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как удалить сообщество
 description: Следуя данной инструкции, вы сможете удалить сообщество.
+alternate:
+  - href: ru/datasphere/operations/community/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить сообщество

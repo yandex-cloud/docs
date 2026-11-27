@@ -1,6 +1,10 @@
 ---
 title: Включение и выключение проверки по пользовательскому набору правил в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в {{ sd-full-name }} включить и выключить проверку по пользовательскому набору правил.
+alternate:
+  - href: ru/security-deck/operations/custom-rules-sets/enable-disable-set.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включить или выключить проверку по пользовательскому набору правил

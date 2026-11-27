@@ -1,5 +1,9 @@
 ---
 title: How to get information about a disk snapshot in {{ compute-full-name }}
+alternate:
+  - href: en/compute/operations/snapshot-control/get-snapshot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting disk snapshot info

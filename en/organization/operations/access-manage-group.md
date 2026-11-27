@@ -1,6 +1,10 @@
 ---
 title: How to set up access to manage a user group in {{ org-full-name }}
 description: Follow this guide to set up access to manage a user group in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/access-manage-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring group management access

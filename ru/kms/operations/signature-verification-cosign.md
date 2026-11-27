@@ -1,6 +1,10 @@
 ---
 title: Как подписать файл или артефакт с помощью Cosign
 description: Следуя данной инструкции, вы сможете подписать файл или артефакт, а также проверить электронную подпись с помощью утилиты Cosign.
+alternate:
+  - href: ru/kms/operations/signature-verification-cosign.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Электронная подпись файлов и артефактов с помощью утилиты Cosign

@@ -1,6 +1,10 @@
 ---
 title: Изменить описание функции
 description: Следуя данной инструкции, вы сможете изменить описание функции.
+alternate:
+  - href: ru/functions/operations/function/description-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить описание функции

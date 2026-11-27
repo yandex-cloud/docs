@@ -2,6 +2,10 @@
 title: '{{ msp-full-name }} pricing policy'
 description: This article covers the {{ msp-full-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/managed-spark/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ msp-full-name }} pricing policy

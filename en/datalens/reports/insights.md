@@ -1,6 +1,10 @@
 ---
 title: Neuroanalyst in report
 description: In this article, you will learn about Neuroanalyst in report and how to use it.
+alternate:
+  - href: en/datalens/reports/insights.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Neuroanalyst in report

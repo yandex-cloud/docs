@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iam/api-ref/grpc/ServiceControl/resolveAgent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity and Access Management API, gRPC: ServiceControlService.ResolveAgent

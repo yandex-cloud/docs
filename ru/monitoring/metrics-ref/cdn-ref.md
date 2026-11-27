@@ -2,6 +2,10 @@
 title: Метрики {{ cdn-full-name }}
 description: Из статьи вы узнаете про метрики {{ cdn-name }}.
 editable: false
+alternate:
+  - href: ru/monitoring/metrics-ref/cdn-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ cdn-full-name }}

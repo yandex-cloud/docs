@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ cloud-logging-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ cloud-logging-name }}.
+alternate:
+  - href: ru/logging/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ cloud-logging-full-name }}

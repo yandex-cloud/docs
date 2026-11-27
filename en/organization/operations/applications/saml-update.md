@@ -1,6 +1,10 @@
 ---
 title: How to update a SAML app in {{ org-full-name }}
 description: Follow this guide to update a SAML app in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/applications/saml-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a SAML app in {{ org-full-name }}

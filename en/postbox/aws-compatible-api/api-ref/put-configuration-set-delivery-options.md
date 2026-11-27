@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/put-configuration-set-delivery-options.md
+    type: text/markdown
+    title: Markdown version
+---
 # PutConfigurationSetDeliveryOptions method
 
 Updates delivery settings for a [configuration](../../concepts/glossary.md#configuration) in a folder. The folder is selected based on the service account the request originates from.

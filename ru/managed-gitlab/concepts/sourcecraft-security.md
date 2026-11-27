@@ -1,6 +1,10 @@
 ---
 title: Интеграция {{ mgl-name }} с {{ src-name }} Security
 description: Как интеграция {{ mgl-name }} с {{ src-name }} Security обеспечивает зеркалирование репозиториев и проверку безопасности кода.
+alternate:
+  - href: ru/managed-gitlab/concepts/sourcecraft-security.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Интеграция {{ mgl-name }} с {{ src-name }} Security

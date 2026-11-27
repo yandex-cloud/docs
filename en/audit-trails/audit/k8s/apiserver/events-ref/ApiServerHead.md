@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/k8s/apiserver/events-ref/ApiServerHead.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Services for Kubernetes Audit Trails Events: ApiServerHead

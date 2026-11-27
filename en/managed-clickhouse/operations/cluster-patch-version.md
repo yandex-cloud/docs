@@ -1,6 +1,10 @@
 ---
 title: How to get the {{ CH }} patch version in {{ mch-full-name }}
 description: Follow this guide to find out the {{ CH }} patch version installed in a {{ mch-full-name }} cluster.
+alternate:
+  - href: en/managed-clickhouse/operations/cluster-patch-version.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting the {{ CH }} patch version

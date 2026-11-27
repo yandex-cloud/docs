@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/jobs/environment.md
+    type: text/markdown
+    title: Markdown version
+---
 # Job runtime environment
 
 {{ ds-jobs }} jobs run on dedicated VMs that are not connected to {{ jlab }}Lab or a launched project. The runtime environment of these VMs is deployed based on a [Docker image](docker.md) and additional parameters that you define in the job configuration file.

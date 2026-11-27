@@ -1,6 +1,10 @@
 ---
 title: Adding a response page template to a profile or rule
 description: Follow this guide to add a response page template to a security or ARL profile, or to a rule in any of those profiles.
+alternate:
+  - href: en/smartwebsecurity/operations/template-attach.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a response page template to a profile or rule

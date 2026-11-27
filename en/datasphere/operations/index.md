@@ -1,6 +1,10 @@
 ---
 title: How to work with {{ ml-platform-full-name }}
 description: This page gives all the guides on how to work with {{ ml-platform-full-name }} in {{ yandex-cloud }}. Learn how to create a project, install dependencies, run a code snippet in a notebook, work with checkpoints, manage computing resources, publish a notebook, use Git, upload data from various sources, and deploy a trained model as a microservice.
+alternate:
+  - href: en/datasphere/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ ml-platform-name }}

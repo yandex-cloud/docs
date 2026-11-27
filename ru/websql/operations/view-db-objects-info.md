@@ -1,6 +1,10 @@
 ---
 title: Просмотр информации об объектах в базе данных
 description: Следуя данной инструкции, вы сможете просмотреть информацию об объектах в базе данных.
+alternate:
+  - href: ru/websql/operations/view-db-objects-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотр информации об объектах в базе данных

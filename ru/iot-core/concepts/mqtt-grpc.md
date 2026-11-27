@@ -1,6 +1,10 @@
 ---
 title: Отправка сообщений MQTT-серверу через gRPC
 description: Из статьи вы узнаете про отправку сообщений MQTT-серверу через gRPC, как выглядит структура сериализуемых данных, а также познакомитесь с примером работы.
+alternate:
+  - href: ru/iot-core/concepts/mqtt-grpc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправка сообщений MQTT-серверу через gRPC

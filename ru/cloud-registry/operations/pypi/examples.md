@@ -1,6 +1,10 @@
 ---
 title: Примеры работы с PyPI-реестрами
 description: Пошаговые примеры создания, настройки и использования PyPI-реестров в {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/pypi/examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Примеры работы с PyPI-реестрами

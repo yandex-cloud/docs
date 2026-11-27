@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/audit-trails/concepts/diagnostics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Diagnostic logs
 
 Trail diagnostic logs contain records of changes to the status of the [trail](./trail.md) itself.

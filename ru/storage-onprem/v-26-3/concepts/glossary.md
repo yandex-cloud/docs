@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/glossary.md
+    type: text/markdown
+    title: Markdown version
+---
 # Термины и сокращения
 
 В продукте {{ objstorage-onprem-name }} используются следующие основные понятия:

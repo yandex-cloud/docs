@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ metadata-hub-full-name }}
 description: Различные сценарии использования {{ schema-registry-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/metadata-hub/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ metadata-hub-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как удалить SSH-ключ пользователя
 description: Следуя данной инструкции, вы сможете удалить SSH-ключ пользователя.
+alternate:
+  - href: ru/organization/operations/delete-ssh.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить SSH-ключ

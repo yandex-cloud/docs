@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/user/update/
+alternate:
+  - href: ru/managed-clickhouse/cli-ref/user/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse user update

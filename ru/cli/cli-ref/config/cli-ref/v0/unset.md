@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/config/cli-ref/v0/unset/
+alternate:
+  - href: ru/cli/cli-ref/config/cli-ref/v0/unset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc config v0 unset

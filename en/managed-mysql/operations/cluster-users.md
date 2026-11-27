@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-mysql/operations/cluster-users.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing {{ MY }} users
 
 You can add and remove users, as well as manage their settings.

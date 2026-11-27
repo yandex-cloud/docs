@@ -1,6 +1,10 @@
 ---
 title: Сервисные роли для модуля Контроль {{ k8s }}® в {{ sd-full-name }}
 description: На данной странице приведен список сервисных ролей для управления доступом к модулю Контроль {{ k8s }}® ({{ kspm-name }}) в сервисе {{ sd-name }}.
+alternate:
+  - href: ru/security-deck/security/kspm-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сервисные роли для модуля Контроль {{ k8s }}® ({{ kspm-name }})

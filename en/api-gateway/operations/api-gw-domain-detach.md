@@ -1,6 +1,10 @@
 ---
 title: How to remove a domain from an API gateway in {{ api-gw-full-name }}
 description: In this tutorial, you will learn how to remove a domain from an API gateway in {{ api-gw-full-name }}.
+alternate:
+  - href: en/api-gateway/operations/api-gw-domain-detach.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Removing a domain

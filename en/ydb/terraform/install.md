@@ -1,6 +1,10 @@
 ---
 title: Installing and configuring {{ TF }} and a provider to connect to {{ ydb-short-name }}
 description: This is a step-by-step guide for installing and configuring {{ TF }} and a {{ yandex-cloud }} provider.
+alternate:
+  - href: en/ydb/terraform/install.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing and configuring {{ TF }} and a provider to connect to {{ ydb-short-name }}

@@ -1,6 +1,10 @@
 ---
 title: Классы хостов {{ maf-name }}
 description: Класс хостов определяет вычислительные мощности, выделяемые для каждого хоста в кластере {{ maf-name }}.
+alternate:
+  - href: ru/managed-airflow/concepts/instance-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Классы хостов {{ maf-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/application-load-balancer/operations/application-load-balancer-get-stats.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing L7 load balancer statistics
 
 {{ alb-name }} automatically sends load balancer performance metrics to the [{{ monitoring-full-name }}](../../monitoring/) service.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/tutorials/dataplatform/schema-registry-overview.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление схемами данных в {{ mkf-short-name }}
 
 Сервис {{ mkf-full-name }} использует [схемы форматов данных](../../managed-kafka/concepts/managed-schema-registry.md) для описания форматов ввода и вывода данных. На основе схемы формата данных производитель формирует, а потребитель интерпретирует сообщения из топиков.

@@ -1,6 +1,10 @@
 ---
 title: Creating a child term in {{ data-catalog-full-name }}
 description: Follow this guide to create a child term in a {{ data-catalog-name }} glossary.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/create-term-child.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a child term

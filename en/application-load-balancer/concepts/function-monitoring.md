@@ -1,6 +1,10 @@
 ---
 title: Monitoring charts
 description: Monitoring charts give the real-time status of your load balancer and related metrics. Use them for anomaly detection and performance analysis.
+alternate:
+  - href: en/application-load-balancer/concepts/function-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Monitoring charts

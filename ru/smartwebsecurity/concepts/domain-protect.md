@@ -1,6 +1,10 @@
 ---
 title: Защита веб-приложений во внешней инфраструктуре
 description: Защита веб-приложений, развернутых за пределами Yandex Cloud, с помощью {{ sws-name }}
+alternate:
+  - href: ru/smartwebsecurity/concepts/domain-protect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Защита веб-приложений во внешней инфраструктуре

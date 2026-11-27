@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть статистику просмотров видео в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете посмотреть статистику просмотров видео в сервисе {{ video-name }}.
+alternate:
+  - href: ru/video/operations/video/get-statistics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть статистику просмотров видео

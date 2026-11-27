@@ -1,6 +1,10 @@
 ---
 title: '{{ dns-full-name }} event reference in {{ at-full-name }}'
 description: This page gives a reference for {{ dns-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/dns/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

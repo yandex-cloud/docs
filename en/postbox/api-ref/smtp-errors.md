@@ -1,6 +1,10 @@
 ---
 title: SMTP responses in {{ postbox-full-name }}
 description: This article describes successful responses and errors returned by the {{ postbox-name }} SMTP interface when sending emails.
+alternate:
+  - href: en/postbox/api-ref/smtp-errors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SMTP responses

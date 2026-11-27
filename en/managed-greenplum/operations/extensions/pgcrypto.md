@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/extensions/pgcrypto.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using `pgcrypto` in {{ mgp-name }}
 
 The [pgcrypto]({{ pg-docs }}/static/pgcrypto.html) extension provides cryptographic functions that allow database administrators to encrypt specific table columns.

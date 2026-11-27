@@ -1,6 +1,10 @@
 ---
 title: Developing in Bash in {{ sf-full-name }}. Overview
 description: 'With {{ sf-name }}, you can run applications written in Bash. The Bash runtime has the following utilities installed by default: `jq`, {{ yandex-cloud }} CLI, and AWS CLI version 2.'
+alternate:
+  - href: en/functions/lang/bash/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Developing in Bash. Overview

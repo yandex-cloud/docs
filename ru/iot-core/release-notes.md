@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ iot-full-name }}
 description: В разделе представлена история изменений сервиса {{ iot-name }}.
+alternate:
+  - href: ru/iot-core/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ iot-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: '{{ captcha-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ captcha-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/smartcaptcha/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

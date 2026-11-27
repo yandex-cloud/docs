@@ -1,6 +1,10 @@
 ---
 title: Какие возникают ошибки при работе с пулами пользователей в {{ org-full-name }}
 description: Из статьи вы узнаете, какие бывают ошибки в работе пулов пользователей.
+alternate:
+  - href: ru/organization/userpool-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика ошибок, связанных с пулами пользователей

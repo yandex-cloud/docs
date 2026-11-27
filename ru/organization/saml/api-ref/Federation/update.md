@@ -134,6 +134,10 @@ apiPlayground:
               **boolean**
               Value parameter ForceAuthn in SAMLRequest.
             type: boolean
+alternate:
+  - href: ru/organization/saml/api-ref/Federation/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Federation API, REST: Federation.Update

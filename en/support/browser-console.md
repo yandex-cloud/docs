@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/support/browser-console.md
+    type: text/markdown
+    title: Markdown version
+---
 # Copying errors from the browser console
 
 If there is a problem when working with pages and interactive elements in the {{ yandex-cloud }} [management console]({{ link-console-main }}), information from the browser console can help identify the cause. Copy the message from the error console and forward it to [support]({{ link-console-support }}).

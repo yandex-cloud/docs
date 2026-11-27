@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ mpg-full-name }}
 description: На странице представлены вопросы и ответы про {{ mpg-short-name }}.
+alternate:
+  - href: ru/managed-postgresql/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ mpg-short-name }}

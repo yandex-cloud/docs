@@ -1,6 +1,10 @@
 ---
 title: Remotely Save
 description: Remotely Save is an Obsidian plugin that syncs your note vault with cloud storage solutions compatible with the Amazon S3 API, including {{ objstorage-name }}.
+alternate:
+  - href: en/storage/tools/obsidian.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Remotely Save

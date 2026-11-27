@@ -1,6 +1,10 @@
 ---
 title: Copying data from {{ mos-full-name }} to {{ mch-full-name }} using {{ data-transfer-full-name }}
 description: You can migrate data to a {{ mch-name }} cluster from a {{ mos-name }} cluster index. This data will be automatically inserted into {{ CH }} tables.
+alternate:
+  - href: en/tutorials/dataplatform/opensearch-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Copying data from {{ mos-name }} to {{ mch-name }} using {{ data-transfer-full-name }}

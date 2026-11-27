@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/access-analyzer/list-subject-access-bindings/
+alternate:
+  - href: ru/iam/cli-ref/v0/access-analyzer/list-subject-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam v0 access-analyzer list-subject-access-bindings

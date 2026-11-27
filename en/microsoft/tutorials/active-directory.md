@@ -11,6 +11,10 @@ keywords:
   - active directory scheduling
   - ad setup
   - active directory setup
+alternate:
+  - href: en/microsoft/tutorials/active-directory.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [active-directory](../../_tutorials/windows/active-directory.md) %}

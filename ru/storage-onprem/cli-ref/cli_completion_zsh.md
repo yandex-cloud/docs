@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_completion_zsh.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli completion zsh
 
 Generate the autocompletion script for zsh

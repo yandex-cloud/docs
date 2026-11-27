@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/ytsaurus/edit-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating {{ yt-name }} cluster settings
 
 If the [{{ yt-name }} component](../../concepts/components/ytsaurus.md) is enabled, you can edit cluster settings through the `YTsaurusConfig main` resource. The platform allows only one instance of the resource; its name is fixed: `main`.

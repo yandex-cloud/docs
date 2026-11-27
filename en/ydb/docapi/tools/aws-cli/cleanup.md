@@ -1,6 +1,10 @@
 ---
 title: How to delete the resources you created in {{ ydb-full-name }}
 description: Follow this guide to delete the resources you created.
+alternate:
+  - href: en/ydb/docapi/tools/aws-cli/cleanup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting the resources you created

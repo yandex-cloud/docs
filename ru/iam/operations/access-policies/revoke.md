@@ -1,6 +1,10 @@
 ---
 title: Удалить политику авторизации, созданную для ресурса
 description: Из статьи вы узнаете, как удалить политику авторизации {{ iam-full-name }} каталога, облака или организации.
+alternate:
+  - href: ru/iam/operations/access-policies/revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление политики авторизации

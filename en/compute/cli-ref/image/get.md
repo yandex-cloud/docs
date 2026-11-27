@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/image/get/
+alternate:
+  - href: en/compute/cli-ref/image/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute image get

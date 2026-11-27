@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/v0/s3/presign/
+alternate:
+  - href: ru/cli/cli-ref/storage/cli-ref/v0/s3/presign.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc storage v0 s3 presign

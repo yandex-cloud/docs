@@ -1,6 +1,10 @@
 ---
 title: Закрытие сервиса {{ monitoring-full-name }}
 description: С 1 декабря 2026 года сервис {{ monitoring-name }} закрыт. Узнайте, как продолжить работу с метриками в {{ monium-name }} и использовать возможности единой платформы Observability.
+alternate:
+  - href: ru/monitoring/sunset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Закрытие сервиса {{ monitoring-full-name }}

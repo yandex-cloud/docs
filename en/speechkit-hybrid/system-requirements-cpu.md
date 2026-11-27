@@ -1,6 +1,11 @@
 ---
 title: System requirements for CPU-based servers
 description: This article describes system and software requirements for CPU-based servers.
+noIndex: true
+alternate:
+  - href: en/speechkit-hybrid/system-requirements-cpu.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # System requirements for CPU-based servers

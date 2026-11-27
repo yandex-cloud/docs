@@ -1,6 +1,10 @@
 ---
 title: Изменить метку триггера в {{ sf-name }}
 description: Следуя данной инструкции, вы сможете изменить метку триггера в {{ sf-name }}.
+alternate:
+  - href: ru/functions/operations/trigger/label-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить метку триггера в {{ sf-name }}

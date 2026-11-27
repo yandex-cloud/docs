@@ -1,6 +1,10 @@
 ---
 title: Publishing and embedding in {{ datalens-full-name }}
 description: In this article, you will learn how to publish and embed dashboards and charts or share an object in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/concepts/publishing-and-embedding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Publishing and embedding in {{ datalens-full-name }}

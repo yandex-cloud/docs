@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/operations/origin-groups/bind-group-to-resource.md
+    type: text/markdown
+    title: Markdown version
+---
 # Adding an origin group to a resource
 
 To add an [origin group](../../concepts/origins.md#groups) to a [resource](../../concepts/resource.md), under **{{ ui-key.yacloud.cdn.label_section-content }}**, select the appropriate **Origin group** when [creating](../resources/create-resource.md) or [updating the resource settings](../resources/configure-basics.md).

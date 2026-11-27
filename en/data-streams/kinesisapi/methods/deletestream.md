@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/kinesisapi/methods/deletestream.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteStream
 
 Deletes a [stream](../../concepts/glossary.md#stream-concepts), including all its [shards](../../concepts/glossary.md#shard) and data.

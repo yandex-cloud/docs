@@ -46,6 +46,10 @@ apiPlayground:
             type: boolean
         required:
           - name
+alternate:
+  - href: en/managed-spqr/api-ref/Database/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR API, REST: Database.Create

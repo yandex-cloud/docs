@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/quota-manager/api-ref/grpc/QuotaLimit/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quota Manager API, gRPC: QuotaLimitService

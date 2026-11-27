@@ -1,6 +1,10 @@
 ---
 title: Tips for configuring {{ alb-full-name }} health checks
 description: This page provides recommendations for configuring {{ alb-name }} health checks.
+alternate:
+  - href: en/application-load-balancer/concepts/best-practices.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Tips for configuring {{ alb-full-name }} health checks

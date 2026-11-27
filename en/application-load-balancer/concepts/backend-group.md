@@ -1,6 +1,10 @@
 ---
 title: Backend groups
 description: In this article, you will learn about backend group types, session affinity, protocol and load balancing settings, and health checks.
+alternate:
+  - href: en/application-load-balancer/concepts/backend-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backend groups

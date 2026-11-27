@@ -1,6 +1,10 @@
 ---
 title: Работа с командным центром {{ mgp-name }}
 description: Используя командный центр, вы можете просматривать информацию о сессиях и запросах, а также управлять ими.
+alternate:
+  - href: ru/managed-greenplum/operations/command-center.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с командным центром {{ mgp-name }}

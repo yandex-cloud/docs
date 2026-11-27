@@ -1,6 +1,10 @@
 ---
 title: Роли пользователей кластера {{ KF }} в {{ mkf-full-name }}
 description: Из статьи вы узнаете о типах пользователей {{ KF }} кластера.
+alternate:
+  - href: ru/managed-kafka/concepts/account-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Роли пользователей в {{ mkf-full-name }}

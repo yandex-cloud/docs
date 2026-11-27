@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-opensearch/api-ref/grpc/Extension/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for OpenSearch API, gRPC: ExtensionService.Update

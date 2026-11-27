@@ -1,6 +1,10 @@
 ---
 title: How do I update the {{ backup-full-name }} agent on a {{ compute-full-name }} VM?
 description: Follow this guide to update the {{ backup-full-name }} agent on a {{ compute-full-name }} VM.
+alternate:
+  - href: en/backup/operations/update-backup-agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating the {{ backup-full-name }} agent on a {{ compute-full-name }} VM

@@ -1,6 +1,10 @@
 ---
 title: Creating a dashboard in {{ monium-name }}
 description: To create a dashboard in {{ monium-name }}, open the platform home page and click **Create dashboard**. Add a widget to your dashboard. Click **Title** under **Add widget** or click **Add** in the dashboard title and then select **Title**. Enter text in the input field. Select the title size. Click **Add**. You will now see the titled widget on the dashboard. Click **Save** in the top-right corner. Enter a name for your dashboard and click **Save**.
+alternate:
+  - href: en/monium/operations/dashboard/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating and managing a dashboard in {{ monium-name }}

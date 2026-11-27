@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Services for Kubernetes
+alternate:
+  - href: en/terraform/data-sources/kubernetes_node_group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_kubernetes_node_group (DataSource)

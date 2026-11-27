@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/tools/geesefs.md
+    type: text/markdown
+    title: Markdown version
+---
 # GeeseFS
 
 [GeeseFS](https://github.com/yandex-cloud/geesefs) — программа для монтирования бакетов {{ objstorage-name }} через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)) в системах Linux, macOS и Windows. Разработана командой {{ yandex-cloud }} как ответвление от [goofys](goofys.md). Она обеспечивает высокую производительность и POSIX-совместимость.

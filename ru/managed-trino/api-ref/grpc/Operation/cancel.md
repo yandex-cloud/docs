@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/managed-trino/api-ref/grpc/Operation/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Trino API, gRPC: OperationService.Cancel

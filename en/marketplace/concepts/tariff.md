@@ -1,6 +1,10 @@
 ---
 title: Service plans in {{ marketplace-full-name }}
 description: In this article, you will learn what a service plan is in {{ marketplace-name }}.
+alternate:
+  - href: en/marketplace/concepts/tariff.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service plan

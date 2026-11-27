@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/subnet/add-labels/
+alternate:
+  - href: en/cli/cli-ref/vpc/cli-ref/subnet/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc subnet add-labels

@@ -2,6 +2,10 @@
 title: '{{ yandex-cloud }} pricing policy'
 description: In this article, you will learn about the pricing policy for {{ yandex-cloud }} services.
 editable: false
+alternate:
+  - href: en/billing/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} pricing policy

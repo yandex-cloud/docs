@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/ydb/events-ref/DeleteBackup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for YDB Audit Trails Events: DeleteBackup

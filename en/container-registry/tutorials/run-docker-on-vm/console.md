@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm/console'
+alternate:
+  - href: en/container-registry/tutorials/run-docker-on-vm/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Running a Docker image on a VM using the management console, CLI, and API

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/object/deleteobjecttagging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: DeleteObjectTagging
 
 Deletes all object [labels](../../../concepts/tags.md) from a bucket.

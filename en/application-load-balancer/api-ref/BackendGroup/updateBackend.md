@@ -620,6 +620,10 @@ apiPlayground:
         oneOf:
           - required:
               - targetGroups
+alternate:
+  - href: en/application-load-balancer/api-ref/BackendGroup/updateBackend.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: BackendGroup.UpdateBackend

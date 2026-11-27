@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/address/list/
+alternate:
+  - href: en/cli/cli-ref/vpc/cli-ref/address/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc address list

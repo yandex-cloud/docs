@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/concepts/trigger/timer.md
+    type: text/markdown
+    title: Markdown version
+---
 # Timer that invokes a {{ sf-name }} function
 
 _Timer_ is a [trigger](../trigger/) that calls a {{ sf-name }} [function](../function.md) on a schedule. The schedule is set as a [cron expression](#cron-expression). The cron expression uses [UTC+0](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).

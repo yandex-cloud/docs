@@ -1,6 +1,10 @@
 ---
 title: Information about clusters in {{ mkf-name }}
 description: You can request detailed information for each {{ mkf-name }} cluster you have created. To get a list of database clusters in a folder, navigate to the folder dashboard and go to {{ mkf-name }}.
+alternate:
+  - href: en/managed-kafka/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Information about existing clusters in {{ mkf-name }}

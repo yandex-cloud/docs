@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/security/domains/architecture-isolated.md
+    type: text/markdown
+    title: Markdown version
+---
 # Reference architecture for cloud infrastructure in isolated mode without internet access
 
 Deployment of a cloud infrastructure without internet access is a common client use case in {{ yandex-cloud }}. In this scenario, access to cloud resources is only allowed from the client’s [on‑premise](https://en.wikipedia.org/wiki/On-premises_software) infrastructure and not from the internet. If cloud resources require networking with external internet resources, this traffic must go through client’s own infrastructure, e.g., firewalls, that controls internet access.

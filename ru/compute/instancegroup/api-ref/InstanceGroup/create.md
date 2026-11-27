@@ -1232,6 +1232,10 @@ apiPlayground:
               - NONE
               - RESTART
               - RECREATE
+alternate:
+  - href: ru/compute/instancegroup/api-ref/InstanceGroup/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud Instance Groups API, REST: InstanceGroup.Create

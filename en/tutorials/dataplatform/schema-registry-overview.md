@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/tutorials/dataplatform/schema-registry-overview.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing data schemas in {{ mkf-short-name }}
 
 {{ mkf-full-name }} uses [data format schemas](../../managed-kafka/concepts/managed-schema-registry.md) to describe the formats of data input and output. Based on the data format schema, the producer generates and the consumer interprets messages from topics.

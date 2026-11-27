@@ -1,6 +1,10 @@
 ---
 title: Disabling static keys for access to a {{ objstorage-full-name }} bucket
 description: Follow this guide to disable using static access keys for access to an {{ objstorage-name }} bucket.
+alternate:
+  - href: en/storage/operations/buckets/disable-statickey-auth.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Disabling static keys for access to a bucket

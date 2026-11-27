@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/delete-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a user
 
 If you have a [{{ CH }}](../../concepts/components/clickhouse.md) [user](create-user.md), you can delete it.

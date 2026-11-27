@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/community.md
+    type: text/markdown
+    title: Markdown version
+---
 # Communities in {{ ml-platform-name }}
 
 _Communities_ represent a way to organize team work in {{ ml-platform-name }}. A community determines the scope of projects and resources and helps set up team activities.

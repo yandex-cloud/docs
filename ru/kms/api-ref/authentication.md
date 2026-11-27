@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в API {{ kms-full-name }}
 description: Для выполнения операций через API в сервисе для создания и управления ключами шифрования – {{ kms-full-name }}, необходимо получить IAM-токен для сервисного, федеративного или пользовательского аккаунта.
+alternate:
+  - href: ru/kms/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в API {{ kms-name }}

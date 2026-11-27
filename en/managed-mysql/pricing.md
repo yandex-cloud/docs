@@ -2,6 +2,10 @@
 title: '{{ mmy-name }} pricing policy'
 description: The cost of {{ mmy-name }} usage is calculated based on the disk type and storage size, computing resources allocated to cluster hosts, settings and number of backups, and amount of outgoing traffic from {{ yandex-cloud }} to the internet.
 editable: false
+alternate:
+  - href: en/managed-mysql/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Orders/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Orders
 
 <!-- markdownlint-disable-file -->

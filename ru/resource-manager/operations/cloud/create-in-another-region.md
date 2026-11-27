@@ -1,6 +1,10 @@
 ---
 title: Создание облака в другом регионе
 description: Следуя данной инструкции, вы сможете создать новое облако в другом регионе с помощью управляемой организации.
+alternate:
+  - href: ru/resource-manager/operations/cloud/create-in-another-region.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать облако в другом регионе

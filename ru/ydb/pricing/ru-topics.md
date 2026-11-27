@@ -2,6 +2,10 @@
 title: Правила оценки стоимости операций с топиками в {{ ydb-full-name }}
 description: Из статьи вы узнаете, как рассчитывается стоимость операций с топиками.
 editable: false
+alternate:
+  - href: ru/ydb/pricing/ru-topics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила оценки стоимости операций с топиками

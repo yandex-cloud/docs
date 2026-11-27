@@ -1,6 +1,10 @@
 ---
 title: Getting DAG execution logs
 description: Use a directed acyclic graph (DAG) to get DAG execution logs.
+alternate:
+  - href: en/managed-airflow/operations/export-dag-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting DAG execution logs

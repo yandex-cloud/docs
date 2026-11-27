@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/migration/toggle-folder-redirects/
+alternate:
+  - href: ru/cli/cli-ref/cloud-registry/cli-ref/migration/toggle-folder-redirects.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry migration toggle-folder-redirects

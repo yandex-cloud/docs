@@ -1,6 +1,10 @@
 ---
 title: FQDNs of {{ mrd-full-name }} hosts
 description: Follow this guide to get an FQDN for connection to a {{ mrd-full-name }} host.
+alternate:
+  - href: en/managed-valkey/operations/connect/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FQDNs of {{ VLK }} hosts

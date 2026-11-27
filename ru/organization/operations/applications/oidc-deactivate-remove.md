@@ -1,6 +1,10 @@
 ---
 title: Как деактивировать или удалить OIDC-приложение в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете деактивировать, повторно активировать и удалить OIDC-приложение в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/applications/oidc-deactivate-remove.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Деактивировать и удалить OIDC-приложение в {{ org-full-name }}

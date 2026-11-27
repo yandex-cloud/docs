@@ -87,6 +87,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: ru/organization/idp/application/saml/api-ref/Application/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: Application.SetAccessBindings

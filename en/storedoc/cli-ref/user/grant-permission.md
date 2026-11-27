@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/user/grant-permission/
+alternate:
+  - href: en/storedoc/cli-ref/user/grant-permission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb user grant-permission

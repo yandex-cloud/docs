@@ -1,6 +1,10 @@
 ---
 title: Получение списка тегов в классификации
 description: Следуя данной инструкции, вы сможете получить список тегов для метаданных в классификации, созданной в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/list-tags.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка тегов в классификации

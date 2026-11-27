@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/metadata-hub/concepts/compatibility-check-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Compatibility policies
 
 

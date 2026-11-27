@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/application-load-balancer/operations/application-load-balancer-manage-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настроить запись логов L7-балансировщика
 
 {% include [monium-logs-kz-note](../../_includes/application-load-balancer/monium-logs-kz-note.md) %}

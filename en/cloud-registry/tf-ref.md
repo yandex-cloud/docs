@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ cloud-registry-full-name }}'
 description: This page lists {{ TF }} provider resources and data sources supported by {{ cloud-registry-full-name }}.
+alternate:
+  - href: en/cloud-registry/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ cloud-registry-full-name }}

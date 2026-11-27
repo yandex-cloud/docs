@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/trigger/os-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a trigger for {{ objstorage-name }} that invokes {{ sf-name }}
 
 Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.md) that invokes [{{ sf-name }}](../../concepts/function.md) when you create, move, or delete a bucket [object](../../../storage/concepts/object.md).

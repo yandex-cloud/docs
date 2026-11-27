@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание в {{ mspqr-full-name }}
 description: Под техническим обслуживанием в {{ mspqr-full-name }} понимается автоматическая установка обновлений и исправлений СУБД для хостов (в т. ч. для выключенных кластеров), изменение класса хостов и размера хранилища и другие сервисные работы.
+alternate:
+  - href: ru/managed-spqr/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание в {{ mspqr-name }}

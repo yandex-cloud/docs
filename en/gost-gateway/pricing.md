@@ -2,6 +2,10 @@
 title: '{{ gost-gateway-name }} pricing policy'
 description: This article covers the {{ gost-gateway-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/gost-gateway/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ gost-gateway-name }} pricing policy

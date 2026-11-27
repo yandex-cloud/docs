@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/message/SendMessageBatch.md
+    type: text/markdown
+    title: Markdown version
+---
 # SendMessageBatch
 
 Метод для одновременной отправки до десяти сообщений в указанную очередь. При отправке сообщений в очередь FIFO они будут поступать в порядке отправления.

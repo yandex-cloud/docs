@@ -1,6 +1,10 @@
 ---
 title: Migrating services from an NLB with an instance group as a target to an L7 ALB
 description: Follow this guide to migrate a service from a network load balancer with an instance group as a target to a {{ alb-full-name }} L7 ALB.
+alternate:
+  - href: en/tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating services from an NLB with an instance group as a target to an L7 ALB

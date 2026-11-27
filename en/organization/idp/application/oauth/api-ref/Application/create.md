@@ -108,6 +108,10 @@ apiPlayground:
               type: string
         required:
           - clientId
+alternate:
+  - href: en/organization/idp/application/oauth/api-ref/Application/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OAUTH Application API, REST: Application.Create

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/vrf/
+alternate:
+  - href: en/baremetal/cli-ref/vrf/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal vrf

@@ -1,6 +1,10 @@
 ---
 title: Calculating log-based metrics
 description: 'Log-based metrics: continuous calculation of statistics based on log data with results recorded as metrics in {{ monium-name }}.'
+alternate:
+  - href: en/monium/logs/aggregates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Calculating log-based metrics {#aggregates}

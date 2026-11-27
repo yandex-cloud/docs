@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/object/patch.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: patch
 
 [Partially updates and appends object data](../../../concepts/object-patch.md) in {{ objstorage-full-name }}.

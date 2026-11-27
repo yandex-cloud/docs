@@ -1,6 +1,10 @@
 ---
 title: Как подготовить свой образ диска
 description: Вы можете использовать собственный файл с образом диска виртуальной машины под управлением операционной системы из семейства Linux. После подготовки образа загрузите его в {{ compute-name }}.
+alternate:
+  - href: ru/compute/operations/image-create/custom-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подготовить свой образ диска

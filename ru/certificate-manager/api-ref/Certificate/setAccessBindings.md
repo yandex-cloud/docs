@@ -153,6 +153,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: ru/certificate-manager/api-ref/Certificate/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Certificate Manager API, REST: Certificate.SetAccessBindings

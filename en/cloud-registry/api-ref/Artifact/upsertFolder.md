@@ -28,6 +28,10 @@ apiPlayground:
         - path
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/cloud-registry/api-ref/Artifact/upsertFolder.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, REST: Artifact.UpsertFolder

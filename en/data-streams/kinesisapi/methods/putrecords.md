@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/kinesisapi/methods/putrecords.md
+    type: text/markdown
+    title: Markdown version
+---
 # PutRecords
 
 Puts multiple [records](../../concepts/glossary.md#message) into a [data stream](../../concepts/glossary.md#stream-concepts) in a single call.

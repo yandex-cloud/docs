@@ -43,6 +43,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/api-ref/Organization/listAccessPolicyBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: Organization.ListAccessPolicyBindings

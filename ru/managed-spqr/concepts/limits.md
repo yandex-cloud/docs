@@ -7,6 +7,10 @@ keywords:
   - keyword: шардирование в PostgreSQL
   - keyword: шардированный PostgreSQL
   - keyword: шард PostgreSQL
+alternate:
+  - href: ru/managed-spqr/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ mspqr-name }}

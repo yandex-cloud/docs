@@ -1,6 +1,10 @@
 ---
 title: Публичные материалы про сервис {{ yq-full-name }}
 description: На странице представлены публичные материалы про сервис {{ yq-full-name }}.
+alternate:
+  - href: ru/query/public_talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные материалы

@@ -1,5 +1,9 @@
 ---
 subcategory: Identity Hub
+alternate:
+  - href: en/terraform/resources/organizationmanager_saml_federation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_organizationmanager_saml_federation (Resource)

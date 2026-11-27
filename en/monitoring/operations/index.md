@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ monitoring-full-name }}
 description: This page presents a list of step-by-step guides for {{ monitoring-name }}.
+alternate:
+  - href: en/monitoring/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ monitoring-full-name }}

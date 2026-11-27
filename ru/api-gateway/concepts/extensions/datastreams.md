@@ -1,6 +1,10 @@
 ---
 title: Расширение x-yc-apigateway-integration:cloud_datastreams
 description: Из статьи вы узнаете, для чего нужно расширение x-yc-apigateway-integration:cloud_datastreams, какие оно поддерживает параметры, как выглядит его спецификация.
+alternate:
+  - href: ru/api-gateway/concepts/extensions/datastreams.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Расширение x-yc-apigateway-integration:cloud_datastreams

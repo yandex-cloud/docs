@@ -2,6 +2,10 @@
 title: Функции разметки
 description: Функции разметки используются для создания размеченного текста (гипертекста) из строковых значений и/или из другого размеченного текста.
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/markup-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Функции разметки

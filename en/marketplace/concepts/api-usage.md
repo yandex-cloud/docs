@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/marketplace/concepts/api-usage.md
+    type: text/markdown
+    title: Markdown version
+---
 # Billing of products based on publisher metrics
 
 {{ marketplace-short-name }} provides an API to account for product consumption so that products can track consumption and invoice {{ yandex-cloud }} users through {{ billing-name }}. Integration with the API is required for any product that uses one or more pricing plans with custom metrics to account for consumption events.

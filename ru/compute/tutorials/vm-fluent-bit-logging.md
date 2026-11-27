@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/vm-fluent-bit-logging'
+alternate:
+  - href: ru/compute/tutorials/vm-fluent-bit-logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [vm-fluent-bit-logging](../../_tutorials/security/vm-fluent-bit-logging.md) %}

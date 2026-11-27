@@ -1,6 +1,10 @@
 ---
 title: Managing storage classes
 description: Follow this guide to manage storage classes.
+alternate:
+  - href: en/managed-kubernetes/operations/volumes/manage-storage-class.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing storage classes

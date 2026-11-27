@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/concepts/calculate-specs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Calculating the cluster configuration
 
 This section provides general recommendations for calculating cluster configuration when using {{ mgp-name }} as an enterprise [data warehouse](https://en.wikipedia.org/wiki/Data_storage) of small or medium size up to 100 TB of uncompressed data.

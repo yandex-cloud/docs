@@ -1,6 +1,10 @@
 ---
 title: Классы хостов {{ mmy-name }} до 20 июня 2023 года
 description: Класс хостов определяет вычислительные мощности, которые выделяются для каждого хоста в кластере MySQL. Классы хостов {{ mmy-name }} до 20 июня 2023 года.
+alternate:
+  - href: ru/managed-mysql/concepts/instance-types-archive/instance-types-20062023.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Классы хостов {{ MY }} до 20 июня 2023 года

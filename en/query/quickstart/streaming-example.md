@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/quickstart/streaming-example.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ yds-full-name }} streaming data processing
 
 In this example, you will run [streaming data processing](../concepts/stream-processing.md) on New York City taxi ride data. Data for the example will be written to a dedicated [{{ yds-full-name }}](../../data-streams/index.yaml) stream by a generator.

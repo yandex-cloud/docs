@@ -2,6 +2,10 @@
 title: '{{ postbox-full-name }} pricing policy'
 description: This article covers the {{ postbox-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/postbox/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ postbox-name }} pricing policy

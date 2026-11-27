@@ -1,6 +1,10 @@
 ---
 title: Создать Python-пакет
 description: Следуя данной инструкции, вы создадите Python-пакет для загрузки в {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/pypi/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать Python-пакет

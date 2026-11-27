@@ -1,6 +1,10 @@
 ---
 title: Создать бакет в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете создать бакет в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать бакет

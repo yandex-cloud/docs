@@ -1,6 +1,10 @@
 ---
 title: Managing bucket labels in {{ objstorage-full-name }}
 description: Follow this guide to manage bucket labels in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/buckets/tagging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing bucket labels

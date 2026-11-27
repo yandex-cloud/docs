@@ -1,6 +1,10 @@
 ---
 title: Editing organization data in {{ org-full-name }}
 description: In this tutorial, you will learn how to edit organization data in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/org-profile.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing organization data

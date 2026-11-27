@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud DNS
+alternate:
+  - href: ru/terraform/resources/dns_firewall_iam_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_dns_firewall_iam_binding (Resource)

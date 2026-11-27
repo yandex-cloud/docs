@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ mkf-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ mkf-name }}.
 editable: false
+alternate:
+  - href: ru/managed-kafka/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ mkf-name }}

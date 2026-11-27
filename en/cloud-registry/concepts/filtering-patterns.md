@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cloud-registry/concepts/filtering-patterns.md
+    type: text/markdown
+    title: Markdown version
+---
 # Filtering patterns
 
 Filtering patterns are [Ant-style](https://docs.spring.io/spring-framework/docs/5.3.15/javadoc-api/org/springframework/util/AntPathMatcher.html) templates that allow you to restrict user access to artifacts in the registry based on artifact path. There are two types of patterns:

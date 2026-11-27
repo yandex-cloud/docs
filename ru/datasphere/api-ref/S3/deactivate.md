@@ -25,6 +25,10 @@ apiPlayground:
         - projectId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/datasphere/api-ref/S3/deactivate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, REST: S3.Deactivate

@@ -1,6 +1,10 @@
 ---
 title: Файловые хранилища {{ ml-platform-name }}
 description: Из статьи вы узнаете, что такое файловые хранилища.
+alternate:
+  - href: ru/datasphere/concepts/filestores.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Файловые хранилища

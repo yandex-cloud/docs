@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/applications/metrics-provider.md
+    type: text/markdown
+    title: Markdown version
+---
 # Installing {{ MP }}
 
 {{ MP }} transmits metrics of [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) objects to monitoring systems and [automatic scaling systems](../../concepts/autoscale.md). You can also transmit metrics in the opposite direction. For example, cluster objects can receive metrics from [{{ monitoring-full-name }}](../../../monitoring/concepts/index.md).

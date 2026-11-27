@@ -121,6 +121,10 @@ apiPlayground:
             format: int64
         required:
           - name
+alternate:
+  - href: ru/managed-greenplum/api-ref/ResourceGroup/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: ResourceGroup.Update

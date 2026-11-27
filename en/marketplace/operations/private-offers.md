@@ -1,6 +1,10 @@
 ---
 title: Creating a private offer in {{ marketplace-name }}
 description: In this article, you will learn how to create and activate a private offer in a {{ marketplace-name }} partner dashboard.
+alternate:
+  - href: en/marketplace/operations/private-offers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Private offers

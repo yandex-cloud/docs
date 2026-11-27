@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides on using IAM tokens
 description: Step-by-step guides on getting and revoking IAM tokens in {{ iam-full-name }}.
+alternate:
+  - href: en/iam/operations/iam-token/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IAM tokens

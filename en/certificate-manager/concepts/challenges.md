@@ -1,6 +1,10 @@
 ---
 title: Domain ownership verification in {{ certificate-manager-name }}
 description: How to verify domain ownership using HTTP or DNS challenges to issue Let's Encrypt certificates in {{ certificate-manager-name }}. Learn about verification statuses and conditions for automatic verification.
+alternate:
+  - href: en/certificate-manager/concepts/challenges.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Domain ownership verification

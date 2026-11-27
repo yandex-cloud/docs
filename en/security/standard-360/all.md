@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-360 }} secure use standard: All sections on one page'
 description: This document comprises a list of sections with recommendations on technical protection and helps you choose adequate information security measures when working with {{ yandex-360 }}.
+alternate:
+  - href: en/security/standard-360/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [overview](../../_includes/security/standard-360/overview.md) %}

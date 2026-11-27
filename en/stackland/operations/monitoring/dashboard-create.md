@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/monitoring/dashboard-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a dashboard
 
 To create a new dashboard and add metrics to it:

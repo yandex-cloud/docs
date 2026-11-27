@@ -1,6 +1,10 @@
 ---
 title: JOIN in {{ datalens-full-name }}
 description: This article covers some aspects of using the JOIN operator in {{ datalens-full-name }} and gives introductory info on JOIN query types in {{ CH }}.
+alternate:
+  - href: en/datalens/operations/connection/chyt/chyt-global-join.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # JOIN in {{ datalens-full-name }}

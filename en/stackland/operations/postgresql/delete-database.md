@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/postgresql/delete-database.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a {{ PG }} database
 
 If you have a {{ PG }} database in your [cluster](../../concepts/components/postgresql.md), you can delete it.

@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST
 description: На странице приведено описание ошибки {{ datalens-full-name }} Requested database column does not exist.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Requested database column does not exist

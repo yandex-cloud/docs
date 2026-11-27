@@ -1,6 +1,11 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v0/routing-instance/remove-private-connection/
+noIndex: true
+alternate:
+  - href: ru/cloud-router/cli-ref/v0/routing-instance/remove-private-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloudrouter v0 routing-instance remove-private-connection

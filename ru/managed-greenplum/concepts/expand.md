@@ -1,6 +1,10 @@
 ---
 title: Расширение кластера {{ mgp-name }}
 description: Как устроена процедура расширения (expand) кластера {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/concepts/expand.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Расширение кластера {{ mgp-name }}

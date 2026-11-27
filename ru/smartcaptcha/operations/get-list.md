@@ -1,6 +1,10 @@
 ---
 title: Как получить список капч
 description: Следуя данной инструкции, вы сможете посмотреть список доступных капч {{ captcha-full-name }}.
+alternate:
+  - href: ru/smartcaptcha/operations/get-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список капч

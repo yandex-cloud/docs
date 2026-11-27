@@ -1,6 +1,10 @@
 ---
 title: How to encrypt a disk in {{ compute-full-name }}
 description: Follow this guide to encrypt a disk in {{ compute-short-name }}.
+alternate:
+  - href: en/compute/operations/disk-control/disk-encrypt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Encrypting a disk

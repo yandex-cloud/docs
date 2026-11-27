@@ -822,6 +822,10 @@ apiPlayground:
               - http
           - required:
               - grpc
+alternate:
+  - href: ru/application-load-balancer/api-ref/VirtualHost/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: VirtualHost.Create

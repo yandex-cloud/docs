@@ -1,6 +1,10 @@
 ---
 title: How to update {{ mgp-full-name }} cluster settings
 description: Follow this guide to update {{ mgp-full-name }} cluster settings.
+alternate:
+  - href: en/managed-greenplum/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating {{ mgp-name }} cluster settings

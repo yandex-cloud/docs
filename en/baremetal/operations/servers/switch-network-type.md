@@ -1,6 +1,10 @@
 ---
 title: Switching the type of a network connected to a {{ baremetal-full-name }} server's network interface
 description: Follow this guide to switch the type of a network connected to a {{ baremetal-full-name }} server's network interface from public to private or vice versa.
+alternate:
+  - href: en/baremetal/operations/servers/switch-network-type.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Switching the type of a network connected to a network interface

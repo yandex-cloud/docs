@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ cloud-desktop-name }} для пользователей
 description: Следуя данной инструкции, вы сможете получить доступ и подключиться к рабочему столу.
+alternate:
+  - href: ru/cloud-desktop/quickstart-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с {{ cloud-desktop-full-name }} для пользователей

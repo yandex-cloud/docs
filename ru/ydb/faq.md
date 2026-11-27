@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/ydb/faq.md
+    type: text/markdown
+    title: Markdown version
+---
 # Вопросы и ответы о {{ ydb-name }}
 
 На этой странице собраны вопросы и ответы о работе {{ ydb-name }}. Вопросы и ответы о {{ ydb-short-name }} читайте в [документации]({{ ydb.docs }}/faq/).

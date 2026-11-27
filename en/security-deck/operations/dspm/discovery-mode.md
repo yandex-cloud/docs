@@ -1,6 +1,10 @@
 ---
 title: Managing data analysis in {{ sd-full-name }}
 description: Follow this guide to learn about data analysis in {{ sd-full-name }} {{ dspm-name }}.
+alternate:
+  - href: en/security-deck/operations/dspm/discovery-mode.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ dspm-name }} data analysis

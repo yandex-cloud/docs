@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/datalens/configure.md
+    type: text/markdown
+    title: Markdown version
+---
 # Activate {{ datalens-name }}
 
 ## Getting started {#before-you-begin}

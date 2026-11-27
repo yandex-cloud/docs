@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/function/function-public.md
+    type: text/markdown
+    title: Markdown version
+---
 # Making a function public
 
 To allow any user to invoke a function without providing an authorization header, make it public.

@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.AVATAR.TITLE.CONFLICT
 description: На странице приведено описание ошибки {{ datalens-full-name }} Source avatar title conflicts with another avatar.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-AVATAR-TITLE-CONFLICT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Source avatar title conflicts with another avatar

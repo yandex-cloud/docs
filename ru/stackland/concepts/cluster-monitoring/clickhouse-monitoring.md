@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/cluster-monitoring/clickhouse-monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метрики дашборда {{ CH }}
 
 Дашборд {{ CH }} в {{ grafana-name }} предоставляет комплексный мониторинг кластера СУБД {{ CH }}. Дашборд содержит метрики производительности, состояния репликации, использования ресурсов и других важных параметров работы кластера.

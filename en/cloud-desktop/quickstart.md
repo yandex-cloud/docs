@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ cloud-desktop-name }} for administrators
 description: This guide describes how you can create and set up a desktop group.
+alternate:
+  - href: en/cloud-desktop/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ cloud-desktop-full-name }} for administrators

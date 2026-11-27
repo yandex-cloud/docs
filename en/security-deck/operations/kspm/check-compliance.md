@@ -1,6 +1,10 @@
 ---
 title: Checking compliance of your controlled infrastructure with industry standards based on {{ kspm-name }} control rules
 description: In this section, you will learn how to use the compliance UI to view information about the compliance of your controlled infrastructure with industry security standards based on the {{ kspm-name }} control rules in {{ sd-full-name }}, identify existing non-compliances, and get recommendations on how to fix them.
+alternate:
+  - href: en/security-deck/operations/kspm/check-compliance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Checking your infrastructure for compliance with security standards

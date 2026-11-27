@@ -5,6 +5,10 @@ keywords:
   - deleting an {{ TR }} cluster
   - '{{ TR }} cluster'
   - '{{ TR }}'
+alternate:
+  - href: en/managed-trino/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a {{ TR }} cluster

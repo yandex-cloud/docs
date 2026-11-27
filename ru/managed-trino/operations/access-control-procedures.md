@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к процедурам в {{ mtr-name }}
 description: Правила определяют, какие действия пользователи могут совершать над пользовательскими процедурами.
+alternate:
+  - href: ru/managed-trino/operations/access-control-procedures.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к процедурам в {{ mtr-name }}

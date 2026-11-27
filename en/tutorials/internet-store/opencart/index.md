@@ -1,6 +1,10 @@
 ---
 title: Creating an OpenCart online store
 description: In this tutorial, you will learn how to create and configure an OpenCart online store.
+alternate:
+  - href: en/tutorials/internet-store/opencart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [opencart](../../../_tutorials/applied/opencart.md) %}

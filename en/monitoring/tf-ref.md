@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ monitoring-full-name }}'
 description: This guide provides information about {{ TF }} resources and data sources supported by {{ monitoring-name }}.
+alternate:
+  - href: en/monitoring/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ monitoring-full-name }}

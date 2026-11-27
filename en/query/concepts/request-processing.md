@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/concepts/request-processing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Query processing
 
 {{ yq-full-name }} is a [massively parallel system](https://en.wikipedia.org/wiki/Massively_parallel) that consists of two modules: batch processing and streaming analysis. Both modules store data in a single query metabase. A query can be analytical or streaming. The query runtime is selected depending on its type.

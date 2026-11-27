@@ -1,6 +1,10 @@
 ---
 title: How to buy a subscription in {{ marketplace-full-name }}
 description: In this guide, you will learn about several ways to buy a subscription in {{ marketplace-full-name }}.
+alternate:
+  - href: en/marketplace/operations/users/buy-subscription.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Buying a subscription

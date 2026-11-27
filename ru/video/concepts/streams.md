@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/video/concepts/streams.md
+    type: text/markdown
+    title: Markdown version
+---
 # Трансляции в {{ video-name }}
 
 С помощью сервиса {{ video-name }} вы можете организовать [онлайн-трансляции](#streams) в интегрированном [видеоплеере](./player.md). Каждая трансляция — отдельный [эпизод](#episodes).

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/ydb/concepts/transfer.md
+    type: text/markdown
+    title: Markdown version
+---
 # Трансфер данных
 
 Трансфер в YDB — асинхронный механизм переноса данных из [топика]({{ ydb.docs }}/concepts/glossary#topic) в [таблицу]({{ ydb.docs }}/concepts/glossary#table). [Создание]({{ ydb.docs }}/yql/reference/syntax/create-transfer) экземпляра трансфера, его [изменение]({{ ydb.docs }}/yql/reference/syntax/alter-transfer) и [удаление]({{ ydb.docs }}/yql/reference/syntax/drop-transfer) осуществляются с использованием YQL. Трансфер запускается внутри базы данных и работает в фоновом режиме. Трансфер используется для решения задачи поставки данных из топика в таблицу.

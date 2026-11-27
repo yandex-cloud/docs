@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/edit-invoice-template-or-content.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to change the format and data in the issued payment invoices
 
 

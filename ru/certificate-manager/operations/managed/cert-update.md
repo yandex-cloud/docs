@@ -1,6 +1,10 @@
 ---
 title: Как обновить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}
 description: Следуя этой инструкции, вы сможете обновить сертификат от Let's Encrypt.
+alternate:
+  - href: ru/certificate-manager/operations/managed/cert-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновить сертификат

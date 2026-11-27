@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/LOG10.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # LOG10

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/rest-catalog/delete-principal.md
+    type: text/markdown
+    title: Markdown version
+---
 # Отозвать права на каталог
 
 Чтобы отозвать права на [{{ rest-catalog-name }}](../../concepts/components/rest-catalog.md), удалите соответствующий ресурс `StacklandRestCatalogAccessBinding`.

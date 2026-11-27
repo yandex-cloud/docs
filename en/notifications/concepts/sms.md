@@ -1,6 +1,10 @@
 ---
 title: SMS in {{ cns-full-name }}
 description: In this article, you will learn about SMS in {{ cns-name }}, types of senders, and the sandbox.
+alternate:
+  - href: en/notifications/concepts/sms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SMS in {{ cns-full-name }}

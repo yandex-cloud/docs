@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/mdb/greenplum/events-ref/StartCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® Audit Trails Events: StartCluster

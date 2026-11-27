@@ -2,6 +2,10 @@
 title: Restoring a {{ MY }} database from a {{ mmy-full-name }} backup
 description: Follow this guide to restore a {{ MY }} database from a provided {{ mmy-name }} backup on your own server.
 noIndex: true
+alternate:
+  - href: en/managed-mysql/operations/cluster-outbound-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Restoring a {{ MY }} database from a WAL-G backup

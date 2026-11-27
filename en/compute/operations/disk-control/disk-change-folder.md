@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/disk-control/disk-change-folder.md
+    type: text/markdown
+    title: Markdown version
+---
 # Moving a disk to a different folder
 
 When you create a disk, it is placed in the current folder.

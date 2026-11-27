@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} dashboard'
 description: A {{ datalens-full-name }} dashboard is a page or set of pages with widgets on it. It allows you to group your charts in the same place and add captions and titles to them. You can create new dashboard pages using tabs. {{ datalens-name }} supports the full-screen view of the dashboard.
+alternate:
+  - href: en/datalens/concepts/dashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} dashboard

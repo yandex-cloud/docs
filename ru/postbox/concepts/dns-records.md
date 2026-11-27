@@ -1,6 +1,10 @@
 ---
 title: DNS-записи для работы с {{ postbox-full-name }}
 description: В статье описаны DNS-записи, необходимые и рекомендуемые для отправки писем через {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/concepts/dns-records.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DNS-записи для работы с {{ postbox-name }}

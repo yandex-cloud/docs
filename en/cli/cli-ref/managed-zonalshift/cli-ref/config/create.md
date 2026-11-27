@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-zonalshift/cli-ref/config/create/
+alternate:
+  - href: en/cli/cli-ref/managed-zonalshift/cli-ref/config/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-zonalshift config create

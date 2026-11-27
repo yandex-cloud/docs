@@ -1,6 +1,10 @@
 ---
 title: Как удалить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}
 description: Следуя этой инструкции, вы сможете удалить сертификат от Let's Encrypt.
+alternate:
+  - href: ru/certificate-manager/operations/managed/cert-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить сертификат от Let's Encrypt

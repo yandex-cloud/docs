@@ -1,6 +1,10 @@
 ---
 title: Quotas and limits in {{ at-full-name }}
 description: '{{ at-full-name }} sets a quota for the maximum number of trails per cloud. For more information about the service restrictions, read this article.'
+alternate:
+  - href: en/audit-trails/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ at-full-name }}

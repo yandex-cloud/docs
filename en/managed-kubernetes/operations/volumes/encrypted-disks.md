@@ -1,6 +1,10 @@
 ---
 title: Using encrypted disks for persistent volumes
 description: Follow this guide to use encrypted disks for persistent volumes.
+alternate:
+  - href: en/managed-kubernetes/operations/volumes/encrypted-disks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using encrypted disks for persistent volumes

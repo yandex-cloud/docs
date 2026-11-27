@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/postgresql/edit-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить пользователя PostgreSQL
 
 Если у вас есть пользователь PostgreSQL в [кластере](../../concepts/components/postgresql.md), вы можете изменить его права и параметры. Имя кластера (`spec.cluster`) и имя роли (`spec.username`) после создания изменить нельзя.

@@ -1,6 +1,10 @@
 ---
 title: Getting a list of available access policy templates
 description: In this guide, you will learn how to get a list of {{ iam-full-name }} access policy templates you can assign for {{ yandex-cloud }} resources.
+alternate:
+  - href: en/iam/operations/access-policies/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of supported access policy templates

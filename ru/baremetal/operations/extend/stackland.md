@@ -1,6 +1,10 @@
 ---
 title: Создать кластер {{ baremetal-extend-stackland-name }}
 description: Следуя этой инструкции, вы сможете создать кластер {{ baremetal-extend-stackland-name }} на серверах {{ baremetal-name }}.
+alternate:
+  - href: ru/baremetal/operations/extend/stackland.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать кластер {{ baremetal-extend-stackland-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как изменить настройки кластера {{ CH }} в {{ mch-full-name }}
 description: Следуя данной инструкции, вы сможете изменить настройки кластера {{ CH }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек кластера {{ CH }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/cloud-logging-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a trigger for {{ cloud-logging-name }} that invokes a container from {{ serverless-containers-name }}
 
 Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-logging-trigger.md) that invokes a [container](../concepts/container.md) from {{ serverless-containers-name }} whenever entries are added to the [log group](../../logging/concepts/log-group.md).

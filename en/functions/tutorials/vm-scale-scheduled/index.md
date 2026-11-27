@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-scale-scheduled/'
+alternate:
+  - href: en/functions/tutorials/vm-scale-scheduled/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [vm-scale-scheduled](../../../_tutorials/infrastructure/vm-scale-scheduled.md) %}

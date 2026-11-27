@@ -1,6 +1,10 @@
 ---
 title: Requesting access permissions
 description: You can request access permissions for a folder or object you do not have access to. You can also request new access permissions for a folder or object you have view access to.
+alternate:
+  - href: en/datalens/operations/permission/request.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Requesting access permissions

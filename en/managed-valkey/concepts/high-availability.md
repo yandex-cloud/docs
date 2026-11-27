@@ -1,6 +1,10 @@
 ---
 title: High availability of a {{ mrd-name }} cluster
 description: The high availability of a {{ mrd-name }} cluster is ensured by the replication and master failover mechanism, the number of hosts, storage and persistence settings, and cluster maintenance scheduling.
+alternate:
+  - href: en/managed-valkey/concepts/high-availability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # High availability of a {{ mrd-name }} cluster

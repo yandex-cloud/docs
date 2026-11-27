@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/quickstart/streaming-example.md
+    type: text/markdown
+    title: Markdown version
+---
 # Потоковая обработка данных из {{ yds-full-name }}
 
 В этом примере вы выполните [потоковую обработку данных](../concepts/stream-processing.md) о поездках Нью-Йоркского такси. Данные для примера будут записаны с помощью генератора в специально созданный поток [{{ yds-full-name }}](../../data-streams/index.yaml).

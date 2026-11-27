@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/concepts/pooling.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing {{ PG }} connections
 
 {{ PG }} [allocates a separate process](https://www.postgresql.org/docs/current/connect-estab.html) for each established connection. With numerous client connections, it creates multiple processes and manages distributed data structures. This may cause a lack of computing resources affecting the DBMS performance.

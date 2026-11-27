@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/operations/trigger/os-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать триггер для {{ objstorage-name }}, который вызывает функцию {{ sf-name }}
 
 Создайте [триггер для {{ objstorage-name }}](../../concepts/trigger/os-trigger.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} при создании, перемещении или удалении [объекта](../../../storage/concepts/object.md) в бакете.

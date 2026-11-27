@@ -1,6 +1,10 @@
 ---
 title: How to run rolling updates in {{ compute-full-name }}
 description: Follow this guide to run rolling updates.
+alternate:
+  - href: en/compute/operations/instance-groups/deploy/rolling-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Rolling updates

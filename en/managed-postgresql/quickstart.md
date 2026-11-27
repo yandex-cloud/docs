@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ mpg-full-name }}
 description: Follow this guide to create a {{ PG }} cluster and connect to it.
+alternate:
+  - href: en/managed-postgresql/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ mpg-name }}

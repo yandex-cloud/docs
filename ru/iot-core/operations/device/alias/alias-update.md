@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iot-core/operations/device/alias/alias-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменение алиаса
 
 {% include [iot-sunset-warning](../../../../_includes/iot-core/sunset-warning.md) %}

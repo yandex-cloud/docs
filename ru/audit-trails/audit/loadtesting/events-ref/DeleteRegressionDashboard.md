@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/loadtesting/events-ref/DeleteRegressionDashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Load Testing Audit Trails Events: DeleteRegressionDashboard

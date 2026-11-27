@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
+---
 # Backups
 
 Connection, binding, query, and {{ yq-name }} run settings are securely stored and replicated within the {{ yandex-cloud }} infrastructure.

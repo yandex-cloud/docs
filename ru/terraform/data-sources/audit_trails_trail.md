@@ -1,5 +1,9 @@
 ---
 subcategory: Audit Trails
+alternate:
+  - href: ru/terraform/data-sources/audit_trails_trail.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_audit_trails_trail (DataSource)

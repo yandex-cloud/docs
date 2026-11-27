@@ -1,6 +1,10 @@
 ---
 title: Создание виртуальной машины в группе выделенных хостов
 description: Следуя данной инструкции, вы сможете создать виртуальную машину в группе выделенных хостов.
+alternate:
+  - href: ru/compute/operations/dedicated-host/running-host-group-vms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание виртуальной машины в группе выделенных хостов

@@ -1,6 +1,10 @@
 ---
 title: Древовидная диаграмма в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Древовидная диаграмма.
+alternate:
+  - href: ru/datalens/visualization-ref/tree-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Древовидная диаграмма ![](../../_assets/datalens/treemap.svg) в {{ datalens-full-name }}

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/mdb/opensearch/events-ref/RestoreCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for OpenSearch Audit Trails Events: RestoreCluster

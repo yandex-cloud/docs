@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ mos-full-name }}
 description: В этой инструкции вы научитесь создавать кластер {{ OS }} и подключаться к нему.
+alternate:
+  - href: ru/managed-opensearch/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ mos-name }}

@@ -1,6 +1,10 @@
 ---
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/security/trails-logs-opensearch'
+alternate:
+  - href: ru/managed-opensearch/tutorials/trails-to-opensearch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузка логов из {{ at-full-name }}

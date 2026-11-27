@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/logging/api-ref/grpc/LogGroup/stats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Logging Service, gRPC: LogGroupService.Stats

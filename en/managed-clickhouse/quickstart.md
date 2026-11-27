@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ mch-full-name }}
 description: Follow this guide to create an {{ CH }} cluster and connect to it.
+alternate:
+  - href: en/managed-clickhouse/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ mch-name }}

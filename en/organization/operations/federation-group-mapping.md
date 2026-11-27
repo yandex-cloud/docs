@@ -1,6 +1,10 @@
 ---
 title: Configuring a federated user group mapping
 description: Configure mapping of identity provider groups with {{ org-full-name }} groups via {{ cloud-center }} or Terraform.
+alternate:
+  - href: en/organization/operations/federation-group-mapping.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring a federated user group mapping

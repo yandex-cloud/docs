@@ -3,6 +3,10 @@ title: Галерея {{ datalens-full-name }}
 description: Галерея {{ datalens-full-name }} — готовые дашборды для вдохновения и решения бизнес-задач.
 keywords:
   - '{{ datalens-gallery }}'
+alternate:
+  - href: ru/datalens/concepts/gallery.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Галерея в {{ datalens-short-name }}

@@ -1,6 +1,10 @@
 ---
 title: 'Что такое FQDN: разбираемся в сетевых терминах'
 description: FQDN — идентификатор, который позволяет однозначно отличить веб-ресурс от других в сети.
+alternate:
+  - href: ru/glossary/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Полное доменное имя (FQDN)

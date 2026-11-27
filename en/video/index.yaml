@@ -24,6 +24,10 @@ meta:
     - keyword: '{{ video-name }} video player'
     - keyword: '{{ video-name }} content'
     - keyword: hosting in {{ video-name }}
+  alternate:
+    - href: en/video/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Upload a video or create your first broadcast

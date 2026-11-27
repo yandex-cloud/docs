@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/remove-access-binding/
+alternate:
+  - href: ru/cli/cli-ref/lockbox/cli-ref/secret/remove-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc lockbox secret remove-access-binding

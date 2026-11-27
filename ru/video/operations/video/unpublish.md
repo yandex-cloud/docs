@@ -1,6 +1,10 @@
 ---
 title: Как снять видео с публикации в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете снять видео с публикации в сервисе {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/video/unpublish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Снять видео с публикации

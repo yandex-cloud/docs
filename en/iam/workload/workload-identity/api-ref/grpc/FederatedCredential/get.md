@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iam/workload/workload-identity/api-ref/grpc/FederatedCredential/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Workload Identity, gRPC: FederatedCredentialService.Get

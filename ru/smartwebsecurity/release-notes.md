@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ sws-full-name }}
 description: В разделе представлена история изменений сервиса {{ sws-name }}.
+alternate:
+  - href: ru/smartwebsecurity/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ sws-full-name }}

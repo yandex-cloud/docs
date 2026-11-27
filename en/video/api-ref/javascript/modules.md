@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/api-ref/javascript/modules.md
+    type: text/markdown
+    title: Markdown version
+---
 # JS SDK Reference
 
 Video player

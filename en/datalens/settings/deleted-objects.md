@@ -1,6 +1,10 @@
 ---
 title: Deleted objects in {{ datalens-full-name }}
 description: In this guide, you will learn how to view the list of deleted objects and workbooks in {{ datalens-full-name }} and how to restore them.
+alternate:
+  - href: en/datalens/settings/deleted-objects.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleted objects in {{ datalens-full-name }}

@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Spark
+alternate:
+  - href: en/terraform/data-sources/spark_cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_spark_cluster (DataSource)

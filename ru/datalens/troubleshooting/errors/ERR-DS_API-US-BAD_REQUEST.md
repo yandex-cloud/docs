@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.US.BAD_REQUEST
 description: На странице приведено описание ошибки {{ datalens-full-name }} Ошибка в запросе к объекту.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-US-BAD_REQUEST.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Ошибка в запросе к объекту

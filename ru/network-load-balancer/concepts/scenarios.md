@@ -1,6 +1,10 @@
 ---
 title: Как можно использовать сетевой балансировщик в {{ network-load-balancer-full-name }}
 description: Из статьи вы узнаете, как можно использовать сетевой балансировщик в {{ network-load-balancer-name }}.
+alternate:
+  - href: ru/network-load-balancer/concepts/scenarios.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сценарии использования сетевого балансировщика

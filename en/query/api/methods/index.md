@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/api/methods/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # All methods
 
 The {{ yq-full-name }} HTTP API is available at [https://api.yandex-query.cloud.yandex.net/api/fq/v1](https://api.yandex-query.cloud.yandex.net/api/fq/v1).

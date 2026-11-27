@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/concepts/instance-types-archive/instance-types-01062020.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ SD }} host classes prior to June 1, 2020
 
 The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change accordingly.

@@ -1,6 +1,10 @@
 ---
 title: Термины и определения в {{ yds-full-name }}
 description: В статье представлены термины и определения сервиса {{ yds-name }}.
+alternate:
+  - href: ru/data-streams/concepts/glossary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Термины и определения в {{ yds-name }}

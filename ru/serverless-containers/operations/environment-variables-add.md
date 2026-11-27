@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/operations/environment-variables-add.md
+    type: text/markdown
+    title: Markdown version
+---
 # Добавить переменные окружения контейнеру
 
 При добавлении переменных окружения создается новая ревизия контейнера. В существующую ревизию переменные окружения добавить нельзя.

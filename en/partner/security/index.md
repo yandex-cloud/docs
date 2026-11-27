@@ -1,6 +1,10 @@
 ---
 title: Managing access in the {{ yandex-cloud }} partner program
 description: In this article, you will learn what service and primitive roles are relevant to the {{ yandex-cloud }} partner program, as well as see what you can do with each role assigned.
+alternate:
+  - href: en/partner/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management

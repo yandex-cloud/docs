@@ -3,6 +3,10 @@ description: The maximum transmission unit (MTU) is the maximum size of a data p
 keywords:
   - mtu
   - what is mtu
+alternate:
+  - href: en/vpc/concepts/mtu-mss.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # MTU and TCP MSS

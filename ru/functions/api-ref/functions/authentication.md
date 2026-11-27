@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в API {{ sf-full-name }}
 description: Для выполнения операций через API в сервисе для запуска приложений без создания виртуальных машин – {{ sf-full-name }}, необходимо получить IAM-токен для своего аккаунта.
+alternate:
+  - href: ru/functions/api-ref/functions/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в API {{ sf-name }}

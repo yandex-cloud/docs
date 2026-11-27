@@ -1,6 +1,10 @@
 ---
 title: Свойства компонентов в {{ dataproc-full-name }}
 description: Из статьи вы узнаете, какие свойства есть у компонентов кластера, как они хранятся, а также какие у них есть настройки.
+alternate:
+  - href: ru/data-proc/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Свойства компонентов

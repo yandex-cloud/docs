@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Comarketing/POST_comarketing_v1_listTransactions_billingAccountId.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # List co-marketing transactions

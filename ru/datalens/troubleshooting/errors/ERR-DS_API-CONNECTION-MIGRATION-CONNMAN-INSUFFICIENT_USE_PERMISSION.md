@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.CONNECTION.MIGRATION.CONNMAN.INSUFFICIENT_USE_PERMISSION
 description: На странице приведено описание ошибки {{ datalens-full-name }} Нет доступа к подключению {{ connection-manager-name }}.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-CONNMAN-INSUFFICIENT_USE_PERMISSION.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Нет доступа к подключению {{ connection-manager-name }}

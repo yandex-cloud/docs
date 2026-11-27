@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_list-inventory-configurations.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets list-inventory-configurations
 
 List inventory configurations as JSON

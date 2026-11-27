@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/service-account/remove-labels/
+alternate:
+  - href: ru/iam/cli-ref/service-account/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam service-account remove-labels

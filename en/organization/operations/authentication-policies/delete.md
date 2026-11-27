@@ -1,6 +1,10 @@
 ---
 title: How to delete an authentication policy in {{ org-full-name }}
 description: Follow this guide to delete an authentication policy in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/authentication-policies/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an authentication policy

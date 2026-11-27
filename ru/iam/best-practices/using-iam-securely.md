@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iam/best-practices/using-iam-securely.md
+    type: text/markdown
+    title: Markdown version
+---
 # Безопасное использование {{ yandex-cloud }}
 
 В разделе представлены рекомендации по использованию возможностей сервиса {{ iam-short-name }} для обеспечения безопасной работы с сервисами {{ yandex-cloud }}.

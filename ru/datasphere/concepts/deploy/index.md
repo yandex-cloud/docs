@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/deploy/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ ds-inf }}
 
 {{ ml-platform-name }} предоставляет инструменты для релиза сервисов, доступных для сторонних ресурсов. Вы можете развернуть для эксплуатации не только модель, обученную в {{ ml-platform-name }}, но и создать при помощи тех же инструментов полноценный работающий сервис на базе [Docker-образа](/blog/posts/2022/03/docker-containers).

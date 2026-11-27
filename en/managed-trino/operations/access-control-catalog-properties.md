@@ -1,6 +1,10 @@
 ---
 title: Assigning access rules for catalog session properties in {{ mtr-name }}
 description: Rules define whether users can set certain catalog session properties.
+alternate:
+  - href: en/managed-trino/operations/access-control-catalog-properties.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning access rules for catalog session properties in {{ mtr-name }}

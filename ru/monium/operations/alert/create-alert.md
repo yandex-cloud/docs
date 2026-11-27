@@ -1,6 +1,10 @@
 ---
 title: Создание алерта
 description: Следуя данной инструкции, вы сможете создать алерт.
+alternate:
+  - href: ru/monium/operations/alert/create-alert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание алерта

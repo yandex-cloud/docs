@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/concepts/glossary.md
+    type: text/markdown
+    title: Markdown version
+---
 # Basic {{ monium-name }} terms
 
 This section describes the terms used in {{ monium-name }} and its guides.

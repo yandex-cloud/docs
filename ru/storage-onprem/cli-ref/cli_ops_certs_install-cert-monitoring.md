@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_certs_install-cert-monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops certs install-cert-monitoring
 
 Install signed Monitoring ingress certificate returned by client CA

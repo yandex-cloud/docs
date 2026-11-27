@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/logs/logging-migration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Migrating from {{ cloud-logging-name }} to {{ monium-name }}
 
 {% include [deprecation-warning](../../_includes/logging/deprecation-warning.md) %}

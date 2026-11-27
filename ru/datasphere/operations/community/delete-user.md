@@ -1,6 +1,10 @@
 ---
 title: Как удалить пользователя из сообщества
 description: Из статьи вы узнаете, как удалить пользователя из сообщества в {{ ml-platform-name }}.
+alternate:
+  - href: ru/datasphere/operations/community/delete-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить пользователя из сообщества

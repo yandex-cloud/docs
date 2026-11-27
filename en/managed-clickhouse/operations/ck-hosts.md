@@ -1,6 +1,10 @@
 ---
 title: Managing {{ CK }} hosts
 description: Follow this guide to manage {{ CK }} hosts.
+alternate:
+  - href: en/managed-clickhouse/operations/ck-hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ CK }} hosts

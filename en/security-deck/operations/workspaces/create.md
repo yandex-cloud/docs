@@ -1,6 +1,10 @@
 ---
 title: Creating an workspace in {{ sd-full-name }}
 description: In this guide, you will learn how to create an workspace in {{ sd-full-name }} to monitor your cloud infrastructure for compliance with with industry standards.
+alternate:
+  - href: en/security-deck/operations/workspaces/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ sd-name }} workspace 

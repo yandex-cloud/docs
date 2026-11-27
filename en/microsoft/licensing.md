@@ -1,6 +1,10 @@
 ---
 title: Microsoft licenses in {{ yandex-cloud }}
 description: In this tutorial, you will learn how to manage Microsoft licenses in {{ yandex-cloud }}.
+alternate:
+  - href: en/microsoft/licensing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Microsoft licenses in {{ yandex-cloud }}

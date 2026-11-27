@@ -1,6 +1,10 @@
 ---
 title: Delivering metrics from hosts outside {{ yandex-cloud }}
 description: Follow this guide to deliver metrics from hosts outside {{ yandex-cloud }}.
+alternate:
+  - href: en/monium/operations/unified-agent/non-yc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Delivering metrics from hosts outside {{ yandex-cloud }}

@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/cloud-router/operations/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Step-by-step guides for {{ cr-name }}
 
 * [{#T}](ri-get-info.md)

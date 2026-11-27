@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_src-coc-ref/coc-ref/sites.md
+    type: text/markdown
+    title: Markdown version
+---
 # SourceCraft Sites configuration
 
 Path in repository: `.sourcecraft/sites.yaml`.

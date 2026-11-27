@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/container-registry/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ container-registry-full-name }} concepts
 
 {{ container-registry-name }} is a service for storing and distributing Docker images.

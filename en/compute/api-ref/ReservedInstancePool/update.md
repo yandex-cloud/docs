@@ -79,6 +79,10 @@ apiPlayground:
           type: boolean
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/compute/api-ref/ReservedInstancePool/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: ReservedInstancePool.Update

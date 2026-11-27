@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/concepts/notification.md
+    type: text/markdown
+    title: Markdown version
+---
 # Email operation notifications
 
 To receive email operation notifications, [create a configuration](../operations/create-configuration.md) and [associate it with your address](../operations/bind-configuration.md).

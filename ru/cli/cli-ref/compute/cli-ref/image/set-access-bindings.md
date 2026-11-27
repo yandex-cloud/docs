@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/image/set-access-bindings/
+alternate:
+  - href: ru/cli/cli-ref/compute/cli-ref/image/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute image set-access-bindings

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/config/cli-ref/profile/create/
+alternate:
+  - href: ru/cli/cli-ref/config/cli-ref/profile/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc config profile create

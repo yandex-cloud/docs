@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/storage/delete-accesskey.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить ключ доступа
 
 Если у вас есть статический ключ доступа к {{ objstorage-name }}, вы можете его удалить. После удаления ключа приложения, использующие его или выпущенные на его основе временные ключи STS, потеряют доступ к хранилищу.

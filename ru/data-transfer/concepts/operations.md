@@ -1,6 +1,10 @@
 ---
 title: Операции над трансфером {{ data-transfer-full-name }}
 description: Операция — это действие над трансфером, которое может быть инициировано пользователем, самим трансфером или администраторами {{ yandex-cloud }}.
+alternate:
+  - href: ru/data-transfer/concepts/operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Операции над трансфером

@@ -1,6 +1,10 @@
 ---
 title: Markdown in Editor
 description: In this article, you will learn about the Advanced chart widget.
+alternate:
+  - href: en/datalens/charts/editor/widgets/markdown.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Markdown

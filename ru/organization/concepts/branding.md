@@ -1,6 +1,10 @@
 ---
 title: Брендирование в {{ org-full-name }}
 description: '{{ org-full-name }} позволяет настраивать внешний вид страниц аутентификации и формы входа, чтобы они соответствовали вашему корпоративному стилю и предпочтениям.'
+alternate:
+  - href: ru/organization/concepts/branding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Брендирование

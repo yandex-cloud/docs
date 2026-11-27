@@ -1,6 +1,10 @@
 ---
 title: Как диагностировать и устранить проблемы при записи метрик через Remote API
 description: Следуя данной инструкции, вы сможете диагностировать и устранить проблемы при записи метрик через Remote API.
+alternate:
+  - href: ru/monium/operations/prometheus/ingestion/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика и устранение проблем при записи метрик через Remote API

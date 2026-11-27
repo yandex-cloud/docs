@@ -1,6 +1,10 @@
 ---
 title: Подготовка окружения для установки {{ objstorage-onprem-name }}
 description: Требования к установочному хосту, серверам и дискам для установки {{ objstorage-onprem-name }} через Ansible.
+alternate:
+  - href: ru/storage-onprem/v-26-3/install/environment-preparation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подготовка окружения

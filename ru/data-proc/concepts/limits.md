@@ -2,6 +2,10 @@
 title: Квоты и лимиты в {{ dataproc-full-name }}
 description: В {{ dataproc-full-name }} действуют лимиты и квоты. Виртуальные машины, из которых состоят кластеры сервиса {{ dataproc-name }}, расходуют квоты вашего облака для сервиса {{ compute-full-name }}. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
 editable: false
+alternate:
+  - href: ru/data-proc/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ dataproc-name }}

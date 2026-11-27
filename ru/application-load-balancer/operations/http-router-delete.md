@@ -1,6 +1,10 @@
 ---
 title: Как удалить HTTP-роутер
 description: Следуя данной инструкции, вы сможете удалить HTTP-роутер.
+alternate:
+  - href: ru/application-load-balancer/operations/http-router-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить HTTP-роутер

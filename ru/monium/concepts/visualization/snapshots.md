@@ -1,6 +1,10 @@
 ---
 title: Снапшоты графиков и дашбордов в {{ monium-full-name }}
 description: 'Как сохранить данные для расследования инцидента в {{ monium-name }}: выбрать тип снапшота, создать его, поделиться с коллегами и использовать в блокноте.'
+alternate:
+  - href: ru/monium/concepts/visualization/snapshots.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Снапшоты графиков и дашбордов

@@ -1,6 +1,10 @@
 ---
 title: How to lease a custom-configured server in {{ baremetal-full-name }}
 description: Follow this guide to lease a {{ baremetal-full-name }} server in a custom configuration built as per your requirements.
+alternate:
+  - href: en/baremetal/operations/servers/custom-server-lease.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Renting a custom-configured server

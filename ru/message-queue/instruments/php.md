@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/instruments/php.md
+    type: text/markdown
+    title: Markdown version
+---
 # Пример использования {{ message-queue-full-name }} на PHP
 
 С помощью [AsyncAws](https://async-aws.com) можно управлять очередями сообщений в {{ message-queue-name }}, отправлять и принимать сообщения.

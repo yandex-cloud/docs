@@ -1,6 +1,10 @@
 ---
 title: Поддержать несколько доменных имен для сайта
 description: Следуя данной инструкции, вы сможете настроить поддержку нескольких доменных имен для сайта.
+alternate:
+  - href: ru/storage/operations/hosting/multiple-domains/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поддержать несколько доменных имен

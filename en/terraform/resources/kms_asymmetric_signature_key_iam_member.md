@@ -1,5 +1,9 @@
 ---
 subcategory: Key Management Service
+alternate:
+  - href: en/terraform/resources/kms_asymmetric_signature_key_iam_member.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_kms_asymmetric_signature_key_iam_member (Resource)

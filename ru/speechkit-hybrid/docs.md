@@ -1,6 +1,10 @@
 ---
 title: Документация сервиса {{ sk-hybrid-name }}
 noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/docs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Документация Яндекс Спичкит Гибрид ({{ sk-hybrid-full-name }})

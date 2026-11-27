@@ -1,6 +1,10 @@
 ---
 title: Квоты и лимиты в {{ postbox-full-name }}
 description: В {{ postbox-full-name }} действуют квоты и лимиты на отправку писем. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
+alternate:
+  - href: ru/postbox/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ postbox-name }}

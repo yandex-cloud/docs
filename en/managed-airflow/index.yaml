@@ -15,6 +15,10 @@ meta:
     - keyword: Apache Airflow in {{ yandex-cloud }}
     - keyword: '{{ AF }} in {{ yandex-cloud }}'
     - keyword: '{{ maf-name }}'
+  alternate:
+    - href: en/managed-airflow/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Managed Service for Apache Airflow™

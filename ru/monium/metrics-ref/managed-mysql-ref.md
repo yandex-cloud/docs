@@ -2,6 +2,10 @@
 title: Метрики {{ mmy-full-name }}
 description: Из статьи вы узнаете про метрики {{ mmy-name }}.
 editable: false
+alternate:
+  - href: ru/monium/metrics-ref/managed-mysql-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ mmy-full-name }}

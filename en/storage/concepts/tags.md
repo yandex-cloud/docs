@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/concepts/tags.md
+    type: text/markdown
+    title: Markdown version
+---
 # Labels
 
 A _label_ is a key-value pair used for logical bucket and object labeling.

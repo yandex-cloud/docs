@@ -1,6 +1,10 @@
 ---
 title: Как обновлять драйверы NVIDIA
 description: Следуя данной инструкции, вы сможете обновить драйверы NVIDIA и CUDA.
+alternate:
+  - href: ru/compute/operations/gpu-driver-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Рекомендации по обновлению драйверов NVIDIA

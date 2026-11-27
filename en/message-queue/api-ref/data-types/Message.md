@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/data-types/Message.md
+    type: text/markdown
+    title: Markdown version
+---
 # Message
 
 A message of Message Queue.

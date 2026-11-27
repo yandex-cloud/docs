@@ -1,6 +1,10 @@
 ---
 title: Как выбрать правильный способ аутентификации в {{ yandex-cloud }}
 description: В этой статье вы узнаете, как выбрать правильный способ аутентификации в {{ yandex-cloud }}.
+alternate:
+  - href: ru/iam/concepts/authorization/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как выбрать подходящий способ аутентификации в {{ yandex-cloud }}

@@ -1,6 +1,10 @@
 ---
 title: Миграция хостов кластера {{ SD }} в другую зону доступности
 description: Следуя данной инструкции, вы сможете перенести хосты кластера {{ SD }} в другую зону доступности.
+alternate:
+  - href: ru/storedoc/operations/host-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция хостов кластера {{ SD }} в другую зону доступности

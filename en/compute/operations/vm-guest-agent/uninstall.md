@@ -1,6 +1,10 @@
 ---
 title: Deleting the password reset agent from a Windows Server VM
 description: Follow this guide to delete the password reset agent from a Windows Server VM.
+alternate:
+  - href: en/compute/operations/vm-guest-agent/uninstall.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting the password reset agent from a Windows Server VM

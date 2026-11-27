@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/metadata-hub/connection-manager/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connection Manager API: REST reference

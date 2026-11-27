@@ -1,6 +1,10 @@
 ---
 title: Создать триггер для {{ yds-full-name }}, который вызывает контейнер {{ serverless-containers-full-name }}
 description: Следуя данной инструкции, вы сможете создать триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}.
+alternate:
+  - href: ru/serverless-containers/operations/data-streams-trigger-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}

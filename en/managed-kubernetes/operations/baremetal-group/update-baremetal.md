@@ -1,6 +1,10 @@
 ---
 title: Updating a node group on {{ baremetal-name }} servers
 description: Update the name or node count of a node group on {{ baremetal-name }} servers.
+alternate:
+  - href: en/managed-kubernetes/operations/baremetal-group/update-baremetal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a node group on {{ baremetal-name }} servers

@@ -1,6 +1,10 @@
 ---
 title: Приостановить оказание услуг клиенту
 description: В этой статье вы узнаете, как приостановить оказание услуг клиенту.
+alternate:
+  - href: ru/partner/operations/stop-client-services.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Приостановить оказание услуг клиенту

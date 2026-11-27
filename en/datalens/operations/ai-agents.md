@@ -1,6 +1,10 @@
 ---
 title: Using {{ datalens-full-name }} with AI agents
 description: In this article, you will learn how to start using AI agents in {{ datalens-name }}.
+alternate:
+  - href: en/datalens/operations/ai-agents.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using {{ datalens-full-name }} with AI agents

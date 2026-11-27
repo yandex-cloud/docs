@@ -1,6 +1,10 @@
 ---
 title: Сервисные роли для модуля {{ vuln-man-name }} в {{ sd-full-name }}
 description: На данной странице приведен список сервисных ролей для управления доступом к модулю {{ vuln-man-name }} ({{ vuln-man-short-name }}) в сервисе {{ sd-name }}.
+alternate:
+  - href: ru/security-deck/security/vm-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сервисные роли для модуля {{ vuln-man-name }} ({{ vuln-man-short-name }})

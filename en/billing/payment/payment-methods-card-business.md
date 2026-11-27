@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/payment/payment-methods-card-business.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creadit or debit card payments for businesses
 
 Businesses and individual entrepreneurs can top up their personal accounts and pay for resources using a corporate credit or debit card associated with their billing account, including via the Faster Payment System (SBP).

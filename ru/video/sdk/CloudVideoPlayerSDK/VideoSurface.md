@@ -1,6 +1,10 @@
 ---
 title: VideoSurface — SDK видеоплеера {{ video-full-name }} для iOS
 description: Отображение видео с помощью VideoSurface в SDK видеоплеера {{ video-name }} для iOS.
+alternate:
+  - href: ru/video/sdk/CloudVideoPlayerSDK/VideoSurface.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # VideoSurface

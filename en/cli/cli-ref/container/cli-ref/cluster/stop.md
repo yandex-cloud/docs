@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/cluster/stop/
+alternate:
+  - href: en/cli/cli-ref/container/cli-ref/cluster/stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container cluster stop

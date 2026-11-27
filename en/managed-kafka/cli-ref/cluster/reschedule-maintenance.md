@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/cluster/reschedule-maintenance/
+alternate:
+  - href: en/managed-kafka/cli-ref/cluster/reschedule-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kafka cluster reschedule-maintenance

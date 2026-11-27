@@ -1,6 +1,10 @@
 ---
 title: Настроить логирование в {{ sws-full-name }} через {{ alb-name }}
 description: Следуя данной инструкции, вы сможете настроить логирование в {{ sws-full-name }} через {{ alb-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/configure-logging-alb.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить логирование через {{ alb-name }}

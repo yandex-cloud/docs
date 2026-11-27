@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/audit-trails/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как начать работать с {{ at-name }}
 
 {{ at-name }} собирает [аудитные логи](./concepts/format.md) ресурсов {{ yandex-cloud }} для контроля действий с ресурсами и событий доступа. Логи можно загружать в [бакет](../storage/concepts/bucket.md) {{ objstorage-full-name }}, в [проект](*monium-folder-project) {{ monium-logs-name }} или [поток данных](../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}.

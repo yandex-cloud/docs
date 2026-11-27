@@ -2,6 +2,10 @@
 title: Quotas and limits in {{ captcha-full-name }}
 description: '{{ captcha-full-name }} sets a quota for the maximum number of CAPTCHAs per cloud. For more information about the service restrictions, read this article.'
 editable: false
+alternate:
+  - href: en/smartcaptcha/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits {{ captcha-name }}

@@ -1,6 +1,10 @@
 ---
 title: Идемпотентность в API
 description: Из статьи вы узнаете про механизм идемпотентности, а также ознакомитесь с примерами идемпотентных операций.
+alternate:
+  - href: ru/api-design-guide/concepts/idempotency.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Идемпотентность

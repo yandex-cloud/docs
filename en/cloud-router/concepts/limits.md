@@ -2,6 +2,11 @@
 title: Quotas and limits in {{ cloud-router-full-name }}
 description: In this article, you will learn about quotas and limits in {{ cloud-router-name }}.
 editable: false
+noIndex: true
+alternate:
+  - href: en/cloud-router/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cloud-router-name }} quotas and limits

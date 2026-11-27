@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ api-gw-full-name }}
 description: В разделе представлена история изменений сервиса {{ api-gw-name }}.
+alternate:
+  - href: ru/api-gateway/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ api-gw-full-name }}

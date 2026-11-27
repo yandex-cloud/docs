@@ -1,6 +1,10 @@
 ---
 title: Обработка ошибок в API {{ yandex-cloud }}
 description: Из статьи вы узнаете, как обрабатываются ошибки в API {{ yandex-cloud }}.
+alternate:
+  - href: ru/api-design-guide/concepts/errors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обработка ошибок в API {{ yandex-cloud }}

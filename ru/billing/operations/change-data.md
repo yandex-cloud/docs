@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/operations/change-data.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить данные платежного аккаунта
 
 Данные платежного аккаунта может менять только владелец — пользователь с ролью `billing.accounts.owner`. Подробная информация в разделе [Управление доступом](../security/index.md).

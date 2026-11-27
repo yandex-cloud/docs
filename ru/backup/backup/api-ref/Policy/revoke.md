@@ -29,6 +29,10 @@ apiPlayground:
         - computeInstanceId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/backup/backup/api-ref/Policy/revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Policy.Revoke

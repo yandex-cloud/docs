@@ -1,6 +1,10 @@
 ---
 title: OAuth-токен
 description: Из статьи вы узнаете, что такое OAuth-токен, зачем он нужен, какие у него формат и время жизни, а также какие сервисы поддерживают этот способ аутентификации.
+alternate:
+  - href: ru/iam/concepts/authorization/oauth-token.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OAuth-токен

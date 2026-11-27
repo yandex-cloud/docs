@@ -1,6 +1,10 @@
 ---
 title: Удалить канал push-уведомлений в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете удалить канал push-уведомлений.
+alternate:
+  - href: ru/notifications/operations/push/channel-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить канал push-уведомлений

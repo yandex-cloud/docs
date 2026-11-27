@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ datalens-full-name }}
 description: В разделе описаны сценарии использования сервиса {{ datalens-full-name }}. Визуализация данных из CSV-файла, создание и публикация диаграммы с картой Москвы из CSV-файла, анализ продаж сети магазинов из БД {{ CH }}, анализ открытых данных ДТП на дорогах России
+alternate:
+  - href: ru/datalens/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ datalens-name }}

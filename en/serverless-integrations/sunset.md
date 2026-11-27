@@ -1,6 +1,10 @@
 ---
 title: '{{ si-full-name }} is decommissioned'
 description: '{{ si-full-name }} ceased to operate.'
+alternate:
+  - href: en/serverless-integrations/sunset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ si-full-name }} is decommissioned

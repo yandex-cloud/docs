@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/speechkit-hybrid/operations/tls-proxy.md
+    type: text/markdown
+    title: Markdown version
+---
 # TLS termination
 
 When working with {{ sk-hybrid-name }}, you can enable the [TLS termination](https://en.wikipedia.org/wiki/TLS_termination_proxy) to ensure security of your speech synthesis or recognition data when transmitted over a public network. In this case, the source data received by the Envoy server in clear text will be transmitted over a secure connection.

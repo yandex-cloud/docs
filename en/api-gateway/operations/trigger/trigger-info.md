@@ -1,6 +1,10 @@
 ---
 title: How to get information about a trigger in {{ api-gw-full-name }}
 description: In this guide, you will learn how to get information about a trigger in {{ api-gw-full-name }}.
+alternate:
+  - href: en/api-gateway/operations/trigger/trigger-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a trigger in {{ api-gw-name }}

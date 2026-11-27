@@ -1,6 +1,10 @@
 ---
 title: Способы оплаты для физических лиц
 description: В этой статье вы узнаете, как физические лица могут пополнять лицевой счет и оплачивать потребленные ресурсы.
+alternate:
+  - href: ru/billing/payment/payment-methods-individual.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Способы оплаты для физических лиц

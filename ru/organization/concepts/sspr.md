@@ -1,6 +1,10 @@
 ---
 title: Самостоятельный сброс пароля пользователем в {{ org-full-name }}
 description: Настройками политики MFA локальным пользователям может быть разрешен самостоятельный сброс пароля без участия администратора.
+alternate:
+  - href: ru/organization/concepts/sspr.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Самостоятельный сброс пароля пользователем в {{ org-full-name }}

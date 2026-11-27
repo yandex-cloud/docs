@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/tools/rclone.md
+    type: text/markdown
+    title: Markdown version
+---
 # rclone
 
 [rclone](https://rclone.org) is a tool for mounting {{ objstorage-name }} buckets using [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) on Linux, macOS, and Windows platforms.

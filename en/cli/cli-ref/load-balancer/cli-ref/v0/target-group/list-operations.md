@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/load-balancer/cli-ref/v0/target-group/list-operations/
+alternate:
+  - href: en/cli/cli-ref/load-balancer/cli-ref/v0/target-group/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc load-balancer v0 target-group list-operations

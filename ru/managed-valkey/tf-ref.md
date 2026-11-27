@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ mrd-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mrd-name }}.
+alternate:
+  - href: ru/managed-valkey/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ mrd-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ cdn-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ cdn-name }}.
+alternate:
+  - href: ru/cdn/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ cdn-name }}

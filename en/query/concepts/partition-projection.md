@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/concepts/partition-projection.md
+    type: text/markdown
+    title: Markdown version
+---
 # Partition projection
 
 [Partitioning](partitioning.md) allows you to prompt {{ yq-full-name }} which rules should be used for storing data in {{ objstorage-full-name }}.

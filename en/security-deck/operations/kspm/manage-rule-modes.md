@@ -1,6 +1,10 @@
 ---
 title: Managing the operating modes of security control rules in {{ kspm-name }}
 description: Guide for managing the operating modes of security control rules in {{ k8s }}® Security Posture Management ({{ kspm-name }}) in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/kspm/manage-rule-modes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing the operating modes of security control rules of {{ kspm-name }}

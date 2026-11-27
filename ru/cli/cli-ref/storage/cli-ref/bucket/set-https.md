@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/bucket/set-https/
+alternate:
+  - href: ru/cli/cli-ref/storage/cli-ref/bucket/set-https.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc storage bucket set-https

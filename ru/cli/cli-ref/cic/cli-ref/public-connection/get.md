@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/public-connection/get/
+alternate:
+  - href: ru/cli/cli-ref/cic/cli-ref/public-connection/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cic public-connection get

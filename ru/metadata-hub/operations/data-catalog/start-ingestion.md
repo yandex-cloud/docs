@@ -1,6 +1,10 @@
 ---
 title: Запуск и остановка загрузки данных в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы запустите или остановите загрузку данных в {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/start-ingestion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запуск и остановка загрузки

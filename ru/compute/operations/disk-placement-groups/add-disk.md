@@ -1,6 +1,10 @@
 ---
 title: Добавить диск в группу размещения
 description: Следуя данной инструкции, вы сможете добавить диск в группу размещения.
+alternate:
+  - href: ru/compute/operations/disk-placement-groups/add-disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить диск в группу размещения

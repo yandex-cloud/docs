@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/ytsaurus/connect-api.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключиться к HTTP-прокси {{ yt-name }}
 
 После [включения компонента](enable.md) HTTP-прокси {{ YT }} публикуется на адресе `https://api.ytsaurus.<домен_системы>`. Прокси принимает запросы через [{{ YT }} CLI](https://ytsaurus.tech/docs/ru/api/cli/install), [Python SDK](https://ytsaurus.tech/docs/ru/api/python/start) и другие клиенты {{ YT }}.

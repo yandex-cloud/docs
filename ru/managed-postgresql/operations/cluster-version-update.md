@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обновление версии {{ PG }}
 
 {% include [auto-update-of-deprecated-cluster](../../_includes/mdb/auto-update-of-deprecated-cluster.md) %}

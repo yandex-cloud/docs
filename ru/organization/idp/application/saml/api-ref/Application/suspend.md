@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/idp/application/saml/api-ref/Application/suspend.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: Application.Suspend

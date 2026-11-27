@@ -1,6 +1,10 @@
 ---
 title: Интеграция с {{ marketplace-short-name }} {{ cloud-apps-name }} Workload API
 description: Вы научитесь взаимодействовать с {{ cloud-apps-full-name }} Workload API для интеграции вашего приложения с {{ marketplace-full-name }}.
+alternate:
+  - href: ru/marketplace/cloudapps/workload/api-ref/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ marketplace-short-name }} {{ cloud-apps-name }} Workload API

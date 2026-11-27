@@ -1,6 +1,10 @@
 ---
 title: Удаление потока данных в AWS SDK
 description: Следуя данной инструкции, вы сможете удалить поток данных в AWS SDK.
+alternate:
+  - href: ru/data-streams/operations/aws-sdk/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление потока данных в AWS SDK

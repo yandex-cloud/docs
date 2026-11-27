@@ -191,6 +191,10 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/smartwebsecurity/custom_page/api-ref/CustomPage/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity CustomPage API, REST: CustomPage.Create

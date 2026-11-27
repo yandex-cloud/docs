@@ -1,6 +1,10 @@
 ---
 title: Долгоживущие контейнеры {{ serverless-containers-full-name }}
 description: На данной странице описаны особенности работы долгоживущих контейнеров {{ serverless-containers-name }} — контейнеров с таймаутом выполнения до одного часа.
+alternate:
+  - href: ru/serverless-containers/concepts/long-lived-containers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Долгоживущие контейнеры

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/speechsense/configure.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuring and activating {{ speechsense-name }}
 
 Once the [images are uploaded](install-images.md), activate the {{ speechsense-name }} component in the {{ stackland-name }} cluster.

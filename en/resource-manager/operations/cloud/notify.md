@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/resource-manager/operations/cloud/notify.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting notifications from services in a cloud
 
 By default, cloud owners (all users with the `resource-manager.clouds.owner` role) get notifications in the cloud.

@@ -1,5 +1,9 @@
 ---
 subcategory: Identity Hub
+alternate:
+  - href: ru/terraform/resources/organization_manager_organization_iam_policy_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_organization_manager_organization_iam_policy_binding (Resource)

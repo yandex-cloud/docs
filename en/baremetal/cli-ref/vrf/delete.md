@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/vrf/delete/
+alternate:
+  - href: en/baremetal/cli-ref/vrf/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal vrf delete

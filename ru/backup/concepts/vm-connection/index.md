@@ -1,6 +1,10 @@
 ---
 title: Подключение защищаемых ресурсов к {{ backup-name }}
 description: Из этой статьи вы узнаете, какие защищаемые ресурсы можно подключить к {{ backup-name }}.
+alternate:
+  - href: ru/backup/concepts/vm-connection/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение защищаемых ресурсов к {{ backup-name }}

@@ -1,6 +1,10 @@
 ---
 title: Backups in {{ sf-full-name }}
 description: Data in {{ sf-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can get lists of functions and function versions, information about function versions, lists of triggers, and information about triggers.
+alternate:
+  - href: en/functions/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backups in {{ sf-name }}

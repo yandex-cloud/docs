@@ -1,6 +1,10 @@
 ---
 title: Tips for configuring and using Delta Lake
 description: This article gives you tips on how to configure and use Delta Lake.
+alternate:
+  - href: en/data-proc/operations/deltalake/tips.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Tips for setting up and using Delta Lake

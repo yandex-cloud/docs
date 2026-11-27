@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ video-full-name }} video broadcasts
 description: To start a {{ video-name }} video broadcast, create a line and configure OBS.
+alternate:
+  - href: en/video/streaming.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with a video broadcast in {{ video-full-name }}

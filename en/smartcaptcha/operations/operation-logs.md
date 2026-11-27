@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/smartcaptcha/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing operations on {{ captcha-name }} resources
 
 The system logs all actions on {{ captcha-name }} resources in an operation list. Each operation gets a unique ID.

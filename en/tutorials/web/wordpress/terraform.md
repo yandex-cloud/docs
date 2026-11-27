@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/tutorials/web/wordpress/terraform.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a WordPress website using {{ TF }}
 
 To create and set up a [WordPress website](index.md) using {{ TF }}:

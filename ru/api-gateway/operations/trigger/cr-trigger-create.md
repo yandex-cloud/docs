@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/operations/trigger/cr-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать триггер для {{ container-registry-name }}, который отправляет сообщения в WebSocket-соединения
 
 Создайте [триггер для {{ container-registry-name }}](../../concepts/trigger/cr-trigger.md), который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) при создании и удалении [Docker-образов](../../../container-registry/concepts/docker-image.md) {{ container-registry-name }} или их тегов.

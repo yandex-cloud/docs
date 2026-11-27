@@ -1,6 +1,10 @@
 ---
 title: Создание строковых и колоночных таблиц в базе данных {{ ydb-short-name }}
 description: В инструкции описаны свойства ресурса yandex_ydb_table для создания строковых и колоночных таблиц в {{ ydb-short-name }}.
+alternate:
+  - href: ru/ydb/terraform/tables.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание строковых и колоночных таблиц в базе данных

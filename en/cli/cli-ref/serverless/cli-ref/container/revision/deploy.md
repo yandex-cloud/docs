@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/container/revision/deploy/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/container/revision/deploy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless container revision deploy

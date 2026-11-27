@@ -26,6 +26,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-greenplum/api-ref/PXFDatasource/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: PXFDatasource.Delete

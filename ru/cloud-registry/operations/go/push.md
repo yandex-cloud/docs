@@ -1,6 +1,10 @@
 ---
 title: Загрузить Go-модуль в реестр {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы загрузите Go-модуль в реестр {{ cloud-registry-full-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/go/push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузить Go-модуль в реестр

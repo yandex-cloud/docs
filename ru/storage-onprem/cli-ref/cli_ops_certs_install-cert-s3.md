@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_certs_install-cert-s3.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops certs install-cert-s3
 
 Install signed S3 certificate returned by client CA

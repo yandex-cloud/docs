@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Workbook/rpcgetWorkbooksList-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get workbooks list

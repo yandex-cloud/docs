@@ -1,6 +1,10 @@
 ---
 title: Создать подписку в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете подписать эндпоинт на уведомления в топике.
+alternate:
+  - href: ru/notifications/operations/topics/subscription-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать подписку

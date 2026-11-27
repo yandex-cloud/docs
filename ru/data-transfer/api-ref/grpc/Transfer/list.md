@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/data-transfer/api-ref/grpc/Transfer/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer API, gRPC: TransferService.List

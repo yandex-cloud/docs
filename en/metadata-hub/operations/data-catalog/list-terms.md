@@ -1,6 +1,10 @@
 ---
 title: Getting a list of terms in {{ data-catalog-full-name }}
 description: Follow this guide to get a list of glossary terms in {{ data-catalog-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/list-terms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of terms

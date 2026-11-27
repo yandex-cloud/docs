@@ -8,6 +8,10 @@ meta:
   description: >-
     Известные решения и советы для оптимального использования сервисов {{
     yandex-cloud }}.
+  alternate:
+    - href: ru/troubleshooting/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: '{{ billing-name }}'
     description: Решения для {{ billing-name }}

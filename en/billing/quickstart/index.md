@@ -6,6 +6,10 @@ keywords:
   - how to register in {{ yandex-cloud }}
   - "registering in the\_cloud"
   - creating an account in the cloud
+alternate:
+  - href: en/billing/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Registering a {{ yandex-cloud }} account

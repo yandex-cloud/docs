@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/marketplace/licensemanager/events-ref/DeleteLicenseInstance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace Audit Trails Events: DeleteLicenseInstance

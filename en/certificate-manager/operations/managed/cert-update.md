@@ -1,6 +1,10 @@
 ---
 title: How to update a Let's Encrypt certificate in {{ certificate-manager-full-name }}
 description: Follow this guide to update a Let's Encrypt certificate.
+alternate:
+  - href: en/certificate-manager/operations/managed/cert-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Renewing a certificate

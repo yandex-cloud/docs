@@ -7,6 +7,10 @@ keywords:
   - функции
   - вызов
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/native-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Нативные функции

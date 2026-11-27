@@ -2,6 +2,10 @@
 title: '{{ data-transfer-full-name }} metrics'
 description: In this tutorial, you will learn about {{ data-transfer-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/data-transfer-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ data-transfer-full-name }} metrics

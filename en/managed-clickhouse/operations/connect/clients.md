@@ -1,6 +1,10 @@
 ---
 title: Connecting to a {{ CH }} cluster in {{ mch-full-name }}
 description: Follow this guide to connect to a database in a {{ CH }} cluster using the command line tools, browser, graphical IDEs, and Docker container.
+alternate:
+  - href: en/managed-clickhouse/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ CH }} cluster from applications

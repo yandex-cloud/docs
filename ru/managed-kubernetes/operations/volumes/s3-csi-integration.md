@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/operations/volumes/s3-csi-integration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Интеграция с {{ objstorage-name }}
 
 {{ CSI }} позволяет динамически резервировать [бакеты](../../../storage/concepts/bucket.md) [{{ objstorage-full-name }}](../../../storage/) и монтировать их к [подам](../../concepts/index.md#pod) [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster). При этом можно монтировать уже существующие бакеты или создавать новые.

@@ -1,6 +1,10 @@
 ---
 title: How to manage MapReduce jobs in {{ dataproc-full-name }}
 description: In this guide, you will learn how to manage MapReduce jobs in {{ dataproc-full-name }}.
+alternate:
+  - href: en/data-proc/operations/jobs-mapreduce.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing MapReduce jobs

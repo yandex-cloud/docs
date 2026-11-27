@@ -2,6 +2,10 @@
 title: '{{ mmg-full-name }} pricing policy'
 description: This article covers the {{ mmg-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/storedoc/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mmg-name }} pricing policy

@@ -1,6 +1,10 @@
 ---
 title: Как создать, изменить, удалить черный или белый список IP-адресов, номеров ASN, регулярных выражений или строковых значений
 description: Следуя данной инструкции, вы сможете управлять списками IP-адресов, номеров ASN, регулярных выражений или строковых значений.
+alternate:
+  - href: ru/smartwebsecurity/operations/list-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление списками

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/kms/concepts/symmetric-encryption.md
+    type: text/markdown
+    title: Markdown version
+---
 # Симметричное шифрование в {{ kms-short-name }}
 
 Одна из доступных схем шифрования в {{ kms-short-name }} — _симметричное шифрование_. В этой схеме для шифрования и расшифрования используется один и тот же (симметричный) ключ. В {{ kms-short-name }} применяется несколько симметричных алгоритмов:

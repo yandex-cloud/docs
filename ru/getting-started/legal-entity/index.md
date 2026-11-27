@@ -1,6 +1,10 @@
 ---
 title: Начало работы для юридических лиц в {{ yandex-cloud }}
 description: 'Из этих статей вы узнаете, как юридическому лицу начать работать в {{ yandex-cloud }}. Отвечаем на частые вопросы: платежный аккаунт и платное потребление; стартовый грант; документы.'
+alternate:
+  - href: ru/getting-started/legal-entity/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы для юридических лиц

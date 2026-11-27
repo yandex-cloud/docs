@@ -1,6 +1,10 @@
 ---
 title: Integration with {{ objstorage-name }} in {{ mgl-full-name }}
 description: Follow this guide to enable storing {{ GL }} data in {{ objstorage-name }}.
+alternate:
+  - href: en/managed-gitlab/operations/objstorage-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Integration with {{ objstorage-name }}

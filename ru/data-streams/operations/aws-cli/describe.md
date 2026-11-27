@@ -1,6 +1,10 @@
 ---
 title: Получение информации о потоке
 description: Следуя данной инструкции, вы сможете получить информацию о потоке.
+alternate:
+  - href: ru/data-streams/operations/aws-cli/describe.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации о потоке

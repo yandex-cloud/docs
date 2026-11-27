@@ -3,6 +3,10 @@ title: How to create a skill for Alice using the management console, CLI, or API
 description: In this tutorial, you will learn how to create a skill for Alice using serverless technology via the {{ yandex-cloud }} management console, CLI, or API.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/alice-skill/console'
+alternate:
+  - href: en/functions/tutorials/alice-skill/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a skill for Alice using serverless technology via the management console, {{ yandex-cloud }} CLI, or API

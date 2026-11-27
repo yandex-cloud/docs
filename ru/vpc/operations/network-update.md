@@ -1,6 +1,10 @@
 ---
 title: Изменить облачную сеть
 description: Следуя данной инструкции, вы сможете изменить параметры облачной сети.
+alternate:
+  - href: ru/vpc/operations/network-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить облачную сеть

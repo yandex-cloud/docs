@@ -1,6 +1,10 @@
 ---
 title: Настроить права доступа к группе виртуальных машин
 description: Следуя данной инструкции, вы сможете настроить права доступа группе виртуальных машин.
+alternate:
+  - href: ru/compute/operations/instance-groups/access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к группе виртуальных машин

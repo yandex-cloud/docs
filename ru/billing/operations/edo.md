@@ -1,6 +1,10 @@
 ---
 title: Подключиться к электронному документообороту
 description: Следуя данной инструкции, вы сможете подключиться к электронному документообороту.
+alternate:
+  - href: ru/billing/operations/edo.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключиться к электронному документообороту

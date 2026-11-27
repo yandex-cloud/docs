@@ -1,6 +1,10 @@
 ---
 title: Метод PutEmailIdentityDkimSigningAttributes в API Amazon для {{ postbox-full-name }}
 description: Из статьи вы узнаете, как с помощью метода PutEmailIdentityDkimSigningAttributes перепроверить DKIM-подпись адреса в {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/put-email-identity-dkim-signing-attributes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метод PutEmailIdentityDkimSigningAttributes

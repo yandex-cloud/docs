@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-trino/operations/cluster-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing {{ TR }} cluster logs
 
 {{ mtr-name }} allows you to [get a cluster log snippet](#get-log) for the selected period.

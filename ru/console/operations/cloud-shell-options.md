@@ -1,6 +1,10 @@
 ---
 title: Управление {{ cloud-shell-name }}
 description: В данной инструкции рассматриваются настройки и возможности управления {{ cloud-shell-name }} в интерфейсе консоли.
+alternate:
+  - href: ru/console/operations/cloud-shell-options.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление {{ cloud-shell-name }}

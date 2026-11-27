@@ -1,6 +1,10 @@
 ---
 title: Trunks in {{ interconnect-full-name }}
 description: In this article, you will learn about the features and parameters of a trunk.
+alternate:
+  - href: en/interconnect/concepts/trunk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Trunk 

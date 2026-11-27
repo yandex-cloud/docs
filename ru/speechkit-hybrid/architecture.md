@@ -1,6 +1,11 @@
 ---
 title: Архитектура сервиса {{ sk-hybrid-name }}
 description: Из статьи вы узнаете, из каких компонентов состоит сервис {{ sk-hybrid-name }}.
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/architecture.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Архитектура сервиса {{ sk-hybrid-name }}

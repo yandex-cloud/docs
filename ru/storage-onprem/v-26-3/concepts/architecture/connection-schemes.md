@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/connection-schemes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Схемы подключения
 
 ## Предпочтительная схема подключения (LACP in stack switch) {#preferred-scheme}

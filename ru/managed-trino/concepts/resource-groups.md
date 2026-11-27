@@ -1,6 +1,10 @@
 ---
 title: Ресурсные группы в {{ mtr-name }}
 description: ''
+alternate:
+  - href: ru/managed-trino/concepts/resource-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ресурсные группы в {{ mtr-name }}

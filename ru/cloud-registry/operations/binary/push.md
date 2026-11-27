@@ -1,6 +1,10 @@
 ---
 title: Загрузить binary-артефакт в реестр {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы загрузите binary-артефакт в реестр {{ cloud-registry-full-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/binary/push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузить binary-артефакт в реестр

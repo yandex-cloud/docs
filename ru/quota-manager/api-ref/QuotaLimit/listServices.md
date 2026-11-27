@@ -31,6 +31,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/quota-manager/api-ref/QuotaLimit/listServices.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quota Manager API, REST: QuotaLimit.ListServices

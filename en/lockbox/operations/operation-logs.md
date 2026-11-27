@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/lockbox/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing operations with a secret
 
 The system logs all actions with {{ lockbox-name }} resources as a list of operations. Each operation gets a unique ID.

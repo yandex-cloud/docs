@@ -2,6 +2,10 @@
 title: '{{ container-registry-full-name }} pricing policy'
 description: This article covers the {{ container-registry-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/container-registry/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ container-registry-name }} pricing policy

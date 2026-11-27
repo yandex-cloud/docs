@@ -1,6 +1,10 @@
 ---
 title: '{{ metastore-full-name }}. Troubleshooting'
 description: How do I fix the error I get when creating a DB in {{ metastore-name }}? Find the answer to this and other questions in this article.
+alternate:
+  - href: en/metadata-hub/qa/metastore-qa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting in {{ metastore-full-name }}

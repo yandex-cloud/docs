@@ -1,6 +1,10 @@
 ---
 title: Adding a test phone number in {{ cns-full-name }}
 description: Follow this guide to add a test phone number.
+alternate:
+  - href: en/notifications/operations/sms/test-number-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a test phone number

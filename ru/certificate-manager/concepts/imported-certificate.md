@@ -1,6 +1,10 @@
 ---
 title: Пользовательский сертификат в {{ certificate-manager-full-name }}
 description: Из статьи вы узнаете, что такое пользовательский сертификат.
+alternate:
+  - href: ru/certificate-manager/concepts/imported-certificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пользовательский сертификат

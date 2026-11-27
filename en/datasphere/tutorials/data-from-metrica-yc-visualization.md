@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/datalens/data-from-metrica-yc-visualization'
+alternate:
+  - href: en/datasphere/tutorials/data-from-metrica-yc-visualization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Web analytics with funnels and cohorts calculated based on Yandex Metrica data

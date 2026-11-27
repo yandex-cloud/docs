@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/list/
+alternate:
+  - href: ru/managed-mysql/cli-ref/v0/backup-retention-policy/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mysql v0 backup-retention-policy list

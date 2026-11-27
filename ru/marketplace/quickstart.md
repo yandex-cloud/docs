@@ -1,6 +1,10 @@
 ---
 title: Как разместить свой продукт в {{ marketplace-full-name }}
 description: Следуя данной инструкции, вы сможете разместить свой продукт в {{ marketplace-full-name }}.
+alternate:
+  - href: ru/marketplace/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как разместить свой продукт в {{ marketplace-full-name }}

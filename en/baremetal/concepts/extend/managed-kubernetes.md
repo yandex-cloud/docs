@@ -1,6 +1,10 @@
 ---
 title: '{{ baremetal-extend-managed-k8s-name }}'
 description: In this article, you will learn about {{ baremetal-extend-managed-k8s-name }}.
+alternate:
+  - href: en/baremetal/concepts/extend/managed-kubernetes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ baremetal-extend-managed-k8s-name }}

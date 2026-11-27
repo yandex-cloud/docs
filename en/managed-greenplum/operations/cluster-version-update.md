@@ -1,6 +1,10 @@
 ---
 title: How to change a cluster version in {{ mgp-full-name }}
 description: Follow this guide to change a {{ GP }} cluster version.
+alternate:
+  - href: en/managed-greenplum/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mgp-full-name }} version upgrade

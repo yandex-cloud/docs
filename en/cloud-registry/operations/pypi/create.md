@@ -1,6 +1,10 @@
 ---
 title: Creating a Python package
 description: Follow this guide to create a Python package for pushing to {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/pypi/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a Python package

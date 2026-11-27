@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/metadata-hub/connection-manager/api-ref/grpc/Connection/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connection Manager API, gRPC: ConnectionService

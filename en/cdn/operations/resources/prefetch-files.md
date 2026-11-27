@@ -1,6 +1,10 @@
 ---
 title: How to forcibly upload files to the CDN server cache in {{ cdn-full-name }}
 description: Follow this guide to forcibly upload content to the CDN server cache.
+alternate:
+  - href: en/cdn/operations/resources/prefetch-files.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Forced file upload to the CDN server cache

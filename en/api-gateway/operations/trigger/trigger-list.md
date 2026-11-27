@@ -1,6 +1,10 @@
 ---
 title: How to get a list of triggers in {{ api-gw-full-name }}
 description: In this guide, you will learn how to get a list of triggers in {{ api-gw-full-name }}.
+alternate:
+  - href: en/api-gateway/operations/trigger/trigger-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of triggers in {{ api-gw-name }}

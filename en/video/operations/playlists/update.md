@@ -1,6 +1,10 @@
 ---
 title: How to edit a playlist in {{ video-full-name }}
 description: Follow this guide to edit a playlist in {{ video-name }}.
+alternate:
+  - href: en/video/operations/playlists/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a playlist

@@ -1,6 +1,10 @@
 ---
 title: Как включить доступ по {{ oslogin }} в организации
 description: Следуя данной инструкции, вы сможете включить в организации доступ к виртуальным машинам и узлам кластеров {{ k8s }} по {{ oslogin }}.
+alternate:
+  - href: ru/organization/operations/os-login-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включить доступ по {{ oslogin }}

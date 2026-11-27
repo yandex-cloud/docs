@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/oslogin/profile/set-default/
+alternate:
+  - href: en/cli/cli-ref/organization-manager/cli-ref/v0/oslogin/profile/set-default.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager v0 oslogin profile set-default

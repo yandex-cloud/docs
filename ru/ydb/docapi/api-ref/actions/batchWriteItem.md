@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/batchWriteItem.md
+alternate:
+  - href: ru/ydb/docapi/api-ref/actions/batchWriteItem.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Метод BatchWriteItem
 

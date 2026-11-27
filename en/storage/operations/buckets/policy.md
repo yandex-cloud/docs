@@ -1,6 +1,10 @@
 ---
 title: Managing a {{ objstorage-full-name }} bucket policy
 description: Follow this guide to learn how to manage an {{ objstorage-name }} bucket policy.
+alternate:
+  - href: en/storage/operations/buckets/policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing a bucket policy

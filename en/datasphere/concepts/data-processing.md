@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/data-processing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Ways to use Apache Spark™ clusters in {{ ml-platform-name }}
 
 [{{ dataproc-full-name }}](../../data-proc/) allows you to deploy Apache Spark™ clusters. You can use {{ dataproc-name }} clusters to run distributed training.

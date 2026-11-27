@@ -9,6 +9,10 @@ keywords:
   - резервное копирование Valkey
   - backup Valkey
   - Valkey
+alternate:
+  - href: ru/managed-valkey/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Резервные копии в {{ mrd-name }}
@@ -53,6 +57,8 @@ keywords:
 * Резервные копии хранятся во внутреннем хранилище {{ yandex-cloud }} в виде логических дампов и шифруются с помощью [GPG](https://ru.wikipedia.org/wiki/GnuPG). У каждого кластера свои ключи шифрования.
 
 * Все резервные копии (автоматические и созданные вручную) хранятся 7 дней.
+
+* После удаления кластера резервные копии также хранятся 7 дней. Хранение в этот период не тарифицируется.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 

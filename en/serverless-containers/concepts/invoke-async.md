@@ -1,6 +1,10 @@
 ---
 title: Asynchronous container invocation in {{ serverless-containers-full-name }}
 description: When creating a container revision in {{ serverless-containers-name }}, you can set up an asynchronous invocation of your container without waiting for the request to complete.
+alternate:
+  - href: en/serverless-containers/concepts/invoke-async.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Asynchronous container invocation

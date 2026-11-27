@@ -1,6 +1,10 @@
 ---
 title: Удалить профиль Cloud WAF
 description: Следуя данной инструкции, вы сможете удалить профиль WAF.
+alternate:
+  - href: ru/smartwebsecurity/operations/waf-profile-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить профиль Cloud WAF

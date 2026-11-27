@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/api-ref/javascript/interfaces/PlayerSdkInitConfig.md
+    type: text/markdown
+    title: Markdown version
+---
 # Interface: PlayerSdkInitConfig
 
 PlayerSdk [initialization parameters](../../../sdk/javascript/initialization.md)

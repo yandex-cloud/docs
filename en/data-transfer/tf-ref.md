@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ data-transfer-full-name }}'
 description: This page provides reference information on the Terraform provider resources supported for {{ data-transfer-name }}.
+alternate:
+  - href: en/data-transfer/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ data-transfer-full-name }}

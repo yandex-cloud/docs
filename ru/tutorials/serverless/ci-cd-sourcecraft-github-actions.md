@@ -1,6 +1,10 @@
 ---
 title: Настройка CI/CD в {{ src-full-name }} для развертывания приложения в {{ serverless-containers-full-name }} с помощью GitHub Actions
 description: Используя готовые GitHub Actions, вы развернете приложения из репозитория {{ src-name }} в контейнере {{ serverless-containers-name }}.
+alternate:
+  - href: ru/tutorials/serverless/ci-cd-sourcecraft-github-actions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка CI/CD в {{ src-full-name }} для развертывания приложения в {{ serverless-containers-full-name }} с помощью GitHub Actions

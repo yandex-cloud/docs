@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/saml/api-ref/grpc/Certificate/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Federation API, gRPC: CertificateService.Get

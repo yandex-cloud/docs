@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/deploy/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ ds-inf }}
 
 {{ ml-platform-name }} provides tools for releasing services available to third-party resources. You can deploy a model trained in {{ ml-platform-name }} and use the same tools to develop a fully featured service based on a Docker image.

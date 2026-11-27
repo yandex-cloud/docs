@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/gateway/add-labels/
+alternate:
+  - href: ru/cli/cli-ref/vpc/cli-ref/v0/gateway/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc v0 gateway add-labels

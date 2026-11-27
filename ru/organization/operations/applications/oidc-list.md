@@ -1,6 +1,10 @@
 ---
 title: Как получить список OIDC-приложений в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете получить список OIDC-приложений в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/applications/oidc-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список OIDC-приложений в {{ org-full-name }}

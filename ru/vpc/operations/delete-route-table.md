@@ -1,6 +1,10 @@
 ---
 title: Как удалить таблицу маршрутизации в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете удалить таблицу маршрутизации.
+alternate:
+  - href: ru/vpc/operations/delete-route-table.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить таблицу маршрутизации

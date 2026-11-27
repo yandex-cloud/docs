@@ -87,6 +87,10 @@ apiPlayground:
               Optional. Tax identification number of the person.
               String length is not limited.
             type: string
+alternate:
+  - href: en/billing/api-ref/Customer/invite.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, REST: Customer.Invite

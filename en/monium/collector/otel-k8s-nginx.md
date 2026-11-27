@@ -1,6 +1,10 @@
 ---
 title: Setting up Nginx telemetry collection
 description: How to set up an Nginx web server in a {{ k8s }} cluster and send telemetry to {{ monium-name }}.
+alternate:
+  - href: en/monium/collector/otel-k8s-nginx.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up Nginx telemetry collection in {{ k8s }}

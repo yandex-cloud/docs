@@ -1,6 +1,10 @@
 ---
 title: Encrypting an image in {{ compute-full-name }}
 description: Follow this guide to encrypt a disk image in {{ compute-short-name }}.
+alternate:
+  - href: en/compute/operations/image-control/encrypt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Encrypting an image

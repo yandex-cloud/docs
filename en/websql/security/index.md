@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ websql-name }}
 description: Access management in {{ websql-name }}, a service for working with queries to managed database clusters. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
+alternate:
+  - href: en/websql/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ websql-name }}

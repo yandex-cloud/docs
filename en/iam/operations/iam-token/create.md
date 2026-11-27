@@ -1,6 +1,10 @@
 ---
 title: How to get an IAM token for an account
 description: Follow this guide to get an IAM token for an account.
+alternate:
+  - href: en/iam/operations/iam-token/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% note info %}

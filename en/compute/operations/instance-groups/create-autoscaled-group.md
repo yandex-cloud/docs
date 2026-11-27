@@ -1,6 +1,10 @@
 ---
 title: Creating an autoscaling instance group
 description: Follow this guide to create an autoscaling instance group.
+alternate:
+  - href: en/compute/operations/instance-groups/create-autoscaled-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an autoscaling instance group

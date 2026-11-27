@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/cloud-router/scenarios/static-priority-via-vpn-gw.md
+    type: text/markdown
+    title: Markdown version
+---
 # Prioritizing a static VPC route over routes from on-prem
 
 

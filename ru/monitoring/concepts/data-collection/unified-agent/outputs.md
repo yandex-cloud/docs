@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monitoring/concepts/data-collection/unified-agent/outputs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Выходы
 
 Выход можно описать в секции `routes` внутри элемента `channel`:`output`. Либо в секции именованных каналов `channels`.

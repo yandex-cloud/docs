@@ -9,6 +9,11 @@ meta:
     - keyword: Рекомендации {{ yandex-cloud }}
     - keyword: Архитектурные решения
     - keyword: Пользовательские сценарии
+  noIndex: true
+  alternate:
+    - href: ru/architecture/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     colSizes:

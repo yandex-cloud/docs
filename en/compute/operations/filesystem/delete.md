@@ -1,6 +1,10 @@
 ---
 title: Deleting a file storage
 description: Follow this guide to delete a file storage.
+alternate:
+  - href: en/compute/operations/filesystem/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a file storage

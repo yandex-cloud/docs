@@ -1,6 +1,10 @@
 ---
 title: How to unlink a VM or server from a backup policy
 description: In this article, you will learn how to unlink a VM or server from a backup policy.
+alternate:
+  - href: en/backup/operations/policy-vm/detach-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Unlinking a resource from a backup policy

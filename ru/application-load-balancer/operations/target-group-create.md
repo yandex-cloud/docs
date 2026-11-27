@@ -1,6 +1,10 @@
 ---
 title: Создать целевую группу {{ alb-full-name }}
 description: Для создания целевой группы {{ alb-full-name }} необходимо в консоли управления выбрать каталог, в котором будет создаваться целевая группа. Перейдите в сервис {{ alb-name }}. В меню слева выберите Целевые группы. Нажмите кнопку Создать целевую группу. Введите имя целевой группы. Выберите ВМ. Нажмите кнопку Создать.
+alternate:
+  - href: ru/application-load-balancer/operations/target-group-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать целевую группу {{ alb-name }}

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/video/api-ref/Episode/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Episode

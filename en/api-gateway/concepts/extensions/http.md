@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/http.md
+    type: text/markdown
+    title: Markdown version
+---
 # x-yc-apigateway-integration:http extension
 
 The `x-yc-apigateway-integration:http` extension redirects a request to the relevant URL.

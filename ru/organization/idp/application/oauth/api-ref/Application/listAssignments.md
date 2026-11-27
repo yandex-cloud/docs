@@ -40,6 +40,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/idp/application/oauth/api-ref/Application/listAssignments.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # OAUTH Application API, REST: Application.ListAssignments

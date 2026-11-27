@@ -1,6 +1,10 @@
 ---
 title: '{{ dataproc-full-name }} release notes'
 description: This section contains the {{ dataproc-name }} release notes.
+alternate:
+  - href: en/data-proc/release-notes/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ dataproc-full-name }} release notes

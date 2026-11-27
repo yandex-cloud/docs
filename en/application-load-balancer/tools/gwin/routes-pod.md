@@ -1,6 +1,10 @@
 ---
 title: Routing {{ alb-name }} traffic directly to {{ managed-k8s-full-name }} cluster pods with Gwin
 description: Learn about the features of routing {{ alb-full-name }} traffic directly to {{ managed-k8s-name }} cluster pods with Gwin and set it up.
+alternate:
+  - href: en/application-load-balancer/tools/gwin/routes-pod.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

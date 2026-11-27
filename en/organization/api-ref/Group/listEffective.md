@@ -60,6 +60,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/organization/api-ref/Group/listEffective.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: Group.ListEffective

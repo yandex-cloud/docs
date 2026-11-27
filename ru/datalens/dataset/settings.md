@@ -1,6 +1,10 @@
 ---
 title: Настройки датасета в {{ datalens-full-name }}
 description: Настройки датасета в {{ datalens-full-name }} определяют, каким образом датасет будет работать с данными источника.
+alternate:
+  - href: ru/datalens/dataset/settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройки датасета в {{ datalens-full-name }}

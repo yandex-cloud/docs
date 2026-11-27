@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/applications/gatekeeper.md
+    type: text/markdown
+    title: Markdown version
+---
 # Installing Gatekeeper
 
 [Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/) is a customizable [policy](../../concepts/network-policy.md) controller and auditor for {{ k8s }}. Gatekeeper accepts incoming requests to clusters and audits them in real time to make sure they comply with predefined policies.

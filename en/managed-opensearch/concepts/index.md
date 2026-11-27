@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-opensearch/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Resource relationships in {{ mos-name }}
 
 

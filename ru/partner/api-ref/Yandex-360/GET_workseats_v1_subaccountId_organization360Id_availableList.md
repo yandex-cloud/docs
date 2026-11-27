@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Yandex-360/GET_workseats_v1_subaccountId_organization360Id_availableList.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get list of available tariffs for organization 360

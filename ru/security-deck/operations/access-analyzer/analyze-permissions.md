@@ -1,6 +1,10 @@
 ---
 title: Диагностика доступов в модуле {{ sd-full-name }} {{ access-analyzer-name }}
 description: В данном разделе вы узнаете, как в {{ sd-full-name }} можно посмотреть права доступа, назначенные аккаунту или группе к ресурсам организации, и отозвать такие права доступа.
+alternate:
+  - href: ru/security-deck/operations/access-analyzer/analyze-permissions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика доступов в модуле {{ access-analyzer-name }}

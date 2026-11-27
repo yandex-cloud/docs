@@ -1,6 +1,10 @@
 ---
 title: Подключение к {{ backup-full-name }} виртуальных машин и серверов, расположенных вне {{ yandex-cloud }}
 description: Из этой статьи вы узнаете, как подключить к {{ backup-full-name }} виртуальные машины и серверы, расположенные в собственной инфраструктуре пользователя или инфраструктуре стороннего провайдера.
+alternate:
+  - href: ru/backup/concepts/vm-connection/external-resources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к {{ backup-name }} виртуальных машин и серверов, расположенных за пределами {{ yandex-cloud }} 

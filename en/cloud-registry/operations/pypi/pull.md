@@ -1,6 +1,10 @@
 ---
 title: Pulling a Python package from a {{ cloud-registry-name }}
 description: Follow this guide to pull a Python package from a {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/pypi/pull.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pulling a Python package from a {{ cloud-registry-name }}

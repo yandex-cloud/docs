@@ -1,6 +1,10 @@
 ---
 title: How to set up an HTTP response in {{ cdn-full-name }}
 description: Follow this guide to set up an HTTP response.
+alternate:
+  - href: en/cdn/operations/resources/configure-response.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up HTTP responses

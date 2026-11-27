@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/smartcaptcha/concepts/validation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Валидация пользователя
 
 {{ captcha-name }} проверяет запросы пользователей своими ML-алгоритмами и показывает [задание](./tasks.md) только тем пользователям, запросы которых посчитает подозрительными.

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/functions/functions/api-ref/grpc/Function/getFunctionVersion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, gRPC: FunctionService.GetFunctionVersion

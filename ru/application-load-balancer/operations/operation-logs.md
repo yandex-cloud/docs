@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/application-load-balancer/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Посмотреть операции с ресурсами сервиса {{ alb-name }}
 
 Все действия с ресурсами сервиса {{ alb-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.

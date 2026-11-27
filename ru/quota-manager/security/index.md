@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ quota-manager-full-name }}
 description: Управление квотами ваших ресурсов — {{ quota-manager-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
+alternate:
+  - href: ru/quota-manager/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ quota-manager-name }}

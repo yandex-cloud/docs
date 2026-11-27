@@ -1,6 +1,10 @@
 ---
 title: Как добавить информацию о подключении в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить информацию о подключении в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/add-description.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление информации о подключении в {{ datalens-full-name }}

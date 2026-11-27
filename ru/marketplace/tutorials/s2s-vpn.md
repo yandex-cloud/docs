@@ -10,6 +10,10 @@ keywords:
   - S2S VPN
   - strongSwan VPN
 canonical: '{{ link-docs }}/tutorials/routing/ipsec/s2s-vpn'
+alternate:
+  - href: ru/marketplace/tutorials/s2s-vpn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [s2s-vpn](../../_tutorials/infrastructure/ipsec/s2s-vpn.md) %}

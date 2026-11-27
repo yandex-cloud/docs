@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for SPQR
+alternate:
+  - href: en/terraform/resources/mdb_sharded_postgresql_cluster_change_freeze.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_sharded_postgresql_cluster_change_freeze (Resource)

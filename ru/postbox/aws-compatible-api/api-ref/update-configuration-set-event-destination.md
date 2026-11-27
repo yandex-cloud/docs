@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/update-configuration-set-event-destination.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод UpdateConfigurationSetEventDestination
 
 Обновляет [подписку](../../concepts/glossary.md#subscription) для [конфигурации](../../concepts/glossary.md#configuration) в каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.

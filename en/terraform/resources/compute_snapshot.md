@@ -1,5 +1,9 @@
 ---
 subcategory: Compute Cloud
+alternate:
+  - href: en/terraform/resources/compute_snapshot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_compute_snapshot (Resource)

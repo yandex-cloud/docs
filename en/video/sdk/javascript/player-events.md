@@ -1,6 +1,10 @@
 ---
 title: '{{ video-player-name }} events in the JavaScript SDK'
 description: This page describes possible {{ video-player-name }} events to which you can subscribe in the JavaScript SDK.
+alternate:
+  - href: en/video/sdk/javascript/player-events.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Player events

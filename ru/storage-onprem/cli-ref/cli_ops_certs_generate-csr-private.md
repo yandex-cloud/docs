@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_certs_generate-csr-private.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops certs generate-csr-private
 
 Generate CSR for Private ingress certificate via cert-manager

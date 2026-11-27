@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/operations/metadata-options.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настроить параметры сервиса метаданных контейнера
 
 Настроить параметры сервиса метаданных вы можете при [создании ревизии контейнера](manage-revision.md).

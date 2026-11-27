@@ -1,6 +1,10 @@
 ---
 title: Checking target health statuses
 description: Follow this guide to check the health status of your targets.
+alternate:
+  - href: en/network-load-balancer/operations/check-resource-health.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Checking target health statuses

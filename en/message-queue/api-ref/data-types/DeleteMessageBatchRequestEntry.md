@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/data-types/DeleteMessageBatchRequestEntry.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteMessageBatchRequestEntry
 
 The `ReceiptHandle` parameter and its ID.

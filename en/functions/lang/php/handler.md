@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/php/handler.md
+    type: text/markdown
+    title: Markdown version
+---
 # Request handler for a function in PHP
 
 A _request handler_ is a method used to process each PHP function call. When creating a function version, you should must the entry point that consists of the file name and the request handler name, e.g., `index.myFunction`.

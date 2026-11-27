@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cloud-registry/operations/docker/installation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Установить и настроить Docker в {{ cloud-registry-name }}
 
 Перед началом работы с {{ cloud-registry-name }} необходимо установить и настроить [Docker](https://www.docker.com/) на локальном компьютере.

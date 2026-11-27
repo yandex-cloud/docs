@@ -133,6 +133,10 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/Replica'
+alternate:
+  - href: en/managed-clickhouse/api-ref/Cluster/updateShardGroup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.UpdateShardGroup

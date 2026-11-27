@@ -1,6 +1,10 @@
 ---
 title: Auditing processes and applications on {{ k8s }} worker nodes
 description: This rule set covers the inventory and audit of various OS-level properties, components, and process executions across {{ k8s }} worker nodes.
+alternate:
+  - href: en/security-deck/concepts/standard-compliance/inventory-k8s-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Auditing processes and applications on {{ k8s }} worker nodes

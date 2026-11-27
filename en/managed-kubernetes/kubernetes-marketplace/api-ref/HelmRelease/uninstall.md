@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/managed-kubernetes/kubernetes-marketplace/api-ref/HelmRelease/uninstall.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Kubernetes Marketplace, REST: HelmRelease.Uninstall

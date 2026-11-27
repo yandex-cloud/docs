@@ -1,6 +1,10 @@
 ---
 title: Мониторинг в {{ objstorage-onprem-name }}
 description: Метрики, дашборды и логи {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/monitoring/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг

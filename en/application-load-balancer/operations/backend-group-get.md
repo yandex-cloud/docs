@@ -1,5 +1,9 @@
 ---
 title: How to get backend group information in {{ alb-full-name }}
+alternate:
+  - href: en/application-load-balancer/operations/backend-group-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a backend group

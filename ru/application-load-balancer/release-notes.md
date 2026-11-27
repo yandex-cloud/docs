@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ alb-full-name }}
 description: В разделе представлена история изменений сервиса {{ alb-name }}.
+alternate:
+  - href: ru/application-load-balancer/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ alb-full-name }}

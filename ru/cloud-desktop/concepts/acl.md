@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cloud-desktop/concepts/acl.md
+    type: text/markdown
+    title: Markdown version
+---
 # Список управления доступом (ACL)
 
 В {{ cloud-desktop-full-name }} управление доступом реализовано с помощью [разграничения ролей {{ iam-full-name }}](../security/index.md).

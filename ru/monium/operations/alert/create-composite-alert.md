@@ -1,6 +1,10 @@
 ---
 title: Создание композитного алерта
 description: Следуя данной инструкции, вы сможете создать композитный алерт.
+alternate:
+  - href: ru/monium/operations/alert/create-composite-alert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание композитного алерта

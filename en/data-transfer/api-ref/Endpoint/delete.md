@@ -16,6 +16,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/data-transfer/api-ref/Endpoint/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer API, REST: Endpoint.Delete

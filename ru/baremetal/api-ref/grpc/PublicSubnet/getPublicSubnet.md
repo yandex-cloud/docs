@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/baremetal/api-ref/grpc/PublicSubnet/getPublicSubnet.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, gRPC: PublicSubnetService.GetPublicSubnet

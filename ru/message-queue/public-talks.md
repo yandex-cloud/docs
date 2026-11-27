@@ -1,6 +1,10 @@
 ---
 title: Публичные материалы про сервис {{ message-queue-full-name }}
 description: Из статьи вы узнаете, какие публичные материалы про сервис {{ message-queue-name }}.
+alternate:
+  - href: ru/message-queue/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные материалы 

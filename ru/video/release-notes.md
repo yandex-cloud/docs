@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ video-full-name }}
 description: В разделе представлена история изменений сервиса {{ video-name }}.
+alternate:
+  - href: ru/video/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ video-full-name }}

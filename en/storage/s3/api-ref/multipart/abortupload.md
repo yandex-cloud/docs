@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/multipart/abortupload.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: AbortMultipartUpload
 
 Aborts an upload and deletes all the saved object parts from {{ objstorage-name }}. If the abort upload request was received when uploading any part, no result is guaranteed.

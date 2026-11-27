@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ cloud-shell-full-name }}
 description: With {{ cloud-shell-name }}, you can use the {{ yandex-cloud }} CLI and other terminal tools directly in your browser, no prior setup required.
+alternate:
+  - href: en/console/quickstart/cloud-shell.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ cloud-shell-full-name }}

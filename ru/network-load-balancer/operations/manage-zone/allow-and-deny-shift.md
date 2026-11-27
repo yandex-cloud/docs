@@ -1,6 +1,10 @@
 ---
 title: Как разрешить и запретить перенос трафика между зонами доступности для сетевого балансировщика {{ network-load-balancer-full-name }}
 description: Следуя данной инструкции, вы сможете разрешить и запретить перенос трафика между зонами доступности для сетевого балансировщика.
+alternate:
+  - href: ru/network-load-balancer/operations/manage-zone/allow-and-deny-shift.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

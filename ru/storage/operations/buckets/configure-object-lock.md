@@ -1,6 +1,10 @@
 ---
 title: Включить и выключить блокировку версий объектов (object lock)
 description: Следуя данной инструкции, вы сможете включить и выключить возможность блокировок версий объектов, а также настроить блокировки по умолчанию в бакете {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/configure-object-lock.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включить и выключить блокировку версий объектов (object lock)

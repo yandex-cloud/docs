@@ -8,8 +8,7 @@
 
 Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
 
-Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
-
+Если вы вводите запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или при создании алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
 
 Имя метрики пишется в метку `name`.
 
@@ -63,7 +62,7 @@
 
 ## Метрики Network Protection {#network-protection-metrics}
 
-Метрики Network Protection автоматически передаются в Monium Metrics в [проект каталога](*monium-folder-project) с прокси-сервером. В метке `ip` укажите публичный IPv4-адрес прокси-сервера. [Как узнать адрес и построить запрос](operations/monitoring.md#network-protection).
+Метрики Network Protection автоматически передаются в Monium в [проект каталога](*monium-folder-project) с прокси-сервером. В метке `ip` укажите публичный IPv4-адрес прокси-сервера. [Как узнать адрес и построить запрос](operations/monitoring.md#network-protection).
 
 Все метрики Network Protection — накопительные счетчики. Чтобы получить количество пакетов или байт в секунду, используйте функцию `non_negative_derivative`.
 

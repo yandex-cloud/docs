@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/concepts/storage-read-write.md
+    type: text/markdown
+    title: Markdown version
+---
 # Операции чтения и записи
 
 Для [дисков](disk.md) и [файловых хранилищ](filesystem.md) действуют технические ограничения на операции чтения и записи. Ограничения относятся как к целым диску или хранилищу, так и к каждой отдельной единице выделения дискового пространства — блоку размещения (allocation unit). Величина блока размещения зависит от [типа диска или хранилища](../concepts/limits.md#compute-limits-disks).

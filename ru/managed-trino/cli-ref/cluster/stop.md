@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/cluster/stop/
+alternate:
+  - href: ru/managed-trino/cli-ref/cluster/stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-trino cluster stop

@@ -1,6 +1,10 @@
 ---
 title: Making a revision active
 description: Follow this guide to make a container revision active.
+alternate:
+  - href: en/serverless-containers/operations/activate-revision.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Making a revision active

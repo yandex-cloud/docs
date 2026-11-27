@@ -1,6 +1,10 @@
 ---
 title: Инструкция по управлению паролями брокера в {{ iot-full-name }}
 description: Из статьи вы узнаете, как получить список паролей брокера, добавить или удалить пароль брокера в {{ iot-full-name }}.
+alternate:
+  - href: ru/iot-core/operations/password/broker-password.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление паролями брокера

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/data-processing-template.md
+    type: text/markdown
+    title: Markdown version
+---
 # Шаблоны {{ dataproc-name }}
 
 Шаблон {{ dataproc-name }} — это специальный ресурс для быстрого развертывания кластеров {{ dataproc-name }} в проектах {{ ml-platform-name }}. Шаблон определяет конфигурацию кластера, на его основе {{ ml-platform-name }} может развернуть кластер несколько раз.

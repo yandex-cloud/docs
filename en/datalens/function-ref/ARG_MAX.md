@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/ARG_MAX.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # ARG_MAX

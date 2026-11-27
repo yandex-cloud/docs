@@ -1,6 +1,10 @@
 ---
 title: Adding a disk to a placement group
 description: Follow this guide to add a disk to a placement group.
+alternate:
+  - href: en/compute/operations/disk-placement-groups/add-disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a disk to a placement group

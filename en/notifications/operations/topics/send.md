@@ -1,6 +1,10 @@
 ---
 title: Sending a notification to a topic in {{ cns-full-name }}
 description: Follow this guide to send a notification to all endpoints subscribed to a topic.
+alternate:
+  - href: en/notifications/operations/topics/send.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sending a notification to a topic

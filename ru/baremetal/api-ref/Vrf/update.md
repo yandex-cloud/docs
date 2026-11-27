@@ -95,6 +95,10 @@ apiPlayground:
               - REDISTRIBUTION_TYPE_UNSPECIFIED
               - DISABLED
               - ENABLED
+alternate:
+  - href: ru/baremetal/api-ref/Vrf/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Vrf.Update

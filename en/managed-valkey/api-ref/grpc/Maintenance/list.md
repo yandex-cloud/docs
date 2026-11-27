@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-valkey/api-ref/grpc/Maintenance/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, gRPC: MaintenanceService.List

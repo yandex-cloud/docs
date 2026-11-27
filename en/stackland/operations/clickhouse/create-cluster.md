@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/create-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a {{ mch-name }} cluster
 
 If you have a [project](../projects/create-project.md), you can create a [{{ CH }}](../../concepts/components/clickhouse.md) cluster in it.

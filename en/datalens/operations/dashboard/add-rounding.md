@@ -1,6 +1,10 @@
 ---
 title: How to configure corner rounding on a dashboard in {{ datalens-full-name }}
 description: Follow this guide to configure widget corner rounding on a dashboard in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/add-rounding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring corner rounding on a dashboard in {{ datalens-full-name }}

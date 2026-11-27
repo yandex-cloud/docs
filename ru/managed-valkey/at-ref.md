@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ mrd-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ mrd-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/managed-valkey/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

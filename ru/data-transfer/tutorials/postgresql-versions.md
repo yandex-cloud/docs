@@ -3,6 +3,10 @@ title: Перенос базы данных кластера {{ mpg-full-name }}
 description: С помощью данного руководства вы сможете обновить кластер с версии 13 на версию 17.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/dataplatform/postgresql-versions'
+alternate:
+  - href: ru/data-transfer/tutorials/postgresql-versions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция кластера {{ mpg-full-name }} на другую версию c помощью {{ data-transfer-name }}

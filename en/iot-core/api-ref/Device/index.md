@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iot-core/api-ref/Device/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Device

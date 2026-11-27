@@ -1,6 +1,10 @@
 ---
 title: Удалить аккаунт пользователя из организации {{ org-full-name }}
 description: Из этой статьи вы узнаете, как удалить аккаунт пользователя из организации {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/edit-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить аккаунт пользователя

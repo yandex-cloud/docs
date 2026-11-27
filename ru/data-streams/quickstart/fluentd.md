@@ -1,6 +1,10 @@
 ---
 title: Инструкция по сбору и поставке данных {{ ydb-full-name }} с помощью Fluentd
 description: Из статьи вы узнаете, как собирать и поставлять данные {{ ydb-full-name }} с помощью Fluentd.
+alternate:
+  - href: ru/data-streams/quickstart/fluentd.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Fluentd

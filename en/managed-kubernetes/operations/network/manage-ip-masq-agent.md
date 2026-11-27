@@ -1,6 +1,10 @@
 ---
 title: Configuring masquerading in {{ managed-k8s-name }} clusters with multiple ranges of pod IP addresses
 description: How to configure masquerading in a cluster with multiple ranges of pod IP addresses and synchronize _ip-masq-agent_ after adding a range.
+alternate:
+  - href: en/managed-kubernetes/operations/network/manage-ip-masq-agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring masquerading in clusters with multiple ranges of pod IP addresses

@@ -1,6 +1,10 @@
 ---
 title: Adding a mailing list for a dashboard in {{ datalens-full-name }}
 description: Follow this guide to add a mailing list for a dashboard in {{ datalens-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/add-maillists.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Mailing lists for dashboards

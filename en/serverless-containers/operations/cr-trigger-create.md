@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/cr-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a trigger for {{ container-registry-name }} that invokes a container from {{ serverless-containers-name }}
 
 Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trigger.md) that invokes a [container](../concepts/container.md) from {{ serverless-containers-name }} when you create or delete {{ container-registry-name }} [Docker images](../../container-registry/concepts/docker-image.md) or Docker image tags.

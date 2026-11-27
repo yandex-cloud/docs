@@ -1,6 +1,10 @@
 ---
 title: How to configure the VM metadata service
 description: Follow this guide to configure the VM metadata service.
+alternate:
+  - href: en/compute/operations/vm-metadata/setup-metadata-service.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring parameters of the VM metadata service

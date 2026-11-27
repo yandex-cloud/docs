@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/kms/concepts/version.md
+    type: text/markdown
+    title: Markdown version
+---
 # Версия ключа
 
 Версия ключа — это криптографический материал, который можно использовать для шифрования и расшифрования данных. 

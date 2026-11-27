@@ -1,6 +1,10 @@
 ---
 title: Чтение данных из {{ monitoring-full-name }} с помощью соединений в {{ yq-full-name }}
 description: Из статьи вы узнаете, как настроить соединение и читать метрики из {{ monitoring-name }} с помощью {{ yq-full-name }}.
+alternate:
+  - href: ru/query/sources-and-sinks/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение данных из {{ monitoring-name }} с помощью соединений в {{ yq-name }}

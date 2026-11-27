@@ -1,6 +1,10 @@
 ---
 title: How to view roles assigned for a container
 description: Follow this guide to view roles assigned for a container.
+alternate:
+  - href: en/serverless-containers/operations/role-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing roles assigned for a container

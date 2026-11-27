@@ -1,6 +1,10 @@
 ---
 title: Как управлять ограничениями сообщества
 description: Следуя данной инструкции, вы сможете ограничить доступные во всех проектах сообщества ресурсы и функциональность {{ ml-platform-name }}.
+alternate:
+  - href: ru/datasphere/operations/community/manage-community-config.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление ограничениями сообщества

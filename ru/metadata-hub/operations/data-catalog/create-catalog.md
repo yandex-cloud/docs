@@ -1,6 +1,10 @@
 ---
 title: Создание каталога метаданных
 description: Следуя данной инструкции, вы сможете создать каталог метаданных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/create-catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание каталога

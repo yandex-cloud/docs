@@ -1,6 +1,10 @@
 ---
 title: Creating a YDB backup
 description: Creating a local backup of an IAM database in YDB.
+alternate:
+  - href: en/stackland/operations/iam/ydb-backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a YDB backup

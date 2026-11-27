@@ -1,6 +1,10 @@
 ---
 title: Настроить кросс-доменные запросы (CORS) к объектам в бакете {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить кросс-доменные запросы (CORS) к объектам в бакете {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/cors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить CORS

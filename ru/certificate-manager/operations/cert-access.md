@@ -1,6 +1,10 @@
 ---
 title: Как настроить права доступа к сертификату {{ certificate-manager-full-name }}
 description: Следуя этой инструкции, вы сможете настроить права доступа к сертификату.
+alternate:
+  - href: ru/certificate-manager/operations/cert-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить права доступа к сертификату

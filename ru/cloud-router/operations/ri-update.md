@@ -1,6 +1,11 @@
 ---
 title: Как изменить параметры виртуального маршрутизатора в {{ cr-name }}
 description: Следуя этой инструкции, вы сможете изменить параметры виртуального маршрутизатора в {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: ru/cloud-router/operations/ri-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить параметры виртуального маршрутизатора

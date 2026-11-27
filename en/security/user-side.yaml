@@ -292,4 +292,8 @@ blocks:
         icon: _assets/icons/cloud-registry.svg
         animated: false
 links: []
-meta: {}
+meta:
+  alternate:
+    - href: en/security/user-side.yaml
+      type: application/yaml
+      title: Yaml version

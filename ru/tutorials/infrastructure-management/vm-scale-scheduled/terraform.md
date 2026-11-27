@@ -1,6 +1,10 @@
 ---
 title: Масштабирование группы виртуальных машин по расписанию с помощью {{ TF }}
 description: В этом руководстве вы создадите группу ВМ {{ compute-full-name }} и настройте для нее масштабирование по расписанию, используя функции и таймер {{ sf-full-name }} с помощью {{ TF }}.
+alternate:
+  - href: ru/tutorials/infrastructure-management/vm-scale-scheduled/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Масштабирование группы виртуальных машин по расписанию с помощью {{ TF }}

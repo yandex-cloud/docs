@@ -1,6 +1,10 @@
 ---
 title: Exporting messages to {{ yds-name }}
 description: Follow this guide to export messages to {{ yds-name }}.
+alternate:
+  - href: en/iot-core/operations/yds-export.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Exporting messages to {{ yds-name }}

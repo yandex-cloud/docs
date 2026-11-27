@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/create-sms-sandbox-phone-number.md
+    type: text/markdown
+    title: Markdown version
+---
 # CreateSMSSandboxPhoneNumber
 
 Adds a test phone number for the SMS notification channel in the [sandbox](../concepts/sms.md#sandbox) and sends a confirmation code.

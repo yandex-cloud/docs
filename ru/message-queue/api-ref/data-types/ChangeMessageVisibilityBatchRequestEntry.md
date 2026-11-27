@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/data-types/ChangeMessageVisibilityBatchRequestEntry.md
+    type: text/markdown
+    title: Markdown version
+---
 # ChangeMessageVisibilityBatchRequestEntry
 
 Структура данных для возврата параметров `ReceiptHandle` и идентификаторов для сообщений из запроса [ChangeMessageVisibilityBatch](../message/ChangeMessageVisibilityBatch.md).

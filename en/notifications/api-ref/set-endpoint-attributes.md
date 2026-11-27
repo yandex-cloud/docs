@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/set-endpoint-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # SetEndpointAttributes
 
 Sets attributes of the [endpoint for push notifications](../concepts/push.md#mobile-endpoints).

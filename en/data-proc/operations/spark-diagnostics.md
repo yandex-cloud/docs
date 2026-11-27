@@ -1,6 +1,10 @@
 ---
 title: How to diagnose and troubleshoot Spark application performance issues in {{ dataproc-full-name }}
 description: Follow this guide to diagnose and troubleshoot Spark application performance issues.
+alternate:
+  - href: en/data-proc/operations/spark-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Diagnosing and troubleshooting Spark application performance issues

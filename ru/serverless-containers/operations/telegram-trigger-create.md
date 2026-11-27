@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/operations/telegram-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать триггер для Telegram, который вызывает контейнер {{ serverless-containers-name }}
 
 Создайте [триггер для Telegram](../concepts/trigger/telegram-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }}, когда Telegram-бот получает новое обновление.

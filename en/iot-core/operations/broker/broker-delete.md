@@ -1,6 +1,10 @@
 ---
 title: How to delete a broker in {{ iot-full-name }}
 description: In this guide, you will learn how to delete a broker in {{ iot-full-name }}.
+alternate:
+  - href: en/iot-core/operations/broker/broker-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a broker

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/group/remove-access-binding/
+alternate:
+  - href: ru/organization/cli-ref/group/remove-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager group remove-access-binding

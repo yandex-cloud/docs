@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/smartwebsecurity/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как начать работать с {{ sws-full-name }}
 
 {{ sws-name }} защищает веб-приложения от DDoS-атак, ботов и эксплуатации уязвимостей. Основной элемент защиты — профиль безопасности с правилами проверки входящего трафика. Его можно подключить к [L7-балансировщику](*l7-balancer), [API-шлюзу](*api-gateway) или [домену](*domain).

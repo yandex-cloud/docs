@@ -1,6 +1,10 @@
 ---
 title: Разработка на Bash в {{ sf-full-name }}. Обзор
 description: С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на Bash. В среду выполнения Bash по умолчанию установлены утилиты jq, {{ yandex-cloud }} CLI, AWS CLI version 2.
+alternate:
+  - href: ru/functions/lang/bash/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разработка на Bash. Обзор

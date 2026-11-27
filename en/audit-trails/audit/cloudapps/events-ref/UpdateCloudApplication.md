@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/cloudapps/events-ref/UpdateCloudApplication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Apps Workload Audit Trails Events: UpdateCloudApplication

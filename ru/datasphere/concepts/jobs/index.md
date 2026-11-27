@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/jobs/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ ml-platform-name }} Jobs
 
 В {{ ml-platform-name }} вы можете удаленно запускать задания (jobs) — вычисления на ВМ {{ ml-platform-name }} за пределами {{ jlab }}Lab. Это могут быть скрипты и проекты на Python, bash-скрипты и исполняемые бинарные файлы, скомпилированные под платформу Linux x86_64.

@@ -1,6 +1,10 @@
 ---
 title: Настройки навигации в {{ datalens-full-name }}
 description: Настройки навигации в {{ datalens-full-name }} позволяют настроить навигацию в сервисе.
+alternate:
+  - href: ru/datalens/settings/navigation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройки навигации в {{ datalens-full-name }}

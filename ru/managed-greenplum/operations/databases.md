@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/databases.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление базами данных в {{ mgp-name }}
 
 {{ mgp-name }} позволяет управлять базами данных кластера только с помощью SQL-запросов.

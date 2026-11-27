@@ -20,6 +20,10 @@ keywords:
   - настройка игрового сервера
   - gta в {{ yandex-cloud }}
   - гта в {{ yandex-cloud }}
+alternate:
+  - href: ru/tutorials/infrastructure/gta-v-server.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [gta-v-server](../../_tutorials/infrastructure/gta-v-server.md) %}

@@ -3,6 +3,10 @@ title: Руководство по регулярному распознаван
 description: Следуя данному руководству, вы сможете настроить регулярное распознавание аудиофайлов в бакете {{ objstorage-full-name }}.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/ml-ai/batch-recognition-stt'
+alternate:
+  - href: ru/functions/tutorials/batch-recognition-stt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Регулярное распознавание аудиофайлов из {{ objstorage-full-name }}

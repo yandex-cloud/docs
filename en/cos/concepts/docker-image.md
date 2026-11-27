@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cos/concepts/docker-image.md
+    type: text/markdown
+    title: Markdown version
+---
 # Docker image
 
 When creating a {{ coi }} VM, you can specify the [Docker image](../../container-registry/concepts/docker-image.md) for launching a Docker container.

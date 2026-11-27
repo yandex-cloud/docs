@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iam/concepts/access-control/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как устроено управление доступом в {{ yandex-cloud }}
 
 На этой странице можно узнать, как управлять доступом к ресурсам, и как {{ iam-short-name }} проверяет права доступа к ним.

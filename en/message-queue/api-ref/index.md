@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ message-queue-full-name }} API
 
 {{ message-queue-full-name }} provides an HTTP API that is partially compatible with the Amazon SQS API.

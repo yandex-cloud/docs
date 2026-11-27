@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/marketplace/operations/create-configuration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a configuration for a {{ cloud-apps-name }} product
 
 ## Creating a configuration {#create}

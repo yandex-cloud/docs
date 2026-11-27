@@ -200,6 +200,10 @@ apiPlayground:
               - summarization
           - required:
               - description
+alternate:
+  - href: ru/video/api-ref/StylePreset/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: StylePreset.Update

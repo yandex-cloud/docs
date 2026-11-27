@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/v0/cluster/create/
+alternate:
+  - href: en/metadata-hub/cli-ref/v0/cluster/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-metastore v0 cluster create

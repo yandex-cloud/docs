@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/firewall/list-operations/
+alternate:
+  - href: ru/dns/cli-ref/firewall/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns firewall list-operations

@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть сервисные дашборды в {{ monium-full-name }}
 description: Как открыть сервисный дашборд в {{ monium-name }}, изменить график в обзоре метрик и сохранить его на другой дашборд или создать редактируемую копию всего дашборда.
+alternate:
+  - href: ru/monium/operations/dashboard/service-dashboards.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть сервисные дашборды

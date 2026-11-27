@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/message/ChangeMessageVisibilityBatch.md
+    type: text/markdown
+    title: Markdown version
+---
 # ChangeMessageVisibilityBatch
 
 Method for setting the visibility timeout for multiple messages in the specified queue. You can send up to 10 `ChangeMessageVisibility` requests with each `ChangeMessageVisibilityBatch` action.

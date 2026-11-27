@@ -155,6 +155,10 @@ apiPlayground:
         required:
           - backupId
           - folderId
+alternate:
+  - href: ru/backup/backup/api-ref/Backup/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Backup.List

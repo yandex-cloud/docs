@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/cdn/api-ref/Resource/getProviderCName.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud CDN API, REST: Resource.GetProviderCName

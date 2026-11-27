@@ -1,6 +1,10 @@
 ---
 title: Creating an address
 description: Follow this guide to create an address.
+alternate:
+  - href: en/postbox/operations/create-address.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an address

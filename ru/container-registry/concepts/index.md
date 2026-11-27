@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/container-registry/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Концепции {{ container-registry-full-name }}
 
 {{ container-registry-name }} — сервис для хранения и распространения [Docker-образов](/blog/posts/2022/03/docker-containers).

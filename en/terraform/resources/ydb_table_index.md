@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for YDB
+alternate:
+  - href: en/terraform/resources/ydb_table_index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_ydb_table_index (Resource)

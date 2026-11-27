@@ -15,6 +15,10 @@ meta:
     - keyword: Apache Spark в {{ yandex-cloud }}
     - keyword: '{{ msp-full-name }} в {{ yandex-cloud }}'
     - keyword: сервис {{ msp-full-name }}
+  alternate:
+    - href: ru/managed-spark/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Managed Service for Apache Spark™

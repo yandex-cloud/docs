@@ -1,6 +1,10 @@
 ---
 title: Как изменить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}
 description: Следуя этой инструкции, вы сможете изменить сертификат от Let's Encrypt.
+alternate:
+  - href: ru/certificate-manager/operations/managed/cert-modify.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить сертификат от Let's Encrypt

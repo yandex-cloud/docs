@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/resource-manager/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API: REST reference

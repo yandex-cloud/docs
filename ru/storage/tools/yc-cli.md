@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/tools/yc-cli.md
+    type: text/markdown
+    title: Markdown version
+---
 # Интерфейс командной строки {{ yandex-cloud }} (CLI)
 
 [{{ yandex-cloud }} CLI](../../cli/) — скачиваемое программное обеспечение для управления вашими облачными ресурсами через командную строку.

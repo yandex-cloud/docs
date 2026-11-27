@@ -1,6 +1,10 @@
 ---
 title: Взаимосвязь ресурсов в {{ mgp-name }}
 description: Из статьи вы узнаете про взаимосвязь ресурсов в {{ mgp-full-name }}.
+alternate:
+  - href: ru/managed-greenplum/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Взаимосвязь ресурсов в {{ mgp-name }}

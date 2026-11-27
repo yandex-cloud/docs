@@ -1,6 +1,10 @@
 ---
 title: Managing alert tags in {{ sd-full-name }}
 description: In this section, you will learn how to add or remove alert tags in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/alerts/tags.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing alert tags

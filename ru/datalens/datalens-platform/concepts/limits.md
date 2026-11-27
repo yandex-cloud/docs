@@ -2,6 +2,10 @@
 title: Квоты и лимиты в {{ datalens-platform-full-name }}
 description: Узнайте, какие квоты и лимиты действуют для кластеров {{ TR }} и {{ SPRK }} в {{ datalens-platform-short-name }}, как проверить квоты и запросить их увеличение.
 editable: false
+alternate:
+  - href: ru/datalens/datalens-platform/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ datalens-platform-full-name }}

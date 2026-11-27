@@ -1,6 +1,10 @@
 ---
 title: Передача телеметрии в {{ monium-full-name }} через Fluent Bit
 description: Настройте Fluent Bit для отправки логов, метрик и трейсов в {{ monium-name }} по протоколу OTLP.
+alternate:
+  - href: ru/monium/collector/fluentbit.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передача данных через Fluent Bit

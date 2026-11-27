@@ -279,6 +279,10 @@ apiPlayground:
               Enables the AD-extension matching rule
               1.2.840.113556.1.4.1941 for the group-DN membership filter.
             type: boolean
+alternate:
+  - href: ru/organization/idp/api-ref/Synchronization/updateSynchronizationSettings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: Synchronization.UpdateSynchronizationSettings

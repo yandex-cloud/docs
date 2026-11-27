@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/refresh-token/revoke/
+alternate:
+  - href: ru/iam/cli-ref/v0/refresh-token/revoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam v0 refresh-token revoke

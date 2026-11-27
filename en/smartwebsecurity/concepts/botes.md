@@ -1,6 +1,10 @@
 ---
 title: Managing bot traffic
 description: '{{ sws-name }} identifies legitimate and suspicious bots, uses bot categories, Bot Score, and TLS connection fingerprints.'
+alternate:
+  - href: en/smartwebsecurity/concepts/botes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing bot traffic

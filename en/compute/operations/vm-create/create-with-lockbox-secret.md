@@ -1,6 +1,10 @@
 ---
 title: How to create a VM with access to a {{ lockbox-name }} secret
 description: Follow this guide to get the value of a {{ lockbox-full-name }} secret provided via metadata when creating a VM from inside the VM.
+alternate:
+  - href: en/compute/operations/vm-create/create-with-lockbox-secret.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM with access to a {{ lockbox-full-name }} secret

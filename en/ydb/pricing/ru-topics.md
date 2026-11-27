@@ -2,6 +2,10 @@
 title: Estimating the cost of topic operations in {{ ydb-full-name }}
 description: In this article, you will learn how to calculate the cost of topic operations.
 editable: false
+alternate:
+  - href: en/ydb/pricing/ru-topics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Estimating the cost of topic operations

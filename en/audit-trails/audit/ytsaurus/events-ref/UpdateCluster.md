@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/ytsaurus/events-ref/UpdateCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Ytsaurus Audit Trails Events: UpdateCluster

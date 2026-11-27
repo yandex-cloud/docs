@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error: ERR.DS_API.DB.CHYT.CLIQUE.ACCESS_DENIED'
 description: This page describes the `Access to clique <clique_name> for user <user_login> was denied` {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-ACCESS_DENIED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Access to clique <clique_name> for user <user_login> was denied

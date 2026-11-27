@@ -1,6 +1,10 @@
 ---
 title: Как изменить трансляцию в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете изменить трансляцию {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/streams/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить трансляцию

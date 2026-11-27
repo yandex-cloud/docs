@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/cloud-registry/api-ref/grpc/Migration/getCloudMigrationStatusDashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, gRPC: MigrationService.GetCloudMigrationStatusDashboard

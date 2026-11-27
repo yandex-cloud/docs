@@ -1,6 +1,10 @@
 ---
 title: Задать ограничения для проекта
 description: Следуя данной инструкции, вы сможете настроить ограничения потребления для проекта.
+alternate:
+  - href: ru/datasphere/operations/projects/restrictions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Задать ограничения для проекта

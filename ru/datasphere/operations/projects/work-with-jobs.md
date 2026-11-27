@@ -1,6 +1,10 @@
 ---
 title: Как запускать задания {{ ml-platform-name }} Jobs
 description: Следуя данной инструкции, вы сможете удаленно запускать Python- и bash-скрипты и исполняемые бинарные файлы, которые будут выполняться на ВМ {{ ml-platform-name }}.
+alternate:
+  - href: ru/datasphere/operations/projects/work-with-jobs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запуск заданий {{ ml-platform-name }} Jobs

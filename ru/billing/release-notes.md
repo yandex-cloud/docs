@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ billing-name }}
 description: В разделе представлена история изменений сервиса {{ billing-name }}.
+alternate:
+  - href: ru/billing/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ billing-name }}

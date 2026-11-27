@@ -54,7 +54,7 @@
 
    {% endnote %}
 
-1. Выберите один из хостов кластера с ролью `KAFKA` и получите его [FQDN](../../../managed-kafka/operations/connect/index.md#get-fqdn).
+1. Выберите один из хостов кластера с ролью `KAFKA` и получите его [FQDN](../../../managed-kafka/operations/connect/fqdn.md#get-fqdn).
 1. Выберите имя для группы потребителей, например `test-consumer-group`.
 
 ## Подготовьте инструменты для подключения к топику {#test-cluster-prepare}

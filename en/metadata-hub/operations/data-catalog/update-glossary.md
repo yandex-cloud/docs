@@ -1,6 +1,10 @@
 ---
 title: Updating a glossary
 description: Follow this guide to update a glossary in a metadata catalog.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/update-glossary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a glossary

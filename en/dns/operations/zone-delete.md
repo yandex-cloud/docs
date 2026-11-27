@@ -1,6 +1,10 @@
 ---
 title: How to delete a public zone in {{ dns-full-name }}
 description: In this tutorial, you will learn how to delete a public DNS zone.
+alternate:
+  - href: en/dns/operations/zone-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a DNS zone

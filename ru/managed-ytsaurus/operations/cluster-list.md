@@ -1,6 +1,10 @@
 ---
 title: Информация о кластерах в {{ myt-name }}
 description: Вы можете запросить детальную информацию о каждом созданном вами кластере {{ ytsaurus-name }}. Чтобы получить список кластеров в каталоге, перейдите на страницу каталога и выберите сервис {{ myt-name }}.
+alternate:
+  - href: ru/managed-ytsaurus/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Информация об имеющихся кластерах

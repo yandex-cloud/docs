@@ -1,6 +1,10 @@
 ---
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/dataplatform/opensearch-to-greenplum'
+alternate:
+  - href: ru/managed-greenplum/tutorials/opensearch-to-greenplum.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Копирование данных из {{ mos-name }} в {{ mgp-name }} с помощью {{ data-transfer-full-name }}

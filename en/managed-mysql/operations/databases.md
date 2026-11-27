@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-mysql/operations/databases.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing databases in {{ mmy-name }}
 
 You can add and remove databases, view database details, and manage some database settings using {{ mmy-name }} interfaces.

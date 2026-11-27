@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/workflow/create/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/workflow/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless workflow create

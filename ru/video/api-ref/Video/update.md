@@ -118,6 +118,10 @@ apiPlayground:
       VideoSignURLAccessParams:
         type: object
         properties: {}
+alternate:
+  - href: ru/video/api-ref/Video/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Video.Update

@@ -1,6 +1,10 @@
 ---
 title: Разработка на PHP в {{ sf-full-name }}. Обзор
 description: С помощью сервиса {{ sf-name }} вы можете запускать приложения написанные на языке программирования PHP. Сервис предоставляет среды выполнения с версией PHP 7.4.3 и операционной системой Ubuntu 18.04.
+alternate:
+  - href: ru/functions/lang/php/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разработка на PHP. Обзор

@@ -1,6 +1,10 @@
 ---
 title: Service roles for {{ td-full-name }} in {{ sd-full-name }}
 description: This page lists the service roles required to control access to the {{ td-full-name }} ({{ td-name }}) module in {{ sd-name }}.
+alternate:
+  - href: en/security-deck/security/td-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service roles for {{ td-full-name }} ({{ td-name }})

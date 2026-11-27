@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/securitydeck/cspm/events-ref/CreateScopeFilter.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck CSPM Audit Trails Events: CreateScopeFilter

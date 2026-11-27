@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/storage/delete-bucket.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a bucket
 
 If you have a [bucket](../../concepts/components/storage.md) and it is empty, you can delete it.

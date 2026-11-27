@@ -1,6 +1,10 @@
 ---
 title: Изменить группу рабочих столов
 description: Следуя данной инструкции, вы сможете изменить группу рабочих столов.
+alternate:
+  - href: ru/cloud-desktop/operations/desktop-groups/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить группу рабочих столов

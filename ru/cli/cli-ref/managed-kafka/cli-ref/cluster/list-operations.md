@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/cluster/list-operations/
+alternate:
+  - href: ru/cli/cli-ref/managed-kafka/cli-ref/cluster/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kafka cluster list-operations

@@ -1,6 +1,10 @@
 ---
 title: Редактировать пользовательское правило в {{ sd-full-name }}
 description: 'Из этой инструкции вы узнаете, как изменить параметры пользовательского правила безопасности: название, описание, критичность, рекомендации по исправлению и другое.'
+alternate:
+  - href: ru/security-deck/operations/kspm/edit-custom-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Редактировать пользовательское правило

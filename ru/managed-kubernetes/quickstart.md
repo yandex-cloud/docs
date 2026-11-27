@@ -1,6 +1,10 @@
 ---
 title: Начало работы с управляемым {{ k8s }}
 description: В этой инструкции вы создадите кластер {{ managed-k8s-name }} и группу узлов, научитесь управлять ими с помощью kubectl — командной оболочки {{ k8s }}. Для начала создайте кластер {{ managed-k8s-name }}, добавьте учетные данные в конфигурационный файл kubectl, создайте группу узлов.
+alternate:
+  - href: ru/managed-kubernetes/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с {{ managed-k8s-name }}

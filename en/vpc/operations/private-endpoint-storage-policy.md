@@ -1,6 +1,10 @@
 ---
 title: How to assign an access policy in {{ objstorage-short-name }} for a {{ vpc-full-name }} service connection
 description: Follow this guide to assign an access policy in {{ objstorage-short-name }} for a service connection.
+alternate:
+  - href: en/vpc/operations/private-endpoint-storage-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning an access policy in {{ objstorage-short-name }} for a service connection

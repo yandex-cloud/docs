@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/billing-account-is-charged-by-unused-resources.md
+    type: text/markdown
+    title: Markdown version
+---
 # С баланса платежного аккаунта списываются средства за неиспользуемые ресурсы
 
 

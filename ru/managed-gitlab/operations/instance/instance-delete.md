@@ -1,6 +1,10 @@
 ---
 title: Удаление инстанса {{ mgl-full-name }}
 description: Следуя данной инструкции, вы сможете удалить инстанс {{ mgl-name }}.
+alternate:
+  - href: ru/managed-gitlab/operations/instance/instance-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление инстанса {{ GL }}

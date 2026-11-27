@@ -2,6 +2,10 @@
 title: '{{ baremetal-full-name }} metrics'
 description: In this tutorial, you will learn about {{ baremetal-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/baremetal-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ baremetal-full-name }} metrics

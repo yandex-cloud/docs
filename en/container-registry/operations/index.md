@@ -1,6 +1,10 @@
 ---
 title: 'How to work with Docker images: Step-by-step guides'
 description: Step-by-step guides on using Docker images in {{ yandex-cloud }}. In this guide, you will learn how to manage Docker images, registries, repositories, and automated policies. Find out how to create, delete, push, and pull Docker images.
+alternate:
+  - href: en/container-registry/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ container-registry-name }}

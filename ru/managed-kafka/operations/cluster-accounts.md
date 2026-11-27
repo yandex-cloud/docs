@@ -1,6 +1,10 @@
 ---
 title: Как управлять пользователями кластера {{ KF }} в {{ mkf-full-name }}
 description: Следуя данной инструкции, вы сможете управлять пользователями кластера {{ KF }}.
+alternate:
+  - href: ru/managed-kafka/operations/cluster-accounts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление пользователями Apache Kafka®

@@ -1,6 +1,10 @@
 ---
 title: List of CLI releases
 description: This page presents CLI releases and their updates.
+alternate:
+  - href: en/cli/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} CLI releases

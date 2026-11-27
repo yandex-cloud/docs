@@ -1,6 +1,11 @@
 ---
 title: How to update virtual router settings in {{ cr-name }}
 description: Follow this guide to update virtual router settings in {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: en/cloud-router/operations/ri-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating virtual router settings

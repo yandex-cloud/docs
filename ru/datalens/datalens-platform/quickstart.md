@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ datalens-platform-full-name }}
 description: Следуя инструкции, вы настроите окружение {{ datalens-platform-short-name }}, загрузите данные из источника, исследуете их с помощью SQL и создадите дашборд.
+alternate:
+  - href: ru/datalens/datalens-platform/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ datalens-platform-full-name }}

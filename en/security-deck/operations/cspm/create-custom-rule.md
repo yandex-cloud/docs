@@ -1,6 +1,10 @@
 ---
 title: Creating a custom rule in {{ sd-full-name }}
 description: In this guide, you will learn how to create a custom rule in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/cspm/create-custom-rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a custom rule

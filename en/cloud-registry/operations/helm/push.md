@@ -1,6 +1,10 @@
 ---
 title: Pushing a Helm chart to {{ cloud-registry-name }}
 description: In this tutorial, you will learn how to push Helm charts to a {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/helm/push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pushing a Helm chart to a registry

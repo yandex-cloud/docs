@@ -1,6 +1,10 @@
 ---
 title: Viewing the {{ compute-full-name }} VM backup log
 description: Follow this guide to learn the details of a {{ compute-full-name }} VM backup from the backup log.
+alternate:
+  - href: en/backup/operations/get-journal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing the backup log

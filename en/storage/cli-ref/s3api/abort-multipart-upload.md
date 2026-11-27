@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/s3api/abort-multipart-upload/
+alternate:
+  - href: en/storage/cli-ref/s3api/abort-multipart-upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc storage s3api abort-multipart-upload

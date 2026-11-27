@@ -1,6 +1,10 @@
 ---
 title: Добавление рассылки для дашборда в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить рассылку для дашборда в {{ datalens-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-maillists.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Рассылки для дашборда

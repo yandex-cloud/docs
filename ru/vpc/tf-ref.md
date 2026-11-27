@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ vpc-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ vpc-name }}.
+alternate:
+  - href: ru/vpc/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ vpc-full-name }}

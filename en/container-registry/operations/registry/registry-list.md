@@ -1,6 +1,10 @@
 ---
 title: How to get information about existing registries in {{ container-registry-full-name }}
 description: Follow this guide to get information about existing registries.
+alternate:
+  - href: en/container-registry/operations/registry/registry-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about existing registries

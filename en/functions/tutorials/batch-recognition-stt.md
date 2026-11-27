@@ -3,6 +3,10 @@ title: How to recognize audio files in a {{ objstorage-full-name }} bucket on a 
 description: Follow this tutorial to configure regular recognition of audio files in a {{ objstorage-full-name }} bucket.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/ml-ai/batch-recognition-stt'
+alternate:
+  - href: en/functions/tutorials/batch-recognition-stt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recognizing audio files from {{ objstorage-full-name }} on a regular basis

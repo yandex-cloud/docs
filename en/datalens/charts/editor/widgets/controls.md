@@ -1,6 +1,10 @@
 ---
 title: How to work with a dashboard selector in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to work with a dashboard selector in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/charts/editor/widgets/controls.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Selector

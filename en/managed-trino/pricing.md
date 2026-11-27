@@ -2,6 +2,10 @@
 title: '{{ mtr-full-name }} pricing policy'
 description: This article covers the {{ mtr-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/managed-trino/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mtr-name }} pricing policy

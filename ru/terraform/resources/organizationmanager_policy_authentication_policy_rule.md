@@ -1,5 +1,9 @@
 ---
 subcategory: Identity Hub
+alternate:
+  - href: ru/terraform/resources/organizationmanager_policy_authentication_policy_rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_organizationmanager_policy_authentication_policy_rule (Resource)

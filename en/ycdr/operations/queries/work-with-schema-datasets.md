@@ -1,6 +1,10 @@
 ---
 title: Working with a database schema and datasets in {{ ycdr-full-name }}
 description: Follow this guide to learn how to work with a database schema and datasets in {{ ycdr-name }}.
+alternate:
+  - href: en/ycdr/operations/queries/work-with-schema-datasets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with a database schema and datasets

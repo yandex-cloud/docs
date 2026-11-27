@@ -793,6 +793,10 @@ apiPlayground:
               if true, cloud console will be able to access a bucket
               regardless of private_endpoints list
             type: boolean
+alternate:
+  - href: en/storage/api-ref/Bucket/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, REST: Bucket.Update

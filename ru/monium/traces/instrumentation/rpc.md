@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/traces/instrumentation/rpc.md
+    type: text/markdown
+    title: Markdown version
+---
 # RPC-вызовы
 
 Если вы используете [автоматическую инструментацию](auto.md), спаны для RPC-вызовов создаются и атрибуты заполняются автоматически. При [ручной инструментации](manual.md) следуйте конвенциям, описанным ниже.

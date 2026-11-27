@@ -1,6 +1,10 @@
 ---
 title: '{{ dataproc-full-name }} tutorials'
 description: Various {{ dataproc-full-name }} use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/data-proc/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ dataproc-name }} tutorials

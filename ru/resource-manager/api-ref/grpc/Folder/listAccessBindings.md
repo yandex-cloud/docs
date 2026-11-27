@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/resource-manager/api-ref/grpc/Folder/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API, gRPC: FolderService.ListAccessBindings

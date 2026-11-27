@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ container-registry-name }}
 description: Use this guide to create your first registry in {{ container-registry-name }} and try your hand at managing Docker images.
+alternate:
+  - href: en/container-registry/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ container-registry-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_users.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli users
 
 Manage users

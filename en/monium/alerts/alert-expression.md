@@ -1,6 +1,10 @@
 ---
 title: Expressions in {{ monium-name }} alerts
 description: An expression alert is a type of alert that evaluates a random expression in the {{ monium-name }} query language to determine the alert status. In this tutorial, you will learn how to manage alert statuses and work with alert evaluation history.
+alternate:
+  - href: en/monium/alerts/alert-expression.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Expression alerts

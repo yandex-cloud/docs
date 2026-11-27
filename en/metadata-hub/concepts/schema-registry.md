@@ -1,6 +1,10 @@
 ---
 title: Data schema registry
 description: 'This article explains the following concepts: namespace, subject, schema, and reference.'
+alternate:
+  - href: en/metadata-hub/concepts/schema-registry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data schema registry

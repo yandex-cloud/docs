@@ -1,6 +1,10 @@
 ---
 title: Adding a label to a container
 description: Follow this guide to add a container label.
+alternate:
+  - href: en/serverless-containers/operations/label-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a label to a container

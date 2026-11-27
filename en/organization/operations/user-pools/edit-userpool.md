@@ -1,6 +1,10 @@
 ---
 title: How to edit a user pool in {{ org-full-name }}
 description: Follow this guide to edit a user pool in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/user-pools/edit-userpool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a user pool

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/folder/list-operations/
+alternate:
+  - href: ru/cli/cli-ref/resource-manager/cli-ref/folder/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc resource-manager folder list-operations

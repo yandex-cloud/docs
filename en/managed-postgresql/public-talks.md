@@ -1,6 +1,10 @@
 ---
 title: Public materials about {{ mpg-full-name }}
 description: Video recordings of conferences and webinars on {{ mpg-full-name }}.
+alternate:
+  - href: en/managed-postgresql/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public materials about {{ mpg-full-name }}

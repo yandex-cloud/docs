@@ -7,6 +7,10 @@ keywords:
   - пример создания навыка алисы
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/alice-skill/terraform'
+alternate:
+  - href: ru/tutorials/applied/alice-skill/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание навыка Алисы с помощью {{ TF }}

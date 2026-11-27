@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/concepts/instance-groups/variables-in-the-template.md
+    type: text/markdown
+    title: Markdown version
+---
 # Переменные в шаблоне виртуальной машины
 
 {{ ig-name }} позволяет создать группу однотипных виртуальных машин из [шаблона](instance-template.md). Чтобы такие ВМ имели разные характеристики, используйте механизм подстановок системных и пользовательских переменных в шаблоне. Например, с помощью переменных и [тегов](./policies/allocation-policy.md#tags) вы можете [создать группу ВМ с фиксированными IP-адресами](../../operations/instance-groups/create-with-fixed-ip.md).

@@ -5,6 +5,10 @@ description: |-
 
   **CI execution_ref:** Default branch.
 editable: false
+alternate:
+  - href: en/_src-events-ref/events-ref/issue-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # issue.update

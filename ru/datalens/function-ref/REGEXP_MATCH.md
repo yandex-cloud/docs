@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/REGEXP_MATCH.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # REGEXP_MATCH

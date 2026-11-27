@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/queue/UntagQueue.md
+    type: text/markdown
+    title: Markdown version
+---
 # UntagQueue
 
 Метод для удаления [меток очереди](../../concepts/tags.md). Изменение меток может занять до 60 секунд.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/ai-studio/install-images.md
+    type: text/markdown
+    title: Markdown version
+---
 # Загрузить образы {{ ai-studio-name }}
 
 Образы компонентов {{ model-gallery-name }} и {{ agent-atelier-name }} поставляются в отдельных наборах `model-gallery` и `agent-atelier` и не входят в пакет `full`.

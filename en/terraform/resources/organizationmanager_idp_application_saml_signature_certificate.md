@@ -1,5 +1,9 @@
 ---
 subcategory: Identity Hub
+alternate:
+  - href: en/terraform/resources/organizationmanager_idp_application_saml_signature_certificate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_organizationmanager_idp_application_saml_signature_certificate (Resource)

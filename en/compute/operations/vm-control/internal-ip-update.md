@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/vm-control/internal-ip-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating the VM internal IP address
 
 After you create a [VM](../../concepts/vm.md), you can update [internal IP addresses](../../../vpc/concepts/address.md#internal-addresses) of its [network interfaces](../../concepts/network.md).

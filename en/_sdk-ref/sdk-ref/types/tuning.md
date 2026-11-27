@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/types/tuning.md
+    type: text/markdown
+    title: Markdown version
+---
 # Tuning
 
 ## Tuning settings types

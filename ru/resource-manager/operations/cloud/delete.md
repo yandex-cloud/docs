@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/resource-manager/operations/cloud/delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удаление облака
 
 Чтобы удалить [облако](../../concepts/resources-hierarchy.md#cloud), у вас должна быть роль [resource-manager.editor](../../security/index.md#resource-manager-editor) или выше на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../concepts/resources-hierarchy.md#owner).

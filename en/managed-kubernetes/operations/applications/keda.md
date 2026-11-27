@@ -1,6 +1,10 @@
 ---
 title: Installing KEDA with {{ monitoring-full-name }} support
 description: In this tutorial, you will learn how to install KEDA with {{ monitoring-name }} support.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/keda.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing KEDA with {{ monitoring-full-name }} support

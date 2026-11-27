@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ container-registry-full-name }}
 description: This page covers questions and answers about {{ container-registry-name }}.
+alternate:
+  - href: en/container-registry/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ container-registry-name }}

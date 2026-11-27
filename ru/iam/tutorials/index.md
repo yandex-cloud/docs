@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ iam-full-name }}
 description: Различные сценарии использования {{ iam-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/iam/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ iam-name }}

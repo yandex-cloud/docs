@@ -1,6 +1,10 @@
 ---
 title: Управление метками CDN-ресурса в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете управлять метками CDN-ресурса в {{ cdn-name }}.
+alternate:
+  - href: ru/cdn/operations/resources/labeling.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление метками ресурса

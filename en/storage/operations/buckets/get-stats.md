@@ -1,6 +1,10 @@
 ---
 title: Viewing bucket metrics in {{ objstorage-full-name }}
 description: Follow this guide to view bucket metrics in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/buckets/get-stats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing bucket metrics

@@ -1,6 +1,10 @@
 ---
 title: Deleting a Cloud WAF exclusion rule
 description: Follow this guide to delete a WAF exclusion rule.
+alternate:
+  - href: en/smartwebsecurity/operations/exclusion-rule-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a Cloud WAF exclusion rule

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/certificate-manager/concepts/managed-certificate.md
+    type: text/markdown
+    title: Markdown version
+---
 # Let's Encrypt certificate
 
 You can use {{ certificate-manager-name }} to create Let's Encrypt certificates. You request a certificate and pass the domain ownership verification procedure. After that, {{ certificate-manager-name }} will manage this certificate by contacting Let's Encrypt on your behalf.

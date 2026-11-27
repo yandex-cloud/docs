@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storedoc/operations/performance-diagnostics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Диагностика производительности в {{ mmg-name }}
 
 {{ mmg-name }} предоставляет встроенный инструмент для диагностики производительности кластера СУБД. Этот инструмент помогает анализировать метрики [профилирования {{ SD }}](#get-profiling) и [индексов](#get-indexes).

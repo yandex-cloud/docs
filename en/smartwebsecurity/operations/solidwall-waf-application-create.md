@@ -1,6 +1,10 @@
 ---
 title: How to create a SolidWall WAF application and connect a domain to it in {{ sws-full-name }}
 description: Follow this guide to add an application to a SolidWall WAF profile in {{ sws-name }} and connect your website domains or APIs to it.
+alternate:
+  - href: en/smartwebsecurity/operations/solidwall-waf-application-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a SolidWall WAF application and connecting a domain to it

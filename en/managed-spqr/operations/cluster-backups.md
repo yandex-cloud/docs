@@ -1,6 +1,10 @@
 ---
 title: Managing backups in {{ mspqr-name }}
 description: Learn how to create backups and use existing backups to restore your clusters in {{ mspqr-full-name }}.
+alternate:
+  - href: en/managed-spqr/operations/cluster-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing backups in {{ mspqr-full-name }}

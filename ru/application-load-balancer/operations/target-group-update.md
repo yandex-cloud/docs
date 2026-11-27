@@ -1,6 +1,10 @@
 ---
 title: Изменить целевую группу {{ alb-full-name }}
 description: Следуя данной инструкции, вы сможете изменить параметры, добавить или удалить виртуальные машины из целевой группы {{ alb-name }}.
+alternate:
+  - href: ru/application-load-balancer/operations/target-group-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить целевую группу

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/payment-not-confirmed-issue.md
+    type: text/markdown
+    title: Markdown version
+---
 # Billing account has the `PAYMENT_NOT_CONFIRMED` status
 
 

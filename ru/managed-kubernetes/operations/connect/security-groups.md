@@ -1,6 +1,10 @@
 ---
 title: Как настроить группы безопасности кластера {{ k8s }} в {{ managed-k8s-full-name }}
 description: Следуя данной инструкции, вы сможете настроить группы безопасности.
+alternate:
+  - href: ru/managed-kubernetes/operations/connect/security-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка групп безопасности

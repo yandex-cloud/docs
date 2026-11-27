@@ -16,6 +16,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/compute/api-ref/Instance/simulateMaintenanceEvent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Instance.SimulateMaintenanceEvent

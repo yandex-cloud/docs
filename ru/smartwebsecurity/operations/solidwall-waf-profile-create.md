@@ -1,6 +1,10 @@
 ---
 title: Как создать профиль SolidWall WAF в {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете создать профиль SolidWall WAF в {{ sws-name }}, выбрать тариф и пиковую нагрузку на приложения.
+alternate:
+  - href: ru/smartwebsecurity/operations/solidwall-waf-profile-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать профиль SolidWall WAF

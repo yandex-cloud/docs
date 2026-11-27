@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/jobs/docker.md
+    type: text/markdown
+    title: Markdown version
+---
 # Docker images in jobs
 
 By default, {{ ds-jobs }} [jobs](./index.md) use the `nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04` public image with a pre-installed Conda package manager, Python 3.10, and other additional packages. This image is stored in the {{ ml-platform-name }} cache, so using the default environment allows you to run your jobs faster.

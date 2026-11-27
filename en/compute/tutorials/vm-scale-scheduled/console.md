@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-scale-scheduled/console'
+alternate:
+  - href: en/compute/tutorials/vm-scale-scheduled/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Scheduled instance group scaling with the management console, CLI, and API

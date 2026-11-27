@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ backup-full-name }} on a new VM
 description: Follow this guide to connect to {{ backup-name }} and get started with it on new VMs.
+alternate:
+  - href: en/backup/quickstart/new-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ backup-full-name }} on a new VM

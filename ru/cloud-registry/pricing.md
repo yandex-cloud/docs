@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ cloud-registry-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ cloud-registry-name }}.
 editable: false
+alternate:
+  - href: ru/cloud-registry/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ cloud-registry-name }}

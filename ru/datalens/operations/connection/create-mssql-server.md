@@ -1,6 +1,10 @@
 ---
 title: Инструкция по созданию подключения к {{ MS }} в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как подключиться к {{ MS }} Server в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/create-mssql-server.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к {{ MS }} в {{ datalens-full-name }}

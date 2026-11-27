@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/metadata-hub/concepts/schema-registry-content-model.md
+    type: text/markdown
+    title: Markdown version
+---
 # Контентные модели и проблемы эволюции JSON-схем
 
 

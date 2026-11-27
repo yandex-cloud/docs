@@ -1,6 +1,10 @@
 ---
 title: Setting up security groups and access restrictions for a {{ mgl-full-name }} instance
 description: In this article, you will learn how to set up security groups and restrict access to a {{ mgl-name }} instance, as well as review the rules for incoming and outgoing traffic.
+alternate:
+  - href: en/managed-gitlab/operations/configure-security-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring security groups

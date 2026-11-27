@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение к Metrica в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете создать подключение к Metrica в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/create-metrica-api.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к Metrica в {{ datalens-full-name }}

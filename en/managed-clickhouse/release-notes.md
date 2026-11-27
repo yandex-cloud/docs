@@ -1,6 +1,10 @@
 ---
 title: '{{ mch-full-name }} release notes'
 description: This section contains the {{ mch-name }} release notes.
+alternate:
+  - href: en/managed-clickhouse/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 <!-- Changelog begin -->

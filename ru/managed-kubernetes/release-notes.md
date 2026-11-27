@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/release-notes.md
+    type: text/markdown
+    title: Markdown version
+---
 # История изменений в {{ managed-k8s-full-name }}
 
 <!-- Changelog begin -->

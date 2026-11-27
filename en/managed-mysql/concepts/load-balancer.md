@@ -1,6 +1,10 @@
 ---
 title: Load balancer for {{ mmy-name }} hosts
 description: You can create an L4 load balancer when creating or modifying a {{ MY }} cluster to adjust the DB load across hosts based on the host's availability, its role in the cluster, or its lag time behind the master.
+alternate:
+  - href: en/managed-mysql/concepts/load-balancer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Load balancer for hosts

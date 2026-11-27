@@ -5,6 +5,10 @@ keywords:
   - service connection
   - private endpoint
   - private link
+alternate:
+  - href: en/vpc/concepts/private-endpoint.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service connections in {{ vpc-full-name }}

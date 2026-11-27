@@ -1,6 +1,10 @@
 ---
 title: Deleting a function
 description: Follow this guide to delete a function.
+alternate:
+  - href: en/functions/operations/function/function-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a function

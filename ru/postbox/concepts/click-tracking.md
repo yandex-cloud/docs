@@ -1,6 +1,10 @@
 ---
 title: Отслеживание переходов по ссылкам
 description: В {{ postbox-full-name }} можно отслеживать переходы по ссылкам в письмах. Когда получатель переходит по ссылке в письме, {{ postbox-name }} отправляет уведомление о том, что был совершен переход.
+alternate:
+  - href: ru/postbox/concepts/click-tracking.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отслеживание переходов по ссылкам

@@ -51,6 +51,10 @@ meta:
     - keyword: security group
     - keyword: service connection
     - keyword: Private Endpoint
+  alternate:
+    - href: en/vpc/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first cloud network

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/trigger/cloud-logging-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для {{ cloud-logging-name }}, который отправляет сообщения в WebSocket-соединения
 
 [Триггер](../trigger/) для {{ cloud-logging-name }} отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md), когда в [лог-группу](../../../logging/concepts/log-group.md) добавляют записи.

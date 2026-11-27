@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/magic.md
+    type: text/markdown
+    title: Markdown version
+---
 # Доступные команды
 
 {{ ds-nb }} позволяет использовать «магические» команды (magic commands) IPython. С их помощью можно измерять время работы программы, запускать bash-команды в отдельных ячейках, определять типы переменных и многое другое. В ноутбуках доступно большинство стандартных команд из [документации IPython](https://ipython.readthedocs.io/en/stable/interactive/magics.html). Ограничения и дополнения представлены ниже.

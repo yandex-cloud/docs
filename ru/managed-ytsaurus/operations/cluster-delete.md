@@ -5,6 +5,10 @@ keywords:
   - удаление кластера {{ ytsaurus-name }}
   - кластер {{ ytsaurus-name }}
   - '{{ ytsaurus-name }}'
+alternate:
+  - href: ru/managed-ytsaurus/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление кластера {{ ytsaurus-name }}

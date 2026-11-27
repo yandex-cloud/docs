@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/operations/os-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать триггер для {{ objstorage-name }}, который вызывает контейнер {{ serverless-containers-name }}
 
 Создайте [триггер для {{ objstorage-name }}](../concepts/trigger/os-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} при создании, перемещении или удалении [объекта](../../storage/concepts/object.md) в бакете.

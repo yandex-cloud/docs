@@ -99,6 +99,10 @@ apiPlayground:
               In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
             type: string
             format: date-time
+alternate:
+  - href: en/baremetal/api-ref/PrivateCloudConnection/updatePrivateCloudConnection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PrivateCloudConnection.UpdatePrivateCloudConnection

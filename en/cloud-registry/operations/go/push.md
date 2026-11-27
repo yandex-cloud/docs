@@ -1,6 +1,10 @@
 ---
 title: Pushing a Go module to a {{ cloud-registry-full-name }} registry
 description: Follow this guide to push a Go module to a registry in {{ cloud-registry-full-name }}.
+alternate:
+  - href: en/cloud-registry/operations/go/push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pushing a Go module to a registry

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/kafka/delete-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить кластер {{ KF }}
 
 Если у вас есть кластер [{{ KF }}](../../concepts/components/kafka.md) в [проекте](../projects/create-project.md)), вы можете удалить его.

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/saml/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Federation API, REST: Operation

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/auth-settings/get/
+alternate:
+  - href: en/managed-opensearch/cli-ref/auth-settings/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-opensearch auth-settings get

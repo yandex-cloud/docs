@@ -82,6 +82,10 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
+alternate:
+  - href: ru/compute/api-ref/Disk/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Disk.Update

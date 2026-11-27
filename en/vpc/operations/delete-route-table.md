@@ -1,6 +1,10 @@
 ---
 title: How to delete a route table in {{ vpc-full-name }}
 description: Follow this guide to delete a route table.
+alternate:
+  - href: en/vpc/operations/delete-route-table.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a route table

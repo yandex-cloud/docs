@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-streams/kinesisapi/methods/getrecords.md
+    type: text/markdown
+    title: Markdown version
+---
 # GetRecords
 
 Получает [сообщения](../../concepts/glossary.md#message) из [сегмента](../../concepts/glossary.md#shard) потока данных.

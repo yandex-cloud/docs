@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/SparkClusters/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # SparkClusters
 
 <!-- markdownlint-disable-file -->

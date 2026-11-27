@@ -1,6 +1,10 @@
 ---
 title: Managing a topic in {{ cns-full-name }}
 description: Follow this guide to update or delete a topic.
+alternate:
+  - href: en/notifications/operations/topics/topic-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing a topic

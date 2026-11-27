@@ -1,6 +1,10 @@
 ---
 title: Политика работы с версиями {{ KF }}
 description: Из статьи вы узнаете о политике работы с версиями {{ KF }} в сервисе {{ mkf-full-name }}.
+alternate:
+  - href: ru/managed-kafka/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политика работы с версиями {{ KF }}

@@ -1,6 +1,10 @@
 ---
 title: Requirements of the Federal Law FZ-152 on Personal Data
 description: This collection of rules automates legal compliance monitoring for laws and regulations on personal data protection.
+alternate:
+  - href: en/security-deck/concepts/standard-compliance/yc-personal-data-protection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Requirements of the Federal Law FZ-152 on Personal Data

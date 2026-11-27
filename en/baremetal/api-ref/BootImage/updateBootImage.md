@@ -127,6 +127,10 @@ apiPlayground:
               maxLength: 63
               minLength: 1
             maxProperties: 64
+alternate:
+  - href: en/baremetal/api-ref/BootImage/updateBootImage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: BootImage.UpdateBootImage

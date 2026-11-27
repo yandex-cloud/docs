@@ -1,5 +1,9 @@
 ---
 subcategory: Compute Cloud
+alternate:
+  - href: en/terraform/data-sources/compute_image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_compute_image (DataSource)

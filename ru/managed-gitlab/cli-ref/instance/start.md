@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-gitlab/cli-ref/instance/start/
+alternate:
+  - href: ru/managed-gitlab/cli-ref/instance/start.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-gitlab instance start

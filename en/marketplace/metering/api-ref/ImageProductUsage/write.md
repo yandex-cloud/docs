@@ -68,6 +68,10 @@ apiPlayground:
           - uuid
           - skuId
           - timestamp
+alternate:
+  - href: en/marketplace/metering/api-ref/ImageProductUsage/write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Marketplace Metering API, REST: ImageProductUsage.Write

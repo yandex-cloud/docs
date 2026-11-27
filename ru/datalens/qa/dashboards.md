@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про дашборды
 description: На странице представлены вопросы и ответы про дашборды.
+alternate:
+  - href: ru/datalens/qa/dashboards.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Дашборды

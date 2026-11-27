@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/video/api-ref/Episode/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Episode.Delete

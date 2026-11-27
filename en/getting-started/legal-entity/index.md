@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ yandex-cloud }} for businesses
 description: These articles will help you get started with {{ yandex-cloud }} as a business. Find the answers to FAQs about a billing account and paid consumption, the initial grant, and documents.
+alternate:
+  - href: en/getting-started/legal-entity/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started for businesses

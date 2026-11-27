@@ -2,6 +2,10 @@
 title: How to read a record from a table in {{ ydb-full-name }}
 description: Follow this guide to read a record from a table.
 sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
+alternate:
+  - href: en/ydb/docapi/tools/aws-sdk/read-item.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Reading a record
 

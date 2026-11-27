@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-streams/concepts/partition-keys.md
+    type: text/markdown
+    title: Markdown version
+---
 # Partitions and partition keys
 
 The following examples illustrate the concepts of [partitions](glossary.md#hard) and [partition keys](glossary.md#partition-key).

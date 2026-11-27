@@ -1,6 +1,10 @@
 ---
 title: Deleting an alias in {{ iot-full-name }}
 description: Aliases are associated with specific devices. To delete an alias, you need to get the device ID or name.
+alternate:
+  - href: en/iot-core/operations/device/alias/alias-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an alias

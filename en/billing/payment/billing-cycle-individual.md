@@ -1,6 +1,10 @@
 ---
 title: Billing cycle for individuals
 description: This article describes the payment cycle for bank cards held by individuals and the procedures of suspending and blocking access to resources.
+alternate:
+  - href: en/billing/payment/billing-cycle-individual.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing cycle for individuals

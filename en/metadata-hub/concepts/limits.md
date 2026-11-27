@@ -1,6 +1,10 @@
 ---
 title: '{{ metadata-hub-full-name }} quotas and limits'
 description: '{{ metadata-hub-full-name }} applies quotas on the number of connections, number of namespaces, and number of schemas per cloud. For more information about the service limitations, read this article.'
+alternate:
+  - href: en/metadata-hub/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas in {{ metadata-hub-full-name }}

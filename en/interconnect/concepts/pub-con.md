@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/interconnect/concepts/pub-con.md
+    type: text/markdown
+    title: Markdown version
+---
 # Public connection
 
 A public connection provides access to {{ yandex-cloud }} [services](#svc-list). A public connection is set up within a [trunk](./trunk.md) and has its own unique **VLAN-ID**. A single trunk can host multiple public connections enabling access to various combinations of [services](#svc-list).

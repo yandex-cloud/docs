@@ -1,6 +1,10 @@
 ---
 title: Uploading a file to {{ objstorage-full-name }}
 description: Use a directed acyclic graph (DAG) to upload files to {{ objstorage-full-name }}.
+alternate:
+  - href: en/managed-airflow/operations/upload-file-to-s3.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Uploading a file to {{ objstorage-full-name }}

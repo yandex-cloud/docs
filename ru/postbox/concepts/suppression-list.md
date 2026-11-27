@@ -1,6 +1,10 @@
 ---
 title: Стоп-листы в {{ postbox-full-name }}
 description: Из этой статьи вы узнаете, что такое стоп-листы в {{ postbox-name }} и как они влияют на отправку писем.
+alternate:
+  - href: ru/postbox/concepts/suppression-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Стоп-листы

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/secrets-store.md
+    type: text/markdown
+    title: Markdown version
+---
 # Secrets Store
 
 {{ stackland-name }} uses two main tools for secure secret storage and injection:

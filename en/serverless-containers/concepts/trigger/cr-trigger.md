@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/concepts/trigger/cr-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for {{ container-registry-name }} that invokes a {{ serverless-containers-name }} container
 
 A [trigger](../trigger/) for {{ container-registry-name }} invokes a {{ serverless-containers-name }} [container](../container.md) when specific events occur with a {{ container-registry-name }} [Docker image](../../../container-registry/concepts/docker-image.md). The trigger must be in the same cloud as the [registry](../../../container-registry/concepts/registry.md) whose events it is subscribed to.

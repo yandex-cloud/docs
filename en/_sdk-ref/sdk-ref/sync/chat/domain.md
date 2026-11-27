@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/sync/chat/domain.md
+    type: text/markdown
+    title: Markdown version
+---
 # Chat domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_chat.**Chat**{#yandex_ai_studio_sdk._chat.Chat}

@@ -1,6 +1,10 @@
 ---
 title: Сценарии хранения и восстановления данных в {{ yandex-cloud }}
 description: Различные сценарии хранения и восстановления данных в {{ yandex-cloud }}.
+alternate:
+  - href: ru/tutorials/archive/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Хранение и восстановление данных

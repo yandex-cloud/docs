@@ -2,6 +2,10 @@
 title: Метрики {{ message-queue-full-name }}
 description: Из статьи вы узнаете про метрики {{ message-queue-name }}.
 editable: false
+alternate:
+  - href: ru/monium/metrics-ref/message-queue-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ message-queue-full-name }}

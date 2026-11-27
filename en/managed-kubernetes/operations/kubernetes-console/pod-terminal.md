@@ -1,6 +1,10 @@
 ---
 title: Connecting to the terminal of a running container in {{ managed-k8s-full-name }}
 description: In this tutorial, you will learn how to connect to the terminal of a running {{ k8s }} container using the management console in {{ yandex-cloud }} without kubectl.
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-console/pod-terminal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to the terminal of a running container

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/projects/jobs-with-ssa.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with a service agent from a job
 
 You can work with other services from [jobs](../../concepts/jobs/index.md) using a [service agent](../../../iam/concepts/service-control.md#service-agent). A service agent is a special service account under which {{ ml-platform-name }} projects will perform actions in other {{ yandex-cloud }} services.

@@ -1,6 +1,10 @@
 ---
 title: Обзор {{ iam-full-name }}
 description: Сервис {{ iam-name }} (IAM) контролирует доступ к ресурсам и предоставляет функциональность для настройки прав доступа. Вы определяете, кто и какие права имеет на ресурс, а {{ iam-short-name }} предоставляет доступ в соответствии с назначенными правами.
+alternate:
+  - href: ru/iam/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор {{ iam-full-name }}

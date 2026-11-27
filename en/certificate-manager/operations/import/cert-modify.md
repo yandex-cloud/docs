@@ -1,6 +1,10 @@
 ---
 title: How to edit a custom certificate in {{ certificate-manager-full-name }}
 description: Follow this guide to update a custom certificate.
+alternate:
+  - href: en/certificate-manager/operations/import/cert-modify.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a custom certificate

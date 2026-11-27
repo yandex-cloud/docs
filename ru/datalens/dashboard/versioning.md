@@ -1,6 +1,10 @@
 ---
 title: Версионирование дашборда в {{ datalens-full-name }}
 description: Версионирование дашборда в {{ datalens-full-name }} — это возможность хранить историю изменений конфигурации дашборда с помощью версий. Список версий доступен пользователям с минимальным правом доступа {{ permission-write }} на дашборд.
+alternate:
+  - href: ru/datalens/dashboard/versioning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Версионирование в {{ datalens-full-name }}

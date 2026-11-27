@@ -1,6 +1,10 @@
 ---
 title: Миграция базы данных из стороннего кластера {{ KF }} в {{ mkf-full-name }}
 description: Перенести топики из кластера-источника {{ KF }} в кластер-приемник {{ mkf-name }} можно с помощью встроенного в {{ mkf-full-name }} MirrorMaker-коннектора или с помощью утилиты MirrorMaker 2.0
+alternate:
+  - href: ru/tutorials/dataplatform/kafka-connector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция базы данных из стороннего кластера {{ KF }} в {{ mkf-full-name }}

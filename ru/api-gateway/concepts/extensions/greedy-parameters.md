@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/greedy-parameters.md
+    type: text/markdown
+    title: Markdown version
+---
 # Жадные параметры
 
 [Спецификация OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) позволяет захватывать только один сегмент URL. Чтобы захватить несколько сегментов, добавьте `+` после имени параметра: `/prefix/{param+}/suffix`.

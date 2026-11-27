@@ -1,6 +1,10 @@
 ---
 title: Обзор {{ yandex-cloud }} SDK
 description: Узнайте про SDK, которые применяются для работы с {{ yandex-cloud }}
+alternate:
+  - href: ru/overview/sdk/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор {{ yandex-cloud }} SDK

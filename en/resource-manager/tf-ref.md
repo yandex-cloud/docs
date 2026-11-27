@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ resmgr-full-name }}'
 description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ resmgr-name }}.
+alternate:
+  - href: en/resource-manager/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ resmgr-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как создать снимок диска
 description: Следуя данной инструкции, вы сможете создать снимок диска.
+alternate:
+  - href: ru/compute/operations/disk-control/create-snapshot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать снимок диска

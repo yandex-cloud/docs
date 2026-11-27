@@ -1,6 +1,10 @@
 ---
 title: Удалить настройки масштабирования контейнера
 description: Следуя данной инструкции, вы сможете удалить настройки масштабирования контейнера.
+alternate:
+  - href: ru/serverless-containers/operations/scaling-settings-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить настройки масштабирования контейнера

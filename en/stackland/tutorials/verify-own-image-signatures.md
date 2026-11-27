@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/tutorials/verify-own-image-signatures.md
+    type: text/markdown
+    title: Markdown version
+---
 # Verifying signatures for custom images
 
 You can sign your apps' images and restrict the cluster from running images without a valid signature. When creating a pod, the [Policy Manager](../concepts/components/policy-manager.md) component based on [Kyverno](https://kyverno.io/) verifies the signature. The [Cosign](https://docs.sigstore.dev/) utility creates signatures.

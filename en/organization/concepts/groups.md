@@ -1,6 +1,10 @@
 ---
 title: User groups
 description: You can organize the organization users into groups to grant the same role to multiple users.
+alternate:
+  - href: en/organization/concepts/groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # User groups

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/v0/sink/add-access-binding/
+alternate:
+  - href: ru/logging/cli-ref/v0/sink/add-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc logging v0 sink add-access-binding

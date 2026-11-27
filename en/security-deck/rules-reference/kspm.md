@@ -2,6 +2,10 @@
 title: '{{ kspm-name }} — {{ kspm-full-name }}'
 description: Rules for checking Kubernetes cluster configuration
 editable: false
+alternate:
+  - href: en/security-deck/rules-reference/kspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 ## {{ kspm-name }} — {{ kspm-full-name }}

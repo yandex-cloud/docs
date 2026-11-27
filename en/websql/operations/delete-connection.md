@@ -1,6 +1,10 @@
 ---
 title: Deleting a connection in {{ websql-full-name }}
 description: Follow this guide to delete unused connections.
+alternate:
+  - href: en/websql/operations/delete-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a connection

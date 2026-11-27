@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/tutorials/serverless/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Руководства по работе с бессерверными технологиями в {{ yandex-cloud }}
 
 ## Бэкенд на Serverless {#backend}

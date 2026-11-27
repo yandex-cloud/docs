@@ -1,6 +1,10 @@
 ---
 title: Critical path analysis
 description: The critical path in a trace is the span sequence that drives the total request execution time.
+alternate:
+  - href: en/monium/traces/operations/critical-path.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Critical path analysis

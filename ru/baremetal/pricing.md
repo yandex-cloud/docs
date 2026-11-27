@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ baremetal-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ baremetal-name }}.
 editable: false
+alternate:
+  - href: ru/baremetal/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ baremetal-full-name }}

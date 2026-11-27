@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/v0/backup-retention-policy/
+alternate:
+  - href: en/cli/cli-ref/managed-mongodb/cli-ref/v0/backup-retention-policy/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb v0 backup-retention-policy

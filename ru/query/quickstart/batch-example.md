@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/quickstart/batch-example.md
+    type: text/markdown
+    title: Markdown version
+---
 # Аналитическая обработка данных из {{ objstorage-full-name }}
 
 В этом примере вы выполните [аналитическую обработку данных](../concepts/batch-processing.md) о поездках Нью-Йоркского такси. Данные для выполнения примера предварительно размещены в бакете [{{ objstorage-full-name }}](../../storage/index.yaml) в файлах формата [Parquet](https://parquet.apache.org/docs/file-format/).

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/concepts/versioning.md
+    type: text/markdown
+    title: Markdown version
+---
 # Bucket versioning
 
 Bucket versioning enables keeping a history of an object through its versions. Each version is a copy of an object at a specific point in time and occupies space in {{ objstorage-name }}. Using version control protects your data from both accidental user actions and application faults.

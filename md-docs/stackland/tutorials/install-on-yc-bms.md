@@ -138,6 +138,7 @@ IP-адреса, назначенные серверам по DHCP, могут �
     sudo ufw allow 22/tcp comment 'SSH'
     sudo ufw allow 1194/udp comment 'OpenVPN'
     sudo ufw allow from 192.168.22.0/24 to any port 53,123 proto udp
+    sudo ufw allow from 192.168.22.0/24 to any port 53 proto tcp
     sudo ufw enable
     ```
 

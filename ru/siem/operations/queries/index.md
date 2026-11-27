@@ -1,6 +1,10 @@
 ---
 title: Работа с запросами в {{ yandex-siem-full-name }}
 description: Обзор возможностей работы с запросами в {{ yandex-siem-full-name }}.
+alternate:
+  - href: ru/siem/operations/queries/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с запросами

@@ -2,6 +2,10 @@
 title: Загрузка объектов в бакет {{ objstorage-full-name }} с помощью эфемерного ключа доступа
 description: В этом руководстве вы научитесь использовать эфемерные ключи доступа для безопасной загрузки объектов в бакет {{ objstorage-name }} с помощью AWS CLI.
 canonical: '{{ link-docs }}/tutorials/security/ephemeral-key-storage'
+alternate:
+  - href: ru/iam/tutorials/ephemeral-key-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузка объектов в бакет {{ objstorage-full-name }} с помощью эфемерного ключа доступа

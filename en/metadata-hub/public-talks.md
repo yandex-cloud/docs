@@ -1,6 +1,10 @@
 ---
 title: Public materials about {{ metadata-hub-full-name }}
 description: Videos of conferences and webinars dedicated to {{ metadata-hub-full-name }}.
+alternate:
+  - href: en/metadata-hub/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public materials about {{ metadata-hub-full-name }}

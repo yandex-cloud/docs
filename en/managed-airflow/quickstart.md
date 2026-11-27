@@ -16,6 +16,10 @@ keywords:
   - keyword: '{{ AF }} web interface'
   - keyword: open {{ AF }} web interface
   - keyword: open airflow web interface
+alternate:
+  - href: en/managed-airflow/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ maf-name }}

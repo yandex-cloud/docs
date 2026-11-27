@@ -29,6 +29,10 @@ apiPlayground:
         - backendName
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/application-load-balancer/api-ref/BackendGroup/removeBackend.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: BackendGroup.RemoveBackend

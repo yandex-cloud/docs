@@ -1,6 +1,10 @@
 ---
 title: Adding a trigger label in {{ sf-name }}
 description: Follow this guide to add a trigger label in {{ sf-name }}.
+alternate:
+  - href: en/functions/operations/trigger/label-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a trigger label in {{ sf-name }}

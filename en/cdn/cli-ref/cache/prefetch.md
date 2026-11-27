@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/cache/prefetch/
+alternate:
+  - href: en/cdn/cli-ref/cache/prefetch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cdn cache prefetch

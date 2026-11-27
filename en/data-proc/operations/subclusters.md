@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/operations/subclusters.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing {{ dataproc-name }} subclusters
 
 In addition to [updating the settings](subcluster-update.md) of a particular subcluster, you can create new and delete existing subclusters.

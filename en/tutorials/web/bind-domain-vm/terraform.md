@@ -1,6 +1,10 @@
 ---
 title: How to assign a custom domain to a VM with a web server using {{ TF }}
 description: Follow this guide to assign a custom domain to a web server on a {{ compute-full-name }} VM using {{ TF }}.
+alternate:
+  - href: en/tutorials/web/bind-domain-vm/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning a domain name to a VM with a web server using {{ TF }}

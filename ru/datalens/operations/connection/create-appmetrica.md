@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение к AppMetrica в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете создать подключение к AppMetrica в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/connection/create-appmetrica.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к AppMetrica в {{ datalens-full-name }}

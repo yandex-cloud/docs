@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/dummy.md
+    type: text/markdown
+    title: Markdown version
+---
 # x-yc-apigateway-integration:dummy extension
 
 The `x-yc-apigateway-integration:dummy` extension returns fixed content with the specified response code and required headers without any third-party service involved.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/baremetal/concepts/server-individual-configurations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Server configuration upon request
 
 If you are after an optimal configuration with specific needs in mind, you can have a server assembled based on your individual request. We will accommodate a project of any complexity, advise on optimal server configurations, and help organize the migration of your infrastructure to {{ baremetal-name }}.

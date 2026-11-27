@@ -1,6 +1,10 @@
 ---
 title: Создать целевую группу {{ network-load-balancer-name }}
 description: Следуя данной инструкции, вы сможете создать целевую группу {{ network-load-balancer-name }}.
+alternate:
+  - href: ru/network-load-balancer/operations/target-group-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать целевую группу {{ network-load-balancer-name }}

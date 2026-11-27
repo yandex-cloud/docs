@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/unexpected-cheque-received-to-email.md
+    type: text/markdown
+    title: Markdown version
+---
 # На привязанную к платежному аккаунту почту неожиданно пришел чек на сумму, отсутствующую в истории платежей
 
 

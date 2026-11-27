@@ -1,6 +1,10 @@
 ---
 title: Как управлять схемами формата данных в {{ mch-name }}
 description: Следуя данной инструкции, вы научитесь управлять схемами формата данных в {{ mch-name }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/format-schemas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление схемами формата данных в {{ mch-name }}

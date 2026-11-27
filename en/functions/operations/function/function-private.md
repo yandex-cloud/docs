@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/function/function-private.md
+    type: text/markdown
+    title: Markdown version
+---
 # Making a function private
 
 For a function to be invoked only by users with the permission to do so, make the function private.

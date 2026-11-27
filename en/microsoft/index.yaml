@@ -15,6 +15,10 @@ meta:
     - keyword: microsoft office in {{ yandex-cloud }}
     - keyword: Windows in {{ yandex-cloud }}
     - keyword: microsoft tools in cloud
+  alternate:
+    - href: en/microsoft/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Tutorials
     description: Detailed instructions on how to use Microsoft products in Yandex Cloud

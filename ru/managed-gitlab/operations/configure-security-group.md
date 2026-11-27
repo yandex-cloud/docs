@@ -1,6 +1,10 @@
 ---
 title: Настройка групп безопасности и ограничение доступа к инстансу {{ mgl-full-name }}
 description: Из статьи вы узнаете про настройку групп безопасности и ограничение доступа к инстансу {{ mgl-name }}, а также ознакомитесь с правилами входящего и исходящего трафика.
+alternate:
+  - href: ru/managed-gitlab/operations/configure-security-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка групп безопасности

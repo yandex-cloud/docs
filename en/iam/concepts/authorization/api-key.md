@@ -1,6 +1,10 @@
 ---
 title: API key
 description: In this article, you will learn what an API key is, about its purpose, how to use it, and about the services supporting the API key authentication method.
+alternate:
+  - href: en/iam/concepts/authorization/api-key.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API key

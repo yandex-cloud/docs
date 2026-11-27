@@ -1,6 +1,10 @@
 ---
 title: Editing a namespace
 description: Follow this guide to edit namespace settings.
+alternate:
+  - href: en/metadata-hub/operations/update-name-space.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a namespace

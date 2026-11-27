@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ at-full-name }}
 description: В разделе представлена история изменений сервиса {{ at-name }}.
+alternate:
+  - href: ru/audit-trails/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ at-full-name }}

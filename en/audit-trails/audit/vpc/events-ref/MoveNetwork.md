@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/vpc/events-ref/MoveNetwork.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud Audit Trails Events: MoveNetwork

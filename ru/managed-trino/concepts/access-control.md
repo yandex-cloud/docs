@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ mtr-full-name }}
 description: '{{ mtr-name }} поддерживает гибкое разграничение доступа отдельных пользователей или их групп к объектам кластера. Разграничить доступ можно с помощью назначения правил доступа.'
+alternate:
+  - href: ru/managed-trino/concepts/access-control.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ mtr-name }}

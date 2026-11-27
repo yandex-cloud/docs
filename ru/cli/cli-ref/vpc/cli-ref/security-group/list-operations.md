@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/security-group/list-operations/
+alternate:
+  - href: ru/cli/cli-ref/vpc/cli-ref/security-group/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc security-group list-operations

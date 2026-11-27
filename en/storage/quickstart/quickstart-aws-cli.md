@@ -1,6 +1,10 @@
 ---
 title: Getting started with the AWS CLI
 description: Follow this guide to create a bucket and upload an object to it using the AWS CLI.
+alternate:
+  - href: en/storage/quickstart/quickstart-aws-cli.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with the AWS CLI in {{ objstorage-full-name }}

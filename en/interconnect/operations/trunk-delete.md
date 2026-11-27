@@ -1,6 +1,10 @@
 ---
 title: How to delete a trunk in {{ interconnect-name }}
 description: Follow this guide to delete a trunk in {{ interconnect-name }}.
+alternate:
+  - href: en/interconnect/operations/trunk-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a trunk

@@ -1,6 +1,10 @@
 ---
 title: Long-lived containers in {{ serverless-containers-full-name }}
 description: This page describes some aspects related to long-lived containers in {{ serverless-containers-name }}, i.e., containers that can run for up to an hour before timing out.
+alternate:
+  - href: en/serverless-containers/concepts/long-lived-containers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Long-lived containers

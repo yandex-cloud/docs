@@ -1,6 +1,10 @@
 ---
 title: How to view {{ cloud-desktop-full-name }} resource logs
 description: In this tutorial, you will learn how to view desktop and desktop group logs in {{ cloud-desktop-name }}.
+alternate:
+  - href: en/cloud-desktop/operations/logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing logs

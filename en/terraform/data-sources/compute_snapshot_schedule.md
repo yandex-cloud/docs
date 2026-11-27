@@ -1,5 +1,9 @@
 ---
 subcategory: Compute Cloud
+alternate:
+  - href: en/terraform/data-sources/compute_snapshot_schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_compute_snapshot_schedule (DataSource)

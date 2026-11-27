@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/balancer/disable/
+alternate:
+  - href: ru/storedoc/cli-ref/balancer/disable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb balancer disable

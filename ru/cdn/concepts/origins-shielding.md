@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cdn/concepts/origins-shielding.md
+    type: text/markdown
+    title: Markdown version
+---
 # Экранирование источников
 
 

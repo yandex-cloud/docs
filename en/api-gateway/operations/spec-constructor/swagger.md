@@ -1,6 +1,10 @@
 ---
 title: Adding the Swagger UI extension
 description: Follow this guide to add the Swagger UI extension using the specification constructor.
+alternate:
+  - href: en/api-gateway/operations/spec-constructor/swagger.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding the x-yc-apigateway-integration:swagger extension

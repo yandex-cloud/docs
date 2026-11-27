@@ -1,6 +1,10 @@
 ---
 title: Как добавить данные в таблицу в {{ ydb-full-name }}
 description: Следуя данной инструкции, вы сможете добавить данные в таблицу.
+alternate:
+  - href: ru/ydb/docapi/tools/aws-cli/put-item.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление данных в таблицу

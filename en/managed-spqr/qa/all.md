@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ mspqr-full-name }}
 description: This page covers questions and answers about {{ mspqr-name }}.
+alternate:
+  - href: en/managed-spqr/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ mspqr-name }} {#general}

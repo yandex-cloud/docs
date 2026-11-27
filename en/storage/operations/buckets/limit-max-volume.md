@@ -1,6 +1,10 @@
 ---
 title: Limiting the maximum bucket size in {{ objstorage-full-name }}
 description: Follow this guide to set the maximum size of a bucket in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/buckets/limit-max-volume.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Limiting the maximum bucket size

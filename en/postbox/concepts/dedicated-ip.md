@@ -1,6 +1,10 @@
 ---
 title: Dedicated IP addresses in {{ postbox-full-name }}
 description: In this article, you will learn about dedicated IP addresses and dedicated IP address pools in {{ postbox-name }}.
+alternate:
+  - href: en/postbox/concepts/dedicated-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Dedicated IP addresses

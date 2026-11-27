@@ -35,6 +35,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/baremetal/api-ref/PublicPrefixPool/listOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PublicPrefixPool.ListOperations

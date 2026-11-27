@@ -1,6 +1,10 @@
 ---
 title: Working with a network load balancer. Step-by-step guides
 description: Step-by-step guides on using a network load balancer in {{ yandex-cloud }}. In these articles, you will learn how to create load balancers, monitor target statuses, and manage target groups.
+alternate:
+  - href: en/network-load-balancer/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ network-load-balancer-name }}

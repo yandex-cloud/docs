@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/ai-studio/configure.md
+    type: text/markdown
+    title: Markdown version
+---
 # Включить {{ ai-studio-name }}
 
 Для работы [{{ ai-studio-name }}](../../concepts/components/ai-studio.md) включите компоненты {{ objstorage-name }}, {{ model-gallery-name }} и {{ agent-atelier-name }}.

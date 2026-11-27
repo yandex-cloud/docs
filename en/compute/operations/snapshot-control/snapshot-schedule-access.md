@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for a {{ compute-name }} disk snapshot schedule
 description: Follow this guide to configure access permissions for a disk snapshot schedule.
+alternate:
+  - href: en/compute/operations/snapshot-control/snapshot-schedule-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring snapshot schedule access permissions

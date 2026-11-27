@@ -2,6 +2,10 @@
 title: '{{ video-full-name }} quotas and limits'
 description: '{{ video-full-name }} has quotas and limits. For more information about the service limitations, read this article.'
 editable: false
+alternate:
+  - href: en/video/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ video-name }} quotas and limits

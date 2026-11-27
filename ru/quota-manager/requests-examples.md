@@ -1,6 +1,10 @@
 ---
 title: Примеры запросов к {{ quota-manager-full-name }}
 description: В этой статье собраны примеры запросов к API {{ quota-manager-name }} для работы с квотами.
+alternate:
+  - href: ru/quota-manager/requests-examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Примеры запросов для работы с квотами

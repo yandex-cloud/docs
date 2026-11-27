@@ -1,6 +1,10 @@
 ---
 title: Unified analysis of streaming and analytical data using the example of developing an antifraud system
 description: In this article, you will learn about using stream processing to detect fraudulent transactions.
+alternate:
+  - href: en/query/concepts/unified-processing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Unified streaming and batch data analysis

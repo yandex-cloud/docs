@@ -1,6 +1,10 @@
 ---
 title: Сессии в {{ org-full-name }}
 description: Сессии дают пользователям возможность использовать сервисы, применяющие технологию единого входа с {{ org-full-name }} в качестве поставщика удостоверений (IdP), без необходимости повторной аутентификации в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/concepts/sessions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сессии

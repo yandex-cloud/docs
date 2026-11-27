@@ -1,6 +1,10 @@
 ---
 title: Как удалить пул пользователей в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете удалить пул пользователей в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/delete-userpool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить пул пользователей

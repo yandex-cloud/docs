@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/application-load-balancer/concepts/target-group.md
+    type: text/markdown
+    title: Markdown version
+---
 # Целевые группы
 
 Целевая группа L7-балансировщика — это набор IP-адресов ВМ, на которых запущены ваши сетевые приложения. Чтобы балансировщик распределял запросы между ВМ целевой группы, ее нужно указать в конфигурации [группы бэкендов](backend-group.md).

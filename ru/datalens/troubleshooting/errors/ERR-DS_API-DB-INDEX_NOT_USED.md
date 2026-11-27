@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.INDEX_NOT_USED
 description: На странице приведено описание ошибки {{ datalens-full-name }} Filtration by any of indexed columns required.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-INDEX_NOT_USED.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Filtration by any of indexed columns required

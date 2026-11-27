@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/terraform/authentication.md
+    type: text/markdown
+    title: Markdown version
+---
 # Setting up {{ yandex-cloud }} {{ TF }} provider authentication
 
 To authenticate and manage your {{ yandex-cloud }} infrastructure, you can use {{ TF }} as a:

@@ -37,6 +37,10 @@ apiPlayground:
         - versionId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/kms/api-ref/SymmetricKey/scheduleVersionDestruction.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, REST: SymmetricKey.ScheduleVersionDestruction

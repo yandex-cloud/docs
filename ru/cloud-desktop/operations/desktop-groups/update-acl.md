@@ -1,6 +1,10 @@
 ---
 title: Инструкция по изменению прав доступа к группе рабочих столов в {{ cloud-desktop-full-name }}
 description: Из статьи вы узнаете, как изменить права доступа к группе рабочих столов в {{ cloud-desktop-full-name }}.
+alternate:
+  - href: ru/cloud-desktop/operations/desktop-groups/update-acl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить права доступа к группе рабочих столов

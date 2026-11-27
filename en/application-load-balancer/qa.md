@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ alb-full-name }}
 description: Questions and answers about logging client IP addresses, the no_route error, and troubleshooting the ingress controller in {{ alb-name }}.
+alternate:
+  - href: en/application-load-balancer/qa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ alb-name }}

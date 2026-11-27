@@ -1,6 +1,10 @@
 ---
 title: Контроль данных в {{ sd-full-name }}
 description: Контроль данных ({{ dspm-name }}) — это один из модулей сервиса {{ sd-name }}, помогающий обнаруживать сохраненную в бакетах {{ objstorage-full-name }} чувствительную информацию и оценивать влияние такой информации на уровень безопасности и соответствие требованиям нормативных актов и отраслевых стандартов.
+alternate:
+  - href: ru/security-deck/concepts/dspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Модуль контроля данных ({{ dspm-name }})

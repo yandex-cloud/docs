@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/user/set-password-hash/
+alternate:
+  - href: en/cli/cli-ref/organization-manager/cli-ref/idp/user/set-password-hash.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager idp user set-password-hash

@@ -155,6 +155,10 @@ apiPlayground:
               **string**
               Gateway IP address for the subnet.
             type: string
+alternate:
+  - href: ru/baremetal/api-ref/PrivateSubnet/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: PrivateSubnet.Update

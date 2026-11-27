@@ -30,6 +30,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/managed-kubernetes/kubernetes-marketplace/api-ref/HelmRelease/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Kubernetes Marketplace, REST: HelmRelease.List

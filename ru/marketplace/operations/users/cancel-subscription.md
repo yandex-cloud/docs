@@ -1,6 +1,10 @@
 ---
 title: Как отключить автопродление подписки в {{ marketplace-full-name }}
 description: В этой статье вы узнаете, как отключить автопродление подписки в {{ marketplace-full-name }}.
+alternate:
+  - href: ru/marketplace/operations/users/cancel-subscription.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отключение автопродления подписки в {{ marketplace-name }}

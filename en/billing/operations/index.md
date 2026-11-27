@@ -1,6 +1,10 @@
 ---
 title: Guides on using Billing
 description: In this article, you will learn how to work with {{ billing-name }} in {{ yandex-cloud }}, activate the paid version, purchase a committed volume of services (CVoS), activate a promo code, top up your account, and more.
+alternate:
+  - href: en/billing/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All {{ billing-name }} guides

@@ -1,6 +1,10 @@
 ---
 title: Viewing a list of addresses used in a subnet
 description: Follow this guide to view a list of addresses used in a subnet.
+alternate:
+  - href: en/vpc/operations/subnet-used-addresses.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing a list of addresses used in a subnet

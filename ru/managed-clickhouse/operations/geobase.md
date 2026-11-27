@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/operations/geobase.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление собственной геобазой в {{ mch-name }}
 
 Геобаза в {{ CH }} — это текстовые файлы, которые содержат иерархию и имена регионов. Вы можете добавить в {{ CH }} несколько альтернативных геобаз для поддержки разных точек зрения о принадлежности регионов странам. Подробнее читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/internal-dicts/).

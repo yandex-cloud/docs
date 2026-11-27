@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/concepts/object.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object
 
 Objects reside in buckets and contain user data in the format you uploaded it.

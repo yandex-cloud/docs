@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/trino/create-catalog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a {{ mtr-name }} catalog
 
 A [{{ TR }} catalog](../../concepts/components/trino.md#catalogs) defines a connection to a data source. Each catalog is described using a `TrinoCatalog` resource and associated with a specific cluster via the `spec.cluster` field.

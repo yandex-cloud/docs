@@ -1,6 +1,10 @@
 ---
 title: Отключить {{ maf-name }}
 description: Как безопасно отключить компонент {{ maf-name }}
+alternate:
+  - href: ru/stackland/operations/airflow/disable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отключить {{ maf-name }}

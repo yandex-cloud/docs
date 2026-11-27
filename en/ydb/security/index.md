@@ -2,6 +2,10 @@
 title: Access management in {{ ydb-full-name }}
 description: Access management in the {{ ydb-full-name }} database creation and management service. To allow access to {{ ydb-short-name }} resources (databases and their users), assign to the user the relevant roles from the list.
 sourcePath: overlay/security/start_auth.md
+alternate:
+  - href: en/ydb/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ ydb-name }}

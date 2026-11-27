@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/vm-control/vm-change-security-groups-set.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить группы безопасности сетевого интерфейса виртуальной машины
 
 [Сетевому интерфейсу](../../concepts/network.md) ВМ можно назначить одновременно несколько [групп безопасности](../../../vpc/operations/security-group-create.md).

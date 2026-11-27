@@ -1,6 +1,10 @@
 ---
 title: Как восстановить загрузчик ОС на сервере {{ baremetal-full-name }}
 description: Следуя данной инструкции, с помощью загрузочного CD-образа Rescue-CD вы сможете восстановить загрузчик операционной системы Linux на сервере {{ baremetal-name }}, работающем в Legacy-режиме.
+alternate:
+  - href: ru/baremetal/operations/servers/restore-grub.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Восстановить загрузчик ОС

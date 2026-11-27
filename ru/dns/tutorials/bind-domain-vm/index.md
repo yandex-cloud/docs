@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/bind-domain-vm/'
+alternate:
+  - href: ru/dns/tutorials/bind-domain-vm/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [bind-domain-vm](../../../_tutorials/applied/bind-domain-vm.md) %}

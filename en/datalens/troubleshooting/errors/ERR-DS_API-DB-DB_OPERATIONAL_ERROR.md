@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.DB.DB_OPERATIONAL_ERROR'
 description: This page describes the Database-side error in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Database-side error

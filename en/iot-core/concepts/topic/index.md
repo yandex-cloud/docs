@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iot-core/concepts/topic/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Topic
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/telegram-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a Telegram Trigger that invokes a container from {{ serverless-containers-name }}
 
 Create a [Telegram trigger](../concepts/trigger/telegram-trigger.md) that invokes a [container](../concepts/container.md) from {{ serverless-containers-name }} when your Telegram bot receives an update.

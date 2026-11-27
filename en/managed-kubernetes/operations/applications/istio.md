@@ -1,6 +1,10 @@
 ---
 title: Installing Istio
 description: Follow this guide to install Istio.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/istio.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing Istio

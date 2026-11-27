@@ -1,6 +1,10 @@
 ---
 title: Запустить языковую модель DeepSeek-R1 в кластере GPU {{ compute-full-name }}
 description: Следуя этому руководству, вы создадите кластер GPU {{ compute-name }} из двух виртуальных машин и запустите в кластере языковую модель DeepSeek-R1.
+alternate:
+  - href: ru/tutorials/infrastructure-management/gpu-cluster-deepseek.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [gpu-cluster-deepseek](../../_tutorials/infrastructure/gpu-cluster-deepseek.md) %}

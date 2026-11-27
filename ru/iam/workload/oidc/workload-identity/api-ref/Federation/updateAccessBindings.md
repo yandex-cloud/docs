@@ -108,6 +108,10 @@ apiPlayground:
         required:
           - action
           - accessBinding
+alternate:
+  - href: ru/iam/workload/oidc/workload-identity/api-ref/Federation/updateAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Federation, REST: Federation.UpdateAccessBindings

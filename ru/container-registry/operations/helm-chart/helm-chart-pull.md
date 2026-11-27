@@ -1,6 +1,10 @@
 ---
 title: Скачать Helm-чарт в репозитории {{ container-registry-name }}
 description: Следуя данной инструкции, вы можете скачать Helm-чарт в репозитории {{ container-registry-name }}.
+alternate:
+  - href: ru/container-registry/operations/helm-chart/helm-chart-pull.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

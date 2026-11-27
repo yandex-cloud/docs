@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ mtr-full-name }}
 description: В этой инструкции вы научитесь создавать кластер {{ TR }} и подключаться к нему.
+alternate:
+  - href: ru/managed-trino/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ mtr-full-name }}

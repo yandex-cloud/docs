@@ -1,6 +1,10 @@
 ---
 title: Organization in the {{ yandex-cloud }} resource model
 description: An organization is the highest resource of the {{ yandex-cloud }} resource model, one that combines various types of {{ yandex-cloud }} resources and enables users to work with them.
+alternate:
+  - href: en/organization/concepts/organization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organization

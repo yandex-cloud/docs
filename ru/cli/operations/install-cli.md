@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cli/operations/install-cli.md
+    type: text/markdown
+    title: Markdown version
+---
 # Установка {{ yandex-cloud }} CLI
 
 

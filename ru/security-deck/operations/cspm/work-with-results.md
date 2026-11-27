@@ -1,6 +1,10 @@
 ---
 title: Управлять результатами регулярного сканирования в {{ cspm-name }}
 description: Следуя данной инструкции, вы узнаете об операциях, которые можно выполнить с результатами проверок в модуле {{ cspm-name }} сервиса {{ sd-full-name }}.
+alternate:
+  - href: ru/security-deck/operations/cspm/work-with-results.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять результатами проверок в {{ cspm-name }}

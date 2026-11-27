@@ -2,6 +2,10 @@
 title: '{{ sf-full-name }} pricing policy'
 description: This article covers the {{ sf-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/functions/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sf-name }} pricing policy

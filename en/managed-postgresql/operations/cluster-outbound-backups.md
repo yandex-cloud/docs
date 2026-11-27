@@ -2,6 +2,10 @@
 title: PostgreSQL recovery from a WAL-G backup
 description: Follow this guide to recover a PostgreSQL database from a WAL-G backup.
 noIndex: true
+alternate:
+  - href: en/managed-postgresql/operations/cluster-outbound-backups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ PG }} recovery from a WAL-G backup

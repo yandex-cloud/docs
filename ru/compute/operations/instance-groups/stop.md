@@ -1,6 +1,10 @@
 ---
 title: Остановить группу виртуальных машин
 description: Если вам временно не нужны ВМ в группе, остановите группу.
+alternate:
+  - href: ru/compute/operations/instance-groups/stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Остановить группу виртуальных машин

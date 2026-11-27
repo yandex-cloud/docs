@@ -1,6 +1,10 @@
 ---
 title: Создание поток изменений таблицы {{ ydb-full-name }} с помощью {{ TF }}
 description: Следуя данной инструкции, вы сможете создать или изменить параметры потока изменений таблицы {{ ydb-short-name }}.
+alternate:
+  - href: ru/ydb/terraform/cdc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание потока изменений таблицы

@@ -1,6 +1,10 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/mpg-vector-extension'
 noIndex: true
+alternate:
+  - href: ru/managed-postgresql/tutorials/mpg-vector-extension.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выполнение векторного поиска в {{ mpg-full-name }} с помощью vector

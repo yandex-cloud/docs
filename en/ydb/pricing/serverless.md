@@ -2,6 +2,10 @@
 title: Pricing policy for Serverless mode in {{ ydb-full-name }}
 description: This article covers the {{ ydb-name }} pricing policy for Serverless mode.
 editable: false
+alternate:
+  - href: en/ydb/pricing/serverless.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pricing policy for Serverless mode in {{ ydb-name }}

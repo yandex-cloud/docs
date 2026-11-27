@@ -1,6 +1,10 @@
 ---
 title: What objects can be transferred
 description: '{{ data-transfer-full-name }} makes it easy to migrate table data, various objects, and views. The specific objects you can transfer may vary based on the transfer type and endpoints.'
+alternate:
+  - href: en/data-transfer/concepts/transferred-objects.md
+    type: text/markdown
+    title: Markdown version
 ---
 # What objects can be transferred
 

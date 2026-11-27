@@ -1,6 +1,10 @@
 ---
 title: Как настроить эталонную вкладку для AI на дашборде в {{ datalens-full-name }}
 description: Из статьи вы узнаете, что такое эталонная вкладка для AI на дашборде в {{ datalens-full-name }} и как ее настроить.
+alternate:
+  - href: ru/datalens/operations/dashboard/dashboard-ai-reference-tab.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Эталонная вкладка для AI на дашборде в {{ datalens-full-name }}

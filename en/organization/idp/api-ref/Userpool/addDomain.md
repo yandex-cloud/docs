@@ -29,6 +29,10 @@ apiPlayground:
         - domain
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/organization/idp/api-ref/Userpool/addDomain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: Userpool.AddDomain

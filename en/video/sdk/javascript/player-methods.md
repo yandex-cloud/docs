@@ -1,6 +1,10 @@
 ---
 title: '{{ video-player-name }} methods in the JavaScript SDK'
 description: This page describes the methods you can use to manage {{ video-player-name }} in the JavaScript SDK.
+alternate:
+  - href: en/video/sdk/javascript/player-methods.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Player methods

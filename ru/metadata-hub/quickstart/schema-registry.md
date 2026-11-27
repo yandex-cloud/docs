@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/metadata-hub/quickstart/schema-registry.md
+    type: text/markdown
+    title: Markdown version
+---
 # Начало работы со {{ schema-registry-name }}
 
 

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/resource/update/
+alternate:
+  - href: ru/cdn/cli-ref/resource/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cdn resource update

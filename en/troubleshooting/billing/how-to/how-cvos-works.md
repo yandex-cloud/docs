@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/how-cvos-works.md
+    type: text/markdown
+    title: Markdown version
+---
 # How committed volume of services (CVoS) works
 
 

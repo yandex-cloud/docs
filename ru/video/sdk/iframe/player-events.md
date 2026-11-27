@@ -1,6 +1,10 @@
 ---
 title: События плеера {{ video-player-name }} в SDK для IFrame
 description: На странице описаны возможные события видеоплеера {{ video-player-name }}, на которые можно подписаться в SDK для IFrame.
+alternate:
+  - href: ru/video/sdk/iframe/player-events.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # События плеера

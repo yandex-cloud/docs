@@ -1,6 +1,10 @@
 ---
 title: How to allow or deny zonal shift for a {{ network-load-balancer-full-name }}
 description: Follow this guide to allow or deny zonal shift for a network load balancer.
+alternate:
+  - href: en/network-load-balancer/operations/manage-zone/allow-and-deny-shift.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

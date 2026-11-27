@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/certificate-manager/operations/import/cert-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Добавить пользовательский сертификат
 
 Добавление пользовательского сертификата рассмотрим на примере самоподписанного сертификата. Требования к пользовательскому сертификату приведены на странице [{#T}](../../concepts/imported-certificate.md).

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-valkey/concepts/settings-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ VLK }} settings
 
 For a {{ mrd-name }} cluster, you can set {{ VLK }} settings.

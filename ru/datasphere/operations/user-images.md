@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/user-images.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с Docker-образами
 
 Вы можете настроить окружение для выполнения вашего кода, используя [Docker-образы](../concepts/docker.md).

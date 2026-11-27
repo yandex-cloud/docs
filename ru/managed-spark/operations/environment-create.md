@@ -4,6 +4,10 @@ description: Из статьи вы узнаете, как создать окр
 keywords:
   - создание окружение для кластера {{ SPRK }}
   - окружение для кластера {{ SPRK }}
+alternate:
+  - href: ru/managed-spark/operations/environment-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание окружения

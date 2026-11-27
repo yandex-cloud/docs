@@ -1,6 +1,10 @@
 ---
 title: Изменение типа сети, привязанной к сетевому интерфейсу сервера {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете изменить тип сети, привязанной к сетевому интерфейсу сервера {{ baremetal-full-name }}, с публичной на приватную и наоборот.
+alternate:
+  - href: ru/baremetal/operations/servers/switch-network-type.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить тип сети, подключенной к сетевому интерфейсу

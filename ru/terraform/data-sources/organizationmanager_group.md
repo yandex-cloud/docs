@@ -1,5 +1,9 @@
 ---
 subcategory: Identity Hub
+alternate:
+  - href: ru/terraform/data-sources/organizationmanager_group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_organizationmanager_group (DataSource)

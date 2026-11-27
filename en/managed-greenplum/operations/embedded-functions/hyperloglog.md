@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/embedded-functions/hyperloglog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Estimating the number of unique elements using the HyperLogLog algorithm
 
 You can estimate the number of unique elements in a table column (set _cardinality_) using the built-in {{ mgp-name }} functions that implement the [HyperLogLog algorithm](https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf).

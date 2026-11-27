@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/network/get/
+alternate:
+  - href: en/vpc/cli-ref/network/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc network get

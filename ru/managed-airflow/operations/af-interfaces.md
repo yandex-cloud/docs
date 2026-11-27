@@ -5,6 +5,10 @@ keywords:
   - работа с интерфейсами {{ AF }}
   - '{{ AF }}'
   - Airflow
+alternate:
+  - href: ru/managed-airflow/operations/af-interfaces.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с интерфейсами {{ AF }}

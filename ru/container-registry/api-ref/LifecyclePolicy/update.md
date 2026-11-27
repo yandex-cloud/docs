@@ -101,6 +101,10 @@ apiPlayground:
               The minimum value is 0.
             type: string
             format: int64
+alternate:
+  - href: ru/container-registry/api-ref/LifecyclePolicy/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, REST: LifecyclePolicy.Update

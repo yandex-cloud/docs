@@ -1,6 +1,10 @@
 ---
 title: Как изменить параметры HTTP-роутера в {{ alb-full-name }}
 description: Следуя данной инструкции, вы сможете изменить параметры HTTP-роутера.
+alternate:
+  - href: ru/application-load-balancer/operations/http-router-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить параметры HTTP-роутера

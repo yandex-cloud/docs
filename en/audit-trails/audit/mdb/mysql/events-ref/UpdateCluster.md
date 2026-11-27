@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/mdb/mysql/events-ref/UpdateCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MySQL Audit Trails Events: UpdateCluster

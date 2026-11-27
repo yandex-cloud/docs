@@ -1,6 +1,10 @@
 ---
 title: Модель программирования на языке R в {{ sf-full-name }}
 description: Задание обработчика функций подразумевает написание функции R с параметрами event и context.
+alternate:
+  - href: ru/functions/lang/r/model/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Модель программирования на языке R

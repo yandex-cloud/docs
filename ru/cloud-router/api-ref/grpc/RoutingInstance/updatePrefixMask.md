@@ -1,5 +1,10 @@
 ---
 editable: false
+noIndex: true
+alternate:
+  - href: ru/cloud-router/api-ref/grpc/RoutingInstance/updatePrefixMask.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Router API, gRPC: RoutingInstanceService.UpdatePrefixMask

@@ -1,6 +1,10 @@
 ---
 title: Удалить кластер {{ AF }}
 description: Как удалить кластер {{ AF }} и связанные с ним данные
+alternate:
+  - href: ru/stackland/operations/airflow/delete-cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить кластер {{ AF }}

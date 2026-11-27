@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kafka/operations/cluster-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing {{ KF }} cluster logs
 
 {{ mkf-name }} allows you to [get a cluster log snippet](#get-log) for a selected time period and [view logs in real time](#get-log-stream).

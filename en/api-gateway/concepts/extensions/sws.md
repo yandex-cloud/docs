@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/sws.md
+    type: text/markdown
+    title: Markdown version
+---
 # x-yc-apigateway:smartWebSecurity extension
 
 The `x-yc-apigateway:smartWebSecurity` extension uses rules set in the [{{ sws-full-name }} security profile](../../../smartwebsecurity/concepts/profiles.md) to protect an [API gateway](../../concepts/index.md). For example, you can use the [basic rules](../../../smartwebsecurity/concepts/rules.md#base-rules) to block unwanted traffic or [Advanced Rate Limiter](../../../smartwebsecurity/concepts/arl.md) to limit the number of requests.

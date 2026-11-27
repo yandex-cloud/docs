@@ -1,6 +1,10 @@
 ---
 title: Запустить параллельные задачи в кластере GPU
 description: Следуя данной инструкции, вы сможете использовать утилиту mpirun для выполнения распределенных задач на кластере GPU.
+alternate:
+  - href: ru/compute/operations/gpu-cluster/gpu-cluster-mpirun-parallel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запустить параллельные задачи в кластере GPU

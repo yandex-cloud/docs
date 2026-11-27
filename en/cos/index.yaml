@@ -22,6 +22,10 @@ meta:
     - keyword: coi
     - keyword: docker container run optimization
     - keyword: Docker containers in {{ yandex-cloud }}
+  alternate:
+    - href: en/cos/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first Container Optimized Image VM

@@ -1,6 +1,10 @@
 ---
 title: '{{ msp-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ msp-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/managed-spark/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

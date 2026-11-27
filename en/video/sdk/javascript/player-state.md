@@ -1,6 +1,10 @@
 ---
 title: '{{ video-player-name }} states in the JavaScript SDK'
 description: This page describes the possible {{ video-player-name }} states in the JavaScript SDK.
+alternate:
+  - href: en/video/sdk/javascript/player-state.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Player state

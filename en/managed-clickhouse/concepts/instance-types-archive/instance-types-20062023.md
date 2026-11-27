@@ -1,6 +1,10 @@
 ---
 title: '{{ mch-name }} host classes before June 20, 2023'
 description: The host class determines the computing power allocated for each host in a {{ CH }} cluster. {{ mch-name }} host classes before June 20, 2023.
+alternate:
+  - href: en/managed-clickhouse/concepts/instance-types-archive/instance-types-20062023.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mch-name }} host classes before June 20, 2023

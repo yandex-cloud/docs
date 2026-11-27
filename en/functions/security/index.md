@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ sf-name }}
 description: Access management in {{ sf-name }}, a service for running applications without creating and maintaining VMs. This section describes the resources for which you can assign a role and the roles {{ sf-name }} has.
+alternate:
+  - href: en/functions/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ sf-name }}

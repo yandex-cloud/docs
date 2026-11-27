@@ -1,6 +1,10 @@
 ---
 title: Getting started with LLM traces
 description: Learn how to configure monitoring of LLM applications using the {{ traces-name }} distributed tracing system.
+alternate:
+  - href: en/monium/traces/llm/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with LLM traces

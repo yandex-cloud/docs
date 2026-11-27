@@ -1,6 +1,10 @@
 ---
 title: Service roles {{ connection-manager-full-name }}
 description: '{{ connection-manager-name }} service roles allows managing connections to databases in {{ metadata-hub-name }}.'
+alternate:
+  - href: en/metadata-hub/security/connection-manager-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Service roles for managing connections using {{ connection-manager-full-name }}

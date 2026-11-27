@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/data-types/BatchResultErrorEntry.md
+    type: text/markdown
+    title: Markdown version
+---
 # BatchResultErrorEntry
 
 Описание ошибки выполнения действия из группы.

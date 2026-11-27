@@ -1,6 +1,10 @@
 ---
 title: Adding a listener to a network load balancer
 description: Follow this guide to add a listener to a network load balancer.
+alternate:
+  - href: en/network-load-balancer/operations/listener-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a listener to a network load balancer

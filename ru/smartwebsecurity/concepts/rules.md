@@ -1,6 +1,10 @@
 ---
 title: Правила {{ sws-name }}
 description: Какие типы правил доступны в {{ sws-name }}, как они применяют действия к HTTP-запросам и как работает приоритет правил.
+alternate:
+  - href: ru/smartwebsecurity/concepts/rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила

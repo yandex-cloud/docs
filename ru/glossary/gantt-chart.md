@@ -6,6 +6,10 @@ keywords:
   - Gantt chart
   - Управление проектами
   - Планирование задач
+alternate:
+  - href: ru/glossary/gantt-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диаграмма Ганта

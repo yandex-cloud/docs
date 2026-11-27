@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/broker/get/
+alternate:
+  - href: en/iot-core/cli-ref/broker/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot broker get

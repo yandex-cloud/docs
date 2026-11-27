@@ -1,6 +1,10 @@
 ---
 title: Расследования в {{ ycdr-full-name }}
 description: Расследования в {{ ycdr-name }} позволяют анализировать события безопасности с помощью KQL-запросов, шаблонов и датасетов.
+alternate:
+  - href: ru/ycdr/concepts/investigations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Расследования

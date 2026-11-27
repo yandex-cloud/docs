@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ mos-full-name }}
 description: Различные сценарии использования {{ mos-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-opensearch/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ mos-name }}

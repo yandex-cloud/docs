@@ -1,6 +1,10 @@
 ---
 title: How to create an escalation policy
 description: In this article, you will learn how to create and configure an escalation policy to notify users of critical events in a timely manner.
+alternate:
+  - href: en/monitoring/operations/alert/create-escalation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an escalation policy

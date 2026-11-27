@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/csharp/dependencies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сборка и управление зависимостями функции на .NET Core
 
 Сервис {{ sf-name }} поддерживает два способа управления зависимостями функции на .NET Core — автоматическую установку через `nuget` и ручную поставку зависимостей вместе с исходным кодом.

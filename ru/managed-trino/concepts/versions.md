@@ -1,6 +1,10 @@
 ---
 title: Версионирование в {{ mtr-name }}
 description: В разделе представлены поддерживаемые версии {{ TR }} и особенности их обновления в {{ mtr-name }}.
+alternate:
+  - href: ru/managed-trino/concepts/versions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Версионирование в {{ mtr-name }}

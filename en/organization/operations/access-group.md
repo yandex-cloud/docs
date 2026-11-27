@@ -1,6 +1,10 @@
 ---
 title: How to assign permissions to a user group in {{ org-full-name }}
 description: In this article, you will learn how to configure access for a user group in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/access-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning a role for an entire organization

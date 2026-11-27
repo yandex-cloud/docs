@@ -1,6 +1,10 @@
 ---
 title: 'Сквозная аналитика: принятие решений на основе данных'
 description: '{{ datalens-full-name }} — быстрая и наглядная сквозная аналитика ваших данных в облаке {{ yandex-cloud }}.'
+alternate:
+  - href: ru/glossary/end-to-end-analytics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Что такое сквозная аналитика

@@ -42,6 +42,10 @@ apiPlayground:
         - required:
             - deviceName
     definitions: null
+alternate:
+  - href: en/compute/api-ref/Instance/detachFilesystem.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Instance.DetachFilesystem

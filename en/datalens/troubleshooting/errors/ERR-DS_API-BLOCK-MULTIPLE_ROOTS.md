@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.BLOCK.MULTIPLE_ROOTS'
 description: This page describes the Got more than one block with root placement {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-BLOCK-MULTIPLE_ROOTS.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Got more than one block with root placement

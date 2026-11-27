@@ -1,6 +1,10 @@
 ---
 title: Настроить и отключить шифрование по умолчанию в бакете {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить и отключить шифрование по умолчанию для новых объектов в бакете.
+alternate:
+  - href: ru/storage/operations/buckets/encrypt.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить и отключить шифрование по умолчанию в бакете

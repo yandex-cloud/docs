@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/put-domain-identity-dkim-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # PutDomainIdentityDkimAttributes method
 
 Enables or disables [DKIM signing](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) for an [address](../../concepts/glossary.md#address). This allows the recipient to make sure the email was indeed sent from the claimed domain. It is used for anti-phishing and anti-spam measures.

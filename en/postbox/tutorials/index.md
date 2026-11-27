@@ -1,6 +1,10 @@
 ---
 title: '{{ postbox-full-name }} tutorials'
 description: This section contains tutorials for {{ postbox-name }}.
+alternate:
+  - href: en/postbox/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ postbox-name }} tutorials

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/gpu-cluster/delete/
+alternate:
+  - href: ru/compute/cli-ref/gpu-cluster/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute gpu-cluster delete

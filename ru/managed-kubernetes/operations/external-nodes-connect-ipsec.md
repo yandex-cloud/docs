@@ -1,6 +1,10 @@
 ---
 title: Как настроить IPSec-шлюзы для подключения внешних узлов к кластеру {{ managed-k8s-name }}
 description: Следуя данной инструкции, вы сможете настроить IPSec-шлюзы для подключения внешних узлов к кластеру {{ managed-k8s-name }}
+alternate:
+  - href: ru/managed-kubernetes/operations/external-nodes-connect-ipsec.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка IPSec-шлюзов для подключения внешних узлов к кластеру

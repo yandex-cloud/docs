@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Opportunities/PATCH_opportunities_v1_masterBAId_opportunity_opportunityId.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Update opportunity

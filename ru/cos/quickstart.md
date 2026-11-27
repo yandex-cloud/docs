@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ cos-name }}
 description: Следуя данной инструкции, вы сможете создать виртуальную машину из образа {{ coi }} и запустить на ней Docker-контейнер.
+alternate:
+  - href: ru/cos/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание ВМ с {{ coi }}

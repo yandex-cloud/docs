@@ -1,6 +1,10 @@
 ---
 title: How to specify a cloud network for running a container
 description: Follow this guide to specify a cloud network for running a container.
+alternate:
+  - href: en/serverless-containers/operations/network-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Specifying a cloud network for running a container

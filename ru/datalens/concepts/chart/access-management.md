@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к чарту в {{ datalens-name }}
 description: Следуя данной инструкции, вы сможете настроить права доступа к чарту в {{ datalens-name }}.
+alternate:
+  - href: ru/datalens/concepts/chart/access-management.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом

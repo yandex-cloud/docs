@@ -1,6 +1,10 @@
 ---
 title: Синхронизация пользователей и групп с LDAP-совместимыми службами каталогов
 description: В этом разделе вы узнаете об особенностях синхронизации пользователей и групп в пуле {{ org-full-name }} с пользователями и группами в LDAP-совместимых каталогах.
+alternate:
+  - href: ru/organization/concepts/sync-external/ldap-sync.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Синхронизация пользователей и групп с LDAP-совместимыми службами каталогов

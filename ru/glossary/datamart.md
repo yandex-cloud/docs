@@ -1,6 +1,10 @@
 ---
 title: 'Data Mart: основы и преимущества витрины данных'
 description: Data Mart или витрина данных — тематическая база данных, содержащая информацию для решения отдельной задачи или набора задач из одной предметной области.
+alternate:
+  - href: ru/glossary/datamart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Mart

@@ -1,6 +1,10 @@
 ---
 title: Как создать группу безопасности
 description: Следуя данной инструкции, вы сможете создать группу безопасности.
+alternate:
+  - href: ru/vpc/operations/security-group-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать группу безопасности

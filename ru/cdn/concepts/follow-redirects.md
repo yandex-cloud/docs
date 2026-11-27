@@ -1,6 +1,10 @@
 ---
 title: Следование перенаправлениям запросов
 description: В данном разделе описана опция CDN-ресурса, позволяющая следовать перенаправлениям запросов, полученным от источников контента.
+alternate:
+  - href: ru/cdn/concepts/follow-redirects.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Следование перенаправлениям запросов

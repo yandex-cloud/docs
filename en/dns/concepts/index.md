@@ -1,6 +1,10 @@
 ---
 title: '{{ dns-full-name }} overview'
 description: '{{ dns-name }} enables managing DNS zones and resource records, filtering DNS requests, and allowing cloud domain names from corporate networks and from {{ baremetal-name }} servers.'
+alternate:
+  - href: en/dns/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Concepts {{ dns-name }}

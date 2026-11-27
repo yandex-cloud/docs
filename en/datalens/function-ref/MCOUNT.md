@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/MCOUNT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # MCOUNT (window)

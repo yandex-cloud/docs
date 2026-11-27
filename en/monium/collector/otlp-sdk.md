@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/collector/otlp-sdk.md
+    type: text/markdown
+    title: Markdown version
+---
 # SDKs for data transmission in OpenTelemetry format
 
 {{ monium-name }} accepts data in OpenTelemetry format. The community-developed SDKs for this format are available for many programming languages and IDEs. For supported languages, see [this OpenTelemetry guide](https://opentelemetry.io/docs/languages/#status-and-releases).

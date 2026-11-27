@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/EmbeddingSecrets/rpclistEmbeddingSecrets-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # List embedding secrets

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/logging/operations/access-rights.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing log group access permissions
 
 You can view the roles [assigned](#list) for a log group, [revoke](#revoke) them, or [assign](#add-access) new ones.

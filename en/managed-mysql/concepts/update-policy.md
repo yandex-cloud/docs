@@ -1,6 +1,10 @@
 ---
 title: '{{ MY }} versioning policy'
 description: In this tutorial, you will learn about the {{ MY }} versioning policy in {{ mmy-full-name }}.
+alternate:
+  - href: en/managed-mysql/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ MY }} versioning policy

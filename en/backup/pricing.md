@@ -2,6 +2,10 @@
 title: '{{ backup-full-name }} pricing policy'
 description: This article covers the {{ backup-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/backup/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ backup-full-name }} pricing policy

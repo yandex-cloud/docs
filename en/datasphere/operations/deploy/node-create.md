@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/deploy/node-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a node
 
 You can deploy an individual notebook cell or a third-party [Docker image](../../../container-registry/concepts/docker-image.md) as a standalone service using [nodes](../../concepts/resource-model.md#resources).

@@ -1,6 +1,10 @@
 ---
 title: FQDN хостов {{ mpg-full-name }}
 description: Следуя данной инструкции, вы сможете получить FQDN хоста {{ mpg-full-name }}.
+alternate:
+  - href: ru/managed-postgresql/operations/connect/fqdn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FQDN хостов {{ PG }}
@@ -40,6 +44,12 @@ FQDN хоста {{ PG }} можно получить несколькими сп
 Если при [автоматической смене мастера](../../concepts/replication.md#master-failover) новым мастером или наименее отстающей репликой станет хост без публичного доступа, подключиться к такому хосту из интернета будет невозможно. Чтобы этого избежать, [включите публичный доступ](../hosts.md#update) для всех хостов кластера.
 
 {% endnote %}
+
+Пример особого FQDN хоста:
+
+```text
+{{ specialFqdn }}
+```
 
 ### Текущий мастер {#fqdn-master}
 

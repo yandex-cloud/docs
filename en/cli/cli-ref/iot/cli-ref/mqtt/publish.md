@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/mqtt/publish/
+alternate:
+  - href: en/cli/cli-ref/iot/cli-ref/mqtt/publish.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot mqtt publish

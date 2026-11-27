@@ -1,6 +1,10 @@
 ---
 title: How to delete a private connection from a {{ interconnect-name }} trunk
 description: Follow this guide to delete a private connection from a {{ interconnect-name }} trunk.
+alternate:
+  - href: en/interconnect/operations/priv-con-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a private connection

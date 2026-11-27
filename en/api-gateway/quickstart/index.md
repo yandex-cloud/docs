@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ api-gw-full-name }}
 description: Follow this guide to create and test different types of extensions. First, you will set up an API gateway for getting static responses and then add integration for invoking functions.
+alternate:
+  - href: en/api-gateway/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ api-gw-name }}

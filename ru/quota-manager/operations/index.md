@@ -1,6 +1,10 @@
 ---
 title: Как работать с квотами. Пошаговые инструкции
 description: Пошаговые инструкции по работе с квотами в {{ yandex-cloud }}.
+alternate:
+  - href: ru/quota-manager/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ quota-manager-full-name }}

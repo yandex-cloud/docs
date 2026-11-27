@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/point-of-presence/list/
+alternate:
+  - href: en/interconnect/cli-ref/point-of-presence/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cic point-of-presence list

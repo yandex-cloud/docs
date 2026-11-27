@@ -2,6 +2,10 @@
 title: Квоты и лимиты в {{ vpc-full-name }}
 description: В сервисе {{ vpc-full-name }} действуют лимиты и квоты на количество облачных сетей в одном облаке, количество подсетей в одном облаке. Более подробно об ограничениях в сервисах вы узнаете из данной статьи.
 editable: false
+alternate:
+  - href: ru/vpc/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ vpc-name }}

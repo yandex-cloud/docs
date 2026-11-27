@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/policy-manager.md
+    type: text/markdown
+    title: Markdown version
+---
 # Policy Manager
 
 Policy Manager проверяет ресурсы Kubernetes на соответствие политикам и

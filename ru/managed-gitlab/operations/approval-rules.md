@@ -1,6 +1,10 @@
 ---
 title: Как настроить правила ревью кода
 description: Следуя данной инструкции, вы сможете настроить правила ревью кода.
+alternate:
+  - href: ru/managed-gitlab/operations/approval-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка правил ревью кода в {{ mgl-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Запросы к наборам данных с помощью {{ websql-full-name }}
 description: С помощью сервиса {{ websql-name }} вы можете отправлять SQL-запросы к базам данных в кластерах, которые являются источниками данных для {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/web-sql-query.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запросы к наборам данных с помощью {{ websql-full-name }}

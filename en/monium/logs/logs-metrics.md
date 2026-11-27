@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/logs/logs-metrics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Log metrics
 
 {{ monium-logs-name }} publishes a set of standard metrics for each project, regardless of the log delivery method.

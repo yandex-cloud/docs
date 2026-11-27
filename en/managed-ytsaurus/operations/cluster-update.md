@@ -5,6 +5,10 @@ keywords:
   - Updating an {{ ytsaurus-name }} cluster
   - '{{ ytsaurus-name }} cluster'
   - '{{ ytsaurus-name }}'
+alternate:
+  - href: en/managed-ytsaurus/operations/cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a {{ ytsaurus-name }} cluster

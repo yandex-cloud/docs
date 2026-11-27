@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/RCOUNT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # RCOUNT (оконная)

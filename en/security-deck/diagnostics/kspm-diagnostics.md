@@ -1,6 +1,10 @@
 ---
 title: Possible errors when using {{ kspm-full-name }} ({{ kspm-name }}) in {{ sd-full-name }}
 description: In this tutorial, you will learn about possible errors related to {{ kspm-full-name }} ({{ kspm-name }}).
+alternate:
+  - href: en/security-deck/diagnostics/kspm-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Troubleshooting {{ kspm-full-name }} ({{ kspm-name }})

@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть статистику резервного копирования в {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете посмотреть статистику резервного копирования в {{ backup-full-name }}.
+alternate:
+  - href: ru/backup/operations/get-stats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть статистику резервного копирования

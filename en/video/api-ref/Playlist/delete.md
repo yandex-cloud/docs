@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/video/api-ref/Playlist/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Playlist.Delete

@@ -1,6 +1,10 @@
 ---
 title: How to connect to a {{ dataproc-full-name }} cluster host via {{ oslogin }}
 description: Follow this guide to connect to a {{ dataproc-name }} host via {{ oslogin }}.
+alternate:
+  - href: en/data-proc/operations/connect-oslogin.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ dataproc-name }} host via {{ oslogin }} 

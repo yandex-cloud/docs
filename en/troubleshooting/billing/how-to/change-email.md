@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/change-email.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to change the email address
 
 

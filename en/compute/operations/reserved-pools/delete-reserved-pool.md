@@ -1,6 +1,10 @@
 ---
 title: Deleting a reserved instance pool
 description: In this tutorial, you will learn how to delete a {{ compute-full-name }} reserved instance pool.
+alternate:
+  - href: en/compute/operations/reserved-pools/delete-reserved-pool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a reserved instance pool

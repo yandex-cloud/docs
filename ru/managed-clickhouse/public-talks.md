@@ -1,6 +1,10 @@
 ---
 title: Публичные материалы о {{ mch-full-name }}
 description: Видеозаписи конференций и вебинаров, посвященных {{ mch-full-name }}.
+alternate:
+  - href: ru/managed-clickhouse/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные материалы о {{ mch-full-name }}

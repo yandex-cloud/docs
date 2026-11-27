@@ -2,6 +2,10 @@
 title: Тестирование отказоустойчивости в {{ yandex-cloud }} на основе {{ alb-full-name }}
 description: Руководство по проведению учений по отказу одной зоны доступности в облаке в инфраструктуре на основе {{ alb-full-name }}
 canonical: '{{ link-docs }}/architecture/testing-zone-failure-for-alb'
+alternate:
+  - href: ru/application-load-balancer/tutorials/testing-zone-failure-for-alb.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [testing-zone-failure-for-alb](../../_tutorials/infrastructure/testing-zone-failure-for-alb.md) %}

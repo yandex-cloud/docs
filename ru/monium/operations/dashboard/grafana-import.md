@@ -1,6 +1,10 @@
 ---
 title: Импорт дашборда из Grafana в {{ monium-full-name }}
 description: Как импортировать JSON-конфигурацию дашборда Grafana в {{ monium-name }} с автоматическим подбором шардов и преобразованием запросов и панелей. Требования к метрикам и правам доступа, ограничения преобразования и разбор сообщений в логах конверсии.
+alternate:
+  - href: ru/monium/operations/dashboard/grafana-import.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Импорт дашборда из Grafana

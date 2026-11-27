@@ -1,6 +1,10 @@
 ---
 title: How to change an organization for a cloud in {{ resmgr-full-name }}
 description: In this tutorial, you will learn how to change an organization for a cloud in {{ resmgr-full-name }}.
+alternate:
+  - href: en/resource-manager/operations/cloud/change-organization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing an organization for a cloud

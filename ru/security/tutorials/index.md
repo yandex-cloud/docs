@@ -1,6 +1,10 @@
 ---
 title: Практические руководства по безопасности в {{ yandex-cloud }}
 description: Различные практические руководства по безопасности в {{ yandex-cloud }}.
+alternate:
+  - href: ru/security/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства по безопасности в {{ yandex-cloud }}

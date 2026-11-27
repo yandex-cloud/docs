@@ -1,6 +1,10 @@
 ---
 title: Создать сообщество
 description: Следуя данной инструкции, вы сможете создать сообщество.
+alternate:
+  - href: ru/datasphere/operations/community/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать сообщество

@@ -1,6 +1,10 @@
 ---
 title: Реестр в {{ cloud-registry-full-name }}
 description: Реестр — централизованное хранилище и инструмент управления различными файлами, которые используются при разработке и развертывании приложений.
+alternate:
+  - href: ru/cloud-registry/concepts/registry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Реестр в {{ cloud-registry-full-name }}

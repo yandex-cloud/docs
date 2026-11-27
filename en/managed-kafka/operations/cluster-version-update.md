@@ -1,6 +1,10 @@
 ---
 title: '{{ KF }} version upgrade'
 description: Follow this guide to upgrade your {{ mkf-name }} cluster.
+alternate:
+  - href: en/managed-kafka/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ KF }} version update

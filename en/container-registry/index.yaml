@@ -34,6 +34,10 @@ meta:
     - keyword: docker image registry
     - keyword: docker in cloud
     - keyword: Container registry
+  alternate:
+    - href: en/container-registry/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first registry

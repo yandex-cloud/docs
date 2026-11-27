@@ -1,6 +1,10 @@
 ---
 title: How to select computing resources
 description: Follow this guide to configure your computing resources.
+alternate:
+  - href: en/datasphere/operations/projects/control-compute-resources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Selecting computing resources

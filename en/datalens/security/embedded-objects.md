@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/security/embedded-objects.md
+    type: text/markdown
+    title: Markdown version
+---
 # Embedding public objects
 
 You can embed [published](../concepts/datalens-public.md) dashboards and charts into a website or app using `iframe`.

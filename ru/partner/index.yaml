@@ -31,6 +31,10 @@ meta:
     - keyword: Партнеры {{ yandex-cloud }}
     - keyword: Как продавать в {{ yandex-cloud }}
     - keyword: Как публиковать свои продукты и продавать их клиентам {{ yandex-cloud }}
+  alternate:
+    - href: ru/partner/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Программа прямого партнерства
     description: Самостоятельное принятие платежей от клиентов и ведение документооборота.

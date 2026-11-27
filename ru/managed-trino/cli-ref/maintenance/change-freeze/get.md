@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/maintenance/change-freeze/get/
+alternate:
+  - href: ru/managed-trino/cli-ref/maintenance/change-freeze/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-trino maintenance change-freeze get

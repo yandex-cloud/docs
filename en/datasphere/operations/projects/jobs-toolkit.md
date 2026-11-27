@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/projects/jobs-toolkit.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with jobs from Visual Studio Code
 
 {{ ds-jobs }} Toolkit enables you to work with {{ ml-platform-name }} [jobs](../../concepts/jobs/index.md) from within [Visual Studio Code](https://code.visualstudio.com/). You will need a {{ yandex-cloud }} account and a {{ ml-platform-name }} [project](../../concepts/project.md).

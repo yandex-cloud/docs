@@ -1,6 +1,10 @@
 ---
 title: Создать Docker-образ в {{ cloud-registry-name }}
 description: В инструкции описано, как создать Docker-образ на основе Dockerfile в {{ cloud-registry-name }} и собрать его.
+alternate:
+  - href: ru/cloud-registry/operations/docker/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать Docker-образ в {{ cloud-registry-name }}

@@ -1,6 +1,10 @@
 ---
 title: Создать канал push-уведомлений в браузере в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете создать канал push-уведомлений в браузере.
+alternate:
+  - href: ru/notifications/operations/browser/channel-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать канал push-уведомлений в браузере

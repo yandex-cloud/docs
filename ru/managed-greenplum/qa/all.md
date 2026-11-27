@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ mgp-full-name }}
 description: На странице представлены вопросы и ответы про {{ mgp-short-name }}.
+alternate:
+  - href: ru/managed-greenplum/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ mgp-short-name }}

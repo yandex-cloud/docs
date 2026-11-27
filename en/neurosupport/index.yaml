@@ -23,6 +23,10 @@ meta:
     - keyword: '{{ neurosupport-name }}'
     - keyword: support agent assistant
     - keyword: '{{ yagpt-name }}-based assistant'
+  alternate:
+    - href: en/neurosupport/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Pricing policy
     description: Service pricing and cost calculations

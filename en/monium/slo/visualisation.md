@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/slo/visualisation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Adding an SLO widget to a dashboard
 
 ## SLO list {#list}

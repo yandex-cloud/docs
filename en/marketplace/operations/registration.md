@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/marketplace/operations/registration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Registration
 
 To access the [Marketplace partner account]({{ link-cloud-partners }}), you need to have a user account. This can be a Yandex ID or a Yandex 360 account. Your user account must have a [billing account](../../billing/concepts/billing-account.md#ba-types) of a legal entity residing in Russia or Kazakhstan. {{ marketplace-name }} is not available to individuals and non-residents of Russia or Kazakhstan.

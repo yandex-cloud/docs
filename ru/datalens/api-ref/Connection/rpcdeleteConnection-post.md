@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Connection/rpcdeleteConnection-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Delete connection

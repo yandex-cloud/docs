@@ -1,6 +1,10 @@
 ---
 title: Изменить описание контейнера
 description: Следуя данной инструкции, вы сможете изменить описание контейнера.
+alternate:
+  - href: ru/serverless-containers/operations/description-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить описание контейнера

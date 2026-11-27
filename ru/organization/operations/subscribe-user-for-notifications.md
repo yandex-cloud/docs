@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/organization/operations/subscribe-user-for-notifications.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подписать пользователя на уведомления
 
 По умолчанию технические уведомления для организации получают пользователи с ролью `organization-manager.organizations.owner`.

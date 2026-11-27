@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-valkey/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
+---
 # Stopping and starting a {{ VLK }} cluster
 
 If necessary, you can stop and restart your {{ VLK }} cluster. While your cluster is idle, you only pay for the size of your storage and backups as per the [pricing policy](../pricing.md#rules-storage).

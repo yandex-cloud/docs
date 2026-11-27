@@ -2,6 +2,10 @@
 title: Running a PySpark job using {{ maf-full-name }}
 description: In this tutorial, you will learn how to run a PySpark job using {{ maf-full-name }}
 canonical: '{{ link-docs }}/tutorials/dataplatform/airflow-spark-min'
+alternate:
+  - href: en/managed-airflow/tutorials/airflow-spark-min.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Running a PySpark job using {{ maf-full-name }}

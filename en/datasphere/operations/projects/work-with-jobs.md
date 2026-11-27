@@ -1,6 +1,10 @@
 ---
 title: How to run jobs in {{ ml-platform-name }} Jobs
 description: Follow this guide to remotely run Python and bash scripts, and executable binary files on a {{ ml-platform-name }} VM.
+alternate:
+  - href: en/datasphere/operations/projects/work-with-jobs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Running jobs in {{ ml-platform-name }} Jobs

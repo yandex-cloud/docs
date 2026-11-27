@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/trigger/timer-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a timer that invokes {{ sf-name }}
 
 Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that invokes a [function](../../concepts/function.md) in {{ sf-name }} on a schedule.

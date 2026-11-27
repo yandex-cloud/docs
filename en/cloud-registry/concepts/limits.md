@@ -1,6 +1,10 @@
 ---
 title: '{{ cloud-registry-full-name }} quotas and limits'
 description: '{{ cloud-registry-full-name }} has limits and quotas on the number of lifecycle policies per registry and the number of rules in a lifecycle policy. For more information about the service limitations, read this article.'
+alternate:
+  - href: en/cloud-registry/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cloud-registry-full-name }} quotas and limits

@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.INVALID_FUNCTION
 description: На странице приведено описание ошибки {{ datalens-full-name }} Unknown function.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-INVALID_FUNCTION.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Unknown function

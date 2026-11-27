@@ -1,6 +1,10 @@
 ---
 title: Создание субъекта
 description: Следуя данной инструкции, вы сможете создать субъект.
+alternate:
+  - href: ru/metadata-hub/operations/create-subject.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание субъекта

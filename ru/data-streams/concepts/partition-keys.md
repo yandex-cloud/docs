@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-streams/concepts/partition-keys.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сегменты и ключи сегментов
 
 Следующие примеры поясняют понятия [сегментов](glossary.md#shard) (Partitions) и [ключей сегментов](glossary.md#partition-key) (PartitionKey).

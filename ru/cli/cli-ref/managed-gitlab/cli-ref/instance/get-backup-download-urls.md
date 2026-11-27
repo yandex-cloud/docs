@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-gitlab/cli-ref/instance/get-backup-download-urls/
+alternate:
+  - href: ru/cli/cli-ref/managed-gitlab/cli-ref/instance/get-backup-download-urls.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-gitlab instance get-backup-download-urls

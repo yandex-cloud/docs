@@ -1,6 +1,10 @@
 ---
 title: Инструкция по изменению настроек кластера {{ PG }} в {{ mpg-full-name }}
 description: Из статьи вы узнаете, как изменить настройки кластера {{ PG }}.
+alternate:
+  - href: ru/managed-postgresql/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек кластера {{ PG }}

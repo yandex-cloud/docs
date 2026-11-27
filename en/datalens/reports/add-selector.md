@@ -1,6 +1,10 @@
 ---
 title: Selectors in reports
 description: Follow this guide to add, set up, or delete selectors in reports.
+alternate:
+  - href: en/datalens/reports/add-selector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Selectors in reports

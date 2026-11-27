@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/tools/sftps.md
+    type: text/markdown
+    title: Markdown version
+---
 # Docker container for mounting an {{ objstorage-name }} bucket to an (S)FTP(S) server
 
 To access a [bucket](../concepts/bucket.md) over FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS), or [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol), you can deploy the server using a public Docker container provided by {{ objstorage-name }}.

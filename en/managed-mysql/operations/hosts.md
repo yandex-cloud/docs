@@ -1,6 +1,10 @@
 ---
 title: Managing {{ MY }} cluster hosts
 description: In this guide, you will learn how to manage {{ MY }} cluster hosts and their settings.
+alternate:
+  - href: en/managed-mysql/operations/hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ MY }} cluster hosts

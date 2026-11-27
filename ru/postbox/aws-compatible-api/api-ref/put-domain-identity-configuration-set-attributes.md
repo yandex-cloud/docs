@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/put-domain-identity-configuration-set-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод PutDomainIdentityConfigurationSetAttributes
 
 Связывает [адрес](../../concepts/glossary.md#address) и [конфигурацию](../../concepts/glossary.md#configuration), которые находятся в одном каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.

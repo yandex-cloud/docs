@@ -1,6 +1,10 @@
 ---
 title: Как добавить заголовок на дашборд в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить заголовок на дашборд в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-title.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление заголовка на дашборд в {{ datalens-full-name }}

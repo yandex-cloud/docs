@@ -523,6 +523,10 @@ apiPlayground:
               Works in the same way as noncurrent_expiration rule, but only for delete markers.
               At expiration, the non-current delete marker of the object is deleted and cannot be recovered.
             $ref: '#/definitions/NoncurrentDeleteMarkers'
+alternate:
+  - href: en/storage/api-ref/Bucket/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, REST: Bucket.Create

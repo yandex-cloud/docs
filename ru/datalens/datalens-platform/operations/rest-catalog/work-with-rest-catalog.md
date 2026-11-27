@@ -1,6 +1,10 @@
 ---
 title: Работа с REST-каталогом в {{ datalens-platform-full-name }}
 description: Следуя данной инструкции, вы сможете редактировать настройки REST-каталогов и пространств имен, а также управлять доступом к ним.
+alternate:
+  - href: ru/datalens/datalens-platform/operations/rest-catalog/work-with-rest-catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление REST-каталогом

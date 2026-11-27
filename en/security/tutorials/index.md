@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }} security tutorials'
 description: Various {{ yandex-cloud }} security tutorials
+alternate:
+  - href: en/security/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} security tutorials

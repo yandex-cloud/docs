@@ -1,6 +1,10 @@
 ---
 title: Конфигурация в {{ postbox-full-name }}
 description: Из этой статьи вы узнаете, что такое конфигурация в {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/concepts/configuration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Конфигурация

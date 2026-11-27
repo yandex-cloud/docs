@@ -1,6 +1,10 @@
 ---
 title: Notifications of function instance termination
 description: This page covers some aspects of notifications about upcoming forced termination of function instances, both inactive and engaged in call processing.
+alternate:
+  - href: en/functions/concepts/termination-notifications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Function termination notifications

@@ -1,6 +1,10 @@
 ---
 title: Изменить правило-исключение Cloud WAF
 description: Следуя данной инструкции, вы сможете изменить правило-исключение для WAF.
+alternate:
+  - href: ru/smartwebsecurity/operations/exclusion-rule-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить правило-исключение Cloud WAF

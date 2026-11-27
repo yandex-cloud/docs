@@ -1,6 +1,10 @@
 ---
 title: Как удалить целевую группу в сетевом балансировщике
 description: Перед удалением целевой группы ее необходимо отключить от сетевого балансировщика. После удаления целевую группу невозможно восстановить. Откройте раздел Load Balancer в каталоге, где требуется удалить целевую группу. В открывшемся меню нажмите Удалить.
+alternate:
+  - href: ru/network-load-balancer/operations/target-group-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить целевую группу {{ network-load-balancer-name }}

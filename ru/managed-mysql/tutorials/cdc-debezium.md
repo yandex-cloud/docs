@@ -2,6 +2,10 @@
 title: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
 description: Вы можете отслеживать изменения данных в {{ mmy-name }} и отправлять их в {{ mkf-name }} по технологии Change Data Capture с помощью платформы Debezium.
 canonical: '{{ link-docs }}/tutorials/dataplatform/debezium-mmy'
+alternate:
+  - href: ru/managed-mysql/tutorials/cdc-debezium.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поставка данных в {{ mkf-full-name }} с помощью Debezium

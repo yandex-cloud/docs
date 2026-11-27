@@ -147,6 +147,10 @@ apiPlayground:
               maxLength: 63
               minLength: 1
             maxProperties: 64
+alternate:
+  - href: en/baremetal/api-ref/Vrf/createVrf.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Vrf.CreateVrf

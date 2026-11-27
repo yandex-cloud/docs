@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ mch-full-name }}
 description: This page covers FAQ about {{ mch-short-name }}.
+alternate:
+  - href: en/managed-clickhouse/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ mch-short-name }}

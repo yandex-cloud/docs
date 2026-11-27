@@ -61,6 +61,10 @@ apiPlayground:
             - folderId
     body: null
     definitions: null
+alternate:
+  - href: ru/iot-core/api-ref/Device/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Device.List

@@ -1,8 +1,12 @@
 [Документация Yandex Cloud](../index.md) > [Yandex MetaData Hub](index.md) > Apache Hive™ Metastore > Справочник метрик
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Monium Metrics
 
-В этом разделе описаны метрики сервиса Apache Hive™ Metastore, поставляемые в [Monitoring](../monitoring/concepts/index.md).
+Метрики сервиса Apache Hive™ Metastore автоматически передаются в [Monium](../monium/metrics/overview.md) — в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы вводите запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или при создании алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
 
 Имя метрики пишется в метку `name`.
 
@@ -186,6 +190,8 @@ instance | Идентификатор инстанса в кластере
 || `memory_limit.gauge`
 `DGAUGE`, байты | Максимально доступная для инстанса оперативная память. ||
 |#
+
+[*monium-folder-project]: Для каждого каталога Yandex Cloud автоматически создается проект Monium с идентификатором `folder__<идентификатор_каталога>`. По умолчанию выбран проект текущего каталога. [Идентификатор каталога](../resource-manager/operations/folder/get-id.md) можно скопировать в консоли управления или получить с помощью CLI.
 
 #### Полезные ссылки {#see-also}
 

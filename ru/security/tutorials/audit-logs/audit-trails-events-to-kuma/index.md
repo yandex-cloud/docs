@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/audit-trails-events-to-kuma'
+alternate:
+  - href: ru/security/tutorials/audit-logs/audit-trails-events-to-kuma/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [audit-trails-events-to-kuma](../../../../_tutorials/security/audit-trails-events-to-kuma.md) %}

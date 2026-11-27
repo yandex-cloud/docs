@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/firewall/remove-access-binding/
+alternate:
+  - href: ru/cli/cli-ref/dns/cli-ref/v0/firewall/remove-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns v0 firewall remove-access-binding

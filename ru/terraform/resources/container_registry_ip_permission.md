@@ -1,5 +1,9 @@
 ---
 subcategory: Container Registry
+alternate:
+  - href: ru/terraform/resources/container_registry_ip_permission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_container_registry_ip_permission (Resource)

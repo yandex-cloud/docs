@@ -9,6 +9,10 @@ keywords:
   - Инфраструктура для агентов AI
   - Обвязка ИИ-агента
   - Программная обвязка агента
+alternate:
+  - href: ru/glossary/ai-agent-harness.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Agent Harness

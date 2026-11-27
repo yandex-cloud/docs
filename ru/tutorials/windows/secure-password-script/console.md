@@ -1,6 +1,10 @@
 ---
 title: Безопасная передача пароля в скрипт инициализации с помощью консоли управления, CLI или API
 description: В этом руководстве вы создадите виртуальную машину {{ compute-name }} с операционной системой Windows с использованием скрипта инициализации, с помощью консоли управления, CLI или API.
+alternate:
+  - href: ru/tutorials/windows/secure-password-script/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Безопасная передача пароля в скрипт инициализации с помощью консоли управления, CLI или API

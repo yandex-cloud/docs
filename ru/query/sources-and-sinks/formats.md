@@ -1,6 +1,10 @@
 ---
 title: Форматы данных и алгоритмы сжатия
 description: В статье описаны форматы данных и алгоритмы сжатия, которые поддерживает {{ yq-full-name }}.
+alternate:
+  - href: ru/query/sources-and-sinks/formats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Форматы данных и алгоритмы сжатия

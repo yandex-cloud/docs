@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ managed-k8s-full-name }}'
 description: This page provides information about the {{ TF }} provider resources and data sources that {{ managed-k8s-name }} supports.
+alternate:
+  - href: en/managed-kubernetes/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ managed-k8s-full-name }}

@@ -27,6 +27,11 @@ meta:
     - keyword: '{{ cr-full-name }} router'
     - keyword: '{{ cr-full-name }} hybrid cloud'
     - keyword: '{{ yandex-cloud }} hybrid cloud'
+  noIndex: true
+  alternate:
+    - href: en/cloud-router/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Concepts
     description: Learn about features of the service

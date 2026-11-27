@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ postbox-full-name }}
 description: На странице представлены вопросы и ответы про {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие вопросы про {{ postbox-name }}

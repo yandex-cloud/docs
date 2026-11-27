@@ -1,6 +1,10 @@
 ---
 title: Migrating data from {{ objstorage-full-name }} to {{ mmy-full-name }} using {{ data-transfer-full-name }}
 description: In this tutorial, you will migrate data from {{ objstorage-name }} to a {{ mmy-name }} target cluster using {{ data-transfer-name }}.
+alternate:
+  - href: en/tutorials/dataplatform/objs-mmy-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating data from {{ objstorage-full-name }} to {{ mmy-full-name }} using {{ data-transfer-full-name }}

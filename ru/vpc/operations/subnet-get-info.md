@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о подсети в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о подсети.
+alternate:
+  - href: ru/vpc/operations/subnet-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о подсети

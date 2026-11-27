@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/common-errors.md
+    type: text/markdown
+    title: Markdown version
+---
 # Errors
 
 In case of an error, {{ cns-name }} returns a message with the appropriate HTTP code and its additional description in XML or JSON format depending on the specified `ResponseFormat` parameter.

@@ -1,6 +1,10 @@
 ---
 title: '{{ cloud-desktop-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ cloud-desktop-full-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/cloud-desktop/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

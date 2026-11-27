@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/r/handler.md
+    type: text/markdown
+    title: Markdown version
+---
 # Request handler for a function in R
 
 A _request handler_ is a function used to process each R function call. When creating a function version, you must specify the entry point, which consists of the file name and the name of the R function that receives the request (see example for the handler in the `function.R` or `function.handler` file).

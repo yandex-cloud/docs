@@ -1,6 +1,10 @@
 ---
 title: Как указать облачную сеть, в которой будет находиться API-шлюз
 description: Следуя данной инструкции, вы сможете указать облачную сеть, в которой будет находиться API-шлюз.
+alternate:
+  - href: ru/api-gateway/operations/api-gw-network-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Указать облачную сеть, в которой будет находиться API-шлюз

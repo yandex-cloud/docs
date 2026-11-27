@@ -1,6 +1,10 @@
 ---
 title: Deleting a function version tag
 description: Follow this guide to delete a function version tag.
+alternate:
+  - href: en/functions/operations/function/tag-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a function version tag

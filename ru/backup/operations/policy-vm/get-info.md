@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о политике резервного копирования
 description: Из статьи вы узнаете, как получить информацию о политике резервного копирования {{ backup-full-name }}.
+alternate:
+  - href: ru/backup/operations/policy-vm/get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о политике резервного копирования

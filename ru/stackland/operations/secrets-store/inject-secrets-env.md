@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/secrets-store/inject-secrets-env.md
+    type: text/markdown
+    title: Markdown version
+---
 # Инъекция секретов в переменные окружения (Env mode)
 
 В этом руководстве описано, как настроить подстановку секретов из Secrets Store в переменные окружения пода с помощью Secrets Injector.

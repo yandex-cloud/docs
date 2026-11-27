@@ -23,6 +23,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/storage/api-ref/Bucket/deleteInventoryConfiguration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage API, REST: Bucket.DeleteInventoryConfiguration

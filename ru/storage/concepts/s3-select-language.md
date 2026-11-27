@@ -1,6 +1,10 @@
 ---
 title: Синтаксис языка запросов S3 Select
 description: В данной статье описан синтаксис языка запросов S3 Select.
+alternate:
+  - href: ru/storage/concepts/s3-select-language.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Синтаксис языка запросов S3 Select

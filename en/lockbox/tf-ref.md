@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ lockbox-full-name }}'
 description: This page provides information about {{ TF }} resources and data sources supported by {{ lockbox-name }}.
+alternate:
+  - href: en/lockbox/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ lockbox-full-name }}

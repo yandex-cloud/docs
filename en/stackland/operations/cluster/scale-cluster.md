@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/cluster/scale-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Scaling a cluster
 
 You can change the node composition of your {{ stackland-name }} cluster by adding or removing nodes. Each cluster node is described by a custom `StacklandHostConfig` resource in the `stackland-install` namespace. Creating a resource initiates the connection of a new node, and deleting a resource initiates the removal of an existing one.

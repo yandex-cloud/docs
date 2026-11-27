@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к виртуальной машине Linux по SSH с помощью {{ cloud-shell-full-name }}
 description: Следуя данной инструкции, вы сможете подключиться к виртуальной машине Linux по SSH с помощью {{ cloud-shell-name }}.
+alternate:
+  - href: ru/compute/operations/vm-connect/cloud-shell.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключиться к виртуальной машине Linux по SSH с помощью {{ cloud-shell-full-name }}

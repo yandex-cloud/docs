@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ monitoring-name }} connection
 description: Follow this guide to create a connection to {{ monitoring-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ monitoring-name }} connection

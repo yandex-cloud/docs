@@ -1,6 +1,10 @@
 ---
 title: Working with {{ yq-full-name }} via the {{ ydb-short-name }} SDK
 description: Authentication, connection, running queries, and getting results.
+alternate:
+  - href: en/query/SDK/SDK.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SDK

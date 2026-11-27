@@ -1,6 +1,10 @@
 ---
 title: Как добавить участника в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете добавить участника в {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/add-member.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить участника

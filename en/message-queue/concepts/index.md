@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ message-queue-full-name }} concepts
 
 {{ message-queue-full-name }} is a message queue service that enables distributed applications and microservices to interact through messaging.

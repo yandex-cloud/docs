@@ -1,6 +1,10 @@
 ---
 title: Запись логов в журнал выполнения в {{ api-gw-full-name }}
 description: Следуя данной инструкции, вы сможете настроить логирование API-шлюза.
+alternate:
+  - href: ru/api-gateway/operations/api-gw-logs-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Записать логи в журнал выполнения в {{ api-gw-name }}

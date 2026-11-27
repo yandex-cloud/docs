@@ -1,6 +1,10 @@
 ---
 title: Binary-артефакт в реестре {{ cloud-registry-full-name }}
 description: 'Binary-артефакт — это файл, содержащий пакет любого типа: скрипт установки, исполняемый файл, файл CSV, документ, картинку и т.д.'
+alternate:
+  - href: ru/cloud-registry/concepts/artifacts/binary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Binary-артефакт

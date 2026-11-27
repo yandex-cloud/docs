@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/operations/tls-proxy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Терминирование TLS
 
 При работе с {{ sk-hybrid-name }} вы можете включить режим [терминирования TLS](https://en.wikipedia.org/wiki/TLS_termination_proxy), чтобы безопасно передавать данные для синтеза и распознавания по публичной сети. В этом случае исходные данные, которые поступали в сервер Envoy в открытом виде, будут проходить по защищенному соединению. 

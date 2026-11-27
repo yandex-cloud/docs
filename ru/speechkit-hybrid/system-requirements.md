@@ -1,6 +1,11 @@
 ---
 title: Системные требования
 description: В этой статье описаны системные и программные требования к серверам.
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/system-requirements.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Системные требования

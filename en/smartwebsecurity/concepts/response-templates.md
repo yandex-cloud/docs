@@ -1,6 +1,10 @@
 ---
 title: Response page templates
 description: Page templates enable you to customize the text and appearance of messages shown when rules trigger.
+alternate:
+  - href: en/smartwebsecurity/concepts/response-templates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Response page templates

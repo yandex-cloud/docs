@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ billing-name }}
 description: Billing account access is provided through {{ billing-name }}. The operations a user can perform on a billing account depend on the assigned role.
+alternate:
+  - href: en/billing/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ billing-name }}

@@ -1,6 +1,10 @@
 ---
 title: Как настроить домен в пуле пользователей {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете настроить домен в пуле пользователей {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/manage-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доменами в пуле пользователей

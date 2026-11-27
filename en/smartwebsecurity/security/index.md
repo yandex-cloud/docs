@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ sws-name }}
 description: This section lists the resources supporting role assignment and roles available in {{ sws-name }}.
+alternate:
+  - href: en/smartwebsecurity/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ sws-name }}

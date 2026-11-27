@@ -1,6 +1,10 @@
 ---
 title: Multi-zonal {{ compute-full-name }} instance group with instances in the incident zone
 description: To compensate for lost capacity from instances in the affected zone, we recommend you initially set your instance group size with a performance buffer. Otherwise, temporarily increase the size of instance groups in the healthy zones during the incident.
+alternate:
+  - href: en/compute/concepts/instance-groups/zonal-inc/multi-zonal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Multi-zonal {{ compute-full-name }} instance group with instances in the incident zone

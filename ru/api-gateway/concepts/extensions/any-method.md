@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/concepts/extensions/any-method.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение x-yc-apigateway-any-method
 
 Расширение `x-yc-apigateway-any-method` определяет операции, которые выполняют все HTTP-методы, не определенные в спецификации.

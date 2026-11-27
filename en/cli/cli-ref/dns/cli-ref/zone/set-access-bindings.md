@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/set-access-bindings/
+alternate:
+  - href: en/cli/cli-ref/dns/cli-ref/zone/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns zone set-access-bindings

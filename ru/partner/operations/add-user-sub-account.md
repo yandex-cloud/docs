@@ -1,6 +1,10 @@
 ---
 title: Добавить пользователя в сабаккаунт
 description: Следуя данной инструкции, вы сможете добавить пользователя в сабаккаунт партнера и назначить ему роли.
+alternate:
+  - href: ru/partner/operations/add-user-sub-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить пользователя в сабаккаунт

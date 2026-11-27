@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/jobs/cli.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ ds-cli }}
 
 Для запуска заданий {{ ds-jobs }} используется утилита {{ ds-cli }}.

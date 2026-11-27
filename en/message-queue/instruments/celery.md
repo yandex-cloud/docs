@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/instruments/celery.md
+    type: text/markdown
+    title: Markdown version
+---
 # Example of using {{ message-queue-full-name }} with Celery
 
 [Celery](https://docs.celeryproject.org/en/stable/) is a task queue for Python that you can use to work with {{ message-queue-name }}.

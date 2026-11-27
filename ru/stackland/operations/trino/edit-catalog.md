@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/trino/edit-catalog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить настройки каталога {{ mtr-name }}
 
 Если у вас есть [каталог](../../concepts/components/trino.md#catalogs) в кластере [{{ TR }}](../../concepts/components/trino.md), вы можете изменить его настройки.

@@ -1,6 +1,10 @@
 ---
 title: Creating a trigger for {{ yds-full-name }} that sends messages to WebSocket connections
 description: Follow this guide to create a trigger for {{ yds-name }} that sends messages to WebSocket connections and test the result of its operation.
+alternate:
+  - href: en/api-gateway/operations/trigger/data-streams-trigger-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a trigger for {{ yds-name }} that sends messages to WebSocket connections

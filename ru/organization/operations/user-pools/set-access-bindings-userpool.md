@@ -1,6 +1,10 @@
 ---
 title: Как предоставить доступ к пулу пользователей в {{ org-full-name }}
 description: Из этой статьи вы узнаете, как настроить доступ к пулу пользователей в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/set-access-bindings-userpool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить доступ к пулу пользователей

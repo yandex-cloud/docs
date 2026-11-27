@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/instance-groups/rolling-restart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Поочередно перезагрузить виртуальные машины в группе
 
 Вы можете [поочередно перезагрузить](../../concepts/instance-groups/rolling-actions.md) ВМ в группе с учетом параметров, заданных в [политике развертывания](../../concepts/instance-groups/policies/deploy-policy.md).

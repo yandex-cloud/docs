@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-transfer/operations/endpoint/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление эндпоинтами
 
 [Эндпоинт](../../concepts/index.md#endpoint)-источник описывает настройки базы данных, из которой будет передаваться информация с помощью {{ data-transfer-name }}, а эндпоинт-приемник — БД, в которую будет производиться перенос. Вы можете [создать](#create), [изменить](#update), [клонировать](#clone) или [удалить](#delete) такие эндпоинты.

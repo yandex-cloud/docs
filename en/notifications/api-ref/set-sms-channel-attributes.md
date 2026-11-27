@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/set-sms-channel-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # SetSMSChannelAttributes
 
 Setting parameters for the [SMS notification channel](../concepts/sms.md).

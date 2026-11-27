@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/projects/gpu-performance-check.md
+    type: text/markdown
+    title: Markdown version
+---
 # Checking GPU load
 
 {{ ml-platform-full-name }} supports [computing resource configurations](../../concepts/configurations.md) with GPUs.

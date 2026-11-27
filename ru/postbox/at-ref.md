@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ postbox-full-name }}
 description: В данном разделе приведены описания аудитных событий {{ at-full-name }}, собираемых в сервисе {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ at-full-name }}

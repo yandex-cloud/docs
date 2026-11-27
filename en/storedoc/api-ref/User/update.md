@@ -81,6 +81,10 @@ apiPlayground:
             type: array
             items:
               type: string
+alternate:
+  - href: en/storedoc/api-ref/User/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: User.Update

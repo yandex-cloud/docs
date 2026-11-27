@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/delete-sms-channel.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие DeleteSMSChannel
 
 Удаляет [канал SMS-уведомлений](../concepts/sms.md).

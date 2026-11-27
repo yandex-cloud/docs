@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/put-domain-identity-dkim-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод PutDomainIdentityDkimAttributes
 
 Включает или отключает [DKIM-подпись](https://ru.wikipedia.org/wiki/DomainKeys_Identified_Mail) для [адреса](../../concepts/glossary.md#address). Позволяет получателю убедиться, что письмо действительно было отправлено с заявленного домена. Применяется для борьбы с фишинговыми письмами и спамом.

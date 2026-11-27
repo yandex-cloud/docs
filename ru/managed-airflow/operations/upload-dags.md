@@ -1,6 +1,10 @@
 ---
 title: Загрузка DAG-файлов в кластер {{ maf-full-name }}
 description: Загрузите DAG-файлы из бакета {{ objstorage-name }} или Git-репозитория в кластер {{ maf-name }} и проверьте их появление в веб-интерфейсе {{ AF }}.
+alternate:
+  - href: ru/managed-airflow/operations/upload-dags.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузка DAG-файлов в кластер {{ maf-name }}

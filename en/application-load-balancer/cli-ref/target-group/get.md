@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/target-group/get/
+alternate:
+  - href: en/application-load-balancer/cli-ref/target-group/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc application-load-balancer target-group get

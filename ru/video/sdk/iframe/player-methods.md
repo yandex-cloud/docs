@@ -1,6 +1,10 @@
 ---
 title: Методы плеера {{ video-player-name }} в SDK для IFrame
 description: На странице описаны методы, которые можно использовать для управления видеоплеером {{ video-player-name }} в SDK для IFrame.
+alternate:
+  - href: ru/video/sdk/iframe/player-methods.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Методы плеера

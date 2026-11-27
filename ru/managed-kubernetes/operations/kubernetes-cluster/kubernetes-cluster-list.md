@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Информация об имеющихся кластерах {{ managed-k8s-name }}
 
 Чтобы узнать `ID` или `NAME` [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster), получите список кластеров {{ k8s }} в каталоге или подробную информацию об кластере {{ k8s }}.

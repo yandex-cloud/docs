@@ -1,6 +1,10 @@
 ---
 title: Политики авторизации в {{ iam-full-name }}
 description: Из статьи вы узнаете, что такое политики авторизации в {{ iam-full-name }} и как их использовать при управлении ресурсами {{ yandex-cloud }}.
+alternate:
+  - href: ru/iam/concepts/access-control/access-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политики авторизации

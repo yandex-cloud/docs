@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/sink/list-operations/
+alternate:
+  - href: ru/cli/cli-ref/logging/cli-ref/sink/list-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc logging sink list-operations

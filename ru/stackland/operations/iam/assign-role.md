@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/iam/assign-role.md
+    type: text/markdown
+    title: Markdown version
+---
 # Назначить права доступа
 
 Вы можете назначить роли пользователям, группам и сервисным аккаунтам. Права доступа назначаются на двух уровнях:

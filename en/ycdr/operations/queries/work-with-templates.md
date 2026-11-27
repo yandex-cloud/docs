@@ -1,6 +1,10 @@
 ---
 title: Working with query templates in {{ ycdr-full-name }}
 description: Follow this guide to learn how to work with query templates in {{ ycdr-name }}.
+alternate:
+  - href: en/ycdr/operations/queries/work-with-templates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with query templates

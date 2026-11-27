@@ -1,6 +1,10 @@
 ---
 title: Code examples for connecting to a {{ SD }} cluster in {{ mmg-full-name }}
 description: These examples show you how to connect to a {{ SD }} cluster database from your application.
+alternate:
+  - href: en/storedoc/operations/connect/code-examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Code examples for connecting to a {{ SD }} cluster

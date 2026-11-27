@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/GET_ITEM.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # GET_ITEM

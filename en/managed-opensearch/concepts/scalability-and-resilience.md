@@ -1,6 +1,10 @@
 ---
 title: Sharding and replication in {{ mos-full-name }}
 description: Sharding enables {{ OS }} clusters to scale as index data grows, while replication ensures their high availability and index data protection.
+alternate:
+  - href: en/managed-opensearch/concepts/scalability-and-resilience.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sharding and replication in {{ mos-name }}

@@ -9,6 +9,10 @@ keywords:
   - Установка WordPress
   - WordPress CloudApp
   - wordpress cloudapp
+alternate:
+  - href: ru/tutorials/web/wordpress-cloudapp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка WordPress с помощью {{ cloud-apps-name }}

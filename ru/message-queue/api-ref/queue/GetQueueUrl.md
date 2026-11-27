@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/queue/GetQueueUrl.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод GetQueueUrl
 
 Метод для получения URL указанной очереди. Укажите имя очереди, чтобы получить ее URL.

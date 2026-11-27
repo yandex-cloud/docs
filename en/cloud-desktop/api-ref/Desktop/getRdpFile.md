@@ -45,6 +45,10 @@ apiPlayground:
         required:
           - subjectId
           - subjectType
+alternate:
+  - href: en/cloud-desktop/api-ref/Desktop/getRdpFile.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop API, REST: Desktop.GetRdpFile

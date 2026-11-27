@@ -1,6 +1,10 @@
 ---
 title: How to invoke a function in {{ sf-full-name }}
 description: In this guide, you will learn how to invoke a function in {{ sf-full-name }}.
+alternate:
+  - href: en/functions/operations/function/function-invoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Invoking a function

@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/cloud-router/scenarios/ri-1_prc-2ha_vpc-1.md
+    type: text/markdown
+    title: Markdown version
+---
 # On-Prem с резервированием и 1 VPC
 
 

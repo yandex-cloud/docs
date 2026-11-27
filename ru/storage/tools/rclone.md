@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/tools/rclone.md
+    type: text/markdown
+    title: Markdown version
+---
 # rclone
 
 [rclone](https://rclone.org) — программа для монтирования бакетов {{ objstorage-name }} через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)) в системах Linux, macOS и Windows.

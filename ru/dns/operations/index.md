@@ -1,6 +1,10 @@
 ---
 title: Как работать с DNS-зонами и ресурсными записями. Пошаговые инструкции
 description: Пошаговые инструкции по работе с DNS-зонами и ресурсными записями в {{ yandex-cloud }}. Из статьи вы узнаете, как создавать и управлять DNS-зонами (внутренней и публичной), а также работать с ресурсными записями DNS (A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV, TXT).
+alternate:
+  - href: ru/dns/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ dns-name }}

@@ -1,6 +1,10 @@
 ---
 title: Managing ConfigMap and Secret resources in {{ managed-k8s-full-name }}
 description: In this tutorial, you will learn how to manage {{ k8s }} ConfigMap and Secret resources in {{ yandex-cloud }} using the management console without kubectl.
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-console/configuration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing ConfigMap and Secret resources

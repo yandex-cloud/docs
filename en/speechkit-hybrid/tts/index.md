@@ -1,6 +1,11 @@
 ---
 title: How to get started with speech synthesis in {{ speechkit-full-name }}
 description: In this tutorial, you will learn how to get started with speech synthesis in {{ speechkit-name }}.
+noIndex: true
+alternate:
+  - href: en/speechkit-hybrid/tts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Speech synthesis

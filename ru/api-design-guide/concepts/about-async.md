@@ -1,6 +1,10 @@
 ---
 title: Работа с операциями с помощью API
 description: Из статьи вы узнаете про асинхронные операции, какой объект они возвращают и как с ним работать, а также узнаете про механизм идемпотентности.
+alternate:
+  - href: ru/api-design-guide/concepts/about-async.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с операциями

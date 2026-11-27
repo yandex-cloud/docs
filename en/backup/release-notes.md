@@ -1,6 +1,10 @@
 ---
 title: '{{ backup-full-name }} release notes'
 description: This section contains the {{ backup-name }} release notes.
+alternate:
+  - href: en/backup/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ backup-full-name }} release notes

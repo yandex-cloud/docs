@@ -65,6 +65,10 @@ apiPlayground:
               The value must be between 2 and 5.
             type: string
             format: int64
+alternate:
+  - href: ru/compute/api-ref/PlacementGroup/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: PlacementGroup.Create

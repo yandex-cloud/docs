@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/subnet/
+alternate:
+  - href: en/cli/cli-ref/vpc/cli-ref/subnet/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc subnet

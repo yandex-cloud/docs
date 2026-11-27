@@ -1,5 +1,9 @@
 ---
 subcategory: Smart Web Security
+alternate:
+  - href: ru/terraform/data-sources/sws_load_balancer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_sws_load_balancer (DataSource)

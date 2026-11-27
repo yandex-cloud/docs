@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-kubernetes/managed-kubernetes/api-ref/Cluster/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Services for Kubernetes API, REST: Cluster

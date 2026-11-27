@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_ops_updates_upload.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli ops updates upload
 
 Upload and unpack an update archive

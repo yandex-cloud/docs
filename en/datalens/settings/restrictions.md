@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} security settings'
 description: With {{ datalens-full-name }} security settings, you can restrict the use of some {{ datalens-name }} features.
+alternate:
+  - href: en/datalens/settings/restrictions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ datalens-full-name }} security settings

@@ -1,6 +1,10 @@
 ---
 title: Disks in {{ cloud-desktop-name }}
 description: Disks are virtual counterparts of physical storage devices, such as SSDs and HDDs. Disks are designed to store data and are attached to desktops as network block devices.
+alternate:
+  - href: en/cloud-desktop/concepts/disks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Disks

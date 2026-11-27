@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing operations with {{ sf-name }} resources
 
 The system logs all actions with {{ sf-name }} resources as a list of operations. Each operation gets its own unique ID.

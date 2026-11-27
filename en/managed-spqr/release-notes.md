@@ -1,6 +1,10 @@
 ---
 title: '{{ mspqr-full-name }} release notes'
 description: This section contains the {{ mspqr-name }} release notes.
+alternate:
+  - href: en/managed-spqr/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mspqr-full-name }} release notes

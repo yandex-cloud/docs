@@ -1,6 +1,10 @@
 ---
 title: Editing a {{ alb-full-name }} target group
 description: In this tutorial, you will learn how to update {{ alb-name }} target group settings, as well as how to add VM instances to or remove them from such a group.
+alternate:
+  - href: en/application-load-balancer/operations/target-group-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a target group

@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: en/cloud-router/scenarios/prc-ha-via-vpn-gw.md
+    type: text/markdown
+    title: Markdown version
+---
 # Reserving an on-prem connection via a VPN gateway
 
 

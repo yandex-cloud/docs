@@ -1,6 +1,10 @@
 ---
 title: '{{ at-full-name }} release notes'
 description: This section contains the {{ at-name }} release notes.
+alternate:
+  - href: en/audit-trails/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} release notes

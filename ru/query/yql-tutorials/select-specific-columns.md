@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/yql-tutorials/select-specific-columns.md
+    type: text/markdown
+    title: Markdown version
+---
 # Выбрать данные из определенных колонок
 
 Данные можно получать не только из всех колонок, но и из их подмножества. Также можно переименовывать существующие колонки или создавать новые.

@@ -1,6 +1,10 @@
 ---
 title: Navigation settings in {{ datalens-full-name }}
 description: Navigation settings allow you to customize navigation in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/settings/navigation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Navigation settings in {{ datalens-full-name }}

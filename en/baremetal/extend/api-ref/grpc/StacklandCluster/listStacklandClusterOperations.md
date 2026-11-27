@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/baremetal/extend/api-ref/grpc/StacklandCluster/listStacklandClusterOperations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Extend API, gRPC: StacklandClusterService.ListStacklandClusterOperations

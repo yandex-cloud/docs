@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о политике доступа к реестру {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о политике доступа к реестру.
+alternate:
+  - href: ru/cloud-registry/operations/registry/list-access-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о политике доступа к реестру

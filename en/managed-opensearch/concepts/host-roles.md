@@ -1,6 +1,10 @@
 ---
 title: Host roles in {{ mos-full-name }}
 description: In this article, you will learn about host roles in {{ mos-name }}.
+alternate:
+  - href: en/managed-opensearch/concepts/host-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Host roles in {{ mos-name }}

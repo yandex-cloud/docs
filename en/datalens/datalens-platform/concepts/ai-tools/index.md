@@ -1,6 +1,10 @@
 ---
 title: AI tools in {{ datalens-platform-full-name }}
 description: In this article, you will learn about {{ datalens-platform-full-name }} Neuroanalyst.
+alternate:
+  - href: en/datalens/datalens-platform/concepts/ai-tools/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI tools in {{ datalens-platform-full-name }}

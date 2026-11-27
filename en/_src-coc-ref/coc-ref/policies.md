@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_src-coc-ref/coc-ref/policies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Organisation policies configuration
 
 Path in repository: `.sourcecraft/policies.yaml`.

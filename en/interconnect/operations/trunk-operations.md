@@ -1,6 +1,10 @@
 ---
 title: Getting a list of trunk operations in {{ interconnect-name }}
 description: Follow this guide to get a list of trunk operations in {{ interconnect-name }}.
+alternate:
+  - href: en/interconnect/operations/trunk-operations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of trunk operations

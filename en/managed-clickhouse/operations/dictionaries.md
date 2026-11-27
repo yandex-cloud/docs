@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-clickhouse/operations/dictionaries.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting external dictionaries in {{ mch-name }}
 
 You can connect [external dictionaries](../concepts/dictionaries.md#external-dicts) to your cluster and disconnect them. For more information about dictionaries, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary).

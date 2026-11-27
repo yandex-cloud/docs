@@ -1,6 +1,10 @@
 ---
 title: Управление рабочими нагрузками в {{ managed-k8s-full-name }}
 description: Из статьи вы узнаете, как в {{ yandex-cloud }} управлять рабочими нагрузками в {{ k8s }} с помощью консоли управления без использования kubectl.
+alternate:
+  - href: ru/managed-kubernetes/operations/kubernetes-console/workloads.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление рабочими нагрузками

@@ -26,6 +26,10 @@ apiPlayground:
         - channelId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/video/api-ref/StreamLine/batchGet.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: StreamLine.BatchGet

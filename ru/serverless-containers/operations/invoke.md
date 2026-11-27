@@ -1,6 +1,10 @@
 ---
 title: Как вызвать контейнер в {{ serverless-containers-full-name }}
 description: Следуя данной инструкции, вы сможете вызвать контейнер.
+alternate:
+  - href: ru/serverless-containers/operations/invoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вызвать контейнер

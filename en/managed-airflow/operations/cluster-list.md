@@ -1,6 +1,10 @@
 ---
 title: Information about clusters in {{ maf-name }}
 description: You can request detailed information for each {{ maf-name }} cluster you have created. To get a list of database clusters in your folder, navigate to the folder dashboard and select {{ maf-name }}.
+alternate:
+  - href: en/managed-airflow/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Information about existing clusters in {{ maf-name }}

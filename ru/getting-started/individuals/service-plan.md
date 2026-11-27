@@ -1,6 +1,10 @@
 ---
 title: Настройте тарифный план поддержки для физического лица
 description: Из статьи вы узнаете про настройку тарифного плана поддержки для физического лица.
+alternate:
+  - href: ru/getting-started/individuals/service-plan.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройте тарифный план поддержки

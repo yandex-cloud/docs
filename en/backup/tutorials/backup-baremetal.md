@@ -2,6 +2,10 @@
 title: How to set up automatic {{ baremetal-full-name }} server backups in {{ backup-name }}
 description: Follow this tutorial to configure {{ baremetal-full-name }} server backups in {{ backup-name }}.
 canonical: '{{ link-docs }}/tutorials/archive/backup-baremetal'
+alternate:
+  - href: en/backup/tutorials/backup-baremetal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting a {{ baremetal-full-name }} server to {{ backup-name }}

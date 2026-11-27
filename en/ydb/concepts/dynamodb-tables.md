@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/ydb/concepts/dynamodb-tables.md
+    type: text/markdown
+    title: Markdown version
+---
 # DynamoDB tables
 
 In {{ ydb-name }} [serverless operation mode](serverless-and-dedicated.md#serverless), you can use _document tables_.

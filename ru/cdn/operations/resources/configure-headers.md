@@ -1,6 +1,10 @@
 ---
 title: Как настроить HTTP-заголовки запросов и ответов в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете настроить HTTP-заголовки запросов и ответов.
+alternate:
+  - href: ru/cdn/operations/resources/configure-headers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка HTTP-заголовков запросов и ответов

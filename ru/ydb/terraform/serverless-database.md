@@ -1,6 +1,10 @@
 ---
 title: Создание и изменение параметров бессерверной базы данных {{ ydb-full-name }}
 description: Следуя данной инструкции, вы сможете создать или изменить параметры бессерверной базы данных {{ ydb-full-name }}.
+alternate:
+  - href: ru/ydb/terraform/serverless-database.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание и изменение параметров бессерверной базы данных

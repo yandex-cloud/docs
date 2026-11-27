@@ -1,6 +1,11 @@
 ---
 title: Настройки сервиса {{ sk-hybrid-name }}
 description: Из статьи вы узнаете, как настроить компоненты сервиса {{ sk-hybrid-name }}.
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройки сервиса {{ sk-hybrid-name }}

@@ -2,6 +2,10 @@
 title: Создание L7-балансировщика {{ alb-name }} с профилем безопасности {{ sws-full-name }} с помощью консоли управления
 description: Следуя этому руководству, вы создадите тестовый веб-сервер, развернете L7-балансировщик {{ alb-name }}, который будет распределять трафик на тестовый веб-сервер, и защитите созданную инфраструктуру с помощью профиля безопасности {{ sws-name }}, используя консоль управления.
 canonical: '{{ link-docs }}/tutorials/security/balancer-with-sws-profile/console'
+alternate:
+  - href: ru/application-load-balancer/tutorials/balancer-with-sws-profile/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание L7-балансировщика {{ alb-name }} с профилем безопасности {{ sws-full-name }} с помощью консоли управления

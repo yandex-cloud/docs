@@ -1,6 +1,10 @@
 ---
 title: Reading data from {{ monitoring-full-name }} via {{ yq-full-name }} connections
 description: In this article, you will learn how to set up a connection and read metrics from {{ monitoring-name }} using {{ yq-full-name }}.
+alternate:
+  - href: en/query/sources-and-sinks/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reading data from {{ monitoring-name }} via {{ yq-name }} connections

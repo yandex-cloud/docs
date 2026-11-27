@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/eventrouter/send-event/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/eventrouter/send-event.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless eventrouter send-event

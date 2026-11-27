@@ -1,6 +1,10 @@
 ---
 title: Lists for creating traffic filtering rules
 description: What preset and custom lists are available in {{ sws-name }} and how to use them under traffic filtering conditions.
+alternate:
+  - href: en/smartwebsecurity/concepts/lists.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lists

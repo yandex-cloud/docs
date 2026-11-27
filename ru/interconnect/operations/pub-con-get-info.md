@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о публичных соединениях {{ interconnect-name }}
 description: Следуя этой инструкции, вы сможете получить информацию о публичных соединениях {{ interconnect-name }}.
+alternate:
+  - href: ru/interconnect/operations/pub-con-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о публичных соединениях

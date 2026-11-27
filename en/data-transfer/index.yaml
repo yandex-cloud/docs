@@ -37,6 +37,10 @@ meta:
     - keyword: transferring databases
     - keyword: migrating databases
     - keyword: data transfer
+  alternate:
+    - href: en/data-transfer/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Available transfers
     description: List of supported transfer types

@@ -1,6 +1,10 @@
 ---
 title: Moving a cloud network to a different folder
 description: Follow this guide to move a cloud network to a different folder.
+alternate:
+  - href: en/vpc/operations/network-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving a cloud network to a different folder

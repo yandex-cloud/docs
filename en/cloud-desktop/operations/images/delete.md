@@ -1,6 +1,10 @@
 ---
 title: How to delete a custom image
 description: In this tutoral, you will learn how to delete a custom image.
+alternate:
+  - href: en/cloud-desktop/operations/images/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a custom image

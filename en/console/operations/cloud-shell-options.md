@@ -1,6 +1,10 @@
 ---
 title: Managing {{ cloud-shell-name }}
 description: In this guide, you will learn about {{ cloud-shell-name }} settings and management features in the console interface.
+alternate:
+  - href: en/console/operations/cloud-shell-options.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ cloud-shell-name }}

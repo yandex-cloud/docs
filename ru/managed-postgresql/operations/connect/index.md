@@ -1,6 +1,10 @@
 ---
 title: Предварительная настройка подключения к кластеру {{ PG }} в {{ mpg-full-name }}
 description: Следуя данной инструкции, вы сможете подготовиться к подключению к хостам в кластере {{ PG }}.
+alternate:
+  - href: ru/managed-postgresql/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Предварительная настройка для подключения к кластеру {{ PG }}

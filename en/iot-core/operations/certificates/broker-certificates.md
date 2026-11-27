@@ -1,6 +1,10 @@
 ---
 title: How to manage broker certificates in {{ iot-full-name }}
 description: In this guide, you will learn how to get a list of broker certificates and add or delete a broker certificate in {{ iot-full-name }}.
+alternate:
+  - href: en/iot-core/operations/certificates/broker-certificates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing broker certificates

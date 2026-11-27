@@ -1,6 +1,10 @@
 ---
 title: Connecting to an {{ OS }} cluster in {{ mos-full-name }}
 description: Follow this guide to connect to an {{ OS }} cluster database using command line tools, {{ OS }} Dashboards, and from a Docker container.
+alternate:
+  - href: en/managed-opensearch/operations/connect/clients.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to an {{ OS }} cluster from applications

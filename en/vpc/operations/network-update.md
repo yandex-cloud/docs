@@ -1,6 +1,10 @@
 ---
 title: Updating a cloud network
 description: In this tutorial, you will learn how to update cloud network settings.
+alternate:
+  - href: en/vpc/operations/network-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a cloud network

@@ -1,6 +1,10 @@
 ---
 title: Как обновить агент {{ backup-full-name }} на ВМ {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете обновить агент {{ backup-full-name }} на виртуальной машине {{ compute-full-name }}.
+alternate:
+  - href: ru/backup/operations/update-backup-agent.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновить агент {{ backup-full-name }} на виртуальной машине {{ compute-full-name }}

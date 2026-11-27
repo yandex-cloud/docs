@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/sdk/CloudVideoPlayerSDK/Configuration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Configuration
 
 ## Contents

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/EmbeddingSecrets/rpccreateEmbeddingSecret-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Create embedding secret

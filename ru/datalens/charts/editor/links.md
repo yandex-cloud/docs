@@ -1,6 +1,10 @@
 ---
 title: Связи чарта в дашбордах и отчетах
 description: Из статьи вы узнаете про связи чарта в дашбордах и отчетах.
+alternate:
+  - href: ru/datalens/charts/editor/links.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Связи чарта в дашбордах и отчетах

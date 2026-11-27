@@ -71,6 +71,10 @@ apiPlayground:
               **string**
               IP address of the target.
             type: string
+alternate:
+  - href: ru/network-load-balancer/api-ref/TargetGroup/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Load Balancer API, REST: TargetGroup.Create

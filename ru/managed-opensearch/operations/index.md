@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ mos-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ mos-name }}.
+alternate:
+  - href: ru/managed-opensearch/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ mos-name }}

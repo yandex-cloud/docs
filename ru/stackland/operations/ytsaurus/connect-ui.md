@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/ytsaurus/connect-ui.md
+    type: text/markdown
+    title: Markdown version
+---
 # Открыть веб-интерфейс {{ yt-name }}
 
 После [включения компонента](enable.md) с параметрами `spec.cluster.ui.enabled: true` и `spec.cluster.ui.ingressEnabled: true` доступен веб-интерфейс {{ YT }}.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/baremetal/security/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление доступом в {{ baremetal-full-name }}
 
 {% include [operate-via-roles-paragraph](../../_includes/iam/operate-via-roles-paragraph.md) %}

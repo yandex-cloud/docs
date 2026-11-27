@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/concepts/storage.md
+    type: text/markdown
+    title: Markdown version
+---
 # Хранилище в {{ dataproc-name }}
 
 {{ dataproc-name }} позволяет использовать сетевые диски для организации хранилища подкластеров. Сетевые диски реализованы на базе сетевых блоков — виртуальных дисков в инфраструктуре {{ yandex-cloud }}.

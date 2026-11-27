@@ -1,6 +1,10 @@
 ---
 title: How to draft a specification for creating or editing a trail
 description: Follow this guide to draft a specification for creating or editing a {{ at-full-name }} trail.
+alternate:
+  - href: en/audit-trails/operations/prepare-spec.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Drafting a trail specification

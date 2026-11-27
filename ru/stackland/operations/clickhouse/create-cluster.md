@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/clickhouse/create-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать кластер {{ mch-name }}
 
 Если у вас есть [проект](../projects/create-project.md), вы можете создать в нем кластер [{{ CH }}](../../concepts/components/clickhouse.md).

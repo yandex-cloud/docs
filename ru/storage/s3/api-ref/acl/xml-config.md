@@ -1,6 +1,10 @@
 ---
 title: XML-структура конфигурации ACL. {{ objstorage-name }} API (S3)
 description: Описан общий вид XML-структуры конфигурации ACL, а также каждый ил элементов. AccessControlPolicy, Owner, AccessControlList, Grant, Grantee, ID, DisplayName, URI, Permission.
+alternate:
+  - href: ru/storage/s3/api-ref/acl/xml-config.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # XML-структура конфигурации ACL

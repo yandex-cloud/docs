@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-valkey/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обновление версии {{ VLK }}
 
 Вы можете обновить кластер {{ mrd-name }} до любой поддерживаемой версии.

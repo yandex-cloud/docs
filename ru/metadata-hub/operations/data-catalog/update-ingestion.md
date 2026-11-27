@@ -1,6 +1,10 @@
 ---
 title: Как изменить загрузку данных в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы сможете изменить загрузку данных в {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/update-ingestion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение загрузки данных

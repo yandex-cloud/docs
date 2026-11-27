@@ -1,6 +1,10 @@
 ---
 title: '{{ SPRK }} properties in {{ msp-full-name }}'
 description: In this tutorial, you will learn about {{ SPRK }} job properties and how they are stored.
+alternate:
+  - href: en/managed-spark/concepts/spark-properties.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ SPRK }} properties

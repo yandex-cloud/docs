@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в {{ yandex-cloud }} CLI от имени локального пользователя
 description: Следуя данной инструкции, вы сможете аутентифицироваться в {{ yandex-cloud }} CLI от имени локального пользователя.
+alternate:
+  - href: ru/cli/operations/authentication/local-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в {{ yandex-cloud }} CLI от имени локального пользователя

@@ -1,6 +1,10 @@
 ---
 title: How to choose the right authentication method in {{ yandex-cloud }}
 description: In this article, you will learn how to choose the right authentication method in {{ yandex-cloud }}.
+alternate:
+  - href: en/iam/concepts/authorization/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to choose a suitable authentication method in {{ yandex-cloud }}

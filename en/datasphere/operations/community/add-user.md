@@ -1,6 +1,10 @@
 ---
 title: How to add a user to a community
 description: Follow this guide to add a user to a community.
+alternate:
+  - href: en/datasphere/operations/community/add-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a user to a community

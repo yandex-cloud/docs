@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/kms/concepts/key.md
+    type: text/markdown
+    title: Markdown version
+---
 # Симметричный ключ в {{ kms-short-name }}
 
 Симметричный ключ — это набор [версий](version.md), каждая из которых определяет алгоритм и криптографический материал для операций шифрования или расшифрования данных.

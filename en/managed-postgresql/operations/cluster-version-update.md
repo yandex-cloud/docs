@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ PG }} version update
 
 {% include [auto-update-of-deprecated-cluster](../../_includes/mdb/auto-update-of-deprecated-cluster.md) %}

@@ -1,6 +1,10 @@
 ---
 title: How to connect to a {{ dataproc-full-name }} cluster
 description: Follow this guide to connect to a {{ dataproc-name }} cluster.
+alternate:
+  - href: en/data-proc/operations/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ dataproc-name }} cluster

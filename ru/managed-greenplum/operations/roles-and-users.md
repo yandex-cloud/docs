@@ -1,6 +1,10 @@
 ---
 title: Управление ролями и пользователями кластера {{ mgp-full-name }}
 description: Из статьи вы узнаете, как управлять пользователями, ролями и их привилегиями в кластере {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/roles-and-users.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление ролями и пользователями

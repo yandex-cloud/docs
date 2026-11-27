@@ -1,6 +1,10 @@
 ---
 title: Updating a metadata catalog
 description: Follow this guide to update metadata catalog settings in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/update-catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a metadata catalog

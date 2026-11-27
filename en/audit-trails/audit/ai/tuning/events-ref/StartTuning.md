@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/ai/tuning/events-ref/StartTuning.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AI Studio Tuning Audit Trails Events: StartTuning

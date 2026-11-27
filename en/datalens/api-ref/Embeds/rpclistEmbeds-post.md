@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Embeds/rpclistEmbeds-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # List embeds

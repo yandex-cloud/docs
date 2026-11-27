@@ -1,6 +1,10 @@
 ---
 title: Как изменить способ оплаты в {{ billing-name }}
 description: Следуя данной инструкции, вы сможете изменить способ оплаты в {{ billing-name }}.
+alternate:
+  - href: ru/billing/operations/change-payment-method.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить способ оплаты

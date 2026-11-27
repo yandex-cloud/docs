@@ -1,6 +1,10 @@
 ---
 title: How to stop or resume a node
 description: Follow this guide to suspend or resume a node.
+alternate:
+  - href: en/datasphere/operations/deploy/node-suspend-resume.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Stopping or resuming a node

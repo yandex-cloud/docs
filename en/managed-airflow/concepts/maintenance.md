@@ -1,6 +1,10 @@
 ---
 title: Maintenance in {{ maf-full-name }}
 description: In {{ maf-name }}, maintenance means automatic installation of updates and patches for cluster components (including for stopped clusters), component configuration modifications, and other maintenance operations.
+alternate:
+  - href: en/managed-airflow/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Maintenance in {{ maf-full-name }}

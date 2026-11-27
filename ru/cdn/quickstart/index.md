@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете создать и настроить CDN-ресурс с помощью {{ cdn-full-name }}.
+alternate:
+  - href: ru/cdn/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с {{ cdn-name }}

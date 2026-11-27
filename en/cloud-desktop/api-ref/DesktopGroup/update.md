@@ -233,6 +233,10 @@ apiPlayground:
       ManualUpdatePolicy:
         type: object
         properties: {}
+alternate:
+  - href: en/cloud-desktop/api-ref/DesktopGroup/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Desktop API, REST: DesktopGroup.Update

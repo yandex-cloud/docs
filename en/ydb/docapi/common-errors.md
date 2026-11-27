@@ -2,6 +2,10 @@
 title: Common errors when using the Document API in {{ ydb-full-name }}
 description: This page describes the list of errors that are common to all the Document API methods.
 sourcePath: overlay/docapi/api-ref/common-errors.md
+alternate:
+  - href: en/ydb/docapi/common-errors.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Common errors when using the Document API
 

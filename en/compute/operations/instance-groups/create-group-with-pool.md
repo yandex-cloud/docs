@@ -1,6 +1,10 @@
 ---
 title: Creating an instance group attached to a reserved instance pool
 description: In this article, you will learn how to create a {{ compute-full-name }} instance group attached to a reserved instance pool.
+alternate:
+  - href: en/compute/operations/instance-groups/create-group-with-pool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an instance group from a {{ compute-full-name }} reserved instance pool.

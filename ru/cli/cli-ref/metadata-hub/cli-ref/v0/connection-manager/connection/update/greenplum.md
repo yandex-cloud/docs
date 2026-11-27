@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/metadata-hub/cli-ref/v0/connection-manager/connection/update/greenplum/
+alternate:
+  - href: ru/cli/cli-ref/metadata-hub/cli-ref/v0/connection-manager/connection/update/greenplum.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc metadata-hub v0 connection-manager connection update greenplum

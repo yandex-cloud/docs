@@ -78,6 +78,10 @@ apiPlayground:
               Day of week in cron format. Valid values: 0-7 (0 and 7 both mean Sunday), *, ranges (1-5), steps (0-6/2), lists (1,3,5).
               Defaults to "*".
             type: string
+alternate:
+  - href: en/storedoc/api-ref/BackupRetentionPolicy/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: BackupRetentionPolicy.Create

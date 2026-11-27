@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ mos-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides a reference of {{ mos-name }} metrics exported to {{ monitoring-full-name }}.
+alternate:
+  - href: en/managed-opensearch/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

@@ -7,6 +7,10 @@ keywords:
   - example of creating a skill for Alice
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/alice-skill/terraform'
+alternate:
+  - href: en/tutorials/applied/alice-skill/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a skill for Alice using {{ TF }}

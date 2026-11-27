@@ -1,6 +1,10 @@
 ---
 title: Enabling {{ maf-name }}
 description: How to enable the {{ maf-name }} component and check that it is ready.
+alternate:
+  - href: en/stackland/operations/airflow/enable.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling {{ maf-name }}

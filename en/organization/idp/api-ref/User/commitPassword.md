@@ -88,6 +88,10 @@ apiPlayground:
               **string**
               Exact error message from LDAP, for debugging purposes.
             type: string
+alternate:
+  - href: en/organization/idp/api-ref/User/commitPassword.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: User.CommitPassword

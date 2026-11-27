@@ -1,5 +1,9 @@
 ---
 noIndex: true
+alternate:
+  - href: ru/video/troubleshooting-drm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Защищенный контент

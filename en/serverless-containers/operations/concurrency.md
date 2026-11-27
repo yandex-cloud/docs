@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/operations/concurrency.md
+    type: text/markdown
+    title: Markdown version
+---
 # Setting the number of concurrent container instance calls
 
 The number of concurrent container instance calls (`concurrency`) cannot exceed the relevant [quota](../concepts/limits.md#serverless-containers-quotas).

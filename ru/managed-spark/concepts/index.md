@@ -1,6 +1,10 @@
 ---
 title: Взаимосвязь ресурсов в {{ msp-full-name }}
 description: '{{ msp-full-name }} — это управляемый сервис для развертывания кластеров {{ SPRK }} и запуска Spark/PySpark-заданий в инфраструктуре {{ yandex-cloud }}.'
+alternate:
+  - href: ru/managed-spark/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Взаимосвязь ресурсов в {{ msp-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to use the {{ YZ }} extension in {{ mgp-full-name }}
 description: This guide describes how to use hybrid storage in {{ mgp-name }}.
+alternate:
+  - href: en/managed-greenplum/operations/extensions/yezzey.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using {{ YZ }} in {{ mgp-name }}

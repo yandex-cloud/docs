@@ -1,6 +1,10 @@
 ---
 title: Управление запросами в {{ ycdr-full-name }}
 description: Следуя данной инструкции, вы научитесь создавать, редактировать, запускать и удалять запросы в {{ ycdr-name }}.
+alternate:
+  - href: ru/ycdr/operations/queries/manage-queries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление запросами

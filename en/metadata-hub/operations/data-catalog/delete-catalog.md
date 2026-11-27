@@ -1,6 +1,10 @@
 ---
 title: Deleting a metadata catalog
 description: Follow this guide to delete a metadata catalog in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/delete-catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a folder

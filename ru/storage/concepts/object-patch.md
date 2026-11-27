@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/concepts/object-patch.md
+    type: text/markdown
+    title: Markdown version
+---
 # Частичное изменение объекта
 
 В {{ objstorage-name }} реализован механизм _частичного изменения и дозаписи объектов_ в бакете.

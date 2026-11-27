@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/datalens/events-ref/DeleteTrinoCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataLens Audit Trails Events: DeleteTrinoCluster

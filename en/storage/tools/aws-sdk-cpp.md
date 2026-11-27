@@ -2,6 +2,10 @@
 title: AWS SDK for C++
 description: In this article, you will learn what the AWS SDK for C++ is, how to install and configure it, and will also see some code examples.
 author: alehay
+alternate:
+  - href: en/storage/tools/aws-sdk-cpp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AWS SDK for C++

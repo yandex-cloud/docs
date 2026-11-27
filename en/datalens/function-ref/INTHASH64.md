@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/INTHASH64.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # INTHASH64

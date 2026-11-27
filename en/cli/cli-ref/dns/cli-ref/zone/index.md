@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/
+alternate:
+  - href: en/cli/cli-ref/dns/cli-ref/zone/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns zone

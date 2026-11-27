@@ -1,6 +1,10 @@
 ---
 title: Updating a rule in an ARL profile
 description: Follow this guide to update a rule in an ARL profile.
+alternate:
+  - href: en/smartwebsecurity/operations/arl-rule-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a rule in an ARL profile

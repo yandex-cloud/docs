@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for Greenplum®
+alternate:
+  - href: ru/terraform/resources/mdb_greenplum_cluster_iam_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_greenplum_cluster_iam_binding (Resource)

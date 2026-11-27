@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ mtr-full-name }}
 description: In {{ mtr-name }}, you can flexibly control access to cluster objects for individual users or user groups. You can manage access by setting access rules.
+alternate:
+  - href: en/managed-trino/concepts/access-control.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ mtr-name }}

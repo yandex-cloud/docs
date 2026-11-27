@@ -1,6 +1,10 @@
 ---
 title: Как удалить сервисное подключение в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете удалить сервисное подключение (Private Endpoint) в {{ vpc-name }}.
+alternate:
+  - href: ru/vpc/operations/private-endpoint-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить сервисное подключение

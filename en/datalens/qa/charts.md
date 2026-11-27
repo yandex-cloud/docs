@@ -1,6 +1,10 @@
 ---
 title: Charts
 description: This page covers FAQ about charts.
+alternate:
+  - href: en/datalens/qa/charts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Charts

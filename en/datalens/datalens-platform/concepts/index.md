@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-platform-full-name }}. Overview'
 description: 'Learn more about how {{ datalens-platform-short-name }} works: data ingestion, Lakehouse, visualization, development tools, and end-to-end features.'
+alternate:
+  - href: en/datalens/datalens-platform/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # About {{ datalens-platform-full-name }}

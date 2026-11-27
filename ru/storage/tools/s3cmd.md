@@ -1,6 +1,10 @@
 ---
 title: S3cmd
 description: Из статьи вы узнаете, что такое S3cmd, как его установить и настроить, а также ознакомитесь с особенностями и примерами операций.
+alternate:
+  - href: ru/storage/tools/s3cmd.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # S3cmd

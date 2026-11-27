@@ -1,6 +1,10 @@
 ---
 title: '{{ lockbox-full-name }} release notes'
 description: This section contains {{ lockbox-name }} release notes.
+alternate:
+  - href: en/lockbox/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ lockbox-full-name }} release notes

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/billing/payment/payment-methods-business.md
+    type: text/markdown
+    title: Markdown version
+---
 # Перевод с расчетного счета
 
 Организации и ИП могут пополнять лицевой счет и оплачивать потребленные ресурсы с помощью перевода средств со своего расчетного счета.

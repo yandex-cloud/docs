@@ -1,6 +1,10 @@
 ---
 title: Information about clusters in {{ mmy-short-name }}
 description: You can request detailed information for each {{ mmy-short-name }} cluster you have created. To get a list of database clusters in your folder, navigate to the folder dashboard and select {{ mmy-name }}.
+alternate:
+  - href: en/managed-mysql/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Information about existing {{ MY }} clusters

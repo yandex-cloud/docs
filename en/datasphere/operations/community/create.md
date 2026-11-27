@@ -1,6 +1,10 @@
 ---
 title: Creating a community
 description: Follow this guide to create a community.
+alternate:
+  - href: en/datasphere/operations/community/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a community

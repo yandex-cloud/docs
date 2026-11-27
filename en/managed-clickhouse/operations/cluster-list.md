@@ -1,6 +1,10 @@
 ---
 title: Information about clusters in {{ mch-short-name }}
 description: You can request detailed information for each {{ mch-short-name }} cluster you have created. To get a list of database clusters in your folder, navigate to the folder dashboard and select {{ mch-name }}.
+alternate:
+  - href: en/managed-clickhouse/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Information about existing {{ CH }} clusters

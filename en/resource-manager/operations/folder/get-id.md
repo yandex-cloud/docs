@@ -1,6 +1,10 @@
 ---
 title: How to get a folder ID in {{ yandex-cloud }}
 description: In this tutorial, you will learn how to get a folder ID in {{ yandex-cloud }}.
+alternate:
+  - href: en/resource-manager/operations/folder/get-id.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting the folder ID

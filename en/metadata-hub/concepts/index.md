@@ -1,6 +1,10 @@
 ---
 title: '{{ metadata-hub-full-name }} concepts'
 description: In this tutorial, you will learn about connection and schema registry.
+alternate:
+  - href: en/metadata-hub/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # About {{ metadata-hub-full-name }}

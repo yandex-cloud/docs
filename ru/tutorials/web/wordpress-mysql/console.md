@@ -1,6 +1,10 @@
 ---
 title: Сайт WordPress с БД {{ MY }} с помощью консоли управления — Инструкция
 description: 'Пошаговая инструкция, с помощью которой вы научитесь быстро создавать сайт на WordPress на базе данных {{ MY }} в облаке с помощью консоли управления. 3 простых шага, чтобы развернуть WordPress-сайт: создайте виртуальную машину, задайте настройки CMS WordPress и настройте DNS.'
+alternate:
+  - href: ru/tutorials/web/wordpress-mysql/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание сайта на WordPress с кластером базы данных {{ MY }} с помощью консоли управления

@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ iot-full-name }}
 description: Из статьи вы узнаете как работать с {{ iot-full-name }} в {{ yandex-cloud }}. Рассказываем о том, как управлять реестрами, устройствами, алиасами топиков, сертификатами и паролями.
+alternate:
+  - href: ru/iot-core/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ iot-name }}

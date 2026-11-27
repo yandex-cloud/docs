@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/quota-manager/cli-ref/v0/quota-request/create/
+alternate:
+  - href: en/quota-manager/cli-ref/v0/quota-request/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc quota-manager v0 quota-request create

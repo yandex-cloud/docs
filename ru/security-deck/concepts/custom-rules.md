@@ -1,6 +1,10 @@
 ---
 title: Пользовательские правила в {{ sd-full-name }}
 description: Пользовательские правила модулей {{ cspm-name }} и {{ kspm-name }} позволяют адаптировать стандартные правила безопасности под внутренние требования компании.
+alternate:
+  - href: ru/security-deck/concepts/custom-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пользовательские правила

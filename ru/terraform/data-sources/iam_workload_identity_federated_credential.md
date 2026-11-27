@@ -1,5 +1,9 @@
 ---
 subcategory: Identity and Access Management
+alternate:
+  - href: ru/terraform/data-sources/iam_workload_identity_federated_credential.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_iam_workload_identity_federated_credential (DataSource)

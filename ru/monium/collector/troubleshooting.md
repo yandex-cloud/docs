@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/collector/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
+---
 # Устранение неполадок при поставке данных
 
 Этот раздел поможет самостоятельно диагностировать и устранить большинство проблем, которые могут возникнуть при поставке данных в {{ monium-name }}.

@@ -1,6 +1,10 @@
 ---
 title: Computing infrastructure
 description: This article compares hypervisor types, VM integration components, and console connection to virtual machines in VMware Cloud Director and {{ yandex-cloud }}. You will also learn about aspects of hypervisor operation, about live VM migration and NUMA.
+alternate:
+  - href: en/overview/platform-comparison/vmware/computing-infrastructure.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Computing infrastructure

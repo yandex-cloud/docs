@@ -1,6 +1,10 @@
 ---
 title: Как настроить HTTP-ответ в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете настроить HTTP-ответ.
+alternate:
+  - href: ru/cdn/operations/resources/configure-response.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка HTTP-ответов

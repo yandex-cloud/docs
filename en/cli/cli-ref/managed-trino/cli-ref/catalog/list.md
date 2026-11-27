@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/catalog/list/
+alternate:
+  - href: en/cli/cli-ref/managed-trino/cli-ref/catalog/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-trino catalog list

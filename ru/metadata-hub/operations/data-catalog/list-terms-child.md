@@ -1,6 +1,10 @@
 ---
 title: Получение списка дочерних терминов в {{ data-catalog-full-name }}
 description: Следуя данной инструкции, вы получите список дочерних терминов в {{ data-catalog-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/list-terms-child.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка дочерних терминов

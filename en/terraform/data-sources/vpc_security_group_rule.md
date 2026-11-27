@@ -1,5 +1,9 @@
 ---
 subcategory: Virtual Private Cloud
+alternate:
+  - href: en/terraform/data-sources/vpc_security_group_rule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_vpc_security_group_rule (DataSource)

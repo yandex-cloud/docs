@@ -2,6 +2,10 @@
 title: '{{ message-queue-full-name }} pricing policy'
 description: This article covers the {{ message-queue-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/message-queue/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ message-queue-name }} pricing policy

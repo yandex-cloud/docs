@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/placement-groups/delete-vm.md
+    type: text/markdown
+    title: Markdown version
+---
 # Исключить виртуальную машину из группы размещения
 
 Исключите [ВМ](../../concepts/vm.md) из [группы размещения](../../concepts/placement-groups.md).

@@ -1,6 +1,10 @@
 ---
 title: Настройка демо-приложения для ветеринарной клиники
 description: Инструкция по настройке демо-приложения на Java и передаче телеметрии в {{ monium-name }}.
+alternate:
+  - href: ru/monium/collector/otel-clinic-example.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка демо-приложения Java и сбор телеметрии

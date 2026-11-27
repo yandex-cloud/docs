@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ monitoring-full-name }}
 description: This page covers FAQ about {{ monitoring-name }}.
+alternate:
+  - href: en/monium/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ monitoring-name }}

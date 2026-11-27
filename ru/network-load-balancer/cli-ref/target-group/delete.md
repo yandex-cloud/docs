@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/load-balancer/cli-ref/target-group/delete/
+alternate:
+  - href: ru/network-load-balancer/cli-ref/target-group/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc load-balancer target-group delete

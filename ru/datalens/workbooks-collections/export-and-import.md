@@ -1,6 +1,10 @@
 ---
 title: Экспорт и импорт воркбуков {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете выполнить экспорт и импорт воркбуков {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/workbooks-collections/export-and-import.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Экспорт и импорт воркбуков {{ datalens-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/pxf/settings.md
+    type: text/markdown
+    title: Markdown version
+---
 # Editing PXF settings
 
 The [PXF](../external-tables.md) settings you can configure using the {{ yandex-cloud }} tools match those in the [pxf-application.properties]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfappprops) configuration file. It describes the PXF protocol features. In {{ mgp-name }} clusters, the PXF settings have the default values. To optimize working with [external tables](../../concepts/external-tables.md), you can update the PXF settings using the {{ yandex-cloud }} interfaces rather than edit the file.

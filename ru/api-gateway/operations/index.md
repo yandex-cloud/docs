@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ api-gw-full-name }}
 description: Из статьи вы узнаете, как работать с {{ api-gw-full-name }} в {{ yandex-cloud }}. Вы научитесь создавать, изменять и удалять API-шлюзы, а также просматривать график мониторинга и журнал выполнения.
+alternate:
+  - href: ru/api-gateway/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ api-gw-name }}

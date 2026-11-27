@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/operations/create-configuration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a configuration
 
 Create a [configuration](../concepts/configuration.md) to set up email processing rules:

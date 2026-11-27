@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/yds-to-clickhouse'
+alternate:
+  - href: en/data-streams/tutorials/send-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Saving data to {{ mch-full-name }}

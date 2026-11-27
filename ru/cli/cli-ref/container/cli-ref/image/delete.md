@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/image/delete/
+alternate:
+  - href: ru/cli/cli-ref/container/cli-ref/image/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container image delete

@@ -273,6 +273,10 @@ apiPlayground:
               **[Translation](#yandex.cloud.video.v1.StreamLineProcessingSettings.Translation)**
               Settings for stream line translation.
             $ref: '#/definitions/Translation'
+alternate:
+  - href: ru/video/api-ref/StreamLine/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: StreamLine.Create

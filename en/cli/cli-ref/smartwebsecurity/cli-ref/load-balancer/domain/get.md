@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/get/
+alternate:
+  - href: en/cli/cli-ref/smartwebsecurity/cli-ref/load-balancer/domain/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartwebsecurity load-balancer domain get

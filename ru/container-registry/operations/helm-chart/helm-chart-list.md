@@ -1,6 +1,10 @@
 ---
 title: Получить информацию об имеющихся Helm-чартах в репозитории {{ container-registry-name }}
 description: Следуя данной инструкции, вы можете получить список Helm-чартов в репозитории {{ container-registry-name }}.
+alternate:
+  - href: ru/container-registry/operations/helm-chart/helm-chart-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию об имеющихся Helm-чартах

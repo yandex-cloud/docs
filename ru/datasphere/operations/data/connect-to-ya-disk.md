@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/data/connect-to-ya-disk.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение к Яндекс Диску
 
 Вы можете подключиться к сервису хранения файлов [Яндекс Диск](https://disk.yandex.ru) из интерфейса {{ ml-platform-name }}. Чтобы загрузить файл или каталог в {{ ml-platform-name }}, откройте к нему доступ по ссылке.

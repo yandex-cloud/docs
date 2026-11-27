@@ -1,6 +1,10 @@
 ---
 title: '{{ video-player-name }} methods in the IFrame SDK'
 description: This page describes the methods you can use to manage {{ video-player-name }} in the IFrame SDK.
+alternate:
+  - href: en/video/sdk/iframe/player-methods.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Player methods

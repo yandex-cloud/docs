@@ -1,6 +1,10 @@
 ---
 title: Producers and consumers
 description: In this article, you will learn about producers and consumers.
+alternate:
+  - href: en/managed-kafka/concepts/producers-consumers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Producers and consumers

@@ -1,6 +1,10 @@
 ---
 title: Решение проблем в {{ video-full-name }}
 description: В этом разделе приводятся решения для возможных проблем при работе с {{ video-name }}.
+alternate:
+  - href: ru/video/troubleshooting/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение проблем в {{ video-name }}

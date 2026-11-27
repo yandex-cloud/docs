@@ -1,6 +1,10 @@
 ---
 title: '{{ serverless-containers-full-name }}. Ответы на вопросы'
 description: Как получить логи моей работы в сервисе {{ serverless-containers-full-name }}? Ответы на этот и другие вопросы в данной статье.
+alternate:
+  - href: ru/serverless-containers/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие вопросы про {{ serverless-containers-name }}

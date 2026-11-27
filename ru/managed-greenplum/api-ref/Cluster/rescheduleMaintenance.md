@@ -47,6 +47,10 @@ apiPlayground:
         - rescheduleType
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/managed-greenplum/api-ref/Cluster/rescheduleMaintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.RescheduleMaintenance

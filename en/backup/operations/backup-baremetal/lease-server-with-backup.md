@@ -1,6 +1,10 @@
 ---
 title: How to rent a {{ baremetal-full-name }} server with a connection to {{ backup-full-name }}
 description: Follow this guide to rent a {{ baremetal-full-name }} server with a connection to {{ backup-full-name }}.
+alternate:
+  - href: en/backup/operations/backup-baremetal/lease-server-with-backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Renting a {{ baremetal-full-name }} server with a connection to {{ backup-name }}

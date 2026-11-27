@@ -1,6 +1,10 @@
 ---
 title: '{{ VLK }} cluster maintenance'
 description: Follow this guide to view the {{ VLK }} cluster’s scheduled and completed maintenance jobs and schedule a maintenance window.
+alternate:
+  - href: en/managed-valkey/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ VLK }} cluster maintenance

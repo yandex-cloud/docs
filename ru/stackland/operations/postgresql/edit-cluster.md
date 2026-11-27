@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/postgresql/edit-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить настройки кластера PostgreSQL
 
 Если у вас есть кластер [PostgreSQL](../../concepts/components/postgresql.md) в [проекте](../projects/create-project.md)), вы можете изменить его настройки.

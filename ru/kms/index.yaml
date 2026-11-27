@@ -37,6 +37,10 @@ meta:
     - keyword: RSA
     - keyword: '{{ kms-name }}'
     - keyword: '{{ kms-name }} в {{ yandex-cloud }}'
+  alternate:
+    - href: ru/kms/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Зашифруйте и расшифруйте текст ключом KMS

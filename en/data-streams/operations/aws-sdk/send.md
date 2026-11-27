@@ -1,6 +1,10 @@
 ---
 title: How to send data from {{ ydb-short-name }} to a stream in the AWS SDK
 description: In this article, you will learn how to send data from {{ ydb-short-name }} to a stream in the AWS SDK.
+alternate:
+  - href: en/data-streams/operations/aws-sdk/send.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sending data to a stream in the AWS SDK

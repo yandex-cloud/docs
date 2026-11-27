@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/iam/awscompatibility/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access Key, REST: Operation.Get

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/concepts/federated-processing.md
+    type: text/markdown
+    title: Markdown version
+---
 # Федеративные запросы
 
 {% include [sunset](../../_includes/query/sunset.md) %}

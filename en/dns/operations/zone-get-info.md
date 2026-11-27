@@ -1,6 +1,10 @@
 ---
 title: How to get DNS zone information in {{ dns-full-name }}
 description: In this tutorial, you will learn how to get DNS zone information.
+alternate:
+  - href: en/dns/operations/zone-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a DNS zone

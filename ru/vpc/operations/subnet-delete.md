@@ -1,6 +1,10 @@
 ---
 title: Как удалить подсеть
 description: Следуя данной инструкции, вы сможете удалить подсеть.
+alternate:
+  - href: ru/vpc/operations/subnet-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить подсеть

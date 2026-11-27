@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/concepts/alerting.md
+    type: text/markdown
+    title: Markdown version
+---
 # Alerting
 
 {{ monium-name }}'s alerting feature sends metric update notifications. For example, you can get alerted about a change in your cloud resource's status and deal with it before it is too late.

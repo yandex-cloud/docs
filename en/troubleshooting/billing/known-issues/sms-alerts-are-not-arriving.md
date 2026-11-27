@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/sms-alerts-are-not-arriving.md
+    type: text/markdown
+    title: Markdown version
+---
 # Troubleshooting adding a phone number for SMS notifications to the billing account
 
 

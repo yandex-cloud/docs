@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/backup/list-archives/
+alternate:
+  - href: en/cli/cli-ref/backup/cli-ref/backup/list-archives.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc backup backup list-archives

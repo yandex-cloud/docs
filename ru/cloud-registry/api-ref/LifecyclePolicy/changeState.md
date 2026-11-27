@@ -34,6 +34,10 @@ apiPlayground:
         - state
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/cloud-registry/api-ref/LifecyclePolicy/changeState.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry API, REST: LifecyclePolicy.ChangeState

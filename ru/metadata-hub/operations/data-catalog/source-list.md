@@ -1,6 +1,10 @@
 ---
 title: Получение списка источников метаданных
 description: Следуя данной инструкции, вы сможете получить список источников метаданных в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/source-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка источников

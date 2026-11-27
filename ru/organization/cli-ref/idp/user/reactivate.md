@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/user/reactivate/
+alternate:
+  - href: ru/organization/cli-ref/idp/user/reactivate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager idp user reactivate

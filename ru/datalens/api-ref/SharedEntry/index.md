@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/SharedEntry/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # SharedEntry
 
 <!-- markdownlint-disable-file -->

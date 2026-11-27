@@ -1,6 +1,10 @@
 ---
 title: How to view roles for a registry in {{ cloud-registry-full-name }}
 description: Follow this guide to view roles assigned for a registry.
+alternate:
+  - href: en/cloud-registry/operations/registry/list-role.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing roles assigned for a registry

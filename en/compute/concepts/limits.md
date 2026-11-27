@@ -2,6 +2,10 @@
 title: '{{ compute-full-name }} quotas and limits'
 description: '{{ compute-name }} has limits and quotas on virtual machines, HDDs, and SSDs. For more information about the service limitations, read this article.'
 editable: false
+alternate:
+  - href: en/compute/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ compute-name }} quotas and limits

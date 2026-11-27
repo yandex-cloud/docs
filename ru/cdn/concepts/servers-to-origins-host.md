@@ -1,6 +1,10 @@
 ---
 title: Заголовок Host в запросах CDN-серверов к источникам в {{ cdn-full-name }}
 description: Из статьи вы узнаете, для чего нужен заголовок Host в запросах CDN-серверов к источникам, а также как правильно его настроить.
+alternate:
+  - href: ru/cdn/concepts/servers-to-origins-host.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Заголовок Host в запросах CDN-серверов к источникам

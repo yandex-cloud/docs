@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/marketplace/workload/api-ref/grpc/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Apps Workload API: gRPC reference

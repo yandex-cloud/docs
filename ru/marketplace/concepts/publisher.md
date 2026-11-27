@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/marketplace/concepts/publisher.md
+    type: text/markdown
+    title: Markdown version
+---
 # Профиль партнера
 
 Профиль партнера — это единый центр управления вашими продуктами, который создается при регистрации организации и служит контейнером для всех [продуктов](./product.md), которые вы публикуете в {{ marketplace-full-name }}.

@@ -1,6 +1,10 @@
 ---
 title: Neuroanalyst for creating calculated fields
 description: In this tutorial, you will learn how to utilize Neuroanalyst when creating calculated fields.
+alternate:
+  - href: en/datalens/concepts/calculations/formulas-helper.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Neuroanalyst for creating calculated fields

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/video/api-ref/javascript/modules.md
+    type: text/markdown
+    title: Markdown version
+---
 # JS SDK Reference
 
 Плеер для воспроизведения видеоконтента.

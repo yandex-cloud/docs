@@ -1,6 +1,10 @@
 ---
 title: Удаление подключения в {{ websql-full-name }}
 description: Следуя данной инструкции, вы сможете удалять неиспользуемые подключения.
+alternate:
+  - href: ru/websql/operations/delete-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление подключения

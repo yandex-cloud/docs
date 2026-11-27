@@ -2,6 +2,10 @@
 title: Функции для работы с временными рядами
 description: Эти функции позволяют получать значения показателя, отнесенного к конкретным дате и времени.
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/time-series-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Функции для работы с временными рядами

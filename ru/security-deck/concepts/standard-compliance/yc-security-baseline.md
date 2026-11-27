@@ -1,6 +1,10 @@
 ---
 title: Базовые правила безопасности облачной платформы {{ yandex-cloud }}
 description: В этом разделе приведен список правил контроля, которые входят в базовый набор правил безопасности облачной платформы {{ yandex-cloud }}.
+alternate:
+  - href: ru/security-deck/concepts/standard-compliance/yc-security-baseline.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Базовые правила безопасности облачной платформы {{ yandex-cloud }}

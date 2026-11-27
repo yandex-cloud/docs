@@ -1,6 +1,10 @@
 ---
 title: Сделать статический публичный IP-адрес динамическим
 description: Следуя данной инструкции, вы сможете сделать статический публичный IP-адрес динамическим.
+alternate:
+  - href: ru/vpc/operations/set-dynamic-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сделать статический публичный IP-адрес динамическим

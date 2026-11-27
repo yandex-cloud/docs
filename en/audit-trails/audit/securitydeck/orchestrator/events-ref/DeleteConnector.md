@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/securitydeck/orchestrator/events-ref/DeleteConnector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck Orchestrator Audit Trails Events: DeleteConnector

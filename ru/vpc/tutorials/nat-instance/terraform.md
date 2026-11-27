@@ -2,6 +2,10 @@
 title: Маршрутизация через NAT-инстанс с помощью {{ TF }}
 description: Следуя данному руководству, вы сможете настроить маршрутизацию через NAT-инстанс с помощью {{ TF }}.
 canonical: '{{ link-docs }}/tutorials/routing/nat-instance/terraform'
+alternate:
+  - href: ru/vpc/tutorials/nat-instance/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Маршрутизация через NAT-инстанс с помощью {{ TF }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-transfer/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Мониторинг состояния трансфера
 
 Данные о состоянии трансфера доступны в консоли управления:

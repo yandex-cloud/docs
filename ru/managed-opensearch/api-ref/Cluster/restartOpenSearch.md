@@ -24,6 +24,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/managed-opensearch/api-ref/Cluster/restartOpenSearch.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.RestartOpenSearch

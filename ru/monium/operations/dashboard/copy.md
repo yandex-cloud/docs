@@ -1,6 +1,10 @@
 ---
 title: Как скопировать дашборд в {{ monium-full-name }}
 description: Как создать копию пользовательского или сервисного дашборда в {{ monium-name }} и выбрать проект для сохранения копии.
+alternate:
+  - href: ru/monium/operations/dashboard/copy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Скопировать дашборд

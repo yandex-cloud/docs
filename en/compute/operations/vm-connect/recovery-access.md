@@ -1,6 +1,10 @@
 ---
 title: How to recover access to a VM in {{ compute-full-name }}
 description: Follow this guide to recover access to a VM.
+alternate:
+  - href: en/compute/operations/vm-connect/recovery-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recovering access to a VM

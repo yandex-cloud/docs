@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/operations/copy-write-data.md
+    type: text/markdown
+    title: Markdown version
+---
 # Saving table data locally and populating a table from a local machine
 
 Using the interactive [psql]({{ pg-docs }}/app-psql.html) terminal, you can both [copy](#copy) table data to a local file and import data from a file to [populate](#write) a table.

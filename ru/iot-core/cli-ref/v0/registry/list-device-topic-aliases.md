@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/registry/list-device-topic-aliases/
+alternate:
+  - href: ru/iot-core/cli-ref/v0/registry/list-device-topic-aliases.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot v0 registry list-device-topic-aliases

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/logs/write/converting-data.md
+    type: text/markdown
+    title: Markdown version
+---
 # Input data transformation
 
 {{ monium-name }} currently receives data only in the [OpenTelemetry](https://opentelemetry.io/) format. For the API and data formats, see [this proto specification](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/collector/logs/v1/logs_service.proto#L33C14-L33C38).

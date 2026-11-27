@@ -1,6 +1,10 @@
 ---
 title: Guide for using {{ lockbox-full-name }} secrets to store static access keys via {{ TF }}
 description: Follow this guide to configure {{ yandex-cloud }} services with an AWS-compatible API to use service account static access keys stored in {{ lockbox-full-name }} secrets via {{ TF }}.
+alternate:
+  - href: en/tutorials/security/static-key-in-lockbox/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using a {{ lockbox-full-name }} secret to store a static access key using {{ TF }}

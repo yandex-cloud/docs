@@ -1,6 +1,10 @@
 ---
 title: QL charts in {{ datalens-full-name }}. Overview
 description: In this tutorial, you will learn about QL charts in {{ datalens-full-name }} and their features.
+alternate:
+  - href: en/datalens/concepts/chart/ql-charts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # QL charts in {{ datalens-full-name }}. Overview

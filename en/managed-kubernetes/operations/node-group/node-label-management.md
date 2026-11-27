@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/node-group/node-label-management.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing {{ k8s }} node labels
 
 {% include [node-vm-explained](../../../_includes/managed-kubernetes/node-vm-explained.md) %}

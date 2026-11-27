@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/delete-role.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a role
 
 If you have a [{{ CH }}](../../concepts/components/clickhouse.md) [role](create-role.md), you can delete it.

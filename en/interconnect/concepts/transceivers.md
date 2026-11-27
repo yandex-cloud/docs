@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/interconnect/concepts/transceivers.md
+    type: text/markdown
+    title: Markdown version
+---
 # Transceivers
 
 Optical modules, or transceivers, are used to connect your equipment or telecom provider equipment to {{ yandex-cloud }} equipment. To set up a connection, you need to select a **transceiver type** from the table below.

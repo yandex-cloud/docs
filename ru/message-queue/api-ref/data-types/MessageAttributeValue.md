@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/data-types/MessageAttributeValue.md
+    type: text/markdown
+    title: Markdown version
+---
 # MessageAttributeValue
 
 Значение пользовательского атрибута сообщения. На строковые значения накладываются те же ограничения, что и на тело сообщения.

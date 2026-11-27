@@ -1,6 +1,10 @@
 ---
 title: Как получить список приемников логов {{ cloud-logging-full-name }}
 description: Следуя данной инструкции, вы сможете получить список приемников логов.
+alternate:
+  - href: ru/logging/operations/list-sink.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить список приемников логов

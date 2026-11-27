@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/collector/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Delivering telemetry
 
 {{ monium-name }} automatically receives telemetry data from {{ yandex-cloud }} resources. You can also send telemetry data in [OpenTelemetry](https://opentelemetry.io/) format to {{ monium-name }} from any sources: other clouds, your own infrastructure, or applications.

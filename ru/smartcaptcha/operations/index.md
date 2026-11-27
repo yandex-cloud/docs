@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ captcha-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ captcha-name }}.
+alternate:
+  - href: ru/smartcaptcha/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ captcha-name }}

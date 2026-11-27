@@ -1,6 +1,10 @@
 ---
 title: Как включить или отключить экранирование источников в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете включить или отключить экранирование источников.
+alternate:
+  - href: ru/cdn/operations/resources/enable-shielding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включить или отключить экранирование источников

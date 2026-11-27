@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_yarl_delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli yarl delete
 
 Delete a yarl quota

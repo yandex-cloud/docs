@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/data-processing-template.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с шаблонами {{ dataproc-name }}
 
 [Шаблоны {{ dataproc-name }}](../concepts/data-processing-template.md) позволяют заранее подготовить конфигурацию кластера для проекта и упростить развертывание временных кластеров. Список шаблонов доступен на странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** → ![data-proc-template](../../_assets/data-processing/data-processing.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**, вкладка **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}**.

@@ -3,6 +3,10 @@ page_title: 'Provider: Yandex Cloud'
 description: |-
   The Yandex Cloud provider is used to interact with Yandex Cloud services.
   The provider needs to be configured with the proper credentials before it can be used.
+alternate:
+  - href: en/terraform/tf-ref/yandex-cloud/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Provider

@@ -1,6 +1,10 @@
 ---
 title: Как редактировать сделку
 description: Следуя данной инструкции, вы сможете редактировать сделку
+alternate:
+  - href: ru/partner/operations/deals/edit.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Редактировать сделку

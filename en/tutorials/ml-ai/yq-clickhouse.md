@@ -1,6 +1,10 @@
 ---
 title: Tutorial for working with data in {{ mch-full-name }}
 description: Follow this tutorial to connect to a {{ mch-full-name }} database and query it from a {{ jlab }}Lab notebook with the help of {{ yq-full-name }}.
+alternate:
+  - href: en/tutorials/ml-ai/yq-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with data in {{ mch-full-name }}

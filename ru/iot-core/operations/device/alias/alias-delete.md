@@ -1,6 +1,10 @@
 ---
 title: Удаление алиаса в {{ iot-full-name }}
 description: Алиас привязан к конкретному устройству, поэтому для удаления алиаса вам надо узнать идентификатор или имя устройства.
+alternate:
+  - href: ru/iot-core/operations/device/alias/alias-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление алиаса

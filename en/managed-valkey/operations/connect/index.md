@@ -1,6 +1,10 @@
 ---
 title: Pre-configuring a {{ VLK }} cluster connection in {{ mrd-full-name }}
 description: In this tutorial, you will learn how to pre-configure a database connection in a {{ VLK }} cluster.
+alternate:
+  - href: en/managed-valkey/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pre-configuring a {{ VLK }} cluster connection

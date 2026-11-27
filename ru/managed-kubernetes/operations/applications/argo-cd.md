@@ -1,6 +1,10 @@
 ---
 title: Установка Argo CD
 description: Следуя данной инструкции, вы сможете установить Agro CD.
+alternate:
+  - href: ru/managed-kubernetes/operations/applications/argo-cd.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка Argo CD

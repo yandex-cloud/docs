@@ -1,6 +1,10 @@
 ---
 title: Удалить эндпоинт в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете удалить эндпоинт.
+alternate:
+  - href: ru/notifications/operations/push/endpoint-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить эндпоинт

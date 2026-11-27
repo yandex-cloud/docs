@@ -1,6 +1,10 @@
 ---
 title: Как изменить основные настройки ресурса в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете изменить основные настройки ресурса.
+alternate:
+  - href: ru/cdn/operations/resources/configure-basics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение основных настроек ресурса

@@ -2,6 +2,10 @@
 title: Интеграция L7-балансировщика с {{ cdn-full-name }} и {{ objstorage-full-name }} с помощью консоли управления
 description: В этом руководстве с помощью консоли управления вы настроите L7-балансировщик {{ alb-full-name }}, в котором в качестве бэкенда используется бакет {{ objstorage-full-name }}, а запросы пользователей передаются балансировщику через {{ cdn-full-name }}, чтобы сократить время доставки контента.
 canonical: '{{ link-docs }}/tutorials/web/cdn-storage-integration/console'
+alternate:
+  - href: ru/storage/tutorials/cdn-storage-integration/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Интеграция L7-балансировщика с {{ cdn-short-name }} и {{ objstorage-short-name }} с помощью консоли управления

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/certificate-manager/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ certificate-manager-name }} concepts
 
 {{ certificate-manager-name }} is a service to manage [TLS certificates](https://en.wikipedia.org/wiki/Public_key_certificate#TLS/SSL_server_certificate) in {{ yandex-cloud }}. You can use the service to issue and renew Let's Encrypt certificates or add custom certificates.

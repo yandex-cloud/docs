@@ -1,6 +1,10 @@
 ---
 title: Creating a glossary
 description: Follow this guide to create a glossary in a metadata catalog.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/create-glossary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a glossary

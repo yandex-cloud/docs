@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/operations/images-with-pre-installed-software/setup.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка программного обеспечения
 
 Для [виртуальных машин](../../concepts/vm.md) с [LAMP](/marketplace/products/yc/lamp), [LEMP](/marketplace/products/yc/lemp) и [Node.js](/marketplace/products/yc/nodejs) первоначальную настройку выполнять не нужно. Предустановленное ПО готово к использованию.

@@ -1,6 +1,10 @@
 ---
 title: Поиск чувствительных данных в {{ objstorage-name }}
 description: Поиск чувствительных данных — это инструмент, помогающий обнаруживать сохраненную в бакетах {{ objstorage-full-name }} чувствительную информацию. Это позволяет своевременно настраивать политики доступа, обезличивать данные и принимать другие меры защиты.
+alternate:
+  - href: ru/storage/concepts/sensitive-data-search.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поиск чувствительных данных в {{ objstorage-name }}

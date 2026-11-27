@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/policy/scheme.md
+    type: text/markdown
+    title: Markdown version
+---
 # Схема данных
 
 Схема данных в формате JSON:

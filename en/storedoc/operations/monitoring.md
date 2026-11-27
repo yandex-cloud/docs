@@ -1,6 +1,10 @@
 ---
 title: Cluster, host, and shard state monitoring in {{ mmg-name }}
 description: In this tutorial, you will learn how to view {{ mmg-name }} cluster health status details.
+alternate:
+  - href: en/storedoc/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cluster, host, and shard state monitoring in {{ mmg-name }}

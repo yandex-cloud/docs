@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/operations/databases.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing databases in {{ mpg-name }}
 
 You can add, rename, and delete databases, view their info, and change the database owner.

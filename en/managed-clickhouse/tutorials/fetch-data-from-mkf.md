@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/fetch-data-from-mkf'
+alternate:
+  - href: en/managed-clickhouse/tutorials/fetch-data-from-mkf.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Fetching data from {{ mkf-name }} to {{ mch-name }}

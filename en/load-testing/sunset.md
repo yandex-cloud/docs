@@ -1,6 +1,10 @@
 ---
 title: '{{ load-testing-full-name }} is decommissioned.'
 description: '{{ load-testing-full-name }} is decommissioned.'
+alternate:
+  - href: en/load-testing/sunset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ load-testing-full-name }} is decommissioned

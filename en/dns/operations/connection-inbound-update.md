@@ -1,6 +1,10 @@
 ---
 title: How to update an inbound DNS connection in {{ dns-full-name }}
 description: Follow this guide to update an inbound DNS connection.
+alternate:
+  - href: en/dns/operations/connection-inbound-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating an inbound DNS connection

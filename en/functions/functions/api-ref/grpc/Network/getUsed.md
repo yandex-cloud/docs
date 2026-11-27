@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/functions/functions/api-ref/grpc/Network/getUsed.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Functions Service, gRPC: NetworkService.GetUsed

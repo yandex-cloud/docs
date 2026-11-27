@@ -1,6 +1,10 @@
 ---
 title: Organization in {{ yandex-cloud }}
 description: Organization is a workspace that combines various types of {{ yandex-cloud }} resources and enables users to work with them.
+alternate:
+  - href: en/billing/concepts/organization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organization

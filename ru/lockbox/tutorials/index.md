@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ lockbox-full-name }}
 description: Различные сценарии использования {{ lockbox-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/lockbox/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ lockbox-name }}

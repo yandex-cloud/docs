@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/rental-period/list/
+alternate:
+  - href: ru/baremetal/cli-ref/rental-period/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal rental-period list

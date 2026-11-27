@@ -1,6 +1,10 @@
 ---
 title: Доступ из {{ TR }}
 description: Как включить безопасное подключение {{ mgp-name }} к {{ mtr-name }} через консоль управления и CLI.
+alternate:
+  - href: ru/managed-greenplum/operations/gpfdist/trino-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Доступ из {{ TR }}

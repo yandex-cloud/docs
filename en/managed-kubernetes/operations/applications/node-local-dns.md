@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/applications/node-local-dns.md
+    type: text/markdown
+    title: Markdown version
+---
 # Installing NodeLocal DNS
 
 [NodeLocal DNS](/marketplace/products/yc/node-local-dns) reduces the load from DNS queries by running a caching agent on every [node](../../concepts/index.md#node-group) in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster). This improves the {{ managed-k8s-name }} cluster performance and fault tolerance.

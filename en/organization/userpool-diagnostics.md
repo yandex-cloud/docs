@@ -1,6 +1,10 @@
 ---
 title: Errors related to user pools in {{ org-full-name }}
 description: In this article, you will learn about errors related to user pools.
+alternate:
+  - href: en/organization/userpool-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Diagnosing user pool-related errors

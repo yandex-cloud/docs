@@ -1,6 +1,10 @@
 ---
 title: Как принимать и удалять сообщения в {{ message-queue-full-name }}
 description: Следуя данной инструкции, вы сможете принимать и удалять сообщения.
+alternate:
+  - href: ru/message-queue/operations/message-queue-receive-and-delete-message.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Прием и удаление сообщений

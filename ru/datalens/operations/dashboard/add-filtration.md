@@ -1,6 +1,10 @@
 ---
 title: Как настроить фильтрацию чартов другими чартами на дашборде в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете настроить фильтрацию чартов другими чартами на дашборде в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-filtration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка фильтрации чартами в {{ datalens-full-name }}

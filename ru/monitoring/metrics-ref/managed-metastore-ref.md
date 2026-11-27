@@ -2,6 +2,10 @@
 title: Метрики {{ metastore-full-name }}
 description: Из статьи вы узнаете про метрики {{ metastore-name }}.
 editable: false
+alternate:
+  - href: ru/monitoring/metrics-ref/managed-metastore-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ metastore-full-name }}

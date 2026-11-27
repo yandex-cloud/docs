@@ -1,6 +1,10 @@
 ---
 title: Managing pipelines in {{ datalens-platform-full-name }}
 description: Create an {{ AF }} cluster, add pipelines, configure their runs, and view the results in {{ datalens-platform-full-name }}.
+alternate:
+  - href: en/datalens/datalens-platform/operations/airflow/manage-airflow.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing pipelines

@@ -1,6 +1,10 @@
 ---
 title: Configuring DNS zone access permissions in {{ dns-name }}
 description: In this tutorial, you will learn how to configure DNS zone access permissions.
+alternate:
+  - href: en/dns/operations/zone-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring DNS zone access permissions

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/smartcaptcha/operations/delete-captcha.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a CAPTCHA
 
 In this section, you will learn how to delete a [CAPTCHA](../concepts/validation.md).

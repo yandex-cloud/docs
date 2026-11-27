@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ iot-full-name }}'
 description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ iot-name }}.
+alternate:
+  - href: en/iot-core/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ iot-full-name }}

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/protected-access-to-content/'
+alternate:
+  - href: ru/cdn/tutorials/protected-access-to-content/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [protected-access-to-content](../../../_tutorials/security/protected-access-to-content.md) %}

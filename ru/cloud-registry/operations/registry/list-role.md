@@ -1,6 +1,10 @@
 ---
 title: Как просмотреть роли на реестр в {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы сможете просмотреть роли, назначенные на реестр.
+alternate:
+  - href: ru/cloud-registry/operations/registry/list-role.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотреть роли, назначенные на реестр

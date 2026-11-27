@@ -40,6 +40,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/iam/awscompatibility/api-ref/AccessKey/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access Key, REST: AccessKey.Update

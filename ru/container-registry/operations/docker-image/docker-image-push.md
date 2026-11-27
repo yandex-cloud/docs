@@ -1,6 +1,10 @@
 ---
 title: Загрузить Docker-образ в реестр {{ container-registry-name }}
 description: Инструкция описывает, как загрузить локальный Docker-образ в реестр {{ container-registry-name }}.
+alternate:
+  - href: ru/container-registry/operations/docker-image/docker-image-push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузить Docker-образ в реестр

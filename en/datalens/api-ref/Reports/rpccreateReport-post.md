@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Reports/rpccreateReport-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Create report

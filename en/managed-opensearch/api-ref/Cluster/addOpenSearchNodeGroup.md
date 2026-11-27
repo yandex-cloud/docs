@@ -141,6 +141,10 @@ apiPlayground:
             $ref: '#/definitions/DiskSizeAutoscaling'
         required:
           - name
+alternate:
+  - href: en/managed-opensearch/api-ref/Cluster/addOpenSearchNodeGroup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.AddOpenSearchNodeGroup

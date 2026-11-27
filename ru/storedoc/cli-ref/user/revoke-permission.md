@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/user/revoke-permission/
+alternate:
+  - href: ru/storedoc/cli-ref/user/revoke-permission.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb user revoke-permission

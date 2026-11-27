@@ -1,6 +1,10 @@
 ---
 title: Открыть веб-интерфейс {{ AF }}
 description: Как подключиться к веб-интерфейсу кластера {{ AF }}
+alternate:
+  - href: ru/stackland/operations/airflow/connect-ui.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Открыть веб-интерфейс {{ AF }}

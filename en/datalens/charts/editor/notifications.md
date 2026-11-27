@@ -1,6 +1,10 @@
 ---
 title: Notifications
 description: In this article, you will learn about Editor notifications, their limitations, and how to add a notification to a chart.
+alternate:
+  - href: en/datalens/charts/editor/notifications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Notifications

@@ -1,6 +1,10 @@
 ---
 title: Как отозвать IAM-токен
 description: Следуя данной инструкции, вы сможете отозвать полученный ранее IAM-токен.
+alternate:
+  - href: ru/iam/operations/iam-token/revoke-iam-token.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отзыв IAM-токена

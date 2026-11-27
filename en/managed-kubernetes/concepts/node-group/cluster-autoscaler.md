@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/concepts/node-group/cluster-autoscaler.md
+    type: text/markdown
+    title: Markdown version
+---
 # Node group autoscaling in {{ managed-k8s-name }}
 
 Autoscaling is a way of changing the size of a [node group](../index.md#node-group) based on resource requests for [pods](../index.md#pod) running on this group's nodes.

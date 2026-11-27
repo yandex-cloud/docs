@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/pxf-datasource/
+alternate:
+  - href: ru/cli/cli-ref/managed-greenplum/cli-ref/pxf-datasource/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-greenplum pxf-datasource

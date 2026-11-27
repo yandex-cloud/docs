@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ alb-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ alb-name }}.
 editable: false
+alternate:
+  - href: ru/application-load-balancer/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ alb-full-name }}

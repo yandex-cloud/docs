@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/api-ref/queue/CreateQueue.md
+    type: text/markdown
+    title: Markdown version
+---
 # CreateQueue
 
 Метод для создания новой стандартной или FIFO очереди.

@@ -1,6 +1,10 @@
 ---
 title: Квоты и лимиты в {{ ml-platform-full-name }}
 description: В {{ ml-platform-full-name }} действуют лимиты и квоты на количество проектов в одном сообществе, максимальный объем данных, хранимый в {{ ml-platform-name }}, и другие. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
+alternate:
+  - href: ru/datasphere/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ ml-platform-name }}

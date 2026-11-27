@@ -1,6 +1,10 @@
 ---
 title: '{{ baremetal-full-name }} integrations with other {{ yandex-cloud }} services'
 description: This page provides a list of {{ yandex-cloud }} services that integrate with {{ baremetal-full-name }} and describes the tasks these integrations address.
+alternate:
+  - href: en/baremetal/concepts/integrations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Integrations with other {{ yandex-cloud }} services

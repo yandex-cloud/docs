@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ at-full-name }}
 description: Управление доступом в сервисе для управления трейлами — {{ at-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
+alternate:
+  - href: ru/audit-trails/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом {{ at-name }}

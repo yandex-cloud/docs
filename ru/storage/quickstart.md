@@ -1,6 +1,10 @@
 ---
 title: Начало работы c помощью консоли управления
 description: Следуя данной инструкции, вы сможете создать бакет и загрузить в него объект с помощью консоли управления.
+alternate:
+  - href: ru/storage/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ objstorage-full-name }}

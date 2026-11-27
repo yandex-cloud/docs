@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/storage-read-write.md
+    type: text/markdown
+    title: Markdown version
+---
 # Read and write operations
 
 There are some technical restrictions on reads and writes that apply to [disks](disk.md) and [file storages](filesystem.md). The restrictions apply both to the entire disk or storage and to each individual disk space allocation unit. The allocation unit size depends on the [disk or storage type](../concepts/limits.md#compute-limits-disks).

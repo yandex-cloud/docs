@@ -1,6 +1,10 @@
 ---
 title: Uploading {{ at-full-name }} audit logs to KUMA SIEM
 description: Follow this guide to configure the infrastructure to export {{ at-short-name }} audit logs to the KUMA SIEM system.
+alternate:
+  - href: en/tutorials/security/audit-trails-events-to-kuma/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [audit-trails-events-to-kuma](../../../_tutorials/security/audit-trails-events-to-kuma.md) %}

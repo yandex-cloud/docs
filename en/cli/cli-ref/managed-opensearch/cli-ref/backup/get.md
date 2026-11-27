@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/backup/get/
+alternate:
+  - href: en/cli/cli-ref/managed-opensearch/cli-ref/backup/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-opensearch backup get

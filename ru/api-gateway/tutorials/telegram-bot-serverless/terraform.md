@@ -3,6 +3,10 @@ title: Как создать бота в Telegram с помощью Serverless �
 description: В этом сценарии вы узнаете, как с помощью serverless-технологий и Terraform создать бота в Telegram, который будет отвечать на сообщения в чате.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/telegram-bot-serverless/terraform'
+alternate:
+  - href: ru/api-gateway/tutorials/telegram-bot-serverless/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как создать бота в Telegram с помощью Serverless и {{ TF }}

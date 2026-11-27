@@ -1,5 +1,9 @@
 ---
 title: Как решить проблемы в проекте в {{ ml-platform-full-name }}
+alternate:
+  - href: ru/datasphere/operations/projects/debugging-tools.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение проблем

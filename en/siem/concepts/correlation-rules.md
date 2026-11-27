@@ -1,6 +1,10 @@
 ---
 title: Correlation and exclusion rules in {{ yandex-siem-full-name }}
 description: '{{ yandex-siem-full-name }} correlation rules allow you to automatically detect security threats based on KQL queries. Exclusions allow you to exclude events known to be safe from the analysis.'
+alternate:
+  - href: en/siem/concepts/correlation-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Correlation rules and exceptions

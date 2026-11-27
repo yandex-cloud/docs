@@ -5,6 +5,10 @@ keywords:
   - MCP
   - MCP-сервер
   - Model Context Protocol
+alternate:
+  - href: ru/glossary/mcp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # MCP-сервер

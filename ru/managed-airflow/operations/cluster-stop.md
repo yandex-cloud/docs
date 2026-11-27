@@ -1,6 +1,10 @@
 ---
 title: Остановка и запуск кластера {{ AF }}
 description: 'При необходимости вы можете остановить кластер БД {{ AF }} и запустить его заново. При остановке кластера все данные в нем сохранятся: они снова станут доступны, когда вы запустите кластер.'
+alternate:
+  - href: ru/managed-airflow/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Остановка и запуск кластера {{ AF }}

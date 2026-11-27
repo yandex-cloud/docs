@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/traces/operations/trace-view.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing and analyzing traces
 
 The trace view page displays the end-to-end request path: from the root span to final operations. To open a trace, use [search](traces-explorer.md) or type in its `trace_id`.

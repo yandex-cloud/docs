@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/operations/backup-retention-policies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing backup policies in {{ mmg-name }}
 
 [Backup](../concepts/backup.md) policies give you flexible control over how cluster backups are created and stored. You can configure a schedule for creating full backups and set their retention period.

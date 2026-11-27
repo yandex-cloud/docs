@@ -1,6 +1,10 @@
 ---
 title: Downloading reporting documents
 description: Learn how to download an archive with closing documents, request a reconciliation report, completion report, and electronic invoices.
+alternate:
+  - href: en/billing/operations/download-reporting-docs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing your expense history and downloading reporting documents in {{ billing-name }}

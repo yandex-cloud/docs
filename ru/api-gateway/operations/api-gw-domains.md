@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/operations/api-gw-domains.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключить домен
 
 Вы можете подключить собственный домен для обращения к API-шлюзу. К API-шлюзу можно подключить wildcard-домен, например `*.example.com`, чтобы API-шлюз обрабатывал запросы на все поддомены `example.com`, или несколько доменов. Домен будет идентифицироваться по заголовку `Host`.

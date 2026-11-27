@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/types/search_api.md
+    type: text/markdown
+    title: Markdown version
+---
 # Yandex Search API
 
 ## Generative search

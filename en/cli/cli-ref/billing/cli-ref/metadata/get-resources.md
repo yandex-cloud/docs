@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/billing/cli-ref/metadata/get-resources/
+alternate:
+  - href: en/cli/cli-ref/billing/cli-ref/metadata/get-resources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc billing metadata get-resources

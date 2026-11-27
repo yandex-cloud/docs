@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ compute-full-name }}
 description: This page covers questions and answers about {{ compute-name }}.
+alternate:
+  - href: en/compute/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FAQ about {{ compute-name }}

@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ dataproc-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ dataproc-name }}.
+alternate:
+  - href: ru/data-proc/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ dataproc-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to update a resource record in {{ dns-full-name }}
 description: In this tutorial, you will learn how to update a resource record.
+alternate:
+  - href: en/dns/operations/resource-record-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a resource record

@@ -1,6 +1,10 @@
 ---
 title: A VM is similar to a server
 description: A VM is similar to a server in the cloud infrastructure. A VM is created in one of the folders and inherits its access permissions. When creating a VM, you can choose the availability zone where it will be located.
+alternate:
+  - href: en/compute/concepts/vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # VMs in {{ compute-name }}

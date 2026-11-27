@@ -1,6 +1,10 @@
 ---
 title: '{{ monium-name }} overview'
 description: '{{ monium-name }} is a platform you can use to monitor and analyze services via metrics, logs, and traces. It provides a unified system to collect telemetry, visualize data on dashboards, and configure alerts.'
+alternate:
+  - href: en/monium/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # About {{ monium-name }}

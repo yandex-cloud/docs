@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к кластеру {{ metastore-full-name }}
 description: Следуя данной инструкции, вы настроите права доступа к кластеру {{ metastore-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/metastore/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к кластеру {{ metastore-name }}

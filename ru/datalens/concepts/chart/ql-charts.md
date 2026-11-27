@@ -1,6 +1,10 @@
 ---
 title: QL-чарты в {{ datalens-full-name }}. Обзор
 description: Из статьи вы узнаете, что такое QL-чарты в {{ datalens-full-name }} и познакомитесь с их особенностями.
+alternate:
+  - href: ru/datalens/concepts/chart/ql-charts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # QL-чарты в {{ datalens-full-name }}. Обзор

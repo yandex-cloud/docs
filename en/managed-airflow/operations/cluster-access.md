@@ -1,6 +1,10 @@
 ---
 title: Managing access to a {{ maf-full-name }} cluster
 description: Follow this guide to configure {{ maf-name }} cluster access permissions.
+alternate:
+  - href: en/managed-airflow/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to a {{ maf-name }} cluster

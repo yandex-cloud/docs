@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/couldnt-link-card.md
+    type: text/markdown
+    title: Markdown version
+---
 # Устранение проблем с привязкой банковской карты к платежному аккаунту
 
 

@@ -1,6 +1,10 @@
 ---
 title: Общая схема решения в {{ objstorage-onprem-name }}
 description: Основные компоненты {{ objstorage-onprem-name }}, системные зависимости и взаимодействие компонентов.
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/solution-scheme.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общая схема решения

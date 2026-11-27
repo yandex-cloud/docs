@@ -1,6 +1,10 @@
 ---
 title: Транковое подключение (транк) в {{ interconnect-full-name }}
 description: Из статьи вы узнаете, какими функциями и параметрами обладает транковое подключение.
+alternate:
+  - href: ru/interconnect/concepts/trunk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Транковое подключение (транк) 

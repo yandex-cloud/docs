@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error SDK_REQUEST_ERROR'
 description: This page describes the Response handling {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/SDK_REQUEST_ERROR.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Response handling error

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/cluster/expand/
+alternate:
+  - href: en/cli/cli-ref/managed-greenplum/cli-ref/cluster/expand.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-greenplum cluster expand

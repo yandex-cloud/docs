@@ -1,6 +1,10 @@
 ---
 title: Просмотр журнала выполнения в {{ serverless-containers-full-name }}
 description: Вы можете посмотреть график мониторинга в {{ serverless-containers-full-name }} с помощью консоли управления. Для этого перейдите в сервис {{ serverless-containers-name }}, нажмите на контейнер, журнал выполнения которого вы хотите посмотреть. В открывшемся окне перейдите в раздел Логи и укажите период. По умолчанию задан период за 1 час. Время в журнале указано по UTC.
+alternate:
+  - href: ru/serverless-containers/operations/logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть логи контейнера

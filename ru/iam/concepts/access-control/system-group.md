@@ -1,6 +1,10 @@
 ---
 title: Системные группы
 description: Из статьи вы узнаете, что такое системные группы и каких они бывают типов.
+alternate:
+  - href: ru/iam/concepts/access-control/system-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Системные группы

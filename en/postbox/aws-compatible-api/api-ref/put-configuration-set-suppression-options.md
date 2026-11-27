@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/put-configuration-set-suppression-options.md
+    type: text/markdown
+    title: Markdown version
+---
 # PutConfigurationSetSuppressionOptions method
 
 Updates the [suppression list](../../concepts/suppression-list.md) settings for the [configuration](../../concepts/glossary.md#configuration) in the folder. The folder is selected based on the service account the request originates from.

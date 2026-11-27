@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/async/vision/domain.md
+    type: text/markdown
+    title: Markdown version
+---
 # Vision domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_vision.domain.**AsyncVisionDomain**{#yandex_ai_studio_sdk._vision.domain.AsyncVisionDomain}

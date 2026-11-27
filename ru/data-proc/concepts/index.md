@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-proc/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Взаимосвязь ресурсов сервиса {{ dataproc-name }}
 
 Сервис {{ dataproc-name }} позволяет реализовать распределенное хранение и обработку данных с помощью сервисов из экосистемы [Apache Hadoop](http://hadoop.apache.org).

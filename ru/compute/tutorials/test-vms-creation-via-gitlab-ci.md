@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/testing/ci-for-snapshots'
+alternate:
+  - href: ru/compute/tutorials/test-vms-creation-via-gitlab-ci.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание тестовых виртуальных машин через {{ GL }} CI

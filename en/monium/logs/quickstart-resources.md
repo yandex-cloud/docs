@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/logs/quickstart-resources.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ yandex-cloud }} resource logs
 
 {{ monium-name }} allows you to work with the logs of {{ yandex-cloud }} services as well as any other logs uploaded to {{ monium-name }}, e.g., from your applications, infrastructure, or other clouds.

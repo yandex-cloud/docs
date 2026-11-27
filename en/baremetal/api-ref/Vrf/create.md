@@ -79,6 +79,10 @@ apiPlayground:
               - REDISTRIBUTION_TYPE_UNSPECIFIED
               - DISABLED
               - ENABLED
+alternate:
+  - href: en/baremetal/api-ref/Vrf/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Vrf.Create

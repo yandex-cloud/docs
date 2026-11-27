@@ -1,6 +1,10 @@
 ---
 title: Аудитные логи и логи входа в {{ org-full-name }}
 description: Аудитные логи и логи входа в {{ org-full-name }} позволяют отслеживать действия пользователей и события аутентификации в организации.
+alternate:
+  - href: ru/organization/concepts/logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аудитные логи и логи входа

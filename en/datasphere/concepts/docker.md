@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/docker.md
+    type: text/markdown
+    title: Markdown version
+---
 # Docker images
 
 You can set up a {{ ml-platform-name }} project environment on your own by using a [_Docker image_](https://docs.docker.com/engine/reference/commandline/image/) with any software, libraries, environment variables, and configuration files. The Docker image you apply to your project will be used when running code in all its notebooks.

@@ -15,6 +15,10 @@ meta:
     - keyword: '{{ yandex-cloud }} shell'
     - keyword: yandex command line
     - keyword: '{{ yandex-cloud }} command line'
+  alternate:
+    - href: en/cli/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Command line interface

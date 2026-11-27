@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/smartwebsecurity/api-ref/grpc/SecurityProfile/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartWebSecurity API, gRPC: SecurityProfileService

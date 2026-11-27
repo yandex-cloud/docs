@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for Hive Metastore™
+alternate:
+  - href: ru/terraform/resources/metastore_cluster_iam_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_metastore_cluster_iam_binding (Resource)

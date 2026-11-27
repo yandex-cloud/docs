@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ billing-name }}'
 description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ billing-name }}.
+alternate:
+  - href: en/billing/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ billing-name }}

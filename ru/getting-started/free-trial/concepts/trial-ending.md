@@ -1,6 +1,10 @@
 ---
 title: Завершение пробного периода
 description: Из статьи вы узнаете о завершении пробного периода.
+alternate:
+  - href: ru/getting-started/free-trial/concepts/trial-ending.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Завершение пробного периода

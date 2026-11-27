@@ -1,6 +1,10 @@
 ---
 title: Writing data to {{ objstorage-full-name }}
 description: In this article, you will learn how to write data from {{ yq-full-name }} to {{ objstorage-full-name }} using connections and data bindings.
+alternate:
+  - href: en/query/sources-and-sinks/object-storage-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Writing data to {{ objstorage-full-name }}

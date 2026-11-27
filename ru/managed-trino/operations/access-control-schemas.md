@@ -1,6 +1,10 @@
 ---
 title: Назначение правил доступа к схемам в {{ mtr-name }}
 description: Правила определяют, какие пользователи являются владельцами тех или иных схем.
+alternate:
+  - href: ru/managed-trino/operations/access-control-schemas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначение правил доступа к схемам в {{ mtr-name }}

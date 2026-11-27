@@ -1,6 +1,10 @@
 ---
 title: How to create a VM or server backup in {{ backup-full-name }}
 description: Follow this guide to create a VM or server backup in {{ backup-full-name }}.
+alternate:
+  - href: en/backup/operations/backup-vm/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a backup of a resource

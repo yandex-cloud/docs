@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/concepts/memory-management.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление памятью в {{ mch-name }}
 
 За объем оперативной памяти, доступной для использования {{ CH }}, отвечает настройка [Max server memory usage]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max_server_memory_usage).

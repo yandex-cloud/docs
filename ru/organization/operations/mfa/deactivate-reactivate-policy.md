@@ -1,6 +1,10 @@
 ---
 title: Активация и деактивация политики MFA в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете активировать и деактивировать политику MFA в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/mfa/deactivate-reactivate-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Активировать и деактивировать политику MFA

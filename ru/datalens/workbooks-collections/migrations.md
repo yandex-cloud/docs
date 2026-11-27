@@ -1,6 +1,10 @@
 ---
 title: Миграция объектов в воркбуки
 description: Следуя данной инструкции, вы выполните миграцию объектов в воркбуки.
+alternate:
+  - href: ru/datalens/workbooks-collections/migrations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция объектов в воркбуки из папок

@@ -1,6 +1,10 @@
 ---
 title: Getting information about a {{ sws-full-name }} ARL profile
 description: Follow this guide to get information about a {{ sws-full-name }} ARL profile.
+alternate:
+  - href: en/smartwebsecurity/operations/arl-profile-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about an ARL profile

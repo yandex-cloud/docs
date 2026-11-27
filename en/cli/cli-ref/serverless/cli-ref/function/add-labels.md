@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/function/add-labels/
+alternate:
+  - href: en/cli/cli-ref/serverless/cli-ref/function/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless function add-labels

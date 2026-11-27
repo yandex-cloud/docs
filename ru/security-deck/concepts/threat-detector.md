@@ -1,6 +1,10 @@
 ---
 title: '{{ td-full-name }} ({{ td-name }}) в {{ sd-full-name }}'
 description: Модуль {{ td-full-name }} ({{ td-name }}) позволяет в автоматическом режиме обнаруживать подозрительную активность в облачной инфраструктуре.
+alternate:
+  - href: ru/security-deck/concepts/threat-detector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ td-full-name }} ({{ td-name }})

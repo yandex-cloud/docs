@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/compute/concepts/instance-groups/policies/scale-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Политика масштабирования
 
 При создании группы виртуальных машин можно выбрать каким образом увеличивать и уменьшать число ВМ в группе.

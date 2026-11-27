@@ -1,6 +1,10 @@
 ---
 title: Widgets in {{ datalens-full-name }}
 description: In {{ datalens-full-name }}, widgets are dashboard elements. You can create links between Selector and Chart widgets.
+alternate:
+  - href: en/datalens/dashboard/widget.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Widgets in {{ datalens-full-name }}

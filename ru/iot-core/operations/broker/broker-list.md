@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о брокере
 description: Следуя данной инструкции, вы сможете получить информацию о брокере.
+alternate:
+  - href: ru/iot-core/operations/broker/broker-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации о брокере

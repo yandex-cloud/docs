@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_src-coc-ref/coc-ref/review.md
+    type: text/markdown
+    title: Markdown version
+---
 # Code Review configuration
 
 Path in repository: `.sourcecraft/review.yaml`.

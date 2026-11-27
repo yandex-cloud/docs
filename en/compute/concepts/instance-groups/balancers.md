@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/balancers.md
+    type: text/markdown
+    title: Markdown version
+---
 # Integrating an instance group with {{ network-load-balancer-name }} or {{ alb-name }}
 
 Using [{{ network-load-balancer-full-name }}](/services/network-load-balancer) and [{{ alb-full-name }}](/services/application-load-balancer), you can evenly distribute the workload across {{ compute-full-name }} VM instances. An [instance group](index.md) can be integrated with these services: {{ compute-name }} will automatically create a {{ network-load-balancer-name }} or {{ alb-name }} target group from this instance group and perform monitoring so that unhealthy instances are not added to the group.

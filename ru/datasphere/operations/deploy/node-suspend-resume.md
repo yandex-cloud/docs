@@ -1,6 +1,10 @@
 ---
 title: Как остановить или возобновить ноду
 description: Следуя данной инструкции, вы сможете остановить или возобновить ноду.
+alternate:
+  - href: ru/datasphere/operations/deploy/node-suspend-resume.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Остановить или возобновить ноду

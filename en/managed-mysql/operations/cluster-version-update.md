@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-mysql/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ MY }} version upgrade
 
 You can upgrade a {{ mmy-name }} cluster to any supported minor or major version.

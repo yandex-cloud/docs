@@ -153,6 +153,10 @@ apiPlayground:
               - diskSpec
           - required:
               - diskId
+alternate:
+  - href: ru/compute/api-ref/Instance/attachDisk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Instance.AttachDisk

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/operations/logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with logs
 
 [{{ cloud-logging-full-name }}](../../logging) collects and displays {{ dataproc-name }} cluster logs.

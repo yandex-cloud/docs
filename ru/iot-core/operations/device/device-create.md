@@ -1,6 +1,10 @@
 ---
 title: Создание устройства
 description: Следуя данной инструкции, вы сможете создать устройство.
+alternate:
+  - href: ru/iot-core/operations/device/device-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание устройства

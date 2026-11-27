@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/terraform/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Руководства по работе с Terraform в {{ yandex-cloud }}
 
 * [{#T}](./terraform-data-sources.md)

@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ postbox-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ postbox-name }}.
 editable: false
+alternate:
+  - href: ru/postbox/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ postbox-name }}

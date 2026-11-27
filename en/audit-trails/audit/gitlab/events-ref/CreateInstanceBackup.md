@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/gitlab/events-ref/CreateInstanceBackup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for GitLab Audit Trails Events: CreateInstanceBackup

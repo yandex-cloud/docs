@@ -1,6 +1,10 @@
 ---
 title: Поиск аудитных событий в {{ monium-full-name }}
 description: Как открыть аудитные логи {{ at-name }} в {{ monium-name }} и найти события по каталогу, виртуальной машине, пользователю или коду ошибки.
+alternate:
+  - href: ru/audit-trails/tutorials/search-cloud-logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поиск аудитных событий в {{ monium-name }}

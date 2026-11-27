@@ -1,6 +1,10 @@
 ---
 title: Как подключить виртуальную машину {{ compute-full-name }} на Linux с {{ oslogin }} к {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете подключить виртуальную машину {{ compute-full-name }} на Linux с {{ oslogin }} к {{ backup-name }}.
+alternate:
+  - href: ru/backup/operations/connect-vm-oslogin-linux.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключить существующую виртуальную машину на Linux с {{ oslogin }} к {{ backup-name }}

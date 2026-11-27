@@ -1,6 +1,10 @@
 ---
 title: Changing VM computing resources
 description: Follow this guide to change the computing resources of a VM.
+alternate:
+  - href: en/compute/operations/vm-control/vm-update-resources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing VM computing resources

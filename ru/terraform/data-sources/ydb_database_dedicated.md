@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for YDB
+alternate:
+  - href: ru/terraform/data-sources/ydb_database_dedicated.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_ydb_database_dedicated (DataSource)

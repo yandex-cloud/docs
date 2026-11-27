@@ -2,6 +2,10 @@
 title: '{{ monium-name }} pricing policy'
 description: This article covers the {{ monium-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/monium/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monium-name }} pricing policy

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/concepts/deduplication.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deduplication
 
 FIFO queues implement message deduplication by using a special set of parameters. These parameters ensure that messages are delivered and processed only once and in the order in which they are sent.

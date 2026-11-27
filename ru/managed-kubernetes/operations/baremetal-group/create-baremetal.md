@@ -1,6 +1,10 @@
 ---
 title: Создание группы узлов на серверах {{ baremetal-name }}
 description: Создайте группу узлов на серверах {{ baremetal-name }} в кластере {{ managed-k8s-name }}. Подготовьте сеть и выберите конфигурацию серверов.
+alternate:
+  - href: ru/managed-kubernetes/operations/baremetal-group/create-baremetal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание группы узлов на серверах {{ baremetal-name }}

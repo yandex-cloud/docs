@@ -1,6 +1,10 @@
 ---
 title: Working with investigations in {{ yandex-siem-full-name }}
 description: Overview of operations with investigations in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/operations/investigations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with investigations

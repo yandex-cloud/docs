@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/network-load-balancer/concepts/target-resources.md
+    type: text/markdown
+    title: Markdown version
+---
 # Targets and target groups
 
 *Target group* is a set of resources that receive traffic from a listener. Essentially, this is a list of IP addresses of [VM](../../compute/concepts/vm.md) network interfaces in {{ yandex-cloud }}.

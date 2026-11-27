@@ -1,5 +1,9 @@
 ---
 title: Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}
+alternate:
+  - href: ru/managed-kubernetes/operations/create-load-balancer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}

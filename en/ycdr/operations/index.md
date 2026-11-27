@@ -1,6 +1,10 @@
 ---
 title: How to work with {{ ycdr-full-name }}
 description: In this article, you will learn how to work with investigations and queries in {{ ycdr-name }}.
+alternate:
+  - href: en/ycdr/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to work with {{ ycdr-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Изменить имя функции
 description: Следуя данной инструкции, вы сможете изменить имя функции.
+alternate:
+  - href: ru/functions/operations/function/name-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить имя функции

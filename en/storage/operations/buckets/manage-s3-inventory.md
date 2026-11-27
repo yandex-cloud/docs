@@ -1,6 +1,10 @@
 ---
 title: Managing metadata export of bucket objects (S3 Inventory)
 description: In this guide, you will learn how to manage object metadata export in a {{ objstorage-full-name }} bucket.
+alternate:
+  - href: en/storage/operations/buckets/manage-s3-inventory.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing metadata export of bucket objects (S3 Inventory)

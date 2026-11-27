@@ -1,6 +1,10 @@
 ---
 title: Как создать группу источников в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете создать группу источников.
+alternate:
+  - href: ru/cdn/operations/origin-groups/create-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание группы источников

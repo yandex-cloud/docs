@@ -1,6 +1,10 @@
 ---
 title: Как изменить файловое хранилище в {{ compute-full-name }}
 description: Изменение имени, описания и размера файлового хранилища в {{ compute-name }}.
+alternate:
+  - href: ru/compute/operations/filesystem/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить файловое хранилище

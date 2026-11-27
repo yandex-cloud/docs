@@ -1,6 +1,10 @@
 ---
 title: CAPTCHA accessibility
 description: This article explains how {{ captcha-full-name }} impacts website conversion rates, offering ease of entry for humans while remaining a solid defense against robots.
+alternate:
+  - href: en/smartcaptcha/concepts/accessibility.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # CAPTCHA accessibility

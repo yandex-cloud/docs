@@ -1,6 +1,10 @@
 ---
 title: Запись данных из {{ yq-full-name }} в потоки {{ yds-full-name }}
 description: Из статьи вы узнаете, как записывать данные из {{ yq-full-name }} в потоки {{ yds-full-name }}.
+alternate:
+  - href: ru/query/sources-and-sinks/data-streams-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запись данных из {{ yq-full-name }} в потоки {{ yds-full-name }}

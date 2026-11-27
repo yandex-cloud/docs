@@ -1,6 +1,10 @@
 ---
 title: Федерации сервисных аккаунтов в {{ iam-full-name }}
 description: В данном разделе описаны федерации сервисных аккаунтов (Workload Identity Federations) — инструмент {{ iam-name }}, позволяющий настроить процесс обмена токенов любой системы, совместимой с OpenID Connect, на IAM-токены для обращения к API {{ yandex-cloud }}.
+alternate:
+  - href: ru/iam/concepts/workload-identity.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Федерации сервисных аккаунтов

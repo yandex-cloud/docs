@@ -1,6 +1,10 @@
 ---
 title: Справочник метрик сервиса {{ sws-full-name }} в {{ metrics-name }}
 description: На этой странице приведен справочник метрик сервиса {{ sws-name }}, поставляемых в {{ metrics-name }}.
+alternate:
+  - href: ru/smartwebsecurity/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник метрик {{ sws-full-name }}
@@ -46,7 +50,7 @@ description: На этой странице приведен справочни�
 
 ## Метрики Network Protection {#network-protection-metrics}
 
-Метрики Network Protection автоматически передаются в {{ metrics-name }} в [проект каталога](*monium-folder-project) с прокси-сервером. В метке `ip` укажите публичный IPv4-адрес прокси-сервера. [Как узнать адрес и построить запрос](operations/monitoring.md#network-protection).
+Метрики Network Protection автоматически передаются в {{ monium-name }} в [проект каталога](*monium-folder-project) с прокси-сервером. В метке `ip` укажите публичный IPv4-адрес прокси-сервера. [Как узнать адрес и построить запрос](operations/monitoring.md#network-protection).
 
 Все метрики Network Protection — накопительные счетчики. Чтобы получить количество пакетов или байт в секунду, используйте функцию `non_negative_derivative`.
 

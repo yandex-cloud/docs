@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/database/update/
+alternate:
+  - href: en/cli/cli-ref/ydb/cli-ref/database/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc ydb database update

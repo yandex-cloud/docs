@@ -1,6 +1,10 @@
 ---
 title: Working with query templates in {{ yandex-siem-full-name }}
 description: Follow this guide to learn how to work with query templates in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/operations/queries/work-with-templates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with query templates

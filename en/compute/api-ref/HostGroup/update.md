@@ -92,6 +92,10 @@ apiPlayground:
         oneOf:
           - required:
               - fixedScale
+alternate:
+  - href: en/compute/api-ref/HostGroup/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: HostGroup.Update

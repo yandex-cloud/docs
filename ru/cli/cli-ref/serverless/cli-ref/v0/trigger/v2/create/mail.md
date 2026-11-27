@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/trigger/v2/create/mail/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/v0/trigger/v2/create/mail.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless v0 trigger v2 create mail

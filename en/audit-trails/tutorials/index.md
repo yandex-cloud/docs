@@ -1,6 +1,10 @@
 ---
 title: '{{ at-full-name }} use cases'
 description: Various {{ at-full-name }} use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/audit-trails/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-name }} tutorials

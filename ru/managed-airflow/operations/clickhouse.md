@@ -1,6 +1,10 @@
 ---
 title: Подключение к {{ mch-full-name }}
 description: С помощью направленного ациклического графа (DAG) можно настроить подключение к БД в кластере {{ mch-full-name }}.
+alternate:
+  - href: ru/managed-airflow/operations/clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к {{ mch-full-name }}

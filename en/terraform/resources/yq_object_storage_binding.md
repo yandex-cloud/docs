@@ -1,5 +1,9 @@
 ---
 subcategory: Yandex Query
+alternate:
+  - href: en/terraform/resources/yq_object_storage_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_yq_object_storage_binding (Resource)

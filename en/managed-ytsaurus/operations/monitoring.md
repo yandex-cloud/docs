@@ -1,6 +1,10 @@
 ---
 title: '{{ myt-name }} cluster state monitoring'
 description: In this tutorial, you will learn how to monitor the state of {{ myt-name }} clusters.
+alternate:
+  - href: en/managed-ytsaurus/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ myt-name }} cluster state monitoring

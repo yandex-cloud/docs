@@ -1,6 +1,10 @@
 ---
 title: How to renew a custom certificate in {{ certificate-manager-full-name }}
 description: Follow this guide to renew a custom certificate.
+alternate:
+  - href: en/certificate-manager/operations/import/cert-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Renewing a custom certificate

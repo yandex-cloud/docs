@@ -1,6 +1,10 @@
 ---
 title: Квоты и лимиты в {{ certificate-manager-name }}
 description: В {{ certificate-manager-name }} действуют лимиты и квоты на количество сертификатов, количество доменов, количество доменов в одном сертификате, количество сертификатов на один домен, количество сертификатов на один набор доменов. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
+alternate:
+  - href: ru/certificate-manager/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ certificate-manager-name }}

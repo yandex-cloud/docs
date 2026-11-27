@@ -98,6 +98,10 @@ apiPlayground:
         required:
           - roleId
           - subject
+alternate:
+  - href: en/managed-trino/api-ref/Cluster/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Trino API, REST: Cluster.SetAccessBindings

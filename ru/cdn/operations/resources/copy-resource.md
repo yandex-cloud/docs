@@ -1,6 +1,10 @@
 ---
 title: Как копировать конфигурацию одного ресурса в другой в {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете копировать конфигурацию одного ресурса в другой.
+alternate:
+  - href: ru/cdn/operations/resources/copy-resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Копировать конфигурацию одного ресурса в другой

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/container/rollback/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/container/rollback.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless container rollback
