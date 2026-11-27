@@ -1,6 +1,10 @@
 ---
 title: Параметры дашборда в {{ datalens-full-name }}
 description: Из статьи вы узнаете, что такое параметры дашборда в {{ datalens-full-name }}, ознакомитесь с параметрами для дашборда, чарта и специальными параметрами, узнаете про ограничения и порядок применения параметров.
+alternate:
+  - href: ru/datalens/dashboard/dashboard_parameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Параметры дашборда в {{ datalens-full-name }}

@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: en/quota-manager/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quota Manager API, REST: Operation.Get

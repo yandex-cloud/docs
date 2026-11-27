@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/postbox/aws-compatible-api/api-ref/update-configuration-set-event-destination.md
+    type: text/markdown
+    title: Markdown version
+---
 # UpdateConfigurationSetEventDestination method
 
 Updates [subscription](../../concepts/glossary.md#subscription) for a [configuration](../../concepts/glossary.md#configuration) within a folder. The folder is selected based on the service account the request originates from.

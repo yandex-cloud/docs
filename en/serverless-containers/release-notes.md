@@ -1,6 +1,10 @@
 ---
 title: '{{ serverless-containers-full-name }} release notes'
 description: This section contains the {{ serverless-containers-name }} release notes.
+alternate:
+  - href: en/serverless-containers/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ serverless-containers-full-name }} release notes

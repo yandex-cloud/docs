@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ mgp-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ mgp-name }}.
 editable: false
+alternate:
+  - href: ru/managed-greenplum/pricing/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ mgp-name }}

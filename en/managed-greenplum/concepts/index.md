@@ -1,6 +1,10 @@
 ---
 title: Resource relationships in {{ mgp-name }}
 description: In this tutorial, you will learn about the relationship between resources in {{ mgp-full-name }}.
+alternate:
+  - href: en/managed-greenplum/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource relationships in {{ mgp-name }}

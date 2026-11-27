@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/ydb/operations/migration-to-an-availability-zone.md
+    type: text/markdown
+    title: Markdown version
+---
 # Миграция базы данных {{ ydb-short-name }} в другую зону доступности
 
 Имеет смысл выполнять миграцию в другую зону доступности только для [Dedicated базы данных](../concepts/serverless-and-dedicated.md) {{ ydb-short-name }}. К Serverless БД миграция не применяется.

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/update/
+alternate:
+  - href: en/lockbox/cli-ref/secret/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc lockbox secret update

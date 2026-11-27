@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ mgp-full-name }}
 description: Следуя данной инструкции, вы сможете создать кластер {{ mgp-name }} и начать работу с ним.
+alternate:
+  - href: ru/managed-greenplum/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ mgp-name }}

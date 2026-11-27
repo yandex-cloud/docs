@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/mounted-image/create/
+alternate:
+  - href: ru/baremetal/cli-ref/mounted-image/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal mounted-image create

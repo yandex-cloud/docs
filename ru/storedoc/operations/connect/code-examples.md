@@ -1,6 +1,10 @@
 ---
 title: Примеры кода для подключения к кластеру {{ SD }} в {{ mmg-full-name }}
 description: Следуя этим примерам, вы сможете подключиться к базе данных в кластере {{ SD }} из кода вашего приложения.
+alternate:
+  - href: ru/storedoc/operations/connect/code-examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Примеры кода для подключения к кластеру {{ SD }}

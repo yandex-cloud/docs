@@ -1,6 +1,10 @@
 ---
 title: Как выбрать вычислительные ресурсы
 description: Следуя данной инструкции, вы сможете настроить конфигурацию вычислительных ресурсов.
+alternate:
+  - href: ru/datasphere/operations/projects/control-compute-resources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выбрать вычислительные ресурсы

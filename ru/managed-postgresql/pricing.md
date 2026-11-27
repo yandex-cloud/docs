@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ mpg-name }}
 description: Расчет стоимости использования {{ mpg-name }} учитывает тип диска и размер хранилища, вычислительные ресурсы, выделенные хостам кластера, настройки и количество резервных копий и объем исходящего трафика из {{ yandex-cloud }} в интернет.
 editable: false
+alternate:
+  - href: ru/managed-postgresql/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

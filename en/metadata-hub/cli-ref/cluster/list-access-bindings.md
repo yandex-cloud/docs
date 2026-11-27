@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/cluster/list-access-bindings/
+alternate:
+  - href: en/metadata-hub/cli-ref/cluster/list-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-metastore cluster list-access-bindings

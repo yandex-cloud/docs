@@ -1,6 +1,10 @@
 ---
 title: Мониторинг и корректировка защиты ML WAF
 description: Как отслеживать изменения в работе ML WAF после обновления модели и корректировать настройки защиты.
+alternate:
+  - href: ru/smartwebsecurity/operations/waf-ml-tuning-recommendations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг и корректировка защиты ML WAF

@@ -1,6 +1,10 @@
 ---
 title: Добавить правило в профиль ARL
 description: Следуя данной инструкции, вы сможете добавить правило в профиль ARL.
+alternate:
+  - href: ru/smartwebsecurity/operations/arl-rule-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить правило в профиль ARL

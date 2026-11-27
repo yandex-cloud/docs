@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/trino/edit-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменить настройки кластера {{ mtr-name }}
 
 Если у вас есть кластер [{{ TR }}](../../concepts/components/trino.md) в [проекте](../projects/create-project.md), вы можете изменить его настройки.

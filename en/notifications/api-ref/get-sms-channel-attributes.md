@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/get-sms-channel-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # GetSMSChannelAttributes
 
 Gets [SMS notification channel](../concepts/sms.md) properties.

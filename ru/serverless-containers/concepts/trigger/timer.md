@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/concepts/trigger/timer.md
+    type: text/markdown
+    title: Markdown version
+---
 # Таймер, который вызывает контейнер {{ serverless-containers-name }}
 
 _Таймер_ — это [триггер](../trigger/), который запускает [контейнер](../container.md) {{ serverless-containers-name }} по расписанию. Расписание задается в виде [cron-выражения](#cron-expression). Время в cron-выражении указывается по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).

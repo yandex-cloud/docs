@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание кластера {{ metastore-name }}
 description: Следуя данной инструкции, вы сможете просмотреть информацию о техническом обслуживании кластера, перенести запланированное обслуживание и настроить окно обслуживания в {{ metastore-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/metastore/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

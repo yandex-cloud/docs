@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/bash/logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Bash function execution logging
 
 {{ sf-name }} automatically captures the `stderr` standard error output stream of a Bash application and sends it to the centralized logging system in {{ yandex-cloud }}. In addition to the application execution logs, the system also logs request execution events.

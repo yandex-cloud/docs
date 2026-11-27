@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/internet-store/opencart/terraform'
+alternate:
+  - href: en/managed-mysql/tutorials/opencart/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an OpenCart online store using {{ TF }}

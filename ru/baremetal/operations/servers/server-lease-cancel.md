@@ -1,6 +1,10 @@
 ---
 title: Как отказаться от аренды сервера в {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете отказаться от аренды сервера в {{ baremetal-full-name }}.
+alternate:
+  - href: ru/baremetal/operations/servers/server-lease-cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отказаться от аренды сервера

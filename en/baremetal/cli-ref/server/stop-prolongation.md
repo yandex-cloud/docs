@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/server/stop-prolongation/
+alternate:
+  - href: en/baremetal/cli-ref/server/stop-prolongation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal server stop-prolongation

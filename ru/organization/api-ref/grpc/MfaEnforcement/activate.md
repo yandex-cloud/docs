@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/organization/api-ref/grpc/MfaEnforcement/activate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, gRPC: MfaEnforcementService.Activate

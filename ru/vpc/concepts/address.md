@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/vpc/concepts/address.md
+    type: text/markdown
+    title: Markdown version
+---
 # Адреса облачных ресурсов
 
 Адреса в облачных сетях могут быть внутренними или публичными.

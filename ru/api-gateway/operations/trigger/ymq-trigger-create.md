@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/operations/trigger/ymq-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать триггер для {{ message-queue-name }}, который отправляет сообщения в WebSocket-соединения
 
 Создайте [триггер для очереди сообщений](../../concepts/trigger/ymq-trigger.md) сервиса {{ message-queue-short-name }}, который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md).

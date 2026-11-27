@@ -2,6 +2,10 @@
 title: Working with data in {{ objstorage-full-name }}
 description: Following this tutorial to connect to a {{ objstorage-full-name }} bucket and query it from a {{ jlab }}Lab notebook with the help of {{ yq-full-name }}.
 canonical: '{{ link-docs }}/tutorials/ml-ai/yq-storage'
+alternate:
+  - href: en/datasphere/tutorials/yq-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with data in {{ objstorage-full-name }}

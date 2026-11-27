@@ -1,6 +1,10 @@
 ---
 title: '{{ msp-full-name }} use cases'
 description: Various use cases for {{ msp-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/managed-spark/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ msp-full-name }} tutorials

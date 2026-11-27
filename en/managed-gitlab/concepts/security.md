@@ -1,6 +1,10 @@
 ---
 title: Security in {{ mgl-full-name }}
 description: In this guide, you will learn about the security measures available in {{ mgl-name }}.
+alternate:
+  - href: en/managed-gitlab/concepts/security.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security in {{ mgl-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/query/yql-tutorials/select-specific-columns.md
+    type: text/markdown
+    title: Markdown version
+---
 # Selecting specific columns
 
 You can select all or only specific columns. You can also rename existing columns and create new ones.

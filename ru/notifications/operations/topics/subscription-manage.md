@@ -1,6 +1,10 @@
 ---
 title: Управлять подпиской в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете изменить или удалить подписку в {{ cns-name }}.
+alternate:
+  - href: ru/notifications/operations/topics/subscription-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять подпиской

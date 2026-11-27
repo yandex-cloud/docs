@@ -8,6 +8,10 @@ keywords:
   - vpn server setup
   - vpn connection
   - vpn соединение
+alternate:
+  - href: ru/tutorials/routing/openvpn.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [openvpn](../../_tutorials/infrastructure/openvpn.md) %}

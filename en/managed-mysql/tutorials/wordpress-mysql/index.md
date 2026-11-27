@@ -3,6 +3,10 @@ title: Creating a WordPress website with a {{ mmy-full-name }} database cluster
 description: This tutorial will teach you how to deploy a WordPress website with a {{ MY }} database cluster.
 canonical: '{{ link-docs }}/tutorials/web/wordpress-mysql/'
 noIndex: true
+alternate:
+  - href: en/managed-mysql/tutorials/wordpress-mysql/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [wordpress-mysql](../../../_tutorials/applied/wordpress-mysql.md) %}

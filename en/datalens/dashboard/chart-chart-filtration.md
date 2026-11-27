@@ -1,6 +1,10 @@
 ---
 title: Chart cross-filtering in {{ datalens-full-name }}
 description: This article describes how to set up chart cross-filtering in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/dashboard/chart-chart-filtration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Chart cross-filtering in {{ datalens-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to create a service connection in {{ vpc-full-name }}
 description: Follow this guide to create a service connection (private endpoint) in {{ vpc-name }}.
+alternate:
+  - href: en/vpc/operations/private-endpoint-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a service connection

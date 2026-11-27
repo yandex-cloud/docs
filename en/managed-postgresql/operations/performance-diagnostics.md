@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/operations/performance-diagnostics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Performance diagnostics in {{ mpg-name }}
 
 {{ mpg-name }} provides a built-in tool for diagnosing your database cluster performance. This tool helps you analyze {{ PG }} performance metrics for [sessions](#get-sessions) and [queries](#get-queries).

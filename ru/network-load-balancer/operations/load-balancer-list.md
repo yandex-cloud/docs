@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/network-load-balancer/operations/load-balancer-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Информация об имеющихся сетевых балансировщиках
 
 Вы можете запросить детальную информацию о каждом созданном вами сетевом балансировщике.

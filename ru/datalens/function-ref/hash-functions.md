@@ -1,6 +1,10 @@
 ---
 title: Хеш-функции
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/hash-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Хеш-функции

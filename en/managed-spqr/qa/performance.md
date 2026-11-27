@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-spqr/qa/performance.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ mspqr-name }} cluster performance
 
 {% include [performance-minitoc](../../_qa/managed-spqr/minitoc/performance.md) %}

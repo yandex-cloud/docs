@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/interconnect/concepts/capacity.md
+    type: text/markdown
+    title: Markdown version
+---
 # Объемы данных и емкости подключений
 
 Объем данных — это единица тарификации {{ interconnect-name }}, которая равна объему трафика, передаваемому в течение месяца.

@@ -9,6 +9,10 @@ keywords:
   - '{{ PG }} backups'
   - backup {{ PG }}
   - '{{ PG }}'
+alternate:
+  - href: en/managed-postgresql/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Backups in {{ mpg-name }}

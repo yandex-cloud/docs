@@ -1,6 +1,10 @@
 ---
 title: Managing an endpoint in {{ cns-full-name }}
 description: Follow this guide to update or delete an endpoint.
+alternate:
+  - href: en/notifications/operations/browser/endpoint-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing an endpoint

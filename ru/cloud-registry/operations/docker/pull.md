@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cloud-registry/operations/docker/pull.md
+    type: text/markdown
+    title: Markdown version
+---
 # Скачать Docker-образ из реестра {{ cloud-registry-name }}
 
 Для скачивания [Docker-образа](../../concepts/artifacts/docker.md) необходима [роль](../../security/index.md#cloud-registry-artifacts-puller) `cloud-registry.artifacts.puller` или выше.

@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ gost-gateway-name }}
 description: В статье содержатся правила тарификации сервиса {{ gost-gateway-name }}.
 editable: false
+alternate:
+  - href: ru/gost-gateway/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации {{ gost-gateway-name }}

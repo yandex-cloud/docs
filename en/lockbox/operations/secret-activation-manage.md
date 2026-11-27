@@ -1,6 +1,10 @@
 ---
 title: How to deactivate and activate a secret in {{ lockbox-full-name }}
 description: In this tutorial, you will learn how to deactivate and activate a secret in {{ lockbox-full-name }}.
+alternate:
+  - href: en/lockbox/operations/secret-activation-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deactivating and activating a secret

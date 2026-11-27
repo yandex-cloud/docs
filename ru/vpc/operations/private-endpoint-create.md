@@ -1,6 +1,10 @@
 ---
 title: Как создать сервисное подключение в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете создать сервисное подключение (Private Endpoint) в {{ vpc-name }}.
+alternate:
+  - href: ru/vpc/operations/private-endpoint-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать сервисное подключение

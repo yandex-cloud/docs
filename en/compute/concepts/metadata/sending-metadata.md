@@ -1,6 +1,10 @@
 ---
 title: Transferring metadata to a {{ compute-name }} VM instance
 description: In this article, you will learn about the ways to transfer metadata to {{ compute-full-name }} VM instances.
+alternate:
+  - href: en/compute/concepts/metadata/sending-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring metadata to VM instances

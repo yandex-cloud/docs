@@ -1,6 +1,10 @@
 ---
 title: Справочник API {{ schema-registry-name }}
 description: Сервис {{ schema-registry-name }} реализует API Confluent Schema Registry
+alternate:
+  - href: ru/metadata-hub/api-ref/schema-registry/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API {{ schema-registry-name }}

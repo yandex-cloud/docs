@@ -3,6 +3,10 @@ meta:
   description: >-
     Сервис Yandex Cloud Detection and Response собирает данные о настройках
     инфраструктуры ваших сервисов в Yandex Cloud.
+  alternate:
+    - href: ru/ycdr/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: card-layout-block
     title: Yandex Cloud Detection and Response

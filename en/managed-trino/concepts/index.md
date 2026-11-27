@@ -1,6 +1,10 @@
 ---
 title: Resource relationships in {{ mtr-full-name }}
 description: '{{ TR }} is a high-performance distributed SQL query engine. With {{ mtr-name }}, you can run queries to various data storages and work with data in various formats using the standard SQL syntax. The main entity {{ mtr-name }} operates is a cluster.'
+alternate:
+  - href: en/managed-trino/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource relationships in {{ mtr-full-name }}

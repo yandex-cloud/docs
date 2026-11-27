@@ -1,6 +1,10 @@
 ---
 title: Какие возникают ошибки при работе с SAML-федерациями в {{ org-full-name }}
 description: Из статьи вы узнаете, какие бывают ошибки в работе SAML-федераций.
+alternate:
+  - href: ru/organization/saml-diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диагностика ошибок в федерациях, работающих по протоколу SAML 2.0

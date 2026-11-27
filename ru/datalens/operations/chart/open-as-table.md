@@ -1,6 +1,10 @@
 ---
 title: Как открыть чарт как таблицу в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете в {{ datalens-full-name }} открыть чарт как таблицу.
+alternate:
+  - href: ru/datalens/operations/chart/open-as-table.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Открыть чарт как таблицу в {{ datalens-full-name }}

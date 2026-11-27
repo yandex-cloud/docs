@@ -1,6 +1,10 @@
 ---
 title: Настройка NodeLocal DNS в {{ managed-k8s-full-name }}
 description: Следуя данному руководству, вы сможете настроить NodeLocal DNS в {{ managed-k8s-name }}.
+alternate:
+  - href: ru/tutorials/container-infrastructure/node-local-dns.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка NodeLocal DNS {{ managed-k8s-full-name }}

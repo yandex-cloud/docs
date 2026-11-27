@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть логи ресурсов {{ cloud-desktop-full-name }}
 description: Из статьи вы узнаете, как посмотреть логи рабочего стола и группы рабочих столов в {{ cloud-desktop-name }}.
+alternate:
+  - href: ru/cloud-desktop/operations/logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть логи

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/wordpress-cloudapp'
+alternate:
+  - href: ru/marketplace/tutorials/wordpress-cloudapp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка WordPress с помощью {{ cloud-apps-name }}

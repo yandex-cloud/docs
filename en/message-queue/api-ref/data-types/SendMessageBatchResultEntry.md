@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/data-types/SendMessageBatchResultEntry.md
+    type: text/markdown
+    title: Markdown version
+---
 # SendMessageBatchResultEntry
 
 Contains a `MessageId` assigned to an individual enqueued message submitted via the [SendMessageBatch](../message/SendMessageBatch.md) method.

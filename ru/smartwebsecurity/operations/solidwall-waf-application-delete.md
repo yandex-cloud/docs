@@ -1,6 +1,10 @@
 ---
 title: Удалить приложение SolidWall WAF в {{ sws-full-name }}
 description: Отключите домены и удалите приложение из профиля SolidWall WAF в {{ sws-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/solidwall-waf-application-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить приложение SolidWall WAF

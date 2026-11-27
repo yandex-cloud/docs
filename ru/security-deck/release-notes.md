@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ sd-full-name }}
 description: В разделе представлена история изменений сервиса {{ sd-name }}.
+alternate:
+  - href: ru/security-deck/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ sd-full-name }}

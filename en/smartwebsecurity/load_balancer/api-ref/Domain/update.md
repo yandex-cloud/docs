@@ -313,6 +313,10 @@ apiPlayground:
               The minimum value is 0.
             type: string
             format: int64
+alternate:
+  - href: en/smartwebsecurity/load_balancer/api-ref/Domain/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Smart Web Security Load Balancer API, REST: Domain.Update

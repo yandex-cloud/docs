@@ -1,6 +1,10 @@
 ---
 title: Adding a customer
 description: Follow this guide to add a customer.
+alternate:
+  - href: en/partner/operations/pin-client.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a customer subaccount

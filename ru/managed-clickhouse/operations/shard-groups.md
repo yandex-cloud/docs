@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/operations/shard-groups.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление группами шардов в кластере {{ CH }}
 
 Вы можете сгруппировать несколько [шардов](../concepts/sharding.md) кластера {{ CH }} в _группу шардов_ и затем размещать таблицы в этой группе.

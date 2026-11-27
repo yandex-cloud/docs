@@ -1,6 +1,10 @@
 ---
 title: How to update an alias in {{ ml-platform-full-name }}
 description: Follow this guide to update an alias.
+alternate:
+  - href: en/datasphere/operations/deploy/alias-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating an alias

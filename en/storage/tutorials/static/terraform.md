@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/static/terraform'
+alternate:
+  - href: en/storage/tutorials/static/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Static website in {{ objstorage-full-name }} using {{ TF }}

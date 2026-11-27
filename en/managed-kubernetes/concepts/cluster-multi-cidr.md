@@ -1,6 +1,10 @@
 ---
 title: '{{ managed-k8s-name }} clusters with multiple ranges of pod IP addresses'
 description: How support for multiple ranges of pod IP addresses allows for expanding the pod address space in a {{ managed-k8s-name }} cluster without recreating it.
+alternate:
+  - href: en/managed-kubernetes/concepts/cluster-multi-cidr.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Clusters with multiple ranges of pod IP addresses

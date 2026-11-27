@@ -1,6 +1,10 @@
 ---
 title: Suppression lists in {{ postbox-full-name }}
 description: In this article, you will learn about suppression lists in {{ postbox-name }} and the effect they have on outgoing mail.
+alternate:
+  - href: en/postbox/concepts/suppression-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Suppression lists

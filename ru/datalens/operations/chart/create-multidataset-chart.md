@@ -1,6 +1,10 @@
 ---
 title: Как создать мультидатасетный чарт
 description: Следуя данной инструкции, вы сможете создать мультидатасетный чарт.
+alternate:
+  - href: ru/datalens/operations/chart/create-multidataset-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание мультидатасетного чарта

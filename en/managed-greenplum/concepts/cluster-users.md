@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/concepts/cluster-users.md
+    type: text/markdown
+    title: Markdown version
+---
 # Users and roles in {{ mgp-name }}
 
 {{ mgp-name }} manages database access permissions using roles. Roles can own database objects, such as tables, and have [attributes](#attributes) and [privileges](#privileges). You can assign privileges to other roles on behalf of a particular role.

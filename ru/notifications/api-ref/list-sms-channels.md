@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/list-sms-channels.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие ListSMSChannels
 
 Получает список [каналов SMS-уведомлений](../concepts/sms.md) в каталоге.

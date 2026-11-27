@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/deploy/monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # Health checks and monitoring
 
 You can enable health checks for your [node instances](index.md#node): the [balancer](../../../application-load-balancer/concepts/application-load-balancer.md) will send check requests to endpoints at certain intervals and wait for a response for a certain period of time.

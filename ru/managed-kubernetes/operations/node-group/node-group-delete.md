@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/operations/node-group/node-group-delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удаление группы узлов
 
 Чтобы удалить [группу узлов](../../concepts/index.md#node-group) используйте ее имя или идентификатор.

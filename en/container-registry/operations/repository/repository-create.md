@@ -1,6 +1,10 @@
 ---
 title: How to create a repository in {{ container-registry-full-name }}
 description: Follow this guide to create a repository.
+alternate:
+  - href: en/container-registry/operations/repository/repository-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a repository

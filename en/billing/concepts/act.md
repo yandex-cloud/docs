@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/concepts/act.md
+    type: text/markdown
+    title: Markdown version
+---
 # Reports
 
 {{ yandex-cloud }} users can request [completion reports](#report-of-completion) and a [reconciliation report](#reconciliation-report). Reconciliation reports are available only for residents of Russia and Kazakhstan.

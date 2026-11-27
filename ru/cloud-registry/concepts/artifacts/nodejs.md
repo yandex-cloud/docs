@@ -1,6 +1,10 @@
 ---
 title: Node.js-артефакт в {{ cloud-registry-full-name }}
 description: Node.js-артефакт — это пакет, который содержит код и информацию о нем. Пакеты используются для распространения библиотек, фреймворков и других компонентов, которые можно добавить в проекты на Node.js.
+alternate:
+  - href: ru/cloud-registry/concepts/artifacts/nodejs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Node.js-артефакт

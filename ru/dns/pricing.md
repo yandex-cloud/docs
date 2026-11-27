@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ dns-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ dns-name }}.
 editable: false
+alternate:
+  - href: ru/dns/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ dns-name }}

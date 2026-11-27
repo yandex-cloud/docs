@@ -1,6 +1,10 @@
 ---
 title: Операторы
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/operator-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Операторы

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/application-load-balancer/logs-ref.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ alb-full-name }} log reference
 
 This section describes L7 load balancer log fields. 

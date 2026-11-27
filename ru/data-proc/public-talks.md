@@ -1,6 +1,10 @@
 ---
 title: Публичные материалы о {{ dataproc-name }}
 description: Видеозаписи конференций и вебинаров, посвященных {{ dataproc-name }}.
+alternate:
+  - href: ru/data-proc/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные материалы о {{ dataproc-name }}

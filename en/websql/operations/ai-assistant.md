@@ -1,6 +1,10 @@
 ---
 title: Using an AI assistant for analytics in {{ websql-name }}
 description: This guide describes how to use an AI assistant to analyze databases and optimize queries in the {{ websql-full-name }} interface.
+alternate:
+  - href: en/websql/operations/ai-assistant.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Analytics and optimization with AI assistant

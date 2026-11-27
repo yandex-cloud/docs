@@ -1,6 +1,10 @@
 ---
 title: Как получить идентификационный документ виртуальной машины
 description: Следуя данной инструкции, вы сможете получить идентификационный документ виртуальной машины.
+alternate:
+  - href: ru/compute/operations/vm-metadata/get-identity-document.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить идентификационный документ виртуальной машины

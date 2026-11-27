@@ -1,6 +1,10 @@
 ---
 title: How to use VMs. Step-by-step guides
 description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud }}. In this article, you will learn how to use VMs, manage their resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts.
+alternate:
+  - href: en/compute/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ compute-name }}

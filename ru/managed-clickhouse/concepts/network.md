@@ -1,6 +1,10 @@
 ---
 title: Сеть и кластеры БД в {{ mch-name }}
 description: При создании кластера в {{ mch-name }} вы можете задать сеть для самого кластера, подсети для каждого из хостов кластера и запросить публичный доступ, чтобы подключаться к кластеру извне {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-clickhouse/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сеть и кластеры БД в {{ mch-name }}

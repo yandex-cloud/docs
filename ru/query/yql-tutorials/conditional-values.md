@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/yql-tutorials/conditional-values.md
+    type: text/markdown
+    title: Markdown version
+---
 # Добавить дополнительные условия агрегации
 
 Данные можно агрегировать не только по значениям колонок, но и по выражениям.

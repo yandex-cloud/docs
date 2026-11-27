@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/postgresql/delete-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить пользователя PostgreSQL
 
 Если у вас есть пользователь PostgreSQL в [кластере](../../concepts/components/postgresql.md), вы можете удалить его.

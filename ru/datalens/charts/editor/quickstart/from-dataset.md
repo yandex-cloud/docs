@@ -1,6 +1,10 @@
 ---
 title: Создание таблицы на основе датасета в Editor
 description: Следуя данной инструкции, вы сможете построить таблицу на основе датасета в Editor.
+alternate:
+  - href: ru/datalens/charts/editor/quickstart/from-dataset.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание таблицы на основе датасета

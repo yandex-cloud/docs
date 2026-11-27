@@ -1,6 +1,10 @@
 ---
 title: Как настроить уведомления для сервиса {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете настроить алерты {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/alerting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить алерты для сервиса

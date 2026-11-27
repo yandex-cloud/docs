@@ -1,6 +1,10 @@
 ---
 title: How to add a domain to {{ sws-full-name }}
 description: Follow this guide to add your domain for protection in {{ sws-full-name }}.
+alternate:
+  - href: en/smartwebsecurity/operations/domain-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a domain

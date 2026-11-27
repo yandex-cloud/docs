@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/WorkbookExport/rpcstartWorkbookExport-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Start workbook export

@@ -1,6 +1,10 @@
 ---
 title: How to delete a profile
 description: Follow this guide to delete a profile.
+alternate:
+  - href: en/cli/operations/profile/profile-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a {{ yandex-cloud }} CLI profile

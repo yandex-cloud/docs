@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ mmy-full-name }}
 description: Follow this guide to create a {{ MY }} cluster and connect to it.
+alternate:
+  - href: en/managed-mysql/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ mmy-name }}

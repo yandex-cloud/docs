@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/policy/api-ref/AuthenticationPolicyRule/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Organization Policy API, REST: AuthenticationPolicyRule

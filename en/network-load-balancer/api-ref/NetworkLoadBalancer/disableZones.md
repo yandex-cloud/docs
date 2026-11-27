@@ -36,6 +36,10 @@ apiPlayground:
           format: duration
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/network-load-balancer/api-ref/NetworkLoadBalancer/disableZones.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.DisableZones

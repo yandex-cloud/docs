@@ -1,6 +1,10 @@
 ---
 title: Справочник метрик сервиса {{ certificate-manager-full-name }} в {{ monium-full-name }}
 description: На этой странице приведен справочник метрик сервиса {{ certificate-manager-name }}, поставляемых в {{ monium-full-name }}.
+alternate:
+  - href: ru/certificate-manager/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник метрик {{ monium-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/trial-expired-issue.md
+    type: text/markdown
+    title: Markdown version
+---
 # Закончился пробный период
 
 

@@ -1,6 +1,10 @@
 ---
 title: Adding the {{ objstorage-full-name }} extension
 description: Follow this guide to add the {{ objstorage-full-name }} extension using the specification constructor.
+alternate:
+  - href: en/api-gateway/operations/spec-constructor/object-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding the x-yc-apigateway-integration:object_storage extension

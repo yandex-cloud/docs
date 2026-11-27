@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/cookbooks/installation/02-installation-preparation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подготовка к инсталляции
 
 С помощью этого рецепта вы сможете подготовить инфраструктурные компоненты и конфигурационные файлы для развертывания кластера {{ stackland-name }} из трех combined-узлов.

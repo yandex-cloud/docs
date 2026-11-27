@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/instance-groups/stop.md
+    type: text/markdown
+    title: Markdown version
+---
 # Stopping an instance group
 
 If you do not need instances in a group for now, stop the group. All VM instances in the group will be stopped. If an instance group is very large and creating that many VM instances is time-consuming, it is more efficient to stop the group rather than deleting it or scaling it down to zero.

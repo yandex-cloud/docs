@@ -5,6 +5,10 @@ keywords:
   - keyword: SPQR sharding keys
   - keyword: PostrgeSQL shard
   - keyword: SPQR
+alternate:
+  - href: en/managed-spqr/concepts/sharding-keys.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sharding keys

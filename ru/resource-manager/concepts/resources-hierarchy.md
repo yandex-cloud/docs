@@ -1,6 +1,10 @@
 ---
 title: Иерархия ресурсов {{ yandex-cloud }}
 description: Все ресурсы {{ yandex-cloud }} — виртуальные машины, диски, сети и др. — размещаются в каталогах. Каждый каталог принадлежит одному облаку, а облака принадлежат организациям.
+alternate:
+  - href: ru/resource-manager/concepts/resources-hierarchy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Иерархия ресурсов {{ yandex-cloud }}

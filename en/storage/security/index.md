@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ objstorage-full-name }} (S3)
 description: Access management in {{ objstorage-full-name }} (S3), a service for scalable data storage. This section describes the resources for which you can assign a role and the roles existing in the service.
+alternate:
+  - href: en/storage/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

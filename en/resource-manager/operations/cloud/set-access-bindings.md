@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/resource-manager/operations/cloud/set-access-bindings.md
+    type: text/markdown
+    title: Markdown version
+---
 # Setting up cloud access permissions
 
 {% note warning %}

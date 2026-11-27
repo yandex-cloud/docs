@@ -2,6 +2,10 @@
 title: '{{ cloud-logging-full-name }} pricing policy'
 description: This article covers the {{ cloud-logging-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/logging/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cloud-logging-name }} pricing policy

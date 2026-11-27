@@ -59,6 +59,10 @@ meta:
     - keyword: '{{ CB }} in cloud'
     - keyword: cloudberry
     - keyword: cloudberry in {{ yandex-cloud }}
+  alternate:
+    - href: en/managed-greenplum/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first cluster

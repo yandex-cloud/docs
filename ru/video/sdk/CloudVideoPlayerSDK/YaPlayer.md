@@ -1,6 +1,10 @@
 ---
 title: YaPlayer — SDK видеоплеера {{ video-full-name }} для iOS
 description: Управление воспроизведением и отслеживание состояния плеера в SDK {{ video-name }} для iOS.
+alternate:
+  - href: ru/video/sdk/CloudVideoPlayerSDK/YaPlayer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # YaPlayer

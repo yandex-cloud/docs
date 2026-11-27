@@ -2,6 +2,10 @@
 title: '{{ kms-full-name }} metrics'
 description: In this tutorial, you will learn about {{ kms-name }} metrics.
 editable: false
+alternate:
+  - href: en/monitoring/metrics-ref/kms-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ kms-full-name }} metrics

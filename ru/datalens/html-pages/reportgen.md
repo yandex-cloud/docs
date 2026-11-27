@@ -1,6 +1,10 @@
 ---
 title: Генератор HTML-отчетов в {{ datalens-full-name }}
 description: Из статьи вы узнаете, что такое Генератор HTML-отчетов в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/html-pages/reportgen.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Генератор HTML-отчетов в {{ datalens-name }}

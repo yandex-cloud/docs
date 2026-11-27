@@ -1,6 +1,10 @@
 ---
 title: Partner subscription
 description: In this article, you will learn about the terms of partner subscriptions.
+alternate:
+  - href: en/marketplace/concepts/subscription.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Subscription

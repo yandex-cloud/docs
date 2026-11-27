@@ -1,6 +1,10 @@
 ---
 title: Создание группы с узлами из пула резервов ВМ {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете создать группу с узлами из пула резервов ВМ {{ compute-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/node-group/node-group-create-in-instance-pool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание группы с узлами из пула резервов ВМ {{ compute-full-name }}

@@ -6,7 +6,7 @@
 
 ## Инструменты командной строки {#command-line-tools}
 
-Примеры кода с заполненным FQDN хоста доступны в [консоли управления](https://console.yandex.cloud) по нажатию кнопки **Подключиться** на странице кластера.
+Подключиться к кластеру возможно как с использованием обычных [FQDN](../../concepts/network.md#hostname) хостов (можно передавать список из нескольких таких FQDN, разделенных запятой), так и [особых FQDN](fqdn.md#special-fqdns). В примерах используется особый FQDN текущего хоста-мастера. В примерах в консоли управления предлагаются варианты подключений для просмотра БД (RO) и для чтения и записи (RW).
 
 ### Linux (Bash)/macOS (Zsh) {#bash-zsh}
 
@@ -33,7 +33,7 @@ sudo apt update && sudo apt install --yes mysql-client
 - Подключение без SSL {#without-ssl}
 
   ```bash
-  mysql --host=<FQDN_любого_хоста_MySQL®> \
+  mysql --host=<особый_FQDN> \
         --port=3306 \
         --ssl-mode=DISABLED \
         --user=<имя_пользователя> \
@@ -42,8 +42,6 @@ sudo apt update && sudo apt install --yes mysql-client
   ```
 
 {% endlist %}
-
-О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
 
 При выполнении любой из команд введите пароль пользователя БД.
 
@@ -60,7 +58,7 @@ sudo apt update && sudo apt install --yes mysql-client
 - Подключение с SSL {#with-ssl}
 
   ```powershell
-  mysqlsh --host=<FQDN_любого_хоста_MySQL®> `
+  mysqlsh --host=<особый_FQDN> `
           --port=3306 `
           --ssl-ca=<абсолютный_путь_к_файлу_сертификата> `
           --ssl-mode=VERIFY_IDENTITY `
@@ -73,7 +71,7 @@ sudo apt update && sudo apt install --yes mysql-client
 - Подключение без SSL {#without-ssl}
 
   ```powershell
-  mysqlsh --host=<FQDN_любого_хоста_MySQL®> `
+  mysqlsh --host=<особый_FQDN> `
           --port=3306 `
           --ssl-mode=DISABLED `
           --user=<имя_пользователя> `
@@ -82,8 +80,6 @@ sudo apt update && sudo apt install --yes mysql-client
   ```
 
 {% endlist %}
-
-О том, как получить FQDN хоста, читайте в [инструкции](fqdn.md).
 
 При выполнении любой из команд введите пароль пользователя БД.
 
@@ -175,7 +171,7 @@ yc managed-mysql connect <имя_или_идентификатор_класте�
      1. Выберите в меню **File** → **New** → **Data Source** → **MySQL®**.
      1. На вкладке **General**:
         1. Укажите параметры подключения:
-           * **Host** — [FQDN любого хоста MySQL®](fqdn.md) или один из [особых FQDN](fqdn.md#fqdn-master);
+           * **Host** — [особый FQDN](fqdn.md#fqdn-master);
            * **Port** — `3306`;
            * **User**, **Password** — имя и пароль пользователя БД;
            * **Database** — имя БД для подключения.
@@ -193,7 +189,7 @@ yc managed-mysql connect <имя_или_идентификатор_класте�
      1. Выберите из списка БД **MySQL®**.
      1. Нажмите кнопку **Далее**.
      1. Укажите параметры подключения на вкладке **Главное**:
-        * **Сервер** — [FQDN любого хоста MySQL®](fqdn.md#get-fqdn) или один из [особых FQDN](fqdn.md#fqdn-master);
+        * **Сервер** — [особый FQDN](fqdn.md#fqdn-master);
         * **Порт** — `3306`;
         * **База данных** — имя БД для подключения;
         * **Пользователь**, **Пароль** — имя и пароль пользователя БД.

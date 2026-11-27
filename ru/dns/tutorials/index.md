@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ dns-full-name }}
 description: Различные сценарии использования {{ dns-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/dns/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ dns-name }}

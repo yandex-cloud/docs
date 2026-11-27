@@ -1,6 +1,10 @@
 ---
 title: KQL reference for {{ yandex-siem-full-name }}
 description: Reference of KQL functions and operators in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/kql-reference.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # KQL reference

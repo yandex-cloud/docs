@@ -1,6 +1,10 @@
 ---
 title: Networking in {{ managed-k8s-full-name }}
 description: When creating a {{ k8s }} cluster, you can create a network and subnet for the master, a range of IP addresses for your pods and services, and the node subnet mask.
+alternate:
+  - href: en/managed-kubernetes/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Networking in {{ managed-k8s-name }}

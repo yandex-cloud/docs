@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/dns/api-ref/DnsFirewall/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS API, REST: DnsFirewall

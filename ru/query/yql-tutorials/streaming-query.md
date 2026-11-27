@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/yql-tutorials/streaming-query.md
+    type: text/markdown
+    title: Markdown version
+---
 
 # Выполнить запрос к данным реального времени
 

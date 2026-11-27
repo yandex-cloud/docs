@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/cookbooks/dev-team-onboarding/04-quotas.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настройка квот
 
 Этот рецепт покажет, как контролировать использование CPU, памяти и других ресурсов на уровне проекта.

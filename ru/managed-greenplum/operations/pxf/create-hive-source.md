@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/pxf/create-hive-source.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание внешнего источника данных Hive
 
 В {{ mgp-name }} в качестве [внешнего источника данных](../../concepts/external-tables.md#pxf-data-sources) с типом подключения Hive можно использовать СУБД Hive в составе сервиса [{{ dataproc-full-name }}](../../../data-proc/index.yaml) или другие сторонние сервисы Hive.

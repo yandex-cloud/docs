@@ -1,6 +1,11 @@
 ---
 title: How to create a virtual router in {{ cr-name }}
 description: Follow this guide to create a virtual router in {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: en/cloud-router/operations/ri-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a virtual router

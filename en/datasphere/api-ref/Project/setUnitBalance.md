@@ -27,6 +27,10 @@ apiPlayground:
           format: int64
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/datasphere/api-ref/Project/setUnitBalance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, REST: Project.SetUnitBalance

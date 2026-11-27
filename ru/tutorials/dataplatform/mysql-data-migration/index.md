@@ -1,6 +1,10 @@
 ---
 title: Миграция базы данных из стороннего кластера {{ MY }} в кластер {{ mmy-full-name }}
 description: 'Перенести данные из стороннего кластера-источника в кластер-приемник {{ mmy-name }} можно двумя способами: перенос данных с использованием сервиса {{ data-transfer-full-name }} и перенос данных через создание и восстановление логического дампа.'
+alternate:
+  - href: ru/tutorials/dataplatform/mysql-data-migration/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция базы данных из стороннего кластера {{ MY }} в кластер {{ mmy-full-name }}

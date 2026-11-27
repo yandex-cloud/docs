@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/delete-platform-application.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeletePlatformApplication
 
 Deletes the [mobile push notification channel](../concepts/push.md) and all related [endpoints](../concepts/push.md#mobile-endpoints).

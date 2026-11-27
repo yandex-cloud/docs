@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iot-core/operations/device/alias/alias-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получение списка алиасов
 
 {% include [iot-sunset-warning](../../../../_includes/iot-core/sunset-warning.md) %}

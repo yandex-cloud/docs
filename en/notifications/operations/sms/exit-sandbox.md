@@ -1,6 +1,10 @@
 ---
 title: Exiting the sandbox in {{ cns-full-name }}
 description: Follow this guide to exit the sandbox.
+alternate:
+  - href: en/notifications/operations/sms/exit-sandbox.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Exiting the sandbox

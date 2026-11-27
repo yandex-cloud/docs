@@ -1,6 +1,10 @@
 ---
 title: Удалить файловое хранилище
 description: Следуя данной инструкции, вы сможете удалить файловое хранилище.
+alternate:
+  - href: ru/compute/operations/filesystem/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить файловое хранилище

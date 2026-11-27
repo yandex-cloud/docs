@@ -1,6 +1,10 @@
 ---
 title: Порядок оказания технической поддержки
 description: Из статьи вы узнаете про порядок оказания технической поддержки.
+alternate:
+  - href: ru/support/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

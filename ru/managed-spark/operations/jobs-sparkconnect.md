@@ -1,6 +1,10 @@
 ---
 title: Как управлять заданиями SparkConnect в {{ msp-full-name }}
 description: Вы узнаете, как управлять заданиями SparkConnect в {{ msp-full-name }}.
+alternate:
+  - href: ru/managed-spark/operations/jobs-sparkconnect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление заданиями SparkConnect

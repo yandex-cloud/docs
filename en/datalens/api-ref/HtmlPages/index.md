@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/HtmlPages/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # HtmlPages
 
 <!-- markdownlint-disable-file -->

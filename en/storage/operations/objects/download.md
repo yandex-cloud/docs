@@ -1,6 +1,10 @@
 ---
 title: Downloading an object in {{ objstorage-full-name }}
 description: Follow this guide to download an object from a bucket in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/objects/download.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Downloading an object

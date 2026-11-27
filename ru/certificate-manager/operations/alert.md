@@ -1,6 +1,10 @@
 ---
 title: Как добавить алерт для сертификата в {{ certificate-manager-full-name }}
 description: Следуя этой инструкции, вы сможете добавить алерт о скором истечении срока действия сертификата или о его неработоспособности.
+alternate:
+  - href: ru/certificate-manager/operations/alert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить алерт для сертификата

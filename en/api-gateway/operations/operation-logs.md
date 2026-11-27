@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing operations with {{ api-gw-name }} resources
 
 The system logs all actions with {{ api-gw-name }} resources as a list of operations. Each operation gets its own unique ID.

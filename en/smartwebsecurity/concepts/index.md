@@ -1,6 +1,10 @@
 ---
 title: '{{ sws-full-name }} overview'
 description: What is {{ sws-full-name }}, what types of threats it helps prevent, and what are the web application protection components.
+alternate:
+  - href: en/smartwebsecurity/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sws-full-name }} overview

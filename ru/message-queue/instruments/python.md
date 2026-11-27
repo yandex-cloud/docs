@@ -1,6 +1,10 @@
 ---
 title: Пример использования {{ message-queue-full-name }} на Python
 description: Пример работы с очередями сообщений {{ message-queue-name }} на Python с помощью SDK boto3.
+alternate:
+  - href: ru/message-queue/instruments/python.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пример использования {{ message-queue-full-name }} на Python

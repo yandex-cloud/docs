@@ -1,6 +1,10 @@
 ---
 title: Советы по настройке и применению Delta Lake
 description: Из статьи вы узнаете про советы по настройке и применению Delta Lake.
+alternate:
+  - href: ru/data-proc/operations/deltalake/tips.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Советы по настройке и применению Delta Lake

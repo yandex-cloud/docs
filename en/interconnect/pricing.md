@@ -2,6 +2,10 @@
 title: '{{ interconnect-full-name }} pricing policy'
 description: This article covers the {{ interconnect-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/interconnect/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ interconnect-name }} pricing policy

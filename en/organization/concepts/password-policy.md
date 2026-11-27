@@ -1,6 +1,10 @@
 ---
 title: Password policy in {{ org-full-name }}
 description: A password policy brings together rules on creating and updating passwords for pool users. When you create a user pool, it is assigned a default password policy, which you can change.
+alternate:
+  - href: en/organization/concepts/password-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Password policy

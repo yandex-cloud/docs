@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v0/private-connection/remove-static-routes/
+alternate:
+  - href: en/interconnect/cli-ref/v0/private-connection/remove-static-routes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cic v0 private-connection remove-static-routes

@@ -1,6 +1,10 @@
 ---
 title: How to create a new billing account in {{ billing-name }}
 description: Follow this guide to create a new billing account.
+alternate:
+  - href: en/billing/operations/create-new-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a new billing account

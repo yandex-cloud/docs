@@ -1,6 +1,10 @@
 ---
 title: Отключить целевую группу от сетевого балансировщика
 description: Следуя данной инструкции, вы сможете отключить целевую группу от сетевого балансировщика.
+alternate:
+  - href: ru/network-load-balancer/operations/target-group-detach.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отключить целевую группу от сетевого балансировщика

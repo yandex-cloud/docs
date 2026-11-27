@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/projects/get-notebook-cell-ids.md
+    type: text/markdown
+    title: Markdown version
+---
 # Получить идентификатор ноутбука
 
 Для работы с проектом через API вам может понадобиться идентификатор ноутбука.

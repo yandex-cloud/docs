@@ -1,6 +1,10 @@
 ---
 title: Normalized bar chart in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the normalized bar chart visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/normalized-bar-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Normalized bar chart ![](../../_assets/datalens/normalized-horizontal-bar.svg) in {{ datalens-full-name }}

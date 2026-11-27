@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/trino/edit-catalog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating {{ mtr-name }} catalog settings
 
 If you have a [catalog](../../concepts/components/trino.md#catalogs) in your [{{ TR }} cluster](../../concepts/components/trino.md), you can update the catalog’s settings.

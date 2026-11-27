@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-opensearch/concepts/index-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Политики индексов
 
 _Политика_ — это набор правил, который описывает, как следует управлять индексом. Работать с политиками позволяет плагин [{{ OS }} Index State Management (ISM)]({{ os.docs }}/im-plugin/ism/index/).

@@ -46,6 +46,10 @@ apiPlayground:
         - projectId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/datasphere/api-ref/Project/addResource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, REST: Project.AddResource

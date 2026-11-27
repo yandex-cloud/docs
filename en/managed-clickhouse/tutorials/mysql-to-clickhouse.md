@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/mysql-to-clickhouse'
+alternate:
+  - href: en/managed-clickhouse/tutorials/mysql-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating a database from {{ MY }} to {{ CH }} using {{ data-transfer-full-name }}

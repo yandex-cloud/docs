@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iam/operations/sa/get-id.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting service account info
 
 You can get information about a service account, such as its name and ID, creation and last authentication dates, and its roles in the folder.

@@ -1,6 +1,10 @@
 ---
 title: Monitoring the state of a {{ MY }} cluster and its hosts
 description: You can monitor the state of a {{ mmy-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts.
+alternate:
+  - href: en/managed-mysql/operations/monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ MY }} cluster and host state monitoring

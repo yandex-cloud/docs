@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/types/message.md
+    type: text/markdown
+    title: Markdown version
+---
 # Messages
 
 ## Completions-related message types

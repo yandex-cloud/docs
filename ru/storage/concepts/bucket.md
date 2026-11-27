@@ -8,6 +8,10 @@ keywords:
   - bucket
   - хранение данных бакет
   - облако бакет
+alternate:
+  - href: ru/storage/concepts/bucket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Бакет в {{ objstorage-name }}

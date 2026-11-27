@@ -1,6 +1,10 @@
 ---
 title: Добавить виртуальную машину в группу размещения
 description: Добавьте существующую ВМ в группу размещения.
+alternate:
+  - href: ru/compute/operations/placement-groups/add-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить виртуальную машину в группу размещения

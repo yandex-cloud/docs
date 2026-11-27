@@ -1,6 +1,10 @@
 ---
 title: Удалить федерацию удостоверений в {{ org-full-name }}
 description: Из этой статьи вы узнаете, как удалить федерацию удостоверений в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/delete-federation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить федерацию удостоверений

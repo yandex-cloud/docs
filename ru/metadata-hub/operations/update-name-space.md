@@ -1,6 +1,10 @@
 ---
 title: Изменение пространства имен
 description: Следуя данной инструкции, вы сможете изменить настройки пространства имен.
+alternate:
+  - href: ru/metadata-hub/operations/update-name-space.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение пространства имен

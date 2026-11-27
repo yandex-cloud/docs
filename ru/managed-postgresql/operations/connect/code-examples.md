@@ -1,6 +1,10 @@
 ---
 title: Примеры кода для подключения к кластеру {{ PG }} в {{ mpg-full-name }}
 description: Следуя этим примерам, вы сможете подключиться к базе данных в кластере {{ PG }} из кода вашего приложения.
+alternate:
+  - href: ru/managed-postgresql/operations/connect/code-examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Примеры кода для подключения к кластеру {{ PG }}
@@ -16,9 +20,11 @@ description: Следуя этим примерам, вы сможете под�
 
 Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри облачной сети при подключении к БД шифроваться не будет.
 
-Подключиться к кластеру возможно как с использованием обычных [FQDN](../../concepts/network.md#hostname) хостов (можно передавать список из нескольких таких FQDN, разделенных запятой), так и [особых FQDN](./fqdn.md#special-fqdns). В примерах используется особый FQDN текущего хоста-мастера.
+В приведенных примерах подключения используется [особый FQDN](./fqdn.md#special-fqdns) мастера (RW).
 
-{% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
+{% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console-rw.md) %}
+
+![image](../../../_assets/managed-postgresql/connect-console-rw.png)
 
 {% include [mpg-connection-strings](../../../_includes/mdb/mpg-conn-strings.md) %}
 

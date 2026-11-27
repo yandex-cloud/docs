@@ -1,6 +1,10 @@
 ---
 title: Public materials about {{ mmy-full-name }}
 description: Video recordings of conferences and webinars on {{ mmy-full-name }}.
+alternate:
+  - href: en/managed-mysql/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public materials about {{ mmy-full-name }}

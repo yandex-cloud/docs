@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/release-notes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Релизы {{ speechkit-full-name }} Hybrid
 
 Здесь будет публиковаться информация об обновлениях версий образов {{ sk-hybrid-name }}.

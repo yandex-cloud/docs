@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ mmg-full-name }}
 description: На странице представлены вопросы и ответы про {{ mmg-short-name }}.
+alternate:
+  - href: ru/storedoc/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ mmg-short-name }}

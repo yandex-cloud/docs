@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/how-to/change-payer-info-or-requisites.md
+    type: text/markdown
+    title: Markdown version
+---
 # Как изменить информацию, указанную в свойствах платежного аккаунта
 
 

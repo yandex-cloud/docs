@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-gitlab/operations/create-user.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating and adding users to a project
 
 You can create users in a {{ GL }} instance and invite them to your project. Thus you will grant your team access to the repository.

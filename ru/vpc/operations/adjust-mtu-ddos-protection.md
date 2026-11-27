@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/vpc/operations/adjust-mtu-ddos-protection.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настроить MTU при включении защиты от DDoS-атак
 
 При включении защиты [{{ ddos-protection-full-name }}](./enable-ddos-protection.md) рекомендуется задавать значение MTU равным `1450` байт.

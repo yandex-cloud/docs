@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/WorkbookImport/rpcstartWorkbookImport-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Start workbook import

@@ -111,6 +111,10 @@ apiPlayground:
               Acceptable values are 0 to 1, inclusive.
             type: string
             format: int64
+alternate:
+  - href: ru/storedoc/api-ref/Cluster/addHosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.AddHosts

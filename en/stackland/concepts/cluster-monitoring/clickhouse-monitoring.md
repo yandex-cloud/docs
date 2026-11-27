@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/cluster-monitoring/clickhouse-monitoring.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ CH }} dashboard metrics
 
 {{ grafana-name }}'s {{ CH }} dashboard enables comprehensive monitoring of a {{ CH }} DBMS cluster. The dashboard displays performance metrics, replication status, use of resources, and other critical cluster parameters.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/certificate-manager/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Концепции {{ certificate-manager-name }}
 
 {{ certificate-manager-name }} — сервис для управления [TLS-сертификатами](../../glossary/ssl-certificate.md) в {{ yandex-cloud }}. С помощью сервиса вы можете получать и обновлять сертификаты от Let's Encrypt, а также добавлять собственные сертификаты.

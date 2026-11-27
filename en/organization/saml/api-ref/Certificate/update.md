@@ -54,6 +54,10 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/organization/saml/api-ref/Certificate/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Federation API, REST: Certificate.Update

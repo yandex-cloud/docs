@@ -4,6 +4,10 @@ description: In this tutorial, you will set up a system to interactively debug f
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/serverless-live-debug'
 author: vitalets
+alternate:
+  - href: en/functions/tutorials/serverless-live-debug.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Interactive debugging of functions in {{ sf-name }}

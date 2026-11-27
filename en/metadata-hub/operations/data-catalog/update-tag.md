@@ -1,6 +1,10 @@
 ---
 title: Updating a tag
 description: Follow this guide to update a tag for metadata in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/update-tag.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a tag

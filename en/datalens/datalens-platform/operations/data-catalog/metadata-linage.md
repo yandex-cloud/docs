@@ -1,6 +1,10 @@
 ---
 title: Tracking data lineage in {{ datalens-platform-full-name }}
 description: Follow this guide to analyze the full path of data from connection to visualization and reports in {{ datalens-platform-full-name }}.
+alternate:
+  - href: en/datalens/datalens-platform/operations/data-catalog/metadata-linage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Analyzing data lineage

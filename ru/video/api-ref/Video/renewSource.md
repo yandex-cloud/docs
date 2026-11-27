@@ -65,6 +65,10 @@ apiPlayground:
               File size MUST be provided by first client's PATCH request.
               @see https://tus.io/protocols/resumable-upload#post
             type: boolean
+alternate:
+  - href: ru/video/api-ref/Video/renewSource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Video.RenewSource

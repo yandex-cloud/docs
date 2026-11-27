@@ -2,6 +2,10 @@
 title: Изменения правил тарификации для {{ datalens-full-name }}
 description: В статье содержится анонс изменений правил тарификации сервиса {{ datalens-name }}.
 editable: false
+alternate:
+  - href: ru/datalens/pricing-changes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменения в правилах тарификации для {{ datalens-full-name }}

@@ -422,6 +422,10 @@ apiPlayground:
               **[StacklandClusterSettings](#yandex.cloud.baremetal.v2.extend.StacklandClusterSettings)**
               Cluster settings. Can be set only at cluster creation.
             $ref: '#/definitions/StacklandClusterSettings'
+alternate:
+  - href: ru/baremetal/extend/api-ref/StacklandCluster/updateStacklandCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Extend API, REST: StacklandCluster.UpdateStacklandCluster

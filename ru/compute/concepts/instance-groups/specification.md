@@ -1,6 +1,10 @@
 ---
 title: Спецификация группы виртуальных машин {{ compute-full-name }} в формате YAML
 description: Из статьи вы узнаете, что такое спецификация группы виртуальных машин в формате YAML и как она выглядит.
+alternate:
+  - href: ru/compute/concepts/instance-groups/specification.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Спецификация группы виртуальных машин в формате YAML

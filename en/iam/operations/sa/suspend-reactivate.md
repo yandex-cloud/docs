@@ -1,6 +1,10 @@
 ---
 title: How to suspend and reactivate a service account
 description: Follow this guide to suspend and reactivate a service account.
+alternate:
+  - href: en/iam/operations/sa/suspend-reactivate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Suspending and reactivating a service account

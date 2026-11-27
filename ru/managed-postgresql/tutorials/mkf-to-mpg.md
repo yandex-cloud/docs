@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/mkf-to-mpg'
+alternate:
+  - href: ru/managed-postgresql/tutorials/mkf-to-mpg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поставка данных из {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Managing {{ ydb-short-name }} topic configurations
 description: This guide describes the properties of the `yandex_ydb_topic` resource for managing {{ ydb-short-name }} topic configurations.
+alternate:
+  - href: en/ydb/terraform/topic.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ ydb-short-name }} topic configurations

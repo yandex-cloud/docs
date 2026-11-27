@@ -1,6 +1,10 @@
 ---
 title: Creating a {{ TR }} catalog
 description: Follow this guide to create a catalog in a {{ mtr-name }} cluster.
+alternate:
+  - href: en/managed-trino/operations/catalog-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a {{ TR }} catalog

@@ -1,6 +1,10 @@
 ---
 title: How to create an image from a disk in {{ compute-full-name }}
 description: Follow this guide to create an image from a disk.
+alternate:
+  - href: en/compute/operations/image-create/create-from-disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an image from a disk

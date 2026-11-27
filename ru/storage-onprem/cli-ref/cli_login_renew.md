@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_login_renew.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli login renew
 
 renew user authorization

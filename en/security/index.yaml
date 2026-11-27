@@ -18,6 +18,10 @@ meta:
     - keyword: '{{ yandex-cloud }} security'
     - keyword: cloud security
     - keyword: protected cloud
+  alternate:
+    - href: en/security/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Division of responsibility for security
     description: ''

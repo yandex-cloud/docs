@@ -1,6 +1,10 @@
 ---
 title: Справочник метрик сервиса {{ maf-full-name }} в {{ metrics-name }}
 description: На этой странице приведен справочник метрик сервиса {{ maf-name }}, поставляемых в {{ metrics-name }}.
+alternate:
+  - href: ru/managed-airflow/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник метрик {{ metrics-name }}

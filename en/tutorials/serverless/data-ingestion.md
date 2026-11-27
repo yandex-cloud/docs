@@ -1,6 +1,10 @@
 ---
 title: Ingesting data into storage systems
 description: Create an API gateway that receives data and sends it to a data stream for delivery to a {{ CH }} cluster.
+alternate:
+  - href: en/tutorials/serverless/data-ingestion.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [data-ingestion](../../_tutorials/serverless/data-ingestion.md) %}

@@ -1,6 +1,10 @@
 ---
 title: Принципы работы Ingress-контроллера {{ alb-full-name }}
 description: Узнайте, как работает Ingress-контроллер {{ alb-name }}, а также связь ресурсов {{ alb-name }} и {{ k8s }}.
+alternate:
+  - href: ru/managed-kubernetes/alb-ref/ingress-controller/principles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Принципы работы Ingress-контроллера {{ alb-name }}

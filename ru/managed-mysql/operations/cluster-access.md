@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к кластеру {{ mmy-full-name }}
 description: Следуя данной инструкции, вы настроите права доступа к кластеру {{ mmy-name }}.
+alternate:
+  - href: ru/managed-mysql/operations/cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к кластеру {{ mmy-name }}

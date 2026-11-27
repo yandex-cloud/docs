@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/concepts/node-os-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating node group OS
 
 Starting with {{ k8s }} version 1.30, the {{ managed-k8s-name }} cluster node OS changed from Ubuntu 20.04 to Ubuntu 22.04 in all [release channels](../../managed-kubernetes/concepts/release-channels-and-updates.md).

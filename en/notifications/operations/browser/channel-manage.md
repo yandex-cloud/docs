@@ -1,6 +1,10 @@
 ---
 title: Managing an in-browser push notification channel in {{ cns-full-name }}
 description: Follow this guide to update or delete an in-browser push notification channel.
+alternate:
+  - href: en/notifications/operations/browser/channel-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing an in-browser push notification channel

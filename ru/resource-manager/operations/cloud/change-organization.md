@@ -1,6 +1,10 @@
 ---
 title: Инструкция по изменению организации для облака в {{ resmgr-full-name }}
 description: Из статьи вы узнаете, как изменить организацию для облака в {{ resmgr-full-name }}.
+alternate:
+  - href: ru/resource-manager/operations/cloud/change-organization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение организации для облака

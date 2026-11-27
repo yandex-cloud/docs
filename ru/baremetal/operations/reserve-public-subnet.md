@@ -1,6 +1,10 @@
 ---
 title: Как заказать выделенную публичную подсеть в {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете заказать выделенную публичную подсеть в {{ baremetal-full-name }}.
+alternate:
+  - href: ru/baremetal/operations/reserve-public-subnet.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Заказать выделенную публичную подсеть

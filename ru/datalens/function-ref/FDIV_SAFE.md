@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/FDIV_SAFE.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # FDIV_SAFE

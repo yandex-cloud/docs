@@ -2,6 +2,10 @@
 title: Estimating the cost of requests to {{ ydb-short-name }} via the Document API
 description: This article explains how to estimate the cost of requests to {{ ydb-name }} via the Document API.
 editable: false
+alternate:
+  - href: en/ydb/pricing/ru-docapi.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Estimating the cost of requests to {{ ydb-short-name }} via the Document API

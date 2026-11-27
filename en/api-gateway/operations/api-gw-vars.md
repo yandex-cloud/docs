@@ -1,6 +1,10 @@
 ---
 title: Setting up variables for API gateway specifications
 description: Follow this guide to set up variables for API gateway specifications.
+alternate:
+  - href: en/api-gateway/operations/api-gw-vars.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up variables

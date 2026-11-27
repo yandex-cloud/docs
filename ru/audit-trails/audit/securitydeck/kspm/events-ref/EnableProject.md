@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/securitydeck/kspm/events-ref/EnableProject.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Security Deck KSPM Audit Trails Events: EnableProject

@@ -1,6 +1,10 @@
 ---
 title: Query history in {{ yandex-siem-full-name }}
 description: Follow this guide to learn how to use query history in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/operations/queries/query-history.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # History

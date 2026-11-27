@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/container-registry/api-ref/grpc/Repository/setAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Container Registry API, gRPC: RepositoryService.SetAccessBindings

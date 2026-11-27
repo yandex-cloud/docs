@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for a digital signature key pair
 description: Follow this guide to assign roles for an asymmetric digital signature key pair.
+alternate:
+  - href: en/kms/operations/asymmetric-signature-key-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring access permissions for a digital signature key pair

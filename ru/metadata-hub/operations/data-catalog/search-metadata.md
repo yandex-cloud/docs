@@ -1,6 +1,10 @@
 ---
 title: Поиск метаданных
 description: Следуя данной инструкции, вы сможете искать метаданные в {{ data-catalog-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/search-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поиск метаданных

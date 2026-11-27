@@ -1,6 +1,10 @@
 ---
 title: Hardware security module (HSM) in {{ kms-full-name }}
 description: In this tutorial, you will learn about the hardware security module, its implementation in {{ kms-name }}, and how you can use it.
+alternate:
+  - href: en/kms/concepts/hsm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Hardware security module (HSM)

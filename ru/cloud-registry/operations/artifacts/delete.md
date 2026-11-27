@@ -1,6 +1,10 @@
 ---
 title: Удалить артефакт из реестра {{ cloud-registry-name }}
 description: Следуя данной инструкции, вы удалите артефакт из реестра {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/artifacts/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить артефакт из реестра

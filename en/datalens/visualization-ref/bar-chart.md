@@ -1,6 +1,10 @@
 ---
 title: Bar chart in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the bar chart visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/bar-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Bar chart ![](../../_assets/datalens/horizontal-bar.svg) in {{ datalens-full-name }}

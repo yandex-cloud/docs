@@ -1,6 +1,10 @@
 ---
 title: Инструкция по подключению к кластеру {{ CH }} из {{ datalens-name }}
 description: Из статьи вы узнаете, как подключиться к кластеру {{ CH }} из {{ datalens-name }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/datalens-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к кластеру {{ CH }} из {{ datalens-name }}

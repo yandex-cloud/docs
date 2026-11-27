@@ -1,6 +1,10 @@
 ---
 title: Moving a subnet to a different folder
 description: Follow this guide to move a subnet to a different folder.
+alternate:
+  - href: en/vpc/operations/subnet-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving a subnet to a different folder

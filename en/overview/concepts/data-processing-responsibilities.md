@@ -1,6 +1,10 @@
 ---
 title: Zones of control between {{ yandex-cloud }} and {{ dataproc-full-name }} users
 description: In this article, you will learn about the zones of control between {{ dataproc-full-name }} users and {{ yandex-cloud }}.
+alternate:
+  - href: en/overview/concepts/data-processing-responsibilities.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Zones of control between the {{ dataproc-full-name }} users and {{ yandex-cloud }}

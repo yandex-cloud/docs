@@ -2,6 +2,10 @@
 title: Какие квоты и лимиты действуют в {{ interconnect-full-name }}
 description: Из статьи вы узнаете, какие квоты и лимиты действуют в {{ interconnect-name }}.
 editable: false
+alternate:
+  - href: ru/interconnect/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ interconnect-name }}

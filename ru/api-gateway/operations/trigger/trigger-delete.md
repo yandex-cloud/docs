@@ -1,6 +1,10 @@
 ---
 title: Инструкция о том, как удалить триггер в {{ api-gw-full-name }}
 description: Из статьи вы узнаете, как удалить триггер в {{ api-gw-full-name }}.
+alternate:
+  - href: ru/api-gateway/operations/trigger/trigger-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить триггер в {{ api-gw-full-name }}

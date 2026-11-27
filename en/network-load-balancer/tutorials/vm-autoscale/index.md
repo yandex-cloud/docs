@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale'
+alternate:
+  - href: en/network-load-balancer/tutorials/vm-autoscale/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [vm-autoscale](../../../_tutorials/infrastructure/vm-autoscale.md) %}

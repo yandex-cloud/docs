@@ -1,6 +1,10 @@
 ---
 title: How to create a container revision
 description: Follow this guide to create a container revision.
+alternate:
+  - href: en/serverless-containers/operations/manage-revision.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a container revision

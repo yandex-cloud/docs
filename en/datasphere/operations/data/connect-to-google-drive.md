@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/data/connect-to-google-drive.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to Google Drive
 
 You can connect to [Google Drive](https://drive.google.com) from within the {{ ml-platform-name }} interface.

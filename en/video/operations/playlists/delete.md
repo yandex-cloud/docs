@@ -1,6 +1,10 @@
 ---
 title: How to delete a playlist in {{ video-full-name }}
 description: Follow this guide to delete a playlist in {{ video-name }}.
+alternate:
+  - href: en/video/operations/playlists/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a playlist

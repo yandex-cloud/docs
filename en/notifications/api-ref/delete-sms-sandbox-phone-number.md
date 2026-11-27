@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/notifications/api-ref/delete-sms-sandbox-phone-number.md
+    type: text/markdown
+    title: Markdown version
+---
 # DeleteSMSSandboxPhoneNumber
 
 Deletes the confirmed test phone number for the SMS notification channel in the [sandbox](../concepts/sms.md#sandbox).

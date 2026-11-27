@@ -7,6 +7,10 @@ __system:
     - The recommendations did not help
     - The page content does not match the title
     - Other
+alternate:
+  - href: en/storage/concepts/presigned-post-forms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Uploading a file via an HTML form

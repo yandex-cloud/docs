@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/v0/security-profile/list/
+alternate:
+  - href: en/cli/cli-ref/smartwebsecurity/cli-ref/v0/security-profile/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartwebsecurity v0 security-profile list

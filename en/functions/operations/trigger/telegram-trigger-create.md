@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/operations/trigger/telegram-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a Telegram trigger that invokes a function from {{ sf-name }}
 
 Create a [Telegram trigger](../../concepts/trigger/telegram-trigger.md) that invokes a [function](../../concepts/function.md) from {{ sf-name }} when your Telegram bot receives an update.

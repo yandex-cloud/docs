@@ -1,6 +1,10 @@
 ---
 title: Типы хостов в {{ SD }}
 description: Хосты в кластерах {{ mmg-name }} разделяются на четыре типа. Каждый тип хостов имеет собственную роль и функции.
+alternate:
+  - href: ru/storedoc/concepts/host-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Типы хостов в {{ mmg-name }}

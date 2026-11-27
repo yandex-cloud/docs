@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/transfer/delete/
+alternate:
+  - href: en/data-transfer/cli-ref/transfer/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc datatransfer transfer delete

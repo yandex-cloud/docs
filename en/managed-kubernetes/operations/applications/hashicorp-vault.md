@@ -1,6 +1,10 @@
 ---
 title: Installing HashiCorp Vault with {{ kms-full-name }} support
 description: Follow this guide to install HashiCorp Vault with {{ kms-full-name }} support.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/hashicorp-vault.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing HashiCorp Vault with {{ kms-name }} support

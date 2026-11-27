@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/resource-manager/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing operations with {{ resmgr-name }} resources
 
 The system logs all actions with {{ resmgr-name }} resources as a list of operations. Each operation gets an ID.

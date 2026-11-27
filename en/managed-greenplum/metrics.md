@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ mgp-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides a reference of {{ mgp-name }} metrics exported to {{ monitoring-full-name }}.
+alternate:
+  - href: en/managed-greenplum/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reference for {{ monitoring-full-name }} metrics

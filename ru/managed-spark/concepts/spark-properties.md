@@ -1,6 +1,10 @@
 ---
 title: Свойства {{ SPRK }} в {{ msp-full-name }}
 description: Из статьи вы узнаете, какие свойства {{ SPRK }} есть у заданий и как они хранятся.
+alternate:
+  - href: ru/managed-spark/concepts/spark-properties.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Свойства {{ SPRK }}

@@ -7,6 +7,11 @@ keywords:
   - chaos engineering
   - fault tolerance
   - load testing
+noIndex: true
+alternate:
+  - href: en/architecture/testing-zone-failure.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Fault tolerance testing in the {{ yandex-cloud }} infrastructure based on {{ network-load-balancer-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/configurations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Computing resource configurations
 
 You can select a computing resource configuration from the list of options [allowed in the community](../operations/community/manage-community-config.md). The minimum available configuration is **c1.4** (4 vCPUs).

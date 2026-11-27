@@ -1,6 +1,10 @@
 ---
 title: Changing the coordination service from embedded {{ CK }} to {{ CK }} on separate hosts
 description: Follow this guide to change the coordination service from embedded {{ CK }} to {{ CK }} on separate hosts.
+alternate:
+  - href: en/managed-clickhouse/operations/ck-hosts-upgrade.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing the coordination service from embedded {{ CK }} to {{ CK }} on separate hosts

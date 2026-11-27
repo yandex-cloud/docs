@@ -25,6 +25,10 @@ apiPlayground:
         - projectId
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/datasphere/api-ref/Dataset/deactivate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere API v2, REST: Dataset.Deactivate

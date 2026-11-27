@@ -1,6 +1,10 @@
 ---
 title: '{{ yandex-cloud }} SDK overview'
 description: Learn about the SDKs used to work with {{ yandex-cloud }}
+alternate:
+  - href: en/overview/sdk/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} SDK overview

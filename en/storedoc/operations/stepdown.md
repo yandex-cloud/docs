@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/operations/stepdown.md
+    type: text/markdown
+    title: Markdown version
+---
 # Master failover
 
 In a cluster with [multiple replicas](../concepts/replication.md), you can switch the master if required.

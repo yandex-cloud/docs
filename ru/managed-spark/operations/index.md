@@ -1,6 +1,10 @@
 ---
 title: Инструкции по работе с {{ msp-full-name }}
 description: Из статьи вы узнаете, как работать с {{ msp-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-spark/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ msp-full-name }}

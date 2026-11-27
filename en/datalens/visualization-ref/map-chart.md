@@ -1,6 +1,10 @@
 ---
 title: Map in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the map visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/map-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Map ![](../../_assets/datalens/heatmap.svg) in {{ datalens-full-name }}

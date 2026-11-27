@@ -1,6 +1,10 @@
 ---
 title: Уведомления
 description: Из статьи вы узнаете про уведомления в Editor, их ограничения и как добавить уведомление в чарт.
+alternate:
+  - href: ru/datalens/charts/editor/notifications.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Уведомления

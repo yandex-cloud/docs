@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/operations/vm-control/vm-set-static-ip.md
+    type: text/markdown
+    title: Markdown version
+---
 # Making a VM public IP address static
 
 A _static IP address_ is a permanent IP address that remains unchanged when a VM is stopped.

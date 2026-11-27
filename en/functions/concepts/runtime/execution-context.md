@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/concepts/runtime/execution-context.md
+    type: text/markdown
+    title: Markdown version
+---
 # Execution context
 
 The _execution context_ is a temporary runtime environment that initializes the external dependencies of your function code, such as database connections and HTTP endpoints.

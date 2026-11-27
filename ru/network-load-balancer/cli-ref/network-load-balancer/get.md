@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/load-balancer/cli-ref/network-load-balancer/get/
+alternate:
+  - href: ru/network-load-balancer/cli-ref/network-load-balancer/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc load-balancer network-load-balancer get

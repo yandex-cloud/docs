@@ -1,6 +1,10 @@
 ---
 title: Getting a pre-signed URL to download an object from a bucket in {{ objstorage-full-name }}
 description: Follow this guide to get a pre-signed URL to download an object from a bucket in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/objects/link-for-download.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a pre-signed URL to download an object

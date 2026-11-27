@@ -1,6 +1,10 @@
 ---
 title: Sending a push notification in {{ cns-full-name }}
 description: Follow this guide to send a push notification.
+alternate:
+  - href: en/notifications/operations/push/send.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sending a push notification

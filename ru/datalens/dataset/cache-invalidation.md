@@ -1,6 +1,10 @@
 ---
 title: Инвалидация кешей в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы узнаете, зачем нужна инвалидация кешей и как ее настроить в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/dataset/cache-invalidation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Инвалидация кешей в {{ datalens-full-name }}

@@ -179,6 +179,10 @@ apiPlayground:
             $ref: '#/definitions/Resources'
         required:
           - resources
+alternate:
+  - href: en/storedoc/api-ref/Cluster/enableSharding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.EnableSharding

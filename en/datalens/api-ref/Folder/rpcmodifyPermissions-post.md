@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Folder/rpcmodifyPermissions-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Modify permissions

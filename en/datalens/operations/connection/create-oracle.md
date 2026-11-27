@@ -1,6 +1,10 @@
 ---
 title: How to create an Oracle Database connection in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to connect to Oracle Database in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-oracle.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating an Oracle Database connection in {{ datalens-full-name }}

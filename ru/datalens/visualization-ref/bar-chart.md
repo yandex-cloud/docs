@@ -1,6 +1,10 @@
 ---
 title: Линейчатая диаграмма в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Линейчатая диаграмма.
+alternate:
+  - href: ru/datalens/visualization-ref/bar-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Линейчатая диаграмма ![](../../_assets/datalens/horizontal-bar.svg) в {{ datalens-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Compliance UI in {{ sd-full-name }}
 description: With the compliance UI, you can view information about the compliance of your controlled infrastructure with industry security standards, identify existing non-compliances, and get recommendations on how to fix them.
+alternate:
+  - href: en/security-deck/concepts/standard-compliance/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compliance UI

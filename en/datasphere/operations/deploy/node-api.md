@@ -1,6 +1,10 @@
 ---
 title: How to send a request to a {{ ml-platform-full-name }} node
 description: Follow this guide to send a request to a node.
+alternate:
+  - href: en/datasphere/operations/deploy/node-api.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sending a request to a node

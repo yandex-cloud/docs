@@ -2,6 +2,10 @@
 title: Метрики {{ container-registry-full-name }}
 description: Из статьи вы узнаете про метрики {{ container-registry-name }}.
 editable: false
+alternate:
+  - href: ru/monitoring/metrics-ref/container-registry-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ container-registry-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: '{{ mgp-name }} Command Center parameters'
 description: In this article, you will learn what session and query details {{ mgp-name }} Command Center provides.
+alternate:
+  - href: en/managed-greenplum/concepts/command-center-parameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mgp-name }} Command Center parameters

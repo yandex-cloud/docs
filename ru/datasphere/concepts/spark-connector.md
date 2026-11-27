@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/spark-connector.md
+    type: text/markdown
+    title: Markdown version
+---
 # Коннектор Spark
 
 {{ ml-platform-name }} позволяет обрабатывать большие объемы данных на кластерах [{{ dataproc-full-name }}](../../data-proc/). С помощью коннектора Spark вы можете как [использовать уже имеющиеся кластеры {{ dataproc-name }}](data-processing-operations.md#spark-with-existing-cluster), так и [создавать временные кластеры](temporary-data-processing-clusters.md#spark-with-temporary-cluster).

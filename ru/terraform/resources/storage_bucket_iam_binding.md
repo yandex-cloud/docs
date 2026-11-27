@@ -1,5 +1,9 @@
 ---
 subcategory: Object Storage
+alternate:
+  - href: ru/terraform/resources/storage_bucket_iam_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_storage_bucket_iam_binding (Resource)

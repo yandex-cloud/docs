@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-postgresql/operations/load-balancer.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing a {{ mdb-lb }} load balancer
 
 In {{ mpg-name }}, you can use a [{{ mdb-lb }} load balancer](../concepts/load-balancer.md) that automatically distributes queries across database hosts based on their role and availability.

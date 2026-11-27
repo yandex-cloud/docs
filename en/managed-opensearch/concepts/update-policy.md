@@ -1,6 +1,10 @@
 ---
 title: Versioning policies in {{ mos-full-name }}
 description: In this tutorial, you will learn about versioning policies supported by {{ mos-name }}.
+alternate:
+  - href: en/managed-opensearch/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ OS }} versioning policy

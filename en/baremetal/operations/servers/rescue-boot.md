@@ -1,6 +1,10 @@
 ---
 title: How to boot a {{ baremetal-full-name }} server using a Rescue CD
 description: In this tutorial, you will learn how to use diagnostics and recovery tools available in the standard bootable {{ baremetal-name }} Rescue CD image.
+alternate:
+  - href: en/baremetal/operations/servers/rescue-boot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using the Rescue CD diagnostics and recovery tools

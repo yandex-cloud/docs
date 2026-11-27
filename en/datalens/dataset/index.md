@@ -1,6 +1,10 @@
 ---
 title: Dataset in {{ datalens-full-name }}
 description: A dataset in {{ datalens-full-name }} describes a set of data and its structure. Data in a dataset is structured in fields.
+alternate:
+  - href: en/datalens/dataset/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Dataset in {{ datalens-full-name }}

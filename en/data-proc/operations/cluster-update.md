@@ -1,6 +1,10 @@
 ---
 title: Updating a {{ dataproc-name }} cluster
 description: After creating a {{ dataproc-name }} cluster, you can edit its basic and advanced settings.
+alternate:
+  - href: en/data-proc/operations/cluster-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a {{ dataproc-name }} cluster

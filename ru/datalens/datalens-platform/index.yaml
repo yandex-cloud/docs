@@ -5,6 +5,10 @@ meta:
     хранения, обработки и визуализации данных. Lakehouse на базе Apache
     Iceberg™, вычисления Trino и Apache Spark™, пайплайны Apache Airflow™,
     дашборды и Нейроаналитик в одном интерфейсе.
+  alternate:
+    - href: ru/datalens/datalens-platform/index.yaml
+      type: application/yaml
+      title: Yaml version
 blocks:
   - type: header-block
     title: Документация Yandex DataLens Platform

@@ -1,6 +1,10 @@
 ---
 title: How to create a VRF in {{ baremetal-full-name }}
 description: In this tutorial, you will learn how to create a virtual routing and forwarding (VRF) segment in {{ baremetal-full-name }}.
+alternate:
+  - href: en/baremetal/operations/network-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VRF

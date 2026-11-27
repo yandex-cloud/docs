@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/inbound-endpoint/add-labels/
+alternate:
+  - href: ru/dns/cli-ref/inbound-endpoint/add-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns inbound-endpoint add-labels

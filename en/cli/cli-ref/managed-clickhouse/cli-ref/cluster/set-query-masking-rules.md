@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/cluster/set-query-masking-rules/
+alternate:
+  - href: en/cli/cli-ref/managed-clickhouse/cli-ref/cluster/set-query-masking-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-clickhouse cluster set-query-masking-rules

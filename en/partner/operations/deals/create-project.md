@@ -1,6 +1,10 @@
 ---
 title: How to create a project
 description: Follow this guide to create a project.
+alternate:
+  - href: en/partner/operations/deals/create-project.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a project

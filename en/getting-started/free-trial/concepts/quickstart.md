@@ -1,6 +1,10 @@
 ---
 title: How the trial period works
 description: The trial period is available for businesses that select the wire transfer payment method. During the trial period, you can use {{ yandex-cloud }} resources for free with some limitations. After the end of the trial period, the resources will be retained but discontinued. To resume working with {{ yandex-cloud }}, you will need to fully upgrade to the paid version.
+alternate:
+  - href: en/getting-started/free-trial/concepts/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How does the trial period work

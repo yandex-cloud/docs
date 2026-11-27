@@ -64,6 +64,10 @@ meta:
     - keyword: СУБД с открытым кодом
     - keyword: Аналитическая СУБД
     - keyword: Колоночная СУБД
+  alternate:
+    - href: ru/managed-clickhouse/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/container-registry/operations/lifecycle-policy/lifecycle-policy-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Updating a lifecycle policy
 
 After you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you can edit its rules as well as its status, name, or description.

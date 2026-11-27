@@ -1,6 +1,10 @@
 ---
 title: '{{ alb-full-name }}. Overview'
 description: '{{ alb-full-name }} (L7 load balancer, application layer load balancer) is a service for distributing load across services and applications deployed in {{ yandex-cloud }}. {{ alb-name }} runs at Layer 7 of the OSI model and transmits traffic over HTTP and HTTPS to the backends of your applications.'
+alternate:
+  - href: en/application-load-balancer/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ alb-full-name }} overview

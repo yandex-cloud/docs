@@ -1,6 +1,10 @@
 ---
 title: Container infrastructure use cases in {{ yandex-cloud }}
 description: Various container infrastructure use cases in {{ yandex-cloud }}
+alternate:
+  - href: en/tutorials/container-infrastructure/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Tutorials for container infrastructure solutions

@@ -2,6 +2,10 @@
 title: Метрики {{ objstorage-full-name }}
 description: Из статьи вы узнаете про метрики {{ objstorage-name }}.
 editable: false
+alternate:
+  - href: ru/monium/metrics-ref/storage-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ objstorage-full-name }}

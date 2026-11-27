@@ -1,6 +1,10 @@
 ---
 title: Создание QL-чарта в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете создать QL-чарт в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/chart/create-sql-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание QL-чарта в {{ datalens-full-name }}

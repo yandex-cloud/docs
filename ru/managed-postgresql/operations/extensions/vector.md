@@ -1,6 +1,10 @@
 ---
 title: Использование vector в {{ mpg-name }}
 description: Как установить расширение vector, создать индексы HNSW и IVFFlat и выполнить векторный поиск в {{ mpg-full-name }}
+alternate:
+  - href: ru/managed-postgresql/operations/extensions/vector.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Использование vector в {{ mpg-full-name }}
 

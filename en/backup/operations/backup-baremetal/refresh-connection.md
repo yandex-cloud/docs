@@ -1,6 +1,10 @@
 ---
 title: How to update a {{ baremetal-full-name }} server connection to {{ backup-full-name }}
 description: Follow this guide to update a {{ baremetal-full-name }} server connection to {{ backup-full-name }}.
+alternate:
+  - href: en/backup/operations/backup-baremetal/refresh-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reconnecting a {{ baremetal-full-name }} server to {{ backup-name }}

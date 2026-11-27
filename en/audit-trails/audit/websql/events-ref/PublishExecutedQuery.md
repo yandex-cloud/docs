@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/websql/events-ref/PublishExecutedQuery.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # WebSQL Audit Trails Events: PublishExecutedQuery

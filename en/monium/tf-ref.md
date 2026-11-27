@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ monium-name }}'
 description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ monium-name }}.
+alternate:
+  - href: en/monium/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ monium-name }}

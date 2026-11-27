@@ -1,6 +1,10 @@
 ---
 title: Standard fields in the API
 description: In this article, you will learn what standard fields a {{ yandex-cloud }} resource view may have.
+alternate:
+  - href: en/api-design-guide/concepts/standard-fields.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Standard fields

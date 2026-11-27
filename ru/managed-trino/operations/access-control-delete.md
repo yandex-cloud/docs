@@ -1,6 +1,10 @@
 ---
 title: Удаление правил доступа в {{ mtr-name }}
 description: Вы можете за одну операцию удалить все правила доступа, назначенные в рамках кластера.
+alternate:
+  - href: ru/managed-trino/operations/access-control-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление правил доступа в {{ mtr-name }}

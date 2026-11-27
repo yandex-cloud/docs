@@ -1,6 +1,10 @@
 ---
 title: Custom rules in {{ sd-full-name }}
 description: Custom rules in the {{ cspm-name }} and {{ kspm-name }} modules allow you to customize standard security rules for the in-house requirements.
+alternate:
+  - href: en/security-deck/concepts/custom-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Custom rules

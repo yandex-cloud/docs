@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/trino/delete-catalog.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удалить каталог {{ mtr-name }}
 
 Если у вас есть [каталог](../../concepts/components/trino.md#catalogs) в кластере [{{ TR }}](../../concepts/components/trino.md), вы можете удалить его. После удаления каталога источник данных перестанет быть доступен в SQL-запросах кластера.

@@ -50,7 +50,9 @@
 
     **Пример создания ресурсных записей в Yandex Cloud DNS**
 
-        Если у вас еще нет [публичной зоны](../../dns/concepts/dns-zone.md#public-zones) DNS, [создайте](../../dns/operations/zone-create-public.md) ее.
+    Если у вас еще нет [публичной зоны](../../dns/concepts/dns-zone.md#public-zones) DNS, [создайте](../../dns/operations/zone-create-public.md) ее.
+
+
     1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
     1. Выберите вашу доменную зону.
     1. Нажмите кнопку **Создать запись**.

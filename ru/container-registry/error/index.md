@@ -1,6 +1,10 @@
 ---
 title: Решение проблем в {{ container-registry-full-name }}
 description: На странице приведены часто возникающие ошибки и способы их решения.
+alternate:
+  - href: ru/container-registry/error/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение проблем в {{ container-registry-name }}

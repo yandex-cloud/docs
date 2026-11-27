@@ -1,6 +1,10 @@
 ---
 title: Тариф в {{ marketplace-full-name }}
 description: Из статьи вы узнаете, что такое тариф в {{ marketplace-name }}.
+alternate:
+  - href: ru/marketplace/concepts/tariff.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Тариф

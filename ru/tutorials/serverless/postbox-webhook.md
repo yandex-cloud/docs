@@ -7,6 +7,10 @@ keywords:
   - вебхук
   - интеграция с помощью вебхуков
   - настроить вебхуки
+alternate:
+  - href: ru/tutorials/serverless/postbox-webhook.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [postbox-webhook](../../_tutorials/serverless/postbox-webhook.md) %}

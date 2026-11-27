@@ -1,6 +1,10 @@
 ---
 title: '{{ cdn-full-name }} release notes'
 description: This section contains the {{ cdn-name }} release notes.
+alternate:
+  - href: en/cdn/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cdn-full-name }} release notes

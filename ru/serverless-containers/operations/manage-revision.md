@@ -1,6 +1,10 @@
 ---
 title: Как создать ревизию контейнера
 description: Следуя данной инструкции, вы сможете создать ревизию контейнера.
+alternate:
+  - href: ru/serverless-containers/operations/manage-revision.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать ревизию контейнера

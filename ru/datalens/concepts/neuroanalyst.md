@@ -1,6 +1,10 @@
 ---
 title: Нейроаналитик в {{ datalens-full-name }}
 description: Из статьи вы узнаете про нейроаналитика в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/concepts/neuroanalyst.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Нейроаналитик в {{ datalens-full-name }}

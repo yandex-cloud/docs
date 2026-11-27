@@ -1,6 +1,10 @@
 ---
 title: How to connect to a Windows VM via PowerShell
 description: Follow this guide to connect to a Windows VM via PowerShell.
+alternate:
+  - href: en/compute/operations/vm-connect/powershell.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a Windows VM via PowerShell

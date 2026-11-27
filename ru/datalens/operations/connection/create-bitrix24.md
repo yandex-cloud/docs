@@ -1,6 +1,10 @@
 ---
 title: Как создать подключение к Битрикс24
 description: Следуя данной инструкции, вы сможете создать подключение к Битрикс24.
+alternate:
+  - href: ru/datalens/operations/connection/create-bitrix24.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание подключения к Битрикс24

@@ -139,10 +139,10 @@ Valkey™ по умолчанию оперирует IP-адресами хос�
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.redis; curl.exe -o $HOME\.redis\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
+   mkdir $HOME\AppData\Roaming\.redis; curl.exe -o $HOME\AppData\Roaming\.redis\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
    ```
 
-   Сертификат будет сохранен в файле `$HOME\.redis\YandexInternalRootCA.crt`.
+   Сертификат будет сохранен в файле `$HOME\AppData\Roaming\.redis\YandexInternalRootCA.crt`.
 
    Корпоративные политики и антивирус могут блокировать скачивание сертификата. Подробнее в разделе [Вопросы и ответы](../../qa/general.md#get-ssl-error).
 

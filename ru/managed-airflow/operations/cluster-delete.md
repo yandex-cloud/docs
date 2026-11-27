@@ -6,6 +6,10 @@ keywords:
   - кластер {{ AF }}
   - '{{ AF }}'
   - Airflow
+alternate:
+  - href: ru/managed-airflow/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление кластера {{ AF }}

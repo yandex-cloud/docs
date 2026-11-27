@@ -56,6 +56,10 @@ apiPlayground:
             - required:
                 - osLogin
     definitions: null
+alternate:
+  - href: en/organization/api-ref/SshCertificate/generate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: SshCertificate.Generate

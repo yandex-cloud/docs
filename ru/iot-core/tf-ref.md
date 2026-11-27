@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ iot-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ iot-name }}.
+alternate:
+  - href: ru/iot-core/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ iot-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: How to set up {{ cdn-full-name }} location rules
 description: Follow this guide to set up {{ cdn-full-name }} location rules to selectively redefine CDN resource settings for specific requests.
+alternate:
+  - href: en/cdn/operations/resources/location-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up {{ cdn-full-name }} location rules

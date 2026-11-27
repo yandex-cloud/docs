@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/concepts/presets.md
+    type: text/markdown
+    title: Markdown version
+---
 # Player presets
 
 {% include [player-presets](../../_includes/video/player-presets.md) %}

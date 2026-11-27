@@ -1,5 +1,9 @@
 ---
 subcategory: Lockbox
+alternate:
+  - href: ru/terraform/resources/lockbox_secret_version_hashed.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_lockbox_secret_version_hashed (Resource)

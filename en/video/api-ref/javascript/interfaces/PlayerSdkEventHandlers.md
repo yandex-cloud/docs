@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/api-ref/javascript/interfaces/PlayerSdkEventHandlers.md
+    type: text/markdown
+    title: Markdown version
+---
 # Interface: PlayerSdkEventHandlers
 
 [PlayerSdk event](../../../sdk/javascript/player-events.md) handlers

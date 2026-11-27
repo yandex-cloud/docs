@@ -1,6 +1,10 @@
 ---
 title: Managing {{ PG }} cluster hosts
 description: In this tutorial, you will learn how to manage {{ PG }} cluster hosts. You can add and remove cluster hosts, as well as manage their settings via the management console, CLI, and API.
+alternate:
+  - href: en/managed-postgresql/operations/hosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing {{ PG }} cluster hosts

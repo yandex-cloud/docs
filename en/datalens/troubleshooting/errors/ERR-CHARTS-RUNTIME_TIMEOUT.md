@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.CHARTS.RUNTIME_TIMEOUT'
 description: This page describes the Response processing timeout {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-CHARTS-RUNTIME_TIMEOUT.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Response processing timeout

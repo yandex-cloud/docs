@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/deploy/instance.md
+    type: text/markdown
+    title: Markdown version
+---
 # Rules for updating instance groups
 
 Updating an instance group is performed to ensure minimum implications for the instances managed by the group.

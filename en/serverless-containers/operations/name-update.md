@@ -1,6 +1,10 @@
 ---
 title: Renaming a container
 description: Follow this guide to update a container name.
+alternate:
+  - href: en/serverless-containers/operations/name-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Renaming a container

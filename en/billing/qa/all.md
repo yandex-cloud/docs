@@ -1,6 +1,10 @@
 ---
 title: FAQ about {{ billing-name }}
 description: This page covers questions and answers about {{ billing-name }}.
+alternate:
+  - href: en/billing/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All questions about {{ billing-name }}

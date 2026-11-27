@@ -1,6 +1,10 @@
 ---
 title: Чарты
 description: На странице представлены вопросы и ответы про чарты.
+alternate:
+  - href: ru/datalens/qa/charts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чарты

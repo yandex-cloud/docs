@@ -1,6 +1,10 @@
 ---
 title: Recommendations for improving {{ mos-name }} cluster reliability, cost optimization, and performance
 description: In this section, you will learn how to work with the results of {{ mos-name }} cluster checks and diagnostics.
+alternate:
+  - href: en/managed-opensearch/advisor.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Inspections and recommendations in {{ mos-name }} 

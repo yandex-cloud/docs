@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/resource-manager/api-ref/grpc/Cloud/listAccessPolicyBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Resource Manager API, gRPC: CloudService.ListAccessPolicyBindings

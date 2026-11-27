@@ -1,6 +1,10 @@
 ---
 title: How to manage billing in {{ org-full-name }}
 description: In this guide, you will learn how to manage billing for {{ org-full-name }} user connections to external applications through the {{ org-full-name }} interface.
+alternate:
+  - href: en/organization/operations/manage-billing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing management in {{ org-full-name }}

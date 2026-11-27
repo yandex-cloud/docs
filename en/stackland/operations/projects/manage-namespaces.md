@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/projects/manage-namespaces.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing namespaces in a project
 
 Project namespaces allows you to organize your resources and maintain their isolation. Each project can contain several namespaces.

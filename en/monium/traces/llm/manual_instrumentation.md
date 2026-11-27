@@ -1,6 +1,10 @@
 ---
 title: Manual instrumentation of LLM applications
 description: Guide on manual instrumentation of LLM applications with GenAI attributes to send traces to {{ traces-name }}.
+alternate:
+  - href: en/monium/traces/llm/manual_instrumentation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Manual instrumentation of LLM applications

@@ -1,6 +1,10 @@
 ---
 title: Настройка {{ IBRG }} в кластере {{ dataproc-name }}
 description: Как настроить и использовать {{ IBRG }} в кластере {{ dataproc-name }}.
+alternate:
+  - href: ru/data-proc/operations/apache-iceberg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка {{ IBRG }} в кластере {{ dataproc-name }}

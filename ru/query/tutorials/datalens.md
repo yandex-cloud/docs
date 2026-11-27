@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/datalens/data-from-yandex-query-visualization'
+alternate:
+  - href: ru/query/tutorials/datalens.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [sunset](../../_includes/query/sunset.md) %}

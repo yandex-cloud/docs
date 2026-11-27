@@ -1,6 +1,10 @@
 ---
 title: Running parallel jobs in a GPU cluster
 description: Follow this guide to use mpirun to run distributed jobs in a GPU cluster.
+alternate:
+  - href: en/compute/operations/gpu-cluster/gpu-cluster-mpirun-parallel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Running parallel tasks in a GPU cluster

@@ -88,6 +88,10 @@ apiPlayground:
               Version of the extension. The setting is deprecated and has no effect.
             deprecated: true
             type: string
+alternate:
+  - href: ru/managed-postgresql/api-ref/Database/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for PostgreSQL API, REST: Database.Update

@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ quota-manager-full-name }}
 description: 'Managing your resource quotas: {{ quota-manager-full-name }}. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.'
+alternate:
+  - href: en/quota-manager/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ quota-manager-name }}

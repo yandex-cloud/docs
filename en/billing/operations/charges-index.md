@@ -1,6 +1,10 @@
 ---
 title: How to view cost breakdowns in {{ billing-name }}
 description: Learn why cost breakdowns are useful and what methods {{ billing-name }} offers to access them.
+alternate:
+  - href: en/billing/operations/charges-index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing a cost breakdown report

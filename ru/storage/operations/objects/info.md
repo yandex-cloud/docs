@@ -1,6 +1,10 @@
 ---
 title: Получить информацию об объекте в бакете в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию об объекте в бакете в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/objects/info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию об объекте

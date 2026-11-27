@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/concepts/logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Container logs
 
 A container writes logs to {{ cloud-logging-full-name }}, to the [default log group](../../logging/concepts/log-group.md) for the folder where the container is located.

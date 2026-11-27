@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ alb-full-name }}
 description: In this tutorial, you will create and test the {{ alb-name }} infrastructure.
+alternate:
+  - href: en/application-load-balancer/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ alb-full-name }}

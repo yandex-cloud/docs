@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в {{ yandex-cloud }} и управлять базами данных {{ ydb-short-name }} с помощью {{ TF }}
 description: В инструкции описан процесс аутентификации {{ TF }} в {{ yandex-cloud }} c помощью сервисного или федеративного аккаунта.
+alternate:
+  - href: ru/ydb/terraform/credentials.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение данных для аутентификации

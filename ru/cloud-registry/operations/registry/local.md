@@ -1,6 +1,10 @@
 ---
 title: Создание локального реестра в {{ cloud-registry-full-name }}
 description: Следуя данной инструкции, вы сможете создать локальный реестр в {{ cloud-registry-name }}.
+alternate:
+  - href: ru/cloud-registry/operations/registry/local.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать локальный реестр

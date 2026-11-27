@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/projects/use-job-results.md
+    type: text/markdown
+    title: Markdown version
+---
 # Using results of completed jobs
 
 Sometimes you need to process the [job](../../concepts/jobs/index.md) outputs or use them to run another job. To do this, download them using the {{ ds-jobs }} SDK `download_job_files` function or feed them into another job using the [DAG Airflow](../../concepts/jobs/airflow.md) operator.

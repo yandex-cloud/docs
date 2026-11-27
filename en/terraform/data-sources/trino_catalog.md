@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for Trino
+alternate:
+  - href: en/terraform/data-sources/trino_catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_trino_catalog (DataSource)

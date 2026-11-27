@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/storage/events-ref/ObjectTagsUpdate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Object Storage Audit Trails Events: ObjectTagsUpdate

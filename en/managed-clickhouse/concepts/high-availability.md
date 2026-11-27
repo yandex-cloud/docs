@@ -1,6 +1,10 @@
 ---
 title: High availability of a {{ mch-full-name }} cluster
 description: High availability is the ability of a system to continue to operate when one or more of its components fail. High availability of a {{ mch-name }} cluster depends on the number and placement of its hosts, replication and sharding settings, as well as other cluster properties.
+alternate:
+  - href: en/managed-clickhouse/concepts/high-availability.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # High availability of a {{ mch-full-name }} cluster

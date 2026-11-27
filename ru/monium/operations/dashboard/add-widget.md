@@ -1,6 +1,10 @@
 ---
 title: Как добавить виджет на дашборд в {{ monitoring-full-name }}
 description: Из статьи вы узнаете, как добавить виджет на дашборд в {{ monitoring-name }}.
+alternate:
+  - href: ru/monium/operations/dashboard/add-widget.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление виджета на дашборд
@@ -44,6 +48,8 @@ description: Из статьи вы узнаете, как добавить ви
 
 График на дашборде [настраивается так же](../../metrics/metric-explorer.md#set-graph), как в разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**. Для сравнения агрегированных значений по категориям выберите тип [Столбцы](../../metrics/metric-explorer.md#bar-chart).
 
+Чтобы сравнить несколько показателей в соседних столбцах, выберите тип [Таблица](../../metrics/metric-explorer.md#table-chart).
+
 Чтобы настроить график:
 
 {% list tabs group=instructions %}
@@ -54,8 +60,8 @@ description: Из статьи вы узнаете, как добавить ви
   1. На панели графика справа вверху нажмите ![image](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_monitoring.wizard.settings }}**.
   1. Задайте параметры графика, приведенные ниже.
 
-     Все указанные параметры сразу же применяются к графику, сохранять их не нужно.
-  1. После настройки закройте боковую панель.
+     Изменения сразу отображаются на графике.
+  1. После настройки закройте боковую панель и сохраните изменения кнопкой ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
 {% endlist %}
 

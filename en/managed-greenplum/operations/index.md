@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ mgp-full-name }}
 description: This page features step-by-step guides for {{ mgp-name }}.
+alternate:
+  - href: en/managed-greenplum/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ mgp-name }}

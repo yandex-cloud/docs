@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/data/connect-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to a {{ CH }} database
 
 {{ mch-short-name }} enables deploying and maintaining [{{ CH }}](https://{{ ch-domain }}/) server clusters in the {{ yandex-cloud }} infrastructure.

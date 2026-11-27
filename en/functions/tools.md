@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/tools.md
+    type: text/markdown
+    title: Markdown version
+---
 # Tools for working with functions in {{ sf-name }}
 
 

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/send-email.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод SendEmail
 
 Отправляет электронное письмо с [адреса](../../concepts/glossary.md#address) в каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.

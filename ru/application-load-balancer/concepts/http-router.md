@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/application-load-balancer/concepts/http-router.md
+    type: text/markdown
+    title: Markdown version
+---
 # HTTP-роутеры
 
 HTTP-роутер определяет правила маршрутизации HTTP-запросов в [группы бэкендов](backend-group.md).

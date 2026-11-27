@@ -1,6 +1,10 @@
 ---
 title: How to send a request to an alias in {{ ml-platform-full-name }}
 description: Follow this guide to send a request to an alias.
+alternate:
+  - href: en/datasphere/operations/deploy/alias-api.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sending a request to an alias

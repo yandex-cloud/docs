@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/_sdk-ref/sdk-ref/types/speechkit.md
+    type: text/markdown
+    title: Markdown version
+---
 # Speechkit
 
 ## Text to speech

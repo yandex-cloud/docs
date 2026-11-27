@@ -1,6 +1,10 @@
 ---
 title: Как отменить операцию конкретного подключения {{ metadata-hub-name }}. Пошаговые инструкции
 description: Пошаговые инструкции по работе с {{ connection-manager-name }} в {{ yandex-cloud }}. Из статьи вы узнаете, как отменить операцию конкретного подключения.
+alternate:
+  - href: ru/metadata-hub/operations/cancel-operation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отмена операции

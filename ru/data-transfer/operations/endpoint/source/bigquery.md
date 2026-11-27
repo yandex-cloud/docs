@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/data-transfer/operations/endpoint/source/bigquery.md
+    type: text/markdown
+    title: Markdown version
+---
 # Передача данных из эндпоинта-источника BigQuery
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к BigQuery.

@@ -1,6 +1,10 @@
 ---
 title: Асинхронность в API
 description: Из статьи вы узнаете про асинхронные операции, какой объект они возвращают и как с ним работать.
+alternate:
+  - href: ru/api-design-guide/concepts/async.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Асинхронность

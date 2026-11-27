@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/
+alternate:
+  - href: ru/interconnect/cli-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cic

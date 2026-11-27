@@ -1,6 +1,10 @@
 ---
 title: Публичные материалы о {{ mpg-full-name }}
 description: Видеозаписи конференций и вебинаров, посвященных {{ mpg-full-name }}.
+alternate:
+  - href: ru/managed-postgresql/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Публичные материалы о {{ mpg-full-name }}

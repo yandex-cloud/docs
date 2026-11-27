@@ -1,6 +1,10 @@
 ---
 title: Как настроить канареечный релиз для API-шлюза
 description: Следуя данной инструкции, вы сможете настроить канареечный релиз для API-шлюза.
+alternate:
+  - href: ru/api-gateway/operations/api-gw-canary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить канареечный релиз

@@ -1,6 +1,10 @@
 ---
 title: Normalized column chart in {{ datalens-full-name }}
 description: In this tutorial, you will learn how to create and customize the normalized column chart visualization type in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/visualization-ref/normalized-column-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Normalized column chart ![](../../_assets/datalens/normalized-column.svg) in {{ datalens-full-name }}

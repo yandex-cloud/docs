@@ -1,6 +1,10 @@
 ---
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/dataplatform/ydb-to-object-storage'
+alternate:
+  - href: ru/ydb/tutorials/ydb-to-object-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузка данных из {{ ydb-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}

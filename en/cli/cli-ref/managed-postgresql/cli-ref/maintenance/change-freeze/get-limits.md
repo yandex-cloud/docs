@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/get-limits/
+alternate:
+  - href: en/cli/cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/get-limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-postgresql maintenance change-freeze get-limits

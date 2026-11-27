@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/payload/get/
+alternate:
+  - href: ru/cli/cli-ref/lockbox/cli-ref/payload/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc lockbox payload get

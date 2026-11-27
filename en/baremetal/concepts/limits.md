@@ -2,6 +2,10 @@
 title: '{{ baremetal-full-name }} quotas and limits'
 description: In {{ baremetal-full-name }}, there are certain limits and quotas for servers and virtual network segments (VRF). For more information about the service limitations, read this article.
 editable: false
+alternate:
+  - href: en/baremetal/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ baremetal-full-name }}

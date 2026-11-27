@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/rest-catalog.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ rest-catalog-name }} {#rest-catalog}
 
 {{ rest-catalog-name }} — это REST-каталог для таблиц {{ IBRG }}, совместимый с Iceberg REST Catalog API. Компонент позволяет создавать каталоги и управлять доступом к данным с помощью кастомных ресурсов:

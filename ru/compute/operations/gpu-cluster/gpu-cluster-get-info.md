@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о кластере GPU в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о кластере GPU.
+alternate:
+  - href: ru/compute/operations/gpu-cluster/gpu-cluster-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о кластере GPU

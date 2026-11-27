@@ -1,6 +1,10 @@
 ---
 title: Назначение правил доступа к функциям в {{ mtr-name }}
 description: Правила определяют, какие действия пользователи могут совершать над пользовательскими функциями.
+alternate:
+  - href: ru/managed-trino/operations/access-control-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначение правил доступа к функциям в {{ mtr-name }}

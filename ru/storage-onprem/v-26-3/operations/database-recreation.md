@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/operations/database-recreation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Пересоздание базы данных
 
 Если реплики кластера находятся не в статусе `Standby (sync)`, в простейшем случае это можно исправить удалением и повторным созданием сломанной реплики.

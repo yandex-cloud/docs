@@ -1,6 +1,10 @@
 ---
 title: Создание кластера {{ dataproc-full-name }}
 description: Следуя данной инструкции, вы сможете создать и настроить кластер {{ dataproc-name }}, а также ознакомитесь с реальным примером кластера.
+alternate:
+  - href: ru/data-proc/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ dataproc-name }}

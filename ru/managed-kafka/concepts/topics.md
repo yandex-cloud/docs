@@ -1,6 +1,10 @@
 ---
 title: Какие есть топики и разделы в {{ mkf-full-name }}
 description: Из статьи вы узнаете, какие есть топики и разделы в {{ mkf-name }}.
+alternate:
+  - href: ru/managed-kafka/concepts/topics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Топики и разделы

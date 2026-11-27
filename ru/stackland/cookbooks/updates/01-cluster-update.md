@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/cookbooks/updates/01-cluster-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обновление кластера
 
 В этом рецепте вы узнаете, как устроен процесс обновления {{ stackland-name }}, какие риски с ним связаны и как подготовиться к обновлению кластера. Также вы выясните, как запускать процесс обновления и отслеживать его состояние.

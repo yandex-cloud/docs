@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/data-processing-template.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with {{ dataproc-name }} templates
 
 [{{ dataproc-name }} templates](../concepts/data-processing-template.md) enable you to preset a cluster configuration for your project, making it easier to deploy temporary clusters. You can find a list of templates on your project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** → ![data-proc-template](../../_assets/data-processing/data-processing.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**, the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.

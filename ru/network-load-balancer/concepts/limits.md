@@ -1,6 +1,10 @@
 ---
 title: Квоты и лимиты в {{ network-load-balancer-full-name }}
 description: В сервисе {{ network-load-balancer-full-name }} действуют лимиты и квоты на количество балансировщиков в одном облаке, а также количество целевых групп в одном облаке. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
+alternate:
+  - href: ru/network-load-balancer/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ network-load-balancer-name }}

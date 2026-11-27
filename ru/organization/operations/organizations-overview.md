@@ -1,6 +1,10 @@
 ---
 title: Управление организациями в {{ org-full-name }}
 description: В этом разделе собраны пошаговые инструкции по управлению организациями в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/organizations-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление организациями в {{ org-full-name }}

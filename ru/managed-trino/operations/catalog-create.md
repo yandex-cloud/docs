@@ -1,6 +1,10 @@
 ---
 title: Создание каталога {{ TR }}
 description: Следуя этой инструкции, вы создадите каталог в кластере {{ mtr-name }}.
+alternate:
+  - href: ru/managed-trino/operations/catalog-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание каталога {{ TR }}

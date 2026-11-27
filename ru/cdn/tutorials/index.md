@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ cdn-full-name }}
 description: Различные сценарии использования {{ cdn-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/cdn/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ cdn-name }}

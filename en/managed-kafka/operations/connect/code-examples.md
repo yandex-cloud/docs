@@ -1,6 +1,10 @@
 ---
 title: Code examples for connecting to a {{ KF }} cluster in {{ mkf-full-name }}
 description: These examples show you how to connect to a {{ KF }} cluster database from your application.
+alternate:
+  - href: en/managed-kafka/operations/connect/code-examples.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Code examples for connecting to an {{ KF }} cluster

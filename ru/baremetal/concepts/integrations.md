@@ -1,6 +1,10 @@
 ---
 title: Интеграции {{ baremetal-full-name }} с другими сервисами {{ yandex-cloud }}
 description: На странице приведен список сервисов {{ yandex-cloud }}, с которыми интегрируется {{ baremetal-full-name }}, а также описаны задачи, которые решают эти интеграции.
+alternate:
+  - href: ru/baremetal/concepts/integrations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Интеграции с другими сервисами {{ yandex-cloud }}

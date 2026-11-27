@@ -1,6 +1,10 @@
 ---
 title: Как принять коммерческое предложение {{ billing-name }}
 description: Следуя данной инструкции, вы сможете просматривать и принимать коммерческие предложения.
+alternate:
+  - href: ru/billing/operations/get-offers.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Принять предложения

@@ -1,6 +1,10 @@
 ---
 title: How to get information about existing repositories in {{ container-registry-full-name }}
 description: In this guide, you will learn how to get information about existing repositories in {{ container-registry-name }}.
+alternate:
+  - href: en/container-registry/operations/repository/repository-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about existing repositories

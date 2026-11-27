@@ -1,6 +1,10 @@
 ---
 title: Debian artifact in {{ cloud-registry-full-name }}
 description: A Debian artifact is a package which contains compiled software, metadata, dependencies, and other resources. Debian packages are used to distribute software on Debian and Ubuntu-based systems.
+alternate:
+  - href: en/cloud-registry/concepts/artifacts/debian.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Debian artifact

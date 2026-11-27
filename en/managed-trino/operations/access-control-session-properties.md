@@ -1,6 +1,10 @@
 ---
 title: Assigning access rules to session system properties in {{ mtr-name }}
 description: Rules define whether users can set certain session system properties.
+alternate:
+  - href: en/managed-trino/operations/access-control-session-properties.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning access rules to session system properties in {{ mtr-name }}

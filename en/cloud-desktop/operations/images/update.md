@@ -1,6 +1,10 @@
 ---
 title: Updating a {{ cloud-desktop-full-name }} image
 description: Follow this guide to update a {{ cloud-desktop-name }} image.
+alternate:
+  - href: en/cloud-desktop/operations/images/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating an image

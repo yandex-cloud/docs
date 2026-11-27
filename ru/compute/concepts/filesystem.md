@@ -1,6 +1,10 @@
 ---
 title: Файловые хранилища для виртуальных машин {{ compute-full-name }}
 description: Из статьи вы узнаете, что такое файловые хранилища, какие существуют их типы, а также ознакомитесь с требованиями и ограничениями файловых хранилищ.
+alternate:
+  - href: ru/compute/concepts/filesystem.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Файловые хранилища

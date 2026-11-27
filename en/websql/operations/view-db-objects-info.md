@@ -1,6 +1,10 @@
 ---
 title: Viewing information about database objects
 description: Follow this guide to get information about database objects.
+alternate:
+  - href: en/websql/operations/view-db-objects-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing information about database objects

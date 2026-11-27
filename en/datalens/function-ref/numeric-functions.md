@@ -1,6 +1,10 @@
 ---
 title: Mathematical functions
 editable: false
+alternate:
+  - href: en/datalens/function-ref/numeric-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Mathematical functions

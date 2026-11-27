@@ -1,6 +1,10 @@
 ---
 title: Чтение данных из {{ objstorage-full-name }} с помощью привязок к данным {{ yq-full-name }}
 description: Из статьи вы узнаете, как создать привязку к данным и читать данные из {{ objstorage-full-name }} с помощью {{ yq-full-name }}.
+alternate:
+  - href: ru/query/sources-and-sinks/object-storage-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Чтение данных из {{ objstorage-name }} с помощью привязок к данным {{ yq-name }}

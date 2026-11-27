@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ backup-full-name }} на существующей ВМ
 description: Следуя данной инструкции, вы сможете подключиться к {{ backup-name }} и начать работать с сервисом на существующих виртуальных машинах.
+alternate:
+  - href: ru/backup/quickstart/existing-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ backup-full-name }} на существующей ВМ

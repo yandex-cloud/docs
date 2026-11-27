@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/audit-trails/concepts/control-plane-vs-data-plane.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сравнение логов событий уровня конфигурации и уровня сервисов
 
 Аудитные логи {{ at-name }} могут содержать два разных типа событий: события уровня конфигурации и события уровня сервисов. Задавать типы собираемых событий, [объект назначения](./trail.md#target), [области сбора аудитных логов](./trail.md#collecting-area) и [другие настройки](./trail.md#trail-settings) можно при [создании](../operations/create-trail.md) или [изменении](../operations/manage-trail.md#update-trail) трейла.

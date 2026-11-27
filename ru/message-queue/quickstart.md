@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ message-queue-full-name }} (очередями сообщений)
 description: В этой инструкции вы научитесь выполнять основные действия с очередями сообщений в {{ message-queue-full-name }}. Для начала установите AWS CLI — утилиту командной строки для работы с {{ message-queue-name }}.
+alternate:
+  - href: ru/message-queue/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с {{ message-queue-name }}

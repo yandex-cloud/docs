@@ -1,6 +1,10 @@
 ---
 title: '{{ mpg-name }}. Ответы на вопросы'
 description: Что такое {{ mpg-name }}? Для каких задач стоит использовать {{ mpg-name }}, а для каких — виртуальные машины с базами данных? Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mpg-name }}? Ответы на эти и другие вопросы в данной статье.
+alternate:
+  - href: ru/managed-postgresql/qa/general.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие вопросы про {{ mpg-name }}

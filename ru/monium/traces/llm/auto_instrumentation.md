@@ -1,6 +1,10 @@
 ---
 title: Автоматическая инструментация LLM-приложений
 description: Руководство по подключению автоматической инструментации LLM-приложений для отправки трейсов в {{ traces-name }}.
+alternate:
+  - href: ru/monium/traces/llm/auto_instrumentation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Автоматическая инструментация LLM-приложений

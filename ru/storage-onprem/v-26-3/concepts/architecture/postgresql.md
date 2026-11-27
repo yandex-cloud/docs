@@ -1,6 +1,10 @@
 ---
 title: Кластеры {{ PG }} в {{ objstorage-onprem-name }}
 description: Репликация, резервное копирование и отказоустойчивость кластеров {{ PG }} в {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/postgresql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Кластеры {{ PG }}

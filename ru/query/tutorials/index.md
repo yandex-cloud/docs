@@ -1,6 +1,10 @@
 ---
 title: Практические руководства {{ yq-full-name }}
 description: В этом разделе собраны практические руководства для {{ yq-name }}.
+alternate:
+  - href: ru/query/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ yq-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/terraform/concepts/providers.md
+    type: text/markdown
+    title: Markdown version
+---
 # Providers
 
 In {{ TF }}, a provider is a component that enables interaction with various cloud and infrastructure services. Technically, providers are links between {{ TF }} and target platforms such as AWS, Google Cloud, Azure, Docker, and others.

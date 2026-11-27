@@ -1,6 +1,10 @@
 ---
 title: Updating an endpoint in {{ cns-full-name }}
 description: Follow this guide to update an endpoint.
+alternate:
+  - href: en/notifications/operations/push/endpoint-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating an endpoint

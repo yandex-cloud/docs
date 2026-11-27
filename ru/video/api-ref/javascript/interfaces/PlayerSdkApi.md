@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/video/api-ref/javascript/interfaces/PlayerSdkApi.md
+    type: text/markdown
+    title: Markdown version
+---
 # Interface: PlayerSdkApi
 
 [Интерфейс PlayerSdk](../../../sdk/javascript/index.md).

@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/greenplum-to-clickhouse'
+alternate:
+  - href: en/managed-greenplum/tutorials/greenplum-to-clickhouse.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Migrating databases from {{ GP }} to {{ CH }}

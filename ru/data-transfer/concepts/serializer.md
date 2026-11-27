@@ -1,6 +1,10 @@
 ---
 title: Сериализация в {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, что такое сериализация и какие типы сериализации можно использовать в зависимости от поставки.
+alternate:
+  - href: ru/data-transfer/concepts/serializer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сериализация

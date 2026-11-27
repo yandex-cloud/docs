@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ mch-full-name }}
 description: Access management in {{ CH }}, a database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
+alternate:
+  - href: en/managed-clickhouse/security.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ mch-name }}

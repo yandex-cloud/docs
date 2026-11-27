@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/cluster/list-node-groups/
+alternate:
+  - href: ru/cli/cli-ref/container/cli-ref/v0/cluster/list-node-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container v0 cluster list-node-groups

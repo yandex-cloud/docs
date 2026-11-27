@@ -1,6 +1,10 @@
 ---
 title: Перенаправление запросов к контенту
 description: В данном разделе описана опция CDN-ресурса, позволяющая изменять пути запросов от CDN-ресурса к источнику с помощью правил Rewrite.
+alternate:
+  - href: ru/cdn/concepts/http-rewrite.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Перенаправление запросов

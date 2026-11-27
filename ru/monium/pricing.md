@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ monium-name }}
 description: В статье содержатся правила тарификации платформы {{ monium-name }}.
 editable: false
+alternate:
+  - href: ru/monium/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ monium-name }}

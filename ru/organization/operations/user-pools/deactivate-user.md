@@ -1,6 +1,10 @@
 ---
 title: Как деактивировать пользователя в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете деактивировать пользователя в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/deactivate-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Деактивировать пользователя

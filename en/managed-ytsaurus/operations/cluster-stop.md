@@ -1,6 +1,10 @@
 ---
 title: Stopping and starting an {{ ytsaurus-name }} cluster
 description: You can stop and restart an {{ ytsaurus-name }} cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
+alternate:
+  - href: en/managed-ytsaurus/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Stopping and restarting a {{ ytsaurus-name }} cluster

@@ -5,6 +5,10 @@ keywords:
   - OpenSearch settings
   - OpenSearch cluster settings
   - OpenSearch
+alternate:
+  - href: en/managed-opensearch/operations/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating {{ OS }} cluster settings

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/concepts/datalens-public.md
+    type: text/markdown
+    title: Markdown version
+---
 # Publishing objects
 
 If you make your new charts and dashboards publicly accessible, any user can follow the link and view the newly published object without authorization.

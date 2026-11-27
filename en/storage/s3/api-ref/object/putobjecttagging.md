@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/object/putobjecttagging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: PutObjectTagging
 
 Adds [labels](../../../concepts/tags.md) to a bucket object. This overwrites any existing object labels.

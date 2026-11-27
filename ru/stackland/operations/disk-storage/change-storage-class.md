@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/disk-storage/change-storage-class.md
+    type: text/markdown
+    title: Markdown version
+---
 # Переключить компонент на другой класс хранилища
 
 При развёртывании {{ stackland-name }} назначает класс хранилища по умолчанию — тот, который указан в `StacklandClusterConfig.spec.storage.defaultStorageClass`. Этот класс получает аннотацию `storageclass.kubernetes.io/is-default-class: "true"` и используется для всех PVC, в которых класс хранилища не задан явно.

@@ -1,6 +1,10 @@
 ---
 title: How to create a resource record in {{ dns-full-name }}
 description: In this tutorial, you will learn how to create a resource record.
+alternate:
+  - href: en/dns/operations/resource-record-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a resource record

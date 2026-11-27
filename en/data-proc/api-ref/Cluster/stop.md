@@ -30,6 +30,10 @@ apiPlayground:
           format: int64
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/data-proc/api-ref/Cluster/stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Data Processing API, REST: Cluster.Stop

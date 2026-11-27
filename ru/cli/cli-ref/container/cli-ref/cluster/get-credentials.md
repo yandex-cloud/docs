@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/cluster/get-credentials/
+alternate:
+  - href: ru/cli/cli-ref/container/cli-ref/cluster/get-credentials.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc container cluster get-credentials

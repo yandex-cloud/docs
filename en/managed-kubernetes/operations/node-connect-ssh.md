@@ -1,6 +1,10 @@
 ---
 title: How to connect to a {{ k8s }} cluster node over SSH in {{ managed-k8s-full-name }}
 description: Follow this guide to connect to the node over SSH.
+alternate:
+  - href: en/managed-kubernetes/operations/node-connect-ssh.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a node over SSH

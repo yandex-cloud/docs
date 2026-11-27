@@ -1,6 +1,10 @@
 ---
 title: Viewing the workspace dashboard and operations in {{ sd-full-name }}
 description: In this guide, you will learn how to view a dashboard and operations for a workspace in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/workspaces/view-dashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing the workspace dashboard and operations in {{ sd-name }}

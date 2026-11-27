@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к KVM-консоли сервера {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете подключиться к KVM-консоли сервера {{ baremetal-name }}.
+alternate:
+  - href: ru/baremetal/operations/servers/server-kvm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключиться к KVM-консоли

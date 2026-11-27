@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/workload-identity/federated-credential/create/
+alternate:
+  - href: en/iam/cli-ref/v0/workload-identity/federated-credential/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam v0 workload-identity federated-credential create

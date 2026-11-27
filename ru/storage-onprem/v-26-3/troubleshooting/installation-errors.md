@@ -1,6 +1,10 @@
 ---
 title: Устранение ошибок установки {{ objstorage-onprem-name }}
 description: Диагностика ошибок Ansible и оператора при установке {{ objstorage-onprem-name }} и продолжение установки после исправления.
+alternate:
+  - href: ru/storage-onprem/v-26-3/troubleshooting/installation-errors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Устранение неисправностей при установке

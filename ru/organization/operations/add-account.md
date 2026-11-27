@@ -1,6 +1,10 @@
 ---
 title: Как добавить пользователя в организацию в {{ org-full-name }}
 description: Из статьи вы узнаете, как добавить пользователя в организацию в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/add-account.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить пользователя

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/cluster/enable-sharding/
+alternate:
+  - href: ru/managed-valkey/cli-ref/cluster/enable-sharding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-redis cluster enable-sharding

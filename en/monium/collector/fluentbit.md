@@ -1,6 +1,10 @@
 ---
 title: Sending telemetry data to {{ monium-full-name }} via Fluent Bit
 description: Configure Fluent Bit to send logs, metrics, and traces to {{ monium-name }} over OTLP.
+alternate:
+  - href: en/monium/collector/fluentbit.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data transmission via Fluent Bit

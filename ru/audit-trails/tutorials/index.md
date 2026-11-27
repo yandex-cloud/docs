@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ at-full-name }}
 description: Различные сценарии использования {{ at-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/audit-trails/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ at-name }}

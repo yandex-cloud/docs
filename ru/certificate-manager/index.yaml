@@ -30,6 +30,10 @@ meta:
     - keyword: сертификат безопасности в {{ yandex-cloud }}
     - keyword: валидация в {{ certificate-manager-name }}
     - keyword: терминирование в {{ yandex-cloud }}
+  alternate:
+    - href: ru/certificate-manager/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первый сертификат

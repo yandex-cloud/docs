@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/wlif-gitlab-integration'
+alternate:
+  - href: en/iam/tutorials/wlif-gitlab-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [wlif-gitlab-integration](../../_tutorials/security/wlif-gitlab-integration.md) %}

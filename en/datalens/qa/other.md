@@ -1,6 +1,10 @@
 ---
 title: Other
 description: This page covers FAQ about {{ datalens-name }}.
+alternate:
+  - href: en/datalens/qa/other.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Other

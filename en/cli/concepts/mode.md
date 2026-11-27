@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cli/concepts/mode.md
+    type: text/markdown
+    title: Markdown version
+---
 # Synchronous and asynchronous {{ yandex-cloud }} CLI command modes
 
 The CLI supports two command modes: synchronous and asynchronous.

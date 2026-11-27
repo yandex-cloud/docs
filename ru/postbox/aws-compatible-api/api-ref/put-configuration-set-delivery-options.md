@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/put-configuration-set-delivery-options.md
+    type: text/markdown
+    title: Markdown version
+---
 # Метод PutConfigurationSetDeliveryOptions
 
 Обновляет настройки доставки для [конфигурации](../../concepts/glossary.md#configuration) в каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.

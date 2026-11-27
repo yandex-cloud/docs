@@ -1,6 +1,10 @@
 ---
 title: Trigger for {{ yds-full-name }} that invokes a {{ serverless-containers-full-name }} container
 description: In this article, you will learn about the trigger for {{ yds-name }} that invokes a {{ serverless-containers-name }} container, the roles the trigger needs to operate correctly, and the trigger's message format.
+alternate:
+  - href: en/serverless-containers/concepts/trigger/data-streams-trigger.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Trigger for {{ yds-name }} that invokes a {{ serverless-containers-name }} container

@@ -1,6 +1,10 @@
 ---
 title: Какие возникают общие ошибки при работе с {{ org-full-name }}
 description: Из статьи вы узнаете, какие бывают общие ошибки при работе с федерациями и организациями.
+alternate:
+  - href: ru/organization/diagnostics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие ошибки

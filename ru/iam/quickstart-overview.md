@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iam/quickstart-overview.md
+    type: text/markdown
+    title: Markdown version
+---
 # Начало работы с {{ iam-name }}
 
 Сервис {{ iam-full-name }} позволяет управлять доступом к ресурсам {{ yandex-cloud }}. Благодаря {{ iam-short-name }} операции над ресурсами могут выполнять только пользователи с нужными правами доступа.

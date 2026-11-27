@@ -1,6 +1,10 @@
 ---
 title: Writing to the execution log in {{ postbox-full-name }}
 description: Follow this guide to configure address logging.
+alternate:
+  - href: en/postbox/operations/logs-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Writing to the execution log in {{ postbox-name }}

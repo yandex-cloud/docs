@@ -1,6 +1,10 @@
 ---
 title: Как удалить профиль безопасности {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете удалить профиль безопасности {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/profile-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить профиль безопасности

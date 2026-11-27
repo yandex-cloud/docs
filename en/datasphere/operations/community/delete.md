@@ -1,6 +1,10 @@
 ---
 title: How to delete a community
 description: Follow this guide to delete a community.
+alternate:
+  - href: en/datasphere/operations/community/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a community

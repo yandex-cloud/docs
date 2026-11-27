@@ -1,6 +1,10 @@
 ---
 title: Viewing and analyzing LLM traces
 description: 'Description of the special-purpose interface for LLM monitoring: search results, view page structure, conversation feed, available tools, switching to full trace, and logging.'
+alternate:
+  - href: en/monium/traces/llm/traces.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing and analyzing LLM traces

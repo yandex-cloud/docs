@@ -1,6 +1,10 @@
 ---
 title: Добавить тестовый номер в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете добавить тестовый номер.
+alternate:
+  - href: ru/notifications/operations/sms/test-number-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить тестовый номер

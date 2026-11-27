@@ -1,6 +1,10 @@
 ---
 title: '{{ serverless-containers-full-name }}. FAQ'
 description: How do I get my activity logs in {{ serverless-containers-full-name }}? Find answers to this and other questions in this article.
+alternate:
+  - href: en/serverless-containers/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # General questions about {{ serverless-containers-name }}

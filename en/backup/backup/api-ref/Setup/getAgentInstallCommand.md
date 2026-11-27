@@ -38,6 +38,10 @@ apiPlayground:
         - type
       additionalProperties: false
     definitions: null
+alternate:
+  - href: en/backup/backup/api-ref/Setup/getAgentInstallCommand.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Backup API, REST: Setup.GetAgentInstallCommand

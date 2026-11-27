@@ -1,6 +1,10 @@
 ---
 title: Public materials about {{ mspqr-full-name }}
 description: Video recordings of conferences and webinars on {{ mspqr-full-name }}.
+alternate:
+  - href: en/managed-spqr/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public materials about {{ mspqr-full-name }}

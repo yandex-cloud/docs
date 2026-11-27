@@ -35,6 +35,10 @@ meta:
     - keyword: анализ данных
     - keyword: аналитические запросы
     - keyword: потоковые запросы
+  alternate:
+    - href: ru/query/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Узнайте, как начать работать с Yandex Query

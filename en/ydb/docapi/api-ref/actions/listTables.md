@@ -1,5 +1,9 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/listTables.md
+alternate:
+  - href: en/ydb/docapi/api-ref/actions/listTables.md
+    type: text/markdown
+    title: Markdown version
 ---
 # ListTables method
 

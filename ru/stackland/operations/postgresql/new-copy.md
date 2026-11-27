@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/postgresql/new-copy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать резервную копию
 
 Если у вас есть кластер [PostgreSQL](../../concepts/components/postgresql.md) в [проекте](../projects/create-project.md)), вы можете создать для него резервную копию.

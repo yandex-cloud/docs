@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/operations/replacing-disks.md
+    type: text/markdown
+    title: Markdown version
+---
 # Замена дисков
 
 При выходе из строя диска автоматика обнаруживает это и начинает процедуру восстановления и замены диска.

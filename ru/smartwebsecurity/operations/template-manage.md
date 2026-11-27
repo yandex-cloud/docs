@@ -1,6 +1,10 @@
 ---
 title: Управление шаблонами страниц ответов в {{ sws-full-name }}
 description: Следуя этой инструкции, вы сможете получить информацию о шаблоне страницы ответа, изменить или удалить его в {{ sws-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/template-manage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управлять шаблоном страницы ответа

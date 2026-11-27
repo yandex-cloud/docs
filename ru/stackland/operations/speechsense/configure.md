@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/speechsense/configure.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настроить и активировать {{ speechsense-name }}
 
 После [загрузки образов](install-images.md) активируйте компонент {{ speechsense-name }} в кластере {{ stackland-name }}.

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-valkey/api-ref/grpc/Cluster/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for Redis API, gRPC: ClusterService.Backup

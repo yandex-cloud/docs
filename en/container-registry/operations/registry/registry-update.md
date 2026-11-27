@@ -1,6 +1,10 @@
 ---
 title: How to update a registry in {{ container-registry-full-name }}
 description: Follow this guide to update a registry.
+alternate:
+  - href: en/container-registry/operations/registry/registry-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a registry

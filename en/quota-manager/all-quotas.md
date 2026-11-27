@@ -1,6 +1,10 @@
 ---
 title: List of {{ yandex-cloud }} service quotas
 description: Many {{ yandex-cloud }} services have soft constraints on resource usage called quotas. You can view the quota value and create an update request using the quota ID specified in this section.
+alternate:
+  - href: en/quota-manager/all-quotas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} service quotas

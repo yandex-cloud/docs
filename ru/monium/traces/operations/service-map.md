@@ -1,6 +1,10 @@
 ---
 title: Карта сервисов в трейсах
 description: Узнайте, как использовать карту сервисов в {{ traces-name }} для анализа связей между сервисами, поиска источников ошибок и исследования распределенных запросов.
+alternate:
+  - href: ru/monium/traces/operations/service-map.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Карта сервисов в трейсах

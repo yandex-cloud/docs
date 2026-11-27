@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/audit-trails/concepts/control-plane-vs-data-plane.md
+    type: text/markdown
+    title: Markdown version
+---
 # Comparing management and data event logs
 
 {{ at-name }} audit logs may contain two types of events: management events and data events. You can specify the types of events to collect, [destination object](./trail.md#target), [audit log collection scopes](./trail.md#collecting-area), and [other settings](./trail.md#trail-settings) when [creating](../operations/create-trail.md) or [modifying](../operations/manage-trail.md#update-trail) a trail.

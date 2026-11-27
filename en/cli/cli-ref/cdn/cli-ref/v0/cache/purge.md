@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/v0/cache/purge/
+alternate:
+  - href: en/cli/cli-ref/cdn/cli-ref/v0/cache/purge.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cdn v0 cache purge

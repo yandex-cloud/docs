@@ -1,6 +1,10 @@
 ---
 title: Deleting a {{ mgl-full-name }} instance
 description: Follow this guide to delete a {{ mgl-name }} instance.
+alternate:
+  - href: en/managed-gitlab/operations/instance/instance-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a {{ GL }} instance

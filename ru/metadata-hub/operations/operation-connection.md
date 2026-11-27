@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию об операции {{ metadata-hub-name }}. Пошаговые инструкции
 description: Пошаговые инструкции по работе с {{ connection-manager-name }} в {{ yandex-cloud }}. Из статьи вы узнаете, как получить информацию об операции.
+alternate:
+  - href: ru/metadata-hub/operations/operation-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации об операции

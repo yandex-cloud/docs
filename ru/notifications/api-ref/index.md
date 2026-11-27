@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обзор HTTP API {{ cns-full-name }}
 
 HTTP API сервиса {{ cns-name }} совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html). 

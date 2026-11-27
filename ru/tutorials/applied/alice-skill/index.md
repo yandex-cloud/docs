@@ -7,6 +7,10 @@ keywords:
   - пример создания навыка алисы
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/alice-skill/'
+alternate:
+  - href: ru/tutorials/applied/alice-skill/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [alice-skill](../../../_tutorials/serverless/alice-skill/index.md) %}

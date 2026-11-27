@@ -1,6 +1,10 @@
 ---
 title: Как удалить политику аутентификации в {{ org-full-name }}
 description: Следуя этой инструкции, вы сможете удалить политику аутентификации в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/authentication-policies/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить политику аутентификации

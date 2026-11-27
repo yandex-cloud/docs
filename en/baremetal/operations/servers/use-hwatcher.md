@@ -1,6 +1,10 @@
 ---
 title: How to analyze the status of a {{ baremetal-name }} server
 description: Follow this guide to use the HWCheck utility to generate a status report for the server, its disks, and peripherals.
+alternate:
+  - href: en/baremetal/operations/servers/use-hwatcher.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Analyzing {{ baremetal-name }} server status with HWCheck

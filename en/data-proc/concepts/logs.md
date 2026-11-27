@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/concepts/logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Logs in {{ dataproc-name }}
 
 [{{ cloud-logging-full-name }}](../../logging/) collects and displays {{ dataproc-name }} cluster logs. They are automatically saved to the log group linked to the cluster when you [create](../operations/cluster-create.md) or [modify](../operations/cluster-update.md) it. This can be the folder's default log group or a log group pre-configured by the user.

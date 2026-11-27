@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cdn/concepts/ip-address-acl.md
+    type: text/markdown
+    title: Markdown version
+---
 # Политика доступа по IP-адресам
 
 С помощью _политики доступа по IP-адресам_ можно ограничить доступ к контенту, распространяемому через CDN, задавая для [CDN-ресурсов](./resource.md) _разрешающую_ или _блокирующую_ политику.

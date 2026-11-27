@@ -1,6 +1,10 @@
 ---
 title: '{{ sf-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ sf-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/functions/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

@@ -1,6 +1,10 @@
 ---
 title: Gateways in {{ vpc-full-name }}
 description: In this tutorial, you will learn about gateways used in {{ vpc-full-name }}.
+alternate:
+  - href: en/vpc/concepts/gateways.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Gateways

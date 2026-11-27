@@ -1,6 +1,10 @@
 ---
 title: Агент для поставки метрик
 description: Из статьи вы узнаете про агент для поставки метрик, схему работы агента, а также что такое сообщения, сессии, входы, выходы, фильтры, хранилища и маршрутизация.
+alternate:
+  - href: ru/monitoring/concepts/data-collection/unified-agent/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Агент для поставки метрик

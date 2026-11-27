@@ -1,6 +1,10 @@
 ---
 title: Подключение к управляемым БД из функции {{ sf-full-name }} через пользовательскую сеть {{ vpc-short-name }}
 description: В этом руководстве вы создадите функцию на Python, которая подключается к приватному кластеру {{ mpg-name }} или {{ mch-name }} через пользовательскую сеть и возвращает результат запроса SELECT 1.
+alternate:
+  - href: ru/functions/tutorials/database-connection-via-vpc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение к управляемым БД из функции {{ sf-name }} через пользовательскую сеть {{ vpc-short-name }}

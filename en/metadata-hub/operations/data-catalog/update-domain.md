@@ -1,6 +1,10 @@
 ---
 title: How to update a domain in {{ data-catalog-full-name }}
 description: Follow this guide to update a domain in {{ data-catalog-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/update-domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a domain

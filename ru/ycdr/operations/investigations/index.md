@@ -1,6 +1,10 @@
 ---
 title: Работа с расследованиями в {{ ycdr-full-name }}
 description: Обзор возможностей работы с расследованиями в {{ ycdr-name }}.
+alternate:
+  - href: ru/ycdr/operations/investigations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа с расследованиями

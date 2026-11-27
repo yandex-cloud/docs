@@ -1,6 +1,10 @@
 ---
 title: Specifics of working with temporary {{ dataproc-full-name }} clusters
 description: In this article, you will learn about working with temporary {{ dataproc-name }} clusters, the Spark connector, and {{ dataproc-name }} templates.
+alternate:
+  - href: en/datasphere/concepts/temporary-data-processing-clusters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Specifics of working with temporary {{ dataproc-name }} clusters

@@ -1,6 +1,10 @@
 ---
 title: Как просмотреть роли на ресурс в {{ container-registry-full-name }}
 description: Следуя данной инструкции, вы сможете просмотреть роли на ресурс.
+alternate:
+  - href: ru/container-registry/operations/roles/get-assigned-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотреть роли на ресурс

@@ -1,6 +1,10 @@
 ---
 title: Как перенести зону DNS в другой каталог в {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете перенести зону DNS в другой каталог.
+alternate:
+  - href: ru/dns/operations/zone-move-folder.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Перенести зону DNS в другой каталог

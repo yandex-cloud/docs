@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/operations/data/secrets.md
+    type: text/markdown
+    title: Markdown version
+---
 # Работа с секретами
 
 [Секреты](../../concepts/secrets.md) позволяют хранить чувствительные данные в зашифрованном виде и безопасно использовать их в коде проекта.

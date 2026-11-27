@@ -1,6 +1,10 @@
 ---
 title: Pulling a Helm chart from a {{ cloud-registry-name }}
 description: Follow this guide to pull a Helm chart from a {{ cloud-registry-name }}.
+alternate:
+  - href: en/cloud-registry/operations/helm/pull.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pulling a Helm chart from a registry

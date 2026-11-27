@@ -1,6 +1,10 @@
 ---
 title: Посмотреть операции с ресурсами сервиса {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете посмотреть операции с ресурсами сервиса {{ vpc-name }}.
+alternate:
+  - href: ru/vpc/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть операции с ресурсами сервиса {{ vpc-name }}

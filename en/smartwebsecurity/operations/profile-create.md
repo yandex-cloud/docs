@@ -1,6 +1,10 @@
 ---
 title: How to create a {{ sws-full-name }} profile
 description: Follow this guide to create a {{ sws-full-name }} profile.
+alternate:
+  - href: en/smartwebsecurity/operations/profile-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a security profile

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/object/getobjectretention.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: GetObjectRetention
 
 Возвращает настройки временной [блокировки](../../../concepts/object-lock.md), установленной на версию объекта.

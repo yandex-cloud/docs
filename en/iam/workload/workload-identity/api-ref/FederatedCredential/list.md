@@ -39,6 +39,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/iam/workload/workload-identity/api-ref/FederatedCredential/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Workload Identity, REST: FederatedCredential.List

@@ -1,6 +1,10 @@
 ---
 title: Изменение настроек пользователя {{ VLK }} в {{ mrd-full-name }}
 description: Вы можете изменять настройки пользователя {{ VLK }} в {{ mrd-name }}.
+alternate:
+  - href: ru/managed-valkey/operations/user-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек пользователя

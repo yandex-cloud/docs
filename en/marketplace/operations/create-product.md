@@ -1,6 +1,10 @@
 ---
 title: How to create a product in the {{ marketplace-full-name }} partner dashboard
 description: Follow this guide to create a product in the {{ marketplace-full-name }} partner dashboard.
+alternate:
+  - href: en/marketplace/operations/create-product.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a product in the {{ marketplace-short-name }} partner dashboard

@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/operations/logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Логирование работы {{ sk-hybrid-name }}
 
 Вы можете контролировать, какие действия контейнеров {{ sk-hybrid-name }} будут записываться в логи. Уровень логирования определяется параметром `LOGGING_LEVEL`. 

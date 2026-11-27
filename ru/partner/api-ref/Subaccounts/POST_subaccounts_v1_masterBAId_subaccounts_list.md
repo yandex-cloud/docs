@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Subaccounts/POST_subaccounts_v1_masterBAId_subaccounts_list.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # List subaccounts

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/slo/visualisation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Добавление виджета SLO на дашборд
 
 ## Список SLO {#list}

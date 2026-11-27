@@ -1,6 +1,10 @@
 ---
 title: Tutorial on working with the command line interface (CLI)
 description: In this article, you will learn how to work with the command line interface in {{ yandex-cloud }}. We'll tell you how to authenticate on behalf of a user or service account, how to manage your profile (add, delete, activate, and change its parameters).
+alternate:
+  - href: en/cli/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # All tutorials for {{ yandex-cloud }} CLI

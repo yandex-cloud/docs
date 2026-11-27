@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/s3/api-ref/multipart/abortupload.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, REST совместимый с Amazon S3: AbortMultipartUpload
 
 Прерывает загрузку и удаляет все уже сохраненные части объекта из {{ objstorage-name }}. Если запрос на прерывание загрузки поступил в процессе загрузки какой-либо из частей, то результат не гарантирован.

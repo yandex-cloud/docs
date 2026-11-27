@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/logs/concepts/attributes-guide.md
+    type: text/markdown
+    title: Markdown version
+---
 # Log annotation recommendations
 
 This section provides recommendations for using fields and attributes to optimally structure logs for enhanced visualization and system performance.

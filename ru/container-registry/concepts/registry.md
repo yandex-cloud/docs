@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/container-registry/concepts/registry.md
+    type: text/markdown
+    title: Markdown version
+---
 # Реестр в {{ container-registry-name }}
 
 _Реестр_ — хранилище Docker-образов.

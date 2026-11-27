@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/subject-details/
+alternate:
+  - href: en/iam/cli-ref/subject-details/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam subject-details

@@ -1,6 +1,10 @@
 ---
 title: Изменить приложение SolidWall WAF в {{ sws-full-name }}
 description: Измените имя и описание приложения SolidWall WAF в {{ sws-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/solidwall-waf-application-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить приложение SolidWall WAF

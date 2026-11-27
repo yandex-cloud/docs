@@ -415,6 +415,10 @@ apiPlayground:
               - IMAGE_TEXT
               - SILHOUETTES
               - KALEIDOSCOPE
+alternate:
+  - href: ru/smartcaptcha/api-ref/Captcha/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SmartCaptcha API, REST: Captcha.Create

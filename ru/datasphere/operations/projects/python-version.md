@@ -1,6 +1,10 @@
 ---
 title: Как изменить версию Python для проекта в {{ ml-platform-full-name }}
 description: Следуя данной инструкции, вы сможете изменить версию Python для проекта.
+alternate:
+  - href: ru/datasphere/operations/projects/python-version.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выбрать версию Python

@@ -1,6 +1,10 @@
 ---
 title: Сервисные роли для модуля {{ td-full-name }} в {{ sd-full-name }}
 description: На данной странице приведен список сервисных ролей для управления доступом к модулю {{ td-full-name }} ({{ td-name }}) в сервисе {{ sd-name }}.
+alternate:
+  - href: ru/security-deck/security/td-roles.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сервисные роли для модуля {{ td-full-name }} ({{ td-name }})

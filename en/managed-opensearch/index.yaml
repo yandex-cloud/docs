@@ -30,6 +30,10 @@ meta:
     - keyword: '{{ OS }}'
     - keyword: Opensearch
     - keyword: '{{ OS }} in cloud'
+  alternate:
+    - href: en/managed-opensearch/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first database cluster

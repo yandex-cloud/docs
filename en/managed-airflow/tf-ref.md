@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ maf-full-name }}'
 description: This page lists {{ TF }} provider resources and data sources supported by {{ maf-name }}.
+alternate:
+  - href: en/managed-airflow/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ maf-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cloud-apps/at-ref.md
+    type: text/markdown
+    title: Markdown version
+---
 # Справочник аудитных логов {{ at-full-name }}
 
 В {{ at-name }} поддерживается отслеживание событий уровня конфигурации (Control Plane) для {{ cloud-apps-full-name }}. Подробнее в разделе [{#T}](../audit-trails/concepts/format.md).

@@ -130,6 +130,10 @@ apiPlayground:
               **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
               Disk size autoscaling settings
             $ref: '#/definitions/DiskSizeAutoscaling'
+alternate:
+  - href: en/managed-opensearch/api-ref/Cluster/updateDashboardsNodeGroup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.UpdateDashboardsNodeGroup

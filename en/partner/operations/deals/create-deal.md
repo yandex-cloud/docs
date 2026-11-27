@@ -1,6 +1,10 @@
 ---
 title: How to create a deal
 description: Follow this guide to create a deal.
+alternate:
+  - href: en/partner/operations/deals/create-deal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a deal

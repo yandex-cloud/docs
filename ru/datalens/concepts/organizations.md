@@ -1,6 +1,10 @@
 ---
 title: Организации в {{ datalens-full-name }}
 description: Организация — сервис {{ yandex-cloud }}, который позволяет управлять списком сотрудников, обеспечивает единую авторизацию в сервисах {{ yandex-cloud }} и предоставляет возможность назначения ролей. Теперь {{ datalens-full-name }} создается на уровне организации, что облегчает взаимодействие с другими сервисами {{ yandex-cloud }}.
+alternate:
+  - href: ru/datalens/concepts/organizations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Организации в {{ datalens-full-name }}

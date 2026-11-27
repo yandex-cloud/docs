@@ -1,6 +1,10 @@
 ---
 title: '{{ alb-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ alb-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/application-load-balancer/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

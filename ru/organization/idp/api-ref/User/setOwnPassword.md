@@ -41,6 +41,10 @@ apiPlayground:
             type: string
         required:
           - password
+alternate:
+  - href: ru/organization/idp/api-ref/User/setOwnPassword.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: User.SetOwnPassword

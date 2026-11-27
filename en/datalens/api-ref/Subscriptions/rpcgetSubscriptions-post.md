@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Subscriptions/rpcgetSubscriptions-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get subscription list

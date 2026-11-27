@@ -1,6 +1,10 @@
 ---
 title: Getting started with the {{ video-full-name }} API
 description: In this section, you will learn how to work with the {{ video-name }} API to create a channel, upload a video, and get a link to the video player.
+alternate:
+  - href: en/video/api-ref/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # How to get started with the {{ video-full-name }} API

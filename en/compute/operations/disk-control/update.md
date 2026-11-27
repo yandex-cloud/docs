@@ -1,6 +1,10 @@
 ---
 title: How to update a disk in {{ compute-full-name }}
 description: Follow this guide to update a disk.
+alternate:
+  - href: en/compute/operations/disk-control/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a disk

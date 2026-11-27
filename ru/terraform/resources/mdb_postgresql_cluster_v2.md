@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for PostgreSQL
+alternate:
+  - href: ru/terraform/resources/mdb_postgresql_cluster_v2.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_postgresql_cluster_v2 (Resource)

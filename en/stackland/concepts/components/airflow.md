@@ -1,6 +1,10 @@
 ---
 title: '{{ maf-name }}'
 description: '{{ maf-name }} capabilities, settings, and limitations in {{ stackland-name }}.'
+alternate:
+  - href: en/stackland/concepts/components/airflow.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ maf-name }}

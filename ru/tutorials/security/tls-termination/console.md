@@ -1,6 +1,10 @@
 ---
 title: Терминирование TLS-соединений с помощью {{ alb-full-name }} с помощью консоли управления
 description: В этом руководстве вы настроите балансировщик {{ alb-full-name }}, чтобы он терминировал TLS-соединения с помощью сертификата из {{ certificate-manager-full-name }} и перенаправлял HTTP-запросы на HTTPS с помощью консоли управления.
+alternate:
+  - href: ru/tutorials/security/tls-termination/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Терминирование TLS-соединений с помощью консоли управления

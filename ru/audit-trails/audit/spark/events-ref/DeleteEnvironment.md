@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/spark/events-ref/DeleteEnvironment.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Spark Audit Trails Events: DeleteEnvironment

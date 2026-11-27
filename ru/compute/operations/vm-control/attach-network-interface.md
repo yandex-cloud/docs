@@ -1,6 +1,10 @@
 ---
 title: Добавить дополнительный сетевой интерфейс на виртуальную машину
 description: Следуя данной инструкции, вы сможете добавить дополнительный сетевой интерфейс на виртуальную машину.
+alternate:
+  - href: ru/compute/operations/vm-control/attach-network-interface.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить дополнительный сетевой интерфейс на виртуальную машину

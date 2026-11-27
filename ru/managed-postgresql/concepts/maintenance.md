@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание в {{ mpg-full-name }}
 description: Под техническим обслуживанием в {{ mpg-name }} понимается автоматическая установка обновлений и исправлений СУБД для хостов (в т. ч. для выключенных кластеров), изменение класса хостов и размера хранилища и другие сервисные работы.
+alternate:
+  - href: ru/managed-postgresql/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание в {{ mpg-name }}

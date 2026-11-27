@@ -54,6 +54,10 @@ apiPlayground:
             maxProperties: 64
         required:
           - accessPolicyTemplateId
+alternate:
+  - href: ru/organization/api-ref/Organization/updateAccessPolicyBindingParameters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, REST: Organization.UpdateAccessPolicyBindingParameters

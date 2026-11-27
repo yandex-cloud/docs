@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/registry/
+alternate:
+  - href: ru/cli/cli-ref/iot/cli-ref/registry/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iot registry

@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы о {{ captcha-full-name }}
 description: Ответы на вопросы о мониторинге проверок и локальном тестировании {{ captcha-name }}.
+alternate:
+  - href: ru/smartcaptcha/qa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы

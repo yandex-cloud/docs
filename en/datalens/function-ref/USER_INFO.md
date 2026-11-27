@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/USER_INFO.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # USER_INFO

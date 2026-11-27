@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/DB_CAST.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DB_CAST

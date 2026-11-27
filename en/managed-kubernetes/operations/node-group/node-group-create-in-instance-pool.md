@@ -1,6 +1,10 @@
 ---
 title: Creating a group with nodes from a {{ compute-full-name }} reserved instance pool
 description: Follow this guide to create a group with nodes from a {{ compute-name }} reserved instance pool.
+alternate:
+  - href: en/managed-kubernetes/operations/node-group/node-group-create-in-instance-pool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a group with nodes from a {{ compute-full-name }} reserved instance pool

@@ -1,6 +1,10 @@
 ---
 title: How to work with {{ iot-full-name }}
 description: In this article, you will learn how to work with {{ iot-full-name }} in {{ yandex-cloud }}. Find out how to manage registries, devices, topic aliases, certificates, and passwords.
+alternate:
+  - href: en/iot-core/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ iot-name }}

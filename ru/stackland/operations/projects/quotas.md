@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/projects/quotas.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать квоту
 
 После создания [проекта](../projects/create-project.md)) администратор может ограничить ресурсы с помощью [объекта](https://kubernetes.io/docs/concepts/policy/resource-quotas/) `ResourceQuota`.

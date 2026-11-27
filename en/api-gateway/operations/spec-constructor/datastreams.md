@@ -1,6 +1,10 @@
 ---
 title: Adding the {{ yds-full-name }} extension
 description: Follow this guide to add the {{ yds-full-name }} extension using the specification constructor.
+alternate:
+  - href: en/api-gateway/operations/spec-constructor/datastreams.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding the x-yc-apigateway-integration:cloud_datastreams extension

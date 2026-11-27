@@ -1,6 +1,10 @@
 ---
 title: Use cases for managing identity federations in {{ org-full-name }}
 description: Various use cases for managing {{ org-full-name }} identity federations in {{ yandex-cloud }}.
+alternate:
+  - href: en/organization/tutorials/federations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing identity federations in {{ org-full-name }}

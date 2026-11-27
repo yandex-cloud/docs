@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/concepts/trigger/iot-core-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Триггер для {{ iot-short-name }}, который передает сообщения в функцию {{ sf-name }}
 
 [Триггер](../trigger/) для {{ iot-short-name }} предназначен для управления сообщениями, которыми обмениваются устройства, реестры и брокеры. Он создается для топиков: принимает из них копии сообщений и передает в функцию {{ sf-name }} для обработки.

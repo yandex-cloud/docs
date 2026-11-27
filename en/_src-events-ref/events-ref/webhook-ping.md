@@ -2,6 +2,10 @@
 title: webhook.ping
 description: Ping event - sent when a webhook is tested
 editable: false
+alternate:
+  - href: en/_src-events-ref/events-ref/webhook-ping.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # webhook.ping

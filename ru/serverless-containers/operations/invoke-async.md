@@ -1,6 +1,10 @@
 ---
 title: Вызвать контейнер асинхронно в {{ serverless-containers-full-name }}
 description: Следуя данной инструкции, вы сможете настроить и выполнить асинхронный вызов контейнера в {{ serverless-containers-name }}.
+alternate:
+  - href: ru/serverless-containers/operations/invoke-async.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вызвать контейнер асинхронно

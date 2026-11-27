@@ -1,6 +1,10 @@
 ---
 title: '{{ schema-registry-name }} API reference'
 description: '{{ schema-registry-name }} implements the Confluent Schema Registry API.'
+alternate:
+  - href: en/metadata-hub/api-ref/schema-registry/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ schema-registry-name }} API

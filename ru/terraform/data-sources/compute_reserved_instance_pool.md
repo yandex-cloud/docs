@@ -1,5 +1,9 @@
 ---
 subcategory: Compute Cloud
+alternate:
+  - href: ru/terraform/data-sources/compute_reserved_instance_pool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_compute_reserved_instance_pool (DataSource)

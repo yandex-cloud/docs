@@ -1,6 +1,10 @@
 ---
 title: '{{ ycdr-full-name }} overview'
 description: '{{ ycdr-name }} is a service that collects the infrastructure settings data of your {{ yandex-cloud }} services.'
+alternate:
+  - href: en/ycdr/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ycdr-full-name }} overview

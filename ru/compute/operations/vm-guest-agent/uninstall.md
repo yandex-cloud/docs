@@ -1,6 +1,10 @@
 ---
 title: Удалить агент для сброса паролей с виртуальной машины Windows Server
 description: Следуя данной инструкции, вы сможете удалить агент для сброса паролей с виртуальной машины Windows Server.
+alternate:
+  - href: ru/compute/operations/vm-guest-agent/uninstall.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить агент для сброса паролей с виртуальной машины Windows Server

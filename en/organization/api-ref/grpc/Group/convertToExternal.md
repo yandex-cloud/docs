@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/organization/api-ref/grpc/Group/convertToExternal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Hub API, gRPC: GroupService.ConvertToExternal

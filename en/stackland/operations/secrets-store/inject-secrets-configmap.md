@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/secrets-store/inject-secrets-configmap.md
+    type: text/markdown
+    title: Markdown version
+---
 # Secret injection via ConfigMap (ConfigMap mode)
 
 This guide explains how to configure secret injection from Secrets Store into configuration files using ConfigMap mode in Secrets Injector.

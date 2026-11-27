@@ -1,6 +1,10 @@
 ---
 title: Инструкция по использованию pg_repack в {{ mpg-name }}
 description: Как установить расширение pg_repack и клиент для него, как использовать расширение на примере.
+alternate:
+  - href: ru/managed-postgresql/operations/extensions/pg_repack.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование pg_repack в {{ mpg-name }}

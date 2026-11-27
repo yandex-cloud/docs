@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ cos-name }}
 description: Follow this guide to create a VM from a {{ coi }} and run a Docker container on it.
+alternate:
+  - href: en/cos/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM from a {{ coi }}

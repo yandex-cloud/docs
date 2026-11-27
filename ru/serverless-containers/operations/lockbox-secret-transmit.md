@@ -1,6 +1,10 @@
 ---
 title: Как передавать секреты {{ lockbox-full-name }} в контейнер
 description: Следуя данной инструкции, вы сможете передать секреты {{ lockbox-full-name }} в контейнер.
+alternate:
+  - href: ru/serverless-containers/operations/lockbox-secret-transmit.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передать секреты {{ lockbox-full-name }} в контейнер

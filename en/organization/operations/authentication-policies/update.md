@@ -1,6 +1,10 @@
 ---
 title: How to edit an authentication policy in {{ org-full-name }}
 description: Follow this guide to edit an authentication policy in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/authentication-policies/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing an authentication policy

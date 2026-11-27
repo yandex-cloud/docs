@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/marketplace/metering/api-ref/grpc/ImageProductUsage/write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Marketplace Metering API, gRPC: ImageProductUsageService.Write

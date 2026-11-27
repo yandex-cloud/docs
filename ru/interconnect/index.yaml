@@ -31,6 +31,10 @@ meta:
     - keyword: маршрутизация {{ interconnect-name }}
     - keyword: транк
     - keyword: транк {{ interconnect-name }}
+  alternate:
+    - href: ru/interconnect/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Концепции
     description: Узнайте про возможности сервиса

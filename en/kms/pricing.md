@@ -2,6 +2,10 @@
 title: '{{ kms-full-name }} pricing policy'
 description: This article covers the {{ kms-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/kms/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ kms-name }} pricing policy

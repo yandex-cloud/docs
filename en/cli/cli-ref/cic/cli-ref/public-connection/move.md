@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/public-connection/move/
+alternate:
+  - href: en/cli/cli-ref/cic/cli-ref/public-connection/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cic public-connection move

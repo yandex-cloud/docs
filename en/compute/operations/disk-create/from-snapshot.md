@@ -1,6 +1,10 @@
 ---
 title: How to recover a disk from a snapshot in {{ compute-full-name }}
 description: Follow this guide to recover a disk from a snapshot.
+alternate:
+  - href: en/compute/operations/disk-create/from-snapshot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Recovering a disk from a snapshot

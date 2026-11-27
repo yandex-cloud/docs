@@ -705,6 +705,10 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/Alert'
+alternate:
+  - href: en/ydb/api-ref/Database/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for YDB API, REST: Database.Update

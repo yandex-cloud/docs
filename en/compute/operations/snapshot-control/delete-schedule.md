@@ -1,6 +1,10 @@
 ---
 title: How to delete a disk snapshot schedule from {{ compute-full-name }}
 description: Follow this guide to delete a disk snapshot schedule.
+alternate:
+  - href: en/compute/operations/snapshot-control/delete-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a disk snapshot schedule

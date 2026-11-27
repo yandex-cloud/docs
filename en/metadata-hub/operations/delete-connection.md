@@ -1,6 +1,10 @@
 ---
 title: Deleting a {{ metadata-hub-name }} connection. Step-by-step guides
 description: Step-by-step guides on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to delete connections.
+alternate:
+  - href: en/metadata-hub/operations/delete-connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a connection

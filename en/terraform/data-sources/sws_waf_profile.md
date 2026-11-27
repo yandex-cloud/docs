@@ -1,5 +1,9 @@
 ---
 subcategory: Smart Web Security
+alternate:
+  - href: en/terraform/data-sources/sws_waf_profile.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_sws_waf_profile (DataSource)
@@ -68,6 +72,24 @@ data "yandex_sws_waf_profile" "by-name" {
         - `prefix_match` (*Read-Only*) (String). Prefix match condition.
         - `prefix_not_match` (*Read-Only*) (String). Prefix not match condition.
       - `authority_matcher` [Block]. Authority matcher.
+        - `defined` (*Read-Only*) (Bool). Matches if the field is defined.
+        - `exact_match` (*Read-Only*) (String). Exact match condition.
+        - `exact_not_match` (*Read-Only*) (String). Exact not match condition.
+        - `lists_matchers` [Block]. Matches against string and regular expression lists.
+          - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+            - `list_ids` (*Read-Only*) (List Of String). List of list IDs to match against. OR semantics implied.
+          - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+            - `list_ids` (*Read-Only*) (List Of String). List of list IDs to match against. OR semantics implied.
+          - `str_lists_match` [Block]. String lists to match with.
+            - `list_ids` (*Read-Only*) (List Of String). List of list IDs to match against. OR semantics implied.
+          - `str_lists_not_match` [Block]. String lists to not match with.
+            - `list_ids` (*Read-Only*) (List Of String). List of list IDs to match against. OR semantics implied.
+        - `pire_regex_match` (*Read-Only*) (String). PIRE regex match condition.
+        - `pire_regex_not_match` (*Read-Only*) (String). PIRE regex not match condition.
+        - `prefix_match` (*Read-Only*) (String). Prefix match condition.
+        - `prefix_not_match` (*Read-Only*) (String). Prefix not match condition.
+    - `body` [Block]. Match HTTP request body.
+      - `body_matcher` [Block]. HTTP request body matcher.
         - `defined` (*Read-Only*) (Bool). Matches if the field is defined.
         - `exact_match` (*Read-Only*) (String). Exact match condition.
         - `exact_not_match` (*Read-Only*) (String). Exact not match condition.

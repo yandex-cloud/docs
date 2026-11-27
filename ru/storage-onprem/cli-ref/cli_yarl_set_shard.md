@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_yarl_set_shard.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli yarl set shard
 
 Set a bucket shard quota

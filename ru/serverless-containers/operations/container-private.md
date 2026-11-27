@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/serverless-containers/operations/container-private.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сделать контейнер приватным
 
 Чтобы контейнер могли вызвать только пользователи, у которых есть права на его вызов, сделайте контейнер приватным.

@@ -5,6 +5,10 @@ keywords:
   - создание навыка алисы
   - навык алисы
   - пример создания навыка алисы
+alternate:
+  - href: ru/tutorials/serverless/alice-skill/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание навыка Алисы с помощью {{ TF }}

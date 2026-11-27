@@ -1,6 +1,10 @@
 ---
 title: Передача данных из эндпоинта-источника Oracle
 description: Следуя данной инструкции, вы сможете настроить передачу данных из эндпоинта-источника Oracle.
+alternate:
+  - href: ru/data-transfer/operations/endpoint/source/oracle.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Передача данных из эндпоинта-источника Oracle

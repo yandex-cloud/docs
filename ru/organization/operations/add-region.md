@@ -1,6 +1,10 @@
 ---
 title: Как добавить управляемую организацию в {{ org-full-name }}
 description: Из статьи вы узнаете, как привязать новый регион к организации.
+alternate:
+  - href: ru/organization/operations/add-region.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать управляемую организацию

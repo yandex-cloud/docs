@@ -1,6 +1,10 @@
 ---
 title: How to configure access permissions for a {{ certificate-manager-full-name }} certificate
 description: Follow this guide to configure access permissions for a certificate.
+alternate:
+  - href: en/certificate-manager/operations/cert-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring access permissions for a certificate

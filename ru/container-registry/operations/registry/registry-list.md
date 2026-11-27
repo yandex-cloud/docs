@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию об имеющихся реестрах в {{ container-registry-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию об имеющихся реестрах.
+alternate:
+  - href: ru/container-registry/operations/registry/registry-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию об имеющихся реестрах

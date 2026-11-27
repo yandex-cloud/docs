@@ -1,6 +1,10 @@
 ---
 title: How to set up a custom disk image
 description: You can use your own file with a Linux VM disk image. Once your image is set up, upload it to {{ compute-name }}.
+alternate:
+  - href: en/compute/operations/image-create/custom-image.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Setting up a custom disk image

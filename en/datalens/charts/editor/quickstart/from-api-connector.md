@@ -1,6 +1,10 @@
 ---
 title: Creating a table via API
 description: Follow this guide to build a table based on API Connector in Editor.
+alternate:
+  - href: en/datalens/charts/editor/quickstart/from-api-connector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a table via API

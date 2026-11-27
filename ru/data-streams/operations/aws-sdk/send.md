@@ -1,6 +1,10 @@
 ---
 title: Инструкция по отправке данных из {{ ydb-short-name }} в поток в AWS SDK
 description: Из статьи вы узнаете, как отправить данные из {{ ydb-short-name }} в поток в AWS SDK.
+alternate:
+  - href: ru/data-streams/operations/aws-sdk/send.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправка данных в поток в AWS SDK

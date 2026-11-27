@@ -1,6 +1,10 @@
 ---
 title: AWS SDK для PHP
 description: Из статьи вы узнаете, что такое AWS SDK для PHP, как его установить и настроить, а также ознакомитесь с примерами кода.
+alternate:
+  - href: ru/storage/tools/aws-sdk-php.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # AWS SDK для PHP

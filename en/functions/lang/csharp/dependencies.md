@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/csharp/dependencies.md
+    type: text/markdown
+    title: Markdown version
+---
 # Building and managing .NET Core function dependencies
 
 {{ sf-name }} supports two methods of managing .NET Core function dependencies: automatic installation via `nuget` and adding dependencies manually together with the source code.

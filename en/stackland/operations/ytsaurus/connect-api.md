@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/ytsaurus/connect-api.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to the {{ yt-name }} HTTP proxy
 
 After the [component is enabled](enable.md), the {{ YT }} HTTP proxy is published at `https://api.ytsaurus.<system_domain>`. The proxy accepts requests via the [{{ YT }} CLI](https://ytsaurus.tech/docs/en/api/cli/install), [Python SDK](https://ytsaurus.tech/docs/en/api/python/start), and other {{ YT }} clients.

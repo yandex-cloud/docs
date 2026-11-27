@@ -43,6 +43,10 @@ apiPlayground:
             type: object
             additionalProperties:
               type: string
+alternate:
+  - href: en/marketplace/pim/saas/api-ref/ProductInstance/claim.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace Product Instance Management API, REST: ProductInstance.Claim

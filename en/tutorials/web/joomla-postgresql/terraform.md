@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/tutorials/web/joomla-postgresql/terraform.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a Joomla website with a {{ PG }} database using {{ TF }}
 
 To create an infrastructure for your [Joomla website with a {{ PG }} database](index.md) using {{ TF }}:

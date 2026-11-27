@@ -1,6 +1,10 @@
 ---
 title: Storing {{ AF }} connections in {{ lockbox-full-name }}
 description: 'When working with {{ maf-full-name }}, you can use {{ lockbox-full-name }} to store artifacts that can be used in DAG files: connections, variables, and configuration data. Using a directed acyclic graph (DAG), you can load a connection from {{ lockbox-name }} and run an SQL query to a database in a {{ mpg-full-name }} cluster.'
+alternate:
+  - href: en/managed-airflow/operations/lockbox-secrets-in-maf-cluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Storing {{ AF }} connections in {{ lockbox-full-name }}

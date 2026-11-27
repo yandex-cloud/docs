@@ -3,6 +3,10 @@ title: Creating a SAML application in {{ org-full-name }} for integration with G
 description: How to create a SAML application in {{ org-full-name }} and set up integration with Grafana Cloud to implement SSO for organization users.
 canonical: '{{ link-docs }}/tutorials/security/single-sign-on/grafana/saml-grafana'
 noIndex: true
+alternate:
+  - href: en/security/tutorials/single-sign-on/saml-grafana.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [saml-grafana](../../../_tutorials/security/single-sign-on/saml-grafana.md) %}

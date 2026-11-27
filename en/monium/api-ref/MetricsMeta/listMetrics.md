@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/monium/api-ref/MetricsMeta/listMetrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # listMetrics method

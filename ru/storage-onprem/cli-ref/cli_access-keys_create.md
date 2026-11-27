@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_access-keys_create.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli access-keys create
 
 Create access key for service account

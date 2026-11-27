@@ -1,6 +1,10 @@
 ---
 title: Какие термины и определения есть в сервисе {{ yq-full-name }}
 description: Из статьи вы узнаете, какие термины и определения есть в сервисе {{ yq-name }}.
+alternate:
+  - href: ru/query/concepts/glossary.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Термины и определения {{ yq-name }}

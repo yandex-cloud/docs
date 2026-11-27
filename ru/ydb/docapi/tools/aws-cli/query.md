@@ -1,6 +1,10 @@
 ---
 title: Как выбрать данные из таблицы в {{ ydb-full-name }}
 description: Следуя данной инструкции, вы сможете выбрать данные из таблицы.
+alternate:
+  - href: ru/ydb/docapi/tools/aws-cli/query.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Выборка данных

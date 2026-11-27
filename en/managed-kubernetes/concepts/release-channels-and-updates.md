@@ -1,6 +1,10 @@
 ---
 title: Release channels
 description: In this article, you will learn about release channels and how to update them.
+alternate:
+  - href: en/managed-kubernetes/concepts/release-channels-and-updates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Release channels

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/preinstalled-packages.md
+    type: text/markdown
+    title: Markdown version
+---
 # List of pre-installed software
 
 {{ ml-platform-short-name }} already has pre-installed packages for data analysis and machine learning. If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook cell.

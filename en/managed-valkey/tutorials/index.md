@@ -1,6 +1,10 @@
 ---
 title: '{{ mrd-full-name }} use cases'
 description: Various {{ mrd-full-name }} use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/managed-valkey/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mrd-name }} tutorials

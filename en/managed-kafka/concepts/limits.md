@@ -2,6 +2,10 @@
 title: '{{ mkf-name }} quotas and limits'
 description: '{{ mkf-name }} has limits and quotas for the number of clusters, total number of processor cores for all broker hosts, total amount of virtual memory for all broker hosts, and total storage for all clusters per cloud. For more information about the service limitations, read this article.'
 editable: false
+alternate:
+  - href: en/managed-kafka/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

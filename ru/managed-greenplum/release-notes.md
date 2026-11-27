@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ mgp-full-name }}
 description: В разделе представлена история изменений сервиса {{ mgp-name }}.
+alternate:
+  - href: ru/managed-greenplum/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ mgp-full-name }}

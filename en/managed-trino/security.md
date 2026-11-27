@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ mtr-full-name }}
 description: Access management in {{ TR }}, a cluster creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
+alternate:
+  - href: en/managed-trino/security.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to {{ mtr-name }}

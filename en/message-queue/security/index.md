@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ message-queue-full-name }}
 description: Access management in {{ message-queue-full-name }}, the cross-application messaging service. To allow a user access to {{ message-queue-full-name }} resources, assign them the roles from the list below.
+alternate:
+  - href: en/message-queue/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ message-queue-name }}

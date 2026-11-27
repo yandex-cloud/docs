@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ msp-full-name }}
 description: Различные сценарии использования {{ msp-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/managed-spark/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ msp-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cli/operations/profile/profile-activate.md
+    type: text/markdown
+    title: Markdown version
+---
 # Активация профиля {{ yandex-cloud }} CLI
 
 Работа с несколькими профилями позволяет быстро переключать контекст выполнения команд. 

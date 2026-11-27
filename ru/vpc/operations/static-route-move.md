@@ -1,6 +1,10 @@
 ---
 title: Переместить таблицу маршрутизации в другой каталог
 description: Следуя данной инструкции, вы сможете переместить таблицу маршрутизации в другой каталог.
+alternate:
+  - href: ru/vpc/operations/static-route-move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Переместить таблицу маршрутизации в другой каталог

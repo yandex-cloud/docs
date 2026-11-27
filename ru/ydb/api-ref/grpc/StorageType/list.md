@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/ydb/api-ref/grpc/StorageType/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for YDB API, gRPC: StorageTypeService.List

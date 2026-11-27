@@ -1,6 +1,10 @@
 ---
 title: Как собирать и управлять зависимостями функции на Bash в {{ sf-full-name }}
 description: Из статьи вы узнаете, как собирать и управлять зависимостями функции на Bash в {{ sf-name }}.
+alternate:
+  - href: ru/functions/lang/bash/dependencies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сборка и управление зависимостями функции на Bash

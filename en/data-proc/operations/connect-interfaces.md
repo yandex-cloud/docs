@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/operations/connect-interfaces.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to component interfaces
 
 You can connect to the {{ dataproc-name }} component interfaces either using [UI Proxy](#ui-proxy) or a [jump host VM](#routing). For more information, see [Component interfaces and ports](../concepts/interfaces.md).

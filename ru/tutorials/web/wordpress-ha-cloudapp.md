@@ -9,6 +9,10 @@ keywords:
   - Установка WordPress High Availability
   - WordPress CloudApp
   - WordPress High Availability CloudApp
+alternate:
+  - href: ru/tutorials/web/wordpress-ha-cloudapp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Установка WordPress High Availability с помощью {{ cloud-apps-name }}

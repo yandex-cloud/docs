@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-greenplum/operations/pxf/create-hdfs-source.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание внешнего источника данных HDFS
 
 В {{ mgp-name }} в качестве [внешнего источника данных](../../concepts/external-tables.md#pxf-data-sources) с типом подключения HDFS можно использовать систему HDFS в составе сервиса [{{ dataproc-full-name }}](../../../data-proc/index.yaml) или другие сторонние сервисы HDFS.

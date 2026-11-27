@@ -3,6 +3,10 @@ title: Запуск простого PySpark-задания в {{ msp-full-name 
 description: В этом руководстве вы запустите простое PySpark-задание в {{ msp-name }} с помощью {{ maf-name }}. DAG создаст временный кластер, запустит задание с выводом результата в лог и удалит кластер.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/dataplatform/airflow-spark-min'
+alternate:
+  - href: ru/managed-spark/tutorials/airflow-spark-min.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запуск простого PySpark-задания с помощью {{ maf-full-name }}

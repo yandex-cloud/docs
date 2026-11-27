@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/query/integrations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Интеграции
 
 {% include [sunset](../_includes/query/sunset.md) %}

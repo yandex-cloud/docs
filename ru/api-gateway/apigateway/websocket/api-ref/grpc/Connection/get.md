@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/api-gateway/apigateway/websocket/api-ref/grpc/Connection/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Gateway WebSocket Connection Service, gRPC: ConnectionService.Get

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v2/public-subnet/
+alternate:
+  - href: ru/cli/cli-ref/baremetal/cli-ref/v2/public-subnet/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal v2 public-subnet

@@ -1,6 +1,10 @@
 ---
 title: Viewing a list of custom rule sets in {{ sd-full-name }}
 description: In this section, you will learn how to view a list of custom rule sets in {{ sd-full-name }}.
+alternate:
+  - href: en/security-deck/operations/custom-rules-sets/view-set.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing a list of custom rule sets

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/COUNT_IF.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # COUNT_IF

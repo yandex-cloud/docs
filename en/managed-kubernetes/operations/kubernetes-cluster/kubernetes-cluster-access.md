@@ -1,6 +1,10 @@
 ---
 title: Managing access to a {{ managed-k8s-full-name }} cluster
 description: Follow this guide to configure {{ managed-k8s-name }} cluster access permissions.
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing access to a {{ managed-k8s-name }} cluster

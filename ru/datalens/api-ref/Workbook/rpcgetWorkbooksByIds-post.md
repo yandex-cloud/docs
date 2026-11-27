@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Workbook/rpcgetWorkbooksByIds-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get workbook list by ids

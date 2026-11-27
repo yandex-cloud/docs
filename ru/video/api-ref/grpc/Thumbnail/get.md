@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/video/api-ref/grpc/Thumbnail/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, gRPC: ThumbnailService.Get

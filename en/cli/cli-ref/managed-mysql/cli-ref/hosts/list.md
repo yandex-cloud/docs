@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/hosts/list/
+alternate:
+  - href: en/cli/cli-ref/managed-mysql/cli-ref/hosts/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mysql hosts list

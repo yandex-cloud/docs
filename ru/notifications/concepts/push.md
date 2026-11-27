@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/concepts/push.md
+    type: text/markdown
+    title: Markdown version
+---
 # Мобильные push-уведомления
 
 _Push-уведомления_ — это всплывающие сообщения на экране смартфона с информацией о событии в сервисе, доступных услугах, акциях, новостях и обновлениях.

@@ -1,6 +1,10 @@
 ---
 title: Computing on Apache Spark™ clusters in {{ ml-platform-full-name }}
 description: Follow this tutorial to create a {{ dataproc-full-name }} cluster to use it for computations in {{ ml-platform-full-name }}.
+alternate:
+  - href: en/tutorials/ml-ai/data-processing-integration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ml-platform-full-name }} integration with {{ dataproc-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: '{{ mkf-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ mkf-name }} events monitored in {{ at-name }}.
+alternate:
+  - href: en/managed-kafka/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/idp/api-ref/User/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Identity Provider API, REST: User.Delete

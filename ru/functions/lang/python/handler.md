@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/lang/python/handler.md
+    type: text/markdown
+    title: Markdown version
+---
 # Обработчик запросов функции на Python
 
 _Обработчик запросов_ — это метод, который используется для обработки вызовов функции на Python. При создании [версии](../../concepts/function.md#version) функции для нее задается _точка входа_ — путь к обработчику запросов в формате `<file>`.`<function>`, где:

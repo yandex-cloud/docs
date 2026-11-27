@@ -1,6 +1,10 @@
 ---
 title: Получение информации о кластерах в {{ mtr-name }}
 description: Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mtr-name }}. Чтобы получить список кластеров в каталоге, перейдите на страницу каталога и выберите сервис {{ mtr-name }}.
+alternate:
+  - href: ru/managed-trino/operations/cluster-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение информации об имеющихся кластерах в {{ mtr-name }}

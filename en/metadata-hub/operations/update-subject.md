@@ -1,6 +1,10 @@
 ---
 title: Editing subject settings
 description: Follow this guide to edit subject settings.
+alternate:
+  - href: en/metadata-hub/operations/update-subject.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing subject settings

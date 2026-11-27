@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/ai-studio/disable.md
+    type: text/markdown
+    title: Markdown version
+---
 # Disabling {{ ai-studio-name }}
 
 To disable {{ ai-studio-name }}, disable {{ agent-atelier-name }} first, then disable {{ model-gallery-name }}.

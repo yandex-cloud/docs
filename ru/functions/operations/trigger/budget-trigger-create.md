@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/operations/trigger/budget-trigger-create.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать триггер для бюджетов, который вызывает функцию {{ sf-name }}
 
 Создайте [триггер для бюджетов](../../concepts/trigger/budget-trigger.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} при превышении пороговых значений.

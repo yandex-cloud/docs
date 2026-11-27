@@ -2,6 +2,10 @@
 title: Термины и определения для {{ ydb-full-name }}
 description: На странице представлены термины и определения для сервиса {{ ydb-name }}.
 sourcePath: overlay/public_talks.md
+alternate:
+  - href: ru/ydb/concepts/resources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Термины и определения для {{ ydb-name }}

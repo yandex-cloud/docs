@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/lockbox/api-ref/Operation/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Lockbox API, REST: Operation

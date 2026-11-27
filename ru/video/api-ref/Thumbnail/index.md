@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/video/api-ref/Thumbnail/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Thumbnail

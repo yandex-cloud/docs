@@ -2514,6 +2514,10 @@ apiPlayground:
               - metrikaSource
           - required:
               - ydsTarget
+alternate:
+  - href: ru/data-transfer/api-ref/Endpoint/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer API, REST: Endpoint.Create

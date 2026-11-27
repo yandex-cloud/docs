@@ -1,6 +1,10 @@
 ---
 title: Управление доступом в {{ monium-full-name }}
 description: Управление доступом в сервисе мониторинга, который позволяет собирать и хранить метрики, а также отображать их в виде графиков на дашбордах — {{ monium-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ monium-name }}, назначьте пользователю нужные роли из приведенного списка.
+alternate:
+  - href: ru/monium/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом в {{ monium-name }}

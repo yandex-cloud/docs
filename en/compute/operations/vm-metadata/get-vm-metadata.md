@@ -1,6 +1,10 @@
 ---
 title: How to get VM metadata
 description: Follow this guide to get metadata from both inside and outside a VM.
+alternate:
+  - href: en/compute/operations/vm-metadata/get-vm-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting VM metadata

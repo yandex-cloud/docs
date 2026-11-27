@@ -1,6 +1,10 @@
 ---
 title: How to create a desktop
 description: In this tutorial, we will create a desktop.
+alternate:
+  - href: en/cloud-desktop/operations/desktops/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a desktop

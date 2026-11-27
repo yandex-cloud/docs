@@ -1,6 +1,10 @@
 ---
 title: Как использовать имперсонацию в {{ iam-full-name }}
 description: Следуя данной инструкции, вы узнаете, как выполнять операции с ресурсами {{ yandex-cloud }} от имени сервисного аккаунта с помощью имперсонации.
+alternate:
+  - href: ru/iam/operations/sa/impersonate-sa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование имперсонации

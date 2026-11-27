@@ -1,6 +1,10 @@
 ---
 title: Функции даты и времени
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/date-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Функции даты и времени

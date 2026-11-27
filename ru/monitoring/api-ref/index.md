@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/monitoring/api-ref/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ yandex-cloud }} Monitoring API

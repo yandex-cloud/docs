@@ -1,6 +1,10 @@
 ---
 title: Getting data storage info in {{ data-catalog-name }}
 description: How to view information on exported data, ingestions, data sources, and data storage links in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/get-info-data-store.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting data storage info

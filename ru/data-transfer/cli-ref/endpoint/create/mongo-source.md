@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/endpoint/create/mongo-source/
+alternate:
+  - href: ru/data-transfer/cli-ref/endpoint/create/mongo-source.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc datatransfer endpoint create mongo-source

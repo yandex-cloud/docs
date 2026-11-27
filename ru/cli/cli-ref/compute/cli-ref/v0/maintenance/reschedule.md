@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/maintenance/reschedule/
+alternate:
+  - href: ru/cli/cli-ref/compute/cli-ref/v0/maintenance/reschedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute v0 maintenance reschedule

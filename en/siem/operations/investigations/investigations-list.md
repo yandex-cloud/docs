@@ -1,6 +1,10 @@
 ---
 title: Working with the investigation list in {{ yandex-siem-full-name }}
 description: Follow this guide to learn how to filter, search, and sort investigations in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/operations/investigations/investigations-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with the investigations list

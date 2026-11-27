@@ -2,6 +2,10 @@
 title: Как удалить запись в {{ ydb-full-name }}
 description: Следуя данной инструкции, вы сможете удалить запись.
 sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
+alternate:
+  - href: ru/ydb/docapi/tools/aws-sdk/delete-item.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Удаление записи
 

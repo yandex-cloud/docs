@@ -1,6 +1,10 @@
 ---
 title: Как подключить внешние узлы к кластеру {{ managed-k8s-name }}
 description: Следуя данной инструкции, вы сможете подключить внешние узлы к кластеру {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/external-nodes-connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение внешних узлов к кластеру

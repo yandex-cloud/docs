@@ -1,6 +1,10 @@
 ---
 title: Настройка следования перенаправлениям запросов
 description: Следуя данной инструкции, вы сможете настроить перенаправление запросов, полученных от источников контента.
+alternate:
+  - href: ru/cdn/operations/resources/setup-follow-redirects.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настройка следования перенаправлениям запросов

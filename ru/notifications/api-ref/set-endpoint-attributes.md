@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/notifications/api-ref/set-endpoint-attributes.md
+    type: text/markdown
+    title: Markdown version
+---
 # Действие SetEndpointAttributes
 
 Задает атрибуты [эндпоинта для Push-уведомлений](../concepts/push.md#mobile-endpoints).

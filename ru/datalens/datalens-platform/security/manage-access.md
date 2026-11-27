@@ -1,6 +1,10 @@
 ---
 title: Управление правами доступа в {{ datalens-platform-full-name }}
 description: Следуя данной инструкции, вы сможете настроить права доступа к сервису {{ datalens-platform-short-name }} и его объектам, а также обработать запросы доступа.
+alternate:
+  - href: ru/datalens/datalens-platform/security/manage-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление правами доступа

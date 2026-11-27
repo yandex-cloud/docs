@@ -3,6 +3,10 @@ title: Передача событий {{ postbox-full-name }} в {{ yds-full-na
 description: В этом руководстве вы настроите передачу событий {{ postbox-full-name }} в {{ yds-full-name }}, хранение и обработку данных с помощью {{ sf-full-name }} и {{ ydb-full-name }} и визуализацию для анализа событий в {{ datalens-full-name }}.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/events-from-postbox-to-yds'
+alternate:
+  - href: ru/functions/tutorials/events-from-postbox-to-yds.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [events-from-postbox-to-yds](../../_tutorials/serverless/events-from-postbox-to-yds.md) %}

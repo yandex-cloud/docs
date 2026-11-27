@@ -1,6 +1,10 @@
 ---
 title: '{{ maf-full-name }} API authentication'
 description: To perform operations via the API in {{ maf-full-name }}, a service for managing {{ AF }} databases, get an IAM token for your account.
+alternate:
+  - href: en/managed-airflow/api-ref/authentication.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ maf-name }} API authentication

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datalens/api-ref/Subscriptions/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Subscriptions
 
 <!-- markdownlint-disable-file -->

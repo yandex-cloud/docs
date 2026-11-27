@@ -1,6 +1,10 @@
 ---
 title: Аутентификация и соединение с БД по HTTP API, совместимому с Amazon SQS
 description: Следуя данной инструкции, вы сможете аутентифицироваться и установить соединение с БД по HTTP API, совместимому с Amazon SQS.
+alternate:
+  - href: ru/data-streams/sqsapi/auth.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация и соединение с БД по HTTP API, совместимому с Amazon SQS

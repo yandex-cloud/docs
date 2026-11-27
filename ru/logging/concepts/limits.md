@@ -2,6 +2,10 @@
 title: Квоты и лимиты в {{ cloud-logging-full-name }}
 description: В сервисе {{ cloud-logging-full-name }} действует ряд квот и лимитов. Более подробно об ограничениях в сервисах вы узнаете из этой статьи.
 editable: false
+alternate:
+  - href: ru/logging/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты {{ cloud-logging-name }}

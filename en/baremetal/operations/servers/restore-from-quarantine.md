@@ -1,6 +1,10 @@
 ---
 title: Restoring a server from quarantine in {{ baremetal-full-name }}
 description: Follow this guide to restore a server from quarantine in {{ baremetal-full-name }}.
+alternate:
+  - href: en/baremetal/operations/servers/restore-from-quarantine.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Restoring a server from quarantine

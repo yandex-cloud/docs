@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ objstorage-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ objstorage-full-name }}.
+alternate:
+  - href: ru/storage/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ objstorage-full-name }}

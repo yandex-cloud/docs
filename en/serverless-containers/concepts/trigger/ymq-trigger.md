@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/serverless-containers/concepts/trigger/ymq-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for {{ message-queue-short-name }} that sends messages to a {{ serverless-containers-name }} container
 
 A [trigger](../trigger/) for {{ message-queue-short-name }} speeds up the processing of messages in a [queue](../../../message-queue/concepts/queue.md). It picks up messages from the queue and passes them to a {{ serverless-containers-name }} [container](../container.md) for processing. Once the messages are successfully processed, the trigger deletes them from the queue, and if an error occurs, it places the messages back in the queue and sets a [visibility timeout](../../../message-queue/concepts/visibility-timeout.md). If the queue does not have a [Dead Letter Queue](../../../message-queue/concepts/dlq.md) configured, a message will continue to be returned to a container until it is successfully processed or until its retention period expires.

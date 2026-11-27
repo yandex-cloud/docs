@@ -1,6 +1,10 @@
 ---
 title: Удалить сетевой интерфейс на виртуальной машине
 description: Следуя данной инструкции, вы сможете удалить сетевой интерфейс на виртуальной машине.
+alternate:
+  - href: ru/compute/operations/vm-control/detach-network-interface.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить сетевой интерфейс на виртуальной машине

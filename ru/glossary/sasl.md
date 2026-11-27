@@ -3,6 +3,10 @@ title: SASL — технология аутентификации и безоп�
 description: Фреймворк SASL предоставляет интерфейс для аутентификации и защищенного обмена данными.
 keywords:
   - SASL
+alternate:
+  - href: ru/glossary/sasl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SASL: фреймворк аутентификации и защиты данных

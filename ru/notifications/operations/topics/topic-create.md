@@ -1,6 +1,10 @@
 ---
 title: Создать топик в {{ cns-full-name }}
 description: Следуя этой инструкции, вы сможете создать топик.
+alternate:
+  - href: ru/notifications/operations/topics/topic-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать топик

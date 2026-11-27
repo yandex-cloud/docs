@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_yarl_delete_handler.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli yarl delete handler
 
 Delete a per-handler operation quota

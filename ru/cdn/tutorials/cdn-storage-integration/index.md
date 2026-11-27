@@ -2,6 +2,10 @@
 title: Интеграция L7-балансировщика с {{ cdn-full-name }} и {{ objstorage-full-name }}
 description: В этом руководстве вы настроите L7-балансировщик {{ alb-full-name }}, в котором в качестве бэкенда используется бакет {{ objstorage-full-name }}, а запросы пользователей передаются балансировщику через {{ cdn-full-name }}, чтобы сократить время доставки контента.
 canonical: '{{ link-docs }}/tutorials/web/cdn-storage-integration'
+alternate:
+  - href: ru/cdn/tutorials/cdn-storage-integration/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [cdn-storage-integration](../../../_tutorials/infrastructure/cdn-storage-integration.md) %}

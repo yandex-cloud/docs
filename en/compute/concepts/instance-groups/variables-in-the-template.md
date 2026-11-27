@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/instance-groups/variables-in-the-template.md
+    type: text/markdown
+    title: Markdown version
+---
 # Variables in an instance template
 
 With {{ ig-name }}, you can create a group of VM instances of the same type from a [template](instance-template.md). To use different specifications for such instances, use the substitution feature for the system and user-defined variables in the template. For example, you can use variables and [tags](./policies/allocation-policy.md#tags) to [create an instance group with fixed IP addresses](../../operations/instance-groups/create-with-fixed-ip.md).

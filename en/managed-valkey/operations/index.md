@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ mrd-full-name }}
 description: This page features step-by-step guides for {{ mrd-name }}.
+alternate:
+  - href: en/managed-valkey/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ mrd-name }}

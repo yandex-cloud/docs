@@ -3,6 +3,10 @@ title: Connecting to a {{ TR }} cluster
 description: Follow this guide to connect to a {{ TR }} cluster.
 keywords:
   - connecting to a {{ TR }} cluster
+alternate:
+  - href: en/managed-trino/operations/connect.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a {{ TR }} cluster

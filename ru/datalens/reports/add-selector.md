@@ -1,6 +1,10 @@
 ---
 title: Селекторы в отчетах
 description: Следуя данной инструкции, вы сможете добавить, настроить или удалить селекторы в отчетах.
+alternate:
+  - href: ru/datalens/reports/add-selector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Селекторы в отчетах

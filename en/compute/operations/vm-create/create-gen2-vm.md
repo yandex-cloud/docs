@@ -1,6 +1,10 @@
 ---
 title: How to create a VM with Gen 2 hardware
 description: Follow this guide to create a VM running on virtualized Gen 2 hardware.
+alternate:
+  - href: en/compute/operations/vm-create/create-gen2-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a VM with Gen 2 hardware

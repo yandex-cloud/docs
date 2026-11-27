@@ -1,6 +1,10 @@
 ---
 title: Как добавить пользователя в сообщество
 description: Следуя данной инструкции, вы сможете добавить пользователя в сообщество.
+alternate:
+  - href: ru/datasphere/operations/community/add-user.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить пользователя в сообщество

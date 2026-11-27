@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-greenplum/operations/extensions/cluster-extensions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing extensions in {{ mgp-name}}
 
 {{ mgp-name }} supports the following {{ GP }} and {{ PG }} extensions:

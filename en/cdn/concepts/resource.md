@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cdn/concepts/resource.md
+    type: text/markdown
+    title: Markdown version
+---
 # CDN resource
 
 A _resource_ is the main logical entity in {{ cdn-full-name }} that lets you configure and manage content distribution from [origins](origins.md) over a CDN. Content is distributed through [points of presence](points-of-presence.md).

@@ -1,6 +1,10 @@
 ---
 title: How to disable/enable availability zones for a {{ network-load-balancer-full-name }}
 description: Follow this guide to disable/enable availability zones for a network load balancer.
+alternate:
+  - href: en/network-load-balancer/operations/manage-zone/disable-enable-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

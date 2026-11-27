@@ -1,6 +1,10 @@
 ---
 title: '{{ sf-full-name }} trigger'
 description: In this article, you will learn about the {{ sf-full-name }} trigger, the format of the messages it sends, and the roles required for the trigger to work.
+alternate:
+  - href: en/container-registry/concepts/trigger.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ sf-full-name }} trigger

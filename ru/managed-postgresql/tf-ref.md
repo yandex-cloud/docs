@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ mpg-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mpg-name }}.
+alternate:
+  - href: ru/managed-postgresql/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ mpg-full-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/concepts/components/logging.md
+    type: text/markdown
+    title: Markdown version
+---
 # Logging Stack
 
 {{ stackland-name }} collects and stores cluster logs using these open-source tools:

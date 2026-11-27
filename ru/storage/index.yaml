@@ -53,6 +53,10 @@ meta:
     - keyword: бакет {{ yandex-cloud }}
     - keyword: бакеты {{ yandex-cloud }}
     - keyword: хранилище {{ yandex-cloud }}
+  alternate:
+    - href: ru/storage/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первый бакет и загрузите данные

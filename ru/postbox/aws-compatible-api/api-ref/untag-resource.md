@@ -1,6 +1,10 @@
 ---
 title: Метод UntagResource в API Amazon для {{ postbox-full-name }}
 description: Из статьи вы узнаете, как с помощью метода UntagResource удалить метки пула выделенных IP-адресов в {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/aws-compatible-api/api-ref/untag-resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метод UntagResource

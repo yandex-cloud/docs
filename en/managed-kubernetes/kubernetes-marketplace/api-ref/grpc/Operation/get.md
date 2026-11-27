@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-kubernetes/kubernetes-marketplace/api-ref/grpc/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Kubernetes Marketplace, gRPC: OperationService.Get

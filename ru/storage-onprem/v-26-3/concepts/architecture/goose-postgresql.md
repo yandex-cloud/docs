@@ -1,6 +1,10 @@
 ---
 title: Работа Goose с {{ PG }} в {{ objstorage-onprem-name }}
 description: Хранение метаданных и размещение шардов s3db в {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/goose-postgresql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Работа Goose с {{ PG }}

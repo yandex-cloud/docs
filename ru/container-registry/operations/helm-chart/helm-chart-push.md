@@ -1,6 +1,10 @@
 ---
 title: Загрузить Helm-чарт в реестр {{ container-registry-name }}
 description: Из статьи вы узнаете о загрузке Helm-чартов в репозитории {{ container-registry-name }}.
+alternate:
+  - href: ru/container-registry/operations/helm-chart/helm-chart-push.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Загрузить Helm-чарт в реестр

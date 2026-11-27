@@ -1,5 +1,9 @@
 ---
 subcategory: Billing
+alternate:
+  - href: en/terraform/resources/billing_cloud_binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_billing_cloud_binding (Resource)

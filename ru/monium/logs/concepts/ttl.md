@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/logs/concepts/ttl.md
+    type: text/markdown
+    title: Markdown version
+---
 # Время хранения логов (TTL)
 
 Срок хранения логов в {{ monium-name }} (TTL) — 31 день.

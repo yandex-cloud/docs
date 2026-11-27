@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/cloudregistry/events-ref/DeleteArtifact.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Registry Audit Trails Events: DeleteArtifact

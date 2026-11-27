@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ mmy-full-name }}
 description: This page features step-by-step guides for {{ mmy-name }}.
+alternate:
+  - href: en/managed-mysql/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ mmy-name }}

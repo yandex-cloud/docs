@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/iot-core/operations/device/device-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменение устройства
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}

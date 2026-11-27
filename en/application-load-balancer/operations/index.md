@@ -1,6 +1,10 @@
 ---
 title: Working with {{ alb-full-name }}. Step-by-step guides
 description: Step-by-step guides on using {{ alb-full-name }} in {{ yandex-cloud }}. In this article, you will learn how to create and manage L7 load balancers, how to use HTTP routers, and how to work with target groups.
+alternate:
+  - href: en/application-load-balancer/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ alb-name }}

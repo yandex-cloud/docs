@@ -1,6 +1,10 @@
 ---
 title: Настроить поддержку нескольких доменных имен для сайта с помощью {{ TF }}
 description: Следуя данной инструкции, вы сможете настроить поддержку нескольких доменных имен для сайта с помощью {{ TF }}.
+alternate:
+  - href: ru/storage/operations/hosting/multiple-domains/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поддержать несколько доменных имен с помощью {{ TF }}

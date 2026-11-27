@@ -1,6 +1,10 @@
 ---
 title: Поиск секретов {{ yandex-cloud }} в открытых источниках
 description: Следуя данной инструкции, вы сможете самостоятельно проверять свои репозитории.
+alternate:
+  - href: ru/security/operations/search-secrets.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поиск секретов {{ yandex-cloud }} в открытых источниках

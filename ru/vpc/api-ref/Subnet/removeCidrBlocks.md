@@ -28,6 +28,10 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
+alternate:
+  - href: ru/vpc/api-ref/Subnet/removeCidrBlocks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Virtual Private Cloud API, REST: Subnet.RemoveCidrBlocks

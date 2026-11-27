@@ -1,6 +1,10 @@
 ---
 title: Managing clusters шт {{ datalens-platform-full-name }}
 description: Create and configure {{ TR }} and {{ SPRK }} clusters in {{ datalens-platform-short-name }}, view information about their status and computing resources.
+alternate:
+  - href: en/datalens/datalens-platform/operations/clusters/manage-clusters.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cluster management

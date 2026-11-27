@@ -1,6 +1,10 @@
 ---
 title: Working with data distribution policies in {{ mgp-name }}
 description: Learn how to define a distribution policy for a new table, modify the distribution policy and key for an existing table, and manually redistribute data across segments.
+alternate:
+  - href: en/managed-greenplum/operations/distribution-policy-management.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

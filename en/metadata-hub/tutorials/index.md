@@ -1,6 +1,10 @@
 ---
 title: '{{ metadata-hub-full-name }} use cases'
 description: Various {{ schema-registry-name }} use cases in {{ yandex-cloud }}.
+alternate:
+  - href: en/metadata-hub/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ metadata-hub-full-name }} tutorials

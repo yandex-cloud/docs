@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/image/remove-labels/
+alternate:
+  - href: ru/compute/cli-ref/image/remove-labels.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute image remove-labels

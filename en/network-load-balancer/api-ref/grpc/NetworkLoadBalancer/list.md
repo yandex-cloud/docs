@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/network-load-balancer/api-ref/grpc/NetworkLoadBalancer/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Load Balancer API, gRPC: NetworkLoadBalancerService.List

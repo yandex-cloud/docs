@@ -1,6 +1,10 @@
 ---
 title: Типы дисков в серверах {{ baremetal-full-name }}
 description: В данном разделе вы узнаете о типах дисков, используемых в серверах {{ baremetal-full-name }}, и о том, как выбрать тип диска, максимально соответствующий вашим задачам.
+alternate:
+  - href: ru/baremetal/concepts/disks/disk-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Типы дисков в серверах {{ baremetal-full-name }}

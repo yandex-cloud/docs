@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ alb-full-name }}
 description: Ответы на вопросы о записи IP-адресов клиентов в логи, ошибке no_route и диагностике Ingress-контроллера в {{ alb-name }}.
+alternate:
+  - href: ru/application-load-balancer/qa.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ alb-name }}

@@ -13,6 +13,10 @@ keywords:
   - lod
   - уровень детализации
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/aggregation-functions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Агрегатные функции

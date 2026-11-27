@@ -1,6 +1,10 @@
 ---
 title: Query string in {{ monium-name }}
 description: 'In {{ monium-name }}''s query string, you can specify your chart and telemetry data selection parameters. Two input modes are supported: tokens and text.'
+alternate:
+  - href: en/monium/concepts/visualization/query-string.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Query string in {{ monium-name }}

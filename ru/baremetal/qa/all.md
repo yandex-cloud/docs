@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ baremetal-full-name }}
 description: На странице представлены вопросы и ответы про {{ baremetal-name }}.
+alternate:
+  - href: ru/baremetal/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ baremetal-name }}

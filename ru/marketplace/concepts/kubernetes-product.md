@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/marketplace/concepts/kubernetes-product.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создание продукта для {{ managed-k8s-name }}
 
 Чтобы добавить программный продукт для {{ managed-k8s-name }} в {{ marketplace-short-name }}, его пакеты необходимо загрузить в [реестр](../../container-registry/concepts/registry.md) {{ yandex-cloud }}. Этот раздел поможет подготовить продукт {{ marketplace-short-name }} для {{ managed-k8s-full-name }}.

@@ -1,6 +1,10 @@
 ---
 title: Monitoring and adjusting ML WAF protection
 description: How to monitor changes in ML WAF behavior after a model update and adjust the protection settings.
+alternate:
+  - href: en/smartwebsecurity/operations/waf-ml-tuning-recommendations.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Monitoring and adjusting ML WAF protection

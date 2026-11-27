@@ -1,6 +1,10 @@
 ---
 title: '{{ datalens-full-name }} error ERR.DS_API.DATASET.TOO_MANY_FIELDS'
 description: This page describes the There are too many fields in the dataset {{ datalens-full-name }} error.
+alternate:
+  - href: en/datalens/troubleshooting/errors/ERR-DS_API-DATASET-TOO_MANY_FIELDS.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] There are too many fields in the dataset

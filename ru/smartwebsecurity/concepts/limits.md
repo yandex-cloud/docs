@@ -2,6 +2,10 @@
 title: Квоты и лимиты в {{ sws-full-name }}
 description: В {{ sws-full-name }} действует ряд квот и лимитов. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
 editable: false
+alternate:
+  - href: ru/smartwebsecurity/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты {{ sws-name }}

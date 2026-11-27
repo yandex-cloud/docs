@@ -1,6 +1,10 @@
 ---
 title: Изменение группы узлов на серверах {{ baremetal-name }}
 description: Измените имя или количество узлов группы на серверах {{ baremetal-name }} через консоль управления.
+alternate:
+  - href: ru/managed-kubernetes/operations/baremetal-group/update-baremetal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение группы узлов на серверах {{ baremetal-name }}

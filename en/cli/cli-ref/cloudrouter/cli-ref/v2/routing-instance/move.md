@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v2/routing-instance/move/
+alternate:
+  - href: en/cli/cli-ref/cloudrouter/cli-ref/v2/routing-instance/move.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloudrouter v2 routing-instance move

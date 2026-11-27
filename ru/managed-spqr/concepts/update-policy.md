@@ -1,6 +1,10 @@
 ---
 title: Политика поддержки версий {{ mspqr-name }}
 description: Из статьи вы узнаете о политике поддержки версий {{ PG }} в сервисе {{ mspqr-full-name }}.
+alternate:
+  - href: ru/managed-spqr/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Политика поддержки версий {{ PG }} в {{ mspqr-name }}

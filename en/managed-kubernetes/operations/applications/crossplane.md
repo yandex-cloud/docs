@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/applications/crossplane.md
+    type: text/markdown
+    title: Markdown version
+---
 # Installing Crossplane with {{ yandex-cloud }} support
 
 [Crossplane](https://crossplane.io/) is an open-source {{ k8s }} extension that enables platform development teams to build infrastructure for multiple vendors and create higher-level service APIs for application development teams.

@@ -1,6 +1,10 @@
 ---
 title: Назначение правил доступа к запросам в {{ mtr-name }}
 description: Правила определяют, какие действия пользователи могут совершать над SQL-запросами.
+alternate:
+  - href: ru/managed-trino/operations/access-control-queries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Назначение правил доступа к запросам в {{ mtr-name }}

@@ -1,6 +1,10 @@
 ---
 title: Использование gp_relaccess_stats в {{ mgp-name }}
 description: Как использовать расширение gp_relaccess_stats в {{ mgp-full-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/extensions/gp_relaccess_stats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование gp_relaccess_stats в {{ mgp-name }}

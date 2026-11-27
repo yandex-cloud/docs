@@ -2,6 +2,10 @@
 title: '{{ backup-full-name }} metrics'
 description: In this tutorial, you will learn about {{ backup-name }} metrics.
 editable: false
+alternate:
+  - href: en/monium/metrics-ref/backup-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ backup-full-name }} metrics

@@ -1,6 +1,10 @@
 ---
 title: Обзор {{ ydb-full-name }}
 description: Из статьи вы узнаете про СУБД {{ ydb-short-name }} и соглашение об уровне обслуживания.
+alternate:
+  - href: ru/ydb/concepts/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обзор {{ ydb-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Attaching a target group to a network load balancer
 description: Follow this guide to attach a target group to a network load balancer.
+alternate:
+  - href: en/network-load-balancer/operations/target-group-attach.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Attaching a target group to a network load balancer

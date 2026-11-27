@@ -1,6 +1,10 @@
 ---
 title: Как разрешить и запретить автоматическое отключение зоны доступности на L7-балансировщике в {{ alb-full-name }}
 description: Следуя данной инструкции, вы сможете разрешить и запретить перенос трафика между зонами доступности в L7-балансировщике.
+alternate:
+  - href: ru/application-load-balancer/operations/manage-zone/allow-and-deny-shift.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Разрешить и запретить отключение зоны доступности

@@ -1,6 +1,10 @@
 ---
 title: Автоматическое масштабирование в {{ mrd-name }}
 description: Автоматическое масштабирование — это изменение количества шардов в кластере {{ VLK }} в зависимости от текущей нагрузки.
+alternate:
+  - href: ru/managed-valkey/concepts/autoscaling.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Автоматическое масштабирование в {{ mrd-name }}

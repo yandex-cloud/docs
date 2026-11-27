@@ -1,6 +1,10 @@
 ---
 title: Creating a REST catalog in {{ datalens-platform-full-name }}
 description: Follow this guide to create a new REST catalog in {{ datalens-platform-full-name }}.
+alternate:
+  - href: en/datalens/datalens-platform/operations/rest-catalog/create-rest-catalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a REST catalog

@@ -1,6 +1,10 @@
 ---
 title: История изменений в {{ cloud-desktop-full-name }}
 description: В разделе представлена история изменений сервиса {{ cloud-desktop-name }}.
+alternate:
+  - href: ru/cloud-desktop/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # История изменений в {{ cloud-desktop-name }}

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_buckets_get_storage_class.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli buckets get storage_class
 
 Get bucket storage_class

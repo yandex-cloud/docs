@@ -1,6 +1,10 @@
 ---
 title: Deleting an object in {{ objstorage-full-name }}
 description: Follow this guide to delete an object from a bucket in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/objects/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting an object

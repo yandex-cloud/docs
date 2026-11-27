@@ -1,6 +1,10 @@
 ---
 title: Получение списка глоссариев в каталоге метаданных
 description: Следуя данной инструкции, вы сможете получить список глоссариев в каталоге метаданных.
+alternate:
+  - href: ru/metadata-hub/operations/data-catalog/list-glossaries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получение списка глоссариев

@@ -1,6 +1,10 @@
 ---
 title: Шаблон виртуальной машины {{ compute-full-name }}
 description: Из статьи вы узнаете, что такое шаблон виртуальной машины {{ compute-name }}.
+alternate:
+  - href: ru/compute/concepts/instance-groups/instance-template.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Шаблон виртуальной машины

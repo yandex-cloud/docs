@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/update/
+alternate:
+  - href: en/cli/cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry v0 registry scan-policy update

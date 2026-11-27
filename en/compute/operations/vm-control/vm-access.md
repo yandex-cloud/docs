@@ -1,6 +1,10 @@
 ---
 title: Configuring access permissions for a {{ compute-name }} VM
 description: Follow this guide to configure VM access permissions.
+alternate:
+  - href: en/compute/operations/vm-control/vm-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Configuring VM access permissions

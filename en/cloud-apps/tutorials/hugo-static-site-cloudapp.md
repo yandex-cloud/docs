@@ -8,6 +8,10 @@ keywords:
   - hugo installation
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/web/hugo-static-site-cloudapp'
+alternate:
+  - href: en/cloud-apps/tutorials/hugo-static-site-cloudapp.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [hugo-static-site-cloudapp](../../_tutorials/applied/hugo-static-site-cloudapp.md) %}

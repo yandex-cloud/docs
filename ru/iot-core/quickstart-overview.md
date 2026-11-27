@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ iot-name }}
 description: Начните работу с реестрами устройств или брокерами сообщений {{ iot-name }}.
+alternate:
+  - href: ru/iot-core/quickstart-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с {{ iot-name }}

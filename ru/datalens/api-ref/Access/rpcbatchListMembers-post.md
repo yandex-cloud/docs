@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datalens/api-ref/Access/rpcbatchListMembers-post.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Batch list members

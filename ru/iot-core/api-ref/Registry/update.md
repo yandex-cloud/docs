@@ -126,6 +126,10 @@ apiPlayground:
               - logGroupId
           - required:
               - folderId
+alternate:
+  - href: ru/iot-core/api-ref/Registry/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Service, REST: Registry.Update

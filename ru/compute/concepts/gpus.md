@@ -1,6 +1,10 @@
 ---
 title: GPU – графические ускорители
 description: GPU (Graphics Processing Unit) – это графический процессор, который обрабатывает некоторые типы данных намного эффективнее, чем vCPU. Может использоваться для сложных вычислений. {{ compute-name }} предоставляет графические ускорители (GPU) в составе графических карт.
+alternate:
+  - href: ru/compute/concepts/gpus.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

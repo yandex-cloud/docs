@@ -10,6 +10,10 @@ meta:
   description: >-
     {{ gost-gateway-name }} offers a dedicated gateway protected as per the
     regulatory requirements.
+  alternate:
+    - href: en/gost-gateway/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Concepts
     description: Learn more about the service's concepts and resources

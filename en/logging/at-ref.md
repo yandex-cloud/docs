@@ -1,6 +1,10 @@
 ---
 title: '{{ cloud-logging-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ cloud-logging-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/logging/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_version.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli version
 
 Print cli version

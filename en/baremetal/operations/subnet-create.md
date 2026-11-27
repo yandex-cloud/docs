@@ -1,6 +1,10 @@
 ---
 title: How to create a private subnet in {{ baremetal-full-name }}
 description: In this tutorial, you will learn how to create a private subnet and connect your {{ baremetal-full-name }} servers to it.
+alternate:
+  - href: en/baremetal/operations/subnet-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a private subnet

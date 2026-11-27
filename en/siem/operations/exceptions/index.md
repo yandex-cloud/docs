@@ -1,6 +1,10 @@
 ---
 title: Use of exceptions in {{ yandex-siem-full-name }}
 description: Overview of features related to exception in {{ yandex-siem-full-name }}.
+alternate:
+  - href: en/siem/operations/exceptions/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Use of exceptions

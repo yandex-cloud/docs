@@ -1,6 +1,10 @@
 ---
 title: Как отозвать доступ к трансляции в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете отозвать доступ к трансляции в сервисе {{ video-full-name }}.
+alternate:
+  - href: ru/video/operations/streams/revoke-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отозвать доступ к трансляции

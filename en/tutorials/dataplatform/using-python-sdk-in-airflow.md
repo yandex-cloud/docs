@@ -1,5 +1,9 @@
 ---
 noIndex: true
+alternate:
+  - href: en/tutorials/dataplatform/using-python-sdk-in-airflow.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud }} Python SDK

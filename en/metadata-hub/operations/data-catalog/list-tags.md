@@ -1,6 +1,10 @@
 ---
 title: Getting a list of tags in a classification
 description: Follow this guide to get a list of tags for metadata in a classification created in {{ data-catalog-full-name }}.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/list-tags.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a list of tags in a classification

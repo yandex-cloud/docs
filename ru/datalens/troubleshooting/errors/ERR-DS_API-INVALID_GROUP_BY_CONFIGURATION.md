@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION
 description: На странице приведено описание ошибки {{ datalens-full-name }} Invalid grouping configuration.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Invalid grouping configuration

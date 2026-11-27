@@ -1,6 +1,10 @@
 ---
 title: Организация в {{ yandex-cloud }}
 description: Организация — это рабочее пространство, которое объединяет разные типы ресурсов {{ yandex-cloud }} и дает пользователям возможность работать с ними.
+alternate:
+  - href: ru/billing/concepts/organization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Организация

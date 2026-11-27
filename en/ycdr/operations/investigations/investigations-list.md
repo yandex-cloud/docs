@@ -1,6 +1,10 @@
 ---
 title: Working with the investigation list in {{ ycdr-full-name }}
 description: Follow this guide to learn how to filter, search, and sort investigations in {{ ycdr-name }}.
+alternate:
+  - href: en/ycdr/operations/investigations/investigations-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with the investigation list

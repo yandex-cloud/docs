@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage/concepts/cors.md
+    type: text/markdown
+    title: Markdown version
+---
 # CORS в {{ objstorage-name }}
 
 {{ objstorage-full-name }} поддерживает [кросс-доменные запросы](../../glossary/cors.md) к объектам в бакете.

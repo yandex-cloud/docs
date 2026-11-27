@@ -1,5 +1,9 @@
 ---
 subcategory: Resource Manager
+alternate:
+  - href: en/terraform/resources/yq_monitoring_connection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_yq_monitoring_connection (Resource)

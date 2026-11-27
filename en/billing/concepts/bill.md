@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/billing/concepts/bill.md
+    type: text/markdown
+    title: Markdown version
+---
 # Invoice
 
 An invoice is a document issued for you to pay for the consumed resources. An invoice is issued in your [billing account](billing-account.md) and contains aggregate data on all services used within a single cloud.

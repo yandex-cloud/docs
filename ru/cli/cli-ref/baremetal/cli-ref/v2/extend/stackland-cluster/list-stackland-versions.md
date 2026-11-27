@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-versions/
+alternate:
+  - href: ru/cli/cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-versions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal v2 extend stackland-cluster list-stackland-versions

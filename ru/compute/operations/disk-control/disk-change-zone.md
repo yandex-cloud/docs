@@ -1,6 +1,10 @@
 ---
 title: Как перенести диск в другую зону доступности в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете перенести диск в другую зону доступности.
+alternate:
+  - href: ru/compute/operations/disk-control/disk-change-zone.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Перенести диск в другую зону доступности

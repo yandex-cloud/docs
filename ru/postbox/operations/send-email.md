@@ -1,6 +1,10 @@
 ---
 title: Отправка письма в {{ postbox-full-name }}
 description: Следуя данной инструкции, вы сможете отправить письмо в {{ postbox-name }}.
+alternate:
+  - href: ru/postbox/operations/send-email.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Отправка письма

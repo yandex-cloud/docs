@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/smartcaptcha/concepts/js-interface.md
+    type: text/markdown
+    title: Markdown version
+---
 # Объект Javascript Interface
 
 Javascript Interface — объект, который передается ОС Android в **WebView**. В дальнейшем фронтенд будет обращаться к этому объекту, чтобы отправлять сообщения с помощью функции обратного вызова на Android.

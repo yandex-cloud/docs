@@ -9,6 +9,10 @@ keywords:
   - резервное копирование MySQL
   - backup MySQL
   - MySQL
+alternate:
+  - href: ru/managed-mysql/concepts/backup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Резервные копии в {{ mmy-name }}

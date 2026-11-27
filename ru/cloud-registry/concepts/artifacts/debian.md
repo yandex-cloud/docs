@@ -1,6 +1,10 @@
 ---
 title: Debian-артефакт в {{ cloud-registry-full-name }}
 description: Debian-артефакт — это пакет, который содержит скомпилированное программное обеспечение, метаданные, зависимости и другие ресурсы. Пакеты Debian используются для распространения программного обеспечения в системах на базе Debian и Ubuntu.
+alternate:
+  - href: ru/cloud-registry/concepts/artifacts/debian.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Debian-артефакт

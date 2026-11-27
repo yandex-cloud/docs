@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/audit-trails/audit/datatransfer/events-ref/UpdateTransfer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Data Transfer Audit Trails Events: UpdateTransfer

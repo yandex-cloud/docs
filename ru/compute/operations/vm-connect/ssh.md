@@ -1,6 +1,10 @@
 ---
 title: Как подключиться к виртуальной машине Linux по SSH
 description: 'Следуя данной инструкции, вы сможете подключиться к ВМ с помощью пары ключей SSH: открытый ключ размещается на ВМ, а закрытый ключ хранится у пользователя.'
+alternate:
+  - href: ru/compute/operations/vm-connect/ssh.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключиться к виртуальной машине Linux по SSH

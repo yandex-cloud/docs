@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/delete-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting a cluster {{ mch-name }}
 
 If you have an [{{ CH }} cluster](../../concepts/components/clickhouse.md) in your [project](../projects/create-project.md), you can delete it.

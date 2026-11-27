@@ -1,6 +1,10 @@
 ---
 title: Limits
 description: '{{ traces-name }} limits and quotas: storage, writes, and reads. Incoming span validation.'
+alternate:
+  - href: en/monium/traces/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Limitations

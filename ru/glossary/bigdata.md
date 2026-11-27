@@ -1,6 +1,10 @@
 ---
 title: 'Big Data: что к ним относится и как они используются'
 description: Big Data или большие данные — это огромные объемы информации разной степени структурированности и технологии для работы с ней.
+alternate:
+  - href: ru/glossary/bigdata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Big Data

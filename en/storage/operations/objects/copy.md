@@ -1,6 +1,10 @@
 ---
 title: Copying an object in {{ objstorage-full-name }}
 description: Follow this guide to copy an object from a bucket in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/objects/copy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Copying an object

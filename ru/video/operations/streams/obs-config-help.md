@@ -1,6 +1,10 @@
 ---
 title: Рекомендации по настройке OBS Studio
 description: Следуя данной инструкции, вы сможете настроить программу для записи видео и потокового вещания OBS Studio.
+alternate:
+  - href: ru/video/operations/streams/obs-config-help.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

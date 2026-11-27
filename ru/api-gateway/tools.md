@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/api-gateway/tools.md
+    type: text/markdown
+    title: Markdown version
+---
 # Инструменты для работы с API-шлюзами {{ api-gw-name }}
 
 ## Провайдер {{ TF }} {#tf-provider}

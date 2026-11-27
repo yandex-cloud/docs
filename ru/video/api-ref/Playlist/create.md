@@ -81,6 +81,10 @@ apiPlayground:
               - videoId
           - required:
               - episodeId
+alternate:
+  - href: ru/video/api-ref/Playlist/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: Playlist.Create

@@ -1,6 +1,10 @@
 ---
 title: Шаблоны страниц ответов
 description: Шаблоны страниц ответов помогают настроить текст и внешний вид сообщений, которые пользователь видит при срабатывании правил.
+alternate:
+  - href: ru/smartwebsecurity/concepts/response-templates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Шаблоны страниц ответов

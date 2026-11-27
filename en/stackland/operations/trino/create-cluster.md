@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/trino/create-cluster.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating a {{ mtr-name }} cluster
 
 The [{{ TR }} cluster](../../concepts/components/trino.md) is created in a namespace within the [project](../projects/create-project.md). If you already have a project and a namespace within it, you can create a cluster in that namespace.

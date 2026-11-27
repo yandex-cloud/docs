@@ -1,6 +1,10 @@
 ---
 title: Developing in Python in {{ sf-full-name }}. Overview
 description: With {{ sf-name }}, you can run applications in Python. It offers multiple runtimes with different environment versions.
+alternate:
+  - href: en/functions/lang/python/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Developing in Python. Overview

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monitoring/concepts/data-collection/unified-agent/filters.md
+    type: text/markdown
+    title: Markdown version
+---
 # Фильтры
 
 Фильтр можно описать в секции `routes` внутри элемента `channel`:`pipe`:`filter`. Либо в секции именованных цепочек преобразований `pipes`. 

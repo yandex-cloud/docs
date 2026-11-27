@@ -1,6 +1,10 @@
 ---
 title: How to activate/deactivate an authentication policy in {{ org-full-name }}
 description: Follow this guide to activate or deactivate an authentication policy in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/authentication-policies/activate-deactivate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Activating/deactivating an authentication policy

@@ -2,6 +2,10 @@
 title: Technical support pricing
 description: This article covers the support pricing policy.
 editable: false
+alternate:
+  - href: en/support/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Technical support pricing

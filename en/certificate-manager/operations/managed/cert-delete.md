@@ -1,6 +1,10 @@
 ---
 title: How to delete a Let's Encrypt certificate in {{ certificate-manager-full-name }}
 description: Follow this guide to delete a Let's Encrypt certificate.
+alternate:
+  - href: en/certificate-manager/operations/managed/cert-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a Let's Encrypt certificate

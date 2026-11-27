@@ -144,6 +144,10 @@ apiPlayground:
               maxLength: 63
               minLength: 1
             maxProperties: 64
+alternate:
+  - href: ru/baremetal/api-ref/Vrf/updateVrf.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # BareMetal API, REST: Vrf.UpdateVrf

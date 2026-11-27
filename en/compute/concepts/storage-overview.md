@@ -1,6 +1,10 @@
 ---
 title: Disks and file storages in {{ compute-full-name }}
 description: In this tutorial, you will learn what disks and file storage are.
+alternate:
+  - href: en/compute/concepts/storage-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Disks and file storages

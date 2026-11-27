@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/cloud-stuck-in-creating-status.md
+    type: text/markdown
+    title: Markdown version
+---
 # The cloud got stuck in the `CREATING` status or it takes too long to create a cloud
 
 

@@ -1,6 +1,10 @@
 ---
 title: Как удалить дашборд в {{ monitoring-full-name }}
 description: Следуя данной инструкции, вы сможете удалить дашборд.
+alternate:
+  - href: ru/monium/operations/dashboard/delete-dashboard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление дашборда

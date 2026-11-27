@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/concepts/components/storage.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage
 
 {{ objstorage-name }} — S3-совместимое объектное хранилище на базе {{ objstorage-full-name }}. Хранилище можно использовать для данных любого формата. Взаимодействовать с ним можно с помощью инструментов, поддерживающих S3 API.

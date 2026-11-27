@@ -1,6 +1,10 @@
 ---
 title: Opening the {{ AF }} web UI
 description: How to connect to the {{ AF }} cluster web UI.
+alternate:
+  - href: en/stackland/operations/airflow/connect-ui.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Opening the {{ AF }} web UI

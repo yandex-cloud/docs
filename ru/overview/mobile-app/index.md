@@ -1,6 +1,10 @@
 ---
 title: Мобильное приложение {{ yandex-cloud }}
 description: Из статьи вы узнаете про мобильное приложение {{ yandex-cloud }}.
+alternate:
+  - href: ru/overview/mobile-app/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мобильное приложение {{ yandex-cloud }}

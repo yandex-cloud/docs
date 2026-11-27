@@ -1,6 +1,10 @@
 ---
 title: Handling errors in the {{ yandex-cloud }} API
 description: In this tutorial, you will learn about handling errors in the {{ yandex-cloud }} API.
+alternate:
+  - href: en/api-design-guide/concepts/errors.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Handling errors in the {{ yandex-cloud }} API

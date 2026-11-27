@@ -1,6 +1,10 @@
 ---
 title: Metrics collection agent
 description: In this article, you will learn about the metric delivery agent and how it works as well as such concepts as messages, sessions, inputs, outputs, filters, storages, and routing.
+alternate:
+  - href: en/monium/concepts/data-collection/unified-agent/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Metrics collection agent

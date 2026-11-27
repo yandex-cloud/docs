@@ -1,6 +1,10 @@
 ---
 title: Creating a local registry in {{ cloud-registry-full-name }}
 description: '{{ cloud-registry-name }}Follow this guide to create a local registry in.'
+alternate:
+  - href: en/cloud-registry/operations/registry/local.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a local registry

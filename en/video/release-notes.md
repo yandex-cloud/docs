@@ -1,6 +1,10 @@
 ---
 title: '{{ video-full-name }} release notes'
 description: This section contains the {{ video-name }} release notes.
+alternate:
+  - href: en/video/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ video-full-name }} release notes

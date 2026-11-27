@@ -1,6 +1,10 @@
 ---
 title: Решение проблем в {{ backup-name }}
 description: В этой статье приводятся решения для типичных проблем, которые могут возникать при работе с {{ backup-name }}.
+alternate:
+  - href: ru/backup/qa/troubleshooting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение проблем в {{ backup-name }}

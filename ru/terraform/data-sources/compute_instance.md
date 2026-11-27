@@ -1,5 +1,9 @@
 ---
 subcategory: Compute Cloud
+alternate:
+  - href: ru/terraform/data-sources/compute_instance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_compute_instance (DataSource)

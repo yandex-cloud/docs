@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datasphere/jobs/api-ref/grpc/ProjectJob/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DataSphere Jobs API v2, gRPC: ProjectJobService.Delete

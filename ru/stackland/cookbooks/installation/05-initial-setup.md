@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/cookbooks/installation/05-initial-setup.md
+    type: text/markdown
+    title: Markdown version
+---
 # Первичная настройка
 
 С помощью этого рецепта вы научитесь выполнять базовую настройку кластера {{ stackland-name }} после инсталляции — она повысит безопасность и удобство работы.

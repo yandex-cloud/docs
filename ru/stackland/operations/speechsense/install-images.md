@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/speechsense/install-images.md
+    type: text/markdown
+    title: Markdown version
+---
 # Загрузить образы {{ speechsense-name }}
 
 Образы компонента {{ speechsense-name }} не входят в базовую поставку {{ stackland-name }}. Перед активацией компонента загрузите образы в кластер.

@@ -28,6 +28,10 @@ meta:
     - keyword: ресурсные записи
     - keyword: ресурсные записи {{ dns-name }}
     - keyword: резолвер {{ dns-name }}
+  alternate:
+    - href: ru/dns/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Начало работы
     description: Создайте первую зону DNS

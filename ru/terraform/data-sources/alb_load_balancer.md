@@ -1,5 +1,9 @@
 ---
 subcategory: Application Load Balancer
+alternate:
+  - href: ru/terraform/data-sources/alb_load_balancer.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_alb_load_balancer (DataSource)

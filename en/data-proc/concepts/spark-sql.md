@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/concepts/spark-sql.md
+    type: text/markdown
+    title: Markdown version
+---
 # Spark jobs
 
 {{ dataproc-name }} supports [Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html) jobs run in Spark _applications_. When running Spark jobs, resource allocation is handled by [Apache Hadoop YARN](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html).

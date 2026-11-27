@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/cloud-desktop/operations/desktops/connect.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to a desktop
 
 To connect to a [desktop](../../concepts/desktops-and-groups.md), use the [Remote Desktop Protocol](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).

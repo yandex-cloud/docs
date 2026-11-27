@@ -1,6 +1,10 @@
 ---
 title: How to use gp_relsizes_stats in {{ mgp-full-name }}
 description: Follow this guide to use the gp_relsizes_stats extension in {{ mgp-name }}.
+alternate:
+  - href: en/managed-greenplum/operations/extensions/gp-relsizes-stats.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using gp_relsizes_stats in {{ mgp-name }}

@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования машинного обучения и искусственного интеллекта в {{ yandex-cloud }}
 description: Различные сценарии использования машинного обучения и искусственного интеллекта в {{ yandex-cloud }}.
+alternate:
+  - href: ru/tutorials/ml-ai/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Руководства по работе с машинным обучением и искусственным интеллектом

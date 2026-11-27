@@ -1,6 +1,10 @@
 ---
 title: Управление политикой обслуживания
 description: Следуя данной инструкции, вы сможете управлять политикой обслуживания.
+alternate:
+  - href: ru/compute/operations/vm-control/vm-update-policies.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление политикой обслуживания

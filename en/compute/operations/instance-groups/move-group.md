@@ -1,6 +1,10 @@
 ---
 title: Moving an instance group to a different availability zone
 description: In this article, you will learn how to move a {{ compute-name }} instance group across availability zones.
+alternate:
+  - href: en/compute/operations/instance-groups/move-group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Moving an instance group to a different availability zone

@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/serverless/apigateway/events-ref/CreateApiGateway.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # API Gateway Audit Trails Events: CreateApiGateway

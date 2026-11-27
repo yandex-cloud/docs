@@ -17,6 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/organization/idp/application/saml/api-ref/Operation/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SAML Application API, REST: Operation.Get

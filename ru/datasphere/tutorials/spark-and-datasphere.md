@@ -1,6 +1,10 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/spark-and-datasphere'
 noIndex: true
+alternate:
+  - href: ru/datasphere/tutorials/spark-and-datasphere.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Использование сервиса {{ msp-full-name }} в {{ ml-platform-name }}

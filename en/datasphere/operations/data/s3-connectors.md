@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/data/s3-connectors.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to an S3 storage
 
 You can manage your S3 object storage connection by using the **{{ ui-key.yc-ui-datasphere.resources.s3 }}** resource on your project page in the {{ ml-platform-name }} interface.

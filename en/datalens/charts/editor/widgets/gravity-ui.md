@@ -1,6 +1,10 @@
 ---
 title: Chart (Gravity UI Charts) in Editor
 description: In this article, you will learn about charts (Gravity UI Charts) in Editor.
+alternate:
+  - href: en/datalens/charts/editor/widgets/gravity-ui.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Chart (Gravity UI Charts)

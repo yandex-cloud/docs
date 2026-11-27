@@ -1,6 +1,10 @@
 ---
 title: Включение режима MIG на ВМ с GPU
 description: Следуя данной инструкции, вы сможете разделить GPU на несколько изолированных инстансов с помощью технологии MIG.
+alternate:
+  - href: ru/compute/operations/enable-mig.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включение режима MIG на ВМ с GPU в {{ compute-name }}

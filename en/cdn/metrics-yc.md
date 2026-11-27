@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ cdn-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides a reference of {{ cdn-name }} metrics exported to {{ monitoring-full-name }}.
+alternate:
+  - href: en/cdn/metrics-yc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

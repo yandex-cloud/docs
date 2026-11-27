@@ -1,6 +1,10 @@
 ---
 title: '{{ ml-platform-name }} API overview'
 description: Managing {{ ml-platform-full-name }} resources via the API. Basic methods for creating projects, uploading files, and working with notebooks
+alternate:
+  - href: en/datasphere/api-ref/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ml-platform-name }} API overview

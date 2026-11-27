@@ -176,6 +176,10 @@ apiPlayground:
               - legacyFeatures
           - required:
               - generation2Features
+alternate:
+  - href: en/compute/api-ref/Disk/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Compute Cloud API, REST: Disk.Create

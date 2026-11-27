@@ -1,6 +1,10 @@
 ---
 title: Как включить защиту от DDoS-атак в {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете включить защиту от DDoS-атак.
+alternate:
+  - href: ru/vpc/operations/enable-ddos-protection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Включить защиту от DDoS-атак

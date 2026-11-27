@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ monitoring-full-name }}
 description: How access management works in {{ monitoring-full-name }}, a service for collecting and storing metrics and using them to build charts on dashboards. To allow a user access to {{ monitoring-full-name }} resources, assign them the roles from the list below.
+alternate:
+  - href: en/monitoring/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Access management in {{ monitoring-name }}

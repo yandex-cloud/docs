@@ -1,6 +1,10 @@
 ---
 title: Запись логов в журнал выполнения в {{ postbox-full-name }}
 description: Следуя данной инструкции, вы сможете настроить логирование адреса.
+alternate:
+  - href: ru/postbox/operations/logs-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запись логов в журнал выполнения в {{ postbox-name }}

@@ -1,6 +1,10 @@
 ---
 title: Техническое обслуживание кластера {{ OS }}
 description: Следуя данной инструкции, вы сможете просмотреть информацию о планируемых и проведенных технических обслуживаниях кластера {{ OS }}, а также выбрать время для проведения обслуживания.
+alternate:
+  - href: ru/managed-opensearch/operations/cluster-maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Техническое обслуживание кластера {{ OS }}

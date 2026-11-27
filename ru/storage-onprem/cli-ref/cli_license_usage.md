@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_license_usage.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli license usage
 
 Show current license usage statistics as JSON

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/concepts/planning-cluster-topology.md
+    type: text/markdown
+    title: Markdown version
+---
 # Планирование топологии кластера
 
 При планировании топологии кластера важно понимать, что может нарушить работу кластера и насколько ваше приложение толерантно к подобным нарушениям.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/monium/quickstart.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting started with {{ monium-name }}
 
 {{ monium-name }} is a platform for collecting [metrics](./metrics/overview.md), [logs](./logs/quickstart.md), and [traces](./traces/index.md) from {{ yandex-cloud }}, other clouds, or your local infrastructure.

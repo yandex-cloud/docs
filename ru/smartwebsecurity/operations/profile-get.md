@@ -1,6 +1,10 @@
 ---
 title: Получить информацию о профиле безопасности {{ sws-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о профиле безопасности {{ sws-full-name }}.
+alternate:
+  - href: ru/smartwebsecurity/operations/profile-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о профиле безопасности

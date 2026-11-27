@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_service-accounts_update.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli service-accounts update
 
 Update service account name

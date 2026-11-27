@@ -1,6 +1,10 @@
 ---
 title: Как настроить сервис метаданных виртуальной машины
 description: Следуя данной инструкции, вы сможете задать настройки сервиса метаданных виртуальной машины.
+alternate:
+  - href: ru/compute/operations/vm-metadata/setup-metadata-service.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить параметры сервиса метаданных ВМ

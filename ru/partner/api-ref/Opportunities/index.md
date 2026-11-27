@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Opportunities/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Opportunities
 
 <!-- markdownlint-disable-file -->

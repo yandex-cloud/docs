@@ -1,6 +1,10 @@
 ---
 title: Managing replication slots in {{ mpg-full-name }}
 description: In this tutorial, you will learn how to create and configure a replication slot.
+alternate:
+  - href: en/managed-postgresql/operations/replication-slots.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing replication slots

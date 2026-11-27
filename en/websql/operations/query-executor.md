@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/websql/operations/query-executor.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with the query editor
 
 The query editor opens in the data panel when you select a database, a table, or a view in the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section.

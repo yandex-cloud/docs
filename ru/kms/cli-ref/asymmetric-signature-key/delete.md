@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/asymmetric-signature-key/delete/
+alternate:
+  - href: ru/kms/cli-ref/asymmetric-signature-key/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc kms asymmetric-signature-key delete

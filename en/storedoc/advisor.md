@@ -1,6 +1,10 @@
 ---
 title: Recommendations for improving {{ mmg-name }} cluster reliability, cost optimization, and performance
 description: In this section, you will learn how to work with the results of {{ mmg-name }} cluster checks and diagnostics.
+alternate:
+  - href: en/storedoc/advisor.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Inspections and recommendations in {{ mmg-name }} 

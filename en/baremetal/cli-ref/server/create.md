@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/server/create/
+alternate:
+  - href: en/baremetal/cli-ref/server/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal server create

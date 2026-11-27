@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для работы с {{ yds-full-name }}
 description: Пошаговые инструкции для работы с {{ yds-full-name }} в {{ yandex-cloud }}.
+alternate:
+  - href: ru/data-streams/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ yds-name }}

@@ -1,6 +1,10 @@
 ---
 title: Сокращатель ссылок
 description: В этом руководстве вы развернете сервис для сокращения ссылок, используя API-шлюз {{ api-gw-full-name }} и функцию {{ sf-full-name }} с помощью {{ TF }}.
+alternate:
+  - href: ru/tutorials/serverless/serverless-url-shortener/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сокращатель ссылок с помощью {{ TF }}

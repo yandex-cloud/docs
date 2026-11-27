@@ -1,6 +1,10 @@
 ---
 title: Поставка данных из {{ mkf-full-name }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}
 description: В кластер {{ mmy-name }} можно в реальном времени поставлять данные из топиков {{ KF }}.
+alternate:
+  - href: ru/tutorials/dataplatform/data-transfer-mkf-mmy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Поставка данных из {{ mkf-full-name }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Disk types in {{ baremetal-full-name }} servers
 description: This section explains the disk types used in {{ baremetal-full-name }} servers and how to choose the right type for you.
+alternate:
+  - href: en/baremetal/concepts/disks/disk-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Disk types in {{ baremetal-full-name }} servers

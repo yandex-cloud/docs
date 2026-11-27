@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ objstorage-full-name }}
 description: Follow this guide to create a bucket and upload an object to it.
+alternate:
+  - href: en/storage/quickstart/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ objstorage-full-name }}

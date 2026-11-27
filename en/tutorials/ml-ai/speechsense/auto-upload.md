@@ -1,6 +1,10 @@
 ---
 title: Automatic data upload to {{ speechsense-full-name }} using {{ sw-full-name }}
 description: Follow this tutorial to set up automatic data upload to {{ speechsense-full-name }} using {{ sw-full-name }}.
+alternate:
+  - href: en/tutorials/ml-ai/speechsense/auto-upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Automatic data upload to {{ speechsense-full-name }} using {{ sw-full-name }}

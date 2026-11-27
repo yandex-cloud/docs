@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/concepts/restrictions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Ограничения на вложения в письмах
 
 В {{ postbox-full-name }} действуют ограничения на вложения в письмах. Ниже перечислены расширения файлов, которые нельзя отправлять в письмах.

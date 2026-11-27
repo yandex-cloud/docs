@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/application-load-balancer/operations/application-load-balancer-manage-alerts.md
+    type: text/markdown
+    title: Markdown version
+---
 # Настроить алерты
 
 Чтобы получать уведомления о росте числа ошибок при обращении к приложению, настройте [алерт](../../monium/concepts/alerting/alert.md) в {{ monium-name }}. Алерт проверяет значения метрик и меняет статус при достижении заданных порогов. Уведомления о смене статуса можно получать по электронной почте или в мессенджере.

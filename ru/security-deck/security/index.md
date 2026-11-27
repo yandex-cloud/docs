@@ -1,6 +1,10 @@
 ---
 title: Общие роли {{ sd-full-name }}
 description: Управление доступом в сервисе контроля и управления информационной безопасностью {{ sd-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ sd-name }}, назначьте пользователю нужные роли из приведенного списка.
+alternate:
+  - href: ru/security-deck/security/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие роли {{ sd-full-name }}

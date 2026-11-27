@@ -8,6 +8,10 @@ keywords:
   - joomla installation
   - joomla setup
   - joomla website hosting
+alternate:
+  - href: en/tutorials/web/joomla-postgresql/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 {% include [joomla-postgresql](../../../_tutorials/applied/joomla-postgresql.md) %}

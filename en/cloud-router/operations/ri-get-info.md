@@ -1,6 +1,11 @@
 ---
 title: How to get information about a virtual router
 description: In this tutorial, you will get information about a virtual router in {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: en/cloud-router/operations/ri-get-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting information about a virtual router

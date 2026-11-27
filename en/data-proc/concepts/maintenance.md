@@ -1,6 +1,10 @@
 ---
 title: '{{ dataproc-full-name }} maintenance'
 description: In this tutorial, you will learn what {{ dataproc-name }} maintenance includes and how it is carried out.
+alternate:
+  - href: en/data-proc/concepts/maintenance.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ dataproc-name }} maintenance

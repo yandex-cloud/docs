@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/catalog/update/hudi/
+alternate:
+  - href: ru/managed-trino/cli-ref/catalog/update/hudi.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-trino catalog update hudi

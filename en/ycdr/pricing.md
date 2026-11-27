@@ -2,6 +2,10 @@
 title: '{{ ycdr-full-name }} pricing policy'
 description: This article covers the {{ ycdr-full-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/ycdr/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ycdr-name }} pricing policy

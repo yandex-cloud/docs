@@ -1,6 +1,10 @@
 ---
 title: Справочник {{ TF }} для {{ mgl-full-name }}
 description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ mgl-name }}.
+alternate:
+  - href: ru/managed-gitlab/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник {{ TF }} для {{ mgl-full-name }}

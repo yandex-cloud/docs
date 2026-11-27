@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/datalens/function-ref/UTF8.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # UTF8

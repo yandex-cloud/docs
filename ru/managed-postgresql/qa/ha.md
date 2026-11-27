@@ -1,6 +1,10 @@
 ---
 title: Высокая доступность и балансировка кластера {{ PG }}
 description: На странице представлены вопросы и ответы про высокую доступность и балансировку кластера {{ PG }}.
+alternate:
+  - href: ru/managed-postgresql/qa/ha.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Высокая доступность и балансировка

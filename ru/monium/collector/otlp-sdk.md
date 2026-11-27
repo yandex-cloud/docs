@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/monium/collector/otlp-sdk.md
+    type: text/markdown
+    title: Markdown version
+---
 # SDK для передачи данных в формате OpenTelemetry
 
 {{ monium-name }} принимает данные в формате OpenTelemetry. Для этого формата сообщество разрабатывает SDK для различных языков и сред программирования. Поддержка языка описана в [документации OpenTelemetry](https://opentelemetry.io/docs/languages/#status-and-releases).

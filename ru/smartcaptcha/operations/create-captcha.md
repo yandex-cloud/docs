@@ -1,6 +1,10 @@
 ---
 title: Как создать капчу в {{ captcha-full-name }}
 description: Следуя данной инструкции, вы сможете создать капчу.
+alternate:
+  - href: ru/smartcaptcha/operations/create-captcha.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать капчу

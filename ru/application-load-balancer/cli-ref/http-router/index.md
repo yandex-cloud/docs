@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/http-router/
+alternate:
+  - href: ru/application-load-balancer/cli-ref/http-router/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc application-load-balancer http-router

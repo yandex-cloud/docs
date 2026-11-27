@@ -2,6 +2,10 @@
 title: Квоты и лимиты в {{ msp-full-name }}
 description: В {{ msp-full-name }} действуют лимиты и квоты на количество кластеров, суммарное количество ядер процессора для всех компонентов кластера, суммарный объем виртуальной памяти для всех компонентов кластера. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
 editable: false
+alternate:
+  - href: ru/managed-spark/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Квоты и лимиты в {{ msp-full-name }}

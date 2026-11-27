@@ -88,13 +88,13 @@
 
       1. В поле **Время жизни cookie** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
 
-      1. В поле **Issuer / IdP EntityID** вставьте ссылку, которая указана в поле **Идентификатор Microsoft Entra** на странице **Вход на основе SAML** в Entra ID. Формат ссылки:
+      1. Скопируйте значение поля **Идентификатор Microsoft Entra** на странице **Вход на основе SAML** в Entra ID и вставьте его в поле **Issuer / IdP EntityID**. Формат значения:
 
           ```text
           https://sts.windows.net/<идентификатор_SAML-приложения>/
           ```
 
-      1. В поле **Login URL** вставьте ссылку, которая указана в поле **URL-адрес входа** на странице **Вход на основе SAML** в Entra ID. Формат ссылки:
+      1. Скопируйте значение поля **URL-адрес входа** на странице **Вход на основе SAML** в Entra ID и вставьте его в поле **Login URL**. Формат значения:
 
           ```text
           https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2
@@ -105,6 +105,10 @@
       1. Включите опцию **Автоматически создавать пользователей**, чтобы пользователь после аутентификации автоматически добавлялся в организацию. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../operations/add-account.md#add-user-sso).
 
           Автоматически федеративный пользователь создается только при первом входе пользователя в облако. Если вы исключили пользователя из федерации, вернуть его туда можно будет только вручную.
+
+      1. Чтобы все запросы аутентификации от Yandex Cloud содержали цифровую подпись, включите опцию **Подписывать запросы аутентификации**. Потребуется установить сертификат Yandex Cloud на стороне поставщика удостоверений.
+
+          [Скачать и установить сертификат](../../operations/setup-federation.md#add-certificate-idp) Yandex Cloud вы можете и после создания федерации.
 
       1. Включите опцию **Принудительная повторная аутентификация (ForceAuthn) в IdP**, чтобы задать значение `true` для параметра [ForceAuthn](../../saml/api-ref/Federation/index.md) в запросе аутентификации SAML. При включении этой опции поставщик удостоверений (Identity Provider, IdP) запрашивает у пользователя аутентификацию по истечении сессии в Yandex Cloud. Необязательный параметр.
 
@@ -134,6 +138,7 @@
           --issuer "https://sts.windows.net/<идентификатор_SAML-приложения>/" \
           --sso-url "https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2" \
           --sso-binding POST \
+          --encrypted-assertions \
           --force-authn
         ```
 
@@ -169,6 +174,12 @@
 
         * `--sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
+        * `--encrypted-assertions` — параметр, который включает цифровую подпись запросов аутентификации. Необязательный параметр.
+          
+          Если указано значение `true`, то все запросы аутентификации от Yandex Cloud будут содержать цифровую подпись.
+
+            [Скачать и установить сертификат](../../operations/setup-federation.md#add-certificate-idp) Yandex Cloud вы можете и после создания федерации.
+
         * `--force-authn` — по истечении сессии в Yandex Cloud поставщик удостоверений запросит у пользователя повторную аутентификацию. Необязательный параметр.
 
 - Terraform {#tf}
@@ -200,9 +211,7 @@
       Где:
 
       * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-      * `description` — описание федерации.
       * `organization_id` — [идентификатор](../../operations/organization-get-id.md) организации.
-      * `labels` — набор пар меток ключ/значение, которые присвоены федерации. Необязательный параметр.
       * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
 
           Используйте ссылку, которая указана в поле **Идентификатор Microsoft Entra** на странице **Вход на основе SAML** в Entra ID. Формат ссылки:
@@ -236,6 +245,8 @@
           * `encrypted_assertions` — подписывать запросы аутентификации.
             
             Если включить эту опцию, то все запросы аутентификации от Yandex Cloud будут содержать цифровую подпись.
+
+              [Скачать и установить сертификат](../../operations/setup-federation.md#add-certificate-idp) Yandex Cloud вы можете и после создания федерации.
 
           * `force-authn` — по истечении сессии в Yandex Cloud поставщик удостоверений запросит у пользователя повторную аутентификацию. Необязательный параметр.
 
@@ -278,6 +289,7 @@
           "ssoUrl": "https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2",
           "ssoBinding": "POST",
           "securitySettings": {
+            "encryptedAssertions": true,
             "forceAuthn": true
           }
         }
@@ -315,6 +327,12 @@
             В ссылке допустимо использовать только протоколы HTTP и HTTPS.
 
         * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+
+        * `encryptedAssertions` — флаг, который включает цифровую подпись запросов аутентификации.
+          
+          Если указано значение `true`, то все запросы аутентификации от Yandex Cloud будут содержать цифровую подпись.
+
+          [Скачать и установить сертификат](../../operations/setup-federation.md#add-certificate-idp) Yandex Cloud вы можете и после создания федерации.
 
         * `forceAuthn` — параметр, который включает принудительную повторную аутентификацию пользователя по истечении сессии в Yandex Cloud. Необязательный параметр.
 
@@ -389,7 +407,7 @@
 
       ```bash
       yc organization-manager federation saml certificate create \
-        --federation-id <ID_федерации> \
+        --federation-id <идентификатор_федерации> \
         --name "my-certificate" \
         --certificate-file certificate.cer
       ```
@@ -402,7 +420,7 @@
 
       ```json
       {
-        "federationId": "<ID_федерации>",
+        "federationId": "<идентификатор_федерации>",
         "name": "my-certificate",
         "data": "-----BEGIN CERTIFICATE..."
       }
@@ -537,7 +555,7 @@
   1. Добавьте пользователей, перечислив их Name ID через запятую:
 
       ```bash
-      yc organization-manager federation saml add-user-accounts --id <ID_федерации> \
+      yc organization-manager federation saml add-user-accounts --id <идентификатор_федерации> \
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
@@ -570,7 +588,7 @@
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer <IAM-токен>" \
         --data '@body.json' \
-        https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/<ID_федерации>:addUserAccounts
+        https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/<идентификатор_федерации>:addUserAccounts
       ```
 
 {% endlist %}
@@ -584,7 +602,7 @@
 1. Перейдите по URL для входа в консоль:
 
    ```text
-   https://console.yandex.cloud/federations/<ID_федерации>
+   https://console.yandex.cloud/federations/<идентификатор_федерации>
    ```
 
    {% cut "Как получить ID федерации" %}

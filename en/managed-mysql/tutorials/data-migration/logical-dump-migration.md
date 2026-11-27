@@ -3,6 +3,10 @@ title: Transferring data from a third-party {{ MY }} cluster by creating and res
 description: In this tutorial, you will learn how to transfer data from a third-party {{ MY }} cluster into a {{ mmy-name }} cluster by creating and restoring a logical dump.
 canonical: '{{ link-docs }}/tutorials/dataplatform/mysql-data-migration/logical-dump-migration'
 noIndex: true
+alternate:
+  - href: en/managed-mysql/tutorials/data-migration/logical-dump-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Transferring data from a third-party {{ MY }} cluster by creating and restoring a logical dump

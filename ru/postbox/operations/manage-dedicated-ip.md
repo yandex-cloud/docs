@@ -1,6 +1,10 @@
 ---
 title: Управление выделенными IP-адресами в {{ postbox-full-name }}
 description: Следуя данной инструкции, вы сможете создать пул выделенных IP-адресов, добавить в него IP-адреса и привязать пул к конфигурации.
+alternate:
+  - href: ru/postbox/operations/manage-dedicated-ip.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление выделенными IP-адресами

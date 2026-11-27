@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/v0/job/cancel/
+alternate:
+  - href: ru/cli/cli-ref/dataproc/cli-ref/v0/job/cancel.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dataproc v0 job cancel

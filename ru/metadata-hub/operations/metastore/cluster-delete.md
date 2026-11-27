@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/metadata-hub/operations/metastore/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
+---
 # Удаление кластера {{ metastore-full-name }}
 
 Вы можете удалить кластер {{ metastore-name }} вместе со всеми хранимыми данными. Перед этим [отключите](cluster-update.md) защиту кластера от удаления, если она включена.

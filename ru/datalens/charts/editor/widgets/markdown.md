@@ -1,6 +1,10 @@
 ---
 title: Markdown в Editor
 description: Из статьи вы узнаете про виджет Advanced-чарт.
+alternate:
+  - href: ru/datalens/charts/editor/widgets/markdown.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Markdown

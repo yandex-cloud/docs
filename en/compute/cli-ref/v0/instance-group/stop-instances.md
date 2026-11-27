@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/instance-group/stop-instances/
+alternate:
+  - href: en/compute/cli-ref/v0/instance-group/stop-instances.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute v0 instance-group stop-instances

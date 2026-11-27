@@ -1,6 +1,10 @@
 ---
 title: Secure password transmission to an initialization script with the help of {{ TF }}
 description: In this tutorial, you will create a Windows-based {{ compute-name }} VM instance using an initialization script with the help of {{ TF }}.
+alternate:
+  - href: en/tutorials/windows/secure-password-script/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Secure password transmission to an initialization script with the help of {{ TF }}

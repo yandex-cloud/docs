@@ -1,6 +1,10 @@
 ---
 title: '{{ compute-full-name }} release notes'
 description: This section contains the {{ compute-name }} release notes.
+alternate:
+  - href: en/compute/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ compute-full-name }} release notes

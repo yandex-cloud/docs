@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/DB_COLUMN.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # DB_COLUMN

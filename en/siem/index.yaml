@@ -13,6 +13,10 @@ meta:
   description: >-
     {{ yandex-siem-full-name }} is {{ yandex-cloud }}'s proprietary SIEM system
     for monitoring and analyzing security events in a cloud infrastructure.
+  alternate:
+    - href: en/siem/index.yaml
+      type: application/yaml
+      title: Yaml version
 links:
   - title: Getting started
     description: Create your first investigation and run a KQL query

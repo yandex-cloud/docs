@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/terminate/
+alternate:
+  - href: ru/cli/cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/terminate.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-greenplum maintenance change-freeze terminate

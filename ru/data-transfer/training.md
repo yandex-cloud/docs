@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ data-transfer-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ data-transfer-full-name }}.
+alternate:
+  - href: ru/data-transfer/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ data-transfer-full-name }}

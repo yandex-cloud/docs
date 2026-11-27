@@ -1,6 +1,10 @@
 ---
 title: '{{ cloud-shell-full-name }} quotas and limits'
 description: There is a number of limits in {{ cloud-shell-full-name }}. For more information about the service limitations, read this article.
+alternate:
+  - href: en/console/concepts/cloud-shell/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ cloud-shell-full-name }} quotas and limits

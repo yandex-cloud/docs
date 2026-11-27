@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/kms/asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/listAccessBindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Key Management Service API, gRPC: AsymmetricSignatureKeyService.ListAccessBindings

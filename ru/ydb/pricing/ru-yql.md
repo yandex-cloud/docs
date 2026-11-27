@@ -2,6 +2,10 @@
 title: Правила оценки стоимости YQL-запросов к {{ ydb-full-name }}
 description: В статье содержатся правила оценки стоимости YQL-запросов к {{ ydb-name }}.
 editable: false
+alternate:
+  - href: ru/ydb/pricing/ru-yql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила оценки стоимости YQL-запросов к {{ ydb-short-name }}

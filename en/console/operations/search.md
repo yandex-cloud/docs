@@ -1,6 +1,10 @@
 ---
 title: Using search in the management console
 description: Follow this guide to find cloud resources, docs sections, and reference information.
+alternate:
+  - href: en/console/operations/search.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Using search in the management console

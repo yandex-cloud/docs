@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-kubernetes/concepts/audit-policy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Политика аудита в {{ managed-k8s-name }}
 
 Политика аудита ([audit policy](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/#audit-policy)) определяет [правила](#rules-audit-policy) о том, какие события должны записываться в [журнал аудита](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/) и какие данные они должны содержать. События аудита генерируются запросами на сервер API {{ k8s }} на каждой [стадии](#stages) их выполнения. Правила политики аудита применяются по порядку. Первое правило, соответствующее событию, устанавливает [уровень](#levels) аудита события.

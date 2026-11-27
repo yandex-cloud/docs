@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/network-load-balancer/operations/operation-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Viewing {{ network-load-balancer-name }} resource operations
 
 The system logs all actions with {{ network-load-balancer-name }} resources as a list of operations. Each operation gets its own unique ID.

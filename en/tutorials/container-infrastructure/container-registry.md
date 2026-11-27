@@ -1,6 +1,10 @@
 ---
 title: '{{ managed-k8s-full-name }} integration with {{ container-registry-full-name }}'
 description: Follow this tutorial to configure {{ managed-k8s-name }} integration with {{ container-registry-name }}.
+alternate:
+  - href: en/tutorials/container-infrastructure/container-registry.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ managed-k8s-name }} integration with {{ container-registry-name }}

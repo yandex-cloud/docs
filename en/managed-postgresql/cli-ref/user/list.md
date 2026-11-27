@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/user/list/
+alternate:
+  - href: en/managed-postgresql/cli-ref/user/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-postgresql user list

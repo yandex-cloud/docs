@@ -1,6 +1,10 @@
 ---
 title: Управление доступом к кластеру {{ managed-k8s-full-name }}
 description: Следуя данной инструкции, вы настроите права доступа к кластеру {{ managed-k8s-name }}.
+alternate:
+  - href: ru/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление доступом к кластеру {{ managed-k8s-name }}

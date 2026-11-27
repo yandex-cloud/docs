@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/compute/concepts/placement-groups.md
+    type: text/markdown
+    title: Markdown version
+---
 # VM placement groups
 
 Once VMs are created, they are automatically distributed across the {{ yandex-cloud }} physical infrastructure. To manage hardware fault tolerance levels, you can combine your VMs into placement groups.

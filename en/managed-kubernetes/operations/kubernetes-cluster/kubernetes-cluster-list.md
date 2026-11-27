@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Information about existing {{ managed-k8s-name }} clusters
 
 To find out the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) `ID` or `NAME`, get a list of {{ k8s }} clusters in the folder or detailed information about the {{ k8s }} cluster.

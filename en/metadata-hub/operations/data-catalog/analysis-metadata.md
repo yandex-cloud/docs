@@ -1,6 +1,10 @@
 ---
 title: Analyzing links between metadata
 description: Follow this guide to analyze links between tables from all sources of a selected metadata catalog.
+alternate:
+  - href: en/metadata-hub/operations/data-catalog/analysis-metadata.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Analyzing links between metadata

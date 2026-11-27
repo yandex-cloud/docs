@@ -1,6 +1,10 @@
 ---
 title: Удаление ресурса
 description: Следуя данной инструкции, вы сможете удалить ресурс.
+alternate:
+  - href: ru/cdn/operations/resources/delete-resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление ресурса

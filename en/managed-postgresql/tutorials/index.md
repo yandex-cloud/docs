@@ -1,6 +1,10 @@
 ---
 title: '{{ mpg-full-name }} use cases'
 description: Use cases for {{ mpg-full-name }} in {{ yandex-cloud }}.
+alternate:
+  - href: en/managed-postgresql/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mpg-name }} tutorials

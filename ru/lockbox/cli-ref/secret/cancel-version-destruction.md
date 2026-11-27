@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/cancel-version-destruction/
+alternate:
+  - href: ru/lockbox/cli-ref/secret/cancel-version-destruction.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc lockbox secret cancel-version-destruction

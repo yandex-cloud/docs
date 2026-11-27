@@ -1,6 +1,10 @@
 ---
 title: Changing connection settings in {{ websql-full-name }}
 description: Follow this guide to change connection settings.
+alternate:
+  - href: en/websql/operations/change-connection-settings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing connection settings

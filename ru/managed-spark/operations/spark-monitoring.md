@@ -1,6 +1,10 @@
 ---
 title: Как выполнить мониторинг состояния Spark-приложений в {{ msp-full-name }}
 description: Следуя данной инструкции, вы сможете выполнить мониторинг состояния Spark-приложений.
+alternate:
+  - href: ru/managed-spark/operations/spark-monitoring.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Мониторинг состояния Spark-приложений

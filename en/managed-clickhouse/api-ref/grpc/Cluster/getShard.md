@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/managed-clickhouse/api-ref/grpc/Cluster/getShard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, gRPC: ClusterService.GetShard

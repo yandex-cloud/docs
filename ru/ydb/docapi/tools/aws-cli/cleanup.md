@@ -1,6 +1,10 @@
 ---
 title: Как удалить созданные ресурсы в {{ ydb-full-name }}
 description: Следуя данной инструкции, вы сможете удалить созданные ресурсы.
+alternate:
+  - href: ru/ydb/docapi/tools/aws-cli/cleanup.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление созданных ресурсов

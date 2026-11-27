@@ -1,6 +1,10 @@
 ---
 title: Public materials about {{ mgp-full-name }}
 description: Video recordings of conferences and webinars on {{ mgp-full-name }}.
+alternate:
+  - href: en/managed-greenplum/public-talks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Public materials about {{ mgp-full-name }}

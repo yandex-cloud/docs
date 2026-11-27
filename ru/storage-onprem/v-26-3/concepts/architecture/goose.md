@@ -1,6 +1,10 @@
 ---
 title: Goose в {{ objstorage-onprem-name }}
 description: Обработка запросов S3 и работа Goose с MDS2 в {{ objstorage-onprem-name }}.
+alternate:
+  - href: ru/storage-onprem/v-26-3/concepts/architecture/goose.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Goose

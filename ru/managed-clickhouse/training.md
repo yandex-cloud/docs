@@ -1,6 +1,10 @@
 ---
 title: Обучающие курсы по {{ mch-full-name }}
 description: В этом разделе собраны обучающие курсы по {{ mch-full-name }}.
+alternate:
+  - href: ru/managed-clickhouse/training.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обучающие курсы по {{ mch-full-name }}

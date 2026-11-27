@@ -1,5 +1,9 @@
 ---
 title: Как получить информацию о расписании, по которому создаются снимки дисков в {{ compute-full-name }}
+alternate:
+  - href: ru/compute/operations/snapshot-control/get-snapshot-schedule.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о расписании, по которому создаются снимки дисков

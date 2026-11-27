@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/security-deck/operations/kspm/requirements.md
+    type: text/markdown
+    title: Markdown version
+---
  ---
 title: "System and technical requirements when installing {{ kspm-name }}"
 description: "This section includes system and technical requirements for {{ k8s }} clusters when installing {{ k8s }}® Security Posture Management ({{ kspm-name }}) in {{ sd-name }}."

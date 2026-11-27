@@ -1,6 +1,10 @@
 ---
 title: Создать политику резервного копирования
 description: Из статьи вы узнаете, как создать политику резервного копирования в {{ backup-full-name }}.
+alternate:
+  - href: ru/backup/operations/policy-vm/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать политику резервного копирования

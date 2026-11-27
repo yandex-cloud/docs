@@ -1,6 +1,10 @@
 ---
 title: How to create a Windows Server {{ compute-full-name }} VM with a connection to {{ backup-full-name }}
 description: Follow this guide to create a {{ compute-full-name }} Windows Server VM with a connection to {{ backup-full-name }}.
+alternate:
+  - href: en/backup/operations/create-vm-windows.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a Windows Server VM with a connection to {{ backup-name }}

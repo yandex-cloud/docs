@@ -5,6 +5,10 @@ keywords:
   - keyword: удаление кластера {{ SPQR }}
   - keyword: кластер {{ SPQR }}
   - keyword: '{{ SPQR }}'
+alternate:
+  - href: ru/managed-spqr/operations/cluster-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удаление кластера {{ SPQR }}

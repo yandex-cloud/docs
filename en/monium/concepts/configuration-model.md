@@ -1,6 +1,10 @@
 ---
 title: '{{ monium-name }} object configuration'
 description: To logically separate telemetry data, {{ monium-name }} uses various configuration objects, such as a project, cluster, service, and shard.
+alternate:
+  - href: en/monium/concepts/configuration-model.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monium-name }} object configuration

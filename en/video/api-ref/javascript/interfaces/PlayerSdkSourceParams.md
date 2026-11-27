@@ -1,6 +1,10 @@
 ---
 title: 'Interface: PlayerSdkSourceParams'
 description: In this article, you will learn about the source parameters for the video player SDK.
+alternate:
+  - href: en/video/api-ref/javascript/interfaces/PlayerSdkSourceParams.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Interface: PlayerSdkSourceParams

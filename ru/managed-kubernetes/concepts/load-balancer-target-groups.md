@@ -1,6 +1,10 @@
 ---
 title: Целевые группы сетевых балансировщиков в {{ managed-k8s-full-name }}
 description: Как {{ managed-k8s-name }} управляет целевыми группами сетевых балансировщиков и как сократить число проверяемых узлов в большом кластере.
+alternate:
+  - href: ru/managed-kubernetes/concepts/load-balancer-target-groups.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Целевые группы сетевых балансировщиков

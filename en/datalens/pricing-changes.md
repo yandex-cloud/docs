@@ -2,6 +2,10 @@
 title: Pricing policy updates for {{ datalens-full-name }}
 description: This article announces upcoming changes to the {{ datalens-name }} pricing policy.
 editable: false
+alternate:
+  - href: en/datalens/pricing-changes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updated pricing policy for {{ datalens-full-name }}

@@ -1,6 +1,10 @@
 ---
 title: Стандарт безопасности для внедрения и эксплуатации ИИ-систем в {{ yandex-cloud }}, версия {{ security-standard-ai-current-version }}
 description: Этот документ содержит все разделы стандарта безопасности для систем искусственного интеллекта, развернутых полностью или частично в {{ yandex-cloud }}, и помогает выбрать меры обеспечения информационной безопасности при разработке и эксплуатации ИИ-систем.
+alternate:
+  - href: ru/security/standard-ai/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Стандарт безопасности для внедрения и эксплуатации ИИ-систем в {{ yandex-cloud }}, версия {{ security-standard-ai-current-version }}

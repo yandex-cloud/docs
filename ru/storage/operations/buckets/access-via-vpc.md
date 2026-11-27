@@ -1,6 +1,10 @@
 ---
 title: Настроить доступ в бакет с помощью сервисного подключения из {{ vpc-full-name }}
 description: Следуя данной инструкции, вы сможете настроить доступ в бакет с помощью сервисного подключения из {{ vpc-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/access-via-vpc.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить доступ в бакет с помощью сервисного подключения из {{ vpc-full-name }}

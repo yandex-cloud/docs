@@ -1,6 +1,10 @@
 ---
 title: Интерфейсы и порты компонентов {{ dataproc-full-name }}
 description: Из статьи вы узнаете, какие интерфейсы и порты компонентов поддерживаются в {{ dataproc-name }}, а также как их использовать.
+alternate:
+  - href: ru/data-proc/concepts/interfaces.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Интерфейсы и порты компонентов {{ dataproc-name }}

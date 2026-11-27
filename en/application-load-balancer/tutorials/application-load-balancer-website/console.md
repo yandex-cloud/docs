@@ -1,5 +1,9 @@
 ---
 canonical: '{{ link-docs }}/tutorials/web/application-load-balancer-website/console'
+alternate:
+  - href: en/application-load-balancer/tutorials/application-load-balancer-website/console.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Fault-tolerant website with load balancing via {{ alb-full-name }} using the management console

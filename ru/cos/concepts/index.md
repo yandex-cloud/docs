@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/cos/concepts/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Образ {{ coi }}
 
 _{{ coi }}_ — [образ](../../compute/concepts/image.md) виртуальной машины, оптимизированный для запуска [Docker-контейнеров](/blog/posts/2022/03/docker-containers). Образ включает в себя: Ubuntu LTS, Docker и демона для запуска Docker-контейнеров.

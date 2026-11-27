@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/organization/operations/enable-org.md
+    type: text/markdown
+    title: Markdown version
+---
 # Creating an organization
 
 [_Organization_](../../overview/roles-and-resources.md) is a workspace that combines different types of {{ yandex-cloud }} resources and users. To enable your employees to use {{ yandex-cloud }} resources, create an organization and add them to it. Any Yandex user can create an organization in {{ org-full-name }}.

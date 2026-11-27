@@ -2,6 +2,10 @@
 title: Правила {{ kspm-name }} {{ kspm-full-name }}
 description: Правила для проверки конфигурации кластеров Kubernetes
 editable: false
+alternate:
+  - href: ru/security-deck/rules-reference/kspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 ## {{ kspm-name }} {{ kspm-full-name }}

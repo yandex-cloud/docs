@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-postgresql/operations/extensions/cluster-extensions.md
+    type: text/markdown
+    title: Markdown version
+---
 # Управление расширениями
 
 {{ mpg-short-name }} поддерживает многие стандартные расширения {{ PG }} и некоторые нестандартные. Полный список доступных расширений и их версий в зависимости от версии {{ PG }} [приведен ниже](#postgresql).

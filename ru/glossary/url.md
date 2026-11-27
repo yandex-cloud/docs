@@ -6,6 +6,10 @@ keywords:
   - Uniform Resource Locator
   - URI
   - URN
+alternate:
+  - href: ru/glossary/url.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Uniform Resource Locator (URL)

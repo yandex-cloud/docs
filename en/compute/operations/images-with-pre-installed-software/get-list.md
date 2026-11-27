@@ -1,6 +1,10 @@
 ---
 title: How to get information about a public image in {{ compute-full-name }}
 description: Follow this guide to get information about a public image in {{ compute-full-name }}.
+alternate:
+  - href: en/compute/operations/images-with-pre-installed-software/get-list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting public image info

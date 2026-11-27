@@ -1,6 +1,10 @@
 ---
 title: Подписывание запросов к {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить подпись запросов к {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/s3/signing-requests.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подписывание запросов

@@ -1,6 +1,10 @@
 ---
 title: Activating {{ kspm-full-name }} ({{ kspm-name }}) in {{ sd-full-name }}
 description: How to activate and configure {{ kspm-full-name }} ({{ kspm-name }}) in {{ sd-name }}.
+alternate:
+  - href: en/security-deck/operations/kspm/enable-kspm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Activating the module {{ kspm-name }}

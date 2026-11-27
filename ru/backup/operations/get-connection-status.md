@@ -1,6 +1,10 @@
 ---
 title: Посмотреть статус подключения ВМ {{ compute-full-name }} к {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете узнать статус подключения сервиса {{ backup-full-name }} к виртуальной машине {{ compute-full-name }}.
+alternate:
+  - href: ru/backup/operations/get-connection-status.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть статус подключения ВМ

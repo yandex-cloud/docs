@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storage/s3/api-ref/hosting/get.md
+    type: text/markdown
+    title: Markdown version
+---
 # Object Storage API, Amazon S3-compatible REST: GetBucketWebsite
 
 Returns the static website hosting configuration for a bucket.

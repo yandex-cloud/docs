@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ kms-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ kms-name }}.
 editable: false
+alternate:
+  - href: ru/kms/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Правила тарификации для {{ kms-name }}

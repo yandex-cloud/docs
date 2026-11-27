@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/REGEXP_EXTRACT_NTH.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # REGEXP_EXTRACT_NTH

@@ -37,6 +37,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/billing/api-ref/Budget/list.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Billing API, REST: Budget.List

@@ -1,6 +1,10 @@
 ---
 title: How to log in to the {{ yandex-cloud }} console for the first time
 description: Follow this guide to log in to the {{ yandex-cloud }} management console for the first time.
+alternate:
+  - href: en/organization/operations/user-account/first-login.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # First-time login to the console

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/stackland/operations/storage/create-accesskey.md
+    type: text/markdown
+    title: Markdown version
+---
 # Создать ключ доступа
 
 Для работы с {{ objstorage-name }} через S3 API необходим ключ доступа. Ключи доступа создаются через {{ iam-name }} с использованием сервисных аккаунтов. Можно использовать статический ключ или выпустить на его основе [временный ключ](#create-sts-key) с ограниченными правами и сроком действия.

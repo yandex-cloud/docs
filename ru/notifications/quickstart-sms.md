@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с SMS в {{ cns-full-name }}
 description: В {{ cns-name }} вы можете отправлять SMS с помощью каналов SMS-уведомлений.
+alternate:
+  - href: ru/notifications/quickstart-sms.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с SMS в {{ cns-full-name }}

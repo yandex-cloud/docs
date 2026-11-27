@@ -1,6 +1,10 @@
 ---
 title: Асинхронный вызов функции в {{ sf-full-name }}
 description: При создании версии функции в {{ sf-full-name }} можно настроить асинхронный вызов, чтобы вызывать функцию, не дожидаясь ее завершения.
+alternate:
+  - href: ru/functions/concepts/function-invoke-async.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Асинхронный вызов функции

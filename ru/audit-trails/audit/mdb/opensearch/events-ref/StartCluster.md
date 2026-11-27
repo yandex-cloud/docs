@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/mdb/opensearch/events-ref/StartCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for OpenSearch Audit Trails Events: StartCluster

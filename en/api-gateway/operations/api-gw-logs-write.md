@@ -1,6 +1,10 @@
 ---
 title: Writing to the execution log in {{ api-gw-full-name }}
 description: Follow this guide to configure API gateway logging.
+alternate:
+  - href: en/api-gateway/operations/api-gw-logs-write.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Writing to the execution log in {{ api-gw-name }}

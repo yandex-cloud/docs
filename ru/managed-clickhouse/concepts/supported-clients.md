@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/concepts/supported-clients.md
+    type: text/markdown
+    title: Markdown version
+---
 # Рекомендуемые клиенты для СУБД {{ mch-name }}
 
 Для подключения к {{ mch-short-name }} рекомендуется использовать следующие клиенты:

@@ -98,6 +98,10 @@ apiPlayground:
               The number of retries for a failed connection attempt.
             type: string
             format: int64
+alternate:
+  - href: ru/managed-spqr/api-ref/User/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for SPQR API, REST: User.Update

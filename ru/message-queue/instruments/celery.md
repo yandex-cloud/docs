@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/message-queue/instruments/celery.md
+    type: text/markdown
+    title: Markdown version
+---
 # Пример использования {{ message-queue-full-name }} с Celery
 
 [Celery](https://docs.celeryproject.org/en/stable/) — это очередь задач для языка программирования Python, которую можно использовать в работе с {{ message-queue-name }}.

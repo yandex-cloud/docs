@@ -1,6 +1,10 @@
 ---
 title: Приостановить и возобновить работу ресурса
 description: Следуя данной инструкции, вы сможете приостановить и возобновить работу CDN-ресурса.
+alternate:
+  - href: ru/cdn/operations/resources/disable-resource.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Приостановить и возобновить работу ресурса

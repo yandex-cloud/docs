@@ -1,6 +1,10 @@
 ---
 title: Graphics accelerators (GPUs)
 description: GPU (Graphics Processing Unit) is a graphics processor that outperforms vCPU for certain types of data. It can be used for complex computing. {{ compute-name }} provides graphics accelerators (GPUs) as part of graphics cards.
+alternate:
+  - href: en/compute/concepts/gpus.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

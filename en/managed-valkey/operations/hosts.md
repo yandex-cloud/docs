@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-valkey/operations/hosts.md
+    type: text/markdown
+    title: Markdown version
+---
 # Managing {{ VLK }} cluster hosts
 
 You can add and remove cluster hosts, as well as manage their settings. To learn how to move cluster hosts to a different [availability zone](../../overview/concepts/geo-scope.md), see [this guide](host-migration.md).

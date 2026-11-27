@@ -1,6 +1,10 @@
 ---
 title: Updating a TLS certificate chain to access {{ mkf-full-name }} clusters
 description: This section will walk you through the specifics of updating a TLS certificate chain for {{ yandex-cloud }} data platform services, along with the actions you may need to maintain connectivity to publicly accessible {{ mkf-full-name }} cluster hosts.
+alternate:
+  - href: en/managed-kafka/operations/connect/update-tls-certificates.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Updating a TLS certificate chain in data platform services

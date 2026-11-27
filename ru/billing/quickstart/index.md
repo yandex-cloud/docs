@@ -6,6 +6,10 @@ keywords:
   - как зарегистрироваться в облаке {{ yandex-cloud }}
   - регистрация в облаке
   - создание аккаунта в облаке
+alternate:
+  - href: ru/billing/quickstart/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Регистрация аккаунта в {{ yandex-cloud }}

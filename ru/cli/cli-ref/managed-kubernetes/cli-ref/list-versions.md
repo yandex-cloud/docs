@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/list-versions/
+alternate:
+  - href: ru/cli/cli-ref/managed-kubernetes/cli-ref/list-versions.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-kubernetes list-versions

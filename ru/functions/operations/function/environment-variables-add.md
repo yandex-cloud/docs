@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/operations/function/environment-variables-add.md
+    type: text/markdown
+    title: Markdown version
+---
 # Добавить переменные окружения функции
 
 При добавлении переменных окружения создается новая версия функции. В существующую версию переменные добавить нельзя.

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/snapshot-schedule/add-access-binding/
+alternate:
+  - href: ru/compute/cli-ref/snapshot-schedule/add-access-binding.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute snapshot-schedule add-access-binding

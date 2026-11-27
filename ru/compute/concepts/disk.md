@@ -7,6 +7,10 @@ keywords:
   - hdd
   - вм диск
   - диск виртуальной машины
+alternate:
+  - href: ru/compute/concepts/disk.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диски

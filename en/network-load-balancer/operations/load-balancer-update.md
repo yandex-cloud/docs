@@ -1,6 +1,10 @@
 ---
 title: Changing network load balancer settings
 description: Follow this guide to change network load balancer settings.
+alternate:
+  - href: en/network-load-balancer/operations/load-balancer-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Changing network load balancer settings

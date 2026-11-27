@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/smartcaptcha/concepts/domain-validation.md
+    type: text/markdown
+    title: Markdown version
+---
 # Domain validation
 
 When creating a CAPTCHA, a list of domains is specified it will be hosted on. By default, {{ captcha-name }} validates domain names and allows using the CAPTCHA only on websites that are on the list.

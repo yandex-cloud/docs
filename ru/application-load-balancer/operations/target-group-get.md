@@ -1,5 +1,9 @@
 ---
 title: Как получить информацию о целевой группе в {{ alb-full-name }}
+alternate:
+  - href: ru/application-load-balancer/operations/target-group-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о целевой группе

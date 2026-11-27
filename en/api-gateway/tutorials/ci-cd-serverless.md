@@ -3,6 +3,10 @@ title: Building a CI/CD pipeline with serverless products
 description: "You can build a continuous integration\_/\_continuous delivery (CI/CD) pipeline using serverless products."
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/ci-cd-serverless'
+alternate:
+  - href: en/api-gateway/tutorials/ci-cd-serverless.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Building a CI/CD pipeline with serverless products

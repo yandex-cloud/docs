@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/user-images.md
+    type: text/markdown
+    title: Markdown version
+---
 # Working with Docker images
 
 You can configure the environment for running your code using [Docker images](../concepts/docker.md).

@@ -1,6 +1,10 @@
 ---
 title: '{{ metadata-hub-full-name }}. Решение проблем'
 description: В этом разделе описаны проблемы, возникающие в сервисе {{ metadata-hub-name }}, а также способы их устранения.
+alternate:
+  - href: ru/metadata-hub/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Решение проблем в {{ metadata-hub-name }} 

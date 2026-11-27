@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/python/errors.md
+    type: text/markdown
+    title: Markdown version
+---
 # Python function error handling
 
 If the [handler](handler.md) reports a Python function execution or loading error, the [runtime](../../concepts/runtime/index.md) automatically catches the error and returns a JSON document with details of the error type, text, and location. For more information about the JSON document format, see [Invoking a function](../../concepts/function-invoke.md#error).

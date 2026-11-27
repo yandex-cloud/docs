@@ -1,6 +1,10 @@
 ---
 title: '{{ ml-platform-full-name }} tutorials'
 description: 'Various {{ ml-platform-full-name }} use cases: service deployment, web analytics, and integration with other {{ yandex-cloud }} services.'
+alternate:
+  - href: en/datasphere/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ ml-platform-full-name }} tutorials

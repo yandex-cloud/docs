@@ -1,6 +1,10 @@
 ---
 title: Viewing usage details for subaccounts
 description: Follow this guide to view detailed information on how the customers are using the services.
+alternate:
+  - href: en/partner/operations/get-client-stat.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing usage details for subaccounts

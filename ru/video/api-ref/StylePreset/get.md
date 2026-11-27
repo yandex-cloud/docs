@@ -18,6 +18,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/video/api-ref/StylePreset/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Video API, REST: StylePreset.Get

@@ -1,5 +1,9 @@
 ---
 subcategory: Virtual Private Cloud
+alternate:
+  - href: ru/terraform/resources/vpc_security_group.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_vpc_security_group (Resource)

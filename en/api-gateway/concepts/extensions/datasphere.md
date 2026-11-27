@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/extensions/datasphere.md
+    type: text/markdown
+    title: Markdown version
+---
 # x-yc-apigateway-integration:cloud_datasphere extension
 
 The `x-yc-apigateway-integration:cloud_datasphere` extension invokes a {{ ml-platform-name }} node deployed as a separate microservice. The {{ api-gw-short-name }} request must contain a JSON object with the input variables specified when creating the node, as well as their values. {{ api-gw-short-name }} will return a JSON object containing the output variables specified when creating the node and their values obtained after it is run.

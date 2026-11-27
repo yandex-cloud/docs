@@ -1,6 +1,10 @@
 ---
 title: How to enable file segmentation in {{ cdn-full-name }}
 description: Follow this guide to enable file segmentation.
+alternate:
+  - href: en/cdn/operations/resources/enable-segmentation.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling file segmentation

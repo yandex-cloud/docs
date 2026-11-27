@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ cloud-logging-full-name }}'
 description: This page provides information about the {{ TF }} provider’s resources and data sources that {{ cloud-logging-name }} supports.
+alternate:
+  - href: en/logging/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ cloud-logging-full-name }}

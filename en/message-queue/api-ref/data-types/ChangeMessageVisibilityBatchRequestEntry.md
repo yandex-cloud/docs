@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/api-ref/data-types/ChangeMessageVisibilityBatchRequestEntry.md
+    type: text/markdown
+    title: Markdown version
+---
 # ChangeMessageVisibilityBatchRequestEntry
 
 Data structure for returning `ReceiptHandle` and IDs for messages from the [ChangeMessageVisibilityBatch](../message/ChangeMessageVisibilityBatch.md) request.

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-gitlab/operations/instance/instance-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # Изменение настроек инстанса
 
 После создания [инстанса {{ GL }}](../../concepts/index.md#instance) вы самостоятельно можете изменить общие и дополнительные настройки инстанса.

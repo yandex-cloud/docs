@@ -1,6 +1,10 @@
 ---
 title: How to manage {{ KF }} cluster users in {{ mkf-full-name }}
 description: Follow this guide to manage {{ KF }} cluster users.
+alternate:
+  - href: en/managed-kafka/operations/cluster-accounts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing Apache Kafka® users

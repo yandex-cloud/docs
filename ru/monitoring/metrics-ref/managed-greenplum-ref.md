@@ -2,6 +2,10 @@
 title: Метрики {{ mgp-full-name }}
 description: Из статьи вы узнаете про метрики {{ mgp-name }}.
 editable: false
+alternate:
+  - href: ru/monitoring/metrics-ref/managed-greenplum-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Метрики {{ mgp-full-name }}

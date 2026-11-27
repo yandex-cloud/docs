@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/data-proc/concepts/jobs.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ dataproc-name }} jobs
 
 In a {{ dataproc-name }} cluster, you can create and run jobs. This allows you to regularly upload datasets from [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), use them in calculations, and generate analytics.

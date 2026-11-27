@@ -1,6 +1,10 @@
 ---
 title: Как начать работать с {{ connection-manager-name }}
 description: Управляйте подключениями к источникам данных {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ KF }}, {{ SD }} и {{ TR }} с {{ connection-manager-full-name }}.
+alternate:
+  - href: ru/metadata-hub/quickstart/connection-manager.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Начало работы с {{ connection-manager-name }}

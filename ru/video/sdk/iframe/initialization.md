@@ -1,6 +1,10 @@
 ---
 title: Параметры инициализации плеера {{ video-player-name }} в SDK для IFrame
 description: На странице описаны параметры, которые можно использовать при инициализации видеоплеера {{ video-player-name }} в SDK для IFrame.
+alternate:
+  - href: ru/video/sdk/iframe/initialization.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Параметры инициализации плеера

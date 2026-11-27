@@ -1,6 +1,10 @@
 ---
 title: Начало работы с {{ mch-full-name }}
 description: В этой инструкции вы научитесь создавать кластер {{ CH }} и подключаться к нему.
+alternate:
+  - href: ru/managed-clickhouse/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ mch-name }}

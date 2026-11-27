@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/iot-core/operations/device/alias/alias-list.md
+    type: text/markdown
+    title: Markdown version
+---
 # Getting a list of aliases
 
 {% include [iot-sunset-warning](../../../../_includes/iot-core/sunset-warning.md) %}

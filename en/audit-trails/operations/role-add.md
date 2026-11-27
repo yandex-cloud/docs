@@ -1,6 +1,10 @@
 ---
 title: Assigning roles for a trail
 description: Follow this tutorial to assign roles for a trail.
+alternate:
+  - href: en/audit-trails/operations/role-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning roles for a trail

@@ -1,5 +1,9 @@
 ---
 subcategory: Cloud Logging
+alternate:
+  - href: ru/terraform/data-sources/function.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_function (DataSource)

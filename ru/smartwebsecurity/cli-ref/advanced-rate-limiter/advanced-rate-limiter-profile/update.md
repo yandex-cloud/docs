@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/update/
+alternate:
+  - href: ru/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile update

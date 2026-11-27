@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/partner/api-ref/Opportunities/GET_opportunities_v1_masterBAId_opportunity_opportunityId.md
+    type: text/markdown
+    title: Markdown version
+---
 <div class="openapi">
 
 # Get opportunity data

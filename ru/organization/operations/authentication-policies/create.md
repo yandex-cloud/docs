@@ -1,6 +1,10 @@
 ---
 title: Как создать политику аутентификации в {{ org-full-name }}
 description: Следуя этой инструкции, вы сможете создать политику аутентификации в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/authentication-policies/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать политику аутентификации

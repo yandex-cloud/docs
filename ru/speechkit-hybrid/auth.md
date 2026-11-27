@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/auth.md
+    type: text/markdown
+    title: Markdown version
+---
 # Аутентификация в API {{ sk-hybrid-name }}
 
 При работе с {{ sk-hybrid-name }} для выполнения операций через API аутентификация не требуется.

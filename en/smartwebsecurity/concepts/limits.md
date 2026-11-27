@@ -2,6 +2,10 @@
 title: Quotas and limits in {{ sws-full-name }}
 description: '{{ sws-full-name }} has quotas and limits. For more information about the service restrictions, read this article.'
 editable: false
+alternate:
+  - href: en/smartwebsecurity/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits {{ sws-name }}

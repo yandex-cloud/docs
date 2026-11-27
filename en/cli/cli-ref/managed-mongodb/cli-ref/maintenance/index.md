@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/maintenance/
+alternate:
+  - href: en/cli/cli-ref/managed-mongodb/cli-ref/maintenance/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb maintenance

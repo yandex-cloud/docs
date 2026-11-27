@@ -1,6 +1,10 @@
 ---
 title: Installing Bitrix
 description: Follow this guide to install the Bitrix application in your {{ managed-k8s-name }} cluster.
+alternate:
+  - href: en/managed-kubernetes/operations/applications/bitrix.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Installing Bitrix

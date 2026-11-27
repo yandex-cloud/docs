@@ -1,6 +1,10 @@
 ---
 title: How to create a multi-dataset chart
 description: Follow this guide to create a multi-dataset chart.
+alternate:
+  - href: en/datalens/operations/chart/create-multidataset-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a multi-dataset chart

@@ -1,6 +1,10 @@
 ---
 title: How to create a network load balancer
 description: Follow this guide to create a network load balancer.
+alternate:
+  - href: en/network-load-balancer/operations/load-balancer-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a network load balancer

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/troubleshooting/billing/known-issues/cloud-and-files-removal.md
+    type: text/markdown
+    title: Markdown version
+---
 # Могут ли ресурсы удалиться при неоплате
 
 

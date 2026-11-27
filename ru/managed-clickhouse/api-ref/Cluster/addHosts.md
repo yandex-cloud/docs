@@ -84,6 +84,10 @@ apiPlayground:
               The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
+alternate:
+  - href: ru/managed-clickhouse/api-ref/Cluster/addHosts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.AddHosts

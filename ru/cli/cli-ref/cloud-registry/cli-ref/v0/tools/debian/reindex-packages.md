@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/v0/tools/debian/reindex-packages/
+alternate:
+  - href: ru/cli/cli-ref/cloud-registry/cli-ref/v0/tools/debian/reindex-packages.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc cloud-registry v0 tools debian reindex-packages

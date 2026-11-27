@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/application/oauth/application/add-access-bindings/
+alternate:
+  - href: ru/organization/cli-ref/idp/application/oauth/application/add-access-bindings.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc organization-manager idp application oauth application add-access-bindings

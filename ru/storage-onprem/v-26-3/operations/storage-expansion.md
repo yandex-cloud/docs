@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/v-26-3/operations/storage-expansion.md
+    type: text/markdown
+    title: Markdown version
+---
 # Расширение хранилища
 
 Вы можете расширить объем хранилища {{ objstorage-onprem-name }} в рамках установленной квоты, добавив новые каплы в кластер.

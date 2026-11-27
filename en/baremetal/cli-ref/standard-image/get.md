@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/standard-image/get/
+alternate:
+  - href: en/baremetal/cli-ref/standard-image/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc baremetal standard-image get

@@ -1,6 +1,10 @@
 ---
 title: Сеть в {{ mtr-full-name }}
 description: В тексте указаны особенности работы сети в {{ mtr-full-name }} и описаны возможности для ее настройки.
+alternate:
+  - href: ru/managed-trino/concepts/network.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Сеть в {{ mtr-name }}

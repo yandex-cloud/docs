@@ -1,6 +1,10 @@
 ---
 title: Синхронизация пользователей и групп с внешними службами каталогов в {{ org-full-name }}
 description: Синхронизация пользователей, групп, паролей и их атрибутов из {{ microsoft-idp.ad-short }} и LDAP-совместимых каталогов с {{ org-full-name }}.
+alternate:
+  - href: ru/organization/concepts/sync-external/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Синхронизация пользователей и групп с внешними службами каталогов

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/storage-onprem/cli-ref/cli_tenants_activate.md
+    type: text/markdown
+    title: Markdown version
+---
 # cli tenants activate
 
 Activate tenant

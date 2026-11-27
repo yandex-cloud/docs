@@ -1,6 +1,10 @@
 ---
 title: Data sources in {{ data-catalog-name }}
 description: A data source is a connection to a database or service used to ingest metadata into a catalog. The scope of ingested metadata depends on the source type.
+alternate:
+  - href: en/metadata-hub/concepts/data-catalog-sources.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

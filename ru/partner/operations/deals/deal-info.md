@@ -1,6 +1,10 @@
 ---
 title: Как посмотреть информацию о сделке
 description: Следуя данной инструкции, вы сможете посмотреть информацию о сделке
+alternate:
+  - href: ru/partner/operations/deals/deal-info.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Посмотреть информацию о сделке

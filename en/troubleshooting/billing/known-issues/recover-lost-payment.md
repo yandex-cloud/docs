@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/known-issues/recover-lost-payment.md
+    type: text/markdown
+    title: Markdown version
+---
 # Money fails to appear on the account for some time after you make a wire transfer as a business
 
 

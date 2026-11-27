@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/video/concepts/playlists.md
+    type: text/markdown
+    title: Markdown version
+---
 # Playlists
 
 In {{ video-name }}, you can [group](../operations/playlists/create.md) videos and completed broadcasts into playlists in desired order and [reorder](../operations/playlists/update.md) them.

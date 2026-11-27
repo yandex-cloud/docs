@@ -1,6 +1,10 @@
 ---
 title: Логировать действия с бакетом в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете управлять логированием действий с бакетом в {{ objstorage-name }}.
+alternate:
+  - href: ru/storage/operations/buckets/enable-logging.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Логировать действия с бакетом

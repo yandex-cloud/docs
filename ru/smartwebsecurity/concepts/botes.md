@@ -1,6 +1,10 @@
 ---
 title: Управление роботизированным трафиком
 description: '{{ sws-name }} определяет легитимных и подозрительных ботов, использует категории ботов, Bot Score и отпечатки TLS-соединений.'
+alternate:
+  - href: ru/smartwebsecurity/concepts/botes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Управление роботизированным трафиком

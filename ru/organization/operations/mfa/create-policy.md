@@ -1,6 +1,10 @@
 ---
 title: Создание политики MFA в {{ org-full-name }}
 description: Следуя данной инструкции, вы сможете создать и настроить политику MFA в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/mfa/create-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать политику MFA

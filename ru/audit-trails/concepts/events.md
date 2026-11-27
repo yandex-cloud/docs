@@ -1,6 +1,10 @@
 ---
 title: Справочник событий уровня конфигурации {{ at-full-name }}
 description: В данном разделе приведены описания событий уровня конфигурации, собираемых в сервисах {{ yandex-cloud }}.
+alternate:
+  - href: ru/audit-trails/concepts/events.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник событий уровня конфигурации

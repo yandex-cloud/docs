@@ -1,6 +1,10 @@
 ---
 title: Типы продуктов в {{ marketplace-full-name }}
 description: Из статьи вы узнаете, какие типы продуктов бывают в {{ marketplace-name }}, а также ознакомитесь с их описанием.
+alternate:
+  - href: ru/marketplace/concepts/users/products-types.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Типы продуктов в {{ marketplace-name }}

@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ iam-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides reference information on {{ iam-name }} metrics delivered to {{ monitoring-full-name }}.
+alternate:
+  - href: en/iam/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

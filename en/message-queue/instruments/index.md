@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/message-queue/instruments/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Tools for working with {{ message-queue-full-name }}
 
 To access the API, use any Amazon SQS compatible tools, such as AWS CLI, Boto3, or other [supported by SDK](https://aws.amazon.com/tools/#sdk).

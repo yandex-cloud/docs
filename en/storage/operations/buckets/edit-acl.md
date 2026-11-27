@@ -1,6 +1,10 @@
 ---
 title: Editing a bucket ACL in {{ objstorage-full-name }}
 description: Follow this guide to edit a bucket access control list (ACL) in {{ objstorage-name }}.
+alternate:
+  - href: en/storage/operations/buckets/edit-acl.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing a bucket ACL

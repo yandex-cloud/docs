@@ -38,3 +38,37 @@
  - [Объект Operation](concepts/operation.md)
 
  - [Идемпотентность](concepts/idempotency.md)
+
+## Работа с рекомендациями
+
+ - [Обзор](concepts/about-adviser.md)
+
+### Справочник Adviser API (англ.)
+
+#### gRPC
+
+ - [Overview](api-ref/grpc/index.md)
+
+##### Issue
+
+ - [Overview](api-ref/grpc/Issue/index.md)
+
+ - [List](api-ref/grpc/Issue/list.md)
+
+ - [Dismiss](api-ref/grpc/Issue/dismiss.md)
+
+ - [GetDismissalInfo](api-ref/grpc/Issue/getDismissalInfo.md)
+
+#### REST
+
+ - [Overview](api-ref/index.md)
+
+##### Issue
+
+ - [Overview](api-ref/Issue/index.md)
+
+ - [List](api-ref/Issue/list.md)
+
+ - [Dismiss](api-ref/Issue/dismiss.md)
+
+ - [GetDismissalInfo](api-ref/Issue/getDismissalInfo.md)

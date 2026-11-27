@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/datasphere/concepts/configurations.md
+    type: text/markdown
+    title: Markdown version
+---
 # Конфигурации вычислительных ресурсов
 
 Вы можете выбрать конфигурацию вычислительных ресурсов из списка [разрешенных в сообществе](../operations/community/manage-community-config.md). Минимальная доступная конфигурация — <q>c1.4</q> (4 vCPU).

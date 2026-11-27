@@ -1,6 +1,10 @@
 ---
 title: Network Protection в {{ sws-full-name }}
 description: Как Network Protection защищает прокси-серверы {{ sws-name }} от DDoS-атак на уровнях L3–L4 и какие метрики доступны для контроля защиты.
+alternate:
+  - href: ru/smartwebsecurity/concepts/network-protection.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Network Protection

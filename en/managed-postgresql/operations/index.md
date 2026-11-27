@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ mpg-full-name }}
 description: This page features step-by-step guides for {{ mpg-name }}.
+alternate:
+  - href: en/managed-postgresql/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ mpg-name }}

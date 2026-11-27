@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ serverless-containers-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ serverless-containers-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/serverless-containers/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ at-full-name }}

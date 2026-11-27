@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-gitlab/cli-ref/instance/prepare-backup-upload/
+alternate:
+  - href: en/cli/cli-ref/managed-gitlab/cli-ref/instance/prepare-backup-upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-gitlab instance prepare-backup-upload

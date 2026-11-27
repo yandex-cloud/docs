@@ -1,5 +1,9 @@
 ---
 subcategory: Managed Service for Apache Kafka®
+alternate:
+  - href: en/terraform/data-sources/mdb_kafka_connector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_mdb_kafka_connector (DataSource)

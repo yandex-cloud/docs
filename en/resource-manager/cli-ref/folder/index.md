@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/folder/
+alternate:
+  - href: en/resource-manager/cli-ref/folder/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc resource-manager folder

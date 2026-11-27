@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/deadline-for-paymens.md
+    type: text/markdown
+    title: Markdown version
+---
 # Payment deadline
 
 

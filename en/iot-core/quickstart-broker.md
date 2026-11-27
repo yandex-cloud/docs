@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ iot-full-name }} brokers
 description: To get started with {{ iot-name }}, create an X.509 certificate and a broker. Next, set up message exchange.
+alternate:
+  - href: en/iot-core/quickstart-broker.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ iot-name }} brokers

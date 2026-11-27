@@ -1,6 +1,10 @@
 ---
 title: Изменение настроек субъекта
 description: Следуя данной инструкции, вы сможете изменить настройки субъекта.
+alternate:
+  - href: ru/metadata-hub/operations/update-subject.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение настроек субъекта

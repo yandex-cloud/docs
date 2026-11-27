@@ -1,5 +1,9 @@
 ---
 subcategory: Serverless Event Router
+alternate:
+  - href: ru/terraform/resources/serverless_eventrouter_bus.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_serverless_eventrouter_bus (Resource)

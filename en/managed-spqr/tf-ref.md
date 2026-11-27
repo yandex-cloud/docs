@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ mspqr-full-name }}'
 description: This page provides reference information on the {{ TF }} provider resources supported for {{ mspqr-name }}.
+alternate:
+  - href: en/managed-spqr/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ mspqr-full-name }}

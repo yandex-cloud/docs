@@ -1,6 +1,10 @@
 ---
 title: Editing basic Cloud WAF profile settings
 description: Follow this guide to edit basic WAF profile settings.
+alternate:
+  - href: en/smartwebsecurity/operations/waf-profile-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Editing basic Cloud WAF profile settings

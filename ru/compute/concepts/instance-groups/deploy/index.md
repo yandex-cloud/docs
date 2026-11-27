@@ -1,6 +1,10 @@
 ---
 title: Обновление группы виртуальных машин в {{ compute-full-name }}
 description: 'Обновление группы виртуальных машин состоит из двух этапов: сначала ВМ распределяются по зонам, а после запускается алгоритм развертывания.'
+alternate:
+  - href: ru/compute/concepts/instance-groups/deploy/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновление группы виртуальных машин

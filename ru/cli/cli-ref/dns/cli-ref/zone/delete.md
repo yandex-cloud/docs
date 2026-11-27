@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/delete/
+alternate:
+  - href: ru/cli/cli-ref/dns/cli-ref/zone/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns zone delete

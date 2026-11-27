@@ -1,6 +1,10 @@
 ---
 title: Как изменить сервер в {{ baremetal-full-name }}
 description: Следуя данной инструкции, вы сможете изменить имя или описание сервера в {{ baremetal-full-name }}.
+alternate:
+  - href: ru/baremetal/operations/servers/server-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменить сервер

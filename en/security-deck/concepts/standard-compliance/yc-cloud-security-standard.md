@@ -1,6 +1,10 @@
 ---
 title: Cloud infrastructure security standard {{ yandex-cloud }}
 description: This section lists the control rules forming part of {{ yandex-cloud }}'s cloud infrastructure security standard.
+alternate:
+  - href: en/security-deck/concepts/standard-compliance/yc-cloud-security-standard.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud infrastructure security standard {{ yandex-cloud }}

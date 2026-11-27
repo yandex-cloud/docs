@@ -1,6 +1,10 @@
 ---
 title: Adding a selector to a dashboard in {{ datalens-full-name }}
 description: Follow this guide to add a selector to a dashboard in {{ datalens-full-name }}.
+alternate:
+  - href: en/datalens/operations/dashboard/add-selector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a selector to a dashboard in {{ datalens-full-name }}

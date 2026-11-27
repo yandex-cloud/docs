@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/mdb/redis/events-ref/MoveCluster.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ValKey Audit Trails Events: MoveCluster

@@ -1,6 +1,10 @@
 ---
 title: How to create a connection to Yandex Music
 description: In this tutorial, you will learn how to connect to Yandex Music in {{ datalens-name }}.
+alternate:
+  - href: en/datalens/operations/connection/create-podcasts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a connection to Yandex Music podcasts

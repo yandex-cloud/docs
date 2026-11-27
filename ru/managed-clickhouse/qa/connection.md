@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-clickhouse/qa/connection.md
+    type: text/markdown
+    title: Markdown version
+---
 # Подключение к {{ CH }}
 
 {% include [connection](../../_qa/managed-clickhouse/minitoc/connection.md) %}

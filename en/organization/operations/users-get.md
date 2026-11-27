@@ -1,6 +1,10 @@
 ---
 title: How to get information about a user in {{ org-full-name }}
 description: Follow this guide to get information about an organization user in {{ org-full-name }}.
+alternate:
+  - href: en/organization/operations/users-get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting user info

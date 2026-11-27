@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/inbound-endpoint/get/
+alternate:
+  - href: en/dns/cli-ref/inbound-endpoint/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns inbound-endpoint get

@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/cloud-router/scenarios/prc-ha-with-default-active-standby.md
+    type: text/markdown
+    title: Markdown version
+---
 # Приоритизация трафика по направлению для маршрута 0.0.0.0/0
 
 

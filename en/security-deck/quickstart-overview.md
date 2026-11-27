@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ sd-full-name }}
 description: This section describes how to get started with {{ sd-name }} and make use of its tools.
+alternate:
+  - href: en/security-deck/quickstart-overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ sd-full-name }}

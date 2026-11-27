@@ -1,6 +1,10 @@
 ---
 title: Удалить обработчик
 description: Следуя данной инструкции, вы сможете удалить обработчик.
+alternate:
+  - href: ru/network-load-balancer/operations/listener-remove.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить обработчик

@@ -1,6 +1,10 @@
 ---
 title: Просмотр алертов в {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в {{ sd-full-name }} можно посмотреть алерты.
+alternate:
+  - href: ru/security-deck/operations/alerts/view.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Просмотр алертов

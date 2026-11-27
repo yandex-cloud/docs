@@ -1,6 +1,10 @@
 ---
 title: Круговая диаграмма в {{ datalens-full-name }}
 description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Круговая диаграмма.
+alternate:
+  - href: ru/datalens/visualization-ref/pie-chart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Круговая диаграмма ![](../../_assets/datalens/pie.svg) в {{ datalens-full-name }}

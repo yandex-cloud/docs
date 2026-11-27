@@ -1,6 +1,10 @@
 ---
 title: Example of using {{ message-queue-full-name }} in Python
 description: Examples of working with {{ message-queue-name }} message queues in Python using the boto3 SDK.
+alternate:
+  - href: en/message-queue/instruments/python.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Example of using {{ message-queue-full-name }} in Python

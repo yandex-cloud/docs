@@ -125,6 +125,10 @@ apiPlayground:
               Prefix.
               It's an ip with format ipPrefix/length where address part of ipPrefix is 0.
             type: string
+alternate:
+  - href: ru/interconnect/api-ref/PrivateConnection/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Interconnect API, REST: PrivateConnection.Create

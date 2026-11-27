@@ -1,6 +1,10 @@
 ---
 title: Recommendations for improving {{ mspqr-name }} cluster reliability, cost optimization, and performance
 description: In this section, you will learn how to work with the results of {{ mspqr-name }} cluster checks and diagnostics.
+alternate:
+  - href: en/managed-spqr/advisor.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Inspections and recommendations in {{ mspqr-name }} 

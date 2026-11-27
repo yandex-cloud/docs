@@ -1,6 +1,10 @@
 ---
 title: How to get the {{ KF }} patch version in {{ mkf-full-name }}
 description: Follow this guide to find out the {{ KF }} patch version installed in a {{ mkf-full-name }} cluster.
+alternate:
+  - href: en/managed-kafka/operations/cluster-patch-version.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting the {{ KF }} patch version

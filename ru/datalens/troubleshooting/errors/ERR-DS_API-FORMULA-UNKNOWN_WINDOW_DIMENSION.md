@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.FORMULA.UNKNOWN_WINDOW_DIMENSION
 description: На странице приведено описание ошибки {{ datalens-full-name }} Unknown dimension for window.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_WINDOW_DIMENSION.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Unknown dimension for window

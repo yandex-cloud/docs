@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/private-endpoint/list-yandex-cloud-services/
+alternate:
+  - href: ru/vpc/cli-ref/private-endpoint/list-yandex-cloud-services.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc vpc private-endpoint list-yandex-cloud-services

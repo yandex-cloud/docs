@@ -1,6 +1,10 @@
 ---
 title: Аутентификация в API {{ data-catalog-name }}
 description: Для выполнения операций через API в сервисе {{ data-catalog-name }}, необходимо получить IAM-токен для своего аккаунта.
+alternate:
+  - href: ru/metadata-hub/api-ref/authentication-datacatalog.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Аутентификация в API {{ data-catalog-name }}

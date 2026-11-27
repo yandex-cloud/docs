@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: en/iot-core/broker/api-ref/grpc/Broker/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # IoT Core Broker Service, gRPC: BrokerService.Delete

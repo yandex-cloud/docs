@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/inbound-endpoint/update/
+alternate:
+  - href: ru/dns/cli-ref/v0/inbound-endpoint/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc dns v0 inbound-endpoint update

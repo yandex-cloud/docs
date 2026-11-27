@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про партнерскую программу {{ yandex-cloud }}
 description: На странице представлены вопросы и ответы про партнерскую программу {{ yandex-cloud }}.
+alternate:
+  - href: ru/partner/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про партнерскую программу {{ yandex-cloud }}

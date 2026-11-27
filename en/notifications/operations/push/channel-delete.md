@@ -1,6 +1,10 @@
 ---
 title: Deleting a push notification channel in {{ cns-full-name }}
 description: Follow this guide to delete a push notification channel.
+alternate:
+  - href: en/notifications/operations/push/channel-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a push notification channel

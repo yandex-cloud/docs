@@ -1,6 +1,10 @@
 ---
 title: '{{ vpc-full-name }} event reference in {{ at-full-name }}'
 description: This page provides a reference for {{ vpc-name }} events tracked in {{ at-name }}.
+alternate:
+  - href: en/vpc/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ at-full-name }} event reference

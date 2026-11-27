@@ -1,6 +1,10 @@
 ---
 title: How to work with private Docker image registries in {{ managed-k8s-full-name }}
 description: Follow this guide to set up access to private Docker image registries in {{ managed-k8s-name }}.
+alternate:
+  - href: en/managed-kubernetes/operations/private-registries.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with private Docker image registries

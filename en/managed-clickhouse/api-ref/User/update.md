@@ -1924,6 +1924,10 @@ apiPlayground:
               Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
               or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder.
             type: string
+alternate:
+  - href: en/managed-clickhouse/api-ref/User/update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managed Service for ClickHouse API, REST: User.Update

@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-key/
+alternate:
+  - href: en/iam/cli-ref/access-key/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc iam access-key

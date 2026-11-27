@@ -1,3 +1,10 @@
+---
+noIndex: true
+alternate:
+  - href: ru/speechkit-hybrid/monitoring-envoy.md
+    type: text/markdown
+    title: Markdown version
+---
 # Мониторинг сервисов Envoy
 
 Сервисы Envoy – это собирательное название компонентов {{ sk-hybrid-name }} Envoy и License server. Подробнее о компонентах {{ sk-hybrid-name }} читайте в [{#T}](architecture.md).

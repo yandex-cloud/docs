@@ -2,6 +2,10 @@
 title: '{{ mtr-name }} quotas and limits'
 description: '{{ mtr-name }} has limits and quotas for the number of clusters, total number of processor cores for all cluster components, and total amount of virtual memory for all cluster components. For more information about the service limitations, read this article.'
 editable: false
+alternate:
+  - href: en/managed-trino/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ mtr-name }}

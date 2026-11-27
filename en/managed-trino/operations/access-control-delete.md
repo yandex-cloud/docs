@@ -1,6 +1,10 @@
 ---
 title: Deleting access rules in {{ mtr-name }}
 description: You can delete all access rules applied within the cluster in one step.
+alternate:
+  - href: en/managed-trino/operations/access-control-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting access rules in {{ mtr-name }}

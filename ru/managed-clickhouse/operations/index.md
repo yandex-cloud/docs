@@ -1,6 +1,10 @@
 ---
 title: Пошаговые инструкции для {{ mch-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ mch-name }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Пошаговые инструкции для {{ mch-name }}

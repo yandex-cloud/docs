@@ -1,6 +1,10 @@
 ---
 title: Reference for {{ data-transfer-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides a reference of {{ data-transfer-name }} metrics exported to {{ monitoring-full-name }}.
+alternate:
+  - href: en/data-transfer/metrics.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ monitoring-full-name }} metric reference

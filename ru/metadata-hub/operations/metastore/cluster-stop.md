@@ -1,6 +1,10 @@
 ---
 title: Как остановить и запустить кластер {{ metastore-full-name }}
 description: Следуя данной инструкции, вы сможете остановить и запустить кластер {{ metastore-full-name }}.
+alternate:
+  - href: ru/metadata-hub/operations/metastore/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Остановка и запуск кластера {{ metastore-full-name }}

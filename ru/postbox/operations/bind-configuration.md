@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/postbox/operations/bind-configuration.md
+    type: text/markdown
+    title: Markdown version
+---
 # Привязка конфигурации к адресу
 
 Привяжите предварительно созданную [конфигурацию](../concepts/configuration.md) к адресу, чтобы применять ее ко всем письмам, которые отправляются с этого адреса.

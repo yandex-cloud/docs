@@ -1,6 +1,10 @@
 ---
 title: Изменение каталога {{ TR }}
 description: Следуя этой инструкции, вы измените параметры каталога в кластере {{ mtr-name }}.
+alternate:
+  - href: ru/managed-trino/operations/catalog-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Изменение каталога {{ TR }}

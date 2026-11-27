@@ -1,5 +1,9 @@
 ---
 subcategory: Identity Hub
+alternate:
+  - href: en/terraform/data-sources/organizationmanager_idp_userpool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_organizationmanager_idp_userpool (DataSource)

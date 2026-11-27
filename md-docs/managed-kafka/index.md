@@ -38,6 +38,8 @@
 
  - [Предварительная настройка](operations/connect/index.md)
 
+ - [FQDN хостов и эндпоинт кластера](operations/connect/fqdn.md)
+
  - [Подключение из приложений](operations/connect/clients.md)
 
  - [Примеры кода](operations/connect/code-examples.md)

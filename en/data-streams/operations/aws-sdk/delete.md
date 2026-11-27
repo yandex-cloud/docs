@@ -1,6 +1,10 @@
 ---
 title: Deleting a stream in the AWS SDK
 description: Follow this guide to delete a stream in the AWS SDK.
+alternate:
+  - href: en/data-streams/operations/aws-sdk/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Deleting a stream in the AWS SDK

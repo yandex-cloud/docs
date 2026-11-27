@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/concepts/deploy/metrics.md
+    type: text/markdown
+    title: Markdown version
+---
 # Node metric reference
 
 This section describes metrics delivered to [{{ monitoring-name }}](../../../monitoring/). In addition to the metrics described, nodes can supply metrics to {{ monitoring-name }} specified by the user at the node creation stage.

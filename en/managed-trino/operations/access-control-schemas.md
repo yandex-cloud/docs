@@ -1,6 +1,10 @@
 ---
 title: Assigning access rules for schemas in {{ mtr-name }}
 description: These rules decide which users own which schemas.
+alternate:
+  - href: en/managed-trino/operations/access-control-schemas.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Assigning access rules for schemas in {{ mtr-name }}

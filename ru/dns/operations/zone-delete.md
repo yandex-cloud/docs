@@ -1,6 +1,10 @@
 ---
 title: Как удалить публичную зону DNS в {{ dns-full-name }}
 description: Следуя данной инструкции, вы сможете удалить публичную зону DNS.
+alternate:
+  - href: ru/dns/operations/zone-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить зону DNS

@@ -1,6 +1,10 @@
 ---
 title: '{{ lockbox-full-name }} quotas and limits'
 description: '{{ lockbox-full-name }} has limits and quotas for maximum total size of values from key-value pairs in a secret version and the maximum number of versions per secret. For more information about the service limitations, read this article.'
+alternate:
+  - href: en/lockbox/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas and limits in {{ lockbox-name }}

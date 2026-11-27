@@ -2,6 +2,10 @@
 title: Правила тарификации для {{ compute-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ compute-name }}.
 editable: false
+alternate:
+  - href: ru/compute/pricing.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

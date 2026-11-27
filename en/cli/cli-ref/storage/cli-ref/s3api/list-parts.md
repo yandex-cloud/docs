@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/s3api/list-parts/
+alternate:
+  - href: en/cli/cli-ref/storage/cli-ref/s3api/list-parts.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc storage s3api list-parts

@@ -1,6 +1,10 @@
 ---
 title: Справочник аудитных логов {{ mch-full-name }} в {{ at-full-name }}
 description: На этой странице приведен справочник событий сервиса {{ mch-name }}, отслеживаемых в {{ at-name }}.
+alternate:
+  - href: ru/managed-clickhouse/at-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Справочник аудитных логов {{ at-full-name }}

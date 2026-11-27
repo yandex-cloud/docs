@@ -27,6 +27,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+alternate:
+  - href: ru/application-load-balancer/api-ref/VirtualHost/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Application Load Balancer API, REST: VirtualHost.Get

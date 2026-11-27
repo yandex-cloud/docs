@@ -1,6 +1,10 @@
 ---
 title: Как отправить заявку на доступ к продукту в {{ marketplace-full-name }}
 description: В этой статье вы узнаете, как отправить заявку на доступ к продукту в {{ marketplace-full-name }}.
+alternate:
+  - href: ru/marketplace/operations/users/access-requests.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Запрос доступа к продукту

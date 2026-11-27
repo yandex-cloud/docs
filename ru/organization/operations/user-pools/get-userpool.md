@@ -1,6 +1,10 @@
 ---
 title: Как получить информацию о пуле пользователей в {{ org-full-name }}
 description: Следуя данной инструкции, вы получите информацию о пуле пользователей в {{ org-full-name }}.
+alternate:
+  - href: ru/organization/operations/user-pools/get-userpool.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить информацию о пуле пользователей

@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/overview/concepts/public-ips.md
+    type: text/markdown
+    title: Markdown version
+---
 # Диапазоны публичных IP-адресов {{ yandex-cloud }}
 
 {% include [ip-intro](../../_includes/public-ip/ip-intro.md) %}

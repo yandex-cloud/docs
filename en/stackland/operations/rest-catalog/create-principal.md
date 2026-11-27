@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/rest-catalog/create-principal.md
+    type: text/markdown
+    title: Markdown version
+---
 # Assigning permissions for a catalog
 
 To grant access to [{{ rest-catalog-name }}](../../concepts/components/rest-catalog.md), assign a role to an existing user, group, or service account. There is no need to create a separate catalog account.

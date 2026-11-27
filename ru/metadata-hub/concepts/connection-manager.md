@@ -1,6 +1,10 @@
 ---
 title: Подключение {{ connection-manager-name }} к базам данных
 description: С помощью {{ connection-manager-name }} вы можете управлять параметрами подключений к базам данных.
+alternate:
+  - href: ru/metadata-hub/concepts/connection-manager.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Подключение

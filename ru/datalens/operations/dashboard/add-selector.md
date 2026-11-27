@@ -1,6 +1,10 @@
 ---
 title: Добавление селектора на дашборд в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить селектор на дашборд в {{ datalens-full-name }}.
+alternate:
+  - href: ru/datalens/operations/dashboard/add-selector.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавление селектора на дашборд в {{ datalens-full-name }}

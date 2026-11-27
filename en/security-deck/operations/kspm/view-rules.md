@@ -1,6 +1,10 @@
 ---
 title: Viewing {{ k8s }} control rules
 description: In this section, you will learn how to view active {{ k8s }} control rules.
+alternate:
+  - href: en/security-deck/operations/kspm/view-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Viewing {{ k8s }} control rules

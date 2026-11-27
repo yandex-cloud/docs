@@ -1,6 +1,10 @@
 ---
 title: Reading data from {{ objstorage-full-name }} via {{ yq-full-name }} connections
 description: In this article, you will learn how to set up a connection and read data from {{ objstorage-full-name }} using {{ yq-full-name }}.
+alternate:
+  - href: en/query/sources-and-sinks/object-storage.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Reading data from {{ objstorage-name }} via {{ yq-name }} connections

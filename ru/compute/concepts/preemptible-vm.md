@@ -1,6 +1,10 @@
 ---
 title: Прерываемые виртуальные машины в {{ compute-full-name }}
 description: Из статьи вы узнаете, что такое прерываемые виртуальные машины, как с ними работать и ознакомитесь с их ограничениями.
+alternate:
+  - href: ru/compute/concepts/preemptible-vm.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Прерываемые виртуальные машины

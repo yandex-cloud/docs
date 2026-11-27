@@ -1,5 +1,9 @@
 ---
 subcategory: Smart Web Security
+alternate:
+  - href: en/terraform/data-sources/sws_domain.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yandex_sws_domain (DataSource)

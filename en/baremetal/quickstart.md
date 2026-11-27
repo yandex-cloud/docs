@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ baremetal-full-name }}
 description: Follow this guide to lease and set up your first physical server in {{ baremetal-full-name }}.
+alternate:
+  - href: en/baremetal/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ baremetal-full-name }}

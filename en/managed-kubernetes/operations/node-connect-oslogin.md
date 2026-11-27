@@ -1,6 +1,10 @@
 ---
 title: How to connect to a {{ k8s }} cluster node via {{ oslogin }} in {{ managed-k8s-full-name }}
 description: Follow this guide to connect to a node via {{ oslogin }}.
+alternate:
+  - href: en/managed-kubernetes/operations/node-connect-oslogin.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Connecting to a node via {{ oslogin }}

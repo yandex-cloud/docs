@@ -1,6 +1,10 @@
 ---
 title: Сценарии использования {{ kms-full-name }}
 description: Различные сценарии использования {{ kms-full-name }} в облаке {{ yandex-cloud }}. Шифрование данных, шифрование секретов в {{ managed-k8s-full-name }}, управление ключами {{ kms-short-name }} с HashiCorp {{ TF }}, шифрование секретов в Hashicorp {{ TF }}.
+alternate:
+  - href: ru/kms/tutorials/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Практические руководства {{ kms-full-name }}

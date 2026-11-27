@@ -1,6 +1,10 @@
 ---
 title: '{{ PG }} versioning policy'
 description: In this tutorial, you will learn about the {{ PG }} versioning policy in {{ mpg-full-name }}.
+alternate:
+  - href: en/managed-postgresql/concepts/update-policy.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ PG }} versioning policy

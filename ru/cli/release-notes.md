@@ -1,6 +1,10 @@
 ---
 title: Список релизов CLI
 description: На странице представлены релизы CLI, а также изменения в каждом из них.
+alternate:
+  - href: ru/cli/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Релизы {{ yandex-cloud }} CLI

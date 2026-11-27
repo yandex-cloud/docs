@@ -1,6 +1,10 @@
 ---
 title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.METRICA
 description: На странице приведено описание ошибки {{ datalens-full-name }} Metrica API error.
+alternate:
+  - href: ru/datalens/troubleshooting/errors/ERR-DS_API-DB-METRICA.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # [{{ datalens-full-name }}] Metrica API error

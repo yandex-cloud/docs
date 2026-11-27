@@ -1,6 +1,10 @@
 ---
 title: Step-by-step guides for {{ mkf-full-name }}
 description: This page features step-by-step guides for {{ mkf-name }}.
+alternate:
+  - href: en/managed-kafka/operations/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Step-by-step guides for {{ mkf-name }}

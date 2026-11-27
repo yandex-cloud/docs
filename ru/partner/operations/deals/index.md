@@ -1,6 +1,10 @@
 ---
 title: Как работать со сделками в партнерском портале
 description: На этой странице собран список инструкций по работе со сделками в партнерском портале
+alternate:
+  - href: ru/partner/operations/deals/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Инструкции для управления сделками

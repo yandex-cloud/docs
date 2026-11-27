@@ -1,6 +1,10 @@
 ---
 title: Getting a pre-signed URL to upload an object to a {{ objstorage-full-name }} bucket
 description: Follow this guide to get a pre-signed URL to upload an object to an {{ objstorage-name }} bucket.
+alternate:
+  - href: en/storage/operations/objects/link-for-upload.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting a pre-signed URL to upload an object

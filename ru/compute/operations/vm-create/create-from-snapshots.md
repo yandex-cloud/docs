@@ -1,6 +1,10 @@
 ---
 title: Как создать виртуальную машину с дисками из снимков
 description: Следуя данной инструкции, вы сможете создать виртуальную машину с дисками, восстановленными из имеющихся в каталоге снимков.
+alternate:
+  - href: ru/compute/operations/vm-create/create-from-snapshots.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать виртуальную машину с дисками из снимков

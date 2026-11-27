@@ -1,6 +1,10 @@
 ---
 title: How to create a disk snapshot
 description: Follow this guide to create a disk snapshot.
+alternate:
+  - href: en/compute/operations/disk-control/create-snapshot.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a disk snapshot

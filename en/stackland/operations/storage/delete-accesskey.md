@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/storage/delete-accesskey.md
+    type: text/markdown
+    title: Markdown version
+---
 # Deleting an access key
 
 If you have a static access key for {{ objstorage-name }}, you can delete it. Once you delete the key, all applications utilizing it, as well as any temporary STS keys generated on its basis, will lose access to the storage.

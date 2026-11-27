@@ -1,6 +1,10 @@
 ---
 title: Хостинг статических сайтов (html, css, javascript)
 description: Хостинг статических сайтов – позволяет разместить статический сайт, построенный на HTML, CSS и JavaScript. Сайт не может содержать каких-либо скриптов, требующих запуска на стороне веб-сервера.
+alternate:
+  - href: ru/storage/concepts/hosting.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Хостинг статических сайтов

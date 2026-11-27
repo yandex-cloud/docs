@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/storedoc/concepts/users-and-roles.md
+    type: text/markdown
+    title: Markdown version
+---
 # Users and roles in {{ mmg-name }}
 
 The data in {{ mmg-name }} is handled on behalf of the cluster users. To differentiate user access permissions, the role model is used. To grant any form of access permissions for a database, [issue](../operations/cluster-users.md) a relevant role for this database to the user.

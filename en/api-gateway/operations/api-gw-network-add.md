@@ -1,6 +1,10 @@
 ---
 title: How to specify a cloud network to host an API gateway
 description: Follow this guide to specify a cloud network that will host your API gateway.
+alternate:
+  - href: en/api-gateway/operations/api-gw-network-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Specifying a cloud network to host an API gateway

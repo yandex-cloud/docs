@@ -1,6 +1,10 @@
 ---
 title: Предварительная настройка подключения к кластеру {{ SD }} в {{ mmg-full-name }}
 description: Следуя данной инструкции, вы сможете подготовиться к подключению к базе данных в кластере {{ SD }}.
+alternate:
+  - href: ru/storedoc/operations/connect/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Предварительная настройка для подключения к кластеру {{ SD }}

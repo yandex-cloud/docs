@@ -1,6 +1,10 @@
 ---
 title: Как создать кластер {{ mgp-name }}
 description: Следуя данной инструкции, вы сможете создать кластер {{ mgp-full-name }}.
+alternate:
+  - href: ru/managed-greenplum/operations/cluster-create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание кластера {{ mgp-name }}

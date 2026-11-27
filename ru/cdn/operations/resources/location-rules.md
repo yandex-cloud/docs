@@ -1,6 +1,10 @@
 ---
 title: Как настроить локационные правила {{ cdn-full-name }}
 description: Следуя данной инструкции, вы сможете настроить локационные правила {{ cdn-full-name }} для точечного переопределения настроек CDN-ресурса под определенные запросы.
+alternate:
+  - href: ru/cdn/operations/resources/location-rules.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Настроить локационные правила {{ cdn-full-name }}

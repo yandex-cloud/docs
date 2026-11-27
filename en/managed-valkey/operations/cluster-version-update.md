@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/managed-valkey/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
+---
 # {{ VLK }} version upgrade
 
 You can upgrade a {{ mrd-name }} cluster to any supported version.

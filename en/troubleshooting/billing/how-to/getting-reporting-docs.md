@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/troubleshooting/billing/how-to/getting-reporting-docs.md
+    type: text/markdown
+    title: Markdown version
+---
 # How to get closing documents
 
 

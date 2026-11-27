@@ -1,6 +1,10 @@
 ---
 title: Создание SLO-алерта
 description: Следуя данной инструкции, вы сможете создать алерт на основе SLO.
+alternate:
+  - href: ru/monium/operations/alert/create-slo-alert.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создание SLO-алерта

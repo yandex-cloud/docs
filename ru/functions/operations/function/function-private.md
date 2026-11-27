@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/functions/operations/function/function-private.md
+    type: text/markdown
+    title: Markdown version
+---
 # Сделать функцию приватной
 
 Чтобы функцию могли вызвать только пользователи, у которых есть права на ее вызов, сделайте функцию приватной.

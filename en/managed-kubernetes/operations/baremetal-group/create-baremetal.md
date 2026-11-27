@@ -1,6 +1,10 @@
 ---
 title: Creating a node group on {{ baremetal-name }} servers
 description: Create a node group on {{ baremetal-name }} servers in the {{ managed-k8s-name }} cluster. Prepare the network and select the server configuration.
+alternate:
+  - href: en/managed-kubernetes/operations/baremetal-group/create-baremetal.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Creating a node group on {{ baremetal-name }} servers

@@ -1,6 +1,10 @@
 ---
 title: Зарегистрировать сделку
 description: Следуя данной инструкции, вы сможете зарегистрировать сделку.
+alternate:
+  - href: ru/partner/operations/deal-registration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Зарегистрировать сделку

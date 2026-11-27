@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/match-list/match-list/create/
+alternate:
+  - href: ru/cli/cli-ref/smartwebsecurity/cli-ref/match-list/match-list/create.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc smartwebsecurity match-list match-list create

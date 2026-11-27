@@ -1,6 +1,10 @@
 ---
 title: '{{ ml-platform-full-name }}. Ответы на вопросы'
 description: Как получить логи моей работы в сервисе {{ ml-platform-full-name }}? Ответы на этот и другие вопросы в данной статье.
+alternate:
+  - href: ru/datasphere/qa/index.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Общие вопросы про {{ ml-platform-name }}

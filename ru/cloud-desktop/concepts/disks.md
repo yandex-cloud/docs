@@ -1,6 +1,10 @@
 ---
 title: Диски в {{ cloud-desktop-name }}
 description: Диск — это виртуальный аналог физических накопителей, таких как SSD и HDD. Диски предназначены для хранения данных и подключаются к рабочим столам как сетевое блочное устройство.
+alternate:
+  - href: ru/cloud-desktop/concepts/disks.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Диски

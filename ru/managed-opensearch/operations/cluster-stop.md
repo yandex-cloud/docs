@@ -5,6 +5,10 @@ keywords:
   - остановка OpenSearch
   - запуск OpenSearch
   - OpenSearch
+alternate:
+  - href: ru/managed-opensearch/operations/cluster-stop.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Остановка и запуск кластера {{ OS }}

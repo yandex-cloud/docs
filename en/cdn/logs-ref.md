@@ -1,6 +1,10 @@
 ---
 title: CDN and shielding server request logs reference
 description: This section contains descriptions of log fields of CDN and shielding server requests for different providers.
+alternate:
+  - href: en/cdn/logs-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # CDN and shielding server request logs reference

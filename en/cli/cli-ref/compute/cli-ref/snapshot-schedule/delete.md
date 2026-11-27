@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/snapshot-schedule/delete/
+alternate:
+  - href: en/cli/cli-ref/compute/cli-ref/snapshot-schedule/delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc compute snapshot-schedule delete

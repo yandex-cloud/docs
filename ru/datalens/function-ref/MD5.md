@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/datalens/function-ref/MD5.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # MD5

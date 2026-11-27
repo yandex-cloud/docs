@@ -1,6 +1,10 @@
 ---
 title: Получить ссылку для вызова
 description: Следуя данной инструкции, вы сможете получить ссылку для вызова.
+alternate:
+  - href: ru/serverless-containers/operations/invocation-link.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Получить ссылку для вызова

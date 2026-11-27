@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: ru/managed-trino/operations/cluster-logs.md
+    type: text/markdown
+    title: Markdown version
+---
 # Просмотр логов кластера {{ TR }}
 
 {{ mtr-name }} позволяет [получить фрагмент логов кластера](#get-log) за выбранный период.

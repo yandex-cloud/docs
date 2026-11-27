@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/shards/get/
+alternate:
+  - href: ru/storedoc/cli-ref/shards/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc managed-mongodb shards get

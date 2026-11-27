@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/functions/lang/kotlin/model/index.md
+    type: text/markdown
+    title: Markdown version
+---
 # Kotlin programming model
 
 {{ sf-name }} provides two Kotlin programming models: one is based on [top-level functions](top-level-function.md), the other, on the [YcFunction](yc-function.md) interface. Unlike top-level functions, the `YcFunction` interface enables you to access the [invocation context](../context.md).

@@ -19,6 +19,11 @@ apiPlayground:
     query: null
     body: null
     definitions: null
+noIndex: true
+alternate:
+  - href: en/cloud-router/api-ref/RoutingInstance/get.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud Router API, REST: RoutingInstance.Get

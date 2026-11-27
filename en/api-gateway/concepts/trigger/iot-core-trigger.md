@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/api-gateway/concepts/trigger/iot-core-trigger.md
+    type: text/markdown
+    title: Markdown version
+---
 # Trigger for {{ iot-short-name }} that sends messages to WebSocket connections
 
 A [trigger](../trigger/) for {{ iot-short-name }} manages messages exchanged between devices, registries, and brokers. It is created for topics: it receives copies of messages from the topics and sends the messages to [WebSocket connections](../extensions/websocket.md) for processing.

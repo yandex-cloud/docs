@@ -1,6 +1,10 @@
 ---
 title: Миграция хостов кластера {{ KF }} в другую зону доступности
 description: Следуя данной инструкции, вы сможете переместить хосты кластера {{ KF }} в другую зону доступности.
+alternate:
+  - href: ru/managed-kafka/operations/host-migration.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Миграция хостов кластера {{ KF }} в другую зону доступности

@@ -1,6 +1,10 @@
 ---
 title: Как изменить версию кластера {{ CH }} в {{ mch-full-name }}
 description: Следуя данной инструкции, вы сможете изменить версию кластера {{ CH }}.
+alternate:
+  - href: ru/managed-clickhouse/operations/cluster-version-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Обновление версии {{ CH }}

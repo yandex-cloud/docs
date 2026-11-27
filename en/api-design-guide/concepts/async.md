@@ -1,6 +1,10 @@
 ---
 title: Asynchronous operations in the API
 description: In this article, you will learn about asynchronous operations, the object they return, and how to work with it.
+alternate:
+  - href: en/api-design-guide/concepts/async.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Asynchronous operations

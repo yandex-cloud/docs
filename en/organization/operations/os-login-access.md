@@ -1,6 +1,10 @@
 ---
 title: How to enable {{ oslogin }} access in an organization
 description: Follow this guide to enable {{ oslogin }} access to virtual machines and {{ k8s }} cluster nodes in an organization.
+alternate:
+  - href: en/organization/operations/os-login-access.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Enabling access via {{ oslogin }}

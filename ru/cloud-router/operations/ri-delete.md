@@ -1,6 +1,11 @@
 ---
 title: Как удалить виртуальный маршрутизатор в {{ cr-name }}
 description: Следуя этой инструкции, вы сможете удалить виртуальный маршрутизатор в {{ cr-name }}.
+noIndex: true
+alternate:
+  - href: ru/cloud-router/operations/ri-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить виртуальный маршрутизатор

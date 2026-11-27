@@ -2,6 +2,10 @@
 title: Quotas in {{ backup-full-name }}
 description: '{{ backup-name }} has quotas on how many resources can be backed up and total size of backups. For more information about the service limitations, read this article.'
 editable: false
+alternate:
+  - href: en/backup/concepts/limits.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Quotas in {{ backup-name }}

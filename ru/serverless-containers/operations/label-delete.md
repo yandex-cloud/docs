@@ -1,6 +1,10 @@
 ---
 title: Удалить метку контейнера
 description: Следуя данной инструкции, вы сможете удалить метку контейнера.
+alternate:
+  - href: ru/serverless-containers/operations/label-delete.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Удалить метку контейнера

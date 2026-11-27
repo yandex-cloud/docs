@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/datasphere/operations/data/connect-to-s3.md
+    type: text/markdown
+    title: Markdown version
+---
 # Connecting to S3 using boto3
 
 Follow this guide to connect to an S3 object storage in {{ jlab }} Notebook using `boto3`. To connect to an object storage, use an [S3 connector](s3-connectors.md):

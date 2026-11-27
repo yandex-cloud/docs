@@ -1,6 +1,10 @@
 ---
 title: How to manage the video player in {{ video-full-name }}
 description: This article describes the buttons, hotkeys, and ways to manage the video player in {{ video-full-name }}.
+alternate:
+  - href: en/video/operations/player-control.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Managing the video player

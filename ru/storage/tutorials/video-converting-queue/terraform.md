@@ -1,6 +1,10 @@
 ---
 canonical: '{{ link-docs }}/tutorials/serverless/video-converting-queue/terraform'
 noIndex: true
+alternate:
+  - href: ru/storage/tutorials/video-converting-queue/terraform.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Конвертация видео в GIF на Python с помощью {{ TF }}

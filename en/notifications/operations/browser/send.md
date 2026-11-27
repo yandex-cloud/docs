@@ -1,6 +1,10 @@
 ---
 title: Sending an in-browser push notification in {{ cns-full-name }}
 description: Follow this guide to send an in-browser push notification.
+alternate:
+  - href: en/notifications/operations/browser/send.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Sending a push notification

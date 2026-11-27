@@ -1,6 +1,10 @@
 ---
 title: Pay as you go (оплата по мере использования)
 description: Из статьи вы узнаете, что такое модель оплаты Pay as you go и как она работает в сервисах {{ yandex-cloud }}.
+alternate:
+  - href: ru/billing/concepts/payg.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Pay as you go (оплата по мере использования)

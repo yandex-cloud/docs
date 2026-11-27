@@ -1,6 +1,10 @@
 ---
 title: Вопросы и ответы про {{ mmy-full-name }}
 description: На странице представлены вопросы и ответы про {{ mmy-short-name }}®.
+alternate:
+  - href: ru/managed-mysql/qa/all.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Вопросы и ответы про {{ mmy-short-name }}®

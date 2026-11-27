@@ -1,6 +1,10 @@
 ---
 title: Upgrading the major {{ PG }} version in {{ mpg-name }}
 description: FAQ about upgrading the major {{ PG }} version in {{ mpg-full-name }}.
+alternate:
+  - href: en/managed-postgresql/qa/version-update.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Upgrading the major {{ PG }} version in {{ mpg-full-name }}

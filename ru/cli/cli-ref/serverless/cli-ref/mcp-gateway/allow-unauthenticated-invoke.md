@@ -1,6 +1,10 @@
 ---
 editable: false
 canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/mcp-gateway/allow-unauthenticated-invoke/
+alternate:
+  - href: ru/cli/cli-ref/serverless/cli-ref/mcp-gateway/allow-unauthenticated-invoke.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # yc serverless mcp-gateway allow-unauthenticated-invoke

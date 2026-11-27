@@ -1,6 +1,10 @@
 ---
 title: Getting started with {{ dataproc-full-name }}
 description: In this guide, you will learn how to create and configure a {{ dataproc-name }} cluster.
+alternate:
+  - href: en/data-proc/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Getting started with {{ dataproc-name }}

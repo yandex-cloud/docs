@@ -1,6 +1,10 @@
 ---
 title: '{{ TF }} reference for {{ captcha-full-name }}'
 description: This page lists {{ TF }} provider resources and data sources supported by {{ captcha-name }}.
+alternate:
+  - href: en/smartcaptcha/tf-ref.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ TF }} reference for {{ captcha-full-name }}

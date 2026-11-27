@@ -1,6 +1,10 @@
 ---
 title: Создать группу виртуальных машин с подключением к {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете создать группу виртуальных машин с подключением к {{ objstorage-name }}.
+alternate:
+  - href: ru/compute/operations/instance-groups/create-with-bucket.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Создать группу виртуальных машин с подключением к {{ objstorage-full-name }}

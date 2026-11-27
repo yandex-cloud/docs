@@ -1,6 +1,10 @@
 ---
 title: SQL-запросы в {{ mmg-full-name }}
 description: '{{ mmg-name }} позволяет подключаться к базам данных в вашем кластере {{ SD }} и отправлять SQL-запросы из консоли управления {{ yandex-cloud }}. Для этого войдите в консоль управления, откройте страницу нужного кластера и перейдите на вкладку WebSQL.'
+alternate:
+  - href: ru/storedoc/operations/websql.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # SQL-запросы в {{ websql-full-name }}

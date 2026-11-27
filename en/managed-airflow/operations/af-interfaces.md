@@ -5,6 +5,10 @@ keywords:
   - Working with {{ AF }} interfaces
   - '{{ AF }}'
   - Airflow
+alternate:
+  - href: en/managed-airflow/operations/af-interfaces.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Working with {{ AF }} interfaces

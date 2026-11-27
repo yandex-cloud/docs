@@ -1,6 +1,10 @@
 ---
 title: Как добавить обложку для трансляции в {{ video-full-name }}
 description: Следуя данной инструкции, вы сможете добавить обложку для трансляции в сервисе {{ video-name }}.
+alternate:
+  - href: ru/video/operations/streams/add-thumbnail.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Добавить обложку для трансляции

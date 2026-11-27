@@ -1,6 +1,10 @@
 ---
 title: Adding a label to an API gateway
 description: Follow this guide to add an API gateway label.
+alternate:
+  - href: en/api-gateway/operations/label-add.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Adding a label to an API gateway

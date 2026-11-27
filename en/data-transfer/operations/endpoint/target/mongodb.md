@@ -1,6 +1,10 @@
 ---
 title: How to set up a {{ MG }} target endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to set up a {{ MG }} target endpoint in {{ data-transfer-full-name }}.
+alternate:
+  - href: en/data-transfer/operations/endpoint/target/mongodb.md
+    type: text/markdown
+    title: Markdown version
 ---
 # Transferring data to a {{ MG }}/{{ SD }} (Managed Service for MongoDB) target endpoint
 

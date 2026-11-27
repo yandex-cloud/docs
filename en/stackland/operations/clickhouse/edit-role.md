@@ -1,3 +1,9 @@
+---
+alternate:
+  - href: en/stackland/operations/clickhouse/edit-role.md
+    type: text/markdown
+    title: Markdown version
+---
 # Editing a role
 
 If you have a [{{ CH }}](../../concepts/components/clickhouse.md) [role](create-role.md), you can edit role inheritance and permission blocks.

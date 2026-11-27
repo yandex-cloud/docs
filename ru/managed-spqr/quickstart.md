@@ -8,6 +8,10 @@ keywords:
   - keyword: шардирование в PostgreSQL
   - keyword: шардированный PostgreSQL
   - keyword: шард PostgreSQL
+alternate:
+  - href: ru/managed-spqr/quickstart.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Как начать работать с {{ mspqr-name }}

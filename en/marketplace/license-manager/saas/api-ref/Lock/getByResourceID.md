@@ -23,6 +23,10 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
+alternate:
+  - href: en/marketplace/license-manager/saas/api-ref/Lock/getByResourceID.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Yandex Cloud Marketplace License Manager for SaaS, REST: Lock.GetByResourceID

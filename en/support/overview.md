@@ -1,6 +1,10 @@
 ---
 title: Technical support procedure
 description: This article covers the technical support procedure.
+alternate:
+  - href: en/support/overview.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 

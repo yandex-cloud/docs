@@ -1,6 +1,10 @@
 ---
 title: '{{ mgl-full-name }} release notes'
 description: This section contains the {{ mgl-name }} release notes.
+alternate:
+  - href: en/managed-gitlab/release-notes.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # {{ mgl-full-name }} release notes

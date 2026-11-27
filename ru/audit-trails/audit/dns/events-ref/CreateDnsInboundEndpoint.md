@@ -1,5 +1,9 @@
 ---
 editable: false
+alternate:
+  - href: ru/audit-trails/audit/dns/events-ref/CreateDnsInboundEndpoint.md
+    type: text/markdown
+    title: Markdown version
 ---
 
 # Cloud DNS Audit Trails Events: CreateDnsInboundEndpoint
